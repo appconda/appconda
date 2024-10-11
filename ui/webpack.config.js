@@ -42,7 +42,7 @@ const umdConfig = {
     devtool: 'source-map',
     //devtool: 'none',
     entry: './src/index.ts',
-  //  externals: ['react', 'react-dom/client'],
+    externals: ['react', 'react-dom'],
     module: {
         rules: [
             /*   {
