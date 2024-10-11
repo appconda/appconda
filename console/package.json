@@ -63,6 +63,7 @@
     "react-dom": "^18.3.1",
     "react-hook-form": "^7.53.0",
     "react-i18next": "^15.0.1",
+    "react-tiny-popover": "^8.1.2",
     "styled-components": "^3.2.0",
     "tuval": "^2.0.2",
     "url-resolve-browser": "^1.2.0",

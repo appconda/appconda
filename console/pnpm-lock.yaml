@@ -86,6 +86,9 @@ importers:
       react-i18next:
         specifier: ^15.0.1
         version: 15.0.1(i18next@23.14.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react-tiny-popover:
+        specifier: ^8.1.2
+        version: 8.1.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       styled-components:
         specifier: ^3.2.0
         version: 3.4.10(react@18.3.1)
@@ -6338,6 +6341,12 @@ packages:
     engines: {node: '>=10'}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
+
+  react-tiny-popover@8.1.2:
+    resolution: {integrity: sha512-zzG9hGBCNeSesZLLItNOiQvIU+/tLdLQ9y8cfSAtLQnOH7eoKVJflQzEng8w7rTblE+cV0/R6dFjjiZS1A4qTA==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
 
   react-transition-group@4.4.5:
     resolution: {integrity: sha512-pZcd1MCJoiKiBR2NRxeCRg13uCXbydPnmB4EOeRrY7480qNWO8IIgQG6zlDkm6uRMsURXPuKq0GWtiM59a5Q6g==}
@@ -15477,6 +15486,11 @@ snapshots:
       use-latest: 1.2.1(@types/react@18.3.5)(react@18.3.1)
     transitivePeerDependencies:
       - '@types/react'
+
+  react-tiny-popover@8.1.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+    dependencies:
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
 
   react-transition-group@4.4.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
