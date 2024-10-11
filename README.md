@@ -1,0 +1,1 @@
+**Appconda, Web, Mobil ve Flutter uygulamaları geliştirmek için bir backend platformudur. Açık kaynak topluluğu ile oluşturulmuş olup, sevdiğiniz programlama dillerinde en iyi geliştirici deneyimi sunacak şekilde optimize edilmiştir.**
