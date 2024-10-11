@@ -38,6 +38,7 @@
   },
   "dependencies": {
     "@appconda/console-sdk": "^1.0.194",
+    "@appconda/react-sdk": "^1.0.220",
     "@atlaskit/atlassian-navigation": "^4.7.2",
     "@atlaskit/button": "^20.2.5",
     "@atlaskit/dropdown-menu": "^12.19.0",

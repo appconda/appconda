@@ -23,15 +23,23 @@ if (import.meta.env.MODE === "development") {
         .setEndpoint(`http://localhost/v1`) // Your API Endpoint
         .setProject('console');
 } else {
-  /*   if (hostInfo.port === '80') {
-        client = new Client()
-        .setEndpoint(`${hostInfo.protocol}://${hostInfo.hostname}/v1`) // Your API Endpoint
-        .setProject('console');
-    } else { */
+    /*   if (hostInfo.port === '80') {
+          client = new Client()
+          .setEndpoint(`${hostInfo.protocol}://${hostInfo.hostname}/v1`) // Your API Endpoint
+          .setProject('console');
+      } else { */
     client = new Client()
         .setEndpoint(`${hostInfo.protocol}//${hostInfo.hostname}:${hostInfo.port}/v1`) // Your API Endpoint
         .setProject('console');
     //}
+}
+
+export function getClientEndpoint() {
+    if (import.meta.env.MODE === "development") {
+        return `http://localhost/v1`
+    } else {
+        return `${hostInfo.protocol}//${hostInfo.hostname}:${hostInfo.port}/v1`
+    }
 }
 
 export namespace sdk {

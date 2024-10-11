@@ -8,6 +8,7 @@ import { useState } from "react";
 
 import { Input } from '@mantine/core';
 import { sdk } from "../sdk";
+import { SignIn, useGetMe } from "@appconda/react-sdk";
 
 const AppHome = () => (
 	<div
@@ -102,11 +103,13 @@ export const Home = (): FunctionComponent => {
 		} */
 	};
 
+	const me = useGetMe();
+
 
 	return (
 		VStack(
-
 			VStack(
+				<SignIn title="Appconda"></SignIn>,
 				<Input.Wrapper label="Input label">
 				<Input />
 			  </Input.Wrapper>
