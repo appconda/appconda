@@ -73,7 +73,7 @@ export class Files {
                 continue;
             }
 
-            this.loaded[key] = {
+            this.loaded[key.replace(/\\/g, '/')] = {
                 contents: fs.readFileSync(dirPath, 'utf-8'),
                 mimeType: this.EXTENSIONS[extension] || mime.lookup(dirPath) || 'application/octet-stream',
             };
