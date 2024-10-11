@@ -1,10 +1,10 @@
 
 import { useQuery } from '@tanstack/react-query';
-import { useAppcondaSdk } from '../../context/Appconda';
+import { useAppconda } from '../../context/Appconda';
 
 
 export const useGetMe = () => {
-    const sdk = useAppcondaSdk();
+    const sdk = useAppconda();
 
     const query = useQuery({
         queryKey: ['account', 'get'], queryFn: () => {

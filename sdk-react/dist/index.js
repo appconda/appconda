@@ -7023,6 +7023,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _emotion_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @emotion/css */ "./node_modules/@emotion/css/dist/emotion-css.development.esm.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _context_Appconda__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../context/Appconda */ "./src/context/Appconda.tsx");
+
 
 
 const GoogleLogo = () => (react__WEBPACK_IMPORTED_MODULE_1___default().createElement("svg", { xmlns: "http://www.w3.org/2000/svg", fill: "none", height: "1.25em", viewBox: "0 0 600 600", width: "1.25em" },
@@ -7806,7 +7808,19 @@ const formInternalDiv = _emotion_css__WEBPACK_IMPORTED_MODULE_0__.css `
     justify-content: flex-start;
     gap: 1.5rem;
 `;
-const SignIn = ({ title }) => {
+const SignIn = ({ title, onSuccess }) => {
+    const [email, setEmail] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)('');
+    const [password, setPassword] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)('');
+    const appconda = (0,_context_Appconda__WEBPACK_IMPORTED_MODULE_2__.useAppconda)();
+    const createEmalSession = async () => {
+        try {
+            await appconda.account.createEmailPasswordSession(email, password);
+            onSuccess?.();
+        }
+        catch {
+        }
+    };
+    //mert@example.com
     return (react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: pageContainer },
         react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: devBanner },
             react__WEBPACK_IMPORTED_MODULE_1___default().createElement("p", null, "Clerk is in development mode. Sign up or sign in to continue.")),
@@ -7830,15 +7844,14 @@ const SignIn = ({ title }) => {
                                 react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: dividerLine }),
                                 react__WEBPACK_IMPORTED_MODULE_1___default().createElement("p", { className: dividerText, "data-localization-key": "dividerText" }, "or"),
                                 react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: dividerLine })),
-                            react__WEBPACK_IMPORTED_MODULE_1___default().createElement("form", { className: form },
-                                react__WEBPACK_IMPORTED_MODULE_1___default().createElement("button", { type: "submit", "aria-hidden": "true", style: { visibility: "hidden", position: 'absolute' } }),
+                            react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: form },
                                 react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: formInternalDiv },
                                     react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: "cl-formFieldRow cl-formFieldRow__identifier \uD83D\uDD12\uFE0F cl-internal-1yma7i9" },
                                         react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: "cl-formField cl-formField__identifier \uD83D\uDD12\uFE0F cl-internal-10rdw13" },
                                             react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: "cl-internal-11m7oop" },
                                                 react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: "cl-formFieldLabelRow cl-formFieldLabelRow__identifier \uD83D\uDD12\uFE0F cl-internal-66mzqw" },
                                                     react__WEBPACK_IMPORTED_MODULE_1___default().createElement("label", { className: "cl-formFieldLabel cl-formFieldLabel__identifier-field cl-required \uD83D\uDD12\uFE0F cl-internal-1c7fjmu", "data-localization-key": "formFieldLabel__emailAddress" }, "Email address")),
-                                                react__WEBPACK_IMPORTED_MODULE_1___default().createElement("input", { className: "cl-formFieldInput cl-input cl-formFieldInput__identifier cl-input__identifier cl-required \uD83D\uDD12\uFE0F\n                                                     cl-internal-1vc8j8r", id: "identifier-field", name: "identifier", placeholder: "", type: "text", pattern: "^.*@[a-zA-Z0-9\\-]+\\.[a-zA-Z0-9\\-\\.]+$", required: true, "aria-invalid": "false", "aria-required": "true", "aria-disabled": "false", "data-feedback": "info", "data-variant": "default", value: "" })),
+                                                react__WEBPACK_IMPORTED_MODULE_1___default().createElement("input", { className: "cl-formFieldInput cl-input cl-formFieldInput__identifier cl-input__identifier cl-required \uD83D\uDD12\uFE0F\n                                                     cl-internal-1vc8j8r", id: "identifier-field", name: "identifier", placeholder: "", type: "text", pattern: "^.*@[a-zA-Z0-9\\-]+\\.[a-zA-Z0-9\\-\\.]+$", required: true, "aria-invalid": "false", "aria-required": "true", "aria-disabled": "false", "data-feedback": "info", "data-variant": "default", value: email, onChange: (event) => setEmail(event.target.value) })),
                                             react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: "cl-internal-ct77wn", style: { height: '0px', position: 'relative' } }))),
                                     react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: "cl-formFieldRow cl-formFieldRow__password \uD83D\uDD12\uFE0F cl-internal-1kxguf4" },
                                         react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: "cl-formField cl-formField__password \uD83D\uDD12\uFE0F cl-internal-10rdw13" },
@@ -7852,7 +7865,17 @@ const SignIn = ({ title }) => {
                                                             react__WEBPACK_IMPORTED_MODULE_1___default().createElement("path", { d: "M8 9.607c.421 0 .825-.17 1.123-.47a1.617 1.617 0 0 0 0-2.273 1.578 1.578 0 0 0-2.246 0 1.617 1.617 0 0 0 0 2.272c.298.302.702.471 1.123.471Z" }),
                                                             react__WEBPACK_IMPORTED_MODULE_1___default().createElement("path", { "fill-rule": "evenodd", "clip-rule": "evenodd", d: "M2.07 8.38a1.073 1.073 0 0 1 0-.763 6.42 6.42 0 0 1 2.334-2.99A6.302 6.302 0 0 1 8 3.5c2.704 0 5.014 1.71 5.93 4.12.094.246.093.518 0 .763a6.418 6.418 0 0 1-2.334 2.99A6.301 6.301 0 0 1 8 12.5c-2.704 0-5.013-1.71-5.93-4.12ZM10.54 8c0 .682-.267 1.336-.743 1.818A2.526 2.526 0 0 1 8 10.571c-.674 0-1.32-.27-1.796-.753A2.587 2.587 0 0 1 5.459 8c0-.682.268-1.336.745-1.818A2.525 2.525 0 0 1 8 5.429c.674 0 1.32.27 1.797.753.476.482.744 1.136.744 1.818Z" }))))),
                                             react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: "cl-internal-ct77wn", style: { height: '0px', position: 'relative' } })))),
-                                react__WEBPACK_IMPORTED_MODULE_1___default().createElement("button", { className: "cl-formButtonPrimary cl-button \uD83D\uDD12\uFE0F cl-internal-10liqrf", "data-localization-key": "formButtonPrimary", "data-variant": "solid", "data-color": "primary" },
+                                react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: "cl-internal-11m7oop" },
+                                    react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: "cl-formFieldLabelRow cl-formFieldLabelRow__password \uD83D\uDD12\uFE0F cl-internal-66mzqw" },
+                                        react__WEBPACK_IMPORTED_MODULE_1___default().createElement("label", { className: "cl-formFieldLabel cl-formFieldLabel__password-field \uD83D\uDD12\uFE0F cl-internal-1c7fjmu", "data-localization-key": "formFieldLabel__password" }, "Password"),
+                                        react__WEBPACK_IMPORTED_MODULE_1___default().createElement("a", { className: "cl-formFieldAction cl-formFieldAction__password \uD83D\uDD12\uFE0F cl-internal-v0hosy", "data-localization-key": "formFieldAction__forgotPassword", href: "" }, "Forgot password?")),
+                                    react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: "cl-formFieldInputGroup \uD83D\uDD12\uFE0F cl-internal-i1u4p8" },
+                                        react__WEBPACK_IMPORTED_MODULE_1___default().createElement("input", { className: "cl-formFieldInput cl-input cl-formFieldInput__password cl-input__password \uD83D\uDD12\uFE0F cl-internal-18nsyma", name: "password", placeholder: "", type: "password", id: "password-field", "aria-invalid": "false", "aria-required": "false", "aria-disabled": "false", "data-feedback": "info", "data-variant": "default", value: password, onChange: (event) => setPassword(event.target.value) }),
+                                        react__WEBPACK_IMPORTED_MODULE_1___default().createElement("button", { className: "cl-formFieldInputShowPasswordButton cl-button \uD83D\uDD12\uFE0F cl-internal-1ab5cam", "aria-label": "Show password", "data-variant": "ghost", "data-color": "primary" },
+                                            react__WEBPACK_IMPORTED_MODULE_1___default().createElement("svg", { fill: "currentColor", xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 16 16", className: "cl-formFieldInputShowPasswordIcon \uD83D\uDD12\uFE0F cl-internal-oaq42g" },
+                                                react__WEBPACK_IMPORTED_MODULE_1___default().createElement("path", { d: "M8 9.607c.421 0 .825-.17 1.123-.47a1.617 1.617 0 0 0 0-2.273 1.578 1.578 0 0 0-2.246 0 1.617 1.617 0 0 0 0 2.272c.298.302.702.471 1.123.471Z" }),
+                                                react__WEBPACK_IMPORTED_MODULE_1___default().createElement("path", { "fill-rule": "evenodd", "clip-rule": "evenodd", d: "M2.07 8.38a1.073 1.073 0 0 1 0-.763 6.42 6.42 0 0 1 2.334-2.99A6.302 6.302 0 0 1 8 3.5c2.704 0 5.014 1.71 5.93 4.12.094.246.093.518 0 .763a6.418 6.418 0 0 1-2.334 2.99A6.301 6.301 0 0 1 8 12.5c-2.704 0-5.013-1.71-5.93-4.12ZM10.54 8c0 .682-.267 1.336-.743 1.818A2.526 2.526 0 0 1 8 10.571c-.674 0-1.32-.27-1.796-.753A2.587 2.587 0 0 1 5.459 8c0-.682.268-1.336.745-1.818A2.525 2.525 0 0 1 8 5.429c.674 0 1.32.27 1.797.753.476.482.744 1.136.744 1.818Z" }))))),
+                                react__WEBPACK_IMPORTED_MODULE_1___default().createElement("button", { className: "cl-formButtonPrimary cl-button \uD83D\uDD12\uFE0F cl-internal-10liqrf", "data-localization-key": "formButtonPrimary", "data-variant": "solid", "data-color": "primary", onClick: createEmalSession },
                                     react__WEBPACK_IMPORTED_MODULE_1___default().createElement("span", { className: "cl-internal-2iusy0" },
                                         "Continue",
                                         react__WEBPACK_IMPORTED_MODULE_1___default().createElement("svg", { className: "cl-buttonArrowIcon \uD83D\uDD12\uFE0F cl-internal-1c4ikgf" },
@@ -7879,6 +7902,59 @@ const SignIn = ({ title }) => {
 
 /***/ }),
 
+/***/ "./src/components/SignOutButton.tsx":
+/*!******************************************!*\
+  !*** ./src/components/SignOutButton.tsx ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "SignOutButton": () => (/* binding */ SignOutButton)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _context_Appconda__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../context/Appconda */ "./src/context/Appconda.tsx");
+
+
+const SignOutButton = ({ onLogOut, onError }) => {
+    const appconda = (0,_context_Appconda__WEBPACK_IMPORTED_MODULE_1__.useAppconda)();
+    const sigOut = async () => {
+        try {
+            await appconda.account.deleteSession('current');
+            onLogOut?.();
+        }
+        catch (e) {
+            onError(e);
+        }
+    };
+    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { onClick: sigOut }, "Sign out"));
+};
+
+
+/***/ }),
+
+/***/ "./src/components/index.ts":
+/*!*********************************!*\
+  !*** ./src/components/index.ts ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "SignIn": () => (/* reexport safe */ _SignIn__WEBPACK_IMPORTED_MODULE_0__.SignIn),
+/* harmony export */   "SignOutButton": () => (/* reexport safe */ _SignOutButton__WEBPACK_IMPORTED_MODULE_1__.SignOutButton)
+/* harmony export */ });
+/* harmony import */ var _SignIn__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SignIn */ "./src/components/SignIn.tsx");
+/* harmony import */ var _SignOutButton__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SignOutButton */ "./src/components/SignOutButton.tsx");
+
+
+
+
+/***/ }),
+
 /***/ "./src/context/Appconda.tsx":
 /*!**********************************!*\
   !*** ./src/context/Appconda.tsx ***!
@@ -7890,7 +7966,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "query": () => (/* binding */ query),
 /* harmony export */   "AppcondaProvider": () => (/* binding */ AppcondaProvider),
-/* harmony export */   "useAppcondaSdk": () => (/* binding */ useAppcondaSdk)
+/* harmony export */   "useAppconda": () => (/* binding */ useAppconda)
 /* harmony export */ });
 /* harmony import */ var _appconda_web_sdk__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @appconda/web-sdk */ "./node_modules/@appconda/web-sdk/index.js");
 /* harmony import */ var _appconda_web_sdk__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_appconda_web_sdk__WEBPACK_IMPORTED_MODULE_0__);
@@ -7918,9 +7994,309 @@ function AppcondaProvider({ endPoint, project, children }) {
     return (react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_tanstack_react_query__WEBPACK_IMPORTED_MODULE_1__.QueryClientProvider, { client: query },
         react__WEBPACK_IMPORTED_MODULE_2___default().createElement(AppcondaContext.Provider, { value: sdk }, children)));
 }
-function useAppcondaSdk() {
+function useAppconda() {
     return (0,react__WEBPACK_IMPORTED_MODULE_2__.useContext)(AppcondaContext);
 }
+
+
+/***/ }),
+
+/***/ "./src/hooks/account/index.ts":
+/*!************************************!*\
+  !*** ./src/hooks/account/index.ts ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "useCreateAccount": () => (/* reexport safe */ _useCreateAccount__WEBPACK_IMPORTED_MODULE_0__.useCreateAccount),
+/* harmony export */   "useCreateJWT": () => (/* reexport safe */ _useCreateJWT__WEBPACK_IMPORTED_MODULE_1__.useCreateJWT),
+/* harmony export */   "useCreateEmailVerification": () => (/* reexport safe */ _useCreateEmailVerification__WEBPACK_IMPORTED_MODULE_2__.useCreateEmailVerification),
+/* harmony export */   "useCreateEmailSession": () => (/* reexport safe */ _useCreateEmailSession__WEBPACK_IMPORTED_MODULE_3__.useCreateEmailSession),
+/* harmony export */   "useGetMe": () => (/* reexport safe */ _useGetMe__WEBPACK_IMPORTED_MODULE_4__.useGetMe),
+/* harmony export */   "useCreateAnonymousSession": () => (/* reexport safe */ _useCreateAnonymousSession__WEBPACK_IMPORTED_MODULE_5__.useCreateAnonymousSession)
+/* harmony export */ });
+/* harmony import */ var _useCreateAccount__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./useCreateAccount */ "./src/hooks/account/useCreateAccount.ts");
+/* harmony import */ var _useCreateJWT__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./useCreateJWT */ "./src/hooks/account/useCreateJWT.ts");
+/* harmony import */ var _useCreateEmailVerification__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./useCreateEmailVerification */ "./src/hooks/account/useCreateEmailVerification.ts");
+/* harmony import */ var _useCreateEmailSession__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./useCreateEmailSession */ "./src/hooks/account/useCreateEmailSession.ts");
+/* harmony import */ var _useGetMe__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./useGetMe */ "./src/hooks/account/useGetMe.ts");
+/* harmony import */ var _useCreateAnonymousSession__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./useCreateAnonymousSession */ "./src/hooks/account/useCreateAnonymousSession.ts");
+
+
+
+
+
+
+
+
+/***/ }),
+
+/***/ "./src/hooks/account/useCreateAccount.ts":
+/*!***********************************************!*\
+  !*** ./src/hooks/account/useCreateAccount.ts ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "useCreateAccount": () => (/* binding */ useCreateAccount)
+/* harmony export */ });
+/* harmony import */ var _tanstack_react_query__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @tanstack/react-query */ "@tanstack/react-query");
+/* harmony import */ var _tanstack_react_query__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_tanstack_react_query__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _context_Appconda__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../context/Appconda */ "./src/context/Appconda.tsx");
+/* harmony import */ var _appconda_web_sdk__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @appconda/web-sdk */ "./node_modules/@appconda/web-sdk/index.js");
+/* harmony import */ var _appconda_web_sdk__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_appconda_web_sdk__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+/**
+ * Hook to create a new account.
+ *
+ * This hook allows you to create a new account using the Appconda SDK.
+ * It invalidates the 'account' query to refetch the updated data after a successful account creation.
+ * @returns An object containing the `createAccount` function, as well as the mutation state.
+ */
+const useCreateAccount = () => {
+    const queryClient = (0,_tanstack_react_query__WEBPACK_IMPORTED_MODULE_0__.useQueryClient)();
+    const sdk = (0,_context_Appconda__WEBPACK_IMPORTED_MODULE_1__.useAppconda)();
+    const mutation = (0,_tanstack_react_query__WEBPACK_IMPORTED_MODULE_0__.useMutation)({
+        mutationFn: ({ name, email, password }) => {
+            return sdk.account.create(_appconda_web_sdk__WEBPACK_IMPORTED_MODULE_2__.ID.unique(), email, password, name);
+        },
+        onSuccess: (data) => {
+            // Invalidate and refetch
+            queryClient.invalidateQueries({ queryKey: ['account'] });
+        }
+    });
+    const createAccount = ({ name, email, password, organizationId }, onSuccess = void 0) => {
+        mutation.mutate({ name, email, password }, {
+            onSuccess: (data) => {
+                onSuccess(data);
+            }
+        });
+    };
+    return {
+        createAccount,
+        isLoading: mutation.isPending,
+        isSuccess: mutation.isSuccess,
+        isError: mutation.isError,
+        error: mutation.error
+    };
+};
+
+
+/***/ }),
+
+/***/ "./src/hooks/account/useCreateAnonymousSession.ts":
+/*!********************************************************!*\
+  !*** ./src/hooks/account/useCreateAnonymousSession.ts ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "useCreateAnonymousSession": () => (/* binding */ useCreateAnonymousSession)
+/* harmony export */ });
+/* harmony import */ var _tanstack_react_query__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @tanstack/react-query */ "@tanstack/react-query");
+/* harmony import */ var _tanstack_react_query__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_tanstack_react_query__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _context_Appconda__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../context/Appconda */ "./src/context/Appconda.tsx");
+
+
+/**
+ * Hook to create an anonymous session.
+ *
+ * This hook allows you to create an anonymous session using the Appconda SDK.
+ * It invalidates the 'accounts' query to refetch the updated data after a successful session creation.
+ * @returns An object containing the `createAnonymousSession` function, as well as the mutation state.
+ */
+const useCreateAnonymousSession = () => {
+    const queryClient = (0,_tanstack_react_query__WEBPACK_IMPORTED_MODULE_0__.useQueryClient)();
+    const sdk = (0,_context_Appconda__WEBPACK_IMPORTED_MODULE_1__.useAppconda)();
+    const mutation = (0,_tanstack_react_query__WEBPACK_IMPORTED_MODULE_0__.useMutation)({
+        mutationFn: () => {
+            return sdk.account.createAnonymousSession();
+        },
+        onSuccess: () => {
+            // Invalidate and refetch
+            queryClient.invalidateQueries({ queryKey: ['accounts'] });
+        }
+    });
+    const createAnonymousSession = (onSuccess = void 0) => {
+        mutation.mutate(null, {
+            onSuccess: () => {
+                onSuccess();
+            }
+        });
+    };
+    return {
+        createAnonymousSession,
+        isLoading: mutation.isPending,
+        isSuccess: mutation.isSuccess,
+        isError: mutation.isError,
+        error: mutation.error
+    };
+};
+
+
+/***/ }),
+
+/***/ "./src/hooks/account/useCreateEmailSession.ts":
+/*!****************************************************!*\
+  !*** ./src/hooks/account/useCreateEmailSession.ts ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "useCreateEmailSession": () => (/* binding */ useCreateEmailSession)
+/* harmony export */ });
+/* harmony import */ var _tanstack_react_query__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @tanstack/react-query */ "@tanstack/react-query");
+/* harmony import */ var _tanstack_react_query__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_tanstack_react_query__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _context_Appconda__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../context/Appconda */ "./src/context/Appconda.tsx");
+
+
+/**
+ * Hook to create an email session for a user.
+ *
+ * This hook allows you to create a session for a user using their email and password.
+ * It uses the Appconda SDK to create the session and then invalidates the 'accounts' query
+ * to refetch the updated data.
+ * @returns An object containing the `createEmailSession` function, as well as the mutation state.
+ */
+const useCreateEmailSession = () => {
+    const queryClient = (0,_tanstack_react_query__WEBPACK_IMPORTED_MODULE_0__.useQueryClient)();
+    const sdk = (0,_context_Appconda__WEBPACK_IMPORTED_MODULE_1__.useAppconda)();
+    const mutation = (0,_tanstack_react_query__WEBPACK_IMPORTED_MODULE_0__.useMutation)({
+        mutationFn: ({ email, password }) => {
+            return sdk.account.createEmailPasswordSession(email, password);
+        },
+        onSuccess: (data) => {
+            // Invalidate and refetch
+            queryClient.invalidateQueries({ queryKey: ['accounts'] });
+        }
+    });
+    const createEmailSession = ({ email, password }, onSuccess = void 0) => {
+        mutation.mutate({ email, password }, {
+            onSuccess: (data) => {
+                onSuccess(data);
+            }
+        });
+    };
+    return {
+        createEmailSession,
+        isLoading: mutation.isPending,
+        isSuccess: mutation.isSuccess,
+        isError: mutation.isError,
+        error: mutation.error
+    };
+};
+
+
+/***/ }),
+
+/***/ "./src/hooks/account/useCreateEmailVerification.ts":
+/*!*********************************************************!*\
+  !*** ./src/hooks/account/useCreateEmailVerification.ts ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "useCreateEmailVerification": () => (/* binding */ useCreateEmailVerification)
+/* harmony export */ });
+/* harmony import */ var _tanstack_react_query__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @tanstack/react-query */ "@tanstack/react-query");
+/* harmony import */ var _tanstack_react_query__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_tanstack_react_query__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _context_Appconda__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../context/Appconda */ "./src/context/Appconda.tsx");
+
+
+/**
+ * This hook facilitates the process of sending a verification email to users, ensuring they are the rightful owners of the provided email address.
+ * It utilizes the userId and secret as query parameters in the URL that will be included in the verification email.
+ * The specified URL should guide the user back to your application, enabling the completion of the verification by checking
+ * the userId and secret parameters. For further details on the verification process, refer to the documentation.
+ * The verification link sent to the user's email remains valid for a duration of 7 days.
+ * To prevent Redirect Attacks, only redirect URLs from domains specified in your platform settings within the console are permitted.
+ */
+const useCreateEmailVerification = (projectId) => {
+    const queryClient = (0,_tanstack_react_query__WEBPACK_IMPORTED_MODULE_0__.useQueryClient)();
+    const sdk = (0,_context_Appconda__WEBPACK_IMPORTED_MODULE_1__.useAppconda)();
+    const mutation = (0,_tanstack_react_query__WEBPACK_IMPORTED_MODULE_0__.useMutation)({
+        mutationFn: ({ url }) => {
+            return sdk.account.createVerification(url);
+        },
+        onSuccess: (data) => {
+            // Invalidate and refetch
+            queryClient.invalidateQueries({ queryKey: ['accounts'] });
+        }
+    });
+    const createVerification = ({ url }, onSuccess = void 0) => {
+        mutation.mutate({ url }, {
+            onSuccess: (data) => {
+                onSuccess(data);
+            }
+        });
+    };
+    return {
+        createVerification,
+        isLoading: mutation.isPending,
+        isSuccess: mutation.isSuccess,
+        isError: mutation.isError,
+        error: mutation.error
+    };
+};
+
+
+/***/ }),
+
+/***/ "./src/hooks/account/useCreateJWT.ts":
+/*!*******************************************!*\
+  !*** ./src/hooks/account/useCreateJWT.ts ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "useCreateJWT": () => (/* binding */ useCreateJWT)
+/* harmony export */ });
+/* harmony import */ var _tanstack_react_query__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @tanstack/react-query */ "@tanstack/react-query");
+/* harmony import */ var _tanstack_react_query__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_tanstack_react_query__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _context_Appconda__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../context/Appconda */ "./src/context/Appconda.tsx");
+
+
+const useCreateJWT = (projectId) => {
+    const queryClient = (0,_tanstack_react_query__WEBPACK_IMPORTED_MODULE_0__.useQueryClient)();
+    const sdk = (0,_context_Appconda__WEBPACK_IMPORTED_MODULE_1__.useAppconda)();
+    const mutation = (0,_tanstack_react_query__WEBPACK_IMPORTED_MODULE_0__.useMutation)({
+        mutationFn: () => {
+            return sdk.account.createJWT();
+        },
+        onSuccess: (data) => {
+            // Invalidate and refetch
+            queryClient.invalidateQueries({ queryKey: ['account'] });
+        }
+    });
+    const createJWT = (onSuccess = void 0) => {
+        mutation.mutate(null, {
+            onSuccess: (data) => {
+                onSuccess(data);
+            }
+        });
+    };
+    return {
+        createJWT,
+        isLoading: mutation.isPending,
+        isSuccess: mutation.isSuccess,
+        isError: mutation.isError,
+        error: mutation.error
+    };
+};
 
 
 /***/ }),
@@ -7942,7 +8318,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const useGetMe = () => {
-    const sdk = (0,_context_Appconda__WEBPACK_IMPORTED_MODULE_1__.useAppcondaSdk)();
+    const sdk = (0,_context_Appconda__WEBPACK_IMPORTED_MODULE_1__.useAppconda)();
     const query = (0,_tanstack_react_query__WEBPACK_IMPORTED_MODULE_0__.useQuery)({
         queryKey: ['account', 'get'], queryFn: () => {
             return sdk.account.get();
@@ -8053,15 +8429,21 @@ var __webpack_exports__ = {};
   \**********************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "SignIn": () => (/* reexport safe */ _components_SignIn__WEBPACK_IMPORTED_MODULE_0__.SignIn),
+/* harmony export */   "SignIn": () => (/* reexport safe */ _components__WEBPACK_IMPORTED_MODULE_0__.SignIn),
+/* harmony export */   "SignOutButton": () => (/* reexport safe */ _components__WEBPACK_IMPORTED_MODULE_0__.SignOutButton),
 /* harmony export */   "AppcondaProvider": () => (/* reexport safe */ _context_Appconda__WEBPACK_IMPORTED_MODULE_1__.AppcondaProvider),
 /* harmony export */   "query": () => (/* reexport safe */ _context_Appconda__WEBPACK_IMPORTED_MODULE_1__.query),
-/* harmony export */   "useAppcondaSdk": () => (/* reexport safe */ _context_Appconda__WEBPACK_IMPORTED_MODULE_1__.useAppcondaSdk),
-/* harmony export */   "useGetMe": () => (/* reexport safe */ _hooks_account_useGetMe__WEBPACK_IMPORTED_MODULE_2__.useGetMe)
+/* harmony export */   "useAppconda": () => (/* reexport safe */ _context_Appconda__WEBPACK_IMPORTED_MODULE_1__.useAppconda),
+/* harmony export */   "useCreateAccount": () => (/* reexport safe */ _hooks_account__WEBPACK_IMPORTED_MODULE_2__.useCreateAccount),
+/* harmony export */   "useCreateAnonymousSession": () => (/* reexport safe */ _hooks_account__WEBPACK_IMPORTED_MODULE_2__.useCreateAnonymousSession),
+/* harmony export */   "useCreateEmailSession": () => (/* reexport safe */ _hooks_account__WEBPACK_IMPORTED_MODULE_2__.useCreateEmailSession),
+/* harmony export */   "useCreateEmailVerification": () => (/* reexport safe */ _hooks_account__WEBPACK_IMPORTED_MODULE_2__.useCreateEmailVerification),
+/* harmony export */   "useCreateJWT": () => (/* reexport safe */ _hooks_account__WEBPACK_IMPORTED_MODULE_2__.useCreateJWT),
+/* harmony export */   "useGetMe": () => (/* reexport safe */ _hooks_account__WEBPACK_IMPORTED_MODULE_2__.useGetMe)
 /* harmony export */ });
-/* harmony import */ var _components_SignIn__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/SignIn */ "./src/components/SignIn.tsx");
+/* harmony import */ var _components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components */ "./src/components/index.ts");
 /* harmony import */ var _context_Appconda__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./context/Appconda */ "./src/context/Appconda.tsx");
-/* harmony import */ var _hooks_account_useGetMe__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./hooks/account/useGetMe */ "./src/hooks/account/useGetMe.ts");
+/* harmony import */ var _hooks_account__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./hooks/account */ "./src/hooks/account/index.ts");
 
 
 

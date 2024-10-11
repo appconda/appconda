@@ -38,7 +38,7 @@
   },
   "dependencies": {
     "@appconda/console-sdk": "^1.0.194",
-    "@appconda/react-sdk": "^1.0.220",
+    "@appconda/react-sdk": "^1.0.229",
     "@atlaskit/atlassian-navigation": "^4.7.2",
     "@atlaskit/button": "^20.2.5",
     "@atlaskit/dropdown-menu": "^12.19.0",
@@ -64,7 +64,7 @@
     "react-hook-form": "^7.53.0",
     "react-i18next": "^15.0.1",
     "styled-components": "^3.2.0",
-    "tuval": "^2.0.1",
+    "tuval": "^2.0.2",
     "url-resolve-browser": "^1.2.0",
     "zod": "^3.23.8",
     "zustand": "^4.5.5"

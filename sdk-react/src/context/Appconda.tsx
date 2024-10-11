@@ -31,6 +31,6 @@ export function AppcondaProvider({ endPoint, project, children }) {
 
 }
 
-export function useAppcondaSdk(): IAppcondaSdk {
+export function useAppconda(): IAppcondaSdk {
     return useContext(AppcondaContext);
 }

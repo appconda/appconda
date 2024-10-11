@@ -12,8 +12,8 @@ importers:
         specifier: ^1.0.194
         version: 1.0.194(@editorjs/editorjs@2.30.6)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(webpack@5.94.0(esbuild@0.21.5))
       '@appconda/react-sdk':
-        specifier: ^1.0.220
-        version: 1.0.220(@editorjs/editorjs@2.30.6)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(webpack@5.94.0(esbuild@0.21.5))
+        specifier: ^1.0.229
+        version: 1.0.229(@editorjs/editorjs@2.30.6)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(webpack@5.94.0(esbuild@0.21.5))
       '@atlaskit/atlassian-navigation':
         specifier: ^4.7.2
         version: 4.7.2(@types/react@18.3.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -90,8 +90,8 @@ importers:
         specifier: ^3.2.0
         version: 3.4.10(react@18.3.1)
       tuval:
-        specifier: ^2.0.1
-        version: 2.0.1(@babel/runtime@7.25.6)(@emotion/is-prop-valid@1.3.0)(@types/react-dom@18.3.0)(@types/react@18.3.5)(moment@2.30.1)(prop-types@15.8.1)(react-with-direction@1.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(stylelint@14.16.1)(typescript@5.5.4)(webpack@5.94.0(esbuild@0.21.5))
+        specifier: ^2.0.2
+        version: 2.0.2(@babel/runtime@7.25.6)(@emotion/is-prop-valid@1.3.0)(@types/react-dom@18.3.0)(@types/react@18.3.5)(moment@2.30.1)(prop-types@15.8.1)(react-with-direction@1.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(stylelint@14.16.1)(typescript@5.5.4)(webpack@5.94.0(esbuild@0.21.5))
       url-resolve-browser:
         specifier: ^1.2.0
         version: 1.2.0
@@ -300,8 +300,8 @@ packages:
     resolution: {integrity: sha512-frFd1z9WHCK8MQBlmSCxwC8zqFU2vfqmTQeqTsIUUtxygRA99kMF5bhy9R8ZsWMngVkCQif90w/3QbRl0q/jrg==}
     engines: {node: '>=6.0.0'}
 
-  '@appconda/react-sdk@1.0.220':
-    resolution: {integrity: sha512-iMLk53vTnIAQqf8DrUom7EKZJCg6TkkiqiHYG2It2tAT1sDFV2q5rFvfVx+z/+0bRlVwMejA2zrhXPpXmOPHCA==}
+  '@appconda/react-sdk@1.0.229':
+    resolution: {integrity: sha512-YBEgGR5/PhAvfEc+d6Wr85otzlT4JjyDDH7wtKv7V+CqPWbSc9qiIWkuKFYw/pzSGsiUEaEADiYZk/+Wzi5+Jg==}
     engines: {node: '>=6.0.0'}
 
   '@appconda/web-sdk@1.0.194':
@@ -480,11 +480,11 @@ packages:
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
 
-  '@atlaskit/notification-indicator@9.3.0':
-    resolution: {integrity: sha512-/7v0BQ41GKmrDASgNrPA9RAzRyMemG7lZRO05nG4dNWlGt7LP+Ko7D0X28H6GP22KlqlhkICm9fDIrvDv1nxJw==}
+  '@atlaskit/notification-indicator@9.4.0':
+    resolution: {integrity: sha512-9bXcgBvuuWXbKqmmMbg7N3M7V+I0IuKVFkI8b1ACi4VGn9X9itIMNP0ngdqsMNJgPIBNkhDTS4by3JcJ0kPSWg==}
     peerDependencies:
-      react: ^16.8.0
-      react-dom: ^16.8.0
+      react: ^16.8.0 || ^17.0.0 || ^18.2.0
+      react-dom: ^16.8.0 || ^17.0.0 || ^18.2.0
 
   '@atlaskit/notification-log-client@6.1.6':
     resolution: {integrity: sha512-513Ibpu9T8mkkMz1nDxhBP+d0amDNZXmVDnBWUqzswe7yea1cXAfvV9qG++IhQgxnLi4H7qRn+pMz4AnTBDXRA==}
@@ -3161,8 +3161,8 @@ packages:
     resolution: {integrity: sha512-+q/t7Ekv1EDY2l6Gda6LLiX14rU9TV20Wa3ofeQmwPFZbOMo9DXrLbOjFaaclkXKWidIaopwAObQDqwWtGUjqg==}
     engines: {node: '>= 4.0.0'}
 
-  attr-accept@2.2.2:
-    resolution: {integrity: sha512-7prDjvt9HmqiZ0cl5CRjtS84sEyhsHP2coDkaZKRKVfCDo9s7iw7ChVmar78Gu9pC4SoR/28wFu/G5JJhTnqEg==}
+  attr-accept@2.2.4:
+    resolution: {integrity: sha512-2pA6xFIbdTUDCAwjN8nQwI+842VwzbDUXO2IYlpPXQIORgKnavorcr4Ce3rwh+zsNg9zK7QPsdvDj3Lum4WX4w==}
     engines: {node: '>=4'}
 
   autoprefixer@10.4.20:
@@ -4164,9 +4164,6 @@ packages:
     resolution: {integrity: sha512-VyhnebXciFV2DESc+p6B+y0LjSm0krU4OgJN44qFAhBY0TJ+1V61tYD2+wHusZ6F9n5K+vl8k0sTy7PEfV4qpg==}
     engines: {node: '>=16.17'}
 
-  exenv@1.2.2:
-    resolution: {integrity: sha512-Z+ktTxTwv9ILfgKCk32OX3n/doe+OcLTRtqK9pcL+JsP3J1/VW8Uvl4ZjLlKqeW4rzK4oesDOGMEMRIZqtP4Iw==}
-
   expand-tilde@2.0.2:
     resolution: {integrity: sha512-A5EmesHW6rfnZ9ysHQjPdJRni0SRar0tjtG5MNtm9n5TUvsYU8oozprtRD4AqHxcZWWlVuAmQo2nWKfN9oyjTw==}
     engines: {node: '>=0.10.0'}
@@ -4336,8 +4333,8 @@ packages:
   fraction.js@4.3.7:
     resolution: {integrity: sha512-ZsDfxO51wGAXREY55a7la9LScWpwv9RxIrYABrlvOFBlH/ShPnrtsXeuUIfXKKOVicNxQ+o8JTbJvjS4M89yew==}
 
-  framer-motion@11.11.4:
-    resolution: {integrity: sha512-54UE9loF2ZBgyjdMmxzp9kxm0gvYjFfpd7GiThdCCp5+J0P4Oa7pM0yusd9Y3rm/EUAdD+FfgqRXfbK7k3RFiA==}
+  framer-motion@11.11.8:
+    resolution: {integrity: sha512-mnGQNEoz99GtFXBBPw+Ag5K4FcfP5XrXxrxHz+iE4Lmg7W3sf2gKmGuvfkZCW/yIfcdv5vJd6KiSPETH1Pw68Q==}
     peerDependencies:
       '@emotion/is-prop-valid': '*'
       react: ^18.0.0
@@ -5456,8 +5453,8 @@ packages:
   moment@2.30.1:
     resolution: {integrity: sha512-uEmtNhbDOrWPFS+hdjFCBfy9f2YoyzRpwcl+DqpC6taX21FzsTLQVbMV/W7PzNSX6x/bhC1zA3c2UQ5NzH6how==}
 
-  monday-ui-react-core@2.138.1:
-    resolution: {integrity: sha512-u5EZ8YckWAf8rdwqg9Gb/zc1eTc/CmN/nUZKzymiki/H6KrFTua7IBYZLpcTnzhlndxB9TbJLG5oUeah9tmY2A==}
+  monday-ui-react-core@2.139.3:
+    resolution: {integrity: sha512-jrnGBDmR2amxzxH8f0ZoLo8KKhdmBzdZvmvY13lZ62k4RrXYYoDHcAVgZ9yVlDe5Nw5vIeXD0Nc3/452yrBGug==}
     peerDependencies:
       moment: ^2.29.1
       react: '>=16.9.0'
@@ -6146,8 +6143,8 @@ packages:
       '@types/react':
         optional: true
 
-  react-from-dom@0.6.2:
-    resolution: {integrity: sha512-qvWWTL/4xw4k/Dywd41RBpLQUSq97csuv15qrxN+izNeLYlD9wn5W8LspbfYe5CWbaSdkZ72BsaYBPQf2x4VbQ==}
+  react-from-dom@0.7.3:
+    resolution: {integrity: sha512-9IK6R7+eD1wOAMC2ZCrENev0eK1625cb7vX+cnnOR9LBRNbjKiaJk4ij2zQbcefEXTWjXFhA7CTO1cd8wMONnw==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
 
@@ -6170,10 +6167,10 @@ packages:
       react-native:
         optional: true
 
-  react-inlinesvg@3.0.3:
-    resolution: {integrity: sha512-D9wqEyh1+ni07+CP2yaD9nSK11Y2ngd79xudEilX7YHKmUCeP1lXZqFvuLbdOo+m+oEjekd+c0DBc/bj93Lwqg==}
+  react-inlinesvg@4.1.3:
+    resolution: {integrity: sha512-p1+wkr1UQZyLw/3bdpnHO3v3tMNVWyxWnAEY6ML/Ql9ldDYTBTy6HqAyNl7u3au925XPffLMiXKnQrqZeJAldw==}
     peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+      react: 16.8 - 18
 
   react-input-autosize@2.2.2:
     resolution: {integrity: sha512-jQJgYCA3S0j+cuOwzuCd1OjmBmnZLdqQdiLKRYrsMMzbjUrVDS5RvJUDwJqA7sKuksDuzFtm6hZGKFu7Mjk5aw==}
@@ -7158,8 +7155,8 @@ packages:
     peerDependencies:
       typescript: '>=2.8.0 || >= 3.2.0-dev || >= 3.3.0-dev || >= 3.4.0-dev || >= 3.5.0-dev || >= 3.6.0-dev || >= 3.6.0-beta || >= 3.7.0-dev || >= 3.7.0-beta'
 
-  tuval@2.0.1:
-    resolution: {integrity: sha512-lmjcsm7BLHyhzeRhCGgkBg+ZNc73i3WvM7c5crbPCdLVcL4+c7CJrVLaM/oCyiiRw0Xy2CsJtKovSy4VREcyKg==}
+  tuval@2.0.2:
+    resolution: {integrity: sha512-5gcz6gIWO/1QPo5oV3FcfU1CEwRitKjkan5fpKIwS61aICmVmO2dtyNrmomWZ9hv63xmXH0DKsefYRhpxLi7zQ==}
     engines: {node: '>=6.0.0'}
 
   type-check@0.4.0:
@@ -7804,7 +7801,7 @@ snapshots:
       - sass-embedded
       - webpack
 
-  '@appconda/react-sdk@1.0.220(@editorjs/editorjs@2.30.6)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(webpack@5.94.0(esbuild@0.21.5))':
+  '@appconda/react-sdk@1.0.229(@editorjs/editorjs@2.30.6)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(webpack@5.94.0(esbuild@0.21.5))':
     dependencies:
       '@appconda/web-sdk': 1.0.194(@editorjs/editorjs@2.30.6)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(webpack@5.94.0(esbuild@0.21.5))
       '@editorjs/image': 2.9.3
@@ -8347,7 +8344,7 @@ snapshots:
       - '@types/react'
       - supports-color
 
-  '@atlaskit/notification-indicator@9.3.0(@types/react@18.3.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@atlaskit/notification-indicator@9.4.0(@types/react@18.3.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@atlaskit/analytics-next': 10.1.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@atlaskit/badge': 16.4.1(@types/react@18.3.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -10534,7 +10531,7 @@ snapshots:
       '@atlaskit/heading': 2.4.6(@types/react@18.3.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@atlaskit/icon': 22.22.0(@types/react@18.3.5)(react@18.3.1)
       '@atlaskit/inline-edit': 13.7.5(@types/react@18.3.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@atlaskit/notification-indicator': 9.3.0(@types/react@18.3.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@atlaskit/notification-indicator': 9.4.0(@types/react@18.3.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@atlaskit/radio': 6.5.3(@types/react@18.3.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@atlaskit/select': 17.19.3(@types/react@18.3.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@atlaskit/side-navigation': 3.5.3(@types/react@18.3.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -11197,16 +11194,16 @@ snapshots:
       '@dnd-kit/sortable': 7.0.2(@dnd-kit/core@6.1.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
       '@dnd-kit/utilities': 3.2.2(react@18.3.1)
       '@tanstack/react-query': 4.36.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@types/react': 18.3.5
+      '@types/react': 18.3.11
       dayjs: 1.11.13
       handlebars: 4.7.8
       history: 5.3.0
       http-server: 14.1.1
       json-beautify: 1.1.1
-      monday-ui-react-core: 2.138.1(@babel/runtime@7.25.6)(moment@2.30.1)(react-dom@18.3.1(react@18.3.1))(react-with-direction@1.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(stylelint@14.16.1)(typescript@5.5.4)
+      monday-ui-react-core: 2.139.3(@babel/runtime@7.25.6)(moment@2.30.1)(react-dom@18.3.1(react@18.3.1))(react-with-direction@1.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(stylelint@14.16.1)(typescript@5.5.4)
       nanoid: 4.0.2
       object-path: 0.11.8
-      primereact: 10.2.1(@types/react@18.3.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      primereact: 10.2.1(@types/react@18.3.11)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
       react-sortable-hoc: 2.0.0(prop-types@15.8.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -11340,7 +11337,7 @@ snapshots:
 
   '@types/hoist-non-react-statics@3.3.5':
     dependencies:
-      '@types/react': 18.3.5
+      '@types/react': 18.3.11
       hoist-non-react-statics: 3.3.2
 
   '@types/http-errors@2.0.4': {}
@@ -11402,17 +11399,17 @@ snapshots:
   '@types/react-redux@7.1.34':
     dependencies:
       '@types/hoist-non-react-statics': 3.3.5
-      '@types/react': 18.3.5
+      '@types/react': 18.3.11
       hoist-non-react-statics: 3.3.2
       redux: 4.2.1
 
   '@types/react-transition-group@4.4.11':
     dependencies:
-      '@types/react': 18.3.5
+      '@types/react': 18.3.11
 
   '@types/react-window@1.8.8':
     dependencies:
-      '@types/react': 18.3.5
+      '@types/react': 18.3.11
 
   '@types/react@18.3.11':
     dependencies:
@@ -11960,7 +11957,7 @@ snapshots:
 
   at-least-node@1.0.0: {}
 
-  attr-accept@2.2.2: {}
+  attr-accept@2.2.4: {}
 
   autoprefixer@10.4.20(postcss@8.4.41):
     dependencies:
@@ -13149,8 +13146,6 @@ snapshots:
       signal-exit: 4.1.0
       strip-final-newline: 3.0.0
 
-  exenv@1.2.2: {}
-
   expand-tilde@2.0.2:
     dependencies:
       homedir-polyfill: 1.0.3
@@ -13374,7 +13369,7 @@ snapshots:
 
   fraction.js@4.3.7: {}
 
-  framer-motion@11.11.4(@emotion/is-prop-valid@1.3.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  framer-motion@11.11.8(@emotion/is-prop-valid@1.3.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       tslib: 2.7.0
     optionalDependencies:
@@ -14534,7 +14529,7 @@ snapshots:
 
   moment@2.30.1: {}
 
-  monday-ui-react-core@2.138.1(@babel/runtime@7.25.6)(moment@2.30.1)(react-dom@18.3.1(react@18.3.1))(react-with-direction@1.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(stylelint@14.16.1)(typescript@5.5.4):
+  monday-ui-react-core@2.139.3(@babel/runtime@7.25.6)(moment@2.30.1)(react-dom@18.3.1(react@18.3.1))(react-with-direction@1.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(stylelint@14.16.1)(typescript@5.5.4):
     dependencies:
       '@popperjs/core': 2.11.6
       a11y-dialog: 7.5.3
@@ -14550,7 +14545,7 @@ snapshots:
       react: 18.3.1
       react-dates: 21.8.0(@babel/runtime@7.25.6)(moment@2.30.1)(react-dom@18.3.1(react@18.3.1))(react-with-direction@1.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
       react-dom: 18.3.1(react@18.3.1)
-      react-inlinesvg: 3.0.3(react@18.3.1)
+      react-inlinesvg: 4.1.3(react@18.3.1)
       react-is: 16.13.1
       react-popper: 2.3.0(@popperjs/core@2.11.6)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-select: 3.2.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -15035,14 +15030,14 @@ snapshots:
       ansi-styles: 5.2.0
       react-is: 18.3.1
 
-  primereact@10.2.1(@types/react@18.3.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  primereact@10.2.1(@types/react@18.3.11)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       '@types/react-transition-group': 4.4.11
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
       react-transition-group: 4.4.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
     optionalDependencies:
-      '@types/react': 18.3.5
+      '@types/react': 18.3.11
 
   primereact@10.8.4(@types/react@18.3.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
@@ -15216,7 +15211,7 @@ snapshots:
 
   react-dropzone@11.7.1(react@18.3.1):
     dependencies:
-      attr-accept: 2.2.2
+      attr-accept: 2.2.4
       file-selector: 0.4.0
       prop-types: 15.8.1
       react: 18.3.1
@@ -15265,7 +15260,7 @@ snapshots:
     optionalDependencies:
       '@types/react': 18.3.5
 
-  react-from-dom@0.6.2(react@18.3.1):
+  react-from-dom@0.7.3(react@18.3.1):
     dependencies:
       react: 18.3.1
 
@@ -15282,11 +15277,10 @@ snapshots:
     optionalDependencies:
       react-dom: 18.3.1(react@18.3.1)
 
-  react-inlinesvg@3.0.3(react@18.3.1):
+  react-inlinesvg@4.1.3(react@18.3.1):
     dependencies:
-      exenv: 1.2.2
       react: 18.3.1
-      react-from-dom: 0.6.2(react@18.3.1)
+      react-from-dom: 0.7.3(react@18.3.1)
 
   react-input-autosize@2.2.2(react@18.3.1):
     dependencies:
@@ -16477,7 +16471,7 @@ snapshots:
       tslib: 1.14.1
       typescript: 5.5.4
 
-  tuval@2.0.1(@babel/runtime@7.25.6)(@emotion/is-prop-valid@1.3.0)(@types/react-dom@18.3.0)(@types/react@18.3.5)(moment@2.30.1)(prop-types@15.8.1)(react-with-direction@1.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(stylelint@14.16.1)(typescript@5.5.4)(webpack@5.94.0(esbuild@0.21.5)):
+  tuval@2.0.2(@babel/runtime@7.25.6)(@emotion/is-prop-valid@1.3.0)(@types/react-dom@18.3.0)(@types/react@18.3.5)(moment@2.30.1)(prop-types@15.8.1)(react-with-direction@1.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(stylelint@14.16.1)(typescript@5.5.4)(webpack@5.94.0(esbuild@0.21.5)):
     dependencies:
       '@emotion/css': 11.13.4
       '@realmocean/atlaskit': 17.8.55(@babel/runtime@7.25.6)(@emotion/css@11.13.4)(@types/react-dom@18.3.0)(@types/react@18.3.5)(moment@2.30.1)(prop-types@15.8.1)(react-dom@18.3.1(react@18.3.1))(react-with-direction@1.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(stylelint@14.16.1)(typescript@5.5.4)
@@ -16485,7 +16479,7 @@ snapshots:
       chart.js: 4.4.4
       chartjs: 0.3.24
       css-loader: 6.11.0(webpack@5.94.0(esbuild@0.21.5))
-      framer-motion: 11.11.4(@emotion/is-prop-valid@1.3.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      framer-motion: 11.11.8(@emotion/is-prop-valid@1.3.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       markdown-it: 14.1.0
       primereact: 10.8.4(@types/react@18.3.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       quill: 2.0.2

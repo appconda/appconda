@@ -1,6 +1,6 @@
 import { useRouter } from "@tanstack/react-router";
 import { useTranslation } from "react-i18next";
-import { Text, VStack } from "tuval";
+import { Button, HStack, Text, VStack } from "tuval";
 import type { FunctionComponent } from "../common/types";
 
 import DropdownMenu, { DropdownItem, DropdownItemGroup } from '@atlaskit/dropdown-menu';
@@ -8,7 +8,7 @@ import { useState } from "react";
 
 import { Input } from '@mantine/core';
 import { sdk } from "../sdk";
-import { SignIn, useGetMe } from "@appconda/react-sdk";
+import { SignIn, SignOutButton, useAppconda, useGetMe } from "@appconda/react-sdk";
 
 const AppHome = () => (
 	<div
@@ -70,6 +70,7 @@ export const Home = (): FunctionComponent => {
 	const onLogin = async (): Promise<void> => {
 
 		const result = await sdk.account.get();
+		const router = useRouter();
 
 		console.log(result);
 
@@ -104,20 +105,11 @@ export const Home = (): FunctionComponent => {
 	};
 
 	const me = useGetMe();
-
+	const sdk = useAppconda();
 
 	return (
 		VStack(
-			VStack(
-				<SignIn title="Appconda"></SignIn>,
-				<Input.Wrapper label="Input label">
-				<Input />
-			  </Input.Wrapper>
-			).display('block').height(),
-			VStack(
-				Text('Hello World')
-			),
-
+			Text('Home')
 		).render()
 	);
-};
+}

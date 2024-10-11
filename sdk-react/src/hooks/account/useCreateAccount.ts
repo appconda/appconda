@@ -1,18 +1,26 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { useAppcondaSdk } from "../../context/Appconda";
-import { ID, Models } from "@appconda/web-sdk";
+import { useAppconda} from "../../context/Appconda";
+import { ID } from "@appconda/web-sdk";
+import { Models } from '../../models'
 
 
-export const useCreateAccount = (projectId: string) => {
+/**
+ * Hook to create a new account.
+ * 
+ * This hook allows you to create a new account using the Appconda SDK. 
+ * It invalidates the 'account' query to refetch the updated data after a successful account creation.
+ * @returns An object containing the `createAccount` function, as well as the mutation state.
+ */
+export const useCreateAccount = () => {
     const queryClient = useQueryClient();
-    const sdk = useAppcondaSdk();
+    const sdk = useAppconda();
 
     const mutation = useMutation({
-        mutationFn: ({ name, email, password }: { name: string, email: string, password: string}) => {
-            
+        mutationFn: ({ name, email, password }: { name: string, email: string, password: string }) => {
+
             return sdk.account.create(ID.unique(), email, password, name)
         },
-        onSuccess: <Preferences extends Models.Preferences>(data: Models.Account<Preferences>) => {
+        onSuccess: <Preferences extends Models.Preferences>(data: Models.User<Preferences>) => {
             // Invalidate and refetch
 
             queryClient.invalidateQueries({ queryKey: ['account'] });
@@ -35,9 +43,9 @@ export const useCreateAccount = (projectId: string) => {
             password: string,
             organizationId?: string
         },
-        onSuccess: <Preferences extends Models.Preferences>(data: Models.Account<Preferences>) => void = void 0
+        onSuccess: <Preferences extends Models.Preferences>(data: Models.User<Preferences>) => void = void 0
     ) => {
-        mutation.mutate({ name, email, password, organizationId },
+        mutation.mutate({ name, email, password },
             {
                 onSuccess: (data) => {
                     onSuccess(data);
@@ -46,7 +54,7 @@ export const useCreateAccount = (projectId: string) => {
     }
     return {
         createAccount,
-        isLoading: mutation.isLoading,
+        isLoading: mutation.isPending,
         isSuccess: mutation.isSuccess,
         isError: mutation.isError,
         error: mutation.error as { message: string }

@@ -4,14 +4,18 @@ import { sdk } from '../sdk';
 
 export const Route = createFileRoute('/login')({
   loader: async () => {
-    const user = await sdk.account.get();
-    if (user) {
-      throw redirect({
-        to: '/',
-      })
+    try {
+      const user = await sdk.account.get();
+      if (user) {
+        throw redirect({
+          to: '/',
+        })
+      }
+    } catch {
+
     }
   },
-  
+
   component: () => <Login />
 })
 

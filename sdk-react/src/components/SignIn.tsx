@@ -1,5 +1,6 @@
 import { css, injectGlobal } from "@emotion/css"
-import React from "react"
+import React, { useState } from "react"
+import { useAppconda } from "../context/Appconda"
 
 
 const GoogleLogo = () => (
@@ -806,7 +807,21 @@ const formInternalDiv = css`
     gap: 1.5rem;
 `
 
-export const SignIn = ({ title }: { title: string }) => {
+export const SignIn = ({ title, onSuccess }: { title: string, onSuccess: Function }) => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    const appconda = useAppconda();
+
+    const createEmalSession = async () => {
+        try {
+            await appconda.account.createEmailPasswordSession(email, password);
+            onSuccess?.();
+        } catch {
+
+        }
+    }
+    //mert@example.com
 
     return (
         <div className={pageContainer}>
@@ -842,19 +857,22 @@ export const SignIn = ({ title }: { title: string }) => {
                                     <p className={dividerText} data-localization-key="dividerText">or</p>
                                     <div className={dividerLine}></div>
                                 </div>
-                                <form className={form}>
-                                    <button type="submit" aria-hidden="true" style={{ visibility: "hidden", position: 'absolute' }}></button>
+                                <div className={form}>
                                     <div className={formInternalDiv}>
                                         <div className="cl-formFieldRow cl-formFieldRow__identifier 🔒️ cl-internal-1yma7i9">
                                             <div className="cl-formField cl-formField__identifier 🔒️ cl-internal-10rdw13">
                                                 <div className="cl-internal-11m7oop">
-                                                    <div className="cl-formFieldLabelRow cl-formFieldLabelRow__identifier 🔒️ cl-internal-66mzqw"><label className="cl-formFieldLabel cl-formFieldLabel__identifier-field cl-required 🔒️ cl-internal-1c7fjmu" data-localization-key="formFieldLabel__emailAddress"
-                                                    >Email address</label></div>
+                                                    <div className="cl-formFieldLabelRow cl-formFieldLabelRow__identifier 🔒️ cl-internal-66mzqw">
+                                                        <label className="cl-formFieldLabel cl-formFieldLabel__identifier-field cl-required 🔒️ cl-internal-1c7fjmu"
+                                                            data-localization-key="formFieldLabel__emailAddress"
+                                                        >Email address
+                                                        </label>
+                                                    </div>
                                                     <input className="cl-formFieldInput cl-input cl-formFieldInput__identifier cl-input__identifier cl-required 🔒️
                                                      cl-internal-1vc8j8r" id="identifier-field" name="identifier" placeholder="" type="text"
                                                         pattern="^.*@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-\.]+$" required
                                                         aria-invalid="false" aria-required="true" aria-disabled="false" data-feedback="info"
-                                                        data-variant="default" value="" />
+                                                        data-variant="default" value={email} onChange={(event) => setEmail(event.target.value)} />
                                                 </div>
                                                 <div className="cl-internal-ct77wn" style={{ height: '0px', position: 'relative' }}></div>
                                             </div>
@@ -885,7 +903,21 @@ export const SignIn = ({ title }: { title: string }) => {
                                             </div>
                                         </div>
                                     </div>
-                                    <button className="cl-formButtonPrimary cl-button 🔒️ cl-internal-10liqrf" data-localization-key="formButtonPrimary" data-variant="solid" data-color="primary">
+                                    <div className="cl-internal-11m7oop"><div className="cl-formFieldLabelRow cl-formFieldLabelRow__password 🔒️ cl-internal-66mzqw">
+                                        <label className="cl-formFieldLabel cl-formFieldLabel__password-field 🔒️ cl-internal-1c7fjmu"
+                                            data-localization-key="formFieldLabel__password" >Password</label><a className="cl-formFieldAction cl-formFieldAction__password 🔒️ cl-internal-v0hosy" data-localization-key="formFieldAction__forgotPassword" href="">Forgot password?</a></div>
+                                        <div className="cl-formFieldInputGroup 🔒️ cl-internal-i1u4p8">
+                                            <input className="cl-formFieldInput cl-input cl-formFieldInput__password cl-input__password 🔒️ cl-internal-18nsyma" name="password"
+                                                placeholder="" type="password" id="password-field" aria-invalid="false" aria-required="false" aria-disabled="false" data-feedback="info"
+                                                data-variant="default" value={password} onChange={(event) => setPassword(event.target.value)} />
+                                            <button className="cl-formFieldInputShowPasswordButton cl-button 🔒️ cl-internal-1ab5cam" aria-label="Show password" data-variant="ghost" data-color="primary">
+                                                <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" className="cl-formFieldInputShowPasswordIcon 🔒️ cl-internal-oaq42g">
+                                                    <path d="M8 9.607c.421 0 .825-.17 1.123-.47a1.617 1.617 0 0 0 0-2.273 1.578 1.578 0 0 0-2.246 0 1.617 1.617 0 0 0 0 2.272c.298.302.702.471 1.123.471Z"></path>
+                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M2.07 8.38a1.073 1.073 0 0 1 0-.763 6.42 6.42 0 0 1 2.334-2.99A6.302 6.302 0 0 1 8 3.5c2.704 0 5.014 1.71 5.93 4.12.094.246.093.518 0 .763a6.418 6.418 0 0 1-2.334 2.99A6.301 6.301 0 0 1 8 12.5c-2.704 0-5.013-1.71-5.93-4.12ZM10.54 8c0 .682-.267 1.336-.743 1.818A2.526 2.526 0 0 1 8 10.571c-.674 0-1.32-.27-1.796-.753A2.587 2.587 0 0 1 5.459 8c0-.682.268-1.336.745-1.818A2.525 2.525 0 0 1 8 5.429c.674 0 1.32.27 1.797.753.476.482.744 1.136.744 1.818Z"></path>
+                                                </svg></button></div>
+                                    </div>
+                                    <button className="cl-formButtonPrimary cl-button 🔒️ cl-internal-10liqrf"
+                                        data-localization-key="formButtonPrimary" data-variant="solid" data-color="primary" onClick={createEmalSession}>
                                         <span className="cl-internal-2iusy0">
                                             Continue
                                             <svg className="cl-buttonArrowIcon 🔒️ cl-internal-1c4ikgf">
@@ -893,7 +925,7 @@ export const SignIn = ({ title }: { title: string }) => {
                                             </svg>
                                         </span>
                                     </button>
-                                </form>
+                                </div>
                             </div>
                         </div>
                         <div className="cl-footer 🔒️ cl-internal-4x6jej">

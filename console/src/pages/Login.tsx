@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useRouter } from "@tanstack/react-router";
 import { Button, Input } from "@mantine/core";
 import { sdk } from "../sdk";
+import { SignIn } from "@appconda/react-sdk";
 
 export const Login = () => {
     const [email, setEmail] = useState('');
@@ -33,42 +34,17 @@ export const Login = () => {
 
 
         try {
-        const created = await sdk.account.create('mert', 'mert@example.com', 'AAA123bbb');
-        console.log(created);
+            const created = await sdk.account.create('mert', 'mert@example.com', 'AAA123bbb');
+            console.log(created);
         } catch (error) {
             setErrorMessage("An error occurred. Please try again.");
         }
 
-      
+
     };
 
     return (
-        <div className='container'>
-           
-            <h2>Login</h2>
-            {errorMessage && <p className={'error'}>{errorMessage}</p>}
-            <form onSubmit={handleSubmit} className="form">
-                <Input.Wrapper label="Email">
-                    <Input  type="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        className="input"
-                        required/>
-                </Input.Wrapper>
-               
-              
-                    <Input.Wrapper label="Password">
-                        <Input  type="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        className="input"
-                        required/>
-                    </Input.Wrapper>
-                   
-                  <Button variant="filled" type="submit">Login</Button>
-                <Button variant="filled" onClick={onTranslateButtonClick}>SingUp</Button>
-            </form>
-        </div>
+        <SignIn title="Appconda Console" onSuccess={() => router.navigate({ to: '/' })}></SignIn>
     );
 };
 
