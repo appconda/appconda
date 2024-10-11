@@ -14,6 +14,7 @@ import { Route as rootRoute } from './routes/__root'
 import { Route as ProjectsImport } from './routes/projects'
 import { Route as ProfileImport } from './routes/profile'
 import { Route as LoginImport } from './routes/login'
+import { Route as CreateOrganizationImport } from './routes/create-organization'
 import { Route as IndexImport } from './routes/index'
 import { Route as ProjectsListImport } from './routes/projects/list'
 
@@ -31,6 +32,11 @@ const ProfileRoute = ProfileImport.update({
 
 const LoginRoute = LoginImport.update({
   path: '/login',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const CreateOrganizationRoute = CreateOrganizationImport.update({
+  path: '/create-organization',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -53,6 +59,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/create-organization': {
+      id: '/create-organization'
+      path: '/create-organization'
+      fullPath: '/create-organization'
+      preLoaderRoute: typeof CreateOrganizationImport
       parentRoute: typeof rootRoute
     }
     '/login': {
@@ -90,6 +103,7 @@ declare module '@tanstack/react-router' {
 
 export const routeTree = rootRoute.addChildren({
   IndexRoute,
+  CreateOrganizationRoute,
   LoginRoute,
   ProfileRoute,
   ProjectsRoute: ProjectsRoute.addChildren({ ProjectsListRoute }),
@@ -104,6 +118,7 @@ export const routeTree = rootRoute.addChildren({
       "filePath": "__root.tsx",
       "children": [
         "/",
+        "/create-organization",
         "/login",
         "/profile",
         "/projects"
@@ -111,6 +126,9 @@ export const routeTree = rootRoute.addChildren({
     },
     "/": {
       "filePath": "index.ts"
+    },
+    "/create-organization": {
+      "filePath": "create-organization.tsx"
     },
     "/login": {
       "filePath": "login.tsx"

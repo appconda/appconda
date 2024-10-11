@@ -1,4 +1,4 @@
-import { Client, Account, Projects } from "@appconda/console-sdk";
+import { Client, Account, Projects, Teams } from "@appconda/console-sdk";
 
 function getPortAndHostname(urlString: string): { hostname: string; port: string; protocol: string } {
     try {
@@ -44,5 +44,6 @@ export function getClientEndpoint() {
 
 export namespace sdk {
     export const account = new Account(client);
+    export const team = new Teams(client);
     export const projects = new Projects(client);
 }

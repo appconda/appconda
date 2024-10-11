@@ -19,6 +19,9 @@ export const Route = createRootRoute({
                 <Link to="/projects" className="[&.active]:font-bold">
                   Projects
                 </Link>
+                <Link to="/create-organization" className="[&.active]:font-bold">
+                  Organization
+                </Link>
                 <SignOutButton onLogOut={() => router.navigate({ to: '/login' })} onError={() => alert('error')}></SignOutButton>
               </div>
 
