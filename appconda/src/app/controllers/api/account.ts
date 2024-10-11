@@ -87,10 +87,10 @@ let geoReader: maxmind.Reader<maxmind.CityResponse> | null = null;
 
 const initializeGeoReader = async () => {
     if (!geoReader) {
-        try{
+        try {
             const filePath = path.resolve(__dirname, '../../assets/dbip/dbip-country-lite-2024-02.mmdb');
             geoReader = await maxmind.open<maxmind.CityResponse>(filePath);
-        }catch(error){
+        } catch (error) {
             console.log('Geo Reader Error', error);
         }
     }
@@ -890,6 +890,60 @@ App.post('/v1/account/sessions/email')
         response.dynamic(session, Response.MODEL_SESSION);
     });
 
+App.post('/v1/account/check')
+    // .alias('/v1/account/sessions')
+    .desc('Check user is exist')
+    .groups(['api', 'account', 'auth', 'session'])
+    //.label('event', 'users.[userId].sessions.[sessionId].create')
+    .label('scope', 'sessions.write')
+    .label('auth.type', 'emailPassword')
+    .label('audits.event', 'session.create')
+    .label('audits.resource', 'user/{response.userId}')
+    .label('audits.userId', '{response.userId}')
+    .label('sdk.auth', [])
+    .label('sdk.namespace', 'account')
+    .label('sdk.method', 'createEmailPasswordSession')
+    .label('sdk.description', '/docs/references/account/create-session-email-password.md')
+    .label('sdk.response.code', Response.STATUS_CODE_CREATED)
+    .label('sdk.response.type', Response.CONTENT_TYPE_JSON)
+    .label('sdk.response.model', Response.MODEL_SESSION)
+    .label('abuse-limit', 10)
+    .label('abuse-key', 'url:{url},email:{param-email}')
+    .param('email', '', new Email(), 'User email.')
+    // .param('password', '', new Password(), 'User password. Must be at least 8 chars.')
+    .inject('request')
+    .inject('response')
+    .inject('dbForProject')
+   
+    .action(async ( email: string,  request: Request,response:Response, dbForProject: Database ) => {
+        email = email.toLowerCase();
+        const protocol = request.getProtocol();
+
+        const profile = await dbForProject.findOne('users', [
+            Query.equal('email', [email]),
+        ]);
+
+        if (!profile || profile.isEmpty()) {
+            response
+                .setStatusCode(Response.STATUS_CODE_NOT_FOUND)
+                .json({
+                    status: 'notFound'
+                });
+        } else if (profile instanceof Document && profile.getAttribute('status') === false) { // Account is blocked
+            response
+                .setStatusCode(Response.STATUS_CODE_NOT_FOUND)
+                .json({
+                    status: 'disable'
+                });
+        } else {
+            response
+                .setStatusCode(Response.STATUS_CODE_ACCEPTED)
+                .json({
+                    status: 'active'
+                });
+        }
+    });
+
 
 App.post('/v1/account/sessions/anonymous')
     .desc('Create anonymous session')
@@ -1096,7 +1150,7 @@ App.get('/v1/account/sessions/oauth2/:provider')
             const key = process.env[`_APP_OPENSSL_KEY_V${appSecret.version}`] as string;
             const buffer = Buffer.from(key, 'utf-8');
             appSecret = OpenSSL.decrypt(appSecret.data, appSecret.method, buffer, 0, Buffer.from(appSecret.iv, 'hex'),
-            //@ts-ignore
+                //@ts-ignore
                 Buffer.from(appSecret.tag, 'hex'));
         }
 

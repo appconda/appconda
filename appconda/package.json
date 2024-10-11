@@ -30,6 +30,7 @@
     "chalk": "^5.3.0",
     "cheerio": "^1.0.0-rc.12",
     "composite-error": "^1.0.2",
+    "compression": "^1.7.4",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "cron": "^3.1.7",

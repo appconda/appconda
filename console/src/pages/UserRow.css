@@ -1,0 +1,29 @@
+.user-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    background-color: #fafafa;
+    border-radius: 10px;
+    margin-top: 10px;
+  }
+  
+  .user-info {
+    display: flex;
+    align-items: center;
+  }
+  
+  .avatar {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #6e6ff9, #b593fa);
+    border-radius: 50%;
+    margin-right: 15px;
+  }
+  
+  .last-signed-in, .joined {
+    font-size: 14px;
+    color: #666;
+  }
+  

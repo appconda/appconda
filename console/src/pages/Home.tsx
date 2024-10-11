@@ -3,6 +3,9 @@ import { Text, VStack } from "tuval";
 import type { FunctionComponent } from "../common/types";
 
 import { useState } from 'react';
+import Sidebar from './SideBar';
+import Slider from './Slider';
+import UserList from './UserList';
 
 
 
@@ -13,6 +16,7 @@ export const Home = (): FunctionComponent => {
 	return (
 		VStack(
 			Text('Home'),
+			<UserList></UserList>,
 			<Popover
 				isOpen={isPopoverOpen}
 				positions={['bottom', 'top', 'left', 'right']} // preferred positions by priority

@@ -31,6 +31,8 @@ export class Account extends Service {
         }, payload);
     }
 
+    
+
     /**
      * Create account
      *
@@ -839,6 +841,26 @@ export class Account extends Service {
             'content-type': 'application/json',
         }, payload);
     }
+
+    async check(email: string): Promise<any> {
+        if (typeof email === 'undefined') {
+            throw new AppwriteException('Missing required parameter: "email"');
+        }
+
+        const apiPath = '/account/check';
+        const payload: Payload = {};
+
+        if (typeof email !== 'undefined') {
+            payload['email'] = email;
+        }
+
+
+        const uri = new URL(this.client.config.endpoint + apiPath);
+        return await this.client.call('post', uri, {
+            'content-type': 'application/json',
+        }, payload);
+    }
+
 
     /**
      * Update magic URL session
