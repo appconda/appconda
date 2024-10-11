@@ -1,0 +1,37 @@
+ {
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Run",
+        "type": "node",
+        "request": "launch",
+        "runtimeExecutable": "node",
+        "runtimeArgs": ["--nolazy", "-r", "ts-node/register/transpile-only"],
+  
+        "args": ["debug/index.ts", "--example", "hello", "isDevelopment=true"],
+        
+        "cwd": "${workspaceRoot}",
+        "internalConsoleOptions": "openOnSessionStart",
+        "skipFiles": ["<node_internals>/**", "node_modules/**"]
+      }
+    ]
+  } 
+
+/*   {
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Run",
+        "type": "node",
+        "request": "launch",
+        "runtimeExecutable": "ts-node-dev",
+        "runtimeArgs": ["--respawn", "--transpile-only"],
+  
+        "args": ["src/index.ts", "--example", "hello"],
+        
+        "cwd": "${workspaceRoot}",
+        "internalConsoleOptions": "openOnSessionStart",
+        "skipFiles": ["<node_internals>/**", "node_modules/**"]
+      }
+    ]
+  } */

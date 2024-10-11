@@ -1,0 +1,27 @@
+{
+  "ts-node": {
+    // It is faster to skip typechecking.
+    // Remove if you want ts-node to do typechecking.
+    // "transpileOnly": true,
+    "compilerOptions": {
+      "module": "commonjs"
+    }
+  },
+  "compilerOptions": {
+    "noEmitOnError": false,
+    "target": "esnext",
+    "module": "commonjs",
+    "outDir": "dist",
+    "strict": false,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "noImplicitAny": false,
+    "experimentalDecorators": true
+  },
+  "exclude": [
+    "types"
+  ],
+  "include": [
+    "src/**/*.ts"
+  ]
+}

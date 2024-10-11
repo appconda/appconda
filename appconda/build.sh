@@ -1,0 +1,1 @@
+docker build -t realmocean/services:2.0  .

@@ -1,0 +1,16 @@
+<html>
+
+<script>
+    const popup = window.open("http://localhost:4000/google", "popup", "popup = true");
+   
+    const checkPopup = setInterval(() => {
+        
+         if (popup.window.location.href
+            .includes("CLOSE")) { popup.close() } 
+        if (!popup || !popup.closed) return;
+        clearInterval(checkPopup);
+    }, 3000);
+</script>
+
+
+</html>

@@ -1,0 +1,5 @@
+#!/bin/sh
+
+cd  /usr/app
+echo "Starting worker-audits"
+npm run pm2:worker-audit

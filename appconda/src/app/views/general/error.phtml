@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" content="" />
+    <link rel="icon" href="/favicon.png" />
+    <link
+        rel="preload"
+        href="/fonts/inter/inter-v8-latin-600.woff2"
+        as="font"
+        type="font/woff2"
+        crossorigin />
+    <link
+        rel="preload"
+        href="/fonts/inter/inter-v8-latin-regular.woff2"
+        as="font"
+        type="font/woff2"
+        crossorigin />
+    <link
+        rel="preload"
+        href="/fonts/poppins/poppins-v19-latin-500.woff2"
+        as="font"
+        type="font/woff2"
+        crossorigin />
+    <link
+        rel="preload"
+        href="/fonts/poppins/poppins-v19-latin-600.woff2"
+        as="font"
+        type="font/woff2"
+        crossorigin />
+    <link
+        rel="preload"
+        href="/fonts/poppins/poppins-v19-latin-700.woff2"
+        as="font"
+        type="font/woff2"
+        crossorigin />
+    <link
+        rel="preload"
+        href="/fonts/source-code-pro/source-code-pro-v20-latin-regular.woff2"
+        as="font"
+        type="font/woff2"
+        crossorigin />
+
+    <link rel="stylesheet" href="https://unpkg.com/@appconda.io/pink" />
+    <link rel="preload" as="style" type="text/css" href="/fonts/main.css" />
+    <link rel="stylesheet" href="/fonts/main.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="content-security-policy" content="">
+    <title>{{title}}</title>
+
+    <style>
+        @media(min-width:768px) {
+            article.card {
+                padding: 2rem !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container u-margin-block-start-24">
+        <article class="card u-padding-16">
+            <div class="u-flex u-flex-vertical u-gap-16">
+                <h1 class="heading-level-4 u-trim-1">Error {{code}}</h1>
+                <p class="text">{{message}}</p>
+                <div class="u-flex u-flex-vertical u-gap-8">
+                    <p class="text">Type</p>
+                    <p><code class="inline-code">{{type}}</code></p>
+                </div>
+                {{#if development}}
+                    <h2 class="heading-level-5 u-trim-1">Error Trace</h2>
+                    {{#each trace}}
+                        <div class="table-with-scroll">
+                            <div class="table-wrapper">
+                                <table class="table is-remove-outer-styles">
+                                    <tbody class="table-tbody">
+                                        {{#each this}}
+                                            <tr>
+                                                <td class="table-col" style="width: 120px">{{@key}}</td>
+                                                <td class="table-col">
+                                                    <code class="grid-code u-max-height-200 u-overflow-x-auto u-overflow-y-auto">
+                                                        {{#if (isArray this)}}
+                                                            <pre>{{this}}</pre>
+                                                        {{else}}
+                                                            <pre>{{this}}</pre>
+                                                        {{/if}}
+                                                    </code>
+                                                </td>
+                                            </tr>
+                                        {{/each}}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    {{/each}}
+                {{/if}}
+            </div>
+        </article>
+    </div>
+    <script type="text/javascript">
+        const app = (JSON.parse(localStorage.getItem('appconda')) ?? {});
+        const theme = app.theme ?? 'auto';
+        if (theme === 'auto') {
+            const darkThemeMq = window.matchMedia('(prefers-color-scheme: dark)');
+            if (darkThemeMq.matches) {
+                document.body.setAttribute('class', `theme-dark`);
+            } else {
+                document.body.setAttribute('class', `theme-light`);
+            }
+        } else {
+            document.body.setAttribute('class', `theme-${theme}`);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,227 @@
+import { GeneralLogStatistics } from "../../../../statistics/log/general";
+import { PriorityQueue } from "../heapq";
+
+export class DfgAlignmentsResults {
+	logActivities: any;
+	overallResult: any;
+	frequencyDfg: any;
+	movesUsage: any;
+	totalTraces: any;
+	fitTraces: number;
+	totalCost: number;
+	totalBwc: number;
+	averageTraceFitness: number;
+	logFitness: number;
+	percentageFitTraces: number;
+	constructor(logActivities: any, frequencyDfg: any, overallResult: any) {
+		this.logActivities = logActivities;
+		this.overallResult = overallResult;
+		this.frequencyDfg = frequencyDfg;
+		this.movesUsage = {};
+		this.totalTraces = this.overallResult.length;
+		this.fitTraces = 0;
+		this.totalCost = 0;
+		this.totalBwc = 0;
+		this.averageTraceFitness = 0;
+		for (let alTrace of this.overallResult) {
+			for (let move of alTrace["alignment"].split(",")) {
+				if (!(move in this.movesUsage)) {
+					this.movesUsage[move] = 1;
+				}
+				else {
+					this.movesUsage[move] += 1;
+				}
+			}
+			if (alTrace["cost"] < 1) {
+				this.fitTraces += 1;
+			}
+			this.totalCost += alTrace["cost"];
+			this.totalBwc += alTrace["bwc"];
+			this.averageTraceFitness += alTrace["fitness"];
+		}
+		this.averageTraceFitness = this.averageTraceFitness / this.overallResult.length;
+		this.logFitness = 1.0 - (this.totalCost)/(this.totalBwc);
+		this.percentageFitTraces = this.fitTraces / this.totalTraces;
+	}
+}
+
+export class DfgAlignments {
+	static apply(log: any, frequencyDfg0: any, activityKey="concept:name", syncCosts: any=null, modelMoveCosts: any=null, logMoveCosts: any=null) {
+		let logActivities: any = GeneralLogStatistics.getAttributeValues(log, activityKey);
+		let frequencyDfg: any = frequencyDfg0.getArtificialDfg();
+		let outgoing: any = {};
+		for (let arc0 in frequencyDfg[1]) {
+			let arc = arc0.split(",");
+			if (!(arc[0] in outgoing)) {
+				outgoing[arc[0]] = [];
+			}
+			outgoing[arc[0]].push(arc[1]);
+		}
+		if (syncCosts == null) {
+			syncCosts = {};
+			for (let act in frequencyDfg[0]) {
+				syncCosts[act] = 0;
+			}
+		}
+		if (modelMoveCosts == null) {
+			modelMoveCosts = {};
+			for (let act in frequencyDfg[0]) {
+				if (act == "■") {
+					modelMoveCosts[act] = 0;
+				}
+				else {
+					modelMoveCosts[act] = 10000;
+				}
+			}
+		}
+		if (logMoveCosts == null) {
+			logMoveCosts = {};
+			for (let act in logActivities) {
+				logMoveCosts[act] = 10000;
+			}
+		}
+		let comparator = function(a: any, b: any) {
+			let ret = false;
+			if (a[0] < b[0]) {
+				ret = true;
+			}
+			else if (a[0] > b[0]) {
+				ret = false;
+			}
+			else {
+				if (a[1] > b[1]) {
+					ret = true;
+				}
+				else if (a[1] < b[1]) {
+					ret = false;
+				}
+				else {
+					if (a[2] < b[2]) {
+						ret = true;
+					}
+					else if (a[2] > b[2]) {
+						ret = false;
+					}
+				}
+			}
+			return ret;
+		};
+		let alignedTraces: any = {};
+		let res: any = [];
+		let count = 0;
+		let minPathInModelCost = Math.floor((DfgAlignments as any).applyTrace([], frequencyDfg, outgoing, syncCosts, modelMoveCosts, logMoveCosts, comparator)["cost"] / 10000);
+		for (let trace of log.traces) {
+			let bwc = trace.events.length + minPathInModelCost;
+			let listAct: any = [];
+			for (let eve of trace.events) {
+				listAct.push(eve.attributes[activityKey].value);
+			}
+			if (!(listAct in alignedTraces)) {
+				let ali: any = DfgAlignments.applyTrace(listAct, frequencyDfg, outgoing, syncCosts, modelMoveCosts, logMoveCosts, comparator);
+				let fitness = 1.0;
+				let dividedCost = Math.floor(ali["cost"] / 10000);
+				if (bwc > 0) {
+					fitness = 1.0 - dividedCost / bwc;
+				}
+				ali["cost"] = dividedCost;
+				ali["fitness"] = fitness;
+				ali["bwc"] = bwc;
+				alignedTraces[listAct] = ali;
+			}
+			res.push(alignedTraces[listAct]);
+			count++;
+		}
+		let ret = new DfgAlignmentsResults(logActivities, frequencyDfg0, res);
+		
+		return ret;
+	}
+	
+	static checkClosed(closedSet: any, tup: any) {
+		if (tup[3] in closedSet) {
+			if (tup[1] <= closedSet[tup[3]]) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	static closeTuple(closedSet, tup) {
+		closedSet[tup[3]] = tup[1];
+	}
+	
+	static applyTrace(listAct, frequencyDfg, outgoing, syncCosts, modelMoveCosts, logMoveCosts, comparator) {
+		let queue = new PriorityQueue(comparator);
+		queue.push([0, 0, 0, "▶", false, null, null]);
+		let count = 0;
+		let closedSet = {};
+		while (true) {
+			count++;
+			let tup = queue.pop();
+			if (tup == null) {
+				return null;
+			}
+			else if (tup[3] == "■" && tup[1] == listAct.length) {
+				return DfgAlignments.formAlignment(listAct, tup);
+			}
+			else if (DfgAlignments.checkClosed(closedSet, tup)) {
+				continue;
+			}
+			else {
+				DfgAlignments.closeTuple(closedSet, tup);
+				if (tup[3] != "■") {
+					let enabledTransitions = outgoing[tup[3]];
+					for (let trans of enabledTransitions) {
+						let newTup: any = null;
+						if (tup[1] < listAct.length && trans == listAct[tup[1]]) {
+							// sync move
+							newTup = [tup[0] + syncCosts[trans], tup[1] + 1, count, trans, false, trans, tup];
+							if (!(DfgAlignments.checkClosed(closedSet, newTup))) {
+								queue.push(newTup);
+							}
+						}
+						else {
+							// move on model
+							newTup = [tup[0] + modelMoveCosts[trans], tup[1], count, trans, true, trans, tup];
+							if (!(DfgAlignments.checkClosed(closedSet, newTup))) {
+								queue.push(newTup);
+							}
+						}
+					}
+				}
+				if (tup[1] < listAct.length && !(tup[4])) {
+					// move on log
+					let newTup = [tup[0] + logMoveCosts[listAct[tup[1]]], tup[1] + 1, count, tup[3], false, null, tup];
+					if (!(DfgAlignments.checkClosed(closedSet, newTup))) {
+						queue.push(newTup);
+					}
+				}
+			}
+		}
+		return null;
+	}
+	
+	static formAlignment(listAct, tup) {
+		let ret: any = [];
+		let cost = tup[0];
+		let closedStates = tup[2];
+		tup = tup[6];
+		while (tup[6] != null) {
+			let isMM = tup[4];
+			let currTrans = tup[5];
+			if (currTrans == null) {
+				// lm
+				ret.push("("+listAct[tup[1]-1]+";>>)")
+			}
+			else if (isMM) {
+				ret.push("(>>;"+currTrans+")")
+			}
+			else {
+				ret.push("("+listAct[tup[1]-1]+";"+currTrans+")")
+			}
+			tup = tup[6];
+		}
+		ret.reverse();
+		return {"alignment": ret.join(","), "cost": cost, "closedStates": closedStates}
+	}
+}
+
