@@ -42,7 +42,7 @@ App.post('/v1/teams')
     .inject('user')
     .inject('dbForProject')
     .inject('queueForEvents')
-    .action(async ({ teamId, name, roles, response, user, dbForProject, queueForEvents }: { teamId: string, name: string, roles: string[], response: Response, user: Document, dbForProject: Database, queueForEvents: Event }) => {
+    .action(async (  teamId: string, name: string, roles: string[], response: Response, user: Document, dbForProject: Database, queueForEvents: Event ) => {
         const isPrivilegedUser = Auth.isPrivilegedUser(Authorization.getRoles());
         const isAppUser = Auth.isAppUser(Authorization.getRoles());
 
@@ -129,7 +129,7 @@ App.get('/v1/teams')
     .param('search', '', new Text(256), 'Search term to filter your list results. Max length: 256 chars.', true)
     .inject('response')
     .inject('dbForProject')
-    .action(async ({ queries: _queries, search, response, dbForProject }: { queries: string[], search: string, response: Response, dbForProject: Database }) => {
+    .action(async (_queries: string[], search: string, response: Response, dbForProject: Database) => {
         let queries: Query[] = [];
         try {
             queries = Query.parseQueries(_queries);
@@ -1035,13 +1035,13 @@ App.delete('/v1/teams/:teamId/memberships/:membershipId')
         try {
             await dbForProject.deleteDocument('memberships', membership.getId());
         } catch (error) {
-            if (error instanceof AuthorizationException) { 
+            if (error instanceof AuthorizationException) {
                 throw new Exception(Exception.USER_UNAUTHORIZED);
-               
+
             }
             throw new Exception(Exception.GENERAL_SERVER_ERROR, 'Failed to remove membership from DB');
 
-           
+
         }/*  catch (error) {
             throw new Exception(Exception.GENERAL_SERVER_ERROR, 'Failed to remove membership from DB');
         } */
@@ -1061,7 +1061,7 @@ App.delete('/v1/teams/:teamId/memberships/:membershipId')
         response.noContent();
     });
 
-    App.get('/v1/teams/:teamId/logs')
+App.get('/v1/teams/:teamId/logs')
     .desc('List team logs')
     .groups(['api', 'teams'])
     .label('scope', 'teams.read')
@@ -1080,7 +1080,7 @@ App.delete('/v1/teams/:teamId/memberships/:membershipId')
     .inject('geodb')
     .action(async ({ teamId, queries: _queries, response, dbForProject, locale, geodb }: { teamId: string, queries: string[], response: Response, dbForProject: Database, locale: Locale, geodb: any }) => {
         const team = await dbForProject.getDocument('teams', teamId);
-        
+
         let queries: Query[] = [];
 
         if (team.isEmpty()) {
