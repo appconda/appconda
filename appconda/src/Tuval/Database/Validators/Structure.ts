@@ -159,7 +159,7 @@ export class Structure extends Validator {
             const size = attribute['size'] ?? 0;
             const signed = attribute['signed'] ?? true;
 
-            if (!required && value === null) {
+            if (!required && value == null) {
                 continue;
             }
 

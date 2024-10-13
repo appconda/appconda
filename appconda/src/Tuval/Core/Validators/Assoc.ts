@@ -41,7 +41,7 @@ import { Validator } from "../Validator";
          * Validation will pass when $value is a valid associative array.
          */
         public isValid(value: any): boolean {
-            if (!Array.isArray(value)) {
+            if (typeof value !== 'object') {
                 return false;
             }
 

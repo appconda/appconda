@@ -42,7 +42,7 @@ App.post('/v1/teams')
     .inject('user')
     .inject('dbForProject')
     .inject('queueForEvents')
-    .action(async (  teamId: string, name: string, roles: string[], response: Response, user: Document, dbForProject: Database, queueForEvents: Event ) => {
+    .action(async (teamId: string, name: string, roles: string[], response: Response, user: Document, dbForProject: Database, queueForEvents: Event) => {
         const isPrivilegedUser = Auth.isPrivilegedUser(Authorization.getRoles());
         const isAppUser = Auth.isAppUser(Authorization.getRoles());
 
@@ -180,7 +180,7 @@ App.get('/v1/teams/:teamId')
     .param('teamId', '', new UID(), 'Team ID.')
     .inject('response')
     .inject('dbForProject')
-    .action(async ({ teamId, response, dbForProject }: { teamId: string, response: Response, dbForProject: Database }) => {
+    .action(async (teamId: string, response: Response, dbForProject: Database) => {
         const team = await dbForProject.getDocument('teams', teamId);
 
         if (team.isEmpty()) {
@@ -205,7 +205,7 @@ App.get('/v1/teams/:teamId/prefs')
     .param('teamId', '', new UID(), 'Team ID.')
     .inject('response')
     .inject('dbForProject')
-    .action(async ({ teamId, response, dbForProject }: { teamId: string, response: Response, dbForProject: Database }) => {
+    .action(async (teamId: string, response: Response, dbForProject: Database) => {
         const team = await dbForProject.getDocument('teams', teamId);
 
         if (team.isEmpty()) {
@@ -239,7 +239,7 @@ App.put('/v1/teams/:teamId')
     .inject('response')
     .inject('dbForProject')
     .inject('queueForEvents')
-    .action(async ({ teamId, name, requestTimestamp, response, dbForProject, queueForEvents }: { teamId: string, name: string, requestTimestamp: Date | null, response: Response, dbForProject: Database, queueForEvents: Event }) => {
+    .action(async (teamId: string, name: string, requestTimestamp: Date | null, response: Response, dbForProject: Database, queueForEvents: Event) => {
         const team = await dbForProject.getDocument('teams', teamId);
 
         if (team.isEmpty()) {
@@ -279,7 +279,7 @@ App.put('/v1/teams/:teamId/prefs')
     .inject('response')
     .inject('dbForProject')
     .inject('queueForEvents')
-    .action(async ({ teamId, prefs, response, dbForProject, queueForEvents }: { teamId: string, prefs: Record<string, any>, response: Response, dbForProject: Database, queueForEvents: Event }) => {
+    .action(async (teamId: string, prefs: Record<string, any>, response: Response, dbForProject: Database, queueForEvents: Event) => {
         const team = await dbForProject.getDocument('teams', teamId);
 
         if (team.isEmpty()) {
@@ -311,7 +311,7 @@ App.delete('/v1/teams/:teamId')
     .inject('dbForProject')
     .inject('queueForEvents')
     .inject('queueForDeletes')
-    .action(async ({ teamId, response, dbForProject, queueForEvents, queueForDeletes }: { teamId: string, response: Response, dbForProject: Database, queueForEvents: Event, queueForDeletes: Delete }) => {
+    .action(async (teamId: string, response: Response, dbForProject: Database, queueForEvents: Event, queueForDeletes: Delete) => {
         const team = await dbForProject.getDocument('teams', teamId);
 
         if (team.isEmpty()) {
@@ -366,7 +366,7 @@ App.post('/v1/teams/:teamId/memberships')
     .inject('queueForMails')
     .inject('queueForMessaging')
     .inject('queueForEvents')
-    .action(async ({ teamId, email, userId, phone, roles, url, name, response, project, user, dbForProject, locale, queueForMails, queueForMessaging, queueForEvents }: { teamId: string, email: string, userId: string, phone: string, roles: string[], url: string, name: string, response: Response, project: Document, user: Document, dbForProject: Database, locale: Locale, queueForMails: Mail, queueForMessaging: Messaging, queueForEvents: Event }) => {
+    .action(async (teamId: string, email: string, userId: string, phone: string, roles: string[], url: string, name: string, response: Response, project: Document, user: Document, dbForProject: Database, locale: Locale, queueForMails: Mail, queueForMessaging: Messaging, queueForEvents: Event) => {
         const isAPIKey = Auth.isAppUser(Authorization.getRoles());
         const isPrivilegedUser = Auth.isPrivilegedUser(Authorization.getRoles());
 
@@ -666,7 +666,7 @@ App.get('/v1/teams/:teamId/memberships')
     .param('search', '', new Text(256), 'Search term to filter your list results. Max length: 256 chars.', true)
     .inject('response')
     .inject('dbForProject')
-    .action(async ({ teamId, queries: _queries, search, response, dbForProject }: { teamId: string, queries: string[], search: string, response: Response, dbForProject: Database }) => {
+    .action(async (teamId: string, _queries: string[], search: string, response: Response, dbForProject: Database) => {
         const team = await dbForProject.getDocument('teams', teamId);
 
         let queries: Query[] = [];
@@ -754,7 +754,7 @@ App.get('/v1/teams/:teamId/memberships/:membershipId')
     .param('membershipId', '', new UID(), 'Membership ID.')
     .inject('response')
     .inject('dbForProject')
-    .action(async ({ teamId, membershipId, response, dbForProject }: { teamId: string, membershipId: string, response: Response, dbForProject: Database }) => {
+    .action(async (teamId: string, membershipId: string, response: Response, dbForProject: Database) => {
         const team = await dbForProject.getDocument('teams', teamId);
 
         if (team.isEmpty()) {
@@ -813,7 +813,8 @@ App.patch('/v1/teams/:teamId/memberships/:membershipId')
     .inject('user')
     .inject('dbForProject')
     .inject('queueForEvents')
-    .action(async ({ teamId, membershipId, roles, request, response, user, dbForProject, queueForEvents }: { teamId: string, membershipId: string, roles: string[], request: Request, response: Response, user: Document, dbForProject: Database, queueForEvents: Event }) => {
+    .action(async (teamId: string, membershipId: string, roles: string[], request: Request, response: Response, user: Document,
+        dbForProject: Database, queueForEvents: Event) => {
         const team = await dbForProject.getDocument('teams', teamId);
         if (team.isEmpty()) {
             throw new Exception(Exception.TEAM_NOT_FOUND);
@@ -884,7 +885,8 @@ App.patch('/v1/teams/:teamId/memberships/:membershipId/status')
     .inject('project')
     .inject('geodb')
     .inject('queueForEvents')
-    .action(async ({ teamId, membershipId, userId, secret, request, response, user, dbForProject, project, geodb, queueForEvents }: { teamId: string, membershipId: string, userId: string, secret: string, request: Request, response: Response, user: Document, dbForProject: Database, project: Document, geodb: any, queueForEvents: Event }) => {
+    .action(async (teamId: string, membershipId: string, userId: string, secret: string, request: Request, response: Response,
+        user: Document, dbForProject: Database, project: Document, geodb: any, queueForEvents: Event) => {
         const protocol = request.getProtocol();
 
         const membership = await dbForProject.getDocument('memberships', membershipId);
@@ -991,6 +993,7 @@ App.patch('/v1/teams/:teamId/memberships/:membershipId/status')
             Response.MODEL_MEMBERSHIP
         );
     });
+
 App.delete('/v1/teams/:teamId/memberships/:membershipId')
     .desc('Delete team membership')
     .groups(['api', 'teams'])
@@ -1009,7 +1012,7 @@ App.delete('/v1/teams/:teamId/memberships/:membershipId')
     .inject('response')
     .inject('dbForProject')
     .inject('queueForEvents')
-    .action(async ({ teamId, membershipId, response, dbForProject, queueForEvents }: { teamId: string, membershipId: string, response: Response, dbForProject: Database, queueForEvents: Event }) => {
+    .action(async ( teamId: string, membershipId: string, response: Response, dbForProject: Database, queueForEvents: Event ) => {
         const membership = await dbForProject.getDocument('memberships', membershipId);
 
         if (membership.isEmpty()) {
@@ -1078,7 +1081,7 @@ App.get('/v1/teams/:teamId/logs')
     .inject('dbForProject')
     .inject('locale')
     .inject('geodb')
-    .action(async ({ teamId, queries: _queries, response, dbForProject, locale, geodb }: { teamId: string, queries: string[], response: Response, dbForProject: Database, locale: Locale, geodb: any }) => {
+    .action(async ( teamId: string, _queries: string[], response: Response, dbForProject: Database, locale: Locale, geodb: any ) => {
         const team = await dbForProject.getDocument('teams', teamId);
 
         let queries: Query[] = [];

@@ -419,11 +419,11 @@ export class Database {
         }
     }
 
-    public withRequestTimestamp<T>(requestTimestamp: Date | null, callback: () => T): T {
+    public async withRequestTimestamp<T>(requestTimestamp: Date | null, callback: () => Promise<T>): Promise<T> {
         const previous = this.timestamp;
         this.timestamp = requestTimestamp;
         try {
-            return callback();
+            return await callback();
         } finally {
             this.timestamp = previous;
         }
@@ -3178,6 +3178,9 @@ export class Database {
 
                 // Compare if the document has any changes
                 for (const [key, value] of Object.entries(document.getArrayCopy())) {
+                    if (key === 'authenticators'){
+                        const a = '';
+                    }
                     // Skip the nested documents as they will be checked later in recursions.
                     if (relationshipMap[key]) {
                         // No need to compare nested documents more than max depth.

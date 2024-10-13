@@ -482,7 +482,7 @@ Database.addFilter(
         return;
     },
     async (value: any, document: Document, database: Database) => {
-        return await Authorization.skip(() => database.find('authenticators', [
+        return await Authorization.skip(async () => await database.find('authenticators', [
             Query.equal('userInternalId', [document.getInternalId()]),
             Query.limit(APP_LIMIT_SUBQUERY),
         ]));

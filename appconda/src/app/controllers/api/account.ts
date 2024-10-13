@@ -2846,7 +2846,7 @@ App.patch('/v1/account/prefs')
     .inject('queueForEvents')
     .action(async (prefs: object, requestTimestamp: Date | null, response: Response, user: Document, dbForProject: Database, queueForEvents: Event) => {
         user.setAttribute('prefs', prefs);
-        user = await dbForProject.withRequestTimestamp(requestTimestamp, () => dbForProject.updateDocument('users', user.getId(), user));
+        user = await dbForProject.withRequestTimestamp(requestTimestamp, async () => await dbForProject.updateDocument('users', user.getId(), user));
         queueForEvents.setParam('userId', user.getId());
         response.dynamic(user, Response.MODEL_ACCOUNT);
     });

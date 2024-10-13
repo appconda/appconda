@@ -1496,7 +1496,7 @@ export class MariaDB extends SQL {
                         delete doc._uid;
                     }
                     if (doc._id) {
-                        doc['$internalId'] = doc._id;
+                        doc['$internalId'] = doc._id.toString();
                         delete doc._id;
                     }
                     if (doc._tenant) {
