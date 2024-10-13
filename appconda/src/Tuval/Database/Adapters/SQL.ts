@@ -207,7 +207,7 @@ export abstract class SQL extends Adapter {
             let document: any = rows[0];
 
             if ('_id' in document) {
-                document['$internalId'] = document['_id'];
+                document['$internalId'] = document['_id'].toString();
                 delete document['_id'];
             }
             if ('_uid' in document) {

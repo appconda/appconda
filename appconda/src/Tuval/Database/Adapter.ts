@@ -203,7 +203,7 @@ export abstract class Adapter {
     public filter(value: string): string {
         const filtered = value.replace(/[^A-Za-z0-9_\-]/g, '');
 
-        if (filtered === null) {
+        if (filtered == null) {
             throw new DatabaseException('Failed to filter key');
         }
 

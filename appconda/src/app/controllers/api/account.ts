@@ -42,7 +42,7 @@ console.log('Account Controller Loaded...')
 
 function empty(value: any): boolean {
     // Check for null or undefined
-    if (value === null || value === undefined) {
+    if (value == null || value === undefined) {
         return true;
     }
 
@@ -729,7 +729,7 @@ App.patch('/v1/account/sessions/:sessionId')
             }
         }
 
-        if (session === null) {
+        if (session == null) {
             throw new Error('USER_SESSION_NOT_FOUND');
         }
 
@@ -3739,7 +3739,7 @@ App.put('/v1/account/mfa/authenticators/:type')
             }
         })();
 
-        if (authenticator === null) {
+        if (authenticator == null) {
             throw new Error('USER_AUTHENTICATOR_NOT_FOUND');
         }
 

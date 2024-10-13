@@ -1685,7 +1685,7 @@ App.get('/v1/projects/:projectId/templates/sms/:type/:locale')
         const templates = project.getAttribute('templates', {});
         let template = templates[`sms.${type}-${locale}`] || null;
 
-        if (template === null) {
+        if (template == null) {
             template = {
                 message: Template.fromFile(__dirname + '../../config/locale/templates/sms-base.tpl').render(),
             };
@@ -1724,7 +1724,7 @@ App.get('/v1/projects/:projectId/templates/email/:type/:locale')
         let template = templates[`email.${type}-${locale}`] || null;
 
         const localeObj = new Locale(locale);
-        if (template === null) {
+        if (template == null) {
             const messageTemplate = Template.fromFile(__dirname + '/../../config/locale/templates/email-inner-base.tpl');
             messageTemplate
                 .setParam('{{hello}}', localeObj.getText(`emails.${type}.hello`))
@@ -1868,7 +1868,7 @@ App.delete('/v1/projects/:projectId/templates/sms/:type/:locale')
         const templateKey = `sms.${type}-${locale}`;
         const template = templates[templateKey] || null;
 
-        if (template === null) {
+        if (template == null) {
             throw new Exception(Exception.PROJECT_TEMPLATE_DEFAULT_DELETION);
         }
 
@@ -1910,7 +1910,7 @@ App.delete('/v1/projects/:projectId/templates/email/:type/:locale')
         const templateKey = `email.${type}-${locale}`;
         const template = templates[templateKey] || null;
 
-        if (template === null) {
+        if (template == null) {
             throw new Exception(Exception.PROJECT_TEMPLATE_DEFAULT_DELETION);
         }
 

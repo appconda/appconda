@@ -310,7 +310,7 @@ Database.addFilter(
         );
     },
     async (value: any) => {
-        if (value === null) {
+        if (value == null) {
             return;
         }
         return JSON.parse(value).value;
@@ -545,7 +545,7 @@ Database.addFilter(
         });
     },
     async (value: any) => {
-        if (value === null) {
+        if (value == null) {
             return;
         }
         value = JSON.parse(value);

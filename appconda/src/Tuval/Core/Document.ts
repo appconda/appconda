@@ -86,7 +86,7 @@ export class Document extends Map<string, any> {
     }
 
     public setInternalId(id: string): void {
-        this.set('$internalId', id);
+        this.set('$internalId', id.toString());
     }
 
     public getCollection(): string {

@@ -3308,7 +3308,7 @@ export class Database {
                 document = await this.silent(async () => await this.updateDocumentRelationships(collectionDoc, old, document));
             }
 
-            this.adapter.updateDocument(collectionDoc.getId(), document);
+            await this.adapter.updateDocument(collectionDoc.getId(), document);
 
             return document;
         })

@@ -80,7 +80,7 @@ async function router(
         ])
     ))[0] ?? null;
 
-    if (route === null) {
+    if (route == null) {
         //@ts-ignore
         if (host === process.env._APP_DOMAIN_FUNCTIONS ?? '') {
             throw new AppcondaException(AppcondaException.GENERAL_ACCESS_FORBIDDEN, 'This domain cannot be used for security reasons. Please use any subdomain instead.');

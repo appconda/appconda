@@ -1373,8 +1373,8 @@ App.post('/v1/databases/:databaseId/collections/:collectionId/attributes/integer
     .action(async ({ databaseId, collectionId, key, required, min, max, defaultValue, array, response, dbForProject, queueForDatabase, queueForEvents }: { databaseId: string, collectionId: string, key: string, required: boolean | null, min: number | null, max: number | null, defaultValue: number | null, array: boolean, response: Response, dbForProject: Database, queueForDatabase: EventDatabase, queueForEvents: Event }) => {
 
         // Ensure attribute default is within range
-        min = (min === null) ? Number.MIN_SAFE_INTEGER : min;
-        max = (max === null) ? Number.MAX_SAFE_INTEGER : max;
+        min = (min == null) ? Number.MIN_SAFE_INTEGER : min;
+        max = (max == null) ? Number.MAX_SAFE_INTEGER : max;
 
         if (min > max) {
             throw new Exception(Exception.ATTRIBUTE_VALUE_INVALID, 'Minimum value must be lesser than maximum value');
@@ -1444,8 +1444,8 @@ App.post('/v1/databases/:databaseId/collections/:collectionId/attributes/float')
     .action(async ({ databaseId, collectionId, key, required, min, max, defaultValue, array, response, dbForProject, queueForDatabase, queueForEvents }: { databaseId: string, collectionId: string, key: string, required: boolean | null, min: number | null, max: number | null, defaultValue: number | null, array: boolean, response: Response, dbForProject: Database, queueForDatabase: EventDatabase, queueForEvents: Event }) => {
 
         // Ensure attribute default is within range
-        min = (min === null) ? -Number.MAX_VALUE : min;
-        max = (max === null) ? Number.MAX_VALUE : max;
+        min = (min == null) ? -Number.MAX_VALUE : min;
+        max = (max == null) ? Number.MAX_VALUE : max;
 
         if (min > max) {
             throw new Exception(Exception.ATTRIBUTE_VALUE_INVALID, 'Minimum value must be lesser than maximum value');
@@ -2686,7 +2686,7 @@ App.post('/v1/databases/:databaseId/collections/:collectionId/documents')
 
         permissions = Permission.aggregate(permissions, allowedPermissions);
 
-        if (permissions === null) {
+        if (permissions == null) {
             permissions = [];
             if (user.getId()) {
                 for (const permission of allowedPermissions) {
@@ -3214,7 +3214,7 @@ App.patch('/v1/databases/:databaseId/collections/:collectionId/documents/:docume
 
         data = (typeof data === 'string') ? JSON.parse(data) : data;
 
-        if (Object.keys(data).length === 0 && permissions === null) {
+        if (Object.keys(data).length === 0 && permissions == null) {
             throw new Exception(Exception.DOCUMENT_MISSING_PAYLOAD);
         }
 
@@ -3261,7 +3261,7 @@ App.patch('/v1/databases/:databaseId/collections/:collectionId/documents/:docume
             }
         }
 
-        if (permissions === null) {
+        if (permissions == null) {
             permissions = document.getPermissions() ?? [];
         }
 

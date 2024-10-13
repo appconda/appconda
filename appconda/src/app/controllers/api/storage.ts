@@ -46,7 +46,7 @@ import { JWT } from "../../../Appconda/JWT/JWT";
 
 function empty(value: any): boolean {
     // Falsy değerleri kontrol et: null, undefined, 0, boş string, false
-    if (value === null || value === undefined) {
+    if (value == null || value === undefined) {
         return true;
     }
 
@@ -410,7 +410,7 @@ App.post('/v1/storage/buckets/:bucketId/files')
         permissions = Permission.aggregate(permissions, allowedPermissions);
 
         // Add permissions for current the user if none were provided.
-        if (permissions === null) {
+        if (permissions == null) {
             permissions = [];
             if (user.getId()) {
                 for (const permission of allowedPermissions) {
