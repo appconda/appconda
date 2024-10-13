@@ -384,11 +384,11 @@ export class App {
             return this.route;
         }
 
-        const url = /* new URL( */request.getURI()/* ).pathname */;
+        const url = parse(request.getURI(), true);/* new URL( *//* ).pathname */;
         let method = request.getMethod();
         method = method === App.REQUEST_METHOD_HEAD ? App.REQUEST_METHOD_GET : method;
 
-        this.route = Router.match(method, url);
+        this.route = Router.match(method, url.pathname);
         return this.route;
     }
 
@@ -404,14 +404,20 @@ export class App {
         const groups = route.getGroups();
         const pathValues = route.getPathValues(request);
 
-        try {
+      //  try {
             if (route.getHook()) {
                 for (const hook of App._init) { // Global init hooks
                     if (hook.getGroups().includes('*')) {
                         const args = await this.getArguments(hook, pathValues, request.getParams());
                         const action = hook.getAction();
 
-                        await action(...args);
+                        try {
+                            await action(...args);
+                        }
+                        catch {
+                            await action(...args);
+                        }
+                        
 
                     }
                 }
@@ -422,7 +428,14 @@ export class App {
                     if (hook.getGroups().includes(group)) {
                         const args = await this.getArguments(hook, pathValues, request.getParams());
                         const action = hook.getAction();
-                        await action(...args);
+                        try {
+                            await action(...args);
+                        }
+                        catch {
+                            const args = await this.getArguments(hook, pathValues, request.getParams());
+                            const action = hook.getAction();
+                            await action(...args);
+                        }
 
                     }
                 }
@@ -432,7 +445,12 @@ export class App {
                 const args = await this.getArguments(route, pathValues, request.getParams());
                 const action = route.getAction();
 
-                await action(...args);
+                try {
+                    await action(...args);
+                }
+                catch {
+                    await action(...args);
+                }
 
             }
 
@@ -442,7 +460,7 @@ export class App {
                         const args = await this.getArguments(hook, pathValues, request.getParams());
                         const action = hook.getAction();
 
-                        action(...args);
+                        await action(...args);
 
                     }
                 }
@@ -459,7 +477,8 @@ export class App {
                     }
                 }
             }
-        } catch (e) {
+            return this;
+       /*  } catch (e) {
 
             App.setResource('error', async () => e);
 
@@ -502,7 +521,7 @@ export class App {
             }
 
             return this;
-        }
+        } */
     }
     /**
      * Get Arguments
@@ -607,7 +626,7 @@ export class App {
             return this;
         }
 
-        if (route === null && App.wildcardRoute !== null) {
+        if (route == null && App.wildcardRoute !== null) {
             route = App.wildcardRoute;
             this.route = route;
             const path = parse(request.getURI(), false);//new URL(request.getURI()).pathname;
@@ -660,7 +679,7 @@ export class App {
      * @throws Error
      */
     protected async validate(key: string, param: Param, value: any): Promise<void> {
-        if (param.optional && value === null) {
+        if (param.optional && value == null) {
             return;
         }
 

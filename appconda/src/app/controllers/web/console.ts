@@ -15,7 +15,7 @@ App.init()
     });
 
 
-App.get('/*')
+App.get('/console/*')
    // .alias('/')
     /*  .alias('auth/*')
      .alias('/invite')

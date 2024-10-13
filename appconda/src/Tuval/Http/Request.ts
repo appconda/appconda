@@ -167,12 +167,18 @@ import { parse } from 'url';
         }
 
         protected generateInput(): Record<string, any> {
-            if (this.queryString === null) {
+            if (this.queryString == null) {
                 const parsedUrl =  parse(this.getURI(),true);
-                const queryParams = parsedUrl.query;
-                this.queryString = queryParams;
+                for(let key in parsedUrl.query){
+                    if (this.queryString == null){
+                        this.queryString = {};
+                    }
+                    this.queryString[key] = parsedUrl.query[key][0];
+                }
+                //const queryParams = parsedUrl.query;
+                //this.queryString = queryParams;
             }
-            if (this.payload === null) {
+            if (this.payload == null) {
                 let contentType = this.getHeader('content-type');
                 const length = contentType.indexOf(';');
                 contentType = length === -1 ? contentType : contentType.substring(0, length);
@@ -205,7 +211,7 @@ import { parse } from 'url';
         }
 
      /*    protected generateHeaders(): Record<string, any> {
-            if (this.headers === null) {
+            if (this.headers == null) {
                 this.headers = (global as any)._HEADERS || {};
             }
             return this.headers;

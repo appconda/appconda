@@ -38,7 +38,7 @@ export class BaseClient implements Client {
     const parts: string[] = [];
 
     Object.entries(parameters).forEach(([key, value]) => {
-      if (value === null || typeof value === 'undefined') {
+      if (value == null || typeof value === 'undefined') {
         return;
       }
 

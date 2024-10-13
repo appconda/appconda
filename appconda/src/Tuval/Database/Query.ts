@@ -207,7 +207,7 @@ export class Query {
      * @throws QueryException
      */
     static parseQuery(query: any): Query {
-        if (typeof query !== 'object' || query === null) {
+        if (typeof query !== 'object' || query == null) {
             throw new QueryException(`Invalid query. Must be an object, got ${typeof query}`);
         }
 
@@ -550,20 +550,20 @@ export class Query {
                     break;
 
                 case Query.TYPE_LIMIT:
-                    if (limit === null && typeof values[0] === 'number') {
+                    if (limit == null && typeof values[0] === 'number') {
                         limit = values[0];
                     }
                     break;
 
                 case Query.TYPE_OFFSET:
-                    if (offset === null && typeof values[0] === 'number') {
+                    if (offset == null && typeof values[0] === 'number') {
                         offset = values[0];
                     }
                     break;
 
                 case Query.TYPE_CURSOR_AFTER:
                 case Query.TYPE_CURSOR_BEFORE:
-                    if (cursor === null && values[0] instanceof Document) {
+                    if (cursor == null && values[0] instanceof Document) {
                         cursor = values[0].getId();
                         cursorDirection = method === Query.TYPE_CURSOR_AFTER ? Query.TYPE_CURSOR_AFTER :
                             Query.TYPE_CURSOR_BEFORE;

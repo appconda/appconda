@@ -23,7 +23,7 @@ export class Image {
     private borderColor: string = '';
     private rotation: number = 0;
 
-    constructor(data: string) {
+    constructor(data: Buffer) {
         this.image = new Imagick();
         this.image.readImageBlob(data);
         this.image.setFirstIterator();
@@ -237,7 +237,7 @@ export class Image {
         return this.save(null, type, quality) as any;
     }
 
-    save(path: string | null = null, type: string = '', quality: number = 75): string | void {
+    save(path: string | null = null, type: string = '', quality: number = 75): Buffer | void {
         if (path !== null && !fs.existsSync(path)) {
             fs.mkdirSync(path, { recursive: true });
         }
@@ -307,6 +307,7 @@ export class Image {
 
         this.image.clear();
         this.image.destroy();
+        return this.image.getImagesBlob();
     }
 
     protected getSizeByFixedHeight(newHeight: number): number {

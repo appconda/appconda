@@ -34,7 +34,7 @@ import { Pool } from "./Pool";
         }
 
         reclaim(): Pool {
-            if (this.pool === null) {
+            if (this.pool == null) {
                 throw new Error('You cannot reclaim connection that does not have a pool.');
             }
 
@@ -42,7 +42,7 @@ import { Pool } from "./Pool";
         }
 
         destroy(): Pool {
-            if (this.pool === null) {
+            if (this.pool == null) {
                 throw new Error('You cannot destroy connection that does not have a pool.');
             }
 

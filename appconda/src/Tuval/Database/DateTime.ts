@@ -59,7 +59,7 @@ export class DateTime {
      * @return string | null
      */
     public static formatTz(dbFormat: string | null): string | null {
-        if (dbFormat === null) {
+        if (dbFormat == null) {
             return null;
         }
 

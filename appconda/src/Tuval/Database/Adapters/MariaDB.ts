@@ -1074,7 +1074,8 @@ export class MariaDB extends SQL {
 
             for (const [attribute, value] of Object.entries(attributes)) {
                 updates.push(`\`${this.filter(attribute)}\` = ?`);
-                values.push(Array.isArray(value) ? JSON.stringify(value) : value);
+                //for undefined
+                values.push(Array.isArray(value) ? JSON.stringify(value) : value === undefined ? null : value);
             }
 
             const sql = `
@@ -1572,6 +1573,10 @@ export class MariaDB extends SQL {
         `;
 
         const finalSql = this.trigger(Database.EVENT_DOCUMENT_COUNT, sql);
+        
+        for (const query of queries) {
+            await this.bindConditionValue(values, query);
+        }
 
         if (max !== null) {
             values.push(max);
@@ -1758,7 +1763,7 @@ export class MariaDB extends SQL {
      */
     public async getSQLConditions(queries: Query[]): Promise<string> {
         if (queries.length === 0) return null as any;
-        const conditions = await Promise.all(queries.map(query => this.getSQLCondition(query)));
+        const conditions = await Promise.all(queries.map(async (query) => await this.getSQLCondition(query)));
         return conditions.filter(cond => cond !== '').join(' AND ');
     }
 

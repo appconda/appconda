@@ -108,7 +108,7 @@ export class Permission {
     }
 
     public static aggregate(permissions: string[] | null, allowed: string[] = Database.PERMISSIONS): string[] | null {
-        if (permissions === null) {
+        if (permissions == null) {
             return null;
         }
 

@@ -472,7 +472,7 @@ App.post('/v1/storage/buckets/:bucketId/files')
             fileSize = request.getContentRangeSize();
             fileId = request.getHeader('x-appconda-id', fileId);
             // TODO make `end >= fileSize` in next breaking version
-            if (start === null || end === null || fileSize === null || end > fileSize) {
+            if (start == null || end == null || fileSize == null || end > fileSize) {
                 throw new Exception(Exception.STORAGE_INVALID_CONTENT_RANGE);
             }
 
@@ -1060,7 +1060,7 @@ App.get('/v1/storage/buckets/:bucketId/files/:fileId/download')
             end = request.getRangeEnd();
             unit = request.getRangeUnit();
 
-            if (end === null) {
+            if (end == null) {
                 end = Math.min(start + MAX_OUTPUT_CHUNK_SIZE - 1, size - 1);
             }
 
@@ -1205,7 +1205,7 @@ App.get('/v1/storage/buckets/:bucketId/files/:fileId/view')
             end = request.getRangeEnd();
             const unit = request.getRangeUnit();
 
-            if (end === null) {
+            if (end == null) {
                 end = Math.min(start + 2000000 - 1, size - 1);
             }
 
@@ -1362,7 +1362,7 @@ App.get('/v1/storage/buckets/:bucketId/files/:fileId/push')
             end = request.getRangeEnd();
             const unit = request.getRangeUnit();
 
-            if (end === null) {
+            if (end == null) {
                 end = Math.min(start + 2000000 - 1, size - 1);
             }
 
@@ -1517,7 +1517,7 @@ App.put('/v1/storage/buckets/:bucketId/files/:fileId')
             }
         }
 
-        if (permissions === null) {
+        if (permissions == null) {
             permissions = file.getPermissions() || [];
         }
 

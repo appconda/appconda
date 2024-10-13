@@ -334,7 +334,7 @@ App.init()
             const limit = timeLimit.limit();
             const time = new Date(timeLimit.time()).getTime() + route.getLabel('abuse-time', 3600) * 1000;
 
-            if (limit && (remaining < closestLimit || closestLimit === null)) {
+            if (limit && (remaining < closestLimit || closestLimit == null)) {
                 closestLimit = remaining;
                 response
                     .addHeader('X-RateLimit-Limit', limit.toString())

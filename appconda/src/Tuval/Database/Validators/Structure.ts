@@ -203,7 +203,7 @@ export class Structure extends Validator {
             }
 
             if (array) {
-                if (!required && (Array.isArray(value) && value.length === 0 || value === null)) {
+                if (!required && (Array.isArray(value) && value.length === 0 || value == null)) {
                     continue;
                 }
 
@@ -213,7 +213,7 @@ export class Structure extends Validator {
                 }
 
                 for (const [x, child] of value.entries()) {
-                    if (!required && child === null) {
+                    if (!required && child == null) {
                         continue;
                     }
 

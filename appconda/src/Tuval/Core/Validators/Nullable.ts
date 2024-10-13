@@ -73,7 +73,7 @@ export class Nullable extends Validator {
      * @returns boolean
      */
     isValid(value: any): boolean {
-        if (value === null) {
+        if (value == null) {
             return true;
         }
 

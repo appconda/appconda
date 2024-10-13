@@ -165,7 +165,7 @@ export class Auth {
             const parsed = JSON.parse(decoded);
             const defaultSession = { id: null, secret: '' };
 
-            if (typeof parsed !== 'object' || parsed === null) {
+            if (typeof parsed !== 'object' || parsed == null) {
                 return defaultSession;
             }
 
@@ -495,6 +495,6 @@ export class Auth {
      * @return {boolean}
      */
     public static isAnonymousUser(user: Document): boolean {
-        return user.getAttribute('email') === null && user.getAttribute('phone') === null;
+        return user.getAttribute('email') == null && user.getAttribute('phone') == null;
     }
 }

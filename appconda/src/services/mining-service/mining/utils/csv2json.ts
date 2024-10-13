@@ -271,7 +271,7 @@ export class CvsToJson {
             if (result0 !== null) {
                 result0 = (function (offset, sv) { return sv; })(pos0, result0[1]);
             }
-            if (result0 === null) {
+            if (result0 == null) {
                 pos = pos0;
             }
             return result0;
@@ -299,7 +299,7 @@ export class CvsToJson {
             if (result0 !== null) {
                 result0 = (function (offset, sv) { return sv; })(pos0, result0[1]);
             }
-            if (result0 === null) {
+            if (result0 == null) {
                 pos = pos0;
             }
             return result0;
@@ -327,7 +327,7 @@ export class CvsToJson {
             if (result0 !== null) {
                 result0 = (function (offset, sv) { return sv; })(pos0, result0[1]);
             }
-            if (result0 === null) {
+            if (result0 == null) {
                 pos = pos0;
             }
             return result0;
@@ -408,7 +408,7 @@ export class CvsToJson {
                     if (result3 !== null) {
                         result3 = (function (offset, data) { return data; })(pos2, result3[1]);
                     }
-                    if (result3 === null) {
+                    if (result3 == null) {
                         pos = pos2;
                     }
                     while (result3 !== null) {
@@ -456,7 +456,7 @@ export class CvsToJson {
                         if (result3 !== null) {
                             result3 = (function (offset, data) { return data; })(pos2, result3[1]);
                         }
-                        if (result3 === null) {
+                        if (result3 == null) {
                             pos = pos2;
                         }
                     }
@@ -504,7 +504,7 @@ export class CvsToJson {
             if (result0 !== null) {
                 result0 = (function (offset, first, rest) { rest.unshift(first); return rest; })(pos0, result0[1], result0[2]);
             }
-            if (result0 === null) {
+            if (result0 == null) {
                 pos = pos0;
             }
             return result0;
@@ -551,7 +551,7 @@ export class CvsToJson {
                 if (result2 !== null) {
                     result2 = (function (offset, char, text) { return text; })(pos2, result2[0], result2[2]);
                 }
-                if (result2 === null) {
+                if (result2 == null) {
                     pos = pos2;
                 }
                 while (result2 !== null) {
@@ -588,7 +588,7 @@ export class CvsToJson {
                     if (result2 !== null) {
                         result2 = (function (offset, char, text) { return text; })(pos2, result2[0], result2[2]);
                     }
-                    if (result2 === null) {
+                    if (result2 == null) {
                         pos = pos2;
                     }
                 }
@@ -611,7 +611,7 @@ export class CvsToJson {
             if (result0 !== null) {
                 result0 = (function (offset, first, rest) { rest.unshift(first); return rest; })(pos0, result0[0], result0[1]);
             }
-            if (result0 === null) {
+            if (result0 == null) {
                 pos = pos0;
             }
             return result0;
@@ -666,10 +666,10 @@ export class CvsToJson {
             if (result0 !== null) {
                 result0 = (function (offset, text) { return text.join(''); })(pos0, result0[1]);
             }
-            if (result0 === null) {
+            if (result0 == null) {
                 pos = pos0;
             }
-            if (result0 === null) {
+            if (result0 == null) {
                 pos0 = pos;
                 result0 = [];
                 pos1 = pos;
@@ -698,7 +698,7 @@ export class CvsToJson {
                 if (result1 !== null) {
                     result1 = (function (offset, char) { return char; })(pos1, result1[0]);
                 }
-                if (result1 === null) {
+                if (result1 == null) {
                     pos = pos1;
                 }
                 while (result1 !== null) {
@@ -729,14 +729,14 @@ export class CvsToJson {
                     if (result1 !== null) {
                         result1 = (function (offset, char) { return char; })(pos1, result1[0]);
                     }
-                    if (result1 === null) {
+                    if (result1 == null) {
                         pos = pos1;
                     }
                 }
                 if (result0 !== null) {
                     result0 = (function (offset, text) { return text.join(''); })(pos0, result0);
                 }
-                if (result0 === null) {
+                if (result0 == null) {
                     pos = pos0;
                 }
             }
@@ -781,10 +781,10 @@ export class CvsToJson {
             if (result0 !== null) {
                 result0 = (function (offset) { return '"'; })(pos0);
             }
-            if (result0 === null) {
+            if (result0 == null) {
                 pos = pos0;
             }
-            if (result0 === null) {
+            if (result0 == null) {
                 if (/^[^"]/.test(input.charAt(pos))) {
                     result0 = input.charAt(pos);
                     pos++;
@@ -867,14 +867,14 @@ export class CvsToJson {
          *
          * 3. The parser did not successfully parse any part of the input.
          *
-         *   - |result === null|
+         *   - |result == null|
          *   - |pos === 0|
          *   - |rightmostFailuresExpected| contains at least one failure
          *
          * All code following this comment (including called functions) must
          * handle these states.
          */
-        if (result === null || pos !== input.length) {
+        if (result == null || pos !== input.length) {
             var offset = Math.max(pos, rightmostFailuresPos);
             var found = offset < input.length ? input.charAt(offset) : null;
             var errorPosition = computeErrorPosition();

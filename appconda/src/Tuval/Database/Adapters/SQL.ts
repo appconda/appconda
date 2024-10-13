@@ -653,7 +653,7 @@ export abstract class SQL extends Adapter {
     protected getSQLPlaceholder(query: Query): string {
         const json = JSON.stringify([query.getAttribute(), query.getMethod(), query.getValues()]);
 
-        if (json === null) {
+        if (json == null) {
             throw new DatabaseException('Failed to encode query');
         }
 

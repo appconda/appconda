@@ -171,7 +171,7 @@ export class Executor {
             runtimeEntrypoint,
         };
 
-        if (requestTimeout === null) {
+        if (requestTimeout == null) {
             requestTimeout = timeout + 15;
         }
 

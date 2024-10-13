@@ -18,7 +18,7 @@ export class Requires implements StepDependencyInterface {
 
         const value = container.get(this.key);
 
-        if (this.type === undefined || (this.type.startsWith('?') && value === null)) {
+        if (this.type === undefined || (this.type.startsWith('?') && value == null)) {
             return;
         }
 

@@ -120,7 +120,7 @@ export class Permission {
     }
 
     public static aggregate(permissions: string[] | null, allowed: string[] = PERMISSIONS): string[] | null {
-        if (permissions === null) {
+        if (permissions == null) {
             return null;
         }
 

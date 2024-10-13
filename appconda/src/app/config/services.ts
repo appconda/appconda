@@ -105,12 +105,12 @@ export default {
         optional: true,
         icon: '/images/services/health.ts',
     },
-   /*  avatars: {
+    avatars: {
         key: 'avatars',
         name: 'Avatars',
         subtitle: 'The Avatars service aims to help you complete everyday tasks related to your app image, icons, and avatars.',
         description: '/docs/services/avatars.md',
-        controller: 'api/avatars.php',
+        controller: 'api/avatars.ts',
         sdk: true,
         docs: true,
         docsUrl: 'https://appconda.io/docs/client/avatars',
@@ -118,6 +118,7 @@ export default {
         optional: true,
         icon: '/images/services/avatars.png',
     },
+   /* 
     databases: {
         key: 'databases',
         name: 'Databases',

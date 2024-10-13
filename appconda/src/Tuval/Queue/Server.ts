@@ -354,7 +354,7 @@ export class Server {
 
         for (const [key, param] of Object.entries(hook.getParams())) {
             let value = payload[key] ?? param.default;
-            value = (value === "" || value === null) ? param.default : value;
+            value = (value === "" || value == null) ? param.default : value;
 
             this.validate(key, param, value);
             hook.setParamValue(key, value);

@@ -99,11 +99,11 @@ export abstract class Adapter {
     }
 
     public async withTransaction<T>(callback: () => T): Promise<T> {
-        this.startTransaction();
+        await this.startTransaction();
 
         try {
             const result = await callback();
-            this.commitTransaction();
+            await this.commitTransaction();
             return result;
         } catch (e) {
             this.rollbackTransaction();
@@ -116,7 +116,7 @@ export abstract class Adapter {
             this.transformations[event] = [];
         }
 
-        if (callback === null) {
+        if (callback == null) {
             delete this.transformations[event][name];
         } else {
             this.transformations[event][name] = callback;

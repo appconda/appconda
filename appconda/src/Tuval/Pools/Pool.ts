@@ -70,7 +70,7 @@ import { Connection } from "./Connection";
                 attempts++;
                 connection = this.pool.pop() || null;
 
-                if (connection === null) {
+                if (connection == null) {
                     if (attempts >= this.getRetryAttempts()) {
                         throw new Error(`Pool '${this.name}' is empty (size ${this.size})`);
                     }

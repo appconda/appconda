@@ -334,7 +334,7 @@ export class Database {
         Database.addFilter(
             'datetime',
             async (value: string | null) => {
-                if (value === null) {
+                if (value == null) {
                     return null;
                 }
                 try {
@@ -372,7 +372,7 @@ export class Database {
     public async silent<T>(callback: () => T, listeners: string[] | null = null): Promise<T> {
         const previous = this.silentListeners;
 
-        if (listeners === null) {
+        if (listeners == null) {
             this.silentListeners = null;
         } else {
             const silentListeners: Record<string, boolean> = {};
@@ -401,7 +401,7 @@ export class Database {
     }
 
     protected trigger(event: string, args: any = null): void {
-        if (this.silentListeners === null) {
+        if (this.silentListeners == null) {
             return;
         }
         for (const [name, callback] of Object.entries(this.listeners[Database.EVENT_ALL] || {})) {
@@ -1011,7 +1011,7 @@ export class Database {
     protected async validateDefaultTypes(type: string, defaultValue: any): Promise<void> {
         const defaultType = typeof defaultValue;
 
-        if (defaultType === 'undefined' || defaultValue === null) {
+        if (defaultType === 'undefined' || defaultValue == null) {
             // Disable null. No validation required
             return;
         }
@@ -1770,7 +1770,7 @@ export class Database {
             throw new DatabaseException('Missing tenant. Tenant must be set when table sharing is enabled.');
         }
 
-        if (newKey === null && newTwoWayKey === null && twoWay === null && onDelete === null) {
+        if (newKey == null && newTwoWayKey == null && twoWay == null && onDelete == null) {
             return true;
         }
 
@@ -2526,7 +2526,7 @@ export class Database {
                         break;
                     }
 
-                    if (value === null) {
+                    if (value == null) {
                         break;
                     }
 
@@ -2589,7 +2589,7 @@ export class Database {
                             break;
                         }
 
-                        if (value === null) {
+                        if (value == null) {
                             break;
                         }
                         this.relationshipFetchDepth++;
@@ -3195,7 +3195,7 @@ export class Database {
                                     ? old.getAttribute(key).getId()
                                     : old.getAttribute(key);
 
-                                if ((value === null) !== (oldValue === null)
+                                if ((value == null) !== (oldValue == null)
                                     || (typeof value === 'string' && value !== oldValue)
                                     || (value instanceof Document && value.getId() !== oldValue)
                                 ) {
@@ -3213,7 +3213,7 @@ export class Database {
                                         ? old.getAttribute(key).getId()
                                         : old.getAttribute(key);
 
-                                    if ((value === null) !== (oldValue === null)
+                                    if ((value == null) !== (oldValue == null)
                                         || (typeof value === 'string' && value !== oldValue)
                                         || (value instanceof Document && value.getId() !== oldValue)
                                     ) {
@@ -3678,7 +3678,7 @@ export class Database {
                             }
 
                             document.setAttribute(key, value.getId());
-                        } else if (value === null) {
+                        } else if (value == null) {
                             break;
                         } else if (Array.isArray(value)) {
                             throw new RelationshipException('Invalid relationship value. Must be either a document ID or a document, array given.');
@@ -3690,7 +3690,7 @@ export class Database {
 
                         break;
                     case Database.RELATION_MANY_TO_MANY:
-                        if (value === null) {
+                        if (value == null) {
                             break;
                         }
                         if (!Array.isArray(value)) {
@@ -4672,7 +4672,7 @@ export class Database {
         queries = Query.groupByType(queries).filters;
         queries = Database.convertQueries(collectionDoc, queries);
 
-        const getCount = () => this.adapter.count(collectionDoc.getId(), queries, max ?? undefined);
+        const getCount = async () => await this.adapter.count(collectionDoc.getId(), queries, max ?? undefined);
         const count = skipAuth ? await Authorization.skip(getCount) : await getCount();
 
         this.trigger(Database.EVENT_DOCUMENT_COUNT, count);
@@ -4761,12 +4761,12 @@ export class Database {
             let value = document.getAttribute(key);
 
             // continue on optional param with no default
-            if (value === null && defaultValue === null) {
+            if (value == null && defaultValue == null) {
                 continue;
             }
 
             // assign default only if no value provided
-            if (value === null && defaultValue !== null) {
+            if (value == null && defaultValue !== null) {
                 value = array ? defaultValue : [defaultValue];
             } else {
                 value = array ? value : [value];
@@ -4830,7 +4830,7 @@ export class Database {
             const filters = attribute.getAttribute('filters') ?? [];
             let value = document.getAttribute(key);
 
-            if (value === null) {
+            if (value == null) {
                 value = document.getAttribute(this.adapter.filter(key));
 
                 if (value !== null) {
@@ -4839,7 +4839,7 @@ export class Database {
             }
 
             value = array ? value : [value];
-            value = value === null ? [] : value;
+            value = value == null ? [] : value;
 
             for (let i = 0; i < value.length; i++) {
                 for (const filter of filters.reverse()) {
@@ -4854,7 +4854,7 @@ export class Database {
                 || ['$createdAt', '$updatedAt'].includes(key)
             ) {
                 if (
-                    ['$createdAt', '$updatedAt'].includes(key) && value[0] === null
+                    ['$createdAt', '$updatedAt'].includes(key) && value[0] == null
                 ) {
                     continue;
                 } else {
@@ -4886,7 +4886,7 @@ export class Database {
             const type = attribute.getAttribute('type') ?? '';
             const array = attribute.getAttribute('array') ?? false;
             let value = document.getAttribute(key, null);
-            if (value === null) {
+            if (value == null) {
                 continue;
             }
 

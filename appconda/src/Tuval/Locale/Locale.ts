@@ -76,7 +76,7 @@
          * @throws {Error}
          */
         public getText(key: string, defaultValue: any = null): any {
-            defaultValue = defaultValue === null ? `{{${key}}}` : defaultValue;
+            defaultValue = defaultValue == null ? `{{${key}}}` : defaultValue;
 
             if (!(key in Locale.language[this.default])) {
                 if (Locale.exceptions) {
