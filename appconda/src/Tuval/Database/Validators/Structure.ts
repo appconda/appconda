@@ -139,7 +139,7 @@ export class Structure extends Validator {
 
             keys[name] = attribute;
 
-            if (required && !structure[name]) {
+            if (required && structure[name] == null) {
                 this.message = `Missing required attribute "${name}"`;
                 return false;
             }
