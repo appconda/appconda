@@ -118,6 +118,19 @@ export default {
         optional: true,
         icon: '/images/services/avatars.png',
     },
+    users: {
+        key: 'users',
+        name: 'Users',
+        subtitle: 'The Users service allows you to manage your project users.',
+        description: '/docs/services/users.md',
+        controller: 'api/users.ts',
+        sdk: true,
+        docs: true,
+        docsUrl: 'https://appconda.io/docs/server/users',
+        tests: false,
+        optional: true,
+        icon: '/images/services/users.png',
+    },
    /* 
     databases: {
         key: 'databases',
@@ -175,19 +188,7 @@ export default {
         icon: '/images/services/storage.png',
     },
  
-    users: {
-        key: 'users',
-        name: 'Users',
-        subtitle: 'The Users service allows you to manage your project users.',
-        description: '/docs/services/users.md',
-        controller: 'api/users.php',
-        sdk: true,
-        docs: true,
-        docsUrl: 'https://appconda.io/docs/server/users',
-        tests: false,
-        optional: true,
-        icon: '/images/services/users.png',
-    },
+   
     vcs: {
         key: 'vcs',
         name: 'VCS',

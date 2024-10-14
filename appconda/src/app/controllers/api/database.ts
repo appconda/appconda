@@ -221,8 +221,8 @@ async function updateAttribute(
         filter = null,
         defaultValue = null,
         required = null,
-        min = null ,
-        max = null ,
+        min = null,
+        max = null,
         elements = null,
         options = {}
     }: {
@@ -406,7 +406,7 @@ App.post('/v1/databases')
     .inject('response')
     .inject('dbForProject')
     .inject('queueForEvents')
-    .action(async ({ databaseId, name, enabled, response, dbForProject, queueForEvents }: { databaseId: string, name: string, enabled: boolean, response: Response, dbForProject: Database, queueForEvents: Event }) => {
+    .action(async (databaseId: string, name: string, enabled: boolean, response: Response, dbForProject: Database, queueForEvents: Event) => {
 
         databaseId = databaseId === 'unique()' ? ID.unique() : databaseId;
 
@@ -476,7 +476,7 @@ App.get('/v1/databases')
     .param('search', '', new Text(256), 'Search term to filter your list results. Max length: 256 chars.', true)
     .inject('response')
     .inject('dbForProject')
-    .action(async ({ queries, search, response, dbForProject }: { queries: any[], search: string, response: Response, dbForProject: Database }) => {
+    .action(async (queries: any[], search: string, response: Response, dbForProject: Database) => {
 
         try {
             queries = Query.parseQueries(queries);
@@ -528,7 +528,7 @@ App.get('/v1/databases/:databaseId')
     .param('databaseId', '', new UID(), 'Database ID.')
     .inject('response')
     .inject('dbForProject')
-    .action(async ({ databaseId, response, dbForProject }: { databaseId: string, response: Response, dbForProject: Database }) => {
+    .action(async (databaseId: string, response: Response, dbForProject: Database) => {
 
         const database = await dbForProject.getDocument('databases', databaseId);
 
@@ -557,7 +557,7 @@ App.get('/v1/databases/:databaseId/logs')
     .inject('dbForProject')
     .inject('locale')
     .inject('geodb')
-    .action(async ({ databaseId, queries, response, dbForProject, locale, geodb }: { databaseId: string, queries: any[], response: Response, dbForProject: Database, locale: Locale, geodb: any }) => {
+    .action(async (databaseId: string, queries: any[], response: Response, dbForProject: Database, locale: Locale, geodb: any) => {
 
         const database = await dbForProject.getDocument('databases', databaseId);
 
@@ -656,7 +656,7 @@ App.put('/v1/databases/:databaseId')
     .inject('response')
     .inject('dbForProject')
     .inject('queueForEvents')
-    .action(async ({ databaseId, name, enabled, response, dbForProject, queueForEvents }: { databaseId: string, name: string, enabled: boolean, response: Response, dbForProject: Database, queueForEvents: Event }) => {
+    .action(async (databaseId: string, name: string, enabled: boolean, response: Response, dbForProject: Database, queueForEvents: Event) => {
 
         const database = await dbForProject.getDocument('databases', databaseId);
 
@@ -693,7 +693,7 @@ App.delete('/v1/databases/:databaseId')
     .inject('dbForProject')
     .inject('queueForDatabase')
     .inject('queueForEvents')
-    .action(async ({ databaseId, response, dbForProject, queueForDatabase, queueForEvents }: { databaseId: string, response: Response, dbForProject: Database, queueForDatabase: EventDatabase, queueForEvents: Event }) => {
+    .action(async (databaseId: string, response: Response, dbForProject: Database, queueForDatabase: EventDatabase, queueForEvents: Event) => {
 
         const database = await dbForProject.getDocument('databases', databaseId);
 
@@ -744,7 +744,7 @@ App.post('/v1/databases/:databaseId/collections')
     .inject('dbForProject')
     .inject('mode')
     .inject('queueForEvents')
-    .action(async ({ databaseId, collectionId, name, permissions, documentSecurity, enabled, response, dbForProject, mode, queueForEvents }: { databaseId: string, collectionId: string, name: string, permissions: string[] | null, documentSecurity: boolean, enabled: boolean, response: Response, dbForProject: Database, mode: string, queueForEvents: Event }) => {
+    .action(async ( databaseId: string, collectionId: string, name: string, permissions: string[] | null, documentSecurity: boolean, enabled: boolean, response: Response, dbForProject: Database, mode: string, queueForEvents: Event ) => {
 
         const database = await Authorization.skip(() => dbForProject.getDocument('databases', databaseId));
 
@@ -812,7 +812,7 @@ App.get('/v1/databases/:databaseId/collections')
     .inject('response')
     .inject('dbForProject')
     .inject('mode')
-    .action(async ({ databaseId, queries, search, response, dbForProject, mode }: { databaseId: string, queries: any[], search: string, response: Response, dbForProject: Database, mode: string }) => {
+    .action(async ( databaseId: string, queries: any[], search: string, response: Response, dbForProject: Database, mode: string ) => {
 
         const database = await Authorization.skip(() => dbForProject.getDocument('databases', databaseId));
 
@@ -872,7 +872,7 @@ App.get('/v1/databases/:databaseId/collections/:collectionId')
     .inject('response')
     .inject('dbForProject')
     .inject('mode')
-    .action(async ({ databaseId, collectionId, response, dbForProject, mode }: { databaseId: string, collectionId: string, response: Response, dbForProject: Database, mode: string }) => {
+    .action(async ( databaseId: string, collectionId: string, response: Response, dbForProject: Database, mode: string ) => {
 
         const database = await Authorization.skip(async () => await dbForProject.getDocument('databases', databaseId));
 
@@ -3557,7 +3557,7 @@ App.get('/v1/databases/usage')
         }), Response.MODEL_USAGE_DATABASES);
     });
 
-    App.get('/v1/databases/:databaseId/usage')
+App.get('/v1/databases/:databaseId/usage')
     .desc('Get database usage stats')
     .groups(['api', 'database', 'usage'])
     .label('scope', 'collections.read')
@@ -3637,7 +3637,7 @@ App.get('/v1/databases/usage')
         }), Response.MODEL_USAGE_DATABASE);
     });
 
-    App.get('/v1/databases/:databaseId/collections/:collectionId/usage')
+App.get('/v1/databases/:databaseId/collections/:collectionId/usage')
     //.alias('/v1/database/:collectionId/usage', { databaseId: 'default' })
     .desc('Get collection usage stats')
     .groups(['api', 'database', 'usage'])

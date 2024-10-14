@@ -3,6 +3,7 @@ import { Identities } from "../../../Appconda/Database/Validators/Queries/Identi
 import { Targets } from "../../../Appconda/Database/Validators/Queries/Targets";
 import { Users } from "../../../Appconda/Database/Validators/Queries/Users";
 import { Detector } from "../../../Appconda/Detector/Detector";
+import { Delete } from "../../../Appconda/Event/Delete";
 import { Event } from "../../../Appconda/Event/Event";
 import { AppcondaException as Exception } from "../../../Appconda/Extend/Exception";
 import { Hooks } from "../../../Appconda/Hooks/Hooks";
@@ -12,10 +13,10 @@ import { Response } from "../../../Appconda/Tuval/Response";
 import { Audit } from "../../../Tuval/Audit";
 import { Auth, Password, PasswordDictionary, PasswordHistory, PersonalData, Phone, TOTP, Type } from "../../../Tuval/Auth";
 import { ArrayList, Assoc, Boolean, DateTime, Document, ID, Integer, Permission, Range, Role, Text, WhiteList } from "../../../Tuval/Core";
-import { Database, Duplicate, Query, QueryException, UID } from "../../../Tuval/Database";
+import { Database, Duplicate, Limit, Offset, Queries, Query, QueryException, UID } from "../../../Tuval/Database";
 import { App } from "../../../Tuval/Http";
 import { Locale } from "../../../Tuval/Locale";
-import { APP_AUTH_TYPE_ADMIN, APP_AUTH_TYPE_KEY, APP_LIMIT_ARRAY_LABELS_SIZE, APP_LIMIT_COUNT, DELETE_TYPE_DOCUMENT, DELETE_TYPE_TARGET, MESSAGE_TYPE_EMAIL, MESSAGE_TYPE_PUSH, MESSAGE_TYPE_SMS } from "../../init";
+import { APP_AUTH_TYPE_ADMIN, APP_AUTH_TYPE_KEY, APP_LIMIT_ARRAY_ELEMENT_SIZE, APP_LIMIT_ARRAY_LABELS_SIZE, APP_LIMIT_ARRAY_PARAMS_SIZE, APP_LIMIT_COUNT, DELETE_TYPE_DOCUMENT, DELETE_TYPE_TARGET, MESSAGE_TYPE_EMAIL, MESSAGE_TYPE_PUSH, MESSAGE_TYPE_SMS } from "../../init";
 
 
 async function createUser(
@@ -761,7 +762,7 @@ App.get('/v1/users/:userId/logs')
     .inject('dbForProject')
     .inject('locale')
     .inject('geodb')
-    .action(async (userId: string, queries: any[], response: Response, dbForProject: Database, locale: Locale, geodb: Reader) => {
+    .action(async (userId: string, queries: any[], response: Response, dbForProject: Database, locale: Locale, geodb: any) => {
         const user = await dbForProject.getDocument('users', userId);
 
         if (user.isEmpty()) {
@@ -1752,7 +1753,7 @@ App.post('/v1/users/:userId/sessions')
     .inject('locale')
     .inject('geodb')
     .inject('queueForEvents')
-    .action(async (userId: string, request: Request, response: Response, dbForProject: Database, project: Document, locale: Locale, geodb: Reader, queueForEvents: Event) => {
+    .action(async (userId: string, request: Request, response: Response, dbForProject: Database, project: Document, locale: Locale, geodb: any, queueForEvents: Event) => {
         const user = await dbForProject.getDocument('users', userId);
         if (user.isEmpty()) {
             throw new Exception(Exception.USER_NOT_FOUND);
@@ -1963,7 +1964,7 @@ App.delete('/v1/users/:userId')
         }
 
         // clone user object to send to workers
-        const clone = { ...user };
+        const clone = new Document({ ...user });
 
         await dbForProject.deleteDocument('users', userId);
 
