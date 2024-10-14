@@ -36,7 +36,6 @@ export abstract class SQL extends Adapter {
             if (this._inTransaction === 0) {
                 const connection = await this.getPDO().getConnection();
                 await connection.beginTransaction();
-                return true;
             }
             this._inTransaction++;
             return true;

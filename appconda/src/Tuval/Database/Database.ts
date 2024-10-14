@@ -708,7 +708,7 @@ export class Database {
             }
         }
 
-        const createdCollection = await this.silent(async () => await this.createDocument(Database.METADATA, newCollection));
+        const createdCollection = await this.createDocument(Database.METADATA, newCollection);//await this.silent(async () => await this.createDocument(Database.METADATA, newCollection));
 
         this.trigger(Database.EVENT_COLLECTION_CREATE, createdCollection);
 
@@ -2686,7 +2686,7 @@ export class Database {
             throw new DatabaseException('Missing tenant. Tenant must be set when table sharing is enabled.');
         }
 
-        const collectionDoc = await this.silent(async () => await this.getCollection(collection));
+        const collectionDoc = await this.getCollection(collection);//await this.silent(async () => await this.getCollection(collection));
 
         if (collectionDoc.getId() !== Database.METADATA) {
             const authorization = new Authorization(Database.PERMISSION_CREATE);
