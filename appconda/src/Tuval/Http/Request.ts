@@ -166,17 +166,22 @@ import { parse } from 'url';
             return this;
         }
 
+        public abstract getRawRequest();
+
         protected generateInput(): Record<string, any> {
+           
             if (this.queryString == null) {
-                const parsedUrl =  parse(this.getURI(),true);
-                for(let key in parsedUrl.query){
+                const rawRequest = this.getRawRequest();
+                this.queryString = rawRequest.query;
+                //const parsedUrl =  parse(this.getURI(),true);
+               /*  for(let key in parsedUrl.query){
                     if (this.queryString == null){
                         this.queryString = {};
                     }
                     this.queryString[key] = parsedUrl.query[key][0];
-                }
+                } */
                 //const queryParams = parsedUrl.query;
-                //this.queryString = queryParams;
+                //this.queryString = this.getRa;
             }
             if (this.payload == null) {
                 let contentType = this.getHeader('content-type');

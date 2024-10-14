@@ -730,6 +730,7 @@ export abstract class SQL extends Adapter {
      * @throws DatabaseException
      */
     protected getSQLTable(name: string): string {
+        const a = `\`${this.getDatabase()}\`.\`${this.getNamespace()}_${this.filter(name)}\``;
         return `\`${this.getDatabase()}\`.\`${this.getNamespace()}_${this.filter(name)}\``;
     }
 

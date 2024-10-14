@@ -29,6 +29,10 @@ export class Request extends BaseRequest {
         this.rawRequest = req;
     }
 
+    public getRawRequest() {
+        return this.rawRequest;
+    }
+
     /**
      * Function to add a response filter, the order of filters are first in - first out.
      *

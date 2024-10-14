@@ -744,9 +744,10 @@ App.post('/v1/databases/:databaseId/collections')
     .inject('dbForProject')
     .inject('mode')
     .inject('queueForEvents')
-    .action(async ( databaseId: string, collectionId: string, name: string, permissions: string[] | null, documentSecurity: boolean, enabled: boolean, response: Response, dbForProject: Database, mode: string, queueForEvents: Event ) => {
+    .action(async (databaseId: string, collectionId: string, name: string, permissions: string[] | null, documentSecurity: boolean, enabled: boolean, response: Response,
+        dbForProject: Database, mode: string, queueForEvents: Event) => {
 
-        const database = await Authorization.skip(() => dbForProject.getDocument('databases', databaseId));
+        const database = await Authorization.skip(async () => await dbForProject.getDocument('databases', databaseId));
 
         if (database.isEmpty()) {
             throw new Exception(Exception.DATABASE_NOT_FOUND);
@@ -812,9 +813,9 @@ App.get('/v1/databases/:databaseId/collections')
     .inject('response')
     .inject('dbForProject')
     .inject('mode')
-    .action(async ( databaseId: string, queries: any[], search: string, response: Response, dbForProject: Database, mode: string ) => {
+    .action(async (databaseId: string, queries: any[], search: string, response: Response, dbForProject: Database, mode: string) => {
 
-        const database = await Authorization.skip(() => dbForProject.getDocument('databases', databaseId));
+        const database = await dbForProject.getDocument('databases', databaseId); //await Authorization.skip(async () => await dbForProject.getDocument('databases', databaseId));
 
         if (database.isEmpty()) {
             throw new Exception(Exception.DATABASE_NOT_FOUND);
@@ -847,7 +848,7 @@ App.get('/v1/databases/:databaseId/collections')
         }
 
         const filterQueries = Query.groupByType(queries)['filters'];
-
+        const col = await dbForProject.find('database_' + database.getInternalId(), queries);
         response.dynamic(new Document({
             collections: await dbForProject.find('database_' + database.getInternalId(), queries),
             total: await dbForProject.count('database_' + database.getInternalId(), filterQueries, APP_LIMIT_COUNT),
@@ -872,7 +873,7 @@ App.get('/v1/databases/:databaseId/collections/:collectionId')
     .inject('response')
     .inject('dbForProject')
     .inject('mode')
-    .action(async ( databaseId: string, collectionId: string, response: Response, dbForProject: Database, mode: string ) => {
+    .action(async (databaseId: string, collectionId: string, response: Response, dbForProject: Database, mode: string) => {
 
         const database = await Authorization.skip(async () => await dbForProject.getDocument('databases', databaseId));
 
@@ -910,7 +911,7 @@ App.get('/v1/databases/:databaseId/collections/:collectionId/logs')
     .inject('dbForProject')
     .inject('locale')
     .inject('geodb')
-    .action(async ({ databaseId, collectionId, queries, response, dbForProject, locale, geodb }: { databaseId: string, collectionId: string, queries: any[], response: Response, dbForProject: Database, locale: Locale, geodb: any }) => {
+    .action(async (databaseId: string, collectionId: string, queries: any[], response: Response, dbForProject: Database, locale: Locale, geodb: any) => {
 
         const database = await Authorization.skip(async () => await dbForProject.getDocument('databases', databaseId));
 
@@ -1020,7 +1021,8 @@ App.put('/v1/databases/:databaseId/collections/:collectionId')
     .inject('dbForProject')
     .inject('mode')
     .inject('queueForEvents')
-    .action(async ({ databaseId, collectionId, name, permissions, documentSecurity, enabled, response, dbForProject, mode, queueForEvents }: { databaseId: string, collectionId: string, name: string, permissions: string[] | null, documentSecurity: boolean, enabled: boolean, response: Response, dbForProject: Database, mode: string, queueForEvents: Event }) => {
+    .action(async (databaseId: string, collectionId: string, name: string, permissions: string[] | null, documentSecurity: boolean, enabled: boolean, response: Response, dbForProject: Database,
+        mode: string, queueForEvents: Event) => {
 
         const database = await Authorization.skip(() => dbForProject.getDocument('databases', databaseId));
 
@@ -1079,7 +1081,7 @@ App.delete('/v1/databases/:databaseId/collections/:collectionId')
     .inject('queueForDatabase')
     .inject('queueForEvents')
     .inject('mode')
-    .action(async ({ databaseId, collectionId, response, dbForProject, queueForDatabase, queueForEvents, mode }: { databaseId: string, collectionId: string, response: Response, dbForProject: Database, queueForDatabase: EventDatabase, queueForEvents: Event, mode: string }) => {
+    .action(async (databaseId: string, collectionId: string, response: Response, dbForProject: Database, queueForDatabase: EventDatabase, queueForEvents: Event, mode: string) => {
 
         const database = await Authorization.skip(() => dbForProject.getDocument('databases', databaseId));
 
@@ -1140,7 +1142,8 @@ App.post('/v1/databases/:databaseId/collections/:collectionId/attributes/string'
     .inject('dbForProject')
     .inject('queueForDatabase')
     .inject('queueForEvents')
-    .action(async ({ databaseId, collectionId, key, size, required, defaultValue, array, encrypt, response, dbForProject, queueForDatabase, queueForEvents }: { databaseId: string, collectionId: string, key: string, size: number | null, required: boolean | null, defaultValue: string | null, array: boolean, encrypt: boolean, response: Response, dbForProject: Database, queueForDatabase: EventDatabase, queueForEvents: Event }) => {
+    .action(async (databaseId: string, collectionId: string, key: string, size: number | null, required: boolean | null, defaultValue: string | null,
+        array: boolean, encrypt: boolean, response: Response, dbForProject: Database, queueForDatabase: EventDatabase, queueForEvents: Event) => {
 
         // Ensure attribute default is within required size
         const validator = new Text(size, 0);
@@ -1194,7 +1197,8 @@ App.post('/v1/databases/:databaseId/collections/:collectionId/attributes/email')
     .inject('dbForProject')
     .inject('queueForDatabase')
     .inject('queueForEvents')
-    .action(async ({ databaseId, collectionId, key, required, defaultValue, array, response, dbForProject, queueForDatabase, queueForEvents }: { databaseId: string, collectionId: string, key: string, required: boolean | null, defaultValue: string | null, array: boolean, response: Response, dbForProject: Database, queueForDatabase: EventDatabase, queueForEvents: Event }) => {
+    .action(async (databaseId: string, collectionId: string, key: string, required: boolean | null, defaultValue: string | null, array: boolean,
+        response: Response, dbForProject: Database, queueForDatabase: EventDatabase, queueForEvents: Event) => {
 
         const attribute = await createAttribute(databaseId, collectionId, new Document({
             key: key,
@@ -1237,7 +1241,8 @@ App.post('/v1/databases/:databaseId/collections/:collectionId/attributes/enum')
     .inject('dbForProject')
     .inject('queueForDatabase')
     .inject('queueForEvents')
-    .action(async ({ databaseId, collectionId, key, elements, required, defaultValue, array, response, dbForProject, queueForDatabase, queueForEvents }: { databaseId: string, collectionId: string, key: string, elements: string[], required: boolean | null, defaultValue: string | null, array: boolean, response: Response, dbForProject: Database, queueForDatabase: EventDatabase, queueForEvents: Event }) => {
+    .action(async (databaseId: string, collectionId: string, key: string, elements: string[], required: boolean | null, defaultValue: string | null, array: boolean,
+        response: Response, dbForProject: Database, queueForDatabase: EventDatabase, queueForEvents: Event) => {
         if (defaultValue !== null && !elements.includes(defaultValue)) {
             throw new Exception(Exception.ATTRIBUTE_VALUE_INVALID, 'Default value not found in elements');
         }
@@ -1326,7 +1331,8 @@ App.post('/v1/databases/:databaseId/collections/:collectionId/attributes/url')
     .inject('dbForProject')
     .inject('queueForDatabase')
     .inject('queueForEvents')
-    .action(async ({ databaseId, collectionId, key, required, defaultValue, array, response, dbForProject, queueForDatabase, queueForEvents }: { databaseId: string, collectionId: string, key: string, required: boolean | null, defaultValue: string | null, array: boolean, response: Response, dbForProject: Database, queueForDatabase: EventDatabase, queueForEvents: Event }) => {
+    .action(async (databaseId: string, collectionId: string, key: string, required: boolean | null, defaultValue: string | null, array: boolean, response: Response,
+        dbForProject: Database, queueForDatabase: EventDatabase, queueForEvents: Event) => {
 
         const attribute = await createAttribute(databaseId, collectionId, new Document({
             key: key,
@@ -1370,7 +1376,8 @@ App.post('/v1/databases/:databaseId/collections/:collectionId/attributes/integer
     .inject('dbForProject')
     .inject('queueForDatabase')
     .inject('queueForEvents')
-    .action(async ({ databaseId, collectionId, key, required, min, max, defaultValue, array, response, dbForProject, queueForDatabase, queueForEvents }: { databaseId: string, collectionId: string, key: string, required: boolean | null, min: number | null, max: number | null, defaultValue: number | null, array: boolean, response: Response, dbForProject: Database, queueForDatabase: EventDatabase, queueForEvents: Event }) => {
+    .action(async (databaseId: string, collectionId: string, key: string, required: boolean | null, min: number | null, max: number | null, defaultValue: number | null,
+        array: boolean, response: Response, dbForProject: Database, queueForDatabase: EventDatabase, queueForEvents: Event) => {
 
         // Ensure attribute default is within range
         min = (min == null) ? Number.MIN_SAFE_INTEGER : min;
@@ -1441,7 +1448,8 @@ App.post('/v1/databases/:databaseId/collections/:collectionId/attributes/float')
     .inject('dbForProject')
     .inject('queueForDatabase')
     .inject('queueForEvents')
-    .action(async ({ databaseId, collectionId, key, required, min, max, defaultValue, array, response, dbForProject, queueForDatabase, queueForEvents }: { databaseId: string, collectionId: string, key: string, required: boolean | null, min: number | null, max: number | null, defaultValue: number | null, array: boolean, response: Response, dbForProject: Database, queueForDatabase: EventDatabase, queueForEvents: Event }) => {
+    .action(async (databaseId: string, collectionId: string, key: string, required: boolean | null, min: number | null, max: number | null, defaultValue: number | null,
+        array: boolean, response: Response, dbForProject: Database, queueForDatabase: EventDatabase, queueForEvents: Event) => {
 
         // Ensure attribute default is within range
         min = (min == null) ? -Number.MAX_VALUE : min;
@@ -1513,7 +1521,8 @@ App.post('/v1/databases/:databaseId/collections/:collectionId/attributes/boolean
     .inject('dbForProject')
     .inject('queueForDatabase')
     .inject('queueForEvents')
-    .action(async ({ databaseId, collectionId, key, required, defaultValue, array, response, dbForProject, queueForDatabase, queueForEvents }: { databaseId: string, collectionId: string, key: string, required: boolean | null, defaultValue: boolean | null, array: boolean, response: Response, dbForProject: Database, queueForDatabase: EventDatabase, queueForEvents: Event }) => {
+    .action(async (databaseId: string, collectionId: string, key: string, required: boolean | null, defaultValue: boolean | null, array: boolean,
+        response: Response, dbForProject: Database, queueForDatabase: EventDatabase, queueForEvents: Event) => {
 
         const attribute = await createAttribute(databaseId, collectionId, new Document({
             key: key,
@@ -1600,7 +1609,8 @@ App.post('/v1/databases/:databaseId/collections/:collectionId/attributes/relatio
     .inject('dbForProject')
     .inject('queueForDatabase')
     .inject('queueForEvents')
-    .action(async ({ databaseId, collectionId, relatedCollectionId, type, twoWay, key, twoWayKey, onDelete, response, dbForProject, queueForDatabase, queueForEvents }: { databaseId: string, collectionId: string, relatedCollectionId: string, type: string, twoWay: boolean, key: string | null, twoWayKey: string | null, onDelete: string, response: Response, dbForProject: Database, queueForDatabase: EventDatabase, queueForEvents: Event }) => {
+    .action(async (databaseId: string, collectionId: string, relatedCollectionId: string, type: string, twoWay: boolean, key: string | null, twoWayKey: string | null,
+        onDelete: string, response: Response, dbForProject: Database, queueForDatabase: EventDatabase, queueForEvents: Event) => {
         key = key ?? relatedCollectionId;
         twoWayKey = twoWayKey ?? collectionId;
 
@@ -1703,7 +1713,7 @@ App.get('/v1/databases/:databaseId/collections/:collectionId/attributes')
     .param('queries', [], new Attributes(), `Array of query strings generated using the Query class provided by the SDK. [Learn more about queries](https://appconda.io/docs/queries). Maximum of ${APP_LIMIT_ARRAY_PARAMS_SIZE} queries are allowed, each ${APP_LIMIT_ARRAY_ELEMENT_SIZE} characters long. You may filter on the following attributes: ${Attributes.ALLOWED_ATTRIBUTES.join(', ')}`, true)
     .inject('response')
     .inject('dbForProject')
-    .action(async ({ databaseId, collectionId, queries, response, dbForProject }: { databaseId: string, collectionId: string, queries: any[], response: Response, dbForProject: Database }) => {
+    .action(async (databaseId: string, collectionId: string, queries: any[], response: Response, dbForProject: Database) => {
         const database = await Authorization.skip(() => dbForProject.getDocument('databases', databaseId));
 
         if (database.isEmpty()) {
@@ -3406,7 +3416,8 @@ App.delete('/v1/databases/:databaseId/collections/:collectionId/documents/:docum
     .inject('queueForDeletes')
     .inject('queueForEvents')
     .inject('mode')
-    .action(async ({ databaseId, collectionId, documentId, requestTimestamp, response, dbForProject, queueForDeletes, queueForEvents, mode }: { databaseId: string, collectionId: string, documentId: string, requestTimestamp: Date | null, response: Response, dbForProject: Database, queueForDeletes: Delete, queueForEvents: Event, mode: string }) => {
+    .action(async (databaseId: string, collectionId: string, documentId: string, requestTimestamp: Date | null, response: Response, dbForProject: Database,
+        queueForDeletes: Delete, queueForEvents: Event, mode: string) => {
         const database = await Authorization.skip(() => dbForProject.getDocument('databases', databaseId));
 
         const isAPIKey = Auth.isAppUser(Authorization.getRoles());
@@ -3494,7 +3505,7 @@ App.get('/v1/databases/usage')
     .param('range', '30d', new WhiteList(['24h', '30d', '90d'], true), '`Date range.', true)
     .inject('response')
     .inject('dbForProject')
-    .action(async ({ range, response, dbForProject }: { range: string, response: Response, dbForProject: Database }) => {
+    .action(async (range: string, response: Response, dbForProject: Database) => {
 
         const periods = Config.getParam('usage', []);
         const stats: Record<string, any> = {};
@@ -3571,7 +3582,7 @@ App.get('/v1/databases/:databaseId/usage')
     .param('range', '30d', new WhiteList(['24h', '30d', '90d'], true), '`Date range.', true)
     .inject('response')
     .inject('dbForProject')
-    .action(async ({ databaseId, range, response, dbForProject }: { databaseId: string, range: string, response: Response, dbForProject: Database }) => {
+    .action(async (databaseId: string, range: string, response: Response, dbForProject: Database) => {
 
         const database = await dbForProject.getDocument('databases', databaseId);
 
@@ -3653,7 +3664,7 @@ App.get('/v1/databases/:databaseId/collections/:collectionId/usage')
     .param('collectionId', '', new UID(), 'Collection ID.')
     .inject('response')
     .inject('dbForProject')
-    .action(async ({ databaseId, range, collectionId, response, dbForProject }: { databaseId: string, range: string, collectionId: string, response: Response, dbForProject: Database }) => {
+    .action(async (databaseId: string, range: string, collectionId: string, response: Response, dbForProject: Database) => {
 
         const database = await dbForProject.getDocument('databases', databaseId);
         const collectionDocument = await dbForProject.getDocument('database_' + database.getInternalId(), collectionId);

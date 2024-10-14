@@ -131,13 +131,12 @@ export default {
         optional: true,
         icon: '/images/services/users.png',
     },
-   /* 
     databases: {
         key: 'databases',
         name: 'Databases',
         subtitle: 'The Databases service allows you to create structured collections of documents, query and filter lists of documents',
         description: '/docs/services/databases.md',
-        controller: 'api/databases.php',
+        controller: 'api/database.ts',
         sdk: true,
         docs: true,
         docsUrl: 'https://appconda.io/docs/client/databases',
@@ -146,6 +145,8 @@ export default {
         icon: '/images/services/databases.png',
         globalAttributes: ['databaseId'],
     },
+   /* 
+   
     locale: {
         key: 'locale',
         name: 'Locale',

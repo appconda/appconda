@@ -15,6 +15,7 @@ import { Request } from "../../Appconda/Tuval/Request";
 import { Response } from "../../Appconda/Tuval/Response";
 var compression = require('compression')
 const express = require('express');
+const { queryParser } = require('express-query-parser')
 
 var cors = require('cors')
 const cookieParser = require('cookie-parser');
@@ -202,6 +203,15 @@ export default class WebServerService extends BaseService {
         }));
         app.use(cookieParser());
         app.use(compression());
+        app.use(
+            queryParser({
+              parseNull: true,
+              parseUndefined: true,
+              parseBoolean: true,
+              parseNumber: true
+            })
+          )
+          
         /*  app.use(cors({
            allowedHeaders: ['x-github-username', 'x-github-repo', ['x-github-token']]
          })) */
