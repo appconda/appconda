@@ -1230,6 +1230,7 @@ App.setResource('project', async ({ dbForConsole, request, console }: { dbForCon
     }
 
     const project = await Authorization.skip(async () => await dbForConsole.getDocument('projects', projectId));
+    const _projectId = request.getParam('project', request.getHeader('x-appconda-project', ''));
     request.getParam('project', '');
     return project;
 }, ['dbForConsole', 'request', 'console']);

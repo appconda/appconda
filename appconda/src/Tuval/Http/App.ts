@@ -411,12 +411,12 @@ export class App {
                         const args = await this.getArguments(hook, pathValues, request.getParams());
                         const action = hook.getAction();
 
-                        try {
+                        //try {
                             await action(...args);
-                        }
+                       /*  }
                         catch {
                             await action(...args);
-                        }
+                        } */
                         
 
                     }
@@ -430,12 +430,13 @@ export class App {
                         const action = hook.getAction();
                         try {
                             await action(...args);
-                        }
-                        catch {
-                            const args = await this.getArguments(hook, pathValues, request.getParams());
-                            const action = hook.getAction();
-                            await action(...args);
-                        }
+                         }
+                        catch(e) {
+                            Console.error(e)
+                           // const args = await this.getArguments(hook, pathValues, request.getParams());
+                           // const action = hook.getAction();
+                           // await action(...args);
+                        } 
 
                     }
                 }
@@ -447,10 +448,11 @@ export class App {
 
                 try {
                     await action(...args);
-                }
-                catch {
-                    await action(...args);
-                }
+                 }
+                catch(e) {
+                    Console.error(e)
+                   // await action(...args);
+                } 
 
             }
 

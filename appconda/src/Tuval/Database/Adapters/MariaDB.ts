@@ -1470,10 +1470,15 @@ export class MariaDB extends SQL {
             values.push(cursorValue, cursorValue, internalId);
         }
 
+        const binds = [];
         // Bind other query values
         for (const query of queries) {
-            await this.bindConditionValue(values, query);
+            binds.push(this.bindConditionValue(values, query));
         }
+
+        await Promise.all(binds);
+
+
 
         if (this.sharedTables) {
             values.push(this.tenant);
@@ -1574,9 +1579,12 @@ export class MariaDB extends SQL {
 
         const finalSql = this.trigger(Database.EVENT_DOCUMENT_COUNT, sql);
         
+        const binds = [];
         for (const query of queries) {
-            await this.bindConditionValue(values, query);
+            binds.push(this.bindConditionValue(values, query));
         }
+
+        await Promise.all(binds);
 
         if (max !== null) {
             values.push(max);
@@ -1586,6 +1594,9 @@ export class MariaDB extends SQL {
             const connection = await this.pool.getConnection();
             try {
                 const [rows] = await connection.execute<RowDataPacket[]>(finalSql, values);
+                console.log(finalSql);
+                console.log(values);
+                console.log(rows)
                 return rows[0]?.sum || 0;
             } finally {
                 connection.release();

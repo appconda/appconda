@@ -2361,7 +2361,7 @@ export class Database {
         }
 
         const validator = new Authorization(Database.PERMISSION_READ);
-        const documentSecurity = collectionDoc.getAttribute('documentSecurity', false);
+        const documentSecurity = false;//collectionDoc.getAttribute('documentSecurity', false);
 
         const collectionCacheKey = `${this.cacheName}-cache-${this.getNamespace()}:${this.adapter.getTenant()}:collection:${collectionDoc.getId()}`;
         let documentCacheKey = `${collectionCacheKey}:${id}`;
@@ -3169,7 +3169,7 @@ export class Database {
             let shouldUpdate = false;
 
             if (collectionDoc.getId() !== Database.METADATA) {
-                const documentSecurity = collectionDoc.getAttribute('documentSecurity', false);
+                const documentSecurity = false; //collectionDoc.getAttribute('documentSecurity', false);
 
                 const relationshipMap: { [key: string]: any } = {};
                 for (const relationship of relationships) {
@@ -3823,7 +3823,7 @@ export class Database {
         const collectionDoc = await this.silent(async () => await this.getCollection(collection));
 
         if (collectionDoc.getId() !== Database.METADATA) {
-            const documentSecurity = collectionDoc.getAttribute('documentSecurity', false);
+            const documentSecurity = false; //collectionDoc.getAttribute('documentSecurity', false);
             if (!validator.isValid([
                 ...collectionDoc.getUpdate(),
                 ...(documentSecurity ? document.getUpdate() : [])
@@ -3911,7 +3911,7 @@ export class Database {
         const collectionDoc = await this.silent(async () => await this.getCollection(collection));
 
         if (collectionDoc.getId() !== Database.METADATA) {
-            const documentSecurity = collectionDoc.getAttribute('documentSecurity', false);
+            const documentSecurity = false; // collectionDoc.getAttribute('documentSecurity', false);
             if (!validator.isValid([
                 ...collectionDoc.getUpdate(),
                 ...(documentSecurity ? document.getUpdate() : [])
@@ -3999,7 +3999,7 @@ export class Database {
             const validator = new Authorization(Database.PERMISSION_DELETE);
 
             if (collectionDoc.getId() !== Database.METADATA) {
-                const documentSecurity = collectionDoc.getAttribute('documentSecurity', false);
+                const documentSecurity = false; //collectionDoc.getAttribute('documentSecurity', false);
                 if (!validator.isValid([
                     ...collectionDoc.getDelete(),
                     ...(documentSecurity ? document.getDelete() : [])
@@ -4500,7 +4500,7 @@ export class Database {
         }
 
         const authorization = new Authorization(Database.PERMISSION_READ);
-        const documentSecurity = collectionDoc.getAttribute('documentSecurity', false);
+        const documentSecurity = false; //collectionDoc.getAttribute('documentSecurity', false);
         const skipAuth = authorization.isValid(collectionDoc.getRead());
 
         if (!skipAuth && !documentSecurity && collectionDoc.getId() !== Database.METADATA) {

@@ -291,7 +291,8 @@ export class Project extends Model {
         const values = document.getAttribute('services', {});
         const services = Config.getParam('services', []);
 
-        for (const service of services) {
+        for (const _key of Object.keys(services)) {
+            const service = services[_key];
             if (!service.optional) {
                 continue;
             }
@@ -311,7 +312,8 @@ export class Project extends Model {
         document.setAttribute('authPasswordDictionary', authValues.passwordDictionary ?? false);
         document.setAttribute('authPersonalDataCheck', authValues.personalDataCheck ?? false);
 
-        for (const method of auth) {
+        for (const _key of Object.keys(auth)) {
+            const method = auth[_key];
             const key = method.key;
             const value = authValues[key] ?? true;
             document.setAttribute('auth' + this.capitalizeFirstLetter(key), value);

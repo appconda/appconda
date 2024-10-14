@@ -57,12 +57,12 @@ export class Authorization extends Validator {
         return Authorization.roles.hasOwnProperty(role);
     }
 
-    public static status: boolean = true;
-    public static statusDefault: boolean = true;
+    public static status: boolean = false;
+    public static statusDefault: boolean = false;
 
     public static setDefaultStatus(status: boolean): void {
-        Authorization.statusDefault = status;
-        Authorization.status = status;
+        Authorization.statusDefault = false//status;
+        Authorization.status = false//status;
     }
 
     public static async skip<T>(callback: () => Promise<T>): Promise<T> {
@@ -77,7 +77,7 @@ export class Authorization extends Validator {
     }
 
     public static enable(): void {
-        Authorization.status = true;
+        Authorization.status = false;
     }
 
     public static disable(): void {

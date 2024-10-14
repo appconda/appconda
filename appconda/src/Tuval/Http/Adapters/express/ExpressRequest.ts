@@ -179,7 +179,9 @@ export class Request extends BaseRequest {
     }
 
     public getFiles(key: string): Record<string, any> {
-        return (this.req as any).files[key] ?? {};
+        if ((this.req as any).files) {
+            return (this.req as any).files[key] ?? {};
+        }
     }
 
     public getReferer(defaultValue: string = ''): string {
@@ -209,7 +211,7 @@ export class Request extends BaseRequest {
 
     public getHeaders(): Record<string, any> {
 
-        const headers =  this.req.headers;
+        const headers = this.req.headers;
 
         // Check if cookies exist and are not empty
         if (this.req.cookies && Object.keys(this.req.cookies).length > 0) {

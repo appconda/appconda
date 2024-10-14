@@ -66,7 +66,9 @@ App.post('/v1/projects')
     .inject('cache')
     .inject('pools')
     .inject('hooks')
-    .action(async ({ projectId, name, teamId, region, description, logo, url, legalName, legalCountry, legalState, legalCity, legalAddress, legalTaxId, request, response, dbForConsole, cache, pools, hooks }: { projectId: string, name: string, teamId: string, region: string, description: string, logo: string, url: string, legalName: string, legalCountry: string, legalState: string, legalCity: string, legalAddress: string, legalTaxId: string, request: Request, response: Response, dbForConsole: Database, cache: Cache, pools: Group, hooks: Hooks }) => {
+    .action(async (projectId: string, name: string, teamId: string, region: string, description: string, logo: string, url: string, legalName: string, 
+        legalCountry: string, legalState: string, legalCity: string, legalAddress: string, legalTaxId: string, request: Request,
+        response: Response, dbForConsole: Database, cache: Cache, pools: Group, hooks: Hooks ) => {
 
         const team = await dbForConsole.getDocument('teams', teamId);
 
@@ -89,7 +91,9 @@ App.post('/v1/projects')
             duration: Auth.TOKEN_EXPIRATION_LOGIN_LONG,
             personalDataCheck: false
         };
-        for (const method of auth) {
+        
+        for (const key of Object.keys(auth)) {
+            const method = auth[key];
             auths[method.key ?? ''] = true;
         }
 
@@ -279,7 +283,7 @@ App.get('/v1/projects/:projectId')
     .param('projectId', '', new UID(), 'Project unique ID.')
     .inject('response')
     .inject('dbForConsole')
-    .action(async ({ projectId, response, dbForConsole }: { projectId: string, response: Response, dbForConsole: Database }) => {
+    .action(async ( projectId: string, response: Response, dbForConsole: Database) => {
 
         const project = await dbForConsole.getDocument('projects', projectId);
 
@@ -1364,7 +1368,7 @@ App.get('/v1/projects/:projectId/platforms')
     .param('projectId', '', new UID(), 'Project unique ID.')
     .inject('response')
     .inject('dbForConsole')
-    .action(async ({ projectId, response, dbForConsole }: { projectId: string, response: Response, dbForConsole: Database }) => {
+    .action(async (projectId: string, response: Response, dbForConsole: Database ) => {
 
         const project = await dbForConsole.getDocument('projects', projectId);
 

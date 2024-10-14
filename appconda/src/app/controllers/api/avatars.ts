@@ -547,12 +547,18 @@ App.get('/v1/avatars/initials')
         ctx.textBaseline = 'middle';
         ctx.fillText(initials, width / 2, height / 2);
 
-        const buffer = canvas.toBuffer('image/png');
+        try {
+            const buffer = canvas.toBuffer('image/png');
+        }
+        catch (e) {
+            console.log(e);
+        }
+
 
         response
             .addHeader('Expires', new Date(Date.now() + 60 * 60 * 24 * 45 * 1000).toUTCString()) // 45 days cache
             .setContentType('image/png')
-            .send(buffer as any);
+            .text('aa');
     });
 
 

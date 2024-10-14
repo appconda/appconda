@@ -1,6 +1,7 @@
 FROM node:21-alpine as production
 
-RUN apk add --no-cache python3 make g++ imagemagick
+RUN apk add --no-cache python3 build-essential make g++ imagemagick libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
+
 
 # Add dependencies to get Bun working on Alpine
 #RUN apk --no-cache add ca-certificates wget
