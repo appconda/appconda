@@ -111,7 +111,7 @@ const getUserGitHub = async (
         const appId = project.getAttribute('oAuthProviders', {})[`${provider}Appid`] || '';
         const appSecret = project.getAttribute('oAuthProviders', {})[`${provider}Secret`] || '{}';
 
-        const className = `Appwrite.Auth.OAuth2.${capitalize(provider)}`;
+        const className = `Appconda.Auth.OAuth2.${capitalize(provider)}`;
 
         if (!classExists(className)) {
             throw new Exception(Exception.PROJECT_PROVIDER_UNSUPPORTED);

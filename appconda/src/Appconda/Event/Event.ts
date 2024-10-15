@@ -48,6 +48,7 @@ export class Event {
     protected context: Record<string, Document> = {};
     protected project: Document | null = null;
     protected user: Document | null = null;
+    protected userId: string | null = null;
     protected paused: boolean = false;
 
     constructor(protected connection: Connection) {}
@@ -84,15 +85,24 @@ export class Event {
         return this;
     }
 
+    public setUserId(userId: string): this {
+        this.userId = userId;
+        return this;
+    }
+
     public getUser(): Document | null {
         return this.user;
     }
 
+    public getUserId(): string | null {
+        return this.userId;
+    }
+
     public setPayload(payload: Record<string, any>, sensitive: string[] = []): this {
         this.payload = payload;
-        sensitive.forEach(key => {
+        for (const key of sensitive) {
             this.sensitive[key] = true;
-        });
+        }
         return this;
     }
 
@@ -152,9 +162,10 @@ export class Event {
         }
 
         const client = new Client(this.queue, this.connection);
-        return client.enqueue({
+        return await client.enqueue({
             project: this.project,
             user: this.user,
+            userId: this.userId,
             payload: this.payload,
             context: this.context,
             events: Event.generateEvents(this.getEvent(), this.getParams())
@@ -177,7 +188,6 @@ export class Event {
         const hasSubSubResource = count > 5 && parts[5].startsWith('[') && hasSubResource;
 
         let subType, subResource, subSubType, subSubResource, attribute;
-
         if (hasSubResource) {
             subType = parts[2];
             subResource = parts[3];
@@ -203,6 +213,11 @@ export class Event {
             }
         }
 
+        subType ??= false;
+        subResource ??= false;
+        subSubType ??= false;
+        subSubResource ??= false;
+        attribute ??= false;
         const action = (() => {
             if (!hasSubResource && count > 2) return parts[2];
             if (hasSubSubResource) return parts[6] ?? false;
@@ -213,12 +228,12 @@ export class Event {
         return {
             type,
             resource,
-            subType: subType ?? false,
-            subResource: subResource ?? false,
-            subSubType: subSubType ?? false,
-            subSubResource: subSubResource ?? false,
+            subType,
+            subResource,
+            subSubType,
+            subSubResource,
             action,
-            attribute: attribute ?? false,
+            attribute,
         };
     }
 
@@ -226,7 +241,7 @@ export class Event {
         const paramKeys = Object.keys(params);
         const paramValues = Object.values(params);
 
-        const patterns: string[] = [];
+        let patterns: string[] = [];
 
         const parsed = this.parseEventPattern(pattern);
         const { type, resource, subType, subResource, subSubType, subSubResource, action, attribute } = parsed;
@@ -271,33 +286,36 @@ export class Event {
         }
         patterns.push([type, resource].join('.'));
 
-        const uniquePatterns = Array.from(new Set(patterns));
+        patterns = Array.from(new Set(patterns));
 
-        const events: string[] = [];
-        uniquePatterns.forEach(eventPattern => {
-            events.push(eventPattern.replace(new RegExp(paramKeys.join('|'), 'g'), match => params[match]));
+        let events: string[] = [];
+        for (const eventPattern of patterns) {
+            events.push(eventPattern.replace(new RegExp(paramKeys.join('|'), 'g'), (matched) => params[matched]));
             events.push(eventPattern.replace(new RegExp(paramKeys.join('|'), 'g'), '*'));
-            paramKeys.forEach(key => {
-                paramKeys.forEach(current => {
+            for (const key of paramKeys) {
+                for (const current of paramKeys) {
                     if (subSubResource) {
-                        paramKeys.forEach(subCurrent => {
-                            if (subCurrent === current || subCurrent === key) return;
+                        for (const subCurrent of paramKeys) {
+                            if (subCurrent === current || subCurrent === key) continue;
                             const filtered1 = paramKeys.filter(k => k === subCurrent);
-                            events.push(eventPattern.replace(new RegExp(paramKeys.join('|'), 'g'), match => params[match]).replace(new RegExp(filtered1.join('|'), 'g'), '*'));
+                            events.push(eventPattern.replace(new RegExp(paramKeys.join('|'), 'g'), (matched) => params[matched]).replace(new RegExp(filtered1.join('|'), 'g'), '*'));
                             const filtered2 = paramKeys.filter(k => k === current);
-                            events.push(eventPattern.replace(new RegExp(paramKeys.join('|'), 'g'), match => params[match]).replace(new RegExp(filtered2.join('|'), 'g'), '*').replace(new RegExp(filtered1.join('|'), 'g'), '*'));
-                            events.push(eventPattern.replace(new RegExp(paramKeys.join('|'), 'g'), match => params[match]).replace(new RegExp(filtered2.join('|'), 'g'), '*'));
-                        });
+                            events.push(eventPattern.replace(new RegExp(paramKeys.join('|'), 'g'), (matched) => params[matched]).replace(new RegExp(filtered2.join('|'), 'g'), '*').replace(new RegExp(filtered1.join('|'), 'g'), '*'));
+                            events.push(eventPattern.replace(new RegExp(paramKeys.join('|'), 'g'), (matched) => params[matched]).replace(new RegExp(filtered2.join('|'), 'g'), '*'));
+                        }
                     } else {
-                        if (current === key) return;
+                        if (current === key) continue;
                         const filtered = paramKeys.filter(k => k === current);
-                        events.push(eventPattern.replace(new RegExp(paramKeys.join('|'), 'g'), match => params[match]).replace(new RegExp(filtered.join('|'), 'g'), '*'));
+                        events.push(eventPattern.replace(new RegExp(paramKeys.join('|'), 'g'), (matched) => params[matched]).replace(new RegExp(filtered.join('|'), 'g'), '*'));
                     }
-                });
-            });
-        });
+                }
+            }
+        }
 
-        return Array.from(new Set(events.map(event => event.replace(/[\[\]]/g, ''))));
+        events = events.map(event => event.replace(/[\[\]]/g, ''));
+        events = Array.from(new Set(events));
+
+        return events;
     }
 
     public isPaused(): boolean {

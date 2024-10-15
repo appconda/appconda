@@ -2,6 +2,7 @@ import { Document } from '../../Tuval/Core';
 import { Event } from './Event';
 import { Client, Connection } from '../../Tuval/Queue';
 
+
 export class Func extends Event {
     protected jwt: string = '';
     protected type: string = '';
@@ -9,23 +10,33 @@ export class Func extends Event {
     protected path: string = '';
     protected method: string = '';
     protected headers: Record<string, string> = {};
+    protected functionId: string | null = null;
     protected function: Document | null = null;
     protected execution: Document | null = null;
 
     constructor(protected connection: Connection) {
         super(connection);
-        this
-            .setQueue(Event.FUNCTIONS_QUEUE_NAME)
+
+        this.setQueue(Event.FUNCTIONS_QUEUE_NAME)
             .setClass(Event.FUNCTIONS_CLASS_NAME);
     }
 
-    public setFunction(func: Document): this {
-        this.function = func;
+    public setFunction(functionDoc: Document): this {
+        this.function = functionDoc;
         return this;
     }
 
     public getFunction(): Document | null {
         return this.function;
+    }
+
+    public setFunctionId(functionId: string): this {
+        this.functionId = functionId;
+        return this;
+    }
+
+    public getFunctionId(): string | null {
+        return this.functionId;
     }
 
     public setExecution(execution: Document): this {
@@ -68,7 +79,7 @@ export class Func extends Event {
 
     public getData(): string {
         //@ts-ignore
-        return this.data ;
+        return this.data as any;
     }
 
     public setJWT(jwt: string): this {
@@ -86,12 +97,15 @@ export class Func extends Event {
         }
 
         const client = new Client(this.queue, this.connection);
+
         const events = this.getEvent() ? Event.generateEvents(this.getEvent(), this.getParams()) : null;
 
         return client.enqueue({
             project: this.project,
             user: this.user,
+            userId: this.userId,
             function: this.function,
+            functionId: this.functionId,
             execution: this.execution,
             type: this.type,
             jwt: this.jwt,
