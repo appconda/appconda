@@ -1,4 +1,4 @@
-import { BaseService } from "../../BaseService";
+import { Service } from "../../Platform/Services/Service";
 import { ITask } from "./task/ITask";
 import { Task } from "./task/Task";
 
@@ -25,7 +25,7 @@ function Service<T extends { new(...args: any[]): {} }>(Base: T) {
 
 
 @Service
-export default class TaskService extends BaseService {
+export default class TaskService extends Service {
 
     public get uid(): string {
         return 'com.appconda.service.task';

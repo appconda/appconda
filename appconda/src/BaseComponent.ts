@@ -1,4 +1,4 @@
-import { BaseService } from "./BaseService";
+import { Service } from "./Platform/Services/Service";
 import { Container } from "./Container";
 import WebServerService from "./Services/WebServerService";
 
@@ -18,7 +18,7 @@ export abstract class BaseComponent {
 
          const webServer: WebServerService = this.services.get('com.realmocean.service.web');
 
-        const service: BaseService = this.services.get(this.serviceName);
+        const service: Service = this.services.get(this.serviceName);
         service.addComponent(this);
 
 

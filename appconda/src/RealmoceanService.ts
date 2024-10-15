@@ -1,12 +1,12 @@
 
-import { BaseService } from './BaseService';
+import { Service } from './Platform/Services/Service';
 
 const clientService = require('./modules/sdk/client');
 var process = require("process");
 
 process.env._APP_OPTIONS_FORCE_HTTPS
 
-export class RealmoceanClientService extends BaseService {
+export class RealmoceanClientService extends Service {
   client: any;
 
   async _init() {

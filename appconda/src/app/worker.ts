@@ -8,7 +8,7 @@ import { Messaging } from "../Appconda/Event/Messaging";
 import { Migration } from "../Appconda/Event/Migration";
 import { Usage } from "../Appconda/Event/Usage";
 import { UsageDump } from "../Appconda/Event/UsageDump";
-import { Appconda } from "../Appconda/Platform/Appconda";
+import { Appconda } from "../Platform/Appconda";
 import { Runtime } from "../Appconda/Tuval/Response/Models/Runtime";
 import { Audit } from "../Tuval/Audit";
 import { Cache, Sharding } from "../Tuval/Cache";
@@ -18,7 +18,7 @@ import { Authorization, DateTime, Document } from "../Tuval/Core";
 import { Database } from "../Tuval/Database";
 import { DSN } from "../Tuval/DSN";
 import { Log, Logger } from "../Tuval/Logger";
-import { Service } from "../Tuval/Platform/Service";
+import { Agent } from "../Tuval/Platform/Agent";
 import { Group } from "../Tuval/Pools";
 import { Connection, Message, Server } from "../Tuval/Queue";
 import { Registry } from "../Tuval/Registry";
@@ -187,7 +187,7 @@ const queueName = workerName.startsWith('databases')
     : process.env._APP_QUEUE_NAME || `v1-${workerName.toLowerCase()}`;
     
 try {
-    platform.init(Service.TYPE_WORKER, {
+    platform.init(Agent.TYPE_WORKER, {
         workersNum: parseInt(process.env._APP_WORKERS_NUM || '1', 10),
         connection: pools.get('queue').pop().getResource(),
         workerName: workerName.toLowerCase() ?? null,

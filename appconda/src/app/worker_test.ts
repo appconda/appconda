@@ -1,6 +1,6 @@
-import { Appconda } from "../Appconda/Platform/Appconda";
+import { Appconda } from "../Platform/Appconda";
 import { Console } from "../Tuval/CLI";
-import { Service } from "../Tuval/Platform/Service";
+import { Agent } from "../Tuval/Platform/Agent";
 import { register } from "./init";
 
 
@@ -12,7 +12,7 @@ const start = async () => {
     const platform = new Appconda();
     
     try {
-        platform.init(Service.TYPE_WORKER, {
+        platform.init(Agent.TYPE_WORKER, {
             workersNum: parseInt(process.env._APP_WORKERS_NUM || '1', 10),
             connection: (await pools.get('queue').pop()).getResource(),
             workerName: workerName.toLowerCase() ?? null,

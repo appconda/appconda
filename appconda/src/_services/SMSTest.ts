@@ -1,10 +1,10 @@
-import { BaseService } from "../BaseService";
+import { Service } from "../Platform/Services/Service";
 import MiningService from "../Services/MiningService";
 import { CsvImporter } from "../Services/mining-service/mining/objects/log/importer/csv/importer";
 import { nanoid } from "../modules/nanoid/nanoid";
 
 var fs = require('fs');
-class CspTestService extends BaseService {
+class CspTestService extends Service {
     get uid(): string {
         return 'sms-test-me-service';
     }

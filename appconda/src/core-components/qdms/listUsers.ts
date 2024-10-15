@@ -1,5 +1,5 @@
 import { BaseComponent } from "../../BaseComponent";
-import { BaseService } from "../../BaseService";
+import { Service } from "../../Platform/Services/Service";
 import { Container } from "../../Container";
 import { Services } from "../../Services";
 import QDMSService from "../../Services/QdmsService";

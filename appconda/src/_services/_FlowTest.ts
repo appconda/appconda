@@ -1,8 +1,8 @@
-import { BaseService } from "../BaseService";
+import { Service } from "../Platform/Services/Service";
 import { FlowExecuter } from "../modules/flow/FlowExecuter";
 
 
- class FlowTest extends BaseService {
+ class FlowTest extends Service {
     get uid(): string {
         return 'com.realmocean.service.flow-test';
     }

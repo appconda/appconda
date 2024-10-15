@@ -39,14 +39,6 @@ services:
     ports:
       - "8081:5540"
 
-  console:
-    image: appconda/console
-    ports:
-      - "4501:80"
-    networks:
-      - mysql-phpmyadmin
-    volumes:
-      - appconda-console:/data:rw
 
   # phpmyadmin
   phpmyadmin:

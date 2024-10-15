@@ -1,7 +1,7 @@
 
 
 import { Module } from './Module';
-import { Service } from './Service';
+import { Agent } from './Agent';
 
 import { Action } from './Action';
 import { CLI } from '../CLI/CLI';
@@ -32,17 +32,17 @@ export abstract class Platform {
         for (const module of this.modules) {
             const services = module.getServicesByType(type);
             switch (type) {
-                case Service.TYPE_HTTP:
+                case Agent.TYPE_HTTP:
                     this.initHttp(services);
                     break;
-                case Service.TYPE_TASK:
+                case Agent.TYPE_TASK:
                     this.cli ||= new CLI();
                     this.initTasks(services);
                     break;
-                case Service.TYPE_GRAPHQL:
+                case Agent.TYPE_GRAPHQL:
                     this.initGraphQL();
                     break;
-                case Service.TYPE_WORKER:
+                case Agent.TYPE_WORKER:
                     const workerName = params.workerName ?? null;
 
                     if (!this.worker) {
@@ -66,7 +66,7 @@ export abstract class Platform {
      * @param services Service[]
      * @returns void
      */
-    protected initHttp(services: Service[]): void {
+    protected initHttp(services: Agent[]): void {
         for (const service of services) {
             for (const action of service.getActions()) {
                 let hook;
@@ -124,7 +124,7 @@ export abstract class Platform {
      * @param services Service[]
      * @returns void
      */
-    protected initTasks(services: Service[]): void {
+    protected initTasks(services: Agent[]): void {
         const cli = this.cli;
         for (const service of services) {
             for (const [key, action] of Object.entries(service.getActions())) {
@@ -174,7 +174,7 @@ export abstract class Platform {
      * @param workerName string
      * @returns void
      */
-    protected initWorker(services: Service[], workerName: string): void {
+    protected initWorker(services: Agent[], workerName: string): void {
         const worker = this.worker;
         for (const service of services) {
             for (const [key, action] of Object.entries(service.getActions())) {
@@ -250,7 +250,7 @@ export abstract class Platform {
      * @param service Service
      * @returns this
      */
-    public addService(key: string, service: Service): this {
+    public addService(key: string, service: Agent): this {
         this.core.addService(key, service);
         return this;
     }
@@ -272,7 +272,7 @@ export abstract class Platform {
      * @param key string
      * @returns Service | null
      */
-    public getService(key: string): Service | null {
+    public getService(key: string): Agent | null {
         return this.core.getService(key);
     }
 
@@ -281,7 +281,7 @@ export abstract class Platform {
      *
      * @returns { [key: string]: Service }
      */
-    public getServices():  Service[] {
+    public getServices():  Agent[] {
         return this.core.getServices();
     }
 

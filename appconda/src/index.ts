@@ -1,9 +1,9 @@
 
-import { BaseService } from './BaseService';
+import { Service } from './Platform/Services/Service';
 import { BaseComponent } from './BaseComponent';
 
-(global as any)['BaseService'] = BaseService;
-(global as any)['RealmoceanService'] = BaseService;
+(global as any)['BaseService'] = Service;
+(global as any)['RealmoceanService'] = Service;
 
 (global as any)['BaseComponent'] = BaseComponent;
 
@@ -40,7 +40,7 @@ var process = require("process");
 
 //console.log(process.env);
 
-var moveFrom = "./src/services";
+var moveFrom = "./src/Services";
 var coreServices = "./src/core";
 const coreComponentsDir = "./src/core-components";
 const componentsDir = "./src/components";
@@ -77,11 +77,11 @@ function loadComponents(directory) {
   });
 }
 
-const services = require('./services/config/services');
+const services = require('./Platform/Services/config/services');
 
 for (const [key, value] of Object.entries(services)) {
   const service = value as any;
-  const fromPath = path.join(__dirname, 'services', service.service);
+  const fromPath = path.join(__dirname,'Platform', 'Services', service.service);
 
   const stat = fs.statSync(fromPath);
 

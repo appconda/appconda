@@ -760,7 +760,7 @@ export class Database {
             throw new DatabaseException('Missing tenant. Tenant must be set when table sharing is enabled.');
         }
 
-        const collection = await this.silent(async () => await this.getDocument(Database.METADATA, id));
+        const collection = await this.getDocument(Database.METADATA, id);//await this.silent(async () => await this.getDocument(Database.METADATA, id));
 
 
         if (
@@ -2304,7 +2304,7 @@ export class Database {
             return new Document();
         }
 
-        const collectionDoc = await this.silent(async () => await this.getCollection(collection));
+        const collectionDoc = await this.getCollection(collection);//await this.silent(async () => await this.getCollection(collection));
 
         if (collectionDoc.isEmpty()) {
             throw new DatabaseException('Collection not found');

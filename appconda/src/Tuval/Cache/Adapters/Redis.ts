@@ -25,7 +25,7 @@ export class Redis implements Adapter {
                     resolve(cache.data);
                 }
 
-                return null;
+                resolve(null);
             })
         })
     }

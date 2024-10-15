@@ -1,4 +1,4 @@
-import { BaseService } from "./BaseService";
+import { Service } from "./Platform/Services/Service";
 import { ComponentsContainer } from "./ComponentsContainer";
 
 const { CompositeError } = require("./utils/errorutil")
@@ -58,7 +58,7 @@ export class Container {
 
     async init() {
         for (const k in this.instances_) {
-            if (this.instances_[k] instanceof BaseService) {
+            if (this.instances_[k] instanceof Service) {
                 //console.log(`constructing ${k}`);
                 //try {
                     await this.instances_[k].construct();
@@ -72,7 +72,7 @@ export class Container {
 
         const init_failures: any = [];
         for (const k in this.instances_) {
-            if (this.instances_[k] instanceof BaseService) {
+            if (this.instances_[k] instanceof Service) {
                 //console.log(`initializing ${k}`);
                 try {
                     await this.instances_[k].init();

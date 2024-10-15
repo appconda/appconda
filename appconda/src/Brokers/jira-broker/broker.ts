@@ -1,5 +1,5 @@
 import e from "express";
-import { BaseService } from "../../BaseService";
+import { Service } from "../../Platform/Services/Service";
 import { Version3Client } from './jira';
 
 const axios = require('axios');
@@ -10,7 +10,7 @@ interface JiraAccessObject {
     token: string
 }
 
-export default class JiraService extends BaseService {
+export default class JiraService extends Service {
 
     public get uid(): string {
         return 'com.realmocean.service.jira';
