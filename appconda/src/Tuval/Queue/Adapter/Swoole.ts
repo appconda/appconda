@@ -100,7 +100,7 @@ export class Swoole extends Adapter {
      * @returns this
      */
     public workerStart(callback: (workerId: string) => void): this {
-        this.pool.on('WorkerStart', (pool: Pool, workerId: string) => {
+        this.pool.on('start', (pool: Pool, workerId: string) => {
             callback(workerId);
         });
         return this;
@@ -113,7 +113,7 @@ export class Swoole extends Adapter {
      * @returns this
      */
     public workerStop(callback: (workerId: string) => void): this {
-        this.pool.on('WorkerStop', (pool: Pool, workerId: string) => {
+        this.pool.on('stop', (pool: Pool, workerId: string) => {
             callback(workerId);
         });
         return this;

@@ -6,7 +6,7 @@ import { Registry } from "../../../Tuval/Registry";
 import { Console } from "../../../Tuval/CLI";
 import { App } from "../../../Tuval/Http";
 
-class Migrate extends Action {
+export class Migrate extends Action {
     protected redis: Redis;
 
     public static getName(): string {

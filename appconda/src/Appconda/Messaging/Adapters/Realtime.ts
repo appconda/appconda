@@ -66,7 +66,7 @@ export class Realtime extends Adapter {
             channel in this.subscriptions[projectId][role];
     }
 
-    public static async send(projectId: string, payload: any[], events: any[], channels: string[], roles: string[], options: any = {}): Promise<void> {
+    public static async send(projectId: string, payload: object, events: any[], channels: string[], roles: string[], options: any = {}): Promise<void> {
         if (channels.length === 0 || roles.length === 0 || projectId === '') {
             return;
         }

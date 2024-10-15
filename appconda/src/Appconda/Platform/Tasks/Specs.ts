@@ -228,9 +228,9 @@ export class Specs extends Action {
                 }
             }
 
-            const arguments = [new App('UTC'), services, routes, models, keys[platform], authCounts[platform] ?? 0];
+            const _arguments = [new App('UTC'), services, routes, models, keys[platform], authCounts[platform] ?? 0];
             for (const format of ['swagger2', 'open-api3']) {
-                const formatInstance = format === 'swagger2' ? new Swagger2(...arguments) : new OpenAPI3(...arguments);
+                const formatInstance = format === 'swagger2' ? new Swagger2(..._arguments) : new OpenAPI3(..._arguments);
 
                 const specs = new Specification(formatInstance);
                 const endpoint = process.env._APP_HOME || '[HOSTNAME]';

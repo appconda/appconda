@@ -157,7 +157,7 @@ export class Console {
      * @param  number  timeout
      * @return number
      */
-    public static execute(cmd: string, stdin: string, stdout: string, stderr: string, timeout: number = -1): number {
+    public static async execute(cmd: string, stdin: string, stdout: string, stderr: string, timeout: number = -1): Promise<number> {
         const result = spawnSync(cmd, {
             input: stdin,
             timeout: timeout > 0 ? timeout * 1000 : undefined,

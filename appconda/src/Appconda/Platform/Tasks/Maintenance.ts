@@ -6,7 +6,7 @@ import { Certificate } from "../../Event/Certificate";
 import { Delete } from "../../Event/Delete";
 
 
-class Maintenance extends Action {
+export class Maintenance extends Action {
     public static getName(): string {
         return 'maintenance';
     }

@@ -4,7 +4,7 @@ import { Action } from "../../../Tuval/Platform/Action";
 import { Client, Connection } from "../../../Tuval/Queue";
 
 
-class QueueCount extends Action {
+export class QueueCount extends Action {
     public static getName(): string {
         return 'queue-count';
     }

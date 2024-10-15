@@ -42,6 +42,7 @@ import { Device, Local, Storage } from "../Tuval/Storage";
 import { APP_PLATFORM_SERVER } from "./config/platforms";
 import { App } from "../Tuval/Http";
 import { Group, Pool } from "../Tuval/Pools";
+import { getDevice } from "./utils/getDevice";
 
 let geoReader: maxmind.Reader<maxmind.CityResponse> | null = null;
 
@@ -147,6 +148,10 @@ export const APP_SOCIAL_STACKSHARE = 'https://stackshare.io/appconda';
 export const APP_SOCIAL_YOUTUBE = 'https://www.youtube.com/c/appconda?sub_confirmation=1';
 export const APP_HOSTNAME_INTERNAL = 'appconda';
 
+// API key types
+export const API_KEY_STANDARD = 'standard';
+export const API_KEY_DYNAMIC = 'dynamic';
+
 // Database Reconnect
 export const DATABASE_RECONNECT_SLEEP = 2;
 export const DATABASE_RECONNECT_MAX_ATTEMPTS = 10;
@@ -173,6 +178,7 @@ export const DELETE_TYPE_DEPLOYMENTS = 'deployments';
 export const DELETE_TYPE_USERS = 'users';
 export const DELETE_TYPE_TEAMS = 'teams';
 export const DELETE_TYPE_EXECUTIONS = 'executions';
+export const DELETE_TYPE_TEAM_PROJECTS = 'teams_projects';
 export const DELETE_TYPE_AUDIT = 'audit';
 export const DELETE_TYPE_ABUSE = 'abuse';
 export const DELETE_TYPE_USAGE = 'usage';
@@ -208,6 +214,9 @@ export const MAX_OUTPUT_CHUNK_SIZE = 10 * 1024 * 1024; // 10MB
 // Function headers
 export const FUNCTION_ALLOWLIST_HEADERS_REQUEST = ['content-type', 'agent', 'content-length', 'host'];
 export const FUNCTION_ALLOWLIST_HEADERS_RESPONSE = ['content-type', 'content-length'];
+export const APP_FUNCTION_SPECIFICATION_DEFAULT = 's-0.5vcpu-512mb';
+export const APP_FUNCTION_CPUS_DEFAULT = 0.5;
+export const APP_FUNCTION_MEMORY_DEFAULT = 512;
 // Message types
 export const MESSAGE_TYPE_EMAIL = 'email';
 export const MESSAGE_TYPE_SMS = 'sms';
@@ -216,6 +225,14 @@ export const MESSAGE_TYPE_PUSH = 'push';
 export const METRIC_TEAMS = 'teams';
 export const METRIC_USERS = 'users';
 export const METRIC_MESSAGES = 'messages';
+export const METRIC_MESSAGES_SENT = METRIC_MESSAGES + '.sent';
+export const METRIC_MESSAGES_FAILED = METRIC_MESSAGES + '.failed';
+export const METRIC_MESSAGES_TYPE = METRIC_MESSAGES + '.{type}';
+export const METRIC_MESSAGES_TYPE_SENT = METRIC_MESSAGES + '.{type}.sent';
+export const METRIC_MESSAGES_TYPE_FAILED = METRIC_MESSAGES + '.{type}.failed';
+export const METRIC_MESSAGES_TYPE_PROVIDER = METRIC_MESSAGES + '.{type}.{provider}';
+export const METRIC_MESSAGES_TYPE_PROVIDER_SENT = METRIC_MESSAGES + '.{type}.{provider}.sent';
+export const METRIC_MESSAGES_TYPE_PROVIDER_FAILED = METRIC_MESSAGES + '.{type}.{provider}.failed';
 export const METRIC_MESSAGES_COUNTRY_CODE = '{countryCode}.messages';
 export const METRIC_SESSIONS = 'sessions';
 export const METRIC_DATABASES = 'databases';
@@ -1439,101 +1456,6 @@ App.setResource('deviceForBuilds', async ({ project }: { project: Document }) =>
     return getDevice(`${APP_STORAGE_BUILDS}/app-${project.getId()}`);
 }, ['project']);
 
-function getDevice(root: string): Device {
-    const connection = process.env._APP_CONNECTIONS_STORAGE || '';
-
-    if (connection) {
-        let dsn: DSN;
-        let device = Storage.DEVICE_LOCAL;
-        let accessKey = '';
-        let accessSecret = '';
-        let bucket = '';
-        let region = '';
-        const acl = 'private';
-
-        try {
-            dsn = new DSN(connection);
-            device = dsn.getScheme();
-            accessKey = dsn.getUser() || '';
-            accessSecret = dsn.getPassword() || '';
-            bucket = dsn.getPath() || '';
-            region = dsn.getParam('region') || '';
-        } catch (e: any) {
-            console.warn(`${e.message} Invalid DSN. Defaulting to Local device.`);
-        }
-
-        switch (device) {
-            /*  case Storage.DEVICE_S3:
-                 return new S3(root, accessKey, accessSecret, bucket, region, acl);
-             case Storage.DEVICE_DO_SPACES:
-                 const doSpaces = new DOSpaces(root, accessKey, accessSecret, bucket, region, acl);
-                 doSpaces.setHttpVersion(S3.HTTP_VERSION_1_1);
-                 return doSpaces;
-             case Storage.DEVICE_BACKBLAZE:
-                 return new Backblaze(root, accessKey, accessSecret, bucket, region, acl);
-             case Storage.DEVICE_LINODE:
-                 return new Linode(root, accessKey, accessSecret, bucket, region, acl);
-             case Storage.DEVICE_WASABI:
-                 return new Wasabi(root, accessKey, accessSecret, bucket, region, acl);
-             case Storage.DEVICE_LOCAL: */
-            default:
-                return new Local(root);
-        }
-    } else {
-        switch (process.env._APP_STORAGE_DEVICE?.toLowerCase() || Storage.DEVICE_LOCAL) {
-            /* case Storage.DEVICE_S3:
-                return new S3(
-                    root,
-                    process.env._APP_STORAGE_S3_ACCESS_KEY || '',
-                    process.env._APP_STORAGE_S3_SECRET || '',
-                    process.env._APP_STORAGE_S3_BUCKET || '',
-                    process.env._APP_STORAGE_S3_REGION || '',
-                    'private'
-                );
-            case Storage.DEVICE_DO_SPACES:
-                const doSpaces = new DOSpaces(
-                    root,
-                    process.env._APP_STORAGE_DO_SPACES_ACCESS_KEY || '',
-                    process.env._APP_STORAGE_DO_SPACES_SECRET || '',
-                    process.env._APP_STORAGE_DO_SPACES_BUCKET || '',
-                    process.env._APP_STORAGE_DO_SPACES_REGION || '',
-                    'private'
-                );
-                doSpaces.setHttpVersion(S3.HTTP_VERSION_1_1);
-                return doSpaces;
-            case Storage.DEVICE_BACKBLAZE:
-                return new Backblaze(
-                    root,
-                    process.env._APP_STORAGE_BACKBLAZE_ACCESS_KEY || '',
-                    process.env._APP_STORAGE_BACKBLAZE_SECRET || '',
-                    process.env._APP_STORAGE_BACKBLAZE_BUCKET || '',
-                    process.env._APP_STORAGE_BACKBLAZE_REGION || '',
-                    'private'
-                );
-            case Storage.DEVICE_LINODE:
-                return new Linode(
-                    root,
-                    process.env._APP_STORAGE_LINODE_ACCESS_KEY || '',
-                    process.env._APP_STORAGE_LINODE_SECRET || '',
-                    process.env._APP_STORAGE_LINODE_BUCKET || '',
-                    process.env._APP_STORAGE_LINODE_REGION || '',
-                    'private'
-                );
-            case Storage.DEVICE_WASABI:
-                return new Wasabi(
-                    root,
-                    process.env._APP_STORAGE_WASABI_ACCESS_KEY || '',
-                    process.env._APP_STORAGE_WASABI_SECRET || '',
-                    process.env._APP_STORAGE_WASABI_BUCKET || '',
-                    process.env._APP_STORAGE_WASABI_REGION || '',
-                    'private'
-                ); */
-            case Storage.DEVICE_LOCAL:
-            default:
-                return new Local(root);
-        }
-    }
-}
 
 App.setResource('mode', async ({ request }: { request: Request }) => {
     return request.getParam('mode', request.getHeader('x-appconda-mode', APP_MODE_DEFAULT));

@@ -2,9 +2,9 @@ import { Action } from "./Action";
 
 export abstract class Service {
     public static readonly TYPE_HTTP = 'http';
-    public static readonly TYPE_GRAPHQL = 'GraphQL';
-    public static readonly TYPE_TASK = 'Task';
-    public static readonly TYPE_WORKER = 'Worker';
+    public static readonly TYPE_GRAPHQL = 'graphQL';
+    public static readonly TYPE_TASK = 'task';
+    public static readonly TYPE_WORKER = 'worker';
 
     protected actions: Action[] = [];
     protected type: string = '';

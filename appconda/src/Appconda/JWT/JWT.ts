@@ -107,7 +107,7 @@ export class JWT {
     }
 
     // Sign the input with the configured key
-    protected sign(input: string): string {
+    public sign(input: any): string {
         if (this.algo.startsWith('HS')) {
             return crypto.createHmac(this.algos[this.algo], this.key).update(input).digest('base64');
         }

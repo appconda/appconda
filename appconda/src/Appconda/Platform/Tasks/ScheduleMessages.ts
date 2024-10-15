@@ -4,7 +4,7 @@ import { Group } from '../../../Tuval/Pools';
 import { Messaging } from '../../Event/Messaging';
 import { ScheduleBase } from './ScheduleBase';
 
-class ScheduleMessages extends ScheduleBase {
+export class ScheduleMessages extends ScheduleBase {
     public static readonly UPDATE_TIMER = 3; // seconds
     public static readonly ENQUEUE_TIMER = 4; // seconds
 
