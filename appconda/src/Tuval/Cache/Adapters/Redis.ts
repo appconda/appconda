@@ -9,26 +9,25 @@ export class Redis implements Adapter {
         this.redis = redis;
     }
 
-    load(key: string, ttl: number, hash: string = ''): any {
+    async load(key: string, ttl: number, hash: string = ''): Promise<any> {
         if (!hash) {
             hash = key;
         }
 
+        return new Promise((resolve) => {
+            this.redis.get(key).then((redisString) => {
+                if (!redisString) {
+                    resolve(null);
+                }
 
-        this.redis.get('myKey').then((redisString) => {
-            if (!redisString) {
-                return false;
-            }
+                const cache = JSON.parse(redisString);
+                if (cache.time + ttl > Date.now() / 1000) {
+                    resolve(cache.data);
+                }
 
-            const cache = JSON.parse(redisString);
-            if (cache.time + ttl > Date.now() / 1000) {
-                return cache.data;
-            }
-
-            return false;
+                return null;
+            })
         })
-
-
     }
 
     save(key: string, data: any, hash: string = ''): Promise<boolean | string | any[]> {

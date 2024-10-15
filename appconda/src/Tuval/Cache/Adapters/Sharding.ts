@@ -14,7 +14,8 @@ import { Adapter } from "../Adapter";
         }
 
       async  load(key: string, ttl: number, hash: string = ''): Promise<any> {
-            return this.getAdapter(key).load(key, ttl, hash);
+            const adapter =  this.getAdapter(key);
+            return await adapter.load(key, ttl, hash);
         }
 
         async save(key: string, data: any, hash: string = ''): Promise<boolean | string | any[]> {

@@ -17,7 +17,7 @@ export class Cache {
         key = Cache.caseSensitive ? key : key.toLowerCase();
         hash = Cache.caseSensitive ? hash : hash.toLowerCase();
 
-        return this.adapter.load(key, ttl, hash);
+        return await this.adapter.load(key, ttl, hash);
     }
 
     public async save(key: string, data: any, hash: string = ''): Promise<boolean | string | any[]> {

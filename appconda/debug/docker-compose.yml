@@ -29,6 +29,16 @@ services:
     volumes:
       - appconda-redis:/data:rw
 
+  redis-insight:
+    image: redis/redisinsight:latest
+    restart: unless-stopped
+    networks:
+      - mysql-phpmyadmin
+    environment:
+      - REDIS_HOSTS=redis
+    ports:
+      - "8081:5540"
+
   console:
     image: appconda/console
     ports:
