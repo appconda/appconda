@@ -8,6 +8,7 @@ import { CLI } from '../CLI/CLI';
 import { Server } from '../Queue';
 import { App, Route } from '../Http';
 import { Swoole } from '../Queue/Adapter/Swoole';
+import { ServiceActionExecuter } from '../../Platform/Services/ServiceServer';
 
 
 export abstract class Platform {
@@ -15,6 +16,7 @@ export abstract class Platform {
     protected modules: Module[] = [];
     protected cli: CLI;
     protected worker: Server;
+    protected serviceActionExecuters: Record<string, ServiceActionExecuter> = {};
 
     constructor(module: Module) {
         this.core = module;
@@ -53,6 +55,14 @@ export abstract class Platform {
                         this.worker = new Server(adapter);
                     }
                     this.initWorker(services, workerName);
+                    break;
+                case Agent.TYPE_SERVICE:
+
+                    /*  if (!this.serviceServer) {
+                    
+                         this.serviceServer = new ServiceServer();
+                     } */
+                    this.initServiceServer(services);
                     break;
                 default:
                     throw new Error('Please provide which type of initialization you want to carry out.');
@@ -223,6 +233,62 @@ export abstract class Platform {
         }
     }
 
+
+    protected initServiceServer(services: Agent[]): void {
+
+        for (const service of services) {
+            for (const [key, action] of Object.entries(service.getActions())) {
+                /*   if (action.getType() === Action.TYPE_DEFAULT && !key.toLowerCase().includes(workerName.toLowerCase())) {
+                      continue;
+                  } */
+                const serviceName = (service as any).constructor.NAME;
+                const acrionName = (action as any).constructor.NAME;
+
+                const serviceServer = new ServiceActionExecuter();
+                this.serviceActionExecuters[`${serviceName}-${acrionName}`] = serviceServer;
+                let hook;
+
+                switch (action.getType()) {
+                    case Action.TYPE_INIT:
+                        hook = serviceServer.init();
+                        break;
+                    case Action.TYPE_ERROR:
+                        hook = serviceServer.error();
+                        break;
+                    case Action.TYPE_SHUTDOWN:
+                        hook = serviceServer.shutdown();
+                        break;
+                    case Action.TYPE_WORKER_START:
+                        hook = serviceServer.workerStart();
+                        break;
+                    case Action.TYPE_DEFAULT:
+                    default:
+                        hook = serviceServer.job();
+                        break;
+                }
+                hook.groups(action.getGroups()).desc(action.getDesc() ?? '');
+
+                for (const [key, option] of Object.entries(action.getOptions())) {
+                    switch (option.type) {
+                        case 'param':
+                            const paramKey = key.substring(key.indexOf(':') + 1);
+                            hook.param(paramKey, option.default, option.validator, option.description, option.optional, option.injections);
+                            break;
+                        case 'injection':
+                            hook.inject(option.name);
+                            break;
+                    }
+                }
+
+                for (const [key, label] of Object.entries(action.getLabels())) {
+                    hook.label(key, label);
+                }
+
+                hook.action(action.getCallback());
+            }
+        }
+    }
+
     /**
      * Initialize GraphQL Services
      *
@@ -281,7 +347,7 @@ export abstract class Platform {
      *
      * @returns { [key: string]: Service }
      */
-    public getServices():  Agent[] {
+    public getServices(): Agent[] {
         return this.core.getServices();
     }
 
@@ -313,6 +379,8 @@ export abstract class Platform {
     public getWorker(): Server {
         return this.worker;
     }
+
+
 
     /**
      * Set the value of worker

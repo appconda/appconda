@@ -22,10 +22,8 @@ const cookieParser = require('cookie-parser');
 
 
 
-export default class WebServerService extends Service {
-
-    app: any;
-
+export default class HttpService extends Service {
+    private expressApp: any;
     public get uid(): string {
         return 'com.realmocean.service.web';
     }
@@ -36,11 +34,7 @@ export default class WebServerService extends Service {
 
 
     getExpressApp() {
-        return this.app;
-    }
-
-    getRouter() {
-        return this.router;
+        return this.expressApp;
     }
 
     private async setupServer() {
@@ -220,7 +214,7 @@ export default class WebServerService extends Service {
 
 
 
-        this.app = app;
+        this.expressApp = app;
         app.set('services', this.services);
         // app.listen(80, () => console.log("listening on port 80"));
 
@@ -345,43 +339,12 @@ export default class WebServerService extends Service {
         })
 
         app.listen(80, '0.0.0.0');
-        //ExpressApp.start(80, '0.0.0.0');
-
-        /*     var fs = require("fs");
-            var path = require("path");
-        
-            var coreServices =path.resolve(__dirname, "../app/controllers") ;
-            console.log(coreServices);
-        
-            const filenames = fs.readdirSync(coreServices);
-            filenames.forEach(function (file, index) {
-              var fromPath = path.join(coreServices, file);
-        
-              const stat = fs.statSync(fromPath);
-        
-              if (stat.isFile()) {
-                console.log(path.resolve(fromPath));
-                try {
-                  const service = require(path.resolve(fromPath));
-                } catch (e) {
-                  console.log(e);
-                }
-              } else if (stat.isDirectory()) console.log(fromPath);
-            }); */
-
-
-
 
     }
 
 
-    async init() {
-        console.log('-----------------web server-------')
-        const router = this.getRouter();
-        router.get('', (req: e.Request, res: e.Response) => {
-            res.send('OK')
-        })
-
+    protected async init() {
+        Console.success('-----------------Http Service Started------------')
     }
 
 

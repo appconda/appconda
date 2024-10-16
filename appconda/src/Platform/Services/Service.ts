@@ -4,18 +4,10 @@ import { Container } from "../../Container";
 
 import express from "express";
 import { Services } from "../../Services";
-import WebServerService from "./http-service";
-import DatabaseService from "./database-service/service.";
-import SchemaService from "./SchemaService";
-import CspService from "./CSPService";
-import EmailService from "./EmailService";
-import EncryptionService from "./EncryptionService";
-import FlowService from "./FlowService";
+import HttpService from "./http-service";
 import IDService from "./id-service/service";
-import JiraService from "./JiraService";
 import KVService from "./kv-service/KVService";
-import ScheduleService from "./ScheduleService";
-import SmsService from "./SMSService";
+
 
 const crypto = require('crypto');
 
@@ -53,6 +45,7 @@ export abstract class Service {
     components: BaseComponent[] = [];
     contructed: any;
     actions: string[] = [];
+    private initialized: boolean = false;
 
     abstract get uid(): string;
     abstract get displayName(): string;
@@ -63,12 +56,9 @@ export abstract class Service {
 
     constructor(service_resources: any, ...a: any[]) {
         const { services, config, my_config, name, args } = service_resources;
-       
-
         this.args = args;
         this.service_name = name || this.constructor.name;
         this.services = services;
-       
     }
 
     async describe() {
@@ -82,16 +72,8 @@ export abstract class Service {
         }
     }
 
-    async init() {
-        if (!(this as any).initialized) {
-            (this as any).initialized = true;
-            await ((this as any)._init || NOOP).call(this, this.args);
-        }
-    }
+    public   init() {}
 
-    async setupRouter() {
-     
-    }
 
     async __on(id: string, args: any[]) {
         const handler = this.__get_event_handler(id);
@@ -99,22 +81,12 @@ export abstract class Service {
         return await handler(id, args);
     }
 
-    __get_event_handler(id: string) {
+    private __get_event_handler(id: string) {
         return (this as any)[`__on_${id}`]?.bind?.(this)
             || (this as any).constructor[`__on_${id}`]?.bind?.(this.constructor)
             || NOOP;
     }
 
-    getRouter() {
-        if (this.router == null) {
-            const app = this.webServer.getExpressApp();
-            this.router = express.Router();
-            app.use(`/v1/service/${this.uid}`, this.router)
-        }
-
-        return this.router;
-
-    }
     protected createKeyInternal(data: object) {
         
         return encrypt(JSON.stringify(data));
@@ -130,51 +102,8 @@ export abstract class Service {
     }
 
 
-    public get webServer(): WebServerService {
+    public get webServer(): HttpService {
         return this.services.get('com.realmocean.service.web');
-    }
-
-    public get databaseService(): DatabaseService {
-        return this.services.get('com.realmocean.service.database');
-    }
-
-    public get schemaService(): SchemaService {
-        return this.services.get('com.realmocean.service.schema');
-    }
-    public get kvService(): KVService {
-        return this.services.get('com.realmocean.service.kv');
-    }
-
-    public get emailService(): EmailService {
-        return this.services.get('com.realmocean.service.email');
-    }
-
-    public get smsService(): SmsService {
-        return this.services.get('com.realmocean.service.sms');
-    }
-
-    public get scheduleService(): ScheduleService {
-        return this.services.get('com.realmocean.service.schedule');
-    }
-
-    public get jiraService(): JiraService {
-        return this.services.get('com.realmocean.service.schedule');
-    }
-
-    public get encryptionService(): EncryptionService {
-        return this.services.get('com.realmocean.service.encryption');
-    }
-
-    public get cspService(): CspService {
-        return this.services.get('com.realmocean.service.csp');
-    }
-
-    public get miningService(): CspService {
-        return this.services.get(Services.Mining);
-    }
-
-    public get flowService(): FlowService {
-        return this.services.get(Services.Flow);
     }
 
     public get idService(): IDService {

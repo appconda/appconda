@@ -16,6 +16,7 @@ export abstract class Action {
     public static readonly TYPE_OPTIONS = 'Options';
     public static readonly TYPE_WORKER_START = 'WorkerStart';
 
+    protected _name: string | null = null;
     protected _desc: string | null = null;
     protected _groups: string[] = [];
     protected _callback: any;
@@ -144,6 +145,21 @@ export abstract class Action {
         return this;
     }
 
+
+    public getName(): string | null {
+        return this._name;
+    }
+    /**
+    * Set the value of description
+    *
+    * @param description string
+    * @returns this
+    */
+    public name(name: string): this {
+        this._name = name;
+        return this;
+    }
+
     /**
      * Get the value of groups
      *
@@ -170,7 +186,12 @@ export abstract class Action {
      * @returns any
      */
     public getCallback(): any {
-        return this._callback;
+        if (typeof this['action'] === 'function') {
+            return this['action'];
+        } else {
+            return this._callback;
+        }
+
     }
 
     /**

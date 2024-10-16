@@ -39,7 +39,7 @@ export default class TaskService extends Service {
         console.log('>>>>>>>> Task Service initialized. <<<<<<<<<<')
         console.log(this[actions])
 
-        this.setupRouter();
+        
 
         /*  const router = this.webServer.getRouter();
  

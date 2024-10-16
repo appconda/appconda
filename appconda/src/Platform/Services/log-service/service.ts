@@ -41,7 +41,7 @@ export default class LogService extends Service {
         Console.success('>>>>>>>> Log Service initialized. <<<<<<<<<<')
         console.log(this[actions])
 
-        this.setupRouter();
+       
 
         /*  const router = this.webServer.getRouter();
  

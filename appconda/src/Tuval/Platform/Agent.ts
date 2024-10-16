@@ -5,6 +5,7 @@ export abstract class Agent {
     public static readonly TYPE_GRAPHQL = 'graphQL';
     public static readonly TYPE_TASK = 'task';
     public static readonly TYPE_WORKER = 'worker';
+    public static readonly TYPE_SERVICE = 'service';
 
     protected actions: Action[] = [];
     protected type: string = '';
@@ -69,5 +70,9 @@ export abstract class Agent {
      */
     public getActions():  Action[]  {
         return this.actions;
+    }
+
+    public getName():  string  {
+        return '';
     }
 }

@@ -1,13 +1,11 @@
 import { Agent } from "./Agent";
+import { Module } from "./Module";
 
 
-export abstract class Module {
+export abstract class ServiceModule extends Module {
     protected services: { [key: string]: Agent[] } = {
         'all': [],
-        [Agent.TYPE_TASK]: [],
-        [Agent.TYPE_HTTP]: [],
-        [Agent.TYPE_GRAPHQL]: [],
-        [Agent.TYPE_WORKER]: [],
+        [Agent.TYPE_SERVICE]: [],
     };
 
     /**
@@ -18,8 +16,12 @@ export abstract class Module {
      * @returns this
      */
     public addService(key: string, service: Agent): this {
-        this.services['all'][key] = service;
-        this.services[service.getType()][key] = service;
+        if ( this.services['all'][key] == null) {
+            this.services['all'][key] = [];
+        }
+
+        this.services['all'][key].push(service);
+        this.services[service.getType()].push(service);
 
         return this;
     }
@@ -48,7 +50,7 @@ export abstract class Module {
      * @param key string
      * @returns Service | null
      */
-    public getService(key: string): Agent  {
+    public getService(key: string): Agent {
         const service = this.services['all'][key];
         if (!service) {
             throw new Error(`Service ${key} not found`);
@@ -62,7 +64,7 @@ export abstract class Module {
      *
      * @returns { [key: string]: Service }
      */
-    public getServices():  Agent [] {
+    public getServices(): Agent[] {
         return this.services['all'];
     }
 

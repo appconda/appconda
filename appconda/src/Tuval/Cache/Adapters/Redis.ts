@@ -21,11 +21,11 @@ export class Redis implements Adapter {
                 }
 
                 const cache = JSON.parse(redisString);
-                if (cache.time + ttl > Date.now() / 1000) {
+                if (cache != null && cache.time + ttl > Date.now() / 1000) {
                     resolve(cache.data);
+                } else {
+                    resolve(null);
                 }
-
-                resolve(null);
             })
         })
     }
