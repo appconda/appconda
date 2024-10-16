@@ -2,7 +2,7 @@ import { Container } from "../Container";
 import { Platform } from "../Tuval/Platform/Platform";
 import { Core } from "./Modules/Core";
 import { ServiceCore } from "./Modules/Services";
-import { ServiceActionExecuter } from "./Services/ServiceServer";
+import { ServiceActionExecuter } from "./Services/ServiceActionExecuter";
 
 
 export class Appconda extends Platform {

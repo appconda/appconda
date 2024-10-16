@@ -892,7 +892,7 @@ register.set('pools', () => {
                 }
             })();
 
-            const pool = new Pool(name, poolSize, () => {
+            const pool = new Pool(name, poolSize, async () => {
                 let adapter;
                 switch (type) {
                     case 'database':

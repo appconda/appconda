@@ -27,6 +27,7 @@ import path from 'path';
 import { App } from '../../Tuval/Http';
 import { Log, Logger } from '../../Tuval/Logger';
 import { parse } from 'url';
+import '../service';
 
 export const register = reg;
 

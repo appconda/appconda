@@ -1,5 +1,5 @@
 import { Console } from "../../../../Tuval/CLI";
-import { Text } from "../../../../Tuval/Core";
+import { Document, Text } from "../../../../Tuval/Core";
 import { Log } from "../../../../Tuval/Logger";
 import { Action } from "../../../../Tuval/Platform/Action";
 import { Message } from "../../../../Tuval/Queue";
@@ -16,6 +16,7 @@ export class CreateDatabase extends Action {
         this
             .name('CreateDatabase')
             .desc('Create Database In Project')
+            .inject('project')
             /*       .inject('message')
                   .inject('dbForConsole')
                   .inject('queueForMails')
@@ -25,7 +26,8 @@ export class CreateDatabase extends Action {
         // .callback((message: Message, dbForConsole: Database, queueForMails: Mail, queueForEvents: Event, queueForFunctions: Func, log: Log) => this.action(message, dbForConsole, queueForMails, queueForEvents, queueForFunctions, log));
     }
 
-    public async action(log: Log): Promise<void> {
-        Console.info('DB Created.')
+    public async action(project: Document, name: string): Promise<void> {
+        Console.log(project);
+        Console.info('DB Created.' + name)
     }
 }

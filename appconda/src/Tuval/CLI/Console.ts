@@ -28,9 +28,9 @@ export class Console {
      * @param  string  message
      * @return boolean
      */
-    public static log(message: string): boolean {
+    public static log(message: any): boolean {
         try {
-            process.stdout.write(message + "\n");
+          console.log(message)
             return true;
         } catch (e) {
             return false;

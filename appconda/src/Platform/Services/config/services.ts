@@ -12,7 +12,20 @@ module.exports = {
         optional: false,
         icon: '',
     }, 
-     'http-service': {
+    'database-service-proxy': {
+        key: 'log-service',
+        name: 'Log Service',
+        subtitle: '',
+        description: '',
+        service: '/database-service/DatabaseServiceProxy.ts',
+        sdk: false,
+        docs: false,
+        docsUrl: '',
+        tests: false,
+        optional: false,
+        icon: '',
+    }, 
+   /*   'http-service': {
         key: 'http-service',
         name: 'Http Service',
         subtitle: '',
@@ -24,6 +37,6 @@ module.exports = {
         tests: false,
         optional: false,
         icon: ''
-    } 
+    }  */
     
 }

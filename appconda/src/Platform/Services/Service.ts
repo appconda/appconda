@@ -7,6 +7,9 @@ import { Services } from "../../Services";
 import HttpService from "./http-service";
 import IDService from "./id-service/service";
 import KVService from "./kv-service/KVService";
+import { AppcondaServicePlatform } from "../Appconda";
+import { register } from "../../app/init";
+import { ServiceActionExecuter } from "./ServiceActionExecuter";
 
 
 const crypto = require('crypto');
@@ -37,6 +40,8 @@ function decrypt(text) {
 const NOOP = async () => { };
 
 export abstract class Service {
+
+    platform: AppcondaServicePlatform;
     //@ts-ignore
     router: e.Router;
     args: any;
@@ -48,10 +53,14 @@ export abstract class Service {
     private initialized: boolean = false;
 
     abstract get uid(): string;
-    abstract get displayName(): string;
+    //abstract get displayName(): string;
 
     async getConnector(): Promise<any> {
         return null;
+    }
+
+    getAction(action: string): ServiceActionExecuter {
+        return this.platform.getServiceAction(this.uid, action);
     }
 
     constructor(service_resources: any, ...a: any[]) {
@@ -59,6 +68,7 @@ export abstract class Service {
         this.args = args;
         this.service_name = name || this.constructor.name;
         this.services = services;
+        this.platform = register.get('service-platform');
     }
 
     async describe() {

@@ -71,14 +71,14 @@ export class ServiceActionExecuter {
      * @returns The requested resource
      * @throws Error if the resource callback is not found
      */
-    public getResource(name: string, fresh: boolean = false): any {
+    public async getResource(name: string, fresh: boolean = false): Promise<any> {
         if (!(name in this.resources) || fresh || (ServiceActionExecuter.resourcesCallbacks[name] && ServiceActionExecuter.resourcesCallbacks[name].reset)) {
             if (!(name in ServiceActionExecuter.resourcesCallbacks)) {
                 throw new Error(`Failed to find resource: "${name}"`);
             }
 
             const resourceCallback = ServiceActionExecuter.resourcesCallbacks[name];
-            this.resources[name] = resourceCallback.callback(...this.getResources(resourceCallback.injections));
+            this.resources[name] = await resourceCallback.callback(...(await this.getResources(resourceCallback.injections)));
 
             ServiceActionExecuter.resourcesCallbacks[name].reset = false;
         }
@@ -91,11 +91,11 @@ export class ServiceActionExecuter {
      * @param list - List of resource names
      * @returns An array of resources
      */
-    public getResources(list: string[]): any[] {
+    public async getResources(list: string[]): Promise<any[]> {
         const resources: any[] = [];
 
         for (const name of list) {
-            resources.push(this.getResource(name));
+            resources.push(await this.getResource(name));
         }
 
         return resources;
@@ -131,13 +131,13 @@ export class ServiceActionExecuter {
      * Stops the Queue server.
      * @returns The current Server instance
      */
-    public stop(): this {
+    public async stop(): Promise<any> {
         try {
             //this.adapter.stop();
         } catch (error) {
             ServiceActionExecuter.setResource("error", () => error);
             for (const hook of this.errorHooks) {
-                hook.getAction()(...this.getArguments(hook));
+                hook.getAction()(...(await this.getArguments(hook)));
             }
         }
         return this;
@@ -154,13 +154,16 @@ export class ServiceActionExecuter {
         return hook;
     }
 
-    public call( payload: any) {
+    public async call( payload: any) {
+
+
         try {
+            ServiceActionExecuter.setResource('payload', ()=> payload)
 
             if (this._job.getHook()) {
                 for (const hook of this.initHooks) { // Global init hooks
                     if (hook.getGroups().includes("*")) {
-                        const args = this.getArguments(hook, payload);
+                        const args = await this.getArguments(hook, payload);
                         hook.getAction()(...args);
                     }
                 }
@@ -169,20 +172,20 @@ export class ServiceActionExecuter {
             for (const group of this._job.getGroups()) {
                 for (const hook of this.initHooks) { // Group init hooks
                     if (hook.getGroups().includes(group)) {
-                        const args = this.getArguments(hook, payload);
+                        const args = await  this.getArguments(hook, payload);
                         hook.getAction()(...args);
                     }
                 }
             }
 
-            this._job.getAction()(...this.getArguments(this._job, payload));
+            this._job.getAction()(...( await this.getArguments(this._job, payload)));
 
 
 
             if (this._job.getHook()) {
                 for (const hook of this.shutdownHooks) { // Global shutdown hooks
                     if (hook.getGroups().includes("*")) {
-                        const args = this.getArguments(hook, payload);
+                        const args = await this.getArguments(hook, payload);
                         hook.getAction()(...args);
                     }
                 }
@@ -191,7 +194,7 @@ export class ServiceActionExecuter {
             for (const group of this._job.getGroups()) {
                 for (const hook of this.shutdownHooks) { // Group shutdown hooks
                     if (hook.getGroups().includes(group)) {
-                        const args = this.getArguments(hook, payload);
+                        const args = await this.getArguments(hook, payload);
                         hook.getAction()(...args);
                     }
                 }
@@ -203,11 +206,10 @@ export class ServiceActionExecuter {
 
             ServiceActionExecuter.setResource("error", () => th);
             for (const hook of this.errorHooks) {
-                hook.getAction()(...this.getArguments(hook));
+                hook.getAction()(...(await this.getArguments(hook)));
             }
         } finally {
-
-
+            ServiceActionExecuter.setResource('payload', ()=> {})
         }
     }
 
@@ -247,7 +249,7 @@ export class ServiceActionExecuter {
         } catch (error) {
             ServiceActionExecuter.setResource("error", () => error);
             for (const hook of this.errorHooks) {
-                hook.getAction()(...this.getArguments(hook));
+                hook.getAction()(...( await this.getArguments(hook)));
             }
         }
         return this;
@@ -277,13 +279,13 @@ export class ServiceActionExecuter {
      * @param callback - The callback to execute on worker stop
      * @returns The current Server instance
      */
-    public workerStop(callback?: () => void): this {
+    public async workerStop(callback?: () => void): Promise<any> {
         try {
 
         } catch (error) {
             ServiceActionExecuter.setResource("error", () => error);
             for (const hook of this.errorHooks) {
-                hook.getAction()(...this.getArguments(hook));
+                hook.getAction()(...(await this.getArguments(hook)));
             }
         }
 
@@ -296,7 +298,7 @@ export class ServiceActionExecuter {
      * @param payload - The payload to pass to the hook
      * @returns An array of arguments
      */
-    protected getArguments(hook: Hook, payload: Record<string, any> = {}): any[] {
+    protected async getArguments(hook: Hook, payload: Record<string, any> = {}): Promise<any[]> {
         const argumentsArray: any[] = [];
 
         for (const [key, param] of Object.entries(hook.getParams())) {
@@ -309,7 +311,7 @@ export class ServiceActionExecuter {
         }
 
         for (const [key, injection] of Object.entries(hook.getInjections())) {
-            argumentsArray[injection.order] = this.getResource(injection.name);
+            argumentsArray[injection.order] = await this.getResource(injection.name);
         }
 
         return argumentsArray;
@@ -322,12 +324,12 @@ export class ServiceActionExecuter {
      * @param value - The value to validate
      * @throws Error if validation fails
      */
-    protected validate(key: string, param: any, value: any): void {
+    protected async validate(key: string, param: any, value: any): Promise<void> {
         if (value !== "" && value !== null) {
             let validator = param.validator;
 
             if (typeof validator === "function") {
-                validator = validator(...this.getResources(param.injections));
+                validator = validator(...(await this.getResources(param.injections)));
             }
 
             if (!(validator instanceof Validator)) {

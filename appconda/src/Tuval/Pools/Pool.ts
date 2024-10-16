@@ -86,7 +86,8 @@ import { Connection } from "./Connection";
                 do {
                     try {
                         attempts++;
-                        connection = new Connection(await this.init());
+                        const initialedPool = await this.init();
+                        connection = new Connection(initialedPool);
                         break; // leave loop if successful
                     } catch (e: any) {
                         if (attempts >= this.getReconnectAttempts()) {

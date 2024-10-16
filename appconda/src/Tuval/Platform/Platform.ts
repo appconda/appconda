@@ -8,7 +8,7 @@ import { CLI } from '../CLI/CLI';
 import { Server } from '../Queue';
 import { App, Route } from '../Http';
 import { Swoole } from '../Queue/Adapter/Swoole';
-import { ServiceActionExecuter } from '../../Platform/Services/ServiceServer';
+import { ServiceActionExecuter } from '../../Platform/Services/ServiceActionExecuter';
 
 
 export abstract class Platform {
