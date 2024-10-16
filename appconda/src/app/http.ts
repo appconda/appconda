@@ -13,13 +13,18 @@ import { Response } from "../Appconda/Tuval/Response";
 import { Log, User } from "../Tuval/Logger";
 import { register } from "./controllers/general";
 
-var compression = require('compression')
+const compression = require('compression')
 const express = require('express');
 const { queryParser } = require('express-query-parser')
-
-var cors = require('cors')
+const cors = require('cors')
 const cookieParser = require('cookie-parser');
 
+/**
+ * setupServer
+ * 
+ * Bu fonksiyon, sunucunun veritabanı bağlantısını kurmak ve gerekli koleksiyonları oluşturmak için kullanılır. 
+ * Veritabanı hazır olana kadar belirli sayıda deneme yapar ve ardından gerekli yapılandırmaları gerçekleştirir.
+ */
 async function setupServer() {
     const app = new App('UTC');
 
