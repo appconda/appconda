@@ -55,6 +55,7 @@
     "jsdom": "^24.0.0",
     "jsonwebtoken": "^9.0.2",
     "langchain": "^0.1.34",
+    "libphonenumber-js": "^1.11.11",
     "log4js": "^6.9.1",
     "log4js-node-mongodb": "^2.2.1",
     "maxmind": "^4.3.21",
