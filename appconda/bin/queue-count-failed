@@ -1,0 +1,5 @@
+#!/bin/sh
+
+cd  /usr/app
+echo "Starting Queue Count Failed"
+npm run pm2:queue-count-failed

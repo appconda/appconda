@@ -52,6 +52,19 @@
         "cwd": "${workspaceRoot}",
         "internalConsoleOptions": "openOnSessionStart",
         "skipFiles": ["<node_internals>/**", "node_modules/**"]
+      },
+      {
+        "name": "Cli Vars",
+        "type": "node",
+        "request": "launch",
+        "runtimeExecutable": "node",
+        "runtimeArgs": ["--nolazy", "-r", "ts-node/register/transpile-only"],
+  
+        "args": ["debug/cli.ts", "vars"],
+        
+        "cwd": "${workspaceRoot}",
+        "internalConsoleOptions": "openOnSessionStart",
+        "skipFiles": ["<node_internals>/**", "node_modules/**"]
       }
     ]
   } 

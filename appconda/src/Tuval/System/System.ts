@@ -1,12 +1,14 @@
 
     export class System {
         public static readonly X86 = 'x86';
+        public static readonly X64 = 'x64';
         public static readonly PPC = 'ppc';
         public static readonly ARM64 = 'arm64';
         public static readonly ARMV7 = 'armv7';
         public static readonly ARMV8 = 'armv8';
 
         private static readonly RegExX86 = /(x86*|i386|i686)/;
+        private static readonly RegExX64 = /(x64|x86_64|amd64)/;
         private static readonly RegexARM64 = /(arm64|aarch64)/;
         private static readonly RegexARMV7 = /(armv7)/;
         private static readonly RegexARMV8 = /(armv8)/;
@@ -26,6 +28,7 @@
         public static getArchEnum(): string {
             const arch = this.getArch();
             if (this.RegExX86.test(arch)) return System.X86;
+            if (this.RegExX64.test(arch)) return System.X64;
             if (this.RegExPPC.test(arch)) return System.PPC;
             if (this.RegexARM64.test(arch)) return System.ARM64;
             if (this.RegexARMV7.test(arch)) return System.ARMV7;

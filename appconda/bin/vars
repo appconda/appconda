@@ -1,0 +1,5 @@
+#!/bin/sh
+
+cd  /usr/app
+echo "Starting Vars"
+npm run pm2:vars

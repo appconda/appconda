@@ -1,0 +1,6 @@
+
+#!/bin/sh
+
+cd  /usr/app
+echo "Starting Queue Count Processing"
+npm run pm2:queue-count-processing
