@@ -1,5 +1,8 @@
 import { Service } from "./Platform/Services/Service";
 import { ComponentsContainer } from "./ComponentsContainer";
+import { App } from "./Tuval/Http";
+import { Server } from "./Tuval/Queue";
+import { CLI } from "./Tuval/CLI/CLI";
 
 const { CompositeError } = require("./utils/errorutil")
 const { TeePromise } = require("./utils/promise");
@@ -25,7 +28,10 @@ export class Container {
             : new cls({ services: this, config, my_config, name, args });
 
         this.instances_[inst.uid] = inst;
-
+        // 3 platforma da register ediyoruz
+        App.setResource(inst.uid, inst);
+        CLI.setResource(inst.uid, inst);
+        Server.setResource(inst.uid, inst);
     }
     set(name: any, instance: any) { this.instances_[name] = instance; }
     get(name: string, opts?: any) {

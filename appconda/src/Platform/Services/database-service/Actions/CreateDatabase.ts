@@ -7,9 +7,7 @@ import { Message } from "../../../../Tuval/Queue";
 
 export class CreateDatabase extends Action {
     public static readonly NAME = 'CreateDatabase';
-    public static getName(): string {
-        return 'Create Database';
-    }
+
 
     constructor() {
         super();
@@ -23,6 +21,7 @@ export class CreateDatabase extends Action {
                   .inject('queueForEvents')
                   .inject('queueForFunctions') */
             .param('name','', new Text(255))
+            .callback(this.action)
         // .callback((message: Message, dbForConsole: Database, queueForMails: Mail, queueForEvents: Event, queueForFunctions: Func, log: Log) => this.action(message, dbForConsole, queueForMails, queueForEvents, queueForFunctions, log));
     }
 

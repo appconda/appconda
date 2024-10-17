@@ -10,6 +10,7 @@ import { ScheduleFunctions } from "../Tasks/ScheduleFunctions";
 import { ScheduleMessages } from "../Tasks/ScheduleMessages";
 import { Specs } from "../Tasks/Specs";
 import { SSL } from "../Tasks/SSL";
+import { Test } from "../Tasks/Test";
 import { Upgrade } from "../Tasks/Upgrade";
 import { Vars } from "../Tasks/Vars";
 import { Version } from "../Tasks/Version";
@@ -35,5 +36,6 @@ export class Tasks extends Agent {
             .addAction(Upgrade.getName(), new Upgrade())
             .addAction(Vars.getName(), new Vars())
             .addAction(Version.getName(), new Version());
+        this.addAction(Test.getName(), new Test());
     }
 }

@@ -47,7 +47,7 @@
         "runtimeExecutable": "node",
         "runtimeArgs": ["--nolazy", "-r", "ts-node/register/transpile-only"],
   
-        "args": ["debug/cli.ts", "doctor"],
+        "args": ["debug/cli.ts", "test"],
         
         "cwd": "${workspaceRoot}",
         "internalConsoleOptions": "openOnSessionStart",

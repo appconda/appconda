@@ -1,5 +1,7 @@
 import { Agent } from "../../../Tuval/Platform/Agent";
+import { CreateCollection } from "./Actions/CreateCollection";
 import { CreateDatabase } from "./Actions/CreateDatabase";
+import { ListDatabases } from "./Actions/ListDatabases";
 
 
 
@@ -10,7 +12,9 @@ export class DatabaseService extends Agent {
         super();
         this.type = Agent.TYPE_SERVICE;
         this
-            .addAction(CreateDatabase.getName(), new CreateDatabase())
+            .addAction( new CreateDatabase())
+            .addAction( new ListDatabases())
+            .addAction(new CreateCollection())
     }
 
     public getName() : string {
