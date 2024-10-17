@@ -7,7 +7,7 @@ export class Task extends Hook {
     constructor(name: string) {
         super();
         this.name = name;
-        (this as any).action = () => {};
+        (this as any)._action = () => {};
     }
 
     public getName(): string {

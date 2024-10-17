@@ -862,13 +862,6 @@ register.set('pools', () => {
                 throw new Error("Invalid console database scheme");
             }
 
-            console.log({
-                host: dsnHost,
-                port: dsnPort,
-                user: dsnUser,
-                password: dsnPass,
-                database: dsnDatabase,
-            })
 
             const resource = (() => {
                 switch (dsnScheme) {

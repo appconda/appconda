@@ -91,10 +91,12 @@ export abstract class ClamAV {
             handle.on('data', (chunk) => {
                 const packet = Buffer.concat([Buffer.alloc(4), chunk]);
                 packet.writeUInt32BE(chunk.length, 0);
+                //@ts-ignore
                 socket.write(packet);
             });
 
             handle.on('end', () => {
+                //@ts-ignore
                 socket.write(Buffer.from([0, 0, 0, 0]));
                 let data = '';
                 socket.on('data', (chunk) => {

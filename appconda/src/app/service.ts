@@ -10,7 +10,7 @@ import { Migration } from "../Appconda/Event/Migration";
 import { Database as EventDatabase } from "../Appconda/Event/Database";
 import { Usage } from "../Appconda/Event/Usage";
 import { UsageDump } from "../Appconda/Event/UsageDump";
-import { Appconda, AppcondaServicePlatform } from "../Platform/Appconda";
+import {  AppcondaServicePlatform } from "../Platform/Appconda";
 import { CreateDatabase } from "../Platform/Services/database-service/Actions/CreateDatabase";
 import { DatabaseService } from "../Platform/Services/database-service/DatabaseService";
 import { ServiceActionExecuter } from "../Platform/Services/ServiceActionExecuter";

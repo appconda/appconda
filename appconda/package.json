@@ -8,6 +8,7 @@
     "start": "nodemon",
     "pm2": "pm2-runtime --interpreter ./node_modules/.bin/ts-node   --ignore-errors start  ./src/index.ts ",
     "pm2:worker-audit": "pm2-runtime --interpreter ./node_modules/.bin/ts-node start./src/audits.ts ",
+    "pm2:doctor": "ts-node --transpile-only  ./src/app/cli.ts doctor",
     "kill": "pm2 kill",
     "start:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register src/tuval.ts",
     "start:example05:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register src/test/flow/example_05.ts",

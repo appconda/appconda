@@ -186,11 +186,11 @@ export abstract class Action {
      * @returns any
      */
     public getCallback(): any {
-        if (typeof this['action'] === 'function') {
+         /* if (typeof this['action'] === 'function') {
             return this['action'];
-        } else {
+        } else {  */
             return this._callback;
-        }
+       //}
 
     }
 

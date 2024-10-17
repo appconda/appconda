@@ -38,8 +38,12 @@ export abstract class Platform {
                     this.initHttp(services);
                     break;
                 case Agent.TYPE_TASK:
-                    this.cli ||= new CLI();
+                    try {
+                    this.cli = new CLI(process.argv);
                     this.initTasks(services);
+                    }catch(e) {
+                        console.log(e)
+                    }
                     break;
                 case Agent.TYPE_GRAPHQL:
                     this.initGraphQL();
@@ -136,7 +140,8 @@ export abstract class Platform {
      */
     protected initTasks(services: Agent[]): void {
         const cli = this.cli;
-        for (const service of services) {
+        for (const key of Object.keys(services)) {
+            const service: Agent = services[key];
             for (const [key, action] of Object.entries(service.getActions())) {
                 let hook;
                 switch (action.getType()) {

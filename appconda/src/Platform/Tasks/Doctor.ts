@@ -66,35 +66,35 @@ export class Doctor extends Action {
         let domain = new Domain(process.env._APP_DOMAIN);
 
         if (!domain.isKnown() || domain.isTest()) {
-            Console.log(`🔴 Hostname has no public suffix (${domain.get()})`);
+            Console.error(`🔴 Hostname has no public suffix (${domain.get()})`);
         } else {
-            Console.log(`🟢 Hostname has a public suffix (${domain.get()})`);
+            Console.success(`🟢 Hostname has a public suffix (${domain.get()})`);
         }
 
         domain = new Domain(process.env._APP_DOMAIN_TARGET);
 
         if (!domain.isKnown() || domain.isTest()) {
-            Console.log(`🔴 CNAME target has no public suffix (${domain.get()})`);
+            Console.error(`🔴 CNAME target has no public suffix (${domain.get()})`);
         } else {
-            Console.log(`🟢 CNAME target has a public suffix (${domain.get()})`);
+            Console.success(`🟢 CNAME target has a public suffix (${domain.get()})`);
         }
 
         if (process.env._APP_OPENSSL_KEY_V1 === 'your-secret-key' || !process.env._APP_OPENSSL_KEY_V1) {
-            Console.log('🔴 Not using a unique secret key for encryption');
+            Console.error('🔴 Not using a unique secret key for encryption');
         } else {
-            Console.log('🟢 Using a unique secret key for encryption');
+            Console.success('🟢 Using a unique secret key for encryption');
         }
 
         if (process.env._APP_ENV !== 'production') {
-            Console.log('🔴 App environment is set for development');
+            Console.error('🔴 App environment is set for development');
         } else {
-            Console.log('🟢 App environment is set for production');
+            Console.success('🟢 App environment is set for production');
         }
 
         if (process.env._APP_OPTIONS_ABUSE !== 'enabled') {
-            Console.log('🔴 Abuse protection is disabled');
+            Console.error('🔴 Abuse protection is disabled');
         } else {
-            Console.log('🟢 Abuse protection is enabled');
+            Console.success('🟢 Abuse protection is enabled');
         }
          
 
@@ -103,21 +103,21 @@ export class Doctor extends Action {
         const authWhitelistIPs = process.env._APP_CONSOLE_WHITELIST_IPS || null;
 
         if (!authWhitelistRoot && !authWhitelistEmails && !authWhitelistIPs) {
-            Console.log('🔴 Console access limits are disabled');
+            Console.error('🔴 Console access limits are disabled');
         } else {
-            Console.log('🟢 Console access limits are enabled');
+            Console.success('🟢 Console access limits are enabled');
         }
 
         if (process.env._APP_OPTIONS_FORCE_HTTPS !== 'enabled') {
-            Console.log('🔴 HTTPS force option is disabled');
+            Console.error('🔴 HTTPS force option is disabled');
         } else {
-            Console.log('🟢 HTTPS force option is enabled');
+            Console.success('🟢 HTTPS force option is enabled');
         }
 
         if (process.env._APP_OPTIONS_FUNCTIONS_FORCE_HTTPS !== 'enabled') {
-            Console.log('🔴 HTTPS force option is disabled for function domains');
+            Console.error('🔴 HTTPS force option is disabled for function domains');
         } else {
-            Console.log('🟢 HTTPS force option is enabled for function domains');
+            Console.success('🟢 HTTPS force option is enabled for function domains');
         }
 
         const providerConfig = process.env._APP_LOGGING_CONFIG || '';
@@ -128,18 +128,18 @@ export class Doctor extends Action {
             const providerName = loggingProvider.getScheme();
 
             if (!providerName || !Logger.hasProvider(providerName)) {
-                Console.log('🔴 Logging adapter is disabled');
+                Console.error('🔴 Logging adapter is disabled');
             } else {
-                Console.log(`🟢 Logging adapter is enabled (${providerName})`);
+                Console.success(`🟢 Logging adapter is enabled (${providerName})`);
             }
         } catch (error) {
-            Console.log('🔴 Logging adapter is misconfigured');
+            Console.error('🔴 Logging adapter is misconfigured');
         }
 
         setTimeout(() => {}, 200);
 
         try {
-            Console.log('\n[Connectivity]');
+            Console.info('\n[Connectivity]');
         } catch (error) {
             // Handle error
         }
@@ -153,7 +153,8 @@ export class Doctor extends Action {
         for (const [key, config] of Object.entries(configs)) {
             for (const database of config) {
                 try {
-                    const adapter = pools.get(database).pop().getResource();
+                    const connection  = await pools.get(database).pop();
+                    const adapter = connection.getResource();
 
                     if (adapter.ping()) {
                         Console.success(`🟢 ${key}(${database}) connected`);
@@ -175,7 +176,8 @@ export class Doctor extends Action {
         for (const [key, config] of Object.entries(otherConfigs)) {
             for (const pool of config) {
                 try {
-                    const adapter = pools.get(pool).pop().getResource();
+                    const connection =  await pools.get(pool).pop();
+                    const adapter = connection.getResource();
 
                     if (adapter.ping()) {
                         Console.success(`🟢 ${key}(${pool}) connected`);
@@ -253,6 +255,10 @@ export class Doctor extends Action {
         Console.log('[Disk Space]');
 
         for (const [key, volume] of Object.entries(volumes)) {
+            if (volume == null) {
+                Console.error(`🔴 ${key} not specified`);
+                continue;
+            }
             const device = new Local(volume);
 
             const percentage = (( await device.getPartitionTotalSpace() - await device.getPartitionFreeSpace()) / await device.getPartitionTotalSpace()) * 100;

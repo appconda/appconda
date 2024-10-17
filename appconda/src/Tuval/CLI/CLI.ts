@@ -14,12 +14,12 @@ export class CLI {
     protected _shutdown: Hook[] = [];
 
     constructor(args: string[] = []) {
-        if (process.env.NODE_ENV !== 'cli') {
+       /*  if (process.env.NODE_ENV !== 'cli') {
             throw new Error('CLI tasks can only work from the command line');
-        }
+        } */
 
         this.args = this.parse(args.length > 0 ? args : process.argv) as any;
-        execSync(`title ${this.command}`);
+        //execSync(`title ${this.command}`);
     }
 
     public init(): Hook {
@@ -68,8 +68,9 @@ export class CLI {
     }
 
     public parse(args: string[]): Record<string, any> {
+        console.log(args);
+        args.shift(); // Remove node from args
         args.shift(); // Remove script path from args
-
         if (args[0]) {
             this.command = args.shift()!;
         } else {

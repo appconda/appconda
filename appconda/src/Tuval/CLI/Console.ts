@@ -74,7 +74,7 @@ export class Console {
      */
     public static error(message: string): boolean {
         try {
-            console.log(cc.set("fg_white", "bg_red", message));
+            console.log(cc.set("fg_red", "bg_black", message));
             return true;
         } catch (e) {
             return false;
