@@ -12,6 +12,7 @@ module.exports = {
         optional: false,
         icon: '',
     }, 
+    */
     'database-service-proxy': {
         key: 'log-service',
         name: 'Log Service',
@@ -24,7 +25,7 @@ module.exports = {
         tests: false,
         optional: false,
         icon: '',
-    },  */
+    }
    /*   'http-service': {
         key: 'http-service',
         name: 'Http Service',

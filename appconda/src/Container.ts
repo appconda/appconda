@@ -29,9 +29,10 @@ export class Container {
 
         this.instances_[inst.uid] = inst;
         // 3 platforma da register ediyoruz
-        App.setResource(inst.uid, inst);
-        CLI.setResource(inst.uid, inst);
-        Server.setResource(inst.uid, inst);
+        
+        App.setResource(inst.uid,()=> inst);
+        CLI.setResource(inst.uid,()=> inst);
+        Server.setResource(inst.uid,()=> inst);
     }
     set(name: any, instance: any) { this.instances_[name] = instance; }
     get(name: string, opts?: any) {
