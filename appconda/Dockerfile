@@ -48,6 +48,16 @@ RUN chmod +x /usr/local/bin/maintenance
 
 RUN chmod +x /usr/local/bin/worker-audits
 RUN chmod +x /usr/local/bin/worker-databases
+RUN chmod +x /usr/local/bin/worker-builds
+RUN chmod +x /usr/local/bin/worker-certificates
+RUN chmod +x /usr/local/bin/worker-deletes
+RUN chmod +x /usr/local/bin/worker-functions
+RUN chmod +x /usr/local/bin/worker-mails
+RUN chmod +x /usr/local/bin/worker-messaging
+RUN chmod +x /usr/local/bin/worker-migrations
+RUN chmod +x /usr/local/bin/worker-usage
+RUN chmod +x /usr/local/bin/worker-usage-dump
+RUN chmod +x /usr/local/bin/worker-webhooks
 
 #CMD ["node", "src/index.js"]
 

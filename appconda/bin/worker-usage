@@ -1,0 +1,5 @@
+#!/bin/sh
+
+cd  /usr/app
+echo "Starting Worker Usage"
+npm run pm2:worker-usage

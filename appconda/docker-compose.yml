@@ -280,6 +280,278 @@ services:
       - _APP_LOGGING_CONFIG
       - _APP_DATABASE_SHARED_TABLES
 
+  appconda-worker-deletes:
+    entrypoint: worker-deletes
+    <<: *x-logging
+    container_name: appconda-worker-deletes
+    image: appconda-dev
+    networks:
+      - appconda
+    volumes:
+      - appconda-uploads:/storage/uploads:rw
+      - appconda-cache:/storage/cache:rw
+      - appconda-config:/storage/config:rw
+      - appconda-certificates:/storage/certificates:rw
+      - appconda-functions:/storage/functions:rw
+      - ./src:/usr/app/src
+    depends_on:
+      - redis
+      - mariadb
+    environment:
+      - _APP_ENV
+      - _APP_WORKER_PER_CORE
+      - _APP_OPENSSL_KEY_V1
+      - _APP_REDIS_HOST
+      - _APP_REDIS_PORT
+      - _APP_REDIS_USER
+      - _APP_REDIS_PASS
+      - _APP_DB_HOST
+      - _APP_DB_PORT
+      - _APP_DB_SCHEMA
+      - _APP_DB_USER
+      - _APP_DB_PASS
+      - _APP_LOGGING_PROVIDER
+      - _APP_LOGGING_CONFIG
+      - _APP_DATABASE_SHARED_TABLES
+
+  appconda-worker-functions:
+    entrypoint: worker-functions
+    <<: *x-logging
+    container_name: appconda-worker-functions
+    image: appconda-dev
+    networks:
+      - appconda
+    volumes:
+      - appconda-uploads:/storage/uploads:rw
+      - appconda-cache:/storage/cache:rw
+      - appconda-config:/storage/config:rw
+      - appconda-certificates:/storage/certificates:rw
+      - appconda-functions:/storage/functions:rw
+      - ./src:/usr/app/src
+    depends_on:
+      - redis
+      - mariadb
+    environment:
+      - _APP_ENV
+      - _APP_WORKER_PER_CORE
+      - _APP_OPENSSL_KEY_V1
+      - _APP_REDIS_HOST
+      - _APP_REDIS_PORT
+      - _APP_REDIS_USER
+      - _APP_REDIS_PASS
+      - _APP_DB_HOST
+      - _APP_DB_PORT
+      - _APP_DB_SCHEMA
+      - _APP_DB_USER
+      - _APP_DB_PASS
+      - _APP_LOGGING_PROVIDER
+      - _APP_LOGGING_CONFIG
+      - _APP_DATABASE_SHARED_TABLES
+
+  appconda-worker-mails:
+    entrypoint: worker-mails
+    <<: *x-logging
+    container_name: appconda-worker-mails
+    image: appconda-dev
+    networks:
+      - appconda
+    volumes:
+      - appconda-uploads:/storage/uploads:rw
+      - appconda-cache:/storage/cache:rw
+      - appconda-config:/storage/config:rw
+      - appconda-certificates:/storage/certificates:rw
+      - appconda-functions:/storage/functions:rw
+      - ./src:/usr/app/src
+    depends_on:
+      - redis
+      - mariadb
+    environment:
+      - _APP_ENV
+      - _APP_WORKER_PER_CORE
+      - _APP_OPENSSL_KEY_V1
+      - _APP_REDIS_HOST
+      - _APP_REDIS_PORT
+      - _APP_REDIS_USER
+      - _APP_REDIS_PASS
+      - _APP_DB_HOST
+      - _APP_DB_PORT
+      - _APP_DB_SCHEMA
+      - _APP_DB_USER
+      - _APP_DB_PASS
+      - _APP_LOGGING_PROVIDER
+      - _APP_LOGGING_CONFIG
+      - _APP_DATABASE_SHARED_TABLES
+
+  appconda-worker-messaging:
+    entrypoint: worker-messaging
+    <<: *x-logging
+    container_name: appconda-worker-messaging
+    image: appconda-dev
+    networks:
+      - appconda
+    volumes:
+      - appconda-uploads:/storage/uploads:rw
+      - appconda-cache:/storage/cache:rw
+      - appconda-config:/storage/config:rw
+      - appconda-certificates:/storage/certificates:rw
+      - appconda-functions:/storage/functions:rw
+      - ./src:/usr/app/src
+    depends_on:
+      - redis
+      - mariadb
+    environment:
+      - _APP_ENV
+      - _APP_WORKER_PER_CORE
+      - _APP_OPENSSL_KEY_V1
+      - _APP_REDIS_HOST
+      - _APP_REDIS_PORT
+      - _APP_REDIS_USER
+      - _APP_REDIS_PASS
+      - _APP_DB_HOST
+      - _APP_DB_PORT
+      - _APP_DB_SCHEMA
+      - _APP_DB_USER
+      - _APP_DB_PASS
+      - _APP_LOGGING_PROVIDER
+      - _APP_LOGGING_CONFIG
+      - _APP_DATABASE_SHARED_TABLES
+
+  appconda-worker-migrations:
+    entrypoint: worker-migrations
+    <<: *x-logging
+    container_name: appconda-worker-migrations
+    image: appconda-dev
+    networks:
+      - appconda
+    volumes:
+      - appconda-uploads:/storage/uploads:rw
+      - appconda-cache:/storage/cache:rw
+      - appconda-config:/storage/config:rw
+      - appconda-certificates:/storage/certificates:rw
+      - appconda-functions:/storage/functions:rw
+      - ./src:/usr/app/src
+    depends_on:
+      - redis
+      - mariadb
+    environment:
+      - _APP_ENV
+      - _APP_WORKER_PER_CORE
+      - _APP_OPENSSL_KEY_V1
+      - _APP_REDIS_HOST
+      - _APP_REDIS_PORT
+      - _APP_REDIS_USER
+      - _APP_REDIS_PASS
+      - _APP_DB_HOST
+      - _APP_DB_PORT
+      - _APP_DB_SCHEMA
+      - _APP_DB_USER
+      - _APP_DB_PASS
+      - _APP_LOGGING_PROVIDER
+      - _APP_LOGGING_CONFIG
+      - _APP_DATABASE_SHARED_TABLES
+
+  appconda-worker-usage:
+    entrypoint: worker-usage
+    <<: *x-logging
+    container_name: appconda-worker-usage
+    image: appconda-dev
+    networks:
+      - appconda
+    volumes:
+      - appconda-uploads:/storage/uploads:rw
+      - appconda-cache:/storage/cache:rw
+      - appconda-config:/storage/config:rw
+      - appconda-certificates:/storage/certificates:rw
+      - appconda-functions:/storage/functions:rw
+      - ./src:/usr/app/src
+    depends_on:
+      - redis
+      - mariadb
+    environment:
+      - _APP_ENV
+      - _APP_WORKER_PER_CORE
+      - _APP_OPENSSL_KEY_V1
+      - _APP_REDIS_HOST
+      - _APP_REDIS_PORT
+      - _APP_REDIS_USER
+      - _APP_REDIS_PASS
+      - _APP_DB_HOST
+      - _APP_DB_PORT
+      - _APP_DB_SCHEMA
+      - _APP_DB_USER
+      - _APP_DB_PASS
+      - _APP_LOGGING_PROVIDER
+      - _APP_LOGGING_CONFIG
+      - _APP_DATABASE_SHARED_TABLES
+
+  appconda-worker-usage-dump:
+    entrypoint: worker-usage-dump
+    <<: *x-logging
+    container_name: appconda-worker-usage-dump
+    image: appconda-dev
+    networks:
+      - appconda
+    volumes:
+      - appconda-uploads:/storage/uploads:rw
+      - appconda-cache:/storage/cache:rw
+      - appconda-config:/storage/config:rw
+      - appconda-certificates:/storage/certificates:rw
+      - appconda-functions:/storage/functions:rw
+      - ./src:/usr/app/src
+    depends_on:
+      - redis
+      - mariadb
+    environment:
+      - _APP_ENV
+      - _APP_WORKER_PER_CORE
+      - _APP_OPENSSL_KEY_V1
+      - _APP_REDIS_HOST
+      - _APP_REDIS_PORT
+      - _APP_REDIS_USER
+      - _APP_REDIS_PASS
+      - _APP_DB_HOST
+      - _APP_DB_PORT
+      - _APP_DB_SCHEMA
+      - _APP_DB_USER
+      - _APP_DB_PASS
+      - _APP_LOGGING_PROVIDER
+      - _APP_LOGGING_CONFIG
+      - _APP_DATABASE_SHARED_TABLES
+
+  appconda-worker-webhooks:
+    entrypoint: worker-webhooks
+    <<: *x-logging
+    container_name: appconda-worker-webhooks
+    image: appconda-dev
+    networks:
+      - appconda
+    volumes:
+      - appconda-uploads:/storage/uploads:rw
+      - appconda-cache:/storage/cache:rw
+      - appconda-config:/storage/config:rw
+      - appconda-certificates:/storage/certificates:rw
+      - appconda-functions:/storage/functions:rw
+      - ./src:/usr/app/src
+    depends_on:
+      - redis
+      - mariadb
+    environment:
+      - _APP_ENV
+      - _APP_WORKER_PER_CORE
+      - _APP_OPENSSL_KEY_V1
+      - _APP_REDIS_HOST
+      - _APP_REDIS_PORT
+      - _APP_REDIS_USER
+      - _APP_REDIS_PASS
+      - _APP_DB_HOST
+      - _APP_DB_PORT
+      - _APP_DB_SCHEMA
+      - _APP_DB_USER
+      - _APP_DB_PASS
+      - _APP_LOGGING_PROVIDER
+      - _APP_LOGGING_CONFIG
+      - _APP_DATABASE_SHARED_TABLES
+
   mariadb:
     image: mariadb:10.7 # fix issues when upgrading using: mysql_upgrade -u root -p
     container_name: appconda-mariadb
@@ -403,6 +675,7 @@ services:
       - appconda
     volumes:
       - appconda-mongodb:/data/db
+
 
 networks:
   gateway:

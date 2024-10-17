@@ -1,0 +1,5 @@
+#!/bin/sh
+
+cd  /usr/app
+echo "Starting Worker Functions"
+npm run pm2:worker-functions
