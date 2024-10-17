@@ -1416,11 +1416,10 @@ App.setResource('getProjectDB', async ({ pools, dbForConsole, cache }: { pools: 
 
 
 App.setResource('cache', async ({ pools }: { pools: Group }) => {
-    const list = Config.getParam('pools-cache', []);
     const adapters = [];
-    for (const value of list) {
-        const pool = pools.get(value);
-        const connection = await pool.pop();
+    const list = Config.getParam('pools-cache', []);
+    for (let i = 0; i < list.length; i++) {
+        const connection = await pools.get(list[i]).pop();
         adapters.push(connection.getResource());
     }
     /*  const adapters = list.map(async (value: string) => {

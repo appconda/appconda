@@ -4,5 +4,5 @@ import path from 'path';
 const a = path.resolve(__dirname, './.env') ;
 dotenv.config({ path: a });
 
-import '../src/app/worker_test.ts'
+import '../src/app/worker.ts'
 

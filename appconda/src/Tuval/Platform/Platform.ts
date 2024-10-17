@@ -39,9 +39,9 @@ export abstract class Platform {
                     break;
                 case Agent.TYPE_TASK:
                     try {
-                    this.cli = new CLI(process.argv);
-                    this.initTasks(services);
-                    }catch(e) {
+                        this.cli = new CLI(process.argv);
+                        this.initTasks(services);
+                    } catch (e) {
                         console.log(e)
                     }
                     break;
@@ -406,6 +406,11 @@ export abstract class Platform {
      * @returns any
      */
     public getEnv(key: string, defaultValue: string | null = null): any {
+        if (key === 'argv') {
+            const args = process.argv;
+            args.shift(); // node parametresini atliyoruz
+            return args;
+        }
         return process.env[key] ?? defaultValue;
     }
 }

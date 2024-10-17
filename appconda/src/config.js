@@ -164,7 +164,7 @@ try {
     console.log('Custom config found.')
  }
 catch {
-    console.log('Custom config not found.')
+    //console.log('Custom config not found.')
 } 
 
 module.exports = Object.assign(config, userConfig);

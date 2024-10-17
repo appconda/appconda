@@ -290,7 +290,9 @@ async function router(
                 method: method,
                 headers: headers,
                 runtimeEntrypoint: command,
-                requestTimeout: 30
+                requestTimeout: 30,
+                cpus: 1,
+                memory: 512
             });
 
             const headersFiltered = Object.entries(executionResponse.headers)

@@ -43,7 +43,11 @@ COPY ./src ./src
 COPY ./bin /usr/local/bin
 # Executables
 RUN chmod +x /usr/local/bin/doctor
+RUN chmod +x /usr/local/bin/install
+RUN chmod +x /usr/local/bin/maintenance
+
 RUN chmod +x /usr/local/bin/worker-audits
+RUN chmod +x /usr/local/bin/worker-databases
 
 #CMD ["node", "src/index.js"]
 

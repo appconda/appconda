@@ -38,7 +38,7 @@ import { Config } from '../../../Tuval/Config';
 import { Request } from '../../../Appconda/Tuval/Request';
 import { App } from '../../../Tuval/Http';
 
-console.log('Account Controller Loaded...')
+
 
 function empty(value: any): boolean {
     // Check for null or undefined

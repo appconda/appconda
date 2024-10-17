@@ -30,9 +30,13 @@ Authorization.disable();
 
 CLI.setResource('register', () => register);
 
-CLI.setResource('cache', (pools) => {
+CLI.setResource('cache', async (pools) => {
+    const adapters = [];
     const list = Config.getParam('pools-cache', []);
-    const adapters = list.map(value => pools.get(value).pop().getResource());
+    for (let i = 0; i < list.length; i++) {
+        const connection = await pools.get(list[i]).pop();
+        adapters.push(connection.getResource());
+    }
     return new Cache(new Sharding(adapters));
 }, ['pools']);
 
