@@ -1,0 +1,5 @@
+#!/bin/sh
+
+cd  /usr/app
+echo "Starting Migrate"
+npm run pm2:migrate

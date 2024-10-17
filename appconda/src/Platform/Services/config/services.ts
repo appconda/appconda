@@ -1,5 +1,5 @@
 module.exports = {
-     'log-service': {
+   /*   'log-service': {
         key: 'log-service',
         name: 'Log Service',
         subtitle: '',
@@ -24,7 +24,7 @@ module.exports = {
         tests: false,
         optional: false,
         icon: '',
-    }, 
+    },  */
    /*   'http-service': {
         key: 'http-service',
         name: 'Http Service',

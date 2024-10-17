@@ -212,7 +212,6 @@ async function start() {
 
 
     const _path = path.resolve('./src/app/controllers/general');
-    console.log(register)
 
 
     app.use(async (req, res, next) => {

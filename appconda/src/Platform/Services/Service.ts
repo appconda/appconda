@@ -41,7 +41,13 @@ const NOOP = async () => { };
 
 export abstract class Service {
 
-    platform: AppcondaServicePlatform;
+    private _platform: AppcondaServicePlatform;
+    public get platform(): AppcondaServicePlatform {
+        if (this._platform == null) {
+            this._platform = register.get('service-platform');
+        }
+        return this._platform;
+    }
     //@ts-ignore
     router: e.Router;
     args: any;
@@ -68,7 +74,7 @@ export abstract class Service {
         this.args = args;
         this.service_name = name || this.constructor.name;
         this.services = services;
-        this.platform = register.get('service-platform');
+
     }
 
     async describe() {
@@ -82,7 +88,7 @@ export abstract class Service {
         }
     }
 
-    public   init() {}
+    public init() { }
 
 
     async __on(id: string, args: any[]) {
@@ -98,7 +104,7 @@ export abstract class Service {
     }
 
     protected createKeyInternal(data: object) {
-        
+
         return encrypt(JSON.stringify(data));
     }
 

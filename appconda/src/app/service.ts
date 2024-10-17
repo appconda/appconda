@@ -275,7 +275,7 @@ const start = async () => {
     const pools = register.get('pools');
 
     const platform = new AppcondaServicePlatform();
-    register.set('service-platform', ()=> platform);
+    
 
     try {
         platform.init(Agent.TYPE_SERVICE);
@@ -284,12 +284,12 @@ const start = async () => {
         Console.error(`${e.message}, File: ${e.file}, Line: ${e.line}`);
     }
 
-    const action = platform.getServiceAction(DatabaseService.NAME, CreateDatabase.NAME);
+   /*  const action = platform.getServiceAction(DatabaseService.NAME, CreateDatabase.NAME);
 
     action.call({
         project: '670ccd2600045e926e17',
         name: 'test'
-    })
+    }) */
 
     /*  action.workerStart()
          .action(() => {

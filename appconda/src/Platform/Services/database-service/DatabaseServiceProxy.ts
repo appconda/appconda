@@ -12,7 +12,7 @@ export default class DatabaseServiceProxy extends Service {
 
     public init() {
         const a = '';
-        this.createDatabase();
+       // this.createDatabase();
     }
 
     public createDatabase() {

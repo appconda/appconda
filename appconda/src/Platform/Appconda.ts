@@ -1,3 +1,4 @@
+import { register } from "../app/init";
 import { Container } from "../Container";
 import { Platform } from "../Tuval/Platform/Platform";
 import { Core } from "./Modules/Core";
@@ -27,6 +28,7 @@ const container = new Container(null);
 export class AppcondaServicePlatform extends Platform {
     constructor() {
         super(new ServiceCore());
+        register.set('service-platform', ()=> this);
     }
 
     public async start(): Promise<any> {

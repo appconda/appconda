@@ -28,7 +28,7 @@ import { App } from '../../Tuval/Http';
 import { Log, Logger } from '../../Tuval/Logger';
 import { parse } from 'url';
 
-//import '../service';
+import '../service';
 
 export const register = reg;
 
@@ -1005,11 +1005,10 @@ const services = Config.getParam('services', []);
 for (const service of Object.keys(services)) {
     const controller = services[service].controller;
     const controllerPath =path.resolve(__dirname + '/' + controller);
-    console.log('-------===================-------');
-    console.log(controllerPath);
+  
     try {
-       const a =  require(controllerPath);
-       console.log(a);
+       const controller =  require(controllerPath);
+      // console.log(controller);
     } catch (error) {
          console.error(error);
     }

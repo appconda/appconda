@@ -1,6 +1,16 @@
 FROM node:21-alpine as production
 
-RUN apk add --no-cache python3 build-essential make g++ imagemagick libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
+RUN apk add --no-cache \
+    python3 \
+    build-base \
+    make \
+    g++ \
+    imagemagick \
+    cairo-dev \
+    pango-dev \
+    jpeg-dev \
+    giflib-dev \
+    librsvg-dev
 
 
 # Add dependencies to get Bun working on Alpine
@@ -32,6 +42,7 @@ COPY ./src ./src
 
 COPY ./bin /usr/local/bin
 # Executables
+RUN chmod +x /usr/local/bin/doctor
 RUN chmod +x /usr/local/bin/worker-audits
 
 #CMD ["node", "src/index.js"]

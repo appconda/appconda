@@ -6,7 +6,7 @@
         "type": "node",
         "request": "launch",
         "runtimeExecutable": "node",
-        "runtimeArgs": ["--nolazy", "-r", "ts-node/register/transpile-only"],
+        "runtimeArgs": ["--nolazy","--trace-deprecation", "-r","ts-node/register/transpile-only"],
   
         "args": ["debug/index.ts", "--example", "hello", "isDevelopment=true"],
         
