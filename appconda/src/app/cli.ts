@@ -20,10 +20,10 @@ import { System } from "../Tuval/System/System";
 import { register } from "./init";
 
 
-// Overwriting runtimes to be architecture agnostic for CLI
+// CLI için mimariden bağımsız hale getiriyoruz
 Config.setParam('runtimes', new Runtimes('v4').getAll(false));
 
-// Require controllers after overwriting runtimes
+// Çalışma zamanlarını gecersiz hale getiriyoruz
 require('./controllers/general');
 
 Authorization.disable();
