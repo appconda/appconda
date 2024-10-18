@@ -124,7 +124,7 @@ export class Workflow {
 
         do {
             do {
-                ret = await path.stepExecuters[path.position].run({});
+                ret = await path.stepExecuters[path.position].run();
             } while (!ret);
 
             if (ret) {
@@ -270,7 +270,7 @@ export class Workflow {
                 /*   if (action.getType() === Action.TYPE_DEFAULT && !key.toLowerCase().includes(workerName.toLowerCase())) {
                       continue;
                   } */
-                const stepExecuter = new StepExecuter();
+                const stepExecuter = new StepExecuter(step);
                 path.stepExecuters[step.getId()] = stepExecuter;
                 let hook;
 

@@ -1,7 +1,8 @@
 
 import { Path } from "../../../Tuval/Workflow/Path";
 import { State } from "../../../Tuval/Workflow/State";
-import { StartEvent, ServiceTask, UserTask, ExculusiveGateway } from "../../../Tuval/Workflow/Steps/BPMN20/Task";
+import { WorkflowStep } from "../../../Tuval/Workflow/Step";
+import { StartEvent, ServiceTask, UserTask, ExculusiveGateway, ConsoleStep } from "../../../Tuval/Workflow/Steps/BPMN20/Task";
 import { ProcessStep } from "../../../Tuval/Workflow/Steps/ProcessStep";
 import { Execution, Workflow } from "../../../Tuval/Workflow/Workflow";
 import { SendEmail } from "../mail-service/Actions/SendEmail";
@@ -74,43 +75,88 @@ const workflows: Workflow[] = []
 
 
 
-    const woc = new Workflow(state);
-    workflows.push(woc);
+const woc = new Workflow(state);
+workflows.push(woc);
 
+
+const stepMap = {};
+stepMap['start'] = StartEvent;
+stepMap['console'] = ConsoleStep;
+//section.addStep(new CounterStep(5))
+function JSONToFlow(flow: any[]): Path {
     const section = new Path();
 
-    //section.addStep(new CounterStep(5))
-    section.addStep(new StartEvent())
-  /*   section.addStep(new ServiceTask('service', 'arac_getirildi', {
-        SERVICE: MailService, 
-        ACTION: SendEmail
-    }))
-    section.addStep(new UserTask('arac_getirildi', 'arac_yikama', {
-        name: 'Arac Getirildi'
-    }))
-    section.addStep(new UserTask('arac_yikama', 'arac_temiz_mi', {
-        name: 'Arac Yikama'
-    }))
+    for (let i = 0; i < flow.length; i++) {
+        const stepType = stepMap[flow[i].type];
+        const step: WorkflowStep = new stepType();
+        step.setId(flow[i].id);
+        if (flow[i].payload){
+            step.setPayload(flow[i].payload);
+        }
+        section.addStep(step);
+    }
 
-    section.addStep(
-        (new ExculusiveGateway('arac_temiz_mi', '', {
-        name: 'Arac Temiz mi?'
-    }))
-    .addExpression('ARAC_TEMIZ_MI === true', 'arac_teslim')
-    .addExpression('ARAC_TEMIZ_MI !== false', 'personele_kiz')
+    // outgoings
+    for (let i = 0; i < flow.length; i++) {
+        const step = section.getStepById(flow[i].id);
+        const outgouings = flow[i].outgoings;
+        if (Array.isArray(outgouings)) {
+            for (let j = 0; j < outgouings.length; j++) {
+                const outgoingStep = section.getStepById(outgouings[j]);
+                step.outgoing(outgoingStep);
+            }
+        }
+
+    }
+
+    return section;
+}
+
+/*   section.addStep(new ServiceTask('service', 'arac_getirildi', {
+      SERVICE: MailService, 
+      ACTION: SendEmail
+  }))
+  section.addStep(new UserTask('arac_getirildi', 'arac_yikama', {
+      name: 'Arac Getirildi'
+  }))
+  section.addStep(new UserTask('arac_yikama', 'arac_temiz_mi', {
+      name: 'Arac Yikama'
+  }))
+
+  section.addStep(
+      (new ExculusiveGateway('arac_temiz_mi', '', {
+      name: 'Arac Temiz mi?'
+  }))
+  .addExpression('ARAC_TEMIZ_MI === true', 'arac_teslim')
+  .addExpression('ARAC_TEMIZ_MI !== false', 'personele_kiz')
 
 )
 
 section.addStep(new UserTask('personele_kiz', 'arac_yikama', {
-    name: 'Personele Kiz'
+  name: 'Personele Kiz'
 }))
 
-    section.addStep(new UserTask('arac_teslim', 'END', {
-        name: 'Arac Teslim'
-    })) */
+  section.addStep(new UserTask('arac_teslim', 'END', {
+      name: 'Arac Teslim'
+  })) */
 
+const flow = [
+    {
+        id: 'start1',
+        type: 'start',
+        outgoings: ['console1']
+    },
+    {
+        id: 'console1',
+        type: 'console',
+        payload: {
+            text: 'test'
+        }
+    }
 
-    woc.run(section);
+]
+const section = JSONToFlow(flow);
+woc.run(section);
 
 /* setInterval(() => {
     for (let i = 0; i < workflows.length; i++) {

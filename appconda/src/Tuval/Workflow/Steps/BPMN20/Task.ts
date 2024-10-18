@@ -2,6 +2,7 @@ import { Execution, Workflow } from "../../Workflow";
 import { Path } from "../../Path";
 import { ProcessStep } from "../ProcessStep";
 import { WorkflowStep } from "../../Step";
+import { Text } from "../../../Core";
 const { evaluate } = require("angel-eval");
 
 export class Task extends ProcessStep {
@@ -18,15 +19,47 @@ export class StartEvent extends WorkflowStep {
         super()
         this
             .desc('Start event for workflow')
-            .callback(this.action)
+            .callback(this.action.bind(this))
     }
 
     private action() {
         console.log('Start event executed.')
-        if (this.outgoings.length > 0){
+        if (this.outgoings.length > 0) {
             return Execution.$continue(this.outgoings[0].getId());
         }
-       
+
+    }
+
+    /*  async run(path: Path, flow: Workflow) {
+ 
+         await fetch('https://dummyjson.com/products')
+             .then(res => res.json())
+             .then(data => {
+                 const { products } = data;
+                 flow.state.vars.products = products;
+             });
+ 
+         console.log('Start Event executed.')
+         return Execution.$continue(this.nextStep);
+     } */
+
+}
+
+export class ConsoleStep extends WorkflowStep {
+
+    constructor() {
+        super()
+        this
+            .desc('write console text')
+            .param('text', '', new Text(255))
+            .callback(this.action.bind(this))
+    }
+
+    private action(text: string) {
+        console.log(text)
+        return this.next();
+      
+
     }
 
     /*  async run(path: Path, flow: Workflow) {

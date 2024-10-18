@@ -45,11 +45,11 @@ export class Path {
     public addStep(step: WorkflowStep): this;
     public addStep(...args: any[]): this {
         if (args.length === 1) {
-            const step = args[0];
+            const step: WorkflowStep = args[0];
             if (step instanceof StartEvent){
                 this.position = step.getId();
             }
-            const key = (step as any).constructor.NAME;
+            const key =step.getId();
             this.steps[key] = step;
         } else if (args.length === 2) {
             const key = args[0];
@@ -60,6 +60,10 @@ export class Path {
             this.steps[key] = step;
         }
         return this;
+    }
+
+    public getStepById(id: string) {
+        return this.steps[id];
     }
 
     /**

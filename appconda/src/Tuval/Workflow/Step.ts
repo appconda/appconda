@@ -1,5 +1,6 @@
 import { nanoid } from "../../Platform/Services/id-service/nanoid/nanoid";
 import { Validator } from "../Core";
+import { Execution } from "./Workflow";
 
 export abstract class WorkflowStep {
     public static readonly HTTP_REQUEST_METHOD_GET = 'GET';
@@ -28,6 +29,7 @@ export abstract class WorkflowStep {
     protected type: string = WorkflowStep.TYPE_DEFAULT;
 
     protected id: string = nanoid();
+    protected payload: any = {};
 
 
     //==============HTTP Scope============
@@ -119,6 +121,26 @@ export abstract class WorkflowStep {
      */
     public setId(id: string): this {
         this.id = id;
+        return this;
+    }
+
+    /**
+     * Get Type
+     *
+     * @returns string
+     */
+    public getPayload(): any {
+        return this.payload;
+    }
+
+    /**
+     * Set Type
+     *
+     * @param type string
+     * @returns this
+     */
+    public setPayload(payload: any): this {
+        this.payload = payload;
         return this;
     }
 
@@ -227,7 +249,7 @@ export abstract class WorkflowStep {
      * @param callback any
      * @returns this
      */
-    public callback(callback: any): this {
+    public callback(callback: Function): this {
         this._callback = callback;
         return this;
     }
@@ -268,6 +290,10 @@ export abstract class WorkflowStep {
 
     public outgoing(step: WorkflowStep) {
         this.outgoings.push(step);
+    }
+
+    public getOutgoings(): WorkflowStep[] {
+       return  this.outgoings;
     }
 
     /**
@@ -330,5 +356,11 @@ export abstract class WorkflowStep {
      */
     public getOptions(): { [key: string]: any } {
         return this.options;
+    }
+
+    public next()  {
+        if (this.outgoings.length > 0) {
+            return Execution.$continue(this.outgoings[0].getId());
+        }
     }
 }

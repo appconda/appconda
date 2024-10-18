@@ -2,6 +2,7 @@ import { Container } from "../../Container";
 import { Console } from "../../Tuval/CLI";
 import { Hook, Validator } from "../../Tuval/Core";
 import { Job } from "../../Tuval/Queue";
+import { WorkflowStep } from "./Step";
 var fs = require('fs');
 var path = require('path');
 
@@ -61,7 +62,7 @@ export class StepExecuter {
         return this._job;
     }
 
-    constructor() {
+    constructor(public step: WorkflowStep) {
 
     }
 
@@ -157,11 +158,14 @@ export class StepExecuter {
         return hook;
     }
 
-    public async run( payload: any): Promise<any> {
-        let ret = null;
+    public async run(): Promise<any> {
+        const payload: any = this.step.getPayload();
+        let ret = {
+            type: 'END'
+        };
 
         try {
-            StepExecuter.setResource('payload', ()=> payload)
+            StepExecuter.setResource('payload', () => payload)
 
             if (this._job.getHook()) {
                 for (const hook of this.initHooks) { // Global init hooks
@@ -175,7 +179,7 @@ export class StepExecuter {
             for (const group of this._job.getGroups()) {
                 for (const hook of this.initHooks) { // Group init hooks
                     if (hook.getGroups().includes(group)) {
-                        const args = await  this.getArguments(hook, payload);
+                        const args = await this.getArguments(hook, payload);
                         hook.getAction()(...args);
                     }
                 }
@@ -183,7 +187,10 @@ export class StepExecuter {
 
             const args = await this.getArguments(this._job, payload);
             const action = this._job.getAction();
-             ret = await action(...args);
+            const retTemp = await action(...args);
+            if (retTemp) {
+                ret = retTemp;
+            }
 
 
 
@@ -215,7 +222,7 @@ export class StepExecuter {
             Console.error(th);
 
         } finally {
-            StepExecuter.setResource('payload', ()=> {})
+            StepExecuter.setResource('payload', () => { })
         }
 
         return ret;
@@ -231,7 +238,7 @@ export class StepExecuter {
         } catch (error) {
             StepExecuter.setResource("error", () => error);
             for (const hook of this.errorHooks) {
-                hook.getAction()(...( await this.getArguments(hook)));
+                hook.getAction()(...(await this.getArguments(hook)));
             }
         }
         return this;
