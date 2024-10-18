@@ -30,7 +30,7 @@ import { Audit } from "../Appconda/Event/Audit";
 Authorization.disable();
 //Runtime.enableCoroutine(SWOOLE_HOOK_ALL);
 
-Server.setResource('register', () => register);
+Server.setResource('register', async () => register);
 
 Server.setResource('dbForConsole', async (cache: Cache, register: Registry) => {
     const pools = register.get('pools');
@@ -87,7 +87,7 @@ Server.setResource('dbForProject', async (cache: Cache, register: Registry, mess
     return database;
 }, ['cache', 'register', 'message', 'project', 'dbForConsole']);
 
-Server.setResource('getProjectDB', (pools: Group, dbForConsole: Database, cache: any) => {
+Server.setResource('getProjectDB', async (pools: Group, dbForConsole: Database, cache: any) => {
     const databases: Record<string, Database> = {};
 
     return async (project: Document): Promise<Database> => {
@@ -129,15 +129,15 @@ Server.setResource('getProjectDB', (pools: Group, dbForConsole: Database, cache:
         return database;
     };
 }, ['pools', 'dbForConsole', 'cache']);
-Server.setResource('abuseRetention', () => {
+Server.setResource('abuseRetention', async () => {
     return DateTime.addSeconds(new Date(), -1 * parseInt(process.env._APP_MAINTENANCE_RETENTION_ABUSE || '86400', 10));
 });
 
-Server.setResource('auditRetention', () => {
+Server.setResource('auditRetention', async () => {
     return DateTime.addSeconds(new Date(), -1 * parseInt(process.env._APP_MAINTENANCE_RETENTION_AUDIT || '1209600', 10));
 });
 
-Server.setResource('executionRetention', () => {
+Server.setResource('executionRetention', async() => {
     return DateTime.addSeconds(new Date(), -1 * parseInt(process.env._APP_MAINTENANCE_RETENTION_EXECUTION || '1209600', 10));
 });
 
@@ -154,31 +154,31 @@ Server.setResource('cache', async (register: Registry) => {
     return new Cache(new Sharding(adapters));
 }, ['register']);
 
-Server.setResource('log', () => new Log());
+Server.setResource('log', async() => new Log());
 
-Server.setResource('queueForUsage', (queue: Connection) => new Usage(queue), ['queue']);
-Server.setResource('queueForUsageDump', (queue: Connection) => new UsageDump(queue), ['queue']);
+Server.setResource('queueForUsage', async(queue: Connection) => new Usage(queue), ['queue']);
+Server.setResource('queueForUsageDump', async (queue: Connection) => new UsageDump(queue), ['queue']);
 Server.setResource('queue', async (pools: Group) => {
     const connection = await pools.get('queue').pop();
     return connection.getResource()
 }, ['pools']);
-Server.setResource('queueForDatabase', (queue: Connection) => new EventDatabase(queue), ['queue']);
-Server.setResource('queueForMessaging', (queue: Connection) => new Messaging(queue), ['queue']);
-Server.setResource('queueForMails', (queue: Connection) => new Mail(queue), ['queue']);
-Server.setResource('queueForBuilds', (queue: Connection) => new Build(queue), ['queue']);
-Server.setResource('queueForDeletes', (queue: Connection) => new Delete(queue), ['queue']);
-Server.setResource('queueForEvents', (queue: Connection) => new Event(queue), ['queue']);
-Server.setResource('queueForAudits', (queue: Connection) => new Audit(queue), ['queue']);
-Server.setResource('queueForFunctions', (queue: Connection) => new Func(queue), ['queue']);
-Server.setResource('queueForCertificates', (queue: Connection) => new Certificate(queue), ['queue']);
-Server.setResource('queueForMigrations', (queue: Connection) => new Migration(queue), ['queue']);
-Server.setResource('logger', (register: Registry) => register.get('logger'), ['register']);
-Server.setResource('pools', (register: Registry) => register.get('pools'), ['register']);
+Server.setResource('queueForDatabase', async (queue: Connection) => new EventDatabase(queue), ['queue']);
+Server.setResource('queueForMessaging', async (queue: Connection) => new Messaging(queue), ['queue']);
+Server.setResource('queueForMails', async (queue: Connection) => new Mail(queue), ['queue']);
+Server.setResource('queueForBuilds', async(queue: Connection) => new Build(queue), ['queue']);
+Server.setResource('queueForDeletes', async(queue: Connection) => new Delete(queue), ['queue']);
+Server.setResource('queueForEvents', async(queue: Connection) => new Event(queue), ['queue']);
+Server.setResource('queueForAudits', async(queue: Connection) => new Audit(queue), ['queue']);
+Server.setResource('queueForFunctions', async(queue: Connection) => new Func(queue), ['queue']);
+Server.setResource('queueForCertificates',async (queue: Connection) => new Certificate(queue), ['queue']);
+Server.setResource('queueForMigrations', async(queue: Connection) => new Migration(queue), ['queue']);
+Server.setResource('logger', async(register: Registry) => register.get('logger'), ['register']);
+Server.setResource('pools', async(register: Registry) => register.get('pools'), ['register']);
 
-Server.setResource('deviceForFunctions', (project: Document) => getDevice(`${APP_STORAGE_FUNCTIONS}/app-${project.getId()}`), ['project']);
-Server.setResource('deviceForFiles', (project: Document) => getDevice(`${APP_STORAGE_UPLOADS}/app-${project.getId()}`), ['project']);
-Server.setResource('deviceForBuilds', (project: Document) => getDevice(`${APP_STORAGE_BUILDS}/app-${project.getId()}`), ['project']);
-Server.setResource('deviceForCache', (project: Document) => getDevice(`${APP_STORAGE_CACHE}/app-${project.getId()}`), ['project']);
+Server.setResource('deviceForFunctions', async(project: Document) => getDevice(`${APP_STORAGE_FUNCTIONS}/app-${project.getId()}`), ['project']);
+Server.setResource('deviceForFiles', async(project: Document) => getDevice(`${APP_STORAGE_UPLOADS}/app-${project.getId()}`), ['project']);
+Server.setResource('deviceForBuilds', async(project: Document) => getDevice(`${APP_STORAGE_BUILDS}/app-${project.getId()}`), ['project']);
+Server.setResource('deviceForCache', async(project: Document) => getDevice(`${APP_STORAGE_CACHE}/app-${project.getId()}`), ['project']);
 
 
 async function start() {
@@ -263,7 +263,7 @@ async function start() {
             Console.info(`Worker ${workerName} started`);
         });
 
-    worker.start();
+    await worker.start();
 
 }
 start();

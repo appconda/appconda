@@ -21,7 +21,7 @@
         "runtimeExecutable": "node",
         "runtimeArgs": ["--nolazy", "-r", "ts-node/register/transpile-only"],
   
-        "args": ["debug/index_worker.ts", "databases", "hello"],
+        "args": ["debug/index_worker.ts", "mails", "hello"],
         
         "cwd": "${workspaceRoot}",
         "internalConsoleOptions": "openOnSessionStart",

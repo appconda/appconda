@@ -1,23 +1,36 @@
-import { Agent } from "../../../Tuval/Platform/Agent";
+import { Service } from "../Service";
 import { CreateCollection } from "./Actions/CreateCollection";
 import { CreateDatabase } from "./Actions/CreateDatabase";
 import { ListDatabases } from "./Actions/ListDatabases";
+import { DatabaseServiceAgent } from "./DatabaseServiceAgent";
 
 
+export default class DatabaseService extends Service {
 
-export class DatabaseService extends Agent {
-    public static readonly NAME = 'com.appconda.service.database';
+  public init() {
+    
+  }
 
-    constructor() {
-        super();
-        this.type = Agent.TYPE_SERVICE;
-        this
-            .addAction( new CreateDatabase())
-            .addAction( new ListDatabases())
-            .addAction(new CreateCollection())
-    }
+  public create(projectId: string, name: string) {
+    const action = this.getAction(CreateDatabase.NAME);
+    action.call({
+      project: projectId,
+      name: name,
+    });
+  }
+  public createCollection(projectId: string, databaseId: string, name: string) {
+    const action = this.getAction(CreateCollection.NAME);
+    action.call({
+      project: projectId,
+      database: databaseId,
+      name: name,
+    });
+  }
 
-    public getName() : string {
-        return DatabaseService.NAME;
-    }
+  public list(projectId: string) {
+    const action = this.getAction(ListDatabases.NAME);
+    action.call({
+      project: projectId,
+    });
+  }
 }

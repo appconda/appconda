@@ -58,7 +58,9 @@ export abstract class Service {
     actions: string[] = [];
     private initialized: boolean = false;
 
-    abstract get uid(): string;
+     uid(): string {
+        return ''
+     }
     //abstract get displayName(): string;
 
     async getConnector(): Promise<any> {
@@ -66,8 +68,9 @@ export abstract class Service {
     }
 
     getAction(action: string): ServiceActionExecuter {
-        return this.platform.getServiceAction(this.uid, action);
+        return this.platform.getServiceAction(this.uid(), action);
     }
+   
 
     constructor(service_resources: any, ...a: any[]) {
         const { services, config, my_config, name, args } = service_resources;

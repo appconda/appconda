@@ -12,7 +12,7 @@ import { Usage } from "../Appconda/Event/Usage";
 import { UsageDump } from "../Appconda/Event/UsageDump";
 import {  AppcondaServicePlatform } from "../Platform/Appconda";
 import { CreateDatabase } from "../Platform/Services/database-service/Actions/CreateDatabase";
-import { DatabaseService } from "../Platform/Services/database-service/DatabaseService";
+import { DatabaseServiceAgent } from "../Platform/Services/database-service/DatabaseServiceAgent";
 import { ServiceActionExecuter } from "../Platform/Services/ServiceActionExecuter";
 import { Cache, Sharding } from "../Tuval/Cache";
 import { Console } from "../Tuval/CLI";

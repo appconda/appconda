@@ -191,7 +191,8 @@ export abstract class Platform {
      */
     protected initWorker(services: Agent[], workerName: string): void {
         const worker = this.worker;
-        for (const service of services) {
+        for (const key of Object.keys(services)) {
+            const service: Agent = services[key];
             for (const [key, action] of Object.entries(service.getActions())) {
                 if (action.getType() === Action.TYPE_DEFAULT && !key.toLowerCase().includes(workerName.toLowerCase())) {
                     continue;

@@ -14,9 +14,9 @@ export class CLI {
     protected _shutdown: Hook[] = [];
 
     constructor(args: string[] = []) {
-       /*  if (process.env.NODE_ENV !== 'cli') {
-            throw new Error('CLI tasks can only work from the command line');
-        } */
+        /*  if (process.env.NODE_ENV !== 'cli') {
+             throw new Error('CLI tasks can only work from the command line');
+         } */
 
         this.args = this.parse(args.length > 0 ? args : process.argv) as any;
         //execSync(`title ${this.command}`);
@@ -46,21 +46,24 @@ export class CLI {
         return task;
     }
 
-    public getResource(name: string, fresh: boolean = false): any {
+    public async getResource(name: string, fresh: boolean = false): Promise<any> {
         if (!this.resources[name] || fresh || CLI.resourcesCallbacks[name].reset) {
             if (!CLI.resourcesCallbacks[name]) {
                 throw new Error(`Failed to find resource: "${name}"`);
             }
-
-            this.resources[name] = CLI.resourcesCallbacks[name].callback(...this.getResources(CLI.resourcesCallbacks[name].injections));
+            const resources = await this.getResources(CLI.resourcesCallbacks[name].injections);
+            this.resources[name] = await CLI.resourcesCallbacks[name].callback(...resources);
         }
 
         CLI.resourcesCallbacks[name].reset = false;
         return this.resources[name];
     }
 
-    public getResources(list: string[]): any[] {
-        return list.map(name => this.getResource(name));
+    public async getResources(list: string[]): Promise<any[]> {
+        return Promise.all(
+            list.map(name => this.getResource(name))
+        );
+
     }
 
     public static setResource(name: string, callback: Function, injections: string[] = []): void {
@@ -102,7 +105,7 @@ export class CLI {
         return this.tasks[this.command] || null;
     }
 
-    protected getParams(hook: Hook): any[] {
+    protected async getParams(hook: Hook): Promise<any[]> {
         const params: any[] = [];
 
         for (const [key, param] of Object.entries(hook.getParams())) {
@@ -112,25 +115,31 @@ export class CLI {
         }
 
         for (const [key, injection] of Object.entries(hook.getInjections())) {
-            params[injection.order] = this.getResource(injection.name);
+            params[injection.order] = await this.getResource(injection.name);
         }
 
         return params.sort((a, b) => a.order - b.order);
     }
 
-    public run(): this {
+    public async run(): Promise<any> {
         const command = this.match();
 
         try {
             if (command) {
                 for (const hook of this._init) {
-                    hook.getAction()(...this.getParams(hook));
+                    const action = hook.getAction();
+                    const params = await this.getParams(hook);
+                    await action(...params);
                 }
 
-                command.getAction()(...this.getParams(command));
+                const action = command.getAction();
+                const params = await this.getParams(command);
+                await action(...params);
 
                 for (const hook of this._shutdown) {
-                    hook.getAction()(...this.getParams(hook));
+                    const action = hook.getAction();
+                    const params = await this.getParams(hook);
+                    await action(...params);
                 }
             } else {
                 throw new Error('No command found');
@@ -138,7 +147,9 @@ export class CLI {
         } catch (e) {
             for (const hook of this.errors) {
                 CLI.setResource('error', () => e);
-                hook.getAction()(...this.getParams(hook));
+                const action = hook.getAction();
+                const params = await this.getParams(hook);
+                await action(...params);
             }
         }
 

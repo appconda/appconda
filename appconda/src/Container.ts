@@ -20,19 +20,19 @@ export class Container {
         this.instances_ = {};
         this.ready = new TeePromise();
     }
-    registerService( cls: any, args?: any) {
+    registerService(key: string, cls: any, args?: any) {
         const name = null;
         const my_config = /* config.services?.[name] || */ {};
         const inst = cls.getInstance
             ? cls.getInstance({ services: this, config, my_config, name, args })
             : new cls({ services: this, config, my_config, name, args });
 
-        this.instances_[inst.uid] = inst;
+        this.instances_[key] = inst;
         // 3 platforma da register ediyoruz
-        
-        App.setResource(inst.uid,()=> inst);
-        CLI.setResource(inst.uid,()=> inst);
-        Server.setResource(inst.uid,()=> inst);
+
+        App.setResource(key, () => inst);
+        CLI.setResource(key, () => inst);
+        Server.setResource(key, () => inst);
     }
     set(name: any, instance: any) { this.instances_[name] = instance; }
     get(name: string, opts?: any) {
@@ -68,10 +68,10 @@ export class Container {
             if (this.instances_[k] instanceof Service) {
                 //console.log(`constructing ${k}`);
                 //try {
-                    await this.instances_[k].construct();
-               /*  } catch (e) {
-                    console.log(e);
-                } */
+                await this.instances_[k].construct();
+                /*  } catch (e) {
+                     console.log(e);
+                 } */
             } else {
                 console.log(`not base`);
             }

@@ -1,5 +1,7 @@
+import { Mail } from "../../Appconda/Event/Mail";
 import { Action } from "../../Tuval/Platform/Action";
-import DatabaseServiceProxy from "../Services/database-service/DatabaseServiceProxy";
+import DatabaseService from "../Services/database-service/DatabaseService";
+import MailService from "../Services/mail-service/MailService";
 
 export class Test extends Action {
     public static getName(): string {
@@ -9,12 +11,29 @@ export class Test extends Action {
     constructor() {
         super();
         this
-        .desc('List all the server environment variables')
-        .inject('database-service')
-            .callback( this.action);
+            .desc('List all the server environment variables')
+            .inject('database-service')
+            .inject('mail-service')
+            .callback(this.action);
     }
 
-    public action(databaseService: DatabaseServiceProxy): void {
-        console.log(databaseService);
+    public action(databaseService: DatabaseService, mailService: MailService): void {
+        console.log(mailService)
+        mailService.send();
+        // console.log(databaseService);
+
+       /*  queueForMails
+            .setSmtpHost('')
+            .setSmtpPort(3456)
+            .setSmtpUsername('')
+            .setSmtpPassword('')
+            .setSmtpSecure('');
+
+        queueForMails
+            .setSubject('')
+            .setBody('body')
+            .setVariables({})
+            .setRecipient('email')
+            .trigger(); */
     }
 }

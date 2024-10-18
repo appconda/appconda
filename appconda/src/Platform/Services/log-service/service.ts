@@ -14,24 +14,33 @@ function Action(actionInfo: any) {
     };
 }
 
-function _Service<T extends { new(...args: any[]): {} }>(Base: T) {
-    return class extends Base {
-        constructor(...args: any[]) {
-            super(...args);
-            const _actions = Base.prototype[actions];
-            //console.log(_actions)
+export function _Agent<T extends { new(...args: any[]): {} }>(Base: T) {
+
+    return (agentType) => {
+        Base.prototype.uid = () => {
+            return agentType.NAME;
         }
-    };
+    }
+    /*  return class extends Base {
+         constructor(...args: any[]) {
+             super(...args);
+             const _actions = Base.prototype[actions];
+         }
+     }; */
 }
 
-
+export function Agent(agentType) {
+    return (target: any) =>{
+        target.prototype.uid = () => {
+            return agentType.NAME;
+        }
+    }
+}
 
 
 export default class LogService extends Service {
 
-    public get uid(): string {
-        return 'com.appconda.service.log';
-    }
+  
 
     get displayName(): string {
         return 'Log Service'
@@ -41,7 +50,7 @@ export default class LogService extends Service {
         Console.success('>>>>>>>> Log Service initialized. <<<<<<<<<<')
         console.log(this[actions])
 
-       
+
 
         /*  const router = this.webServer.getRouter();
  
@@ -71,7 +80,7 @@ export default class LogService extends Service {
     }
 
     private async getLogger(appId: string, appletId: string) {
-        let logger = await this.kvService.get('LogService_' + appId + '_' + appletId);
+        let logger = await (this as any).kvService.get('LogService_' + appId + '_' + appletId);
         if (logger == null) {
             logger = winston.createLogger({
                 //level: 'info',
@@ -88,7 +97,7 @@ export default class LogService extends Service {
                 ],
             });
 
-            await this.kvService.set('LogService_' + appId + '_' + appletId, logger);
+            await (this as any).kvService.set('LogService_' + appId + '_' + appletId, logger);
         }
 
         return logger;
@@ -97,7 +106,7 @@ export default class LogService extends Service {
     @Action({
         title: 'Add Info Log',
     })
-    public async info(appId: string, appletId: string,  logData: any ) {
+    public async info(appId: string, appletId: string, logData: any) {
 
         const logger = await this.getLogger(appId, appletId);
 
@@ -105,7 +114,7 @@ export default class LogService extends Service {
             ...logData
         });
 
-       // logger.info('Hello again distributed logs_sdfsfdf');
+        // logger.info('Hello again distributed logs_sdfsfdf');
 
         return {
             appId,
@@ -117,7 +126,7 @@ export default class LogService extends Service {
     @Action({
         title: 'Add Debug Log',
     })
-    public async debug(appId: string, appletId: string,  logData: any ) {
+    public async debug(appId: string, appletId: string, logData: any) {
 
         const logger = await this.getLogger(appId, appletId);
 
@@ -125,7 +134,7 @@ export default class LogService extends Service {
             ...logData
         });
 
-       // logger.info('Hello again distributed logs_sdfsfdf');
+        // logger.info('Hello again distributed logs_sdfsfdf');
 
         return {
             appId,
@@ -138,9 +147,9 @@ export default class LogService extends Service {
         title: 'List Log',
     })
     public async list(appId: string, appletId: string, { fields }: { fields: string }): Promise<any> {
-        return new Promise (async (resolve, reject)=> {
+        return new Promise(async (resolve, reject) => {
             const logger = await this.getLogger(appId, appletId);
-    
+
             const options = {
                 from: new (Date as any)() - (24 * 60 * 60 * 1000),
                 until: new Date(),
@@ -149,7 +158,7 @@ export default class LogService extends Service {
                 order: 'desc',
                 //fields: fields.split(',').map(s => s.trim())
             };
-    
+
             //
             // Find items logged between today and yesterday.
             //
@@ -158,14 +167,14 @@ export default class LogService extends Service {
                     /* TODO: handle me */
                     throw err;
                 }
-    
-    
-                 resolve(results);
+
+
+                resolve(results);
             });
-    
+
         })
     }
-       
+
 
 
 }

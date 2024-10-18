@@ -78,14 +78,15 @@ export class Server {
      * @returns The requested resource
      * @throws Error if the resource callback is not found
      */
-    public getResource(name: string, fresh: boolean = false): any {
+    public async getResource(name: string, fresh: boolean = false): Promise<any> {
         if (!(name in this.resources) || fresh || (Server.resourcesCallbacks[name] && Server.resourcesCallbacks[name].reset)) {
             if (!(name in Server.resourcesCallbacks)) {
                 throw new Error(`Failed to find resource: "${name}"`);
             }
 
             const resourceCallback = Server.resourcesCallbacks[name];
-            this.resources[name] = resourceCallback.callback(...this.getResources(resourceCallback.injections));
+            const resources = await this.getResources(resourceCallback.injections);
+            this.resources[name] = await resourceCallback.callback(...resources);
 
             Server.resourcesCallbacks[name].reset = false;
         }
@@ -98,14 +99,11 @@ export class Server {
      * @param list - List of resource names
      * @returns An array of resources
      */
-    public getResources(list: string[]): any[] {
-        const resources: any[] = [];
+    public async getResources(list: string[]): Promise<any[]> {
+        return Promise.all(
+            list.map(name => this.getResource(name))
+        );
 
-        for (const name of list) {
-            resources.push(this.getResource(name));
-        }
-
-        return resources;
     }
 
     /**
@@ -138,13 +136,14 @@ export class Server {
      * Stops the Queue server.
      * @returns The current Server instance
      */
-    public stop(): this {
+    public async stop(): Promise<any> {
         try {
             this.adapter.stop();
         } catch (error) {
             Server.setResource("error", () => error);
             for (const hook of this.errorHooks) {
-                hook.getAction()(...this.getArguments(hook));
+                const args = await this.getArguments(hook);
+                hook.getAction()(...args);
             }
         }
         return this;
@@ -165,12 +164,14 @@ export class Server {
      * Starts the Queue Server
      * @returns The current Server instance
      */
-    public start(): this {
+    public async start(): Promise<any> {
         try {
             this.adapter.workerStart(async (workerId: string) => {
                // Console.success(`[Worker] Worker ${workerId} is ready!`);
                 if (this.workerStartHook) {
-                    this.workerStartHook.getAction()(...this.getArguments(this.workerStartHook));
+                    const action =  this.workerStartHook.getAction();
+                    const params = await this.getArguments(this.workerStartHook);
+                    this.workerStartHook.getAction()(...params);
                 }
 
                 while (true) {
@@ -211,7 +212,7 @@ export class Server {
                         if (this._job.getHook()) {
                             for (const hook of this.initHooks) { // Global init hooks
                                 if (hook.getGroups().includes("*")) {
-                                    const args = this.getArguments(hook, message.getPayload());
+                                    const args = await this.getArguments(hook, message.getPayload());
                                     hook.getAction()(...args);
                                 }
                             }
@@ -220,13 +221,14 @@ export class Server {
                         for (const group of this._job.getGroups()) {
                             for (const hook of this.initHooks) { // Group init hooks
                                 if (hook.getGroups().includes(group)) {
-                                    const args = this.getArguments(hook, message.getPayload());
+                                    const args = await this.getArguments(hook, message.getPayload());
                                     hook.getAction()(...args);
                                 }
                             }
                         }
 
-                        this._job.getAction()(...this.getArguments(this._job, message.getPayload()));
+                        const args = await this.getArguments(this._job, message.getPayload());
+                        this._job.getAction()(...args);
 
                         /**
                          * Remove Jobs if successful.
@@ -241,7 +243,7 @@ export class Server {
                         if (this._job.getHook()) {
                             for (const hook of this.shutdownHooks) { // Global shutdown hooks
                                 if (hook.getGroups().includes("*")) {
-                                    const args = this.getArguments(hook, message.getPayload());
+                                    const args = await this.getArguments(hook, message.getPayload());
                                     hook.getAction()(...args);
                                 }
                             }
@@ -250,7 +252,7 @@ export class Server {
                         for (const group of this._job.getGroups()) {
                             for (const hook of this.shutdownHooks) { // Group shutdown hooks
                                 if (hook.getGroups().includes(group)) {
-                                    const args = this.getArguments(hook, message.getPayload());
+                                    const args = await this.getArguments(hook, message.getPayload());
                                     hook.getAction()(...args);
                                 }
                             }
@@ -273,7 +275,8 @@ export class Server {
 
                         Server.setResource("error", () => th);
                         for (const hook of this.errorHooks) {
-                            hook.getAction()(...this.getArguments(hook));
+                            const args = await this.getArguments(hook);
+                            hook.getAction()(...args);
                         }
                     } finally {
                         /**
@@ -295,7 +298,8 @@ export class Server {
         } catch (error) {
             Server.setResource("error", () => error);
             for (const hook of this.errorHooks) {
-                hook.getAction()(...this.getArguments(hook));
+                const args = await this.getArguments(hook);
+                hook.getAction()(...args);
             }
         }
         return this;
@@ -325,7 +329,7 @@ export class Server {
      * @param callback - The callback to execute on worker stop
      * @returns The current Server instance
      */
-    public workerStop(callback?: () => void): this {
+    public async workerStop(callback?: () => void): Promise<any> {
         try {
             this.adapter.workerStop((workerId: string) => {
                 //Console.success(`[Worker] Worker ${workerId} is stopping!`);
@@ -336,7 +340,8 @@ export class Server {
         } catch (error) {
             Server.setResource("error", () => error);
             for (const hook of this.errorHooks) {
-                hook.getAction()(...this.getArguments(hook));
+                const args = await this.getArguments(hook);
+                hook.getAction()(...args);
             }
         }
 
@@ -349,20 +354,20 @@ export class Server {
      * @param payload - The payload to pass to the hook
      * @returns An array of arguments
      */
-    protected getArguments(hook: Hook, payload: Record<string, any> = {}): any[] {
+    protected async getArguments(hook: Hook, payload: Record<string, any> = {}): Promise<any[]> {
         const argumentsArray: any[] = [];
 
         for (const [key, param] of Object.entries(hook.getParams())) {
             let value = payload[key] ?? param.default;
             value = (value === "" || value == null) ? param.default : value;
 
-            this.validate(key, param, value);
+            await this.validate(key, param, value);
             hook.setParamValue(key, value);
             argumentsArray[param.order] = value;
         }
 
         for (const [key, injection] of Object.entries(hook.getInjections())) {
-            argumentsArray[injection.order] = this.getResource(injection.name);
+            argumentsArray[injection.order] = await this.getResource(injection.name);
         }
 
         return argumentsArray;
@@ -375,12 +380,13 @@ export class Server {
      * @param value - The value to validate
      * @throws Error if validation fails
      */
-    protected validate(key: string, param: any, value: any): void {
+    protected async validate(key: string, param: any, value: any): Promise<void> {
         if (value !== "" && value !== null) {
             let validator = param.validator;
 
             if (typeof validator === "function") {
-                validator = validator(...this.getResources(param.injections));
+                const resources = await this.getResources(param.injections);
+                validator = validator(...resources);
             }
 
             if (!(validator instanceof Validator)) {

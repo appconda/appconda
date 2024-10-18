@@ -1,6 +1,7 @@
 import { Certificate } from "../Appconda/Event/Certificate";
 import { Delete } from "../Appconda/Event/Delete";
 import { Func } from "../Appconda/Event/Func";
+import { Mail } from "../Appconda/Event/Mail";
 import { AppcondaException } from "../Appconda/Extend/Exception";
 import { Appconda } from "../Platform/Appconda";
 import { Cache, Sharding } from "../Tuval/Cache";
@@ -28,7 +29,7 @@ require('./controllers/general');
 
 Authorization.disable();
 
-CLI.setResource('register', () => register);
+CLI.setResource('register', async () => register);
 
 CLI.setResource('cache', async (pools) => {
     const adapters = [];
@@ -40,9 +41,9 @@ CLI.setResource('cache', async (pools) => {
     return new Cache(new Sharding(adapters));
 }, ['pools']);
 
-CLI.setResource('pools', (register: Registry) => register.get('pools'), ['register']);
+CLI.setResource('pools', async (register: Registry) => register.get('pools'), ['register']);
 
-CLI.setResource('dbForConsole', (pools, cache) => {
+CLI.setResource('dbForConsole', async (pools, cache) => {
     const sleep = 3;
     const maxAttempts = 5;
     let attempts = 0;
@@ -81,7 +82,7 @@ CLI.setResource('dbForConsole', (pools, cache) => {
     return dbForConsole;
 }, ['pools', 'cache']);
 
-CLI.setResource('getProjectDB', (pools: Group, dbForConsole: Database, cache) => {
+CLI.setResource('getProjectDB', async (pools: Group, dbForConsole: Database, cache) => {
     const databases = {};
 
     return async (project: Document) => {
@@ -140,10 +141,11 @@ CLI.setResource('queue', async (pools: Group) => {
     return connection.getResource();
 }, ['pools']);
 
-CLI.setResource('queueForFunctions', (queue: Connection) => new Func(queue), ['queue']);
-CLI.setResource('queueForDeletes', (queue: Connection) => new Delete(queue), ['queue']);
-CLI.setResource('queueForCertificates', (queue: Connection) => new Certificate(queue), ['queue']);
-CLI.setResource('logError', (register: Registry) => (error: any, namespace: string, action: string) => {
+CLI.setResource('queueForFunctions', async (queue: Connection) => new Func(queue), ['queue']);
+CLI.setResource('queueForDeletes', async (queue: Connection) => new Delete(queue), ['queue']);
+CLI.setResource('queueForCertificates', async (queue: Connection) => new Certificate(queue), ['queue']);
+CLI.setResource('queueForMails', async (queue: Connection) => new Mail(queue), ['queue']);
+CLI.setResource('logError', async (register: Registry) => (error: any, namespace: string, action: string) => {
     const logger = register.get('logger');
 
     if (logger) {
@@ -176,13 +178,17 @@ CLI.setResource('logError', (register: Registry) => (error: any, namespace: stri
     Console.warning(error.stack);
 }, ['register']);
 
-const platform = new Appconda();
-platform.init(Agent.TYPE_TASK);
+async function start() {
+    const platform = new Appconda();
+    platform.init(Agent.TYPE_TASK);
 
-const cli = platform.getCli();
+    const cli = platform.getCli();
 
-cli.error().inject('error').action((error: Error) => {
-    Console.error(error.message);
-});
+    cli.error().inject('error').action((error: Error) => {
+        Console.error(error.message);
+    });
 
-cli.run();
+    await cli.run();
+}
+
+start();

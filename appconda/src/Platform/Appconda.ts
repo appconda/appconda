@@ -37,15 +37,15 @@ export class AppcondaServicePlatform extends Platform {
             const services = require('./Services/config/services');
 
             for (const [key, value] of Object.entries(services)) {
-                const service = value as any;
-                const fromPath = path.join(__dirname, 'Services', service.service);
+                const serviceInfo = value as any;
+                const fromPath = path.join(__dirname, 'Services', serviceInfo.service);
 
                 const stat = fs.statSync(fromPath);
 
                 if (stat.isFile()) {
 
                     const service = require(path.resolve(fromPath));
-                    container.registerService(service.default);
+                    container.registerService(serviceInfo.key, service.default);
                     //console.log(service.default);
                 }
 
