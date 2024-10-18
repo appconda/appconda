@@ -1,6 +1,6 @@
 
-import { Action } from "../Decarators/Action";
-import { Agent } from "../Decarators/Agent";
+import { Action } from "../../Decarators/Action";
+import { Agent } from "../../Decarators/Agent";
 import { Service } from "../Service";
 import { SendEmail } from "./Actions/SendEmail";
 import { MailServiceAgent } from "./MailServiceAgent";

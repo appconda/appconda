@@ -1,6 +1,6 @@
 
-import { Action } from "../Decarators/Action";
-import { Agent } from "../Decarators/Agent";
+import { Action } from "../../Decarators/Action";
+import { Agent } from "../../Decarators/Agent";
 import { Service } from "../Service";
 import { CreateCollection } from "./Actions/CreateCollection";
 import { CreateDatabase } from "./Actions/CreateDatabase";

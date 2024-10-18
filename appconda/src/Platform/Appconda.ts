@@ -34,6 +34,7 @@ export class AppcondaServicePlatform extends Platform {
     public async start(): Promise<any> {
         try {
 
+            // Servisleri Yukle
             const services = require('./Services/config/services');
 
             for (const [key, value] of Object.entries(services)) {
@@ -53,6 +54,26 @@ export class AppcondaServicePlatform extends Platform {
                     console.log(fromPath);
             }
 
+            // Appletleri yukle
+
+            const applets = require('./Applets/config/applets');
+
+            for (const [key, value] of Object.entries(applets)) {
+                const appletInfo = value as any;
+                const fromPath = path.join(__dirname, 'Applets', appletInfo.service);
+
+                const stat = fs.statSync(fromPath);
+
+                if (stat.isFile()) {
+
+                    const service = require(path.resolve(fromPath));
+                    container.registerService(appletInfo.key, service.default);
+                    //console.log(service.default);
+                }
+
+                else if (stat.isDirectory())
+                    console.log(fromPath);
+            }
 
 
             await container.init();

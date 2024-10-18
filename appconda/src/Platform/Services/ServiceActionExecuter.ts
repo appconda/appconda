@@ -1,4 +1,5 @@
 import { Container } from "../../Container";
+import { Console } from "../../Tuval/CLI";
 import { Hook, Validator } from "../../Tuval/Core";
 import { Job } from "../../Tuval/Queue";
 var fs = require('fs');
@@ -14,6 +15,9 @@ const container = new Container(null);
 
 export class ServiceActionExecuter {
 
+    private serviceName: string;
+
+    private actionName: string;
 
     /**
      * Hooks that will run when an error occurs
@@ -59,7 +63,9 @@ export class ServiceActionExecuter {
         return this._job;
     }
 
-    constructor() {
+    constructor(serviceName: string, actionName: string) {
+        this.serviceName = serviceName;
+        this.actionName = actionName;
     }
 
 
@@ -178,7 +184,9 @@ export class ServiceActionExecuter {
                 }
             }
 
-            this._job.getAction()(...( await this.getArguments(this._job, payload)));
+            const args = await this.getArguments(this._job, payload);
+            const action = this._job.getAction();
+            await action(...args);
 
 
 
@@ -202,12 +210,13 @@ export class ServiceActionExecuter {
 
             //Console.success(`[Job] (${message.getPid()}) successfully run.`);
         } catch (th) {
-
-
             ServiceActionExecuter.setResource("error", () => th);
             for (const hook of this.errorHooks) {
                 hook.getAction()(...(await this.getArguments(hook)));
             }
+
+            Console.error(th);
+
         } finally {
             ServiceActionExecuter.setResource('payload', ()=> {})
         }
@@ -219,11 +228,6 @@ export class ServiceActionExecuter {
      */
     public async start(): Promise<any> {
         try {
-
-           
-
-
-
 
         } catch (error) {
             ServiceActionExecuter.setResource("error", () => error);
@@ -284,7 +288,7 @@ export class ServiceActionExecuter {
             let value = payload[key] ?? param.default;
             value = (value === "" || value == null) ? param.default : value;
 
-            this.validate(key, param, value);
+            await this.validate(key, param, value);
             hook.setParamValue(key, value);
             argumentsArray[param.order] = value;
         }
@@ -319,7 +323,7 @@ export class ServiceActionExecuter {
                 throw new Error(`Invalid ${key}: ${validator.getDescription()}`);
             }
         } else if (!param.optional) {
-            throw new Error(`Param "${key}" is not optional.`);
+            throw new Error(`Param "${key}" is not optional in action ${this.actionName} of ${this.serviceName} service.`);
         }
     }
 

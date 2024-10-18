@@ -56,7 +56,8 @@ export class Console {
             console.log("\x1b[42m Output with green background \x1b[0m")
             console.log("\x1b[43m Output with yellow background \x1b[0m") */
 
-            console.log(`\x1b[32m ${message} \x1b[0m`);
+            console.log(`\x1b[38;5;46m ✅ ${message} \x1b[0m`);
+            //console.log(`\x1b[32m ${message} \x1b[0m`);
 
             return true;
         } catch (e) {
@@ -74,7 +75,10 @@ export class Console {
      */
     public static error(message: string): boolean {
         try {
-            console.log(cc.set("fg_red", "bg_black", message));
+            
+            console.log(`\x1b[38;5;160m ❌ ${message} \x1b[0m`);
+            //console.log(`\x1b[31m ❌ ${message} \x1b[0m`);
+            //console.log(cc.set("fg_red", "bg_black", message));
             return true;
         } catch (e) {
             return false;
@@ -91,7 +95,7 @@ export class Console {
      */
     public static info(message: string): boolean {
         try {
-            console.log(`\x1b[34m ${message} \x1b[0m`);
+            console.log(`\x1b[38;5;226m ℹ️ ${message} \x1b[0m`);
             return true;
         } catch (e) {
             return false;
@@ -108,7 +112,7 @@ export class Console {
      */
     public static warning(message: string): boolean {
         try {
-            console.log(`\x1b[43m ${message} \x1b[0m`);
+            console.log(`\x1b[33m ⚠️ ${message} \x1b[0m`);
             return true;
         } catch (e) {
             return false;

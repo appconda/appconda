@@ -250,7 +250,7 @@ export abstract class Platform {
                 const serviceName = (service as any).constructor.NAME;
                 const acrionName = (action as any).constructor.NAME;
 
-                const serviceServer = new ServiceActionExecuter();
+                const serviceServer = new ServiceActionExecuter(serviceName, acrionName);
                 this.serviceActionExecuters[`${serviceName}-${acrionName}`] = serviceServer;
                 let hook;
 
