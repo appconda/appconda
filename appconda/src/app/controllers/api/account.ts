@@ -342,7 +342,7 @@ App.post('/v1/account')
                 'accessedAt': DateTime.now(),
             });
             user.removeAttribute('$internalId');
-            user = await Authorization.skip(async () => await dbForProject.createDocument('users', user));
+            user = await dbForProject.createDocument('users', user);// await Authorization.skip(async () => await dbForProject.createDocument('users', user));
             try {
                 const targetDocument = new Document({
                     '$permissions': [

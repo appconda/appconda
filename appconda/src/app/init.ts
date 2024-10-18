@@ -512,7 +512,11 @@ Database.addFilter(
         return;
     },
     async (value: any, document: Document, database: Database) => {
-        return await Authorization.skip(() => database.find('memberships', [
+       /*  const a = database.find('memberships', [
+            Query.equal('userInternalId', [document.getInternalId()]),
+            Query.limit(APP_LIMIT_SUBQUERY),
+        ]); */
+        return await Authorization.skip(async () => await database.find('memberships', [
             Query.equal('userInternalId', [document.getInternalId()]),
             Query.limit(APP_LIMIT_SUBQUERY),
         ]));

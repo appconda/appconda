@@ -194,7 +194,11 @@ export class Document extends Map<string, any> {
 
         if (Array.isArray(target)) {
             for (const value of target) {
-                if (value[key] === find) {
+                if (value instanceof Document) {
+                    if (value.getAttribute(key) === find) {
+                        return value;
+                    }
+                } else if (value[key] === find) {
                     return value;
                 }
             }

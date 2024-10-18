@@ -77,39 +77,44 @@ async function setupServer() {
     const collections = Config.getParam('collections', []);
     const consoleCollections = collections['console'];
 
-    for (const [key, collection] of Object.entries(consoleCollections)) {
-        if ((collection['$collection'] ?? '') !== Database.METADATA) {
-            continue;
+    try {
+        for (const [key, collection] of Object.entries(consoleCollections)) {
+            if ((collection['$collection'] ?? '') !== Database.METADATA) {
+                continue;
+            }
+
+            const collectionDB = await dbForConsole.getCollection(key);
+            if (!collectionDB.isEmpty()) {
+                continue;
+            }
+
+            Console.success(`[Setup] - Creating collection: ${collection['$id']}...`);
+
+            const attributes = collection['attributes'].map(attribute => new Document({
+                '$id': ID.custom(attribute['$id']),
+                'type': attribute['type'],
+                'size': attribute['size'],
+                'required': attribute['required'],
+                'signed': attribute['signed'],
+                'array': attribute['array'],
+                'filters': attribute['filters'],
+                'default': attribute['default'] ?? null,
+                'format': attribute['format'] ?? ''
+            }));
+
+            const indexes = collection['indexes'].map(index => new Document({
+                '$id': ID.custom(index['$id']),
+                'type': index['type'],
+                'attributes': index['attributes'],
+                'lengths': index['lengths'],
+                'orders': index['orders'],
+            }));
+
+            await dbForConsole.createCollection(key, attributes, indexes);
         }
-
-        const collectionDB = await dbForConsole.getCollection(key);
-        if (!collectionDB.isEmpty()) {
-            continue;
-        }
-
-        Console.success(`[Setup] - Creating collection: ${collection['$id']}...`);
-
-        const attributes = collection['attributes'].map(attribute => new Document({
-            '$id': ID.custom(attribute['$id']),
-            'type': attribute['type'],
-            'size': attribute['size'],
-            'required': attribute['required'],
-            'signed': attribute['signed'],
-            'array': attribute['array'],
-            'filters': attribute['filters'],
-            'default': attribute['default'] ?? null,
-            'format': attribute['format'] ?? ''
-        }));
-
-        const indexes = collection['indexes'].map(index => new Document({
-            '$id': ID.custom(index['$id']),
-            'type': index['type'],
-            'attributes': index['attributes'],
-            'lengths': index['lengths'],
-            'orders': index['orders'],
-        }));
-
-        await dbForConsole.createCollection(key, attributes, indexes);
+    }
+    catch (e) {
+        console.log(e)
     }
 
     const bucketCollection = await dbForConsole.getCollection('buckets');
@@ -201,11 +206,11 @@ async function start() {
     app.use(express.urlencoded({ extended: true }));
 
 
-   // app.set('services', this.services);
+    // app.set('services', this.services);
     // app.listen(80, () => console.log("listening on port 80"));
 
-   // this.router = express.Router();
-   // app.use('/v1/service', this.router)
+    // this.router = express.Router();
+    // app.use('/v1/service', this.router)
 
 
     Files.load(path.resolve(__dirname, './console'));

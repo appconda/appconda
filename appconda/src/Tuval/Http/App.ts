@@ -404,7 +404,7 @@ export class App {
         const groups = route.getGroups();
         const pathValues = route.getPathValues(request);
 
-      //  try {
+        try {
             if (route.getHook()) {
                 for (const hook of App._init) { // Global init hooks
                     if (hook.getGroups().includes('*')) {
@@ -412,12 +412,12 @@ export class App {
                         const action = hook.getAction();
 
                         //try {
-                            await action(...args);
-                       /*  }
-                        catch {
-                            await action(...args);
-                        } */
-                        
+                        await action(...args);
+                        /*  }
+                         catch {
+                             await action(...args);
+                         } */
+
 
                     }
                 }
@@ -428,15 +428,15 @@ export class App {
                     if (hook.getGroups().includes(group)) {
                         const args = await this.getArguments(hook, pathValues, request.getParams());
                         const action = hook.getAction();
-                        try {
-                            await action(...args);
-                         }
+                        //try {
+                        await action(...args);
+                        /*  }
                         catch(e) {
                             Console.error(e)
-                           // const args = await this.getArguments(hook, pathValues, request.getParams());
-                           // const action = hook.getAction();
-                           // await action(...args);
-                        } 
+                            const args = await this.getArguments(hook, pathValues, request.getParams());
+                            const action = hook.getAction();
+                           await action(...args);
+                        }  */
 
                     }
                 }
@@ -446,13 +446,13 @@ export class App {
                 const args = await this.getArguments(route, pathValues, request.getParams());
                 const action = route.getAction();
 
-                try {
+              //  try {
                     await action(...args);
-                 }
-                catch(e) {
+                /* }
+                catch (e) {
                     Console.error(e)
-                   // await action(...args);
-                } 
+                 
+                } */
 
             }
 
@@ -480,7 +480,7 @@ export class App {
                 }
             }
             return this;
-       /*  } catch (e) {
+        } catch (e) {
 
             App.setResource('error', async () => e);
 
@@ -523,7 +523,7 @@ export class App {
             }
 
             return this;
-        } */
+        }
     }
     /**
      * Get Arguments
@@ -688,7 +688,8 @@ export class App {
         let validator = param.validator;
 
         if (typeof validator === 'function') {
-            validator = validator(await this.getResources(param.injections));
+            const resources: any = await this.getResources(param.injections); 
+            validator = validator(resources);
         }
 
         if (!(validator instanceof Validator)) {

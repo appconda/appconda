@@ -377,7 +377,7 @@ App.init()
     .groups(['api', 'database'])
     .inject('request')
     .inject('dbForProject')
-    .action(async ({ request, dbForProject }: { request: Request, dbForProject: Database }) => {
+    .action(async (request: Request, dbForProject: Database) => {
         const timeout = parseInt(request.getHeader('x-appconda-timeout'), 10);
 
         if (!isNaN(timeout) && App.isDevelopment()) {
@@ -1797,7 +1797,7 @@ App.get('/v1/databases/:databaseId/collections/:collectionId/attributes/:key')
     .param('key', '', new Key(), 'Attribute Key.')
     .inject('response')
     .inject('dbForProject')
-    .action(async ({ databaseId, collectionId, key, response, dbForProject }: { databaseId: string, collectionId: string, key: string, response: Response, dbForProject: Database }) => {
+    .action(async (databaseId: string, collectionId: string, key: string, response: Response, dbForProject: Database) => {
 
         const database = await Authorization.skip(() => dbForProject.getDocument('databases', databaseId));
 
@@ -1880,7 +1880,7 @@ App.patch('/v1/databases/:databaseId/collections/:collectionId/attributes/string
     .inject('response')
     .inject('dbForProject')
     .inject('queueForEvents')
-    .action(async ({ databaseId, collectionId, key, required, defaultValue, response, dbForProject, queueForEvents }: { databaseId: string, collectionId: string, key: string, required: boolean | null, defaultValue: string | null, response: Response, dbForProject: Database, queueForEvents: Event }) => {
+    .action(async (databaseId: string, collectionId: string, key: string, required: boolean | null, defaultValue: string | null, response: Response, dbForProject: Database, queueForEvents: Event) => {
 
         const attribute = await updateAttribute({
             databaseId: databaseId,
@@ -1920,7 +1920,7 @@ App.patch('/v1/databases/:databaseId/collections/:collectionId/attributes/enum/:
     .inject('response')
     .inject('dbForProject')
     .inject('queueForEvents')
-    .action(async ({ databaseId, collectionId, key, elements, required, defaultValue, response, dbForProject, queueForEvents }: { databaseId: string, collectionId: string, key: string, elements: string[] | null, required: boolean | null, defaultValue: string | null, response: Response, dbForProject: Database, queueForEvents: Event }) => {
+    .action(async (databaseId: string, collectionId: string, key: string, elements: string[] | null, required: boolean | null, defaultValue: string | null, response: Response, dbForProject: Database, queueForEvents: Event) => {
         const attribute = await updateAttribute({
             databaseId: databaseId,
             collectionId: collectionId,
@@ -1960,7 +1960,7 @@ App.patch('/v1/databases/:databaseId/collections/:collectionId/attributes/url/:k
     .inject('response')
     .inject('dbForProject')
     .inject('queueForEvents')
-    .action(async ({ databaseId, collectionId, key, required, defaultValue, response, dbForProject, queueForEvents }: { databaseId: string, collectionId: string, key: string, required: boolean | null, defaultValue: string | null, response: Response, dbForProject: Database, queueForEvents: Event }) => {
+    .action(async (databaseId: string, collectionId: string, key: string, required: boolean | null, defaultValue: string | null, response: Response, dbForProject: Database, queueForEvents: Event) => {
         const attribute = await updateAttribute({
             databaseId: databaseId,
             collectionId: collectionId,
@@ -2001,7 +2001,7 @@ App.patch('/v1/databases/:databaseId/collections/:collectionId/attributes/intege
     .inject('response')
     .inject('dbForProject')
     .inject('queueForEvents')
-    .action(async ({ databaseId, collectionId, key, required, min, max, defaultValue, response, dbForProject, queueForEvents }: { databaseId: string, collectionId: string, key: string, required: boolean | null, min: number | null, max: number | null, defaultValue: number | null, response: Response, dbForProject: Database, queueForEvents: Event }) => {
+    .action(async (databaseId: string, collectionId: string, key: string, required: boolean | null, min: number | null, max: number | null, defaultValue: number | null, response: Response, dbForProject: Database, queueForEvents: Event) => {
         const attribute = await updateAttribute({
             databaseId: databaseId,
             collectionId: collectionId,

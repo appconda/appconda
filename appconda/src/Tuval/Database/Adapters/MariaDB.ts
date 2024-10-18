@@ -63,6 +63,7 @@ export class MariaDB extends SQL {
                 return true;
             } finally {
                 connection.release();
+                this.pool.releaseConnection(connection);
             }
         } catch (error: any) {
             throw new DatabaseException(`Can't upload file ${name}: ${error.message}`);
@@ -89,6 +90,7 @@ export class MariaDB extends SQL {
                 return true;
             } finally {
                 connection.release();
+                this.pool.releaseConnection(connection);
             }
         } catch (error: any) {
             throw new DatabaseException(`Failed to delete database ${name}: ${error.message}`);
@@ -238,6 +240,7 @@ export class MariaDB extends SQL {
                 throw error;
             } finally {
                 connection.release();
+                this.pool.releaseConnection(connection);
             }
         } catch (error: any) {
             throw new DatabaseException(`Failed to create collection ${name}: ${error.message}`);
@@ -275,6 +278,7 @@ export class MariaDB extends SQL {
                 return size;
             } finally {
                 connection.release();
+                this.pool.releaseConnection(connection);
             }
         } catch (error: any) {
             throw new DatabaseException(`Failed to get collection size: ${error.message}`);
@@ -301,6 +305,7 @@ export class MariaDB extends SQL {
                 return true;
             } finally {
                 connection.release();
+                this.pool.releaseConnection(connection);
             }
         } catch (error: any) {
             throw new DatabaseException(`Failed to delete collection ${id}: ${error.message}`);
@@ -334,6 +339,7 @@ export class MariaDB extends SQL {
                 return true;
             } finally {
                 connection.release();
+                this.pool.releaseConnection(connection);
             }
         } catch (error: any) {
             this.processException(error);
@@ -375,6 +381,7 @@ export class MariaDB extends SQL {
                 return true;
             } finally {
                 connection.release();
+                this.pool.releaseConnection(connection);
             }
         } catch (error: any) {
             this.processException(error);
@@ -405,6 +412,7 @@ export class MariaDB extends SQL {
                 return true;
             } finally {
                 connection.release();
+                this.pool.releaseConnection(connection);
             }
         } catch (error: any) {
             throw new DatabaseException(`Failed to delete attribute ${id}: ${error.message}`);
@@ -435,6 +443,7 @@ export class MariaDB extends SQL {
                 return true;
             } finally {
                 connection.release();
+                this.pool.releaseConnection(connection);
             }
         } catch (error: any) {
             throw new DatabaseException(`Failed to rename attribute from ${old} to ${newKey}: ${error.message}`);
@@ -498,6 +507,7 @@ export class MariaDB extends SQL {
                 return true;
             } finally {
                 connection.release();
+                this.pool.releaseConnection(connection);
             }
         } catch (error: any) {
             throw new DatabaseException(`Failed to create relationship: ${error.message}`);
@@ -591,6 +601,7 @@ export class MariaDB extends SQL {
                 return true;
             } finally {
                 connection.release();
+                this.pool.releaseConnection(connection);
             }
         } catch (error: any) {
             throw new DatabaseException(`Failed to update relationship: ${error.message}`);
@@ -682,6 +693,7 @@ export class MariaDB extends SQL {
                 return true;
             } finally {
                 connection.release();
+                this.pool.releaseConnection(connection);
             }
         } catch (error: any) {
             throw new DatabaseException(`Failed to delete relationship: ${error.message}`);
@@ -712,6 +724,7 @@ export class MariaDB extends SQL {
                 return true;
             } finally {
                 connection.release();
+                this.pool.releaseConnection(connection);
             }
         } catch (error: any) {
             throw new DatabaseException(`Failed to rename index from ${old} to ${newKey}: ${error.message}`);
@@ -801,6 +814,7 @@ export class MariaDB extends SQL {
                 return true;
             } finally {
                 connection.release();
+                this.pool.releaseConnection(connection);
             }
         } catch (error: any) {
             this.processException(error);
@@ -839,6 +853,7 @@ export class MariaDB extends SQL {
                 return true;
             } finally {
                 connection.release();
+                this.pool.releaseConnection(connection);
             }
         } catch (error: any) {
             throw new DatabaseException(`Failed to delete index ${id}: ${error.message}`);
@@ -874,7 +889,7 @@ export class MariaDB extends SQL {
             for (const [attribute, value] of Object.entries(attributes)) {
                 columns.push(`\`${this.filter(attribute)}\``);
                 placeholders.push('?');
-                values.push(Array.isArray(value) ? JSON.stringify(value) : value);
+                values.push(Array.isArray(value) ? JSON.stringify(value) : value == null ? null : value);
             }
 
             // Insert internal ID if set
@@ -1039,6 +1054,7 @@ export class MariaDB extends SQL {
                 }
             } finally {
                 connection.release();
+                this.pool.releaseConnection(connection);
             }
         } catch (error: any) {
             if (error.code === 'ER_DUP_ENTRY') {
@@ -1175,6 +1191,7 @@ export class MariaDB extends SQL {
                 }
             } finally {
                 connection.release();
+                this.pool.releaseConnection(connection);
             }
         } catch (error: any) {
             if (error.code === 'ER_DUP_ENTRY') {
@@ -1213,6 +1230,7 @@ export class MariaDB extends SQL {
                 }
             } finally {
                 connection.release();
+                this.pool.releaseConnection(connection);
             }
         } catch (error: any) {
             if (error.code === 'ER_DUP_ENTRY') {
@@ -1283,6 +1301,7 @@ export class MariaDB extends SQL {
                 return true;
             } finally {
                 connection.release();
+                this.pool.releaseConnection(connection);
             }
         } catch (error: any) {
             throw new DatabaseException(`Failed to increase attribute: ${error.message}`);
@@ -1334,6 +1353,7 @@ export class MariaDB extends SQL {
                 return deleted > 0;
             } finally {
                 connection.release();
+                this.pool.releaseConnection(connection);
             }
         } catch (error: any) {
             throw new DatabaseException(`Failed to delete document: ${error.message}`);
@@ -1531,6 +1551,7 @@ export class MariaDB extends SQL {
                 return results;
             } finally {
                 connection.release();
+                this.pool.releaseConnection(connection);
             }
         } catch (error: any) {
             throw new DatabaseException(`Failed to find documents: ${error.message}`);
@@ -1600,6 +1621,7 @@ export class MariaDB extends SQL {
                 return rows[0]?.sum || 0;
             } finally {
                 connection.release();
+                this.pool.releaseConnection(connection);
             }
         } catch (error: any) {
             throw new DatabaseException(`Failed to count documents: ${error.message}`);
@@ -1660,6 +1682,7 @@ export class MariaDB extends SQL {
                 return rows[0]?.sum || 0;
             } finally {
                 connection.release();
+                this.pool.releaseConnection(connection);
             }
         } catch (error: any) {
             throw new DatabaseException(`Failed to sum attribute: ${error.message}`);

@@ -263,10 +263,11 @@ App.get('/v1/projects')
         }
 
         const filterQueries = Query.groupByType(queries)['filters'];
-
+        const projects =  await dbForConsole.find('projects', queries);
+        const total =  await dbForConsole.count('projects', filterQueries, APP_LIMIT_COUNT);
         response.dynamic(new Document({
-            projects: await dbForConsole.find('projects', queries),
-            total: await dbForConsole.count('projects', filterQueries, APP_LIMIT_COUNT),
+            projects,
+            total
         }), Response.MODEL_PROJECT_LIST);
     });
 

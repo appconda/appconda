@@ -10,7 +10,9 @@ export class CreateTask extends Action {
   constructor() {
     super();
     this.desc("Create Task In Applet")
-      .param("name", '', new Text(255),'Task name of creating.', false)
+      .param("projectId", null, new Text(255), 'ID of project', false)
+      .param("appletId", null, new Text(255), 'ID of applet', false)
+      .param("name", null, new Text(255), 'Task name of creating.', false)
       .callback(this.action);
     // .callback((message: Message, dbForConsole: Database, queueForMails: Mail, queueForEvents: Event, queueForFunctions: Func, log: Log) => this.action(message, dbForConsole, queueForMails, queueForEvents, queueForFunctions, log));
   }
