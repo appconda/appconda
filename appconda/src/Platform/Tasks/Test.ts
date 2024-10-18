@@ -19,7 +19,14 @@ export class Test extends Action {
 
     public action(databaseService: DatabaseService, mailService: MailService): void {
         console.log(mailService)
-        mailService.send();
+        mailService.send({
+            smtp: ''
+        });
+
+        databaseService.create({
+            project: 'project 1',
+            name: 'databaseName'
+        })
         // console.log(databaseService);
 
        /*  queueForMails

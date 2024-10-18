@@ -14,19 +14,20 @@ export class CreateDatabase extends Action {
         this
             .name('CreateDatabase')
             .desc('Create Database In Project')
-            .inject('project')
+            //.inject('project')
             /*       .inject('message')
                   .inject('dbForConsole')
                   .inject('queueForMails')
                   .inject('queueForEvents')
                   .inject('queueForFunctions') */
-            .param('name','', new Text(255))
+            .param('project', '', new Text(255))
+            .param('name', '', new Text(255))
             .callback(this.action)
         // .callback((message: Message, dbForConsole: Database, queueForMails: Mail, queueForEvents: Event, queueForFunctions: Func, log: Log) => this.action(message, dbForConsole, queueForMails, queueForEvents, queueForFunctions, log));
     }
 
-    public async action(project: Document, name: string): Promise<void> {
+    public async action(project: string, name: string): Promise<void> {
         Console.log(project);
-        Console.info('DB Created.' + name)
+        Console.info('DB Created.' + project +   name)
     }
 }

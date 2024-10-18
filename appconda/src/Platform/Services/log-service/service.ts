@@ -29,13 +29,7 @@ export function _Agent<T extends { new(...args: any[]): {} }>(Base: T) {
      }; */
 }
 
-export function Agent(agentType) {
-    return (target: any) =>{
-        target.prototype.uid = () => {
-            return agentType.NAME;
-        }
-    }
-}
+
 
 
 export default class LogService extends Service {

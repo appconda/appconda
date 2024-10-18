@@ -61,6 +61,7 @@ export class AppcondaServicePlatform extends Platform {
 
 
         } catch (error) {
+            console.log(error)
           /*   ServiceActionExecuter.setResource("error", () => error);
             for (const hook of this.errorHooks) {
                 hook.getAction()(...this.getArguments(hook));

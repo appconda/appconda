@@ -6,6 +6,7 @@ import { Log } from "../../../../Tuval/Logger";
 import { Action } from "../../../../Tuval/Platform/Action";
 import { Message } from "../../../../Tuval/Queue";
 
+
 export class SendEmail extends Action {
   public static readonly NAME = "SendEmail";
 
@@ -14,7 +15,6 @@ export class SendEmail extends Action {
     this
     .desc("Send Email")
       .inject("queueForMails")
-     
       .callback(this.action);
     // .callback((message: Message, dbForConsole: Database, queueForMails: Mail, queueForEvents: Event, queueForFunctions: Func, log: Log) => this.action(message, dbForConsole, queueForMails, queueForEvents, queueForFunctions, log));
   }

@@ -1,22 +1,24 @@
-import { Agent } from "../log-service/service";
+
+import { Action } from "../Decarators/Action";
+import { Agent } from "../Decarators/Agent";
 import { Service } from "../Service";
 import { SendEmail } from "./Actions/SendEmail";
 import { MailServiceAgent } from "./MailServiceAgent";
 
 
+
+export interface SendEmailPayload {
+  smtp: string
+}
+
 @Agent(MailServiceAgent)
 export default class MailService extends Service {
 
-
   public init() {
-    
+
   }
 
-  public send() {
-    const action = this.getAction(SendEmail.NAME);
-    action.call({
-    
-    });
-  }
- 
+  @Action(SendEmail)
+  public send(payload: SendEmailPayload) { }
+
 }

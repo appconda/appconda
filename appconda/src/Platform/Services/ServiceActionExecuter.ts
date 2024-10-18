@@ -220,28 +220,7 @@ export class ServiceActionExecuter {
     public async start(): Promise<any> {
         try {
 
-            const services = require('./config/services');
-
-            for (const [key, value] of Object.entries(services)) {
-                const service = value as any;
-                const fromPath = path.join(__dirname, service.service);
-
-                const stat = fs.statSync(fromPath);
-
-                if (stat.isFile()) {
-
-                    const service = require(path.resolve(fromPath));
-                    container.registerService(service.default);
-                    //console.log(service.default);
-                }
-
-                else if (stat.isDirectory())
-                    console.log(fromPath);
-            }
-
-
-
-            await container.init();
+           
 
 
 
