@@ -66,7 +66,7 @@ async function createUser(
             }
         }
 
-        password = password ? (hash === 'plaintext' ? Auth.passwordHash(password, hash, hashOptionsObject) : password) : null as any;
+        password = password ? (hash === 'plaintext' ? await Auth.passwordHash(password, hash, hashOptionsObject) : password) : null as any;
         user = new Document({
             $id: userId,
             $permissions: [
