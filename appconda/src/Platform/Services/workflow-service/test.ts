@@ -5,6 +5,7 @@ import { WorkflowStep } from "../../../Tuval/Workflow/Step";
 import { StartEvent, ServiceTask, UserTask, ExculusiveGateway, ConsoleStep } from "../../../Tuval/Workflow/Steps/BPMN20/Task";
 import { ProcessStep } from "../../../Tuval/Workflow/Steps/ProcessStep";
 import { Execution, Workflow } from "../../../Tuval/Workflow/Workflow";
+import { nanoid } from "../id-service/nanoid/nanoid";
 import { SendEmail } from "../mail-service/Actions/SendEmail";
 import MailService from "../mail-service/MailService";
 
@@ -90,7 +91,7 @@ function JSONToFlow(flow: any[]): Path {
         const stepType = stepMap[flow[i].type];
         const step: WorkflowStep = new stepType();
         step.setId(flow[i].id);
-        if (flow[i].payload){
+        if (flow[i].payload) {
             step.setPayload(flow[i].payload);
         }
         section.addStep(step);
@@ -155,7 +156,58 @@ const flow = [
     }
 
 ]
-const section = JSONToFlow(flow);
+
+
+
+function orderedToJSONFlow(flow: any[]) {
+    const jsonFlow = [];
+    flow[0].id = nanoid();
+    jsonFlow.push(
+        {
+            id: 'start1',
+            type: 'start',
+            outgoings: [flow[0].id]
+        },
+    );
+
+    for (let i = 0; i < flow.length; i++) {
+        const flowItem = flow[i];
+        const jsonFlowItem: any = {};
+
+        jsonFlowItem.id = flowItem.id ?? nanoid();
+        jsonFlowItem.type = flowItem.type;
+        jsonFlowItem.payload = {
+            text: flowItem.text
+        }
+
+        jsonFlowItem.outgoings = [];
+        const nextItem = flow[i + 1];
+        if (nextItem) {
+            nextItem.id = nanoid();
+            jsonFlowItem.outgoings.push(nextItem.id);
+        }
+
+        jsonFlow.push(jsonFlowItem);
+
+    }
+    return jsonFlow;
+}
+
+const orderedFlow = [
+    {
+        type: 'console',
+        text: 'test'
+    },
+    {
+        type: 'console',
+        text: 'test1'
+    },
+    {
+        type: 'console',
+        text: 'test2'
+    },
+]
+const section = JSONToFlow(orderedToJSONFlow(orderedFlow));
 woc.run(section);
 
 /* setInterval(() => {
