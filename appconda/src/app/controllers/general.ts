@@ -436,6 +436,7 @@ App.init()
             }
         }
 
+      
         const route = appconda.getRoute();
         Request.setRoute(route);
 
@@ -1021,6 +1022,8 @@ for (const service of Object.keys(services)) {
 
 import './shared/api';
 import './shared/api/auth';
+import DatabaseService from '../../Platform/Services/database-service/DatabaseService';
+import MailService from '../../Platform/Services/mail-service/MailService';
 
 
 

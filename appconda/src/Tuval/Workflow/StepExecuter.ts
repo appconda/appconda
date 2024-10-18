@@ -11,9 +11,7 @@ type ResourceCallback = {
     reset: boolean;
 };
 
-const container = new Container(null);
-
-export class ServiceActionExecuter {
+export class StepExecuter {
 
     private serviceName: string;
 
@@ -63,9 +61,8 @@ export class ServiceActionExecuter {
         return this._job;
     }
 
-    constructor(serviceName: string, actionName: string) {
-        this.serviceName = serviceName;
-        this.actionName = actionName;
+    constructor() {
+
     }
 
 
@@ -78,15 +75,15 @@ export class ServiceActionExecuter {
      * @throws Error if the resource callback is not found
      */
     public async getResource(name: string, fresh: boolean = false): Promise<any> {
-        if (!(name in this.resources) || fresh || (ServiceActionExecuter.resourcesCallbacks[name] && ServiceActionExecuter.resourcesCallbacks[name].reset)) {
-            if (!(name in ServiceActionExecuter.resourcesCallbacks)) {
+        if (!(name in this.resources) || fresh || (StepExecuter.resourcesCallbacks[name] && StepExecuter.resourcesCallbacks[name].reset)) {
+            if (!(name in StepExecuter.resourcesCallbacks)) {
                 throw new Error(`Failed to find resource: "${name}"`);
             }
 
-            const resourceCallback = ServiceActionExecuter.resourcesCallbacks[name];
+            const resourceCallback = StepExecuter.resourcesCallbacks[name];
             this.resources[name] = await resourceCallback.callback(...(await this.getResources(resourceCallback.injections)));
 
-            ServiceActionExecuter.resourcesCallbacks[name].reset = false;
+            StepExecuter.resourcesCallbacks[name].reset = false;
         }
 
         return this.resources[name];
@@ -119,7 +116,7 @@ export class ServiceActionExecuter {
             throw new Error("Callback must be a function");
         }
 
-        ServiceActionExecuter.resourcesCallbacks[name] = { callback, injections, reset: true };
+        StepExecuter.resourcesCallbacks[name] = { callback, injections, reset: true };
     }
 
     /**
@@ -141,7 +138,7 @@ export class ServiceActionExecuter {
         try {
             //this.adapter.stop();
         } catch (error) {
-            ServiceActionExecuter.setResource("error", () => error);
+            StepExecuter.setResource("error", () => error);
             for (const hook of this.errorHooks) {
                 hook.getAction()(...(await this.getArguments(hook)));
             }
@@ -160,10 +157,11 @@ export class ServiceActionExecuter {
         return hook;
     }
 
-    public async call( payload: any) {
+    public async run( payload: any): Promise<any> {
+        let ret = null;
 
         try {
-            ServiceActionExecuter.setResource('payload', ()=> payload)
+            StepExecuter.setResource('payload', ()=> payload)
 
             if (this._job.getHook()) {
                 for (const hook of this.initHooks) { // Global init hooks
@@ -185,7 +183,7 @@ export class ServiceActionExecuter {
 
             const args = await this.getArguments(this._job, payload);
             const action = this._job.getAction();
-            await action(...args);
+             ret = await action(...args);
 
 
 
@@ -209,7 +207,7 @@ export class ServiceActionExecuter {
 
             //Console.success(`[Job] (${message.getPid()}) successfully run.`);
         } catch (th) {
-            ServiceActionExecuter.setResource("error", () => th);
+            StepExecuter.setResource("error", () => th);
             for (const hook of this.errorHooks) {
                 hook.getAction()(...(await this.getArguments(hook)));
             }
@@ -217,8 +215,10 @@ export class ServiceActionExecuter {
             Console.error(th);
 
         } finally {
-            ServiceActionExecuter.setResource('payload', ()=> {})
+            StepExecuter.setResource('payload', ()=> {})
         }
+
+        return ret;
     }
 
     /**
@@ -229,7 +229,7 @@ export class ServiceActionExecuter {
         try {
 
         } catch (error) {
-            ServiceActionExecuter.setResource("error", () => error);
+            StepExecuter.setResource("error", () => error);
             for (const hook of this.errorHooks) {
                 hook.getAction()(...( await this.getArguments(hook)));
             }
@@ -265,7 +265,7 @@ export class ServiceActionExecuter {
         try {
 
         } catch (error) {
-            ServiceActionExecuter.setResource("error", () => error);
+            StepExecuter.setResource("error", () => error);
             for (const hook of this.errorHooks) {
                 hook.getAction()(...(await this.getArguments(hook)));
             }

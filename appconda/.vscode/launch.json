@@ -65,7 +65,20 @@
         "cwd": "${workspaceRoot}",
         "internalConsoleOptions": "openOnSessionStart",
         "skipFiles": ["<node_internals>/**", "node_modules/**"]
-      }
+      },
+      {
+        "name": "Workflow",
+        "type": "node",
+        "request": "launch",
+        "runtimeExecutable": "node",
+        "runtimeArgs": ["--nolazy","--trace-deprecation", "-r","ts-node/register/transpile-only"],
+  
+        "args": ["src/Platform/Services/workflow-service/test.ts", "--example", "hello", "isDevelopment=true"],
+        
+        "cwd": "${workspaceRoot}",
+        "internalConsoleOptions": "openOnSessionStart",
+        "skipFiles": ["<node_internals>/**", "node_modules/**"]
+      },
     ]
   } 
 
