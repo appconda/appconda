@@ -3,6 +3,7 @@ import { Console } from "../../Tuval/CLI";
 import { Hook, Validator } from "../../Tuval/Core";
 import { Job } from "../../Tuval/Queue";
 import { WorkflowStep } from "./Step";
+import { Workflow } from "./Workflow";
 var fs = require('fs');
 var path = require('path');
 
@@ -48,7 +49,7 @@ export class StepExecuter {
     /**
      * Resource callbacks
      */
-    protected static resourcesCallbacks: Record<string, ResourceCallback> = {};
+    protected  resourcesCallbacks: Record<string, ResourceCallback> = {};
 
     _job: Job;
 
@@ -62,7 +63,7 @@ export class StepExecuter {
         return this._job;
     }
 
-    constructor(public step: WorkflowStep) {
+    constructor(public workflow: Workflow, public step: WorkflowStep) {
 
     }
 
@@ -76,16 +77,20 @@ export class StepExecuter {
      * @throws Error if the resource callback is not found
      */
     public async getResource(name: string, fresh: boolean = false): Promise<any> {
-        if (!(name in this.resources) || fresh || (StepExecuter.resourcesCallbacks[name] && StepExecuter.resourcesCallbacks[name].reset)) {
-            if (!(name in StepExecuter.resourcesCallbacks)) {
+        if (!(name in this.resources) || fresh || (this.resourcesCallbacks[name] && this.resourcesCallbacks[name].reset)) {
+            if (!(name in this.resourcesCallbacks)) {
                 throw new Error(`Failed to find resource: "${name}"`);
             }
 
-            const resourceCallback = StepExecuter.resourcesCallbacks[name];
+            const resourceCallback = this.resourcesCallbacks[name];
             this.resources[name] = await resourceCallback.callback(...(await this.getResources(resourceCallback.injections)));
 
-            StepExecuter.resourcesCallbacks[name].reset = false;
-        }
+            if (this.resources[name] == null) {
+                this.resources[name] = await this.workflow.getResource(name, fresh);
+            }
+
+            this.resourcesCallbacks[name].reset = false;
+        } 
 
         return this.resources[name];
     }
@@ -112,12 +117,12 @@ export class StepExecuter {
      * @param injections - Dependencies to inject into the callback
      * @throws Error if inputs are invalid
      */
-    public static setResource(name: string, callback: (...args: any[]) => any, injections: string[] = []): void {
+    public  setResource(name: string, callback: (...args: any[]) => any, injections: string[] = []): void {
         if (typeof callback !== "function") {
             throw new Error("Callback must be a function");
         }
 
-        StepExecuter.resourcesCallbacks[name] = { callback, injections, reset: true };
+        this.resourcesCallbacks[name] = { callback, injections, reset: true };
     }
 
     /**
@@ -139,7 +144,7 @@ export class StepExecuter {
         try {
             //this.adapter.stop();
         } catch (error) {
-            StepExecuter.setResource("error", () => error);
+            this.setResource("error", () => error);
             for (const hook of this.errorHooks) {
                 hook.getAction()(...(await this.getArguments(hook)));
             }
@@ -165,7 +170,7 @@ export class StepExecuter {
         };
 
         try {
-            StepExecuter.setResource('payload', () => payload)
+            this.setResource('payload', () => payload);
 
             if (this._job.getHook()) {
                 for (const hook of this.initHooks) { // Global init hooks
@@ -214,7 +219,7 @@ export class StepExecuter {
 
             //Console.success(`[Job] (${message.getPid()}) successfully run.`);
         } catch (th) {
-            StepExecuter.setResource("error", () => th);
+            this.setResource("error", () => th);
             for (const hook of this.errorHooks) {
                 hook.getAction()(...(await this.getArguments(hook)));
             }
@@ -222,7 +227,7 @@ export class StepExecuter {
             Console.error(th);
 
         } finally {
-            StepExecuter.setResource('payload', () => { })
+            this.setResource('payload', () => { })
         }
 
         return ret;
@@ -236,7 +241,7 @@ export class StepExecuter {
         try {
 
         } catch (error) {
-            StepExecuter.setResource("error", () => error);
+            this.setResource("error", () => error);
             for (const hook of this.errorHooks) {
                 hook.getAction()(...(await this.getArguments(hook)));
             }
@@ -272,7 +277,7 @@ export class StepExecuter {
         try {
 
         } catch (error) {
-            StepExecuter.setResource("error", () => error);
+            this.setResource("error", () => error);
             for (const hook of this.errorHooks) {
                 hook.getAction()(...(await this.getArguments(hook)));
             }

@@ -270,7 +270,7 @@ export class Workflow {
                 /*   if (action.getType() === Action.TYPE_DEFAULT && !key.toLowerCase().includes(workerName.toLowerCase())) {
                       continue;
                   } */
-                const stepExecuter = new StepExecuter(step);
+                const stepExecuter = new StepExecuter(this,step);
                 path.stepExecuters[step.getId()] = stepExecuter;
                 let hook;
 
