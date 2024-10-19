@@ -33,7 +33,7 @@ export class WorkflowEngine extends Action {
         const workflows: Workflow[] = []
 
         const state = new State();
-        const woc = new Workflow(state);
+        const woc = new Workflow();
         workflows.push(woc);
 
 
@@ -55,6 +55,7 @@ export class WorkflowEngine extends Action {
             for (let i = 0; i < steps.length; i++) {
                 const stepType = stepMap[steps[i].type];
                 const step: WorkflowStep = new stepType();
+                step.setPath(section);
                 step.setId(steps[i].id);
                 if (steps[i].payload) {
                     step.setPayload(steps[i].payload);
@@ -208,6 +209,12 @@ export class WorkflowEngine extends Action {
                         sourceRef: 'Activity_0fx6yep',
                         targetRef: 'Event_0cgfduj'
                     },
+                    {
+                        type: 'sequenceFlow',
+                        id: 'Flow_1fkevat',
+                        sourceRef: 'StartEvent_1y45yut',
+                        targetRef: 'Activity_0fx6yep'
+                    }
                 ]
             }
         }
@@ -261,7 +268,7 @@ export class WorkflowEngine extends Action {
             },
         ]
         const section = JSONToFlow(workflow);
-        woc.runStepByStep(section);
+        woc.runStepByStep({path:section});
 
         setInterval(() => {
             woc.next()

@@ -60,9 +60,9 @@ export class Context<D = any> implements ContextInterface<D> {
      *
      * @returns An array of tokens that match the identity.
      */
-    getTokens(identity: IdentityOptions) {
-        if ('id' in identity) return this.tokens.filter((token) => token.state.ref === identity.id);
-        if ('name' in identity) return this.tokens.filter((token) => token.state.name === identity.name);
+    getTokens(id: string) {
+        return this.tokens.filter((token) => token.state.ref === id);
+        //if ('name' in identity) return this.tokens.filter((token) => token.state.name === identity.name);
     }
 
     /**
@@ -70,8 +70,8 @@ export class Context<D = any> implements ContextInterface<D> {
      *
      * @param {IdentityOptions} identity - IdentityOptions
      */
-    delTokens(identity: IdentityOptions) {
-        const tokens = this.getTokens(identity)?.map((t) => t.id);
+    delTokens(id: string) {
+        const tokens = this.getTokens(id)?.map((t) => t.id);
         if (tokens?.length) this.tokens = this.tokens.filter((t) => !tokens.includes(t.id));
     }
 

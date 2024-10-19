@@ -1,8 +1,10 @@
 import { Exception } from "../Core";
 import { Context } from "./Context/Context";
+import { State } from "./Context/State";
+import { Status } from "./Context/Status";
+import { Token } from "./Context/Token";
 import { IExecution } from "./IExecution";
 import { Path } from "./Path";
-import { State } from "./State";
 import { WorkflowStep } from "./Step";
 import { StepExecuter } from "./StepExecuter";
 import { EndStep } from "./Steps/EndStep";
@@ -71,8 +73,8 @@ export class Workflow {
     break: boolean = false;
     next: () => Promise<void>;
 
-    public constructor(state: State) {
-        this.state = state;
+    public constructor() {
+        //this.state = state;
         this.next = () => {
             return new Promise((resolve) => {
                 resolve()
@@ -98,7 +100,7 @@ export class Workflow {
         (path as any).trappedErrorNumber = 0;
         (path as any).objects = {};
 
-        path.state = this.state;
+        //path.state = this.state;
 
         // Find a sub-object
         (path as any).getObject = function (index) {
@@ -120,7 +122,7 @@ export class Workflow {
     public async run(path: Path) {
 
         let ret;
-        this.state.push(path);
+        // this.state.push(path);
 
         var quit = false;
 
@@ -146,8 +148,8 @@ export class Workflow {
                         this.break = true;
                         break;
                     case 'SUB_PATH_END':
-                        this.state.pop();
-                        this.state.currentPath.position = ret.label;
+                        // this.state.pop();
+                        // this.state.currentPath.position = ret.label;
                         quit = true;
                         break;
 
@@ -159,29 +161,81 @@ export class Workflow {
             /*  if (allowWaiting && (performance.now() - this.startTime >= this.timestep))
                  break; */
         }
-        while (this.state.currentPath && !quit && !this.break)
+        while (!quit && !this.break)
     }
-    public runStepByStep({ path, context, data }: IExecution): void {
-        
+    public runStepByStep({ path, context, data, node }: IExecution): void {
+
         context = (this.context ?? context ?? Context.build({ data })).resume();
 
         if (!context.isReady()) throw new Exception('Context is not ready to consume');
 
+        let activity: WorkflowStep | undefined;
+        if (node && context.tokens.length) {
+            activity = path.getStepById(node);
+        } else if (!context.tokens.length && !node) {
+            activity = path.getStartStep();
+
+        }
+
+        if (!activity) throw new Error('Düğüm aktivitesi bulunamadı veya geçerli değil');
+
+
+        let token: Token | undefined;
+        if (context.tokens.length == 0) {
+            const state = State.build(activity.getId(), { name: activity.getId(), value: {} });
+
+            token = Token.build({ history: [state] });
+
+            context.addToken(token);
+        } else {
+            token = context.getTokens(activity.getId())?.pop()?.resume();
+
+            if (!token?.isReady()) throw new Error('Token, tüketmeye hazır değil');
+        }
+
+        if (!token) throw new Error('Token bulunamadı');
+
+        path.position = activity.getId();
+
         let ret;
-        this.state.push(path);
+
+        // this.state.push(path);
 
         let quit = false;
 
         this.initPath([path]);
 
-
+        context.status = Status.Running;
         this.next = async () => {
             //  do {
-            if (this.state.currentPath && !quit && !this.break) {
+
+            activity.token = token;
+            activity.context = context;
+
+            if (!quit && !this.break) {
                 do {
+
+                    //  if (context.status === Status.Running) {
+
+
+                    ret = await path.stepExecuters[activity.getId()].run();
+
+
+                    //}
                     //console.log( "Block " + section.position + " - Sourcepos: " + this.sourcePos );
-                    ret = await path.stepExecuters[path.position].run();
+
                 } while (!ret);
+
+                activity.takeOutgoing();
+
+                const next = context.next();
+
+                token = context.getTokens(next.ref)?.find((t) => t.status === Status.Ready);
+
+                if (!token) throw new Error('Çalışma aşamasında token bulunamadı');
+
+                activity = path.getStepById(next.ref);
+
 
                 if (ret) {
                     switch (ret.type) {
@@ -196,8 +250,8 @@ export class Workflow {
                             quit = true;
                             break;
                         case 'SUB_PATH_END':
-                            this.state.pop();
-                            this.state.currentPath.position = ret.label;
+                            //this.state.pop();
+                            // this.state.currentPath.position = ret.label;
                             quit = true;
                             break;
 

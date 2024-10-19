@@ -4,12 +4,21 @@ import { Context } from "./Context/Context";
 import { State } from "./Context/State";
 import { Status } from "./Context/Status";
 import { Token } from "./Context/Token";
+import { Path } from "./Path";
+import { SequenceFlow } from "./Steps/BPMN20/Task";
 import { Execution } from "./Workflow";
 
 export interface GoOutInterface {
     activity: WorkflowStep;
     pause?: boolean | string;
 }
+
+export const takeOutgoing = (outgoing: SequenceFlow[], id?: string) => {
+    if (id) {
+        return outgoing?.filter((o) => o.getTargetRef() === id).map((o) => o.getTargetRef());
+
+    } else return outgoing?.map((o) => o.getTargetRef()!);
+};
 
 export abstract class WorkflowStep {
     public static readonly HTTP_REQUEST_METHOD_GET = 'GET';
@@ -51,7 +60,8 @@ export abstract class WorkflowStep {
     protected httpAliasParams: { [key: string]: any } = {};
 
     protected incomings: WorkflowStep[] = [];
-    protected outgoings: WorkflowStep[] = [];
+    protected outgoings: SequenceFlow[] = [];
+    path: any;
 
     /**
      * Set Http path
@@ -125,6 +135,23 @@ export abstract class WorkflowStep {
     }
 
     //====================================
+
+
+    public setPath(path: Path): this {
+        this.path = path;
+        return this;
+    }
+
+    /**
+     * Get Type
+     *
+     * @returns string
+     */
+    public getPath(): Path {
+        return this.path;
+    }
+
+
     /**
      * Set Type
      *
@@ -300,11 +327,11 @@ export abstract class WorkflowStep {
         return this;
     }
 
-    public outgoing(step: WorkflowStep) {
+    public outgoing(step: SequenceFlow) {
         this.outgoings.push(step);
     }
 
-    public getOutgoings(): WorkflowStep[] {
+    public getOutgoings(): SequenceFlow[] {
         return this.outgoings;
     }
 
@@ -384,10 +411,23 @@ export abstract class WorkflowStep {
         }
     }
 
+    public takeOutgoing(id?: string, options?: { pause: boolean | string }) {
+        if (!this.outgoing || !this.outgoing?.length) return;
+
+        const outgoing: string[] = takeOutgoing(this.getOutgoings(), id);
+
+        if (!outgoing) return;
+
+        this.goOut(outgoing.map((out) => ({ activity: this.getPath().getStepById(out), pause: options?.pause })));
+    }
+
+
+
+
     protected goOut(outgoing: GoOutInterface[]) {
         const pause = (out: GoOutInterface) =>
             typeof out!.pause === 'string'
-                ? out!.pause === out!.activity.id || out!.pause === out!.activity.getId()
+                ? out!.pause === out!.activity.getId() || out!.pause === out!.activity.getId()
                 : out!.pause;
 
         if (outgoing?.length && this.token) {
@@ -397,7 +437,7 @@ export abstract class WorkflowStep {
                 const out = outgoing.pop();
 
                 this.token.push(
-                    State.build(out!.activity!.id, {
+                    State.build(out!.activity!.getId(), {
                         name: out!.activity!.getId(),
                         status: pause(out!) ? Status.Paused : Status.Ready,
                     }),

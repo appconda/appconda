@@ -66,6 +66,15 @@ export class Path {
         return this.steps[id];
     }
 
+    public getStartStep() : WorkflowStep {
+        for(let key in this.steps) {
+            if (this.steps[key] instanceof StartEvent){
+                return this.steps[key] ;
+            }
+        }
+        return null;
+    }
+
     /**
 * Get Action
 *
