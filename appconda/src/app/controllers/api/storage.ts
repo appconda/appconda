@@ -478,7 +478,7 @@ App.post('/v1/storage/buckets/:bucketId/files')
 
             const idValidator = new UID();
             if (!idValidator.isValid(fileId)) {
-                throw new Exception(Exception.STORAGE_INVALID_APPWRITE_ID);
+                throw new Exception(Exception.STORAGE_INVALID_APPCONDA_ID);
             }
 
             // TODO remove the condition that checks `end === fileSize` in next breaking version

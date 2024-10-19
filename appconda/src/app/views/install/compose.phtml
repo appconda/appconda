@@ -22,8 +22,8 @@ $image = $this->getParam('image', '');
       - --providers.docker=true
       - --providers.docker.exposedByDefault=false
       - --providers.docker.constraints=Label(`traefik.constraint-label-stack`,`appconda`)
-      - --entrypoints.appwrite_web.address=:80
-      - --entrypoints.appwrite_websecure.address=:443
+      - --entrypoints.appconda_web.address=:80
+      - --entrypoints.appconda_websecure.address=:443
     restart: unless-stopped
     ports:
       - <?php echo $httpPort; ?>:80
@@ -49,16 +49,16 @@ $image = $this->getParam('image', '');
       - traefik.enable=true
       - traefik.constraint-label-stack=appconda
       - traefik.docker.network=appconda
-      - traefik.http.services.appwrite_api.loadbalancer.server.port=80
+      - traefik.http.services.appconda_api.loadbalancer.server.port=80
       #http
-      - traefik.http.routers.appwrite_api_http.entrypoints=appwrite_web
-      - traefik.http.routers.appwrite_api_http.rule=PathPrefix(`/`)
-      - traefik.http.routers.appwrite_api_http.service=appwrite_api
+      - traefik.http.routers.appconda_api_http.entrypoints=appconda_web
+      - traefik.http.routers.appconda_api_http.rule=PathPrefix(`/`)
+      - traefik.http.routers.appconda_api_http.service=appconda_api
       # https
-      - traefik.http.routers.appwrite_api_https.entrypoints=appwrite_websecure
-      - traefik.http.routers.appwrite_api_https.rule=PathPrefix(`/`)
-      - traefik.http.routers.appwrite_api_https.service=appwrite_api
-      - traefik.http.routers.appwrite_api_https.tls=true
+      - traefik.http.routers.appconda_api_https.entrypoints=appconda_websecure
+      - traefik.http.routers.appconda_api_https.rule=PathPrefix(`/`)
+      - traefik.http.routers.appconda_api_https.service=appconda_api
+      - traefik.http.routers.appconda_api_https.tls=true
     volumes:
       - appconda-uploads:/storage/uploads:rw
       - appconda-cache:/storage/cache:rw
@@ -174,16 +174,16 @@ $image = $this->getParam('image', '');
       - "traefik.enable=true"
       - "traefik.constraint-label-stack=appconda"
       - "traefik.docker.network=appconda"
-      - "traefik.http.services.appwrite_console.loadbalancer.server.port=80"
+      - "traefik.http.services.appconda_console.loadbalancer.server.port=80"
       #ws
-      - traefik.http.routers.appwrite_console_http.entrypoints=appwrite_web
-      - traefik.http.routers.appwrite_console_http.rule=PathPrefix(`/console`)
-      - traefik.http.routers.appwrite_console_http.service=appwrite_console
+      - traefik.http.routers.appconda_console_http.entrypoints=appconda_web
+      - traefik.http.routers.appconda_console_http.rule=PathPrefix(`/console`)
+      - traefik.http.routers.appconda_console_http.service=appconda_console
       # wss
-      - traefik.http.routers.appwrite_console_https.entrypoints=appwrite_websecure
-      - traefik.http.routers.appwrite_console_https.rule=PathPrefix(`/console`)
-      - traefik.http.routers.appwrite_console_https.service=appwrite_console
-      - traefik.http.routers.appwrite_console_https.tls=true
+      - traefik.http.routers.appconda_console_https.entrypoints=appconda_websecure
+      - traefik.http.routers.appconda_console_https.rule=PathPrefix(`/console`)
+      - traefik.http.routers.appconda_console_https.service=appconda_console
+      - traefik.http.routers.appconda_console_https.tls=true
 
   appconda-realtime:
     image: <?php echo $organization; ?>/<?php echo $image; ?>:<?php echo $version."\n"; ?>
@@ -195,16 +195,16 @@ $image = $this->getParam('image', '');
       - "traefik.enable=true"
       - "traefik.constraint-label-stack=appconda"
       - "traefik.docker.network=appconda"
-      - "traefik.http.services.appwrite_realtime.loadbalancer.server.port=80"
+      - "traefik.http.services.appconda_realtime.loadbalancer.server.port=80"
       #ws
-      - traefik.http.routers.appwrite_realtime_ws.entrypoints=appwrite_web
-      - traefik.http.routers.appwrite_realtime_ws.rule=PathPrefix(`/v1/realtime`)
-      - traefik.http.routers.appwrite_realtime_ws.service=appwrite_realtime
+      - traefik.http.routers.appconda_realtime_ws.entrypoints=appconda_web
+      - traefik.http.routers.appconda_realtime_ws.rule=PathPrefix(`/v1/realtime`)
+      - traefik.http.routers.appconda_realtime_ws.service=appconda_realtime
       # wss
-      - traefik.http.routers.appwrite_realtime_wss.entrypoints=appwrite_websecure
-      - traefik.http.routers.appwrite_realtime_wss.rule=PathPrefix(`/v1/realtime`)
-      - traefik.http.routers.appwrite_realtime_wss.service=appwrite_realtime
-      - traefik.http.routers.appwrite_realtime_wss.tls=true
+      - traefik.http.routers.appconda_realtime_wss.entrypoints=appconda_websecure
+      - traefik.http.routers.appconda_realtime_wss.rule=PathPrefix(`/v1/realtime`)
+      - traefik.http.routers.appconda_realtime_wss.service=appconda_realtime
+      - traefik.http.routers.appconda_realtime_wss.tls=true
     networks:
       - appconda
     depends_on:

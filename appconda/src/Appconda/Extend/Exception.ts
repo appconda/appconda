@@ -106,7 +106,7 @@ export class AppcondaException extends BaseException {
     public static readonly STORAGE_BUCKET_NOT_FOUND = 'storage_bucket_not_found';
     public static readonly STORAGE_INVALID_CONTENT_RANGE = 'storage_invalid_content_range';
     public static readonly STORAGE_INVALID_RANGE = 'storage_invalid_range';
-    public static readonly STORAGE_INVALID_APPWRITE_ID = 'storage_invalid_appwrite_id';
+    public static readonly STORAGE_INVALID_APPCONDA_ID = 'storage_invalid_appconda_id';
     public static readonly STORAGE_FILE_NOT_PUBLIC = 'storage_file_not_public';
 
     /** VCS */

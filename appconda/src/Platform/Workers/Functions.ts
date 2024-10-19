@@ -361,12 +361,12 @@ export class Functions extends Action {
 
         if (version === 'v2') {
             Object.assign(vars, {
-                'APPWRITE_FUNCTION_TRIGGER': headers['x-appconda-trigger'] || '',
-                'APPWRITE_FUNCTION_DATA': body || '',
-                'APPWRITE_FUNCTION_EVENT_DATA': body || '',
-                'APPWRITE_FUNCTION_EVENT': headers['x-appconda-event'] || '',
-                'APPWRITE_FUNCTION_USER_ID': headers['x-appconda-user-id'] || '',
-                'APPWRITE_FUNCTION_JWT': headers['x-appconda-user-jwt'] || ''
+                'APPCONDA_FUNCTION_TRIGGER': headers['x-appconda-trigger'] || '',
+                'APPCONDA_FUNCTION_DATA': body || '',
+                'APPCONDA_FUNCTION_EVENT_DATA': body || '',
+                'APPCONDA_FUNCTION_EVENT': headers['x-appconda-event'] || '',
+                'APPCONDA_FUNCTION_USER_ID': headers['x-appconda-user-id'] || '',
+                'APPCONDA_FUNCTION_JWT': headers['x-appconda-user-jwt'] || ''
             });
         }
 
@@ -383,30 +383,30 @@ export class Functions extends Action {
         const endpoint = `${protocol}://${hostname}/v1`;
 
         Object.assign(vars, {
-            'APPWRITE_FUNCTION_API_ENDPOINT': endpoint,
-            'APPWRITE_FUNCTION_ID': functionId,
-            'APPWRITE_FUNCTION_NAME': functionDoc.getAttribute('name'),
-            'APPWRITE_FUNCTION_DEPLOYMENT': deploymentId,
-            'APPWRITE_FUNCTION_PROJECT_ID': project.getId(),
-            'APPWRITE_FUNCTION_RUNTIME_NAME': runtime['name'] || '',
-            'APPWRITE_FUNCTION_RUNTIME_VERSION': runtime['version'] || '',
-            'APPWRITE_FUNCTION_CPUS': spec['cpus'] || APP_FUNCTION_CPUS_DEFAULT,
-            'APPWRITE_FUNCTION_MEMORY': spec['memory'] || APP_FUNCTION_MEMORY_DEFAULT,
-            'APPWRITE_VERSION': APP_VERSION_STABLE,
-            'APPWRITE_REGION': project.getAttribute('region'),
-            'APPWRITE_DEPLOYMENT_TYPE': deployment.getAttribute('type', ''),
-            'APPWRITE_VCS_REPOSITORY_ID': deployment.getAttribute('providerRepositoryId', ''),
-            'APPWRITE_VCS_REPOSITORY_NAME': deployment.getAttribute('providerRepositoryName', ''),
-            'APPWRITE_VCS_REPOSITORY_OWNER': deployment.getAttribute('providerRepositoryOwner', ''),
-            'APPWRITE_VCS_REPOSITORY_URL': deployment.getAttribute('providerRepositoryUrl', ''),
-            'APPWRITE_VCS_REPOSITORY_BRANCH': deployment.getAttribute('providerBranch', ''),
-            'APPWRITE_VCS_REPOSITORY_BRANCH_URL': deployment.getAttribute('providerBranchUrl', ''),
-            'APPWRITE_VCS_COMMIT_HASH': deployment.getAttribute('providerCommitHash', ''),
-            'APPWRITE_VCS_COMMIT_MESSAGE': deployment.getAttribute('providerCommitMessage', ''),
-            'APPWRITE_VCS_COMMIT_URL': deployment.getAttribute('providerCommitUrl', ''),
-            'APPWRITE_VCS_COMMIT_AUTHOR_NAME': deployment.getAttribute('providerCommitAuthor', ''),
-            'APPWRITE_VCS_COMMIT_AUTHOR_URL': deployment.getAttribute('providerCommitAuthorUrl', ''),
-            'APPWRITE_VCS_ROOT_DIRECTORY': deployment.getAttribute('providerRootDirectory', ''),
+            'APPCONDA_FUNCTION_API_ENDPOINT': endpoint,
+            'APPCONDA_FUNCTION_ID': functionId,
+            'APPCONDA_FUNCTION_NAME': functionDoc.getAttribute('name'),
+            'APPCONDA_FUNCTION_DEPLOYMENT': deploymentId,
+            'APPCONDA_FUNCTION_PROJECT_ID': project.getId(),
+            'APPCONDA_FUNCTION_RUNTIME_NAME': runtime['name'] || '',
+            'APPCONDA_FUNCTION_RUNTIME_VERSION': runtime['version'] || '',
+            'APPCONDA_FUNCTION_CPUS': spec['cpus'] || APP_FUNCTION_CPUS_DEFAULT,
+            'APPCONDA_FUNCTION_MEMORY': spec['memory'] || APP_FUNCTION_MEMORY_DEFAULT,
+            'APPCONDA_VERSION': APP_VERSION_STABLE,
+            'APPCONDA_REGION': project.getAttribute('region'),
+            'APPCONDA_DEPLOYMENT_TYPE': deployment.getAttribute('type', ''),
+            'APPCONDA_VCS_REPOSITORY_ID': deployment.getAttribute('providerRepositoryId', ''),
+            'APPCONDA_VCS_REPOSITORY_NAME': deployment.getAttribute('providerRepositoryName', ''),
+            'APPCONDA_VCS_REPOSITORY_OWNER': deployment.getAttribute('providerRepositoryOwner', ''),
+            'APPCONDA_VCS_REPOSITORY_URL': deployment.getAttribute('providerRepositoryUrl', ''),
+            'APPCONDA_VCS_REPOSITORY_BRANCH': deployment.getAttribute('providerBranch', ''),
+            'APPCONDA_VCS_REPOSITORY_BRANCH_URL': deployment.getAttribute('providerBranchUrl', ''),
+            'APPCONDA_VCS_COMMIT_HASH': deployment.getAttribute('providerCommitHash', ''),
+            'APPCONDA_VCS_COMMIT_MESSAGE': deployment.getAttribute('providerCommitMessage', ''),
+            'APPCONDA_VCS_COMMIT_URL': deployment.getAttribute('providerCommitUrl', ''),
+            'APPCONDA_VCS_COMMIT_AUTHOR_NAME': deployment.getAttribute('providerCommitAuthor', ''),
+            'APPCONDA_VCS_COMMIT_AUTHOR_URL': deployment.getAttribute('providerCommitAuthorUrl', ''),
+            'APPCONDA_VCS_ROOT_DIRECTORY': deployment.getAttribute('providerRootDirectory', ''),
         });
 
         let error;

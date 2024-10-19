@@ -172,7 +172,7 @@ export class Firebase extends OAuth2 {
         try {
             const roleResponse = await this.request(
                 'GET',
-                `https://iam.googleapis.com/v1/projects/${projectId}/roles/appwriteMigrations`,
+                `https://iam.googleapis.com/v1/projects/${projectId}/roles/appcondaMigrations`,
                 {
                     'Content-Type': 'application/json',
                     'Authorization': 'Bearer ' + encodeURIComponent(accessToken),
@@ -193,7 +193,7 @@ export class Firebase extends OAuth2 {
                 'Authorization': 'Bearer ' + encodeURIComponent(accessToken),
             },
             JSON.stringify({
-                'roleId': 'appwriteMigrations',
+                'roleId': 'appcondaMigrations',
                 'role': {
                     'title': 'Appconda Migrations',
                     'description': 'A helper role for Appconda Migrations',

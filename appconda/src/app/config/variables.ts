@@ -794,7 +794,7 @@ export default [
                 name: '_APP_EXECUTOR_RUNTIME_NETWORK',
                 description: 'Deprecated with 0.14.0, use \'OPEN_RUNTIMES_NETWORK\' instead.',
                 introduction: '0.13.0',
-                default: 'appwrite_runtimes',
+                default: 'appconda_runtimes',
                 required: false,
                 question: '',
                 filter: ''
@@ -848,7 +848,7 @@ export default [
                 name: 'OPEN_RUNTIMES_NETWORK',
                 description: 'Deprecated with 1.2.0, use \'_APP_FUNCTIONS_RUNTIMES_NETWORK\' instead.',
                 introduction: '0.13.0',
-                default: 'appwrite_runtimes',
+                default: 'appconda_runtimes',
                 required: false,
                 question: '',
                 filter: ''

@@ -393,7 +393,7 @@ export default {
                 name: 'Dart',
                 version: '11.0.3',
                 url: 'https://github.com/appconda/sdk-for-dart',
-                package: 'https://pub.dev/packages/dart_appwrite',
+                package: 'https://pub.dev/packages/dart_appconda',
                 enabled: true,
                 beta: false,
                 dev: false,

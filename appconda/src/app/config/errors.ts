@@ -458,8 +458,8 @@ export default {
         description: 'The requested range is not satisfiable. Please check the value of the Range header.',
         code: 416,
     },
-    [Exception.STORAGE_INVALID_APPWRITE_ID]: {
-        name: Exception.STORAGE_INVALID_APPWRITE_ID,
+    [Exception.STORAGE_INVALID_APPCONDA_ID]: {
+        name: Exception.STORAGE_INVALID_APPCONDA_ID,
         description: 'The value for x-appconda-id header is invalid. Please check the value of the x-appconda-id header is a valid id and not unique().',
         code: 400,
     },

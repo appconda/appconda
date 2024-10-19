@@ -247,10 +247,10 @@ async function router(
 
         if (version === 'v2') {
             vars = {
-                'APPWRITE_FUNCTION_TRIGGER': headers['x-appconda-trigger'] ?? '',
-                'APPWRITE_FUNCTION_DATA': body ?? '',
-                'APPWRITE_FUNCTION_USER_ID': headers['x-appconda-user-id'] ?? '',
-                'APPWRITE_FUNCTION_JWT': headers['x-appconda-user-jwt'] ?? ''
+                'APPCONDA_FUNCTION_TRIGGER': headers['x-appconda-trigger'] ?? '',
+                'APPCONDA_FUNCTION_DATA': body ?? '',
+                'APPCONDA_FUNCTION_USER_ID': headers['x-appconda-user-id'] ?? '',
+                'APPCONDA_FUNCTION_JWT': headers['x-appconda-user-jwt'] ?? ''
             };
         }
 
@@ -264,12 +264,12 @@ async function router(
 
         vars = {
             ...vars,
-            'APPWRITE_FUNCTION_ID': functionId,
-            'APPWRITE_FUNCTION_NAME': func.getAttribute('name'),
-            'APPWRITE_FUNCTION_DEPLOYMENT': deployment.getId(),
-            'APPWRITE_FUNCTION_PROJECT_ID': project.getId(),
-            'APPWRITE_FUNCTION_RUNTIME_NAME': runtime.name ?? '',
-            'APPWRITE_FUNCTION_RUNTIME_VERSION': runtime.version ?? '',
+            'APPCONDA_FUNCTION_ID': functionId,
+            'APPCONDA_FUNCTION_NAME': func.getAttribute('name'),
+            'APPCONDA_FUNCTION_DEPLOYMENT': deployment.getId(),
+            'APPCONDA_FUNCTION_PROJECT_ID': project.getId(),
+            'APPCONDA_FUNCTION_RUNTIME_NAME': runtime.name ?? '',
+            'APPCONDA_FUNCTION_RUNTIME_VERSION': runtime.version ?? '',
         };
 
         const executor = new Executor(process.env._APP_EXECUTOR_HOST ?? '');
