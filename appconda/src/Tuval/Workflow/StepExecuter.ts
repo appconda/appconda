@@ -49,7 +49,7 @@ export class StepExecuter {
     /**
      * Resource callbacks
      */
-    protected  resourcesCallbacks: Record<string, ResourceCallback> = {};
+    protected resourcesCallbacks: Record<string, ResourceCallback> = {};
 
     _job: Job;
 
@@ -78,19 +78,20 @@ export class StepExecuter {
      */
     public async getResource(name: string, fresh: boolean = false): Promise<any> {
         if (!(name in this.resources) || fresh || (this.resourcesCallbacks[name] && this.resourcesCallbacks[name].reset)) {
-            if (!(name in this.resourcesCallbacks)) {
+
+            if (!(name in this.resourcesCallbacks) && !(name in (Workflow as any).resourcesCallbacks)) {
                 throw new Error(`Failed to find resource: "${name}"`);
             }
 
-            const resourceCallback = this.resourcesCallbacks[name];
-            this.resources[name] = await resourceCallback.callback(...(await this.getResources(resourceCallback.injections)));
-
-            if (this.resources[name] == null) {
+            // We do injection propogation
+            if (name in this.resourcesCallbacks) {
+                const resourceCallback = this.resourcesCallbacks[name];
+                this.resources[name] = await resourceCallback.callback(...(await this.getResources(resourceCallback.injections)));
+                this.resourcesCallbacks[name].reset = false;
+            } else if (name in (Workflow as any).resourcesCallbacks) {
                 this.resources[name] = await this.workflow.getResource(name, fresh);
             }
-
-            this.resourcesCallbacks[name].reset = false;
-        } 
+        }
 
         return this.resources[name];
     }
@@ -117,7 +118,7 @@ export class StepExecuter {
      * @param injections - Dependencies to inject into the callback
      * @throws Error if inputs are invalid
      */
-    public  setResource(name: string, callback: (...args: any[]) => any, injections: string[] = []): void {
+    public setResource(name: string, callback: (...args: any[]) => any, injections: string[] = []): void {
         if (typeof callback !== "function") {
             throw new Error("Callback must be a function");
         }

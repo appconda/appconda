@@ -3,6 +3,7 @@ import { ComponentsContainer } from "./ComponentsContainer";
 import { App } from "./Tuval/Http";
 import { Server } from "./Tuval/Queue";
 import { CLI } from "./Tuval/CLI/CLI";
+import { Workflow } from "./Tuval/Workflow/Workflow";
 
 const { CompositeError } = require("./utils/errorutil")
 const { TeePromise } = require("./utils/promise");
@@ -33,6 +34,7 @@ export class Container {
         App.setResource(key, () => inst);
         CLI.setResource(key, () => inst);
         Server.setResource(key, () => inst);
+        Workflow.setResource(key, () => inst);
     }
     set(name: any, instance: any) { this.instances_[name] = instance; }
     get(name: string, opts?: any) {

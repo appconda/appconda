@@ -1,3 +1,6 @@
+import { Exception } from "../Core";
+import { Context } from "./Context/Context";
+import { IExecution } from "./IExecution";
 import { Path } from "./Path";
 import { State } from "./State";
 import { WorkflowStep } from "./Step";
@@ -43,6 +46,8 @@ type ResourceCallback = {
 };
 
 export class Workflow {
+
+    protected context?: Context;
 
     protected stepExecuters: Record<string, StepExecuter> = {};
 
@@ -156,7 +161,11 @@ export class Workflow {
         }
         while (this.state.currentPath && !quit && !this.break)
     }
-    public runStepByStep(path: any): void {
+    public runStepByStep({ path, context, data }: IExecution): void {
+        
+        context = (this.context ?? context ?? Context.build({ data })).resume();
+
+        if (!context.isReady()) throw new Exception('Context is not ready to consume');
 
         let ret;
         this.state.push(path);
@@ -262,6 +271,9 @@ export class Workflow {
                       continue;
                   } */
                 const stepExecuter = new StepExecuter(this, step);
+
+                stepExecuter.setResource('workflow', () => this);
+
                 path.stepExecuters[step.getId()] = stepExecuter;
                 let hook;
 

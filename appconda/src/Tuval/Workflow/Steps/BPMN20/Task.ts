@@ -3,17 +3,11 @@ import { Path } from "../../Path";
 import { ProcessStep } from "../ProcessStep";
 import { WorkflowStep } from "../../Step";
 import { Text } from "../../../Core";
+import MailService from "../../../../Platform/Services/mail-service/MailService";
 const { evaluate } = require("angel-eval");
 
-export class Task extends ProcessStep {
 
-    run(path: Path, flow: Workflow) {
-        console.log('Task ' + this.stepId + ' executed.')
-    }
-
-}
-
-export class StartEvent extends WorkflowStep {
+export class Task extends WorkflowStep {
 
     constructor() {
         super()
@@ -23,11 +17,99 @@ export class StartEvent extends WorkflowStep {
     }
 
     private action() {
+        console.log('Task ' + this.getId() + ' executed.')
+        if (this.outgoings.length > 0) {
+            return Execution.$continue(this.outgoings[0].getId());
+        }
+
+    }
+
+    /*  async run(path: Path, flow: Workflow) {
+ 
+         await fetch('https://dummyjson.com/products')
+             .then(res => res.json())
+             .then(data => {
+                 const { products } = data;
+                 flow.state.vars.products = products;
+             });
+ 
+         console.log('Start Event executed.')
+         return Execution.$continue(this.nextStep);
+     } */
+
+}
+
+
+export class StartEvent extends WorkflowStep {
+
+    constructor() {
+        super()
+        this
+            .desc('Start event for workflow')
+            .inject('workflow')
+            .inject('mail-service')
+            .callback(this.action.bind(this))
+    }
+
+    private action(workflow: Workflow, mailService: MailService) {
+        mailService.send({
+            smtp: 'sdf'
+        });
+        
+        console.log(workflow);
         console.log('Start event executed.')
         if (this.outgoings.length > 0) {
             return Execution.$continue(this.outgoings[0].getId());
         }
 
+    }
+
+    /*  async run(path: Path, flow: Workflow) {
+ 
+         await fetch('https://dummyjson.com/products')
+             .then(res => res.json())
+             .then(data => {
+                 const { products } = data;
+                 flow.state.vars.products = products;
+             });
+ 
+         console.log('Start Event executed.')
+         return Execution.$continue(this.nextStep);
+     } */
+
+}
+
+export class SequenceFlow extends WorkflowStep {
+
+    private targetRef: string;
+    private sourceRef: string;
+
+    public getTargetRef(): string {
+        return this.targetRef;
+    }
+    public setTargetRef(targetRef:string) {
+         this.targetRef = targetRef;
+    }
+
+    public getSourceRef(): string {
+        return this.sourceRef;
+    }
+    public setSourceRef(sourceRef:string) {
+         this.sourceRef = sourceRef;
+    }
+
+    constructor() {
+        super()
+        this
+            .desc('SequenceFlow')
+            .callback(this.action.bind(this))
+    }
+
+    private action() {
+        console.log('SequenceFlow ' + this.getId() + ' executed.')
+        if (this.targetRef != null) {
+            return Execution.$continue(this.targetRef);
+        }
     }
 
     /*  async run(path: Path, flow: Workflow) {

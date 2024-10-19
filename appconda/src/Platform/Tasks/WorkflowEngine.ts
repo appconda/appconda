@@ -7,7 +7,7 @@ import { Database } from '../../Tuval/Database';
 import { Action } from '../../Tuval/Platform/Action';
 import { Workflow } from '../../Tuval/Workflow/Workflow';
 import { State } from '../../Tuval/Workflow/State';
-import { ConsoleStep, StartEvent } from '../../Tuval/Workflow/Steps/BPMN20/Task';
+import { ConsoleStep, SequenceFlow, StartEvent, Task } from '../../Tuval/Workflow/Steps/BPMN20/Task';
 import { Path } from '../../Tuval/Workflow/Path';
 import { workflows } from 'googleapis/build/src/apis/workflows';
 import { WorkflowStep } from '../../Tuval/Workflow/Step';
@@ -39,10 +39,10 @@ export class WorkflowEngine extends Action {
 
         const stepMap = {};
         stepMap['startEvent'] = StartEvent;
-        stepMap['task'] = ConsoleStep;
-        stepMap['sequenceFlow'] = ConsoleStep;
-        stepMap['exclusiveGateway'] = ConsoleStep;
-        stepMap['endEvent'] = ConsoleStep;
+        stepMap['task'] = Task;
+        stepMap['sequenceFlow'] = SequenceFlow;
+        stepMap['exclusiveGateway'] = Task;
+        stepMap['endEvent'] = Task;
 
 
         //section.addStep(new CounterStep(5))
@@ -59,6 +59,11 @@ export class WorkflowEngine extends Action {
                 if (steps[i].payload) {
                     step.setPayload(steps[i].payload);
                 }
+                if (step instanceof SequenceFlow) {
+                    step.setTargetRef(steps[i].targetRef);
+                    step.setSourceRef(steps[i].sourceRef);
+                }
+
                 section.addStep(step);
             }
 
@@ -77,11 +82,11 @@ export class WorkflowEngine extends Action {
              // incomings
              for (let i = 0; i < steps.length; i++) {
                 const step: WorkflowStep = section.getStepById(steps[i].id);
-                const outgouings = steps[i].outgoings;
-                if (Array.isArray(outgouings)) {
-                    for (let j = 0; j < outgouings.length; j++) {
-                        const outgoingStep = section.getStepById(outgouings[j]);
-                        step.outgoing(outgoingStep);
+                const incomings = steps[i].incomings;
+                if (Array.isArray(incomings)) {
+                    for (let j = 0; j < incomings.length; j++) {
+                        const outgoingStep = section.getStepById(incomings[j]);
+                        step.incoming(outgoingStep);
                     }
                 }
             }
@@ -118,7 +123,7 @@ export class WorkflowEngine extends Action {
                         type: 'task',
                         id: 'Task_1hcentk',
                         incomings: ['SequenceFlow_0h21x7r'],
-                        outgoing: ['SequenceFlow_0wnb4ke'],
+                        outgoings: ['SequenceFlow_0wnb4ke'],
                     },
                     {
                         type: 'sequenceFlow',
@@ -131,7 +136,7 @@ export class WorkflowEngine extends Action {
                         id: 'ExclusiveGateway_15hu1pt',
                         name: 'desired dish?',
                         incomings: ['SequenceFlow_0wnb4ke'],
-                        outgoing: ['Flow_0twy8xl', 'Flow_0ukn85c'],
+                        outgoings: ['Flow_0twy8xl', 'Flow_0ukn85c'],
                     },
                     {
                         type: 'sequenceFlow',
@@ -144,7 +149,7 @@ export class WorkflowEngine extends Action {
                         id: 'Activity_10m283f',
                         name: 'A 1',
                         incomings: ['Flow_0twy8xl'],
-                        outgoing: ['Flow_16zwoy4'],
+                        outgoings: ['Flow_16zwoy4'],
                     },
                     {
                         type: 'sequenceFlow',
@@ -158,7 +163,7 @@ export class WorkflowEngine extends Action {
                         id: 'Activity_1g3yx1s',
                         name: 'A 2',
                         incomings: ['Flow_0ukn85c'],
-                        outgoing: ['Flow_0nwtwc3'],
+                        outgoings: ['Flow_0nwtwc3'],
                     },
                     {
                         type: 'sequenceFlow',
@@ -189,7 +194,7 @@ export class WorkflowEngine extends Action {
                         type: 'task',
                         id: 'Activity_0fx6yep',
                         incomings: ['Flow_1fkevat'],
-                        outgoing: ['Flow_0mj44yo'],
+                        outgoings: ['Flow_0mj44yo'],
                     },
                     {
                         type: 'sequenceFlow',

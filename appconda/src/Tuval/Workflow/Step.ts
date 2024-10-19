@@ -1,6 +1,15 @@
 import { nanoid } from "../../Platform/Services/id-service/nanoid/nanoid";
 import { Validator } from "../Core";
+import { Context } from "./Context/Context";
+import { State } from "./Context/State";
+import { Status } from "./Context/Status";
+import { Token } from "./Context/Token";
 import { Execution } from "./Workflow";
+
+export interface GoOutInterface {
+    activity: WorkflowStep;
+    pause?: boolean | string;
+}
 
 export abstract class WorkflowStep {
     public static readonly HTTP_REQUEST_METHOD_GET = 'GET';
@@ -30,6 +39,9 @@ export abstract class WorkflowStep {
 
     protected id: string = nanoid();
     protected payload: any = {};
+
+    public token?: Token;
+    public context?: Context;
 
 
     //==============HTTP Scope============
@@ -112,7 +124,7 @@ export abstract class WorkflowStep {
         return this;
     }
 
-      //====================================
+    //====================================
     /**
      * Set Type
      *
@@ -235,11 +247,11 @@ export abstract class WorkflowStep {
      * @returns any
      */
     public getCallback(): any {
-         /* if (typeof this['action'] === 'function') {
-            return this['action'];
-        } else {  */
-            return this._callback;
-       //}
+        /* if (typeof this['action'] === 'function') {
+           return this['action'];
+       } else {  */
+        return this._callback;
+        //}
 
     }
 
@@ -293,7 +305,7 @@ export abstract class WorkflowStep {
     }
 
     public getOutgoings(): WorkflowStep[] {
-       return  this.outgoings;
+        return this.outgoings;
     }
 
     public incoming(step: WorkflowStep) {
@@ -301,7 +313,7 @@ export abstract class WorkflowStep {
     }
 
     public getOIncomings(): WorkflowStep[] {
-       return  this.incomings;
+        return this.incomings;
     }
 
     /**
@@ -366,9 +378,52 @@ export abstract class WorkflowStep {
         return this.options;
     }
 
-    public next()  {
+    public next() {
         if (this.outgoings.length > 0) {
             return Execution.$continue(this.outgoings[0].getId());
         }
     }
+
+    protected goOut(outgoing: GoOutInterface[]) {
+        const pause = (out: GoOutInterface) =>
+            typeof out!.pause === 'string'
+                ? out!.pause === out!.activity.id || out!.pause === out!.activity.getId()
+                : out!.pause;
+
+        if (outgoing?.length && this.token) {
+            if (outgoing.length === 1) {
+                this.token.status = Status.Completed;
+
+                const out = outgoing.pop();
+
+                this.token.push(
+                    State.build(out!.activity!.id, {
+                        name: out!.activity!.getId(),
+                        status: pause(out!) ? Status.Paused : Status.Ready,
+                    }),
+                );
+            }
+
+            if (outgoing.length > 1 && this.context) {
+                this.token.locked = true;
+                this.token.status = Status.Terminated;
+
+                for (const out of outgoing) {
+                    const token = Token.build({
+                        parent: this.token.id,
+                    });
+
+                    token.push(
+                        State.build(out.activity.id, {
+                            name: out.activity.getId(),
+                            status: pause(out) ? Status.Paused : Status.Ready,
+                        }),
+                    );
+
+                    this.context.addToken(token);
+                }
+            }
+        }
+    }
+
 }
