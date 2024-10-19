@@ -80,7 +80,7 @@ export class Mails extends Action {
         const transporter = smtp ? this.getMailer(smtp) : register.get('smtp');
 
         const mailOptions = {
-            from: smtp ? `${smtp['senderName']} <${smtp['senderEmail']}>` : process.env._APP_SYSTEM_EMAIL_ADDRESS || 'team@appwrite.io',
+            from: smtp ? `${smtp['senderName']} <${smtp['senderEmail']}>` : process.env._APP_SYSTEM_EMAIL_ADDRESS || 'team@appconda.io',
             to: `${name} <${recipient}>`,
             subject: renderedSubject,
             html: renderedBody,

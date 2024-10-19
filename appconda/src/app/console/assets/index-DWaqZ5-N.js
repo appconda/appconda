@@ -56,7 +56,7 @@ Error generating stack: `+gt.message+`
 `+gt.stack}return{value:s,source:_,stack:ut,digest:null}}function Ki(s,_,tt){return{value:s,source:null,stack:tt??null,digest:_??null}}function Li(s,_){try{console.error(_.value)}catch(tt){setTimeout(function(){throw tt})}}var Mi=typeof WeakMap=="function"?WeakMap:Map;function Ni(s,_,tt){tt=mh(-1,tt),tt.tag=3,tt.payload={element:null};var at=_.value;return tt.callback=function(){Oi||(Oi=!0,Pi=at),Li(s,_)},tt}function Qi(s,_,tt){tt=mh(-1,tt),tt.tag=3;var at=s.type.getDerivedStateFromError;if(typeof at=="function"){var ut=_.value;tt.payload=function(){return at(ut)},tt.callback=function(){Li(s,_)}}var gt=s.stateNode;return gt!==null&&typeof gt.componentDidCatch=="function"&&(tt.callback=function(){Li(s,_),typeof at!="function"&&(Ri===null?Ri=new Set([this]):Ri.add(this));var Rt=_.stack;this.componentDidCatch(_.value,{componentStack:Rt!==null?Rt:""})}),tt}function Si(s,_,tt){var at=s.pingCache;if(at===null){at=s.pingCache=new Mi;var ut=new Set;at.set(_,ut)}else ut=at.get(_),ut===void 0&&(ut=new Set,at.set(_,ut));ut.has(tt)||(ut.add(tt),s=Ti.bind(null,s,_,tt),_.then(s,s))}function Ui(s){do{var _;if((_=s.tag===13)&&(_=s.memoizedState,_=_!==null?_.dehydrated!==null:!0),_)return s;s=s.return}while(s!==null);return null}function Vi(s,_,tt,at,ut){return s.mode&1?(s.flags|=65536,s.lanes=ut,s):(s===_?s.flags|=65536:(s.flags|=128,tt.flags|=131072,tt.flags&=-52805,tt.tag===1&&(tt.alternate===null?tt.tag=17:(_=mh(-1,1),_.tag=2,nh(tt,_,1))),tt.lanes|=1),s)}var Wi=ua.ReactCurrentOwner,dh=!1;function Xi(s,_,tt,at){_.child=s===null?Vg(_,null,tt,at):Ug(_,s.child,tt,at)}function Yi(s,_,tt,at,ut){tt=tt.render;var gt=_.ref;return ch(_,ut),at=Nh(s,_,tt,at,gt,ut),tt=Sh(),s!==null&&!dh?(_.updateQueue=s.updateQueue,_.flags&=-2053,s.lanes&=~ut,Zi(s,_,ut)):(I&&tt&&vg(_),_.flags|=1,Xi(s,_,at,ut),_.child)}function $i(s,_,tt,at,ut){if(s===null){var gt=tt.type;return typeof gt=="function"&&!aj(gt)&&gt.defaultProps===void 0&&tt.compare===null&&tt.defaultProps===void 0?(_.tag=15,_.type=gt,bj(s,_,gt,at,ut)):(s=Rg(tt.type,null,at,_,_.mode,ut),s.ref=_.ref,s.return=_,_.child=s)}if(gt=s.child,!(s.lanes&ut)){var Rt=gt.memoizedProps;if(tt=tt.compare,tt=tt!==null?tt:Ie,tt(Rt,at)&&s.ref===_.ref)return Zi(s,_,ut)}return _.flags|=1,s=Pg(gt,at),s.ref=_.ref,s.return=_,_.child=s}function bj(s,_,tt,at,ut){if(s!==null){var gt=s.memoizedProps;if(Ie(gt,at)&&s.ref===_.ref)if(dh=!1,_.pendingProps=at=gt,(s.lanes&ut)!==0)s.flags&131072&&(dh=!0);else return _.lanes=s.lanes,Zi(s,_,ut)}return cj(s,_,tt,at,ut)}function dj(s,_,tt){var at=_.pendingProps,ut=at.children,gt=s!==null?s.memoizedState:null;if(at.mode==="hidden")if(!(_.mode&1))_.memoizedState={baseLanes:0,cachePool:null,transitions:null},G(ej,fj),fj|=tt;else{if(!(tt&1073741824))return s=gt!==null?gt.baseLanes|tt:tt,_.lanes=_.childLanes=1073741824,_.memoizedState={baseLanes:s,cachePool:null,transitions:null},_.updateQueue=null,G(ej,fj),fj|=s,null;_.memoizedState={baseLanes:0,cachePool:null,transitions:null},at=gt!==null?gt.baseLanes:tt,G(ej,fj),fj|=at}else gt!==null?(at=gt.baseLanes|tt,_.memoizedState=null):at=tt,G(ej,fj),fj|=at;return Xi(s,_,ut,tt),_.child}function gj(s,_){var tt=_.ref;(s===null&&tt!==null||s!==null&&s.ref!==tt)&&(_.flags|=512,_.flags|=2097152)}function cj(s,_,tt,at,ut){var gt=Zf(tt)?Xf:H.current;return gt=Yf(_,gt),ch(_,ut),tt=Nh(s,_,tt,at,gt,ut),at=Sh(),s!==null&&!dh?(_.updateQueue=s.updateQueue,_.flags&=-2053,s.lanes&=~ut,Zi(s,_,ut)):(I&&at&&vg(_),_.flags|=1,Xi(s,_,tt,ut),_.child)}function hj(s,_,tt,at,ut){if(Zf(tt)){var gt=!0;cg(_)}else gt=!1;if(ch(_,ut),_.stateNode===null)ij(s,_),Gi(_,tt,at),Ii(_,tt,at,ut),at=!0;else if(s===null){var Rt=_.stateNode,Ct=_.memoizedProps;Rt.props=Ct;var lt=Rt.context,rt=tt.contextType;typeof rt=="object"&&rt!==null?rt=eh(rt):(rt=Zf(tt)?Xf:H.current,rt=Yf(_,rt));var i=tt.getDerivedStateFromProps,it=typeof i=="function"||typeof Rt.getSnapshotBeforeUpdate=="function";it||typeof Rt.UNSAFE_componentWillReceiveProps!="function"&&typeof Rt.componentWillReceiveProps!="function"||(Ct!==at||lt!==rt)&&Hi(_,Rt,at,rt),jh=!1;var dt=_.memoizedState;Rt.state=dt,qh(_,at,Rt,ut),lt=_.memoizedState,Ct!==at||dt!==lt||Wf.current||jh?(typeof i=="function"&&(Di(_,tt,i,at),lt=_.memoizedState),(Ct=jh||Fi(_,tt,Ct,at,dt,lt,rt))?(it||typeof Rt.UNSAFE_componentWillMount!="function"&&typeof Rt.componentWillMount!="function"||(typeof Rt.componentWillMount=="function"&&Rt.componentWillMount(),typeof Rt.UNSAFE_componentWillMount=="function"&&Rt.UNSAFE_componentWillMount()),typeof Rt.componentDidMount=="function"&&(_.flags|=4194308)):(typeof Rt.componentDidMount=="function"&&(_.flags|=4194308),_.memoizedProps=at,_.memoizedState=lt),Rt.props=at,Rt.state=lt,Rt.context=rt,at=Ct):(typeof Rt.componentDidMount=="function"&&(_.flags|=4194308),at=!1)}else{Rt=_.stateNode,lh(s,_),Ct=_.memoizedProps,rt=_.type===_.elementType?Ct:Ci(_.type,Ct),Rt.props=rt,it=_.pendingProps,dt=Rt.context,lt=tt.contextType,typeof lt=="object"&&lt!==null?lt=eh(lt):(lt=Zf(tt)?Xf:H.current,lt=Yf(_,lt));var mt=tt.getDerivedStateFromProps;(i=typeof mt=="function"||typeof Rt.getSnapshotBeforeUpdate=="function")||typeof Rt.UNSAFE_componentWillReceiveProps!="function"&&typeof Rt.componentWillReceiveProps!="function"||(Ct!==it||dt!==lt)&&Hi(_,Rt,at,lt),jh=!1,dt=_.memoizedState,Rt.state=dt,qh(_,at,Rt,ut);var ft=_.memoizedState;Ct!==it||dt!==ft||Wf.current||jh?(typeof mt=="function"&&(Di(_,tt,mt,at),ft=_.memoizedState),(rt=jh||Fi(_,tt,rt,at,dt,ft,lt)||!1)?(i||typeof Rt.UNSAFE_componentWillUpdate!="function"&&typeof Rt.componentWillUpdate!="function"||(typeof Rt.componentWillUpdate=="function"&&Rt.componentWillUpdate(at,ft,lt),typeof Rt.UNSAFE_componentWillUpdate=="function"&&Rt.UNSAFE_componentWillUpdate(at,ft,lt)),typeof Rt.componentDidUpdate=="function"&&(_.flags|=4),typeof Rt.getSnapshotBeforeUpdate=="function"&&(_.flags|=1024)):(typeof Rt.componentDidUpdate!="function"||Ct===s.memoizedProps&&dt===s.memoizedState||(_.flags|=4),typeof Rt.getSnapshotBeforeUpdate!="function"||Ct===s.memoizedProps&&dt===s.memoizedState||(_.flags|=1024),_.memoizedProps=at,_.memoizedState=ft),Rt.props=at,Rt.state=ft,Rt.context=lt,at=rt):(typeof Rt.componentDidUpdate!="function"||Ct===s.memoizedProps&&dt===s.memoizedState||(_.flags|=4),typeof Rt.getSnapshotBeforeUpdate!="function"||Ct===s.memoizedProps&&dt===s.memoizedState||(_.flags|=1024),at=!1)}return jj(s,_,tt,at,gt,ut)}function jj(s,_,tt,at,ut,gt){gj(s,_);var Rt=(_.flags&128)!==0;if(!at&&!Rt)return ut&&dg(_,tt,!1),Zi(s,_,gt);at=_.stateNode,Wi.current=_;var Ct=Rt&&typeof tt.getDerivedStateFromError!="function"?null:at.render();return _.flags|=1,s!==null&&Rt?(_.child=Ug(_,s.child,null,gt),_.child=Ug(_,null,Ct,gt)):Xi(s,_,Ct,gt),_.memoizedState=at.state,ut&&dg(_,tt,!0),_.child}function kj(s){var _=s.stateNode;_.pendingContext?ag(s,_.pendingContext,_.pendingContext!==_.context):_.context&&ag(s,_.context,!1),yh(s,_.containerInfo)}function lj(s,_,tt,at,ut){return Ig(),Jg(ut),_.flags|=256,Xi(s,_,tt,at),_.child}var mj={dehydrated:null,treeContext:null,retryLane:0};function nj(s){return{baseLanes:s,cachePool:null,transitions:null}}function oj(s,_,tt){var at=_.pendingProps,ut=L.current,gt=!1,Rt=(_.flags&128)!==0,Ct;if((Ct=Rt)||(Ct=s!==null&&s.memoizedState===null?!1:(ut&2)!==0),Ct?(gt=!0,_.flags&=-129):(s===null||s.memoizedState!==null)&&(ut|=1),G(L,ut&1),s===null)return Eg(_),s=_.memoizedState,s!==null&&(s=s.dehydrated,s!==null)?(_.mode&1?s.data==="$!"?_.lanes=8:_.lanes=1073741824:_.lanes=1,null):(Rt=at.children,s=at.fallback,gt?(at=_.mode,gt=_.child,Rt={mode:"hidden",children:Rt},!(at&1)&&gt!==null?(gt.childLanes=0,gt.pendingProps=Rt):gt=pj(Rt,at,0,null),s=Tg(s,at,tt,null),gt.return=_,s.return=_,gt.sibling=s,_.child=gt,_.child.memoizedState=nj(tt),_.memoizedState=mj,s):qj(_,Rt));if(ut=s.memoizedState,ut!==null&&(Ct=ut.dehydrated,Ct!==null))return rj(s,_,Rt,at,Ct,ut,tt);if(gt){gt=at.fallback,Rt=_.mode,ut=s.child,Ct=ut.sibling;var lt={mode:"hidden",children:at.children};return!(Rt&1)&&_.child!==ut?(at=_.child,at.childLanes=0,at.pendingProps=lt,_.deletions=null):(at=Pg(ut,lt),at.subtreeFlags=ut.subtreeFlags&14680064),Ct!==null?gt=Pg(Ct,gt):(gt=Tg(gt,Rt,tt,null),gt.flags|=2),gt.return=_,at.return=_,at.sibling=gt,_.child=at,at=gt,gt=_.child,Rt=s.child.memoizedState,Rt=Rt===null?nj(tt):{baseLanes:Rt.baseLanes|tt,cachePool:null,transitions:Rt.transitions},gt.memoizedState=Rt,gt.childLanes=s.childLanes&~tt,_.memoizedState=mj,at}return gt=s.child,s=gt.sibling,at=Pg(gt,{mode:"visible",children:at.children}),!(_.mode&1)&&(at.lanes=tt),at.return=_,at.sibling=null,s!==null&&(tt=_.deletions,tt===null?(_.deletions=[s],_.flags|=16):tt.push(s)),_.child=at,_.memoizedState=null,at}function qj(s,_){return _=pj({mode:"visible",children:_},s.mode,0,null),_.return=s,s.child=_}function sj(s,_,tt,at){return at!==null&&Jg(at),Ug(_,s.child,null,tt),s=qj(_,_.pendingProps.children),s.flags|=2,_.memoizedState=null,s}function rj(s,_,tt,at,ut,gt,Rt){if(tt)return _.flags&256?(_.flags&=-257,at=Ki(Error(p$1(422))),sj(s,_,Rt,at)):_.memoizedState!==null?(_.child=s.child,_.flags|=128,null):(gt=at.fallback,ut=_.mode,at=pj({mode:"visible",children:at.children},ut,0,null),gt=Tg(gt,ut,Rt,null),gt.flags|=2,at.return=_,gt.return=_,at.sibling=gt,_.child=at,_.mode&1&&Ug(_,s.child,null,Rt),_.child.memoizedState=nj(Rt),_.memoizedState=mj,gt);if(!(_.mode&1))return sj(s,_,Rt,null);if(ut.data==="$!"){if(at=ut.nextSibling&&ut.nextSibling.dataset,at)var Ct=at.dgst;return at=Ct,gt=Error(p$1(419)),at=Ki(gt,at,void 0),sj(s,_,Rt,at)}if(Ct=(Rt&s.childLanes)!==0,dh||Ct){if(at=Q,at!==null){switch(Rt&-Rt){case 4:ut=2;break;case 16:ut=8;break;case 64:case 128:case 256:case 512:case 1024:case 2048:case 4096:case 8192:case 16384:case 32768:case 65536:case 131072:case 262144:case 524288:case 1048576:case 2097152:case 4194304:case 8388608:case 16777216:case 33554432:case 67108864:ut=32;break;case 536870912:ut=268435456;break;default:ut=0}ut=ut&(at.suspendedLanes|Rt)?0:ut,ut!==0&&ut!==gt.retryLane&&(gt.retryLane=ut,ih(s,ut),gi(at,s,ut,-1))}return tj(),at=Ki(Error(p$1(421))),sj(s,_,Rt,at)}return ut.data==="$?"?(_.flags|=128,_.child=s.child,_=uj.bind(null,s),ut._reactRetry=_,null):(s=gt.treeContext,yg=Lf(ut.nextSibling),xg=_,I=!0,zg=null,s!==null&&(og[pg++]=rg,og[pg++]=sg,og[pg++]=qg,rg=s.id,sg=s.overflow,qg=_),_=qj(_,at.children),_.flags|=4096,_)}function vj(s,_,tt){s.lanes|=_;var at=s.alternate;at!==null&&(at.lanes|=_),bh(s.return,_,tt)}function wj(s,_,tt,at,ut){var gt=s.memoizedState;gt===null?s.memoizedState={isBackwards:_,rendering:null,renderingStartTime:0,last:at,tail:tt,tailMode:ut}:(gt.isBackwards=_,gt.rendering=null,gt.renderingStartTime=0,gt.last=at,gt.tail=tt,gt.tailMode=ut)}function xj(s,_,tt){var at=_.pendingProps,ut=at.revealOrder,gt=at.tail;if(Xi(s,_,at.children,tt),at=L.current,at&2)at=at&1|2,_.flags|=128;else{if(s!==null&&s.flags&128)e:for(s=_.child;s!==null;){if(s.tag===13)s.memoizedState!==null&&vj(s,tt,_);else if(s.tag===19)vj(s,tt,_);else if(s.child!==null){s.child.return=s,s=s.child;continue}if(s===_)break e;for(;s.sibling===null;){if(s.return===null||s.return===_)break e;s=s.return}s.sibling.return=s.return,s=s.sibling}at&=1}if(G(L,at),!(_.mode&1))_.memoizedState=null;else switch(ut){case"forwards":for(tt=_.child,ut=null;tt!==null;)s=tt.alternate,s!==null&&Ch(s)===null&&(ut=tt),tt=tt.sibling;tt=ut,tt===null?(ut=_.child,_.child=null):(ut=tt.sibling,tt.sibling=null),wj(_,!1,ut,tt,gt);break;case"backwards":for(tt=null,ut=_.child,_.child=null;ut!==null;){if(s=ut.alternate,s!==null&&Ch(s)===null){_.child=ut;break}s=ut.sibling,ut.sibling=tt,tt=ut,ut=s}wj(_,!0,tt,null,gt);break;case"together":wj(_,!1,null,null,void 0);break;default:_.memoizedState=null}return _.child}function ij(s,_){!(_.mode&1)&&s!==null&&(s.alternate=null,_.alternate=null,_.flags|=2)}function Zi(s,_,tt){if(s!==null&&(_.dependencies=s.dependencies),rh|=_.lanes,!(tt&_.childLanes))return null;if(s!==null&&_.child!==s.child)throw Error(p$1(153));if(_.child!==null){for(s=_.child,tt=Pg(s,s.pendingProps),_.child=tt,tt.return=_;s.sibling!==null;)s=s.sibling,tt=tt.sibling=Pg(s,s.pendingProps),tt.return=_;tt.sibling=null}return _.child}function yj(s,_,tt){switch(_.tag){case 3:kj(_),Ig();break;case 5:Ah(_);break;case 1:Zf(_.type)&&cg(_);break;case 4:yh(_,_.stateNode.containerInfo);break;case 10:var at=_.type._context,ut=_.memoizedProps.value;G(Wg,at._currentValue),at._currentValue=ut;break;case 13:if(at=_.memoizedState,at!==null)return at.dehydrated!==null?(G(L,L.current&1),_.flags|=128,null):tt&_.child.childLanes?oj(s,_,tt):(G(L,L.current&1),s=Zi(s,_,tt),s!==null?s.sibling:null);G(L,L.current&1);break;case 19:if(at=(tt&_.childLanes)!==0,s.flags&128){if(at)return xj(s,_,tt);_.flags|=128}if(ut=_.memoizedState,ut!==null&&(ut.rendering=null,ut.tail=null,ut.lastEffect=null),G(L,L.current),at)break;return null;case 22:case 23:return _.lanes=0,dj(s,_,tt)}return Zi(s,_,tt)}var zj,Aj,Bj,Cj;zj=function(s,_){for(var tt=_.child;tt!==null;){if(tt.tag===5||tt.tag===6)s.appendChild(tt.stateNode);else if(tt.tag!==4&&tt.child!==null){tt.child.return=tt,tt=tt.child;continue}if(tt===_)break;for(;tt.sibling===null;){if(tt.return===null||tt.return===_)return;tt=tt.return}tt.sibling.return=tt.return,tt=tt.sibling}};Aj=function(){};Bj=function(s,_,tt,at){var ut=s.memoizedProps;if(ut!==at){s=_.stateNode,xh(uh.current);var gt=null;switch(tt){case"input":ut=Ya(s,ut),at=Ya(s,at),gt=[];break;case"select":ut=A$1({},ut,{value:void 0}),at=A$1({},at,{value:void 0}),gt=[];break;case"textarea":ut=gb(s,ut),at=gb(s,at),gt=[];break;default:typeof ut.onClick!="function"&&typeof at.onClick=="function"&&(s.onclick=Bf)}ub(tt,at);var Rt;tt=null;for(rt in ut)if(!at.hasOwnProperty(rt)&&ut.hasOwnProperty(rt)&&ut[rt]!=null)if(rt==="style"){var Ct=ut[rt];for(Rt in Ct)Ct.hasOwnProperty(Rt)&&(tt||(tt={}),tt[Rt]="")}else rt!=="dangerouslySetInnerHTML"&&rt!=="children"&&rt!=="suppressContentEditableWarning"&&rt!=="suppressHydrationWarning"&&rt!=="autoFocus"&&(ea.hasOwnProperty(rt)?gt||(gt=[]):(gt=gt||[]).push(rt,null));for(rt in at){var lt=at[rt];if(Ct=ut!=null?ut[rt]:void 0,at.hasOwnProperty(rt)&&lt!==Ct&&(lt!=null||Ct!=null))if(rt==="style")if(Ct){for(Rt in Ct)!Ct.hasOwnProperty(Rt)||lt&&lt.hasOwnProperty(Rt)||(tt||(tt={}),tt[Rt]="");for(Rt in lt)lt.hasOwnProperty(Rt)&&Ct[Rt]!==lt[Rt]&&(tt||(tt={}),tt[Rt]=lt[Rt])}else tt||(gt||(gt=[]),gt.push(rt,tt)),tt=lt;else rt==="dangerouslySetInnerHTML"?(lt=lt?lt.__html:void 0,Ct=Ct?Ct.__html:void 0,lt!=null&&Ct!==lt&&(gt=gt||[]).push(rt,lt)):rt==="children"?typeof lt!="string"&&typeof lt!="number"||(gt=gt||[]).push(rt,""+lt):rt!=="suppressContentEditableWarning"&&rt!=="suppressHydrationWarning"&&(ea.hasOwnProperty(rt)?(lt!=null&&rt==="onScroll"&&D("scroll",s),gt||Ct===lt||(gt=[])):(gt=gt||[]).push(rt,lt))}tt&&(gt=gt||[]).push("style",tt);var rt=gt;(_.updateQueue=rt)&&(_.flags|=4)}};Cj=function(s,_,tt,at){tt!==at&&(_.flags|=4)};function Dj(s,_){if(!I)switch(s.tailMode){case"hidden":_=s.tail;for(var tt=null;_!==null;)_.alternate!==null&&(tt=_),_=_.sibling;tt===null?s.tail=null:tt.sibling=null;break;case"collapsed":tt=s.tail;for(var at=null;tt!==null;)tt.alternate!==null&&(at=tt),tt=tt.sibling;at===null?_||s.tail===null?s.tail=null:s.tail.sibling=null:at.sibling=null}}function S(s){var _=s.alternate!==null&&s.alternate.child===s.child,tt=0,at=0;if(_)for(var ut=s.child;ut!==null;)tt|=ut.lanes|ut.childLanes,at|=ut.subtreeFlags&14680064,at|=ut.flags&14680064,ut.return=s,ut=ut.sibling;else for(ut=s.child;ut!==null;)tt|=ut.lanes|ut.childLanes,at|=ut.subtreeFlags,at|=ut.flags,ut.return=s,ut=ut.sibling;return s.subtreeFlags|=at,s.childLanes=tt,_}function Ej(s,_,tt){var at=_.pendingProps;switch(wg(_),_.tag){case 2:case 16:case 15:case 0:case 11:case 7:case 8:case 12:case 9:case 14:return S(_),null;case 1:return Zf(_.type)&&$f(),S(_),null;case 3:return at=_.stateNode,zh(),E(Wf),E(H),Eh(),at.pendingContext&&(at.context=at.pendingContext,at.pendingContext=null),(s===null||s.child===null)&&(Gg(_)?_.flags|=4:s===null||s.memoizedState.isDehydrated&&!(_.flags&256)||(_.flags|=1024,zg!==null&&(Fj(zg),zg=null))),Aj(s,_),S(_),null;case 5:Bh(_);var ut=xh(wh.current);if(tt=_.type,s!==null&&_.stateNode!=null)Bj(s,_,tt,at,ut),s.ref!==_.ref&&(_.flags|=512,_.flags|=2097152);else{if(!at){if(_.stateNode===null)throw Error(p$1(166));return S(_),null}if(s=xh(uh.current),Gg(_)){at=_.stateNode,tt=_.type;var gt=_.memoizedProps;switch(at[Of]=_,at[Pf]=gt,s=(_.mode&1)!==0,tt){case"dialog":D("cancel",at),D("close",at);break;case"iframe":case"object":case"embed":D("load",at);break;case"video":case"audio":for(ut=0;ut<lf.length;ut++)D(lf[ut],at);break;case"source":D("error",at);break;case"img":case"image":case"link":D("error",at),D("load",at);break;case"details":D("toggle",at);break;case"input":Za(at,gt),D("invalid",at);break;case"select":at._wrapperState={wasMultiple:!!gt.multiple},D("invalid",at);break;case"textarea":hb(at,gt),D("invalid",at)}ub(tt,gt),ut=null;for(var Rt in gt)if(gt.hasOwnProperty(Rt)){var Ct=gt[Rt];Rt==="children"?typeof Ct=="string"?at.textContent!==Ct&&(gt.suppressHydrationWarning!==!0&&Af(at.textContent,Ct,s),ut=["children",Ct]):typeof Ct=="number"&&at.textContent!==""+Ct&&(gt.suppressHydrationWarning!==!0&&Af(at.textContent,Ct,s),ut=["children",""+Ct]):ea.hasOwnProperty(Rt)&&Ct!=null&&Rt==="onScroll"&&D("scroll",at)}switch(tt){case"input":Va(at),db(at,gt,!0);break;case"textarea":Va(at),jb(at);break;case"select":case"option":break;default:typeof gt.onClick=="function"&&(at.onclick=Bf)}at=ut,_.updateQueue=at,at!==null&&(_.flags|=4)}else{Rt=ut.nodeType===9?ut:ut.ownerDocument,s==="http://www.w3.org/1999/xhtml"&&(s=kb(tt)),s==="http://www.w3.org/1999/xhtml"?tt==="script"?(s=Rt.createElement("div"),s.innerHTML="<script><\/script>",s=s.removeChild(s.firstChild)):typeof at.is=="string"?s=Rt.createElement(tt,{is:at.is}):(s=Rt.createElement(tt),tt==="select"&&(Rt=s,at.multiple?Rt.multiple=!0:at.size&&(Rt.size=at.size))):s=Rt.createElementNS(s,tt),s[Of]=_,s[Pf]=at,zj(s,_,!1,!1),_.stateNode=s;e:{switch(Rt=vb(tt,at),tt){case"dialog":D("cancel",s),D("close",s),ut=at;break;case"iframe":case"object":case"embed":D("load",s),ut=at;break;case"video":case"audio":for(ut=0;ut<lf.length;ut++)D(lf[ut],s);ut=at;break;case"source":D("error",s),ut=at;break;case"img":case"image":case"link":D("error",s),D("load",s),ut=at;break;case"details":D("toggle",s),ut=at;break;case"input":Za(s,at),ut=Ya(s,at),D("invalid",s);break;case"option":ut=at;break;case"select":s._wrapperState={wasMultiple:!!at.multiple},ut=A$1({},at,{value:void 0}),D("invalid",s);break;case"textarea":hb(s,at),ut=gb(s,at),D("invalid",s);break;default:ut=at}ub(tt,ut),Ct=ut;for(gt in Ct)if(Ct.hasOwnProperty(gt)){var lt=Ct[gt];gt==="style"?sb(s,lt):gt==="dangerouslySetInnerHTML"?(lt=lt?lt.__html:void 0,lt!=null&&nb(s,lt)):gt==="children"?typeof lt=="string"?(tt!=="textarea"||lt!=="")&&ob(s,lt):typeof lt=="number"&&ob(s,""+lt):gt!=="suppressContentEditableWarning"&&gt!=="suppressHydrationWarning"&&gt!=="autoFocus"&&(ea.hasOwnProperty(gt)?lt!=null&&gt==="onScroll"&&D("scroll",s):lt!=null&&ta(s,gt,lt,Rt))}switch(tt){case"input":Va(s),db(s,at,!1);break;case"textarea":Va(s),jb(s);break;case"option":at.value!=null&&s.setAttribute("value",""+Sa(at.value));break;case"select":s.multiple=!!at.multiple,gt=at.value,gt!=null?fb(s,!!at.multiple,gt,!1):at.defaultValue!=null&&fb(s,!!at.multiple,at.defaultValue,!0);break;default:typeof ut.onClick=="function"&&(s.onclick=Bf)}switch(tt){case"button":case"input":case"select":case"textarea":at=!!at.autoFocus;break e;case"img":at=!0;break e;default:at=!1}}at&&(_.flags|=4)}_.ref!==null&&(_.flags|=512,_.flags|=2097152)}return S(_),null;case 6:if(s&&_.stateNode!=null)Cj(s,_,s.memoizedProps,at);else{if(typeof at!="string"&&_.stateNode===null)throw Error(p$1(166));if(tt=xh(wh.current),xh(uh.current),Gg(_)){if(at=_.stateNode,tt=_.memoizedProps,at[Of]=_,(gt=at.nodeValue!==tt)&&(s=xg,s!==null))switch(s.tag){case 3:Af(at.nodeValue,tt,(s.mode&1)!==0);break;case 5:s.memoizedProps.suppressHydrationWarning!==!0&&Af(at.nodeValue,tt,(s.mode&1)!==0)}gt&&(_.flags|=4)}else at=(tt.nodeType===9?tt:tt.ownerDocument).createTextNode(at),at[Of]=_,_.stateNode=at}return S(_),null;case 13:if(E(L),at=_.memoizedState,s===null||s.memoizedState!==null&&s.memoizedState.dehydrated!==null){if(I&&yg!==null&&_.mode&1&&!(_.flags&128))Hg(),Ig(),_.flags|=98560,gt=!1;else if(gt=Gg(_),at!==null&&at.dehydrated!==null){if(s===null){if(!gt)throw Error(p$1(318));if(gt=_.memoizedState,gt=gt!==null?gt.dehydrated:null,!gt)throw Error(p$1(317));gt[Of]=_}else Ig(),!(_.flags&128)&&(_.memoizedState=null),_.flags|=4;S(_),gt=!1}else zg!==null&&(Fj(zg),zg=null),gt=!0;if(!gt)return _.flags&65536?_:null}return _.flags&128?(_.lanes=tt,_):(at=at!==null,at!==(s!==null&&s.memoizedState!==null)&&at&&(_.child.flags|=8192,_.mode&1&&(s===null||L.current&1?T===0&&(T=3):tj())),_.updateQueue!==null&&(_.flags|=4),S(_),null);case 4:return zh(),Aj(s,_),s===null&&sf(_.stateNode.containerInfo),S(_),null;case 10:return ah(_.type._context),S(_),null;case 17:return Zf(_.type)&&$f(),S(_),null;case 19:if(E(L),gt=_.memoizedState,gt===null)return S(_),null;if(at=(_.flags&128)!==0,Rt=gt.rendering,Rt===null)if(at)Dj(gt,!1);else{if(T!==0||s!==null&&s.flags&128)for(s=_.child;s!==null;){if(Rt=Ch(s),Rt!==null){for(_.flags|=128,Dj(gt,!1),at=Rt.updateQueue,at!==null&&(_.updateQueue=at,_.flags|=4),_.subtreeFlags=0,at=tt,tt=_.child;tt!==null;)gt=tt,s=at,gt.flags&=14680066,Rt=gt.alternate,Rt===null?(gt.childLanes=0,gt.lanes=s,gt.child=null,gt.subtreeFlags=0,gt.memoizedProps=null,gt.memoizedState=null,gt.updateQueue=null,gt.dependencies=null,gt.stateNode=null):(gt.childLanes=Rt.childLanes,gt.lanes=Rt.lanes,gt.child=Rt.child,gt.subtreeFlags=0,gt.deletions=null,gt.memoizedProps=Rt.memoizedProps,gt.memoizedState=Rt.memoizedState,gt.updateQueue=Rt.updateQueue,gt.type=Rt.type,s=Rt.dependencies,gt.dependencies=s===null?null:{lanes:s.lanes,firstContext:s.firstContext}),tt=tt.sibling;return G(L,L.current&1|2),_.child}s=s.sibling}gt.tail!==null&&B()>Gj&&(_.flags|=128,at=!0,Dj(gt,!1),_.lanes=4194304)}else{if(!at)if(s=Ch(Rt),s!==null){if(_.flags|=128,at=!0,tt=s.updateQueue,tt!==null&&(_.updateQueue=tt,_.flags|=4),Dj(gt,!0),gt.tail===null&&gt.tailMode==="hidden"&&!Rt.alternate&&!I)return S(_),null}else 2*B()-gt.renderingStartTime>Gj&&tt!==1073741824&&(_.flags|=128,at=!0,Dj(gt,!1),_.lanes=4194304);gt.isBackwards?(Rt.sibling=_.child,_.child=Rt):(tt=gt.last,tt!==null?tt.sibling=Rt:_.child=Rt,gt.last=Rt)}return gt.tail!==null?(_=gt.tail,gt.rendering=_,gt.tail=_.sibling,gt.renderingStartTime=B(),_.sibling=null,tt=L.current,G(L,at?tt&1|2:tt&1),_):(S(_),null);case 22:case 23:return Hj(),at=_.memoizedState!==null,s!==null&&s.memoizedState!==null!==at&&(_.flags|=8192),at&&_.mode&1?fj&1073741824&&(S(_),_.subtreeFlags&6&&(_.flags|=8192)):S(_),null;case 24:return null;case 25:return null}throw Error(p$1(156,_.tag))}function Ij(s,_){switch(wg(_),_.tag){case 1:return Zf(_.type)&&$f(),s=_.flags,s&65536?(_.flags=s&-65537|128,_):null;case 3:return zh(),E(Wf),E(H),Eh(),s=_.flags,s&65536&&!(s&128)?(_.flags=s&-65537|128,_):null;case 5:return Bh(_),null;case 13:if(E(L),s=_.memoizedState,s!==null&&s.dehydrated!==null){if(_.alternate===null)throw Error(p$1(340));Ig()}return s=_.flags,s&65536?(_.flags=s&-65537|128,_):null;case 19:return E(L),null;case 4:return zh(),null;case 10:return ah(_.type._context),null;case 22:case 23:return Hj(),null;case 24:return null;default:return null}}var Jj=!1,U=!1,Kj=typeof WeakSet=="function"?WeakSet:Set,V=null;function Lj(s,_){var tt=s.ref;if(tt!==null)if(typeof tt=="function")try{tt(null)}catch(at){W(s,_,at)}else tt.current=null}function Mj(s,_,tt){try{tt()}catch(at){W(s,_,at)}}var Nj=!1;function Oj(s,_){if(Cf=dd,s=Me(),Ne(s)){if("selectionStart"in s)var tt={start:s.selectionStart,end:s.selectionEnd};else e:{tt=(tt=s.ownerDocument)&&tt.defaultView||window;var at=tt.getSelection&&tt.getSelection();if(at&&at.rangeCount!==0){tt=at.anchorNode;var ut=at.anchorOffset,gt=at.focusNode;at=at.focusOffset;try{tt.nodeType,gt.nodeType}catch{tt=null;break e}var Rt=0,Ct=-1,lt=-1,rt=0,i=0,it=s,dt=null;t:for(;;){for(var mt;it!==tt||ut!==0&&it.nodeType!==3||(Ct=Rt+ut),it!==gt||at!==0&&it.nodeType!==3||(lt=Rt+at),it.nodeType===3&&(Rt+=it.nodeValue.length),(mt=it.firstChild)!==null;)dt=it,it=mt;for(;;){if(it===s)break t;if(dt===tt&&++rt===ut&&(Ct=Rt),dt===gt&&++i===at&&(lt=Rt),(mt=it.nextSibling)!==null)break;it=dt,dt=it.parentNode}it=mt}tt=Ct===-1||lt===-1?null:{start:Ct,end:lt}}else tt=null}tt=tt||{start:0,end:0}}else tt=null;for(Df={focusedElem:s,selectionRange:tt},dd=!1,V=_;V!==null;)if(_=V,s=_.child,(_.subtreeFlags&1028)!==0&&s!==null)s.return=_,V=s;else for(;V!==null;){_=V;try{var ft=_.alternate;if(_.flags&1024)switch(_.tag){case 0:case 11:case 15:break;case 1:if(ft!==null){var ht=ft.memoizedProps,_t=ft.memoizedState,Pt=_.stateNode,It=Pt.getSnapshotBeforeUpdate(_.elementType===_.type?ht:Ci(_.type,ht),_t);Pt.__reactInternalSnapshotBeforeUpdate=It}break;case 3:var wt=_.stateNode.containerInfo;wt.nodeType===1?wt.textContent="":wt.nodeType===9&&wt.documentElement&&wt.removeChild(wt.documentElement);break;case 5:case 6:case 4:case 17:break;default:throw Error(p$1(163))}}catch(xt){W(_,_.return,xt)}if(s=_.sibling,s!==null){s.return=_.return,V=s;break}V=_.return}return ft=Nj,Nj=!1,ft}function Pj(s,_,tt){var at=_.updateQueue;if(at=at!==null?at.lastEffect:null,at!==null){var ut=at=at.next;do{if((ut.tag&s)===s){var gt=ut.destroy;ut.destroy=void 0,gt!==void 0&&Mj(_,tt,gt)}ut=ut.next}while(ut!==at)}}function Qj(s,_){if(_=_.updateQueue,_=_!==null?_.lastEffect:null,_!==null){var tt=_=_.next;do{if((tt.tag&s)===s){var at=tt.create;tt.destroy=at()}tt=tt.next}while(tt!==_)}}function Rj(s){var _=s.ref;if(_!==null){var tt=s.stateNode;switch(s.tag){case 5:s=tt;break;default:s=tt}typeof _=="function"?_(s):_.current=s}}function Sj(s){var _=s.alternate;_!==null&&(s.alternate=null,Sj(_)),s.child=null,s.deletions=null,s.sibling=null,s.tag===5&&(_=s.stateNode,_!==null&&(delete _[Of],delete _[Pf],delete _[of],delete _[Qf],delete _[Rf])),s.stateNode=null,s.return=null,s.dependencies=null,s.memoizedProps=null,s.memoizedState=null,s.pendingProps=null,s.stateNode=null,s.updateQueue=null}function Tj(s){return s.tag===5||s.tag===3||s.tag===4}function Uj(s){e:for(;;){for(;s.sibling===null;){if(s.return===null||Tj(s.return))return null;s=s.return}for(s.sibling.return=s.return,s=s.sibling;s.tag!==5&&s.tag!==6&&s.tag!==18;){if(s.flags&2||s.child===null||s.tag===4)continue e;s.child.return=s,s=s.child}if(!(s.flags&2))return s.stateNode}}function Vj(s,_,tt){var at=s.tag;if(at===5||at===6)s=s.stateNode,_?tt.nodeType===8?tt.parentNode.insertBefore(s,_):tt.insertBefore(s,_):(tt.nodeType===8?(_=tt.parentNode,_.insertBefore(s,tt)):(_=tt,_.appendChild(s)),tt=tt._reactRootContainer,tt!=null||_.onclick!==null||(_.onclick=Bf));else if(at!==4&&(s=s.child,s!==null))for(Vj(s,_,tt),s=s.sibling;s!==null;)Vj(s,_,tt),s=s.sibling}function Wj(s,_,tt){var at=s.tag;if(at===5||at===6)s=s.stateNode,_?tt.insertBefore(s,_):tt.appendChild(s);else if(at!==4&&(s=s.child,s!==null))for(Wj(s,_,tt),s=s.sibling;s!==null;)Wj(s,_,tt),s=s.sibling}var X=null,Xj=!1;function Yj(s,_,tt){for(tt=tt.child;tt!==null;)Zj(s,_,tt),tt=tt.sibling}function Zj(s,_,tt){if(lc&&typeof lc.onCommitFiberUnmount=="function")try{lc.onCommitFiberUnmount(kc,tt)}catch{}switch(tt.tag){case 5:U||Lj(tt,_);case 6:var at=X,ut=Xj;X=null,Yj(s,_,tt),X=at,Xj=ut,X!==null&&(Xj?(s=X,tt=tt.stateNode,s.nodeType===8?s.parentNode.removeChild(tt):s.removeChild(tt)):X.removeChild(tt.stateNode));break;case 18:X!==null&&(Xj?(s=X,tt=tt.stateNode,s.nodeType===8?Kf(s.parentNode,tt):s.nodeType===1&&Kf(s,tt),bd(s)):Kf(X,tt.stateNode));break;case 4:at=X,ut=Xj,X=tt.stateNode.containerInfo,Xj=!0,Yj(s,_,tt),X=at,Xj=ut;break;case 0:case 11:case 14:case 15:if(!U&&(at=tt.updateQueue,at!==null&&(at=at.lastEffect,at!==null))){ut=at=at.next;do{var gt=ut,Rt=gt.destroy;gt=gt.tag,Rt!==void 0&&(gt&2||gt&4)&&Mj(tt,_,Rt),ut=ut.next}while(ut!==at)}Yj(s,_,tt);break;case 1:if(!U&&(Lj(tt,_),at=tt.stateNode,typeof at.componentWillUnmount=="function"))try{at.props=tt.memoizedProps,at.state=tt.memoizedState,at.componentWillUnmount()}catch(Ct){W(tt,_,Ct)}Yj(s,_,tt);break;case 21:Yj(s,_,tt);break;case 22:tt.mode&1?(U=(at=U)||tt.memoizedState!==null,Yj(s,_,tt),U=at):Yj(s,_,tt);break;default:Yj(s,_,tt)}}function ak(s){var _=s.updateQueue;if(_!==null){s.updateQueue=null;var tt=s.stateNode;tt===null&&(tt=s.stateNode=new Kj),_.forEach(function(at){var ut=bk.bind(null,s,at);tt.has(at)||(tt.add(at),at.then(ut,ut))})}}function ck(s,_){var tt=_.deletions;if(tt!==null)for(var at=0;at<tt.length;at++){var ut=tt[at];try{var gt=s,Rt=_,Ct=Rt;e:for(;Ct!==null;){switch(Ct.tag){case 5:X=Ct.stateNode,Xj=!1;break e;case 3:X=Ct.stateNode.containerInfo,Xj=!0;break e;case 4:X=Ct.stateNode.containerInfo,Xj=!0;break e}Ct=Ct.return}if(X===null)throw Error(p$1(160));Zj(gt,Rt,ut),X=null,Xj=!1;var lt=ut.alternate;lt!==null&&(lt.return=null),ut.return=null}catch(rt){W(ut,_,rt)}}if(_.subtreeFlags&12854)for(_=_.child;_!==null;)dk(_,s),_=_.sibling}function dk(s,_){var tt=s.alternate,at=s.flags;switch(s.tag){case 0:case 11:case 14:case 15:if(ck(_,s),ek(s),at&4){try{Pj(3,s,s.return),Qj(3,s)}catch(ht){W(s,s.return,ht)}try{Pj(5,s,s.return)}catch(ht){W(s,s.return,ht)}}break;case 1:ck(_,s),ek(s),at&512&&tt!==null&&Lj(tt,tt.return);break;case 5:if(ck(_,s),ek(s),at&512&&tt!==null&&Lj(tt,tt.return),s.flags&32){var ut=s.stateNode;try{ob(ut,"")}catch(ht){W(s,s.return,ht)}}if(at&4&&(ut=s.stateNode,ut!=null)){var gt=s.memoizedProps,Rt=tt!==null?tt.memoizedProps:gt,Ct=s.type,lt=s.updateQueue;if(s.updateQueue=null,lt!==null)try{Ct==="input"&&gt.type==="radio"&&gt.name!=null&&ab(ut,gt),vb(Ct,Rt);var rt=vb(Ct,gt);for(Rt=0;Rt<lt.length;Rt+=2){var i=lt[Rt],it=lt[Rt+1];i==="style"?sb(ut,it):i==="dangerouslySetInnerHTML"?nb(ut,it):i==="children"?ob(ut,it):ta(ut,i,it,rt)}switch(Ct){case"input":bb(ut,gt);break;case"textarea":ib(ut,gt);break;case"select":var dt=ut._wrapperState.wasMultiple;ut._wrapperState.wasMultiple=!!gt.multiple;var mt=gt.value;mt!=null?fb(ut,!!gt.multiple,mt,!1):dt!==!!gt.multiple&&(gt.defaultValue!=null?fb(ut,!!gt.multiple,gt.defaultValue,!0):fb(ut,!!gt.multiple,gt.multiple?[]:"",!1))}ut[Pf]=gt}catch(ht){W(s,s.return,ht)}}break;case 6:if(ck(_,s),ek(s),at&4){if(s.stateNode===null)throw Error(p$1(162));ut=s.stateNode,gt=s.memoizedProps;try{ut.nodeValue=gt}catch(ht){W(s,s.return,ht)}}break;case 3:if(ck(_,s),ek(s),at&4&&tt!==null&&tt.memoizedState.isDehydrated)try{bd(_.containerInfo)}catch(ht){W(s,s.return,ht)}break;case 4:ck(_,s),ek(s);break;case 13:ck(_,s),ek(s),ut=s.child,ut.flags&8192&&(gt=ut.memoizedState!==null,ut.stateNode.isHidden=gt,!gt||ut.alternate!==null&&ut.alternate.memoizedState!==null||(fk=B())),at&4&&ak(s);break;case 22:if(i=tt!==null&&tt.memoizedState!==null,s.mode&1?(U=(rt=U)||i,ck(_,s),U=rt):ck(_,s),ek(s),at&8192){if(rt=s.memoizedState!==null,(s.stateNode.isHidden=rt)&&!i&&s.mode&1)for(V=s,i=s.child;i!==null;){for(it=V=i;V!==null;){switch(dt=V,mt=dt.child,dt.tag){case 0:case 11:case 14:case 15:Pj(4,dt,dt.return);break;case 1:Lj(dt,dt.return);var ft=dt.stateNode;if(typeof ft.componentWillUnmount=="function"){at=dt,tt=dt.return;try{_=at,ft.props=_.memoizedProps,ft.state=_.memoizedState,ft.componentWillUnmount()}catch(ht){W(at,tt,ht)}}break;case 5:Lj(dt,dt.return);break;case 22:if(dt.memoizedState!==null){gk(it);continue}}mt!==null?(mt.return=dt,V=mt):gk(it)}i=i.sibling}e:for(i=null,it=s;;){if(it.tag===5){if(i===null){i=it;try{ut=it.stateNode,rt?(gt=ut.style,typeof gt.setProperty=="function"?gt.setProperty("display","none","important"):gt.display="none"):(Ct=it.stateNode,lt=it.memoizedProps.style,Rt=lt!=null&&lt.hasOwnProperty("display")?lt.display:null,Ct.style.display=rb("display",Rt))}catch(ht){W(s,s.return,ht)}}}else if(it.tag===6){if(i===null)try{it.stateNode.nodeValue=rt?"":it.memoizedProps}catch(ht){W(s,s.return,ht)}}else if((it.tag!==22&&it.tag!==23||it.memoizedState===null||it===s)&&it.child!==null){it.child.return=it,it=it.child;continue}if(it===s)break e;for(;it.sibling===null;){if(it.return===null||it.return===s)break e;i===it&&(i=null),it=it.return}i===it&&(i=null),it.sibling.return=it.return,it=it.sibling}}break;case 19:ck(_,s),ek(s),at&4&&ak(s);break;case 21:break;default:ck(_,s),ek(s)}}function ek(s){var _=s.flags;if(_&2){try{e:{for(var tt=s.return;tt!==null;){if(Tj(tt)){var at=tt;break e}tt=tt.return}throw Error(p$1(160))}switch(at.tag){case 5:var ut=at.stateNode;at.flags&32&&(ob(ut,""),at.flags&=-33);var gt=Uj(s);Wj(s,gt,ut);break;case 3:case 4:var Rt=at.stateNode.containerInfo,Ct=Uj(s);Vj(s,Ct,Rt);break;default:throw Error(p$1(161))}}catch(lt){W(s,s.return,lt)}s.flags&=-3}_&4096&&(s.flags&=-4097)}function hk(s,_,tt){V=s,ik(s)}function ik(s,_,tt){for(var at=(s.mode&1)!==0;V!==null;){var ut=V,gt=ut.child;if(ut.tag===22&&at){var Rt=ut.memoizedState!==null||Jj;if(!Rt){var Ct=ut.alternate,lt=Ct!==null&&Ct.memoizedState!==null||U;Ct=Jj;var rt=U;if(Jj=Rt,(U=lt)&&!rt)for(V=ut;V!==null;)Rt=V,lt=Rt.child,Rt.tag===22&&Rt.memoizedState!==null?jk(ut):lt!==null?(lt.return=Rt,V=lt):jk(ut);for(;gt!==null;)V=gt,ik(gt),gt=gt.sibling;V=ut,Jj=Ct,U=rt}kk(s)}else ut.subtreeFlags&8772&&gt!==null?(gt.return=ut,V=gt):kk(s)}}function kk(s){for(;V!==null;){var _=V;if(_.flags&8772){var tt=_.alternate;try{if(_.flags&8772)switch(_.tag){case 0:case 11:case 15:U||Qj(5,_);break;case 1:var at=_.stateNode;if(_.flags&4&&!U)if(tt===null)at.componentDidMount();else{var ut=_.elementType===_.type?tt.memoizedProps:Ci(_.type,tt.memoizedProps);at.componentDidUpdate(ut,tt.memoizedState,at.__reactInternalSnapshotBeforeUpdate)}var gt=_.updateQueue;gt!==null&&sh(_,gt,at);break;case 3:var Rt=_.updateQueue;if(Rt!==null){if(tt=null,_.child!==null)switch(_.child.tag){case 5:tt=_.child.stateNode;break;case 1:tt=_.child.stateNode}sh(_,Rt,tt)}break;case 5:var Ct=_.stateNode;if(tt===null&&_.flags&4){tt=Ct;var lt=_.memoizedProps;switch(_.type){case"button":case"input":case"select":case"textarea":lt.autoFocus&&tt.focus();break;case"img":lt.src&&(tt.src=lt.src)}}break;case 6:break;case 4:break;case 12:break;case 13:if(_.memoizedState===null){var rt=_.alternate;if(rt!==null){var i=rt.memoizedState;if(i!==null){var it=i.dehydrated;it!==null&&bd(it)}}}break;case 19:case 17:case 21:case 22:case 23:case 25:break;default:throw Error(p$1(163))}U||_.flags&512&&Rj(_)}catch(dt){W(_,_.return,dt)}}if(_===s){V=null;break}if(tt=_.sibling,tt!==null){tt.return=_.return,V=tt;break}V=_.return}}function gk(s){for(;V!==null;){var _=V;if(_===s){V=null;break}var tt=_.sibling;if(tt!==null){tt.return=_.return,V=tt;break}V=_.return}}function jk(s){for(;V!==null;){var _=V;try{switch(_.tag){case 0:case 11:case 15:var tt=_.return;try{Qj(4,_)}catch(lt){W(_,tt,lt)}break;case 1:var at=_.stateNode;if(typeof at.componentDidMount=="function"){var ut=_.return;try{at.componentDidMount()}catch(lt){W(_,ut,lt)}}var gt=_.return;try{Rj(_)}catch(lt){W(_,gt,lt)}break;case 5:var Rt=_.return;try{Rj(_)}catch(lt){W(_,Rt,lt)}}}catch(lt){W(_,_.return,lt)}if(_===s){V=null;break}var Ct=_.sibling;if(Ct!==null){Ct.return=_.return,V=Ct;break}V=_.return}}var lk=Math.ceil,mk=ua.ReactCurrentDispatcher,nk=ua.ReactCurrentOwner,ok=ua.ReactCurrentBatchConfig,K=0,Q=null,Y=null,Z=0,fj=0,ej=Uf(0),T=0,pk=null,rh=0,qk=0,rk=0,sk=null,tk=null,fk=0,Gj=1/0,uk=null,Oi=!1,Pi=null,Ri=null,vk=!1,wk=null,xk=0,yk=0,zk=null,Ak=-1,Bk=0;function R(){return K&6?B():Ak!==-1?Ak:Ak=B()}function yi(s){return s.mode&1?K&2&&Z!==0?Z&-Z:Kg.transition!==null?(Bk===0&&(Bk=yc()),Bk):(s=C,s!==0||(s=window.event,s=s===void 0?16:jd(s.type)),s):1}function gi(s,_,tt,at){if(50<yk)throw yk=0,zk=null,Error(p$1(185));Ac(s,tt,at),(!(K&2)||s!==Q)&&(s===Q&&(!(K&2)&&(qk|=tt),T===4&&Ck(s,Z)),Dk(s,at),tt===1&&K===0&&!(_.mode&1)&&(Gj=B()+500,fg$1&&jg()))}function Dk(s,_){var tt=s.callbackNode;wc(s,_);var at=uc(s,s===Q?Z:0);if(at===0)tt!==null&&bc(tt),s.callbackNode=null,s.callbackPriority=0;else if(_=at&-at,s.callbackPriority!==_){if(tt!=null&&bc(tt),_===1)s.tag===0?ig(Ek.bind(null,s)):hg(Ek.bind(null,s)),Jf(function(){!(K&6)&&jg()}),tt=null;else{switch(Dc(at)){case 1:tt=fc;break;case 4:tt=gc;break;case 16:tt=hc;break;case 536870912:tt=jc;break;default:tt=hc}tt=Fk(tt,Gk.bind(null,s))}s.callbackPriority=_,s.callbackNode=tt}}function Gk(s,_){if(Ak=-1,Bk=0,K&6)throw Error(p$1(327));var tt=s.callbackNode;if(Hk()&&s.callbackNode!==tt)return null;var at=uc(s,s===Q?Z:0);if(at===0)return null;if(at&30||at&s.expiredLanes||_)_=Ik(s,at);else{_=at;var ut=K;K|=2;var gt=Jk();(Q!==s||Z!==_)&&(uk=null,Gj=B()+500,Kk(s,_));do try{Lk();break}catch(Ct){Mk(s,Ct)}while(!0);$g(),mk.current=gt,K=ut,Y!==null?_=0:(Q=null,Z=0,_=T)}if(_!==0){if(_===2&&(ut=xc(s),ut!==0&&(at=ut,_=Nk(s,ut))),_===1)throw tt=pk,Kk(s,0),Ck(s,at),Dk(s,B()),tt;if(_===6)Ck(s,at);else{if(ut=s.current.alternate,!(at&30)&&!Ok(ut)&&(_=Ik(s,at),_===2&&(gt=xc(s),gt!==0&&(at=gt,_=Nk(s,gt))),_===1))throw tt=pk,Kk(s,0),Ck(s,at),Dk(s,B()),tt;switch(s.finishedWork=ut,s.finishedLanes=at,_){case 0:case 1:throw Error(p$1(345));case 2:Pk(s,tk,uk);break;case 3:if(Ck(s,at),(at&130023424)===at&&(_=fk+500-B(),10<_)){if(uc(s,0)!==0)break;if(ut=s.suspendedLanes,(ut&at)!==at){R(),s.pingedLanes|=s.suspendedLanes&ut;break}s.timeoutHandle=Ff(Pk.bind(null,s,tk,uk),_);break}Pk(s,tk,uk);break;case 4:if(Ck(s,at),(at&4194240)===at)break;for(_=s.eventTimes,ut=-1;0<at;){var Rt=31-oc(at);gt=1<<Rt,Rt=_[Rt],Rt>ut&&(ut=Rt),at&=~gt}if(at=ut,at=B()-at,at=(120>at?120:480>at?480:1080>at?1080:1920>at?1920:3e3>at?3e3:4320>at?4320:1960*lk(at/1960))-at,10<at){s.timeoutHandle=Ff(Pk.bind(null,s,tk,uk),at);break}Pk(s,tk,uk);break;case 5:Pk(s,tk,uk);break;default:throw Error(p$1(329))}}}return Dk(s,B()),s.callbackNode===tt?Gk.bind(null,s):null}function Nk(s,_){var tt=sk;return s.current.memoizedState.isDehydrated&&(Kk(s,_).flags|=256),s=Ik(s,_),s!==2&&(_=tk,tk=tt,_!==null&&Fj(_)),s}function Fj(s){tk===null?tk=s:tk.push.apply(tk,s)}function Ok(s){for(var _=s;;){if(_.flags&16384){var tt=_.updateQueue;if(tt!==null&&(tt=tt.stores,tt!==null))for(var at=0;at<tt.length;at++){var ut=tt[at],gt=ut.getSnapshot;ut=ut.value;try{if(!He(gt(),ut))return!1}catch{return!1}}}if(tt=_.child,_.subtreeFlags&16384&&tt!==null)tt.return=_,_=tt;else{if(_===s)break;for(;_.sibling===null;){if(_.return===null||_.return===s)return!0;_=_.return}_.sibling.return=_.return,_=_.sibling}}return!0}function Ck(s,_){for(_&=~rk,_&=~qk,s.suspendedLanes|=_,s.pingedLanes&=~_,s=s.expirationTimes;0<_;){var tt=31-oc(_),at=1<<tt;s[tt]=-1,_&=~at}}function Ek(s){if(K&6)throw Error(p$1(327));Hk();var _=uc(s,0);if(!(_&1))return Dk(s,B()),null;var tt=Ik(s,_);if(s.tag!==0&&tt===2){var at=xc(s);at!==0&&(_=at,tt=Nk(s,at))}if(tt===1)throw tt=pk,Kk(s,0),Ck(s,_),Dk(s,B()),tt;if(tt===6)throw Error(p$1(345));return s.finishedWork=s.current.alternate,s.finishedLanes=_,Pk(s,tk,uk),Dk(s,B()),null}function Qk(s,_){var tt=K;K|=1;try{return s(_)}finally{K=tt,K===0&&(Gj=B()+500,fg$1&&jg())}}function Rk(s){wk!==null&&wk.tag===0&&!(K&6)&&Hk();var _=K;K|=1;var tt=ok.transition,at=C;try{if(ok.transition=null,C=1,s)return s()}finally{C=at,ok.transition=tt,K=_,!(K&6)&&jg()}}function Hj(){fj=ej.current,E(ej)}function Kk(s,_){s.finishedWork=null,s.finishedLanes=0;var tt=s.timeoutHandle;if(tt!==-1&&(s.timeoutHandle=-1,Gf(tt)),Y!==null)for(tt=Y.return;tt!==null;){var at=tt;switch(wg(at),at.tag){case 1:at=at.type.childContextTypes,at!=null&&$f();break;case 3:zh(),E(Wf),E(H),Eh();break;case 5:Bh(at);break;case 4:zh();break;case 13:E(L);break;case 19:E(L);break;case 10:ah(at.type._context);break;case 22:case 23:Hj()}tt=tt.return}if(Q=s,Y=s=Pg(s.current,null),Z=fj=_,T=0,pk=null,rk=qk=rh=0,tk=sk=null,fh!==null){for(_=0;_<fh.length;_++)if(tt=fh[_],at=tt.interleaved,at!==null){tt.interleaved=null;var ut=at.next,gt=tt.pending;if(gt!==null){var Rt=gt.next;gt.next=ut,at.next=Rt}tt.pending=at}fh=null}return s}function Mk(s,_){do{var tt=Y;try{if($g(),Fh.current=Rh,Ih){for(var at=M.memoizedState;at!==null;){var ut=at.queue;ut!==null&&(ut.pending=null),at=at.next}Ih=!1}if(Hh=0,O=N=M=null,Jh=!1,Kh=0,nk.current=null,tt===null||tt.return===null){T=1,pk=_,Y=null;break}e:{var gt=s,Rt=tt.return,Ct=tt,lt=_;if(_=Z,Ct.flags|=32768,lt!==null&&typeof lt=="object"&&typeof lt.then=="function"){var rt=lt,i=Ct,it=i.tag;if(!(i.mode&1)&&(it===0||it===11||it===15)){var dt=i.alternate;dt?(i.updateQueue=dt.updateQueue,i.memoizedState=dt.memoizedState,i.lanes=dt.lanes):(i.updateQueue=null,i.memoizedState=null)}var mt=Ui(Rt);if(mt!==null){mt.flags&=-257,Vi(mt,Rt,Ct,gt,_),mt.mode&1&&Si(gt,rt,_),_=mt,lt=rt;var ft=_.updateQueue;if(ft===null){var ht=new Set;ht.add(lt),_.updateQueue=ht}else ft.add(lt);break e}else{if(!(_&1)){Si(gt,rt,_),tj();break e}lt=Error(p$1(426))}}else if(I&&Ct.mode&1){var _t=Ui(Rt);if(_t!==null){!(_t.flags&65536)&&(_t.flags|=256),Vi(_t,Rt,Ct,gt,_),Jg(Ji(lt,Ct));break e}}gt=lt=Ji(lt,Ct),T!==4&&(T=2),sk===null?sk=[gt]:sk.push(gt),gt=Rt;do{switch(gt.tag){case 3:gt.flags|=65536,_&=-_,gt.lanes|=_;var Pt=Ni(gt,lt,_);ph(gt,Pt);break e;case 1:Ct=lt;var It=gt.type,wt=gt.stateNode;if(!(gt.flags&128)&&(typeof It.getDerivedStateFromError=="function"||wt!==null&&typeof wt.componentDidCatch=="function"&&(Ri===null||!Ri.has(wt)))){gt.flags|=65536,_&=-_,gt.lanes|=_;var xt=Qi(gt,Ct,_);ph(gt,xt);break e}}gt=gt.return}while(gt!==null)}Sk(tt)}catch(pt){_=pt,Y===tt&&tt!==null&&(Y=tt=tt.return);continue}break}while(!0)}function Jk(){var s=mk.current;return mk.current=Rh,s===null?Rh:s}function tj(){(T===0||T===3||T===2)&&(T=4),Q===null||!(rh&268435455)&&!(qk&268435455)||Ck(Q,Z)}function Ik(s,_){var tt=K;K|=2;var at=Jk();(Q!==s||Z!==_)&&(uk=null,Kk(s,_));do try{Tk();break}catch(ut){Mk(s,ut)}while(!0);if($g(),K=tt,mk.current=at,Y!==null)throw Error(p$1(261));return Q=null,Z=0,T}function Tk(){for(;Y!==null;)Uk(Y)}function Lk(){for(;Y!==null&&!cc();)Uk(Y)}function Uk(s){var _=Vk(s.alternate,s,fj);s.memoizedProps=s.pendingProps,_===null?Sk(s):Y=_,nk.current=null}function Sk(s){var _=s;do{var tt=_.alternate;if(s=_.return,_.flags&32768){if(tt=Ij(tt,_),tt!==null){tt.flags&=32767,Y=tt;return}if(s!==null)s.flags|=32768,s.subtreeFlags=0,s.deletions=null;else{T=6,Y=null;return}}else if(tt=Ej(tt,_,fj),tt!==null){Y=tt;return}if(_=_.sibling,_!==null){Y=_;return}Y=_=s}while(_!==null);T===0&&(T=5)}function Pk(s,_,tt){var at=C,ut=ok.transition;try{ok.transition=null,C=1,Wk(s,_,tt,at)}finally{ok.transition=ut,C=at}return null}function Wk(s,_,tt,at){do Hk();while(wk!==null);if(K&6)throw Error(p$1(327));tt=s.finishedWork;var ut=s.finishedLanes;if(tt===null)return null;if(s.finishedWork=null,s.finishedLanes=0,tt===s.current)throw Error(p$1(177));s.callbackNode=null,s.callbackPriority=0;var gt=tt.lanes|tt.childLanes;if(Bc(s,gt),s===Q&&(Y=Q=null,Z=0),!(tt.subtreeFlags&2064)&&!(tt.flags&2064)||vk||(vk=!0,Fk(hc,function(){return Hk(),null})),gt=(tt.flags&15990)!==0,tt.subtreeFlags&15990||gt){gt=ok.transition,ok.transition=null;var Rt=C;C=1;var Ct=K;K|=4,nk.current=null,Oj(s,tt),dk(tt,s),Oe(Df),dd=!!Cf,Df=Cf=null,s.current=tt,hk(tt),dc(),K=Ct,C=Rt,ok.transition=gt}else s.current=tt;if(vk&&(vk=!1,wk=s,xk=ut),gt=s.pendingLanes,gt===0&&(Ri=null),mc(tt.stateNode),Dk(s,B()),_!==null)for(at=s.onRecoverableError,tt=0;tt<_.length;tt++)ut=_[tt],at(ut.value,{componentStack:ut.stack,digest:ut.digest});if(Oi)throw Oi=!1,s=Pi,Pi=null,s;return xk&1&&s.tag!==0&&Hk(),gt=s.pendingLanes,gt&1?s===zk?yk++:(yk=0,zk=s):yk=0,jg(),null}function Hk(){if(wk!==null){var s=Dc(xk),_=ok.transition,tt=C;try{if(ok.transition=null,C=16>s?16:s,wk===null)var at=!1;else{if(s=wk,wk=null,xk=0,K&6)throw Error(p$1(331));var ut=K;for(K|=4,V=s.current;V!==null;){var gt=V,Rt=gt.child;if(V.flags&16){var Ct=gt.deletions;if(Ct!==null){for(var lt=0;lt<Ct.length;lt++){var rt=Ct[lt];for(V=rt;V!==null;){var i=V;switch(i.tag){case 0:case 11:case 15:Pj(8,i,gt)}var it=i.child;if(it!==null)it.return=i,V=it;else for(;V!==null;){i=V;var dt=i.sibling,mt=i.return;if(Sj(i),i===rt){V=null;break}if(dt!==null){dt.return=mt,V=dt;break}V=mt}}}var ft=gt.alternate;if(ft!==null){var ht=ft.child;if(ht!==null){ft.child=null;do{var _t=ht.sibling;ht.sibling=null,ht=_t}while(ht!==null)}}V=gt}}if(gt.subtreeFlags&2064&&Rt!==null)Rt.return=gt,V=Rt;else e:for(;V!==null;){if(gt=V,gt.flags&2048)switch(gt.tag){case 0:case 11:case 15:Pj(9,gt,gt.return)}var Pt=gt.sibling;if(Pt!==null){Pt.return=gt.return,V=Pt;break e}V=gt.return}}var It=s.current;for(V=It;V!==null;){Rt=V;var wt=Rt.child;if(Rt.subtreeFlags&2064&&wt!==null)wt.return=Rt,V=wt;else e:for(Rt=It;V!==null;){if(Ct=V,Ct.flags&2048)try{switch(Ct.tag){case 0:case 11:case 15:Qj(9,Ct)}}catch(pt){W(Ct,Ct.return,pt)}if(Ct===Rt){V=null;break e}var xt=Ct.sibling;if(xt!==null){xt.return=Ct.return,V=xt;break e}V=Ct.return}}if(K=ut,jg(),lc&&typeof lc.onPostCommitFiberRoot=="function")try{lc.onPostCommitFiberRoot(kc,s)}catch{}at=!0}return at}finally{C=tt,ok.transition=_}}return!1}function Xk(s,_,tt){_=Ji(tt,_),_=Ni(s,_,1),s=nh(s,_,1),_=R(),s!==null&&(Ac(s,1,_),Dk(s,_))}function W(s,_,tt){if(s.tag===3)Xk(s,s,tt);else for(;_!==null;){if(_.tag===3){Xk(_,s,tt);break}else if(_.tag===1){var at=_.stateNode;if(typeof _.type.getDerivedStateFromError=="function"||typeof at.componentDidCatch=="function"&&(Ri===null||!Ri.has(at))){s=Ji(tt,s),s=Qi(_,s,1),_=nh(_,s,1),s=R(),_!==null&&(Ac(_,1,s),Dk(_,s));break}}_=_.return}}function Ti(s,_,tt){var at=s.pingCache;at!==null&&at.delete(_),_=R(),s.pingedLanes|=s.suspendedLanes&tt,Q===s&&(Z&tt)===tt&&(T===4||T===3&&(Z&130023424)===Z&&500>B()-fk?Kk(s,0):rk|=tt),Dk(s,_)}function Yk(s,_){_===0&&(s.mode&1?(_=sc,sc<<=1,!(sc&130023424)&&(sc=4194304)):_=1);var tt=R();s=ih(s,_),s!==null&&(Ac(s,_,tt),Dk(s,tt))}function uj(s){var _=s.memoizedState,tt=0;_!==null&&(tt=_.retryLane),Yk(s,tt)}function bk(s,_){var tt=0;switch(s.tag){case 13:var at=s.stateNode,ut=s.memoizedState;ut!==null&&(tt=ut.retryLane);break;case 19:at=s.stateNode;break;default:throw Error(p$1(314))}at!==null&&at.delete(_),Yk(s,tt)}var Vk;Vk=function(s,_,tt){if(s!==null)if(s.memoizedProps!==_.pendingProps||Wf.current)dh=!0;else{if(!(s.lanes&tt)&&!(_.flags&128))return dh=!1,yj(s,_,tt);dh=!!(s.flags&131072)}else dh=!1,I&&_.flags&1048576&&ug(_,ng,_.index);switch(_.lanes=0,_.tag){case 2:var at=_.type;ij(s,_),s=_.pendingProps;var ut=Yf(_,H.current);ch(_,tt),ut=Nh(null,_,at,s,ut,tt);var gt=Sh();return _.flags|=1,typeof ut=="object"&&ut!==null&&typeof ut.render=="function"&&ut.$$typeof===void 0?(_.tag=1,_.memoizedState=null,_.updateQueue=null,Zf(at)?(gt=!0,cg(_)):gt=!1,_.memoizedState=ut.state!==null&&ut.state!==void 0?ut.state:null,kh(_),ut.updater=Ei,_.stateNode=ut,ut._reactInternals=_,Ii(_,at,s,tt),_=jj(null,_,at,!0,gt,tt)):(_.tag=0,I&&gt&&vg(_),Xi(null,_,ut,tt),_=_.child),_;case 16:at=_.elementType;e:{switch(ij(s,_),s=_.pendingProps,ut=at._init,at=ut(at._payload),_.type=at,ut=_.tag=Zk(at),s=Ci(at,s),ut){case 0:_=cj(null,_,at,s,tt);break e;case 1:_=hj(null,_,at,s,tt);break e;case 11:_=Yi(null,_,at,s,tt);break e;case 14:_=$i(null,_,at,Ci(at.type,s),tt);break e}throw Error(p$1(306,at,""))}return _;case 0:return at=_.type,ut=_.pendingProps,ut=_.elementType===at?ut:Ci(at,ut),cj(s,_,at,ut,tt);case 1:return at=_.type,ut=_.pendingProps,ut=_.elementType===at?ut:Ci(at,ut),hj(s,_,at,ut,tt);case 3:e:{if(kj(_),s===null)throw Error(p$1(387));at=_.pendingProps,gt=_.memoizedState,ut=gt.element,lh(s,_),qh(_,at,null,tt);var Rt=_.memoizedState;if(at=Rt.element,gt.isDehydrated)if(gt={element:at,isDehydrated:!1,cache:Rt.cache,pendingSuspenseBoundaries:Rt.pendingSuspenseBoundaries,transitions:Rt.transitions},_.updateQueue.baseState=gt,_.memoizedState=gt,_.flags&256){ut=Ji(Error(p$1(423)),_),_=lj(s,_,at,tt,ut);break e}else if(at!==ut){ut=Ji(Error(p$1(424)),_),_=lj(s,_,at,tt,ut);break e}else for(yg=Lf(_.stateNode.containerInfo.firstChild),xg=_,I=!0,zg=null,tt=Vg(_,null,at,tt),_.child=tt;tt;)tt.flags=tt.flags&-3|4096,tt=tt.sibling;else{if(Ig(),at===ut){_=Zi(s,_,tt);break e}Xi(s,_,at,tt)}_=_.child}return _;case 5:return Ah(_),s===null&&Eg(_),at=_.type,ut=_.pendingProps,gt=s!==null?s.memoizedProps:null,Rt=ut.children,Ef(at,ut)?Rt=null:gt!==null&&Ef(at,gt)&&(_.flags|=32),gj(s,_),Xi(s,_,Rt,tt),_.child;case 6:return s===null&&Eg(_),null;case 13:return oj(s,_,tt);case 4:return yh(_,_.stateNode.containerInfo),at=_.pendingProps,s===null?_.child=Ug(_,null,at,tt):Xi(s,_,at,tt),_.child;case 11:return at=_.type,ut=_.pendingProps,ut=_.elementType===at?ut:Ci(at,ut),Yi(s,_,at,ut,tt);case 7:return Xi(s,_,_.pendingProps,tt),_.child;case 8:return Xi(s,_,_.pendingProps.children,tt),_.child;case 12:return Xi(s,_,_.pendingProps.children,tt),_.child;case 10:e:{if(at=_.type._context,ut=_.pendingProps,gt=_.memoizedProps,Rt=ut.value,G(Wg,at._currentValue),at._currentValue=Rt,gt!==null)if(He(gt.value,Rt)){if(gt.children===ut.children&&!Wf.current){_=Zi(s,_,tt);break e}}else for(gt=_.child,gt!==null&&(gt.return=_);gt!==null;){var Ct=gt.dependencies;if(Ct!==null){Rt=gt.child;for(var lt=Ct.firstContext;lt!==null;){if(lt.context===at){if(gt.tag===1){lt=mh(-1,tt&-tt),lt.tag=2;var rt=gt.updateQueue;if(rt!==null){rt=rt.shared;var i=rt.pending;i===null?lt.next=lt:(lt.next=i.next,i.next=lt),rt.pending=lt}}gt.lanes|=tt,lt=gt.alternate,lt!==null&&(lt.lanes|=tt),bh(gt.return,tt,_),Ct.lanes|=tt;break}lt=lt.next}}else if(gt.tag===10)Rt=gt.type===_.type?null:gt.child;else if(gt.tag===18){if(Rt=gt.return,Rt===null)throw Error(p$1(341));Rt.lanes|=tt,Ct=Rt.alternate,Ct!==null&&(Ct.lanes|=tt),bh(Rt,tt,_),Rt=gt.sibling}else Rt=gt.child;if(Rt!==null)Rt.return=gt;else for(Rt=gt;Rt!==null;){if(Rt===_){Rt=null;break}if(gt=Rt.sibling,gt!==null){gt.return=Rt.return,Rt=gt;break}Rt=Rt.return}gt=Rt}Xi(s,_,ut.children,tt),_=_.child}return _;case 9:return ut=_.type,at=_.pendingProps.children,ch(_,tt),ut=eh(ut),at=at(ut),_.flags|=1,Xi(s,_,at,tt),_.child;case 14:return at=_.type,ut=Ci(at,_.pendingProps),ut=Ci(at.type,ut),$i(s,_,at,ut,tt);case 15:return bj(s,_,_.type,_.pendingProps,tt);case 17:return at=_.type,ut=_.pendingProps,ut=_.elementType===at?ut:Ci(at,ut),ij(s,_),_.tag=1,Zf(at)?(s=!0,cg(_)):s=!1,ch(_,tt),Gi(_,at,ut),Ii(_,at,ut,tt),jj(null,_,at,!0,s,tt);case 19:return xj(s,_,tt);case 22:return dj(s,_,tt)}throw Error(p$1(156,_.tag))};function Fk(s,_){return ac(s,_)}function $k(s,_,tt,at){this.tag=s,this.key=tt,this.sibling=this.child=this.return=this.stateNode=this.type=this.elementType=null,this.index=0,this.ref=null,this.pendingProps=_,this.dependencies=this.memoizedState=this.updateQueue=this.memoizedProps=null,this.mode=at,this.subtreeFlags=this.flags=0,this.deletions=null,this.childLanes=this.lanes=0,this.alternate=null}function Bg(s,_,tt,at){return new $k(s,_,tt,at)}function aj(s){return s=s.prototype,!(!s||!s.isReactComponent)}function Zk(s){if(typeof s=="function")return aj(s)?1:0;if(s!=null){if(s=s.$$typeof,s===Da)return 11;if(s===Ga)return 14}return 2}function Pg(s,_){var tt=s.alternate;return tt===null?(tt=Bg(s.tag,_,s.key,s.mode),tt.elementType=s.elementType,tt.type=s.type,tt.stateNode=s.stateNode,tt.alternate=s,s.alternate=tt):(tt.pendingProps=_,tt.type=s.type,tt.flags=0,tt.subtreeFlags=0,tt.deletions=null),tt.flags=s.flags&14680064,tt.childLanes=s.childLanes,tt.lanes=s.lanes,tt.child=s.child,tt.memoizedProps=s.memoizedProps,tt.memoizedState=s.memoizedState,tt.updateQueue=s.updateQueue,_=s.dependencies,tt.dependencies=_===null?null:{lanes:_.lanes,firstContext:_.firstContext},tt.sibling=s.sibling,tt.index=s.index,tt.ref=s.ref,tt}function Rg(s,_,tt,at,ut,gt){var Rt=2;if(at=s,typeof s=="function")aj(s)&&(Rt=1);else if(typeof s=="string")Rt=5;else e:switch(s){case ya:return Tg(tt.children,ut,gt,_);case za:Rt=8,ut|=8;break;case Aa:return s=Bg(12,tt,_,ut|2),s.elementType=Aa,s.lanes=gt,s;case Ea:return s=Bg(13,tt,_,ut),s.elementType=Ea,s.lanes=gt,s;case Fa:return s=Bg(19,tt,_,ut),s.elementType=Fa,s.lanes=gt,s;case Ia:return pj(tt,ut,gt,_);default:if(typeof s=="object"&&s!==null)switch(s.$$typeof){case Ba:Rt=10;break e;case Ca:Rt=9;break e;case Da:Rt=11;break e;case Ga:Rt=14;break e;case Ha:Rt=16,at=null;break e}throw Error(p$1(130,s==null?s:typeof s,""))}return _=Bg(Rt,tt,_,ut),_.elementType=s,_.type=at,_.lanes=gt,_}function Tg(s,_,tt,at){return s=Bg(7,s,at,_),s.lanes=tt,s}function pj(s,_,tt,at){return s=Bg(22,s,at,_),s.elementType=Ia,s.lanes=tt,s.stateNode={isHidden:!1},s}function Qg(s,_,tt){return s=Bg(6,s,null,_),s.lanes=tt,s}function Sg(s,_,tt){return _=Bg(4,s.children!==null?s.children:[],s.key,_),_.lanes=tt,_.stateNode={containerInfo:s.containerInfo,pendingChildren:null,implementation:s.implementation},_}function al(s,_,tt,at,ut){this.tag=_,this.containerInfo=s,this.finishedWork=this.pingCache=this.current=this.pendingChildren=null,this.timeoutHandle=-1,this.callbackNode=this.pendingContext=this.context=null,this.callbackPriority=0,this.eventTimes=zc(0),this.expirationTimes=zc(-1),this.entangledLanes=this.finishedLanes=this.mutableReadLanes=this.expiredLanes=this.pingedLanes=this.suspendedLanes=this.pendingLanes=0,this.entanglements=zc(0),this.identifierPrefix=at,this.onRecoverableError=ut,this.mutableSourceEagerHydrationData=null}function bl(s,_,tt,at,ut,gt,Rt,Ct,lt){return s=new al(s,_,tt,Ct,lt),_===1?(_=1,gt===!0&&(_|=8)):_=0,gt=Bg(3,null,null,_),s.current=gt,gt.stateNode=s,gt.memoizedState={element:at,isDehydrated:tt,cache:null,transitions:null,pendingSuspenseBoundaries:null},kh(gt),s}function cl(s,_,tt){var at=3<arguments.length&&arguments[3]!==void 0?arguments[3]:null;return{$$typeof:wa,key:at==null?null:""+at,children:s,containerInfo:_,implementation:tt}}function dl(s){if(!s)return Vf;s=s._reactInternals;e:{if(Vb(s)!==s||s.tag!==1)throw Error(p$1(170));var _=s;do{switch(_.tag){case 3:_=_.stateNode.context;break e;case 1:if(Zf(_.type)){_=_.stateNode.__reactInternalMemoizedMergedChildContext;break e}}_=_.return}while(_!==null);throw Error(p$1(171))}if(s.tag===1){var tt=s.type;if(Zf(tt))return bg(s,tt,_)}return _}function el(s,_,tt,at,ut,gt,Rt,Ct,lt){return s=bl(tt,at,!0,s,ut,gt,Rt,Ct,lt),s.context=dl(null),tt=s.current,at=R(),ut=yi(tt),gt=mh(at,ut),gt.callback=_??null,nh(tt,gt,ut),s.current.lanes=ut,Ac(s,ut,at),Dk(s,at),s}function fl(s,_,tt,at){var ut=_.current,gt=R(),Rt=yi(ut);return tt=dl(tt),_.context===null?_.context=tt:_.pendingContext=tt,_=mh(gt,Rt),_.payload={element:s},at=at===void 0?null:at,at!==null&&(_.callback=at),s=nh(ut,_,Rt),s!==null&&(gi(s,ut,Rt,gt),oh(s,ut,Rt)),Rt}function gl(s){if(s=s.current,!s.child)return null;switch(s.child.tag){case 5:return s.child.stateNode;default:return s.child.stateNode}}function hl(s,_){if(s=s.memoizedState,s!==null&&s.dehydrated!==null){var tt=s.retryLane;s.retryLane=tt!==0&&tt<_?tt:_}}function il(s,_){hl(s,_),(s=s.alternate)&&hl(s,_)}function jl(){return null}var kl=typeof reportError=="function"?reportError:function(s){console.error(s)};function ll(s){this._internalRoot=s}ml.prototype.render=ll.prototype.render=function(s){var _=this._internalRoot;if(_===null)throw Error(p$1(409));fl(s,_,null,null)};ml.prototype.unmount=ll.prototype.unmount=function(){var s=this._internalRoot;if(s!==null){this._internalRoot=null;var _=s.containerInfo;Rk(function(){fl(null,s,null,null)}),_[uf]=null}};function ml(s){this._internalRoot=s}ml.prototype.unstable_scheduleHydration=function(s){if(s){var _=Hc();s={blockedOn:null,target:s,priority:_};for(var tt=0;tt<Qc.length&&_!==0&&_<Qc[tt].priority;tt++);Qc.splice(tt,0,s),tt===0&&Vc(s)}};function nl(s){return!(!s||s.nodeType!==1&&s.nodeType!==9&&s.nodeType!==11)}function ol(s){return!(!s||s.nodeType!==1&&s.nodeType!==9&&s.nodeType!==11&&(s.nodeType!==8||s.nodeValue!==" react-mount-point-unstable "))}function pl(){}function ql(s,_,tt,at,ut){if(ut){if(typeof at=="function"){var gt=at;at=function(){var rt=gl(Rt);gt.call(rt)}}var Rt=el(_,at,s,0,null,!1,!1,"",pl);return s._reactRootContainer=Rt,s[uf]=Rt.current,sf(s.nodeType===8?s.parentNode:s),Rk(),Rt}for(;ut=s.lastChild;)s.removeChild(ut);if(typeof at=="function"){var Ct=at;at=function(){var rt=gl(lt);Ct.call(rt)}}var lt=bl(s,0,!1,null,null,!1,!1,"",pl);return s._reactRootContainer=lt,s[uf]=lt.current,sf(s.nodeType===8?s.parentNode:s),Rk(function(){fl(_,lt,tt,at)}),lt}function rl(s,_,tt,at,ut){var gt=tt._reactRootContainer;if(gt){var Rt=gt;if(typeof ut=="function"){var Ct=ut;ut=function(){var lt=gl(Rt);Ct.call(lt)}}fl(_,Rt,s,ut)}else Rt=ql(tt,_,s,ut,at);return gl(Rt)}Ec=function(s){switch(s.tag){case 3:var _=s.stateNode;if(_.current.memoizedState.isDehydrated){var tt=tc(_.pendingLanes);tt!==0&&(Cc(_,tt|1),Dk(_,B()),!(K&6)&&(Gj=B()+500,jg()))}break;case 13:Rk(function(){var at=ih(s,1);if(at!==null){var ut=R();gi(at,s,1,ut)}}),il(s,1)}};Fc=function(s){if(s.tag===13){var _=ih(s,134217728);if(_!==null){var tt=R();gi(_,s,134217728,tt)}il(s,134217728)}};Gc=function(s){if(s.tag===13){var _=yi(s),tt=ih(s,_);if(tt!==null){var at=R();gi(tt,s,_,at)}il(s,_)}};Hc=function(){return C};Ic=function(s,_){var tt=C;try{return C=s,_()}finally{C=tt}};yb=function(s,_,tt){switch(_){case"input":if(bb(s,tt),_=tt.name,tt.type==="radio"&&_!=null){for(tt=s;tt.parentNode;)tt=tt.parentNode;for(tt=tt.querySelectorAll("input[name="+JSON.stringify(""+_)+'][type="radio"]'),_=0;_<tt.length;_++){var at=tt[_];if(at!==s&&at.form===s.form){var ut=Db(at);if(!ut)throw Error(p$1(90));Wa(at),bb(at,ut)}}}break;case"textarea":ib(s,tt);break;case"select":_=tt.value,_!=null&&fb(s,!!tt.multiple,_,!1)}};Gb=Qk;Hb=Rk;var sl={usingClientEntryPoint:!1,Events:[Cb,ue,Db,Eb,Fb,Qk]},tl={findFiberByHostInstance:Wc,bundleType:0,version:"18.3.1",rendererPackageName:"react-dom"},ul={bundleType:tl.bundleType,version:tl.version,rendererPackageName:tl.rendererPackageName,rendererConfig:tl.rendererConfig,overrideHookState:null,overrideHookStateDeletePath:null,overrideHookStateRenamePath:null,overrideProps:null,overridePropsDeletePath:null,overridePropsRenamePath:null,setErrorHandler:null,setSuspenseHandler:null,scheduleUpdate:null,currentDispatcherRef:ua.ReactCurrentDispatcher,findHostInstanceByFiber:function(s){return s=Zb(s),s===null?null:s.stateNode},findFiberByHostInstance:tl.findFiberByHostInstance||jl,findHostInstancesForRefresh:null,scheduleRefresh:null,scheduleRoot:null,setRefreshHandler:null,getCurrentFiber:null,reconcilerVersion:"18.3.1-next-f1338f8080-20240426"};if(typeof __REACT_DEVTOOLS_GLOBAL_HOOK__<"u"){var vl=__REACT_DEVTOOLS_GLOBAL_HOOK__;if(!vl.isDisabled&&vl.supportsFiber)try{kc=vl.inject(ul),lc=vl}catch{}}reactDom_production_min.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED=sl;reactDom_production_min.createPortal=function(s,_){var tt=2<arguments.length&&arguments[2]!==void 0?arguments[2]:null;if(!nl(_))throw Error(p$1(200));return cl(s,_,null,tt)};reactDom_production_min.createRoot=function(s,_){if(!nl(s))throw Error(p$1(299));var tt=!1,at="",ut=kl;return _!=null&&(_.unstable_strictMode===!0&&(tt=!0),_.identifierPrefix!==void 0&&(at=_.identifierPrefix),_.onRecoverableError!==void 0&&(ut=_.onRecoverableError)),_=bl(s,1,!1,null,null,tt,!1,at,ut),s[uf]=_.current,sf(s.nodeType===8?s.parentNode:s),new ll(_)};reactDom_production_min.findDOMNode=function(s){if(s==null)return null;if(s.nodeType===1)return s;var _=s._reactInternals;if(_===void 0)throw typeof s.render=="function"?Error(p$1(188)):(s=Object.keys(s).join(","),Error(p$1(268,s)));return s=Zb(_),s=s===null?null:s.stateNode,s};reactDom_production_min.flushSync=function(s){return Rk(s)};reactDom_production_min.hydrate=function(s,_,tt){if(!ol(_))throw Error(p$1(200));return rl(null,s,_,!0,tt)};reactDom_production_min.hydrateRoot=function(s,_,tt){if(!nl(s))throw Error(p$1(405));var at=tt!=null&&tt.hydratedSources||null,ut=!1,gt="",Rt=kl;if(tt!=null&&(tt.unstable_strictMode===!0&&(ut=!0),tt.identifierPrefix!==void 0&&(gt=tt.identifierPrefix),tt.onRecoverableError!==void 0&&(Rt=tt.onRecoverableError)),_=el(_,null,s,1,tt??null,ut,!1,gt,Rt),s[uf]=_.current,sf(s),at)for(s=0;s<at.length;s++)tt=at[s],ut=tt._getVersion,ut=ut(tt._source),_.mutableSourceEagerHydrationData==null?_.mutableSourceEagerHydrationData=[tt,ut]:_.mutableSourceEagerHydrationData.push(tt,ut);return new ml(_)};reactDom_production_min.render=function(s,_,tt){if(!ol(_))throw Error(p$1(200));return rl(null,s,_,!1,tt)};reactDom_production_min.unmountComponentAtNode=function(s){if(!ol(s))throw Error(p$1(40));return s._reactRootContainer?(Rk(function(){rl(null,null,s,!1,function(){s._reactRootContainer=null,s[uf]=null})}),!0):!1};reactDom_production_min.unstable_batchedUpdates=Qk;reactDom_production_min.unstable_renderSubtreeIntoContainer=function(s,_,tt,at){if(!ol(tt))throw Error(p$1(200));if(s==null||s._reactInternals===void 0)throw Error(p$1(38));return rl(s,_,tt,!1,at)};reactDom_production_min.version="18.3.1-next-f1338f8080-20240426";function checkDCE(){if(!(typeof __REACT_DEVTOOLS_GLOBAL_HOOK__>"u"||typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE!="function"))try{__REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE(checkDCE)}catch(s){console.error(s)}}checkDCE(),reactDom.exports=reactDom_production_min;var reactDomExports=reactDom.exports;function Transitioner(){const s=useRouter(),_=reactExports.useRef({router:s,mounted:!1}),tt=useRouterState({select:rt=>pick(rt,["isLoading","location","resolvedLocation","isTransitioning"])}),[at,ut]=reactExports.useTransition(),gt=useRouterState({select:rt=>rt.matches.some(i=>i.status==="pending")}),Rt=usePrevious$1(tt.isLoading),Ct=tt.isLoading||at||gt,lt=usePrevious$1(Ct);return s.isServer||(s.startReactTransition=ut),reactExports.useEffect(()=>{const rt=s.history.subscribe(s.load),i=s.buildLocation({to:s.latestLocation.pathname,search:!0,params:!0,hash:!0,state:!0});return trimPathRight(s.latestLocation.href)!==trimPathRight(i.href)&&s.commitLocation({...i,replace:!0}),()=>{rt()}},[s,s.history]),useLayoutEffect$1(()=>{var rt;if(typeof window<"u"&&((rt=window.__TSR__)!=null&&rt.dehydrated)||_.current.router===s&&_.current.mounted)return;_.current={router:s,mounted:!0},(async()=>{try{await s.load()}catch(it){console.error(it)}})()},[s]),useLayoutEffect$1(()=>{if(Rt&&!tt.isLoading){const rt=s.state.location,i=s.state.resolvedLocation,it=i.href!==rt.href;s.emit({type:"onLoad",fromLocation:i,toLocation:rt,pathChanged:it})}},[Rt,s,tt.isLoading]),useLayoutEffect$1(()=>{if(lt&&!Ct){const rt=s.state.location,i=s.state.resolvedLocation,it=i.href!==rt.href;if(s.emit({type:"onResolved",fromLocation:i,toLocation:rt,pathChanged:it}),s.__store.setState(dt=>({...dt,status:"idle",resolvedLocation:dt.location})),typeof document<"u"&&document.querySelector&&s.state.location.hash!==""){const dt=document.getElementById(s.state.location.hash);dt&&dt.scrollIntoView()}}},[Ct,lt,s]),null}function SafeFragment(s){return jsxRuntimeExports.jsx(jsxRuntimeExports.Fragment,{children:s.children})}function renderRouteNotFound(s,_,tt){return _.options.notFoundComponent?jsxRuntimeExports.jsx(_.options.notFoundComponent,{data:tt}):s.options.defaultNotFoundComponent?jsxRuntimeExports.jsx(s.options.defaultNotFoundComponent,{data:tt}):jsxRuntimeExports.jsx(DefaultGlobalNotFound,{})}const Match=reactExports.memo(function({matchId:_}){var tt,at;const ut=useRouter(),gt=useRouterState({select:_t=>{var Pt;return(Pt=_t.matches.find(It=>It.id===_))==null?void 0:Pt.routeId}});invariant(gt);const Rt=ut.routesById[gt],Ct=Rt.options.pendingComponent??ut.options.defaultPendingComponent,lt=Ct?jsxRuntimeExports.jsx(Ct,{}):null,rt=Rt.options.errorComponent??ut.options.defaultErrorComponent,i=Rt.options.onCatch??ut.options.defaultOnCatch,it=Rt.isRoot?Rt.options.notFoundComponent??((tt=ut.options.notFoundRoute)==null?void 0:tt.options.component):Rt.options.notFoundComponent,dt=(!Rt.isRoot||Rt.options.wrapInSuspense)&&(Rt.options.wrapInSuspense??Ct??((at=Rt.options.errorComponent)==null?void 0:at.preload))?reactExports.Suspense:SafeFragment,mt=rt?CatchBoundary:SafeFragment,ft=it?CatchNotFound:SafeFragment,ht=useRouterState({select:_t=>_t.loadedAt});return jsxRuntimeExports.jsx(matchContext.Provider,{value:_,children:jsxRuntimeExports.jsx(dt,{fallback:lt,children:jsxRuntimeExports.jsx(mt,{getResetKey:()=>ht,errorComponent:rt||ErrorComponent,onCatch:(_t,Pt)=>{if(isNotFound(_t))throw _t;i==null||i(_t,Pt)},children:jsxRuntimeExports.jsx(ft,{fallback:_t=>{if(!it||_t.routeId&&_t.routeId!==gt||!_t.routeId&&!Rt.isRoot)throw _t;return reactExports.createElement(it,_t)},children:jsxRuntimeExports.jsx(MatchInner,{matchId:_})})})})})}),MatchInner=reactExports.memo(function({matchId:_}){var tt,at,ut;const gt=useRouter(),{match:Rt,matchIndex:Ct,routeId:lt}=useRouterState({select:dt=>{const mt=dt.matches.findIndex(_t=>_t.id===_),ft=dt.matches[mt];return{routeId:ft.routeId,matchIndex:mt,match:pick(ft,["id","status","error","loadPromise"])}}}),rt=gt.routesById[lt],i=reactExports.useMemo(()=>{const dt=rt.options.component??gt.options.defaultComponent;return dt?jsxRuntimeExports.jsx(dt,{},lt):jsxRuntimeExports.jsx(Outlet,{})},[lt,rt.options.component,gt.options.defaultComponent]),it=(rt.options.errorComponent??gt.options.defaultErrorComponent)||ErrorComponent;if(Rt.status==="notFound"){let dt;return isServerSideError(Rt.error)?dt=(((tt=gt.options.errorSerializer)==null?void 0:tt.deserialize)??defaultDeserializeError)(Rt.error.data):dt=Rt.error,invariant(isNotFound(dt)),renderRouteNotFound(gt,rt,dt)}if(Rt.status==="redirected")throw invariant(isRedirect(Rt.error)),Rt.loadPromise;if(Rt.status==="error"){if(gt.isServer)return jsxRuntimeExports.jsx(it,{error:Rt.error,info:{componentStack:""}});throw isServerSideError(Rt.error)?(((at=gt.options.errorSerializer)==null?void 0:at.deserialize)??defaultDeserializeError)(Rt.error.data):Rt.error}if(Rt.status==="pending"){const dt=rt.options.pendingMinMs??gt.options.defaultPendingMinMs;if(dt&&!((ut=gt.getMatch(Rt.id))!=null&&ut.minPendingPromise)&&!gt.isServer){const mt=createControlledPromise();Promise.resolve().then(()=>{gt.updateMatch(Rt.id,ft=>({...ft,minPendingPromise:mt}))}),setTimeout(()=>{mt.resolve(),gt.updateMatch(Rt.id,ft=>({...ft,minPendingPromise:void 0}))},dt)}throw Rt.loadPromise}return jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment,{children:[i,gt.AfterEachMatch?jsxRuntimeExports.jsx(gt.AfterEachMatch,{match:Rt,matchIndex:Ct}):null]})}),Outlet=reactExports.memo(function(){const _=useRouter(),tt=reactExports.useContext(matchContext),at=useRouterState({select:rt=>{var i;return(i=rt.matches.find(it=>it.id===tt))==null?void 0:i.routeId}}),ut=_.routesById[at],{parentGlobalNotFound:gt}=useRouterState({select:rt=>{const it=rt.matches.find(dt=>dt.id===tt);return invariant(it),{parentGlobalNotFound:it.globalNotFound}}}),Rt=useRouterState({select:rt=>{var i;const it=rt.matches,dt=it.findIndex(mt=>mt.id===tt);return(i=it[dt+1])==null?void 0:i.id}});if(gt)return renderRouteNotFound(_,ut,void 0);if(!Rt)return null;const Ct=jsxRuntimeExports.jsx(Match,{matchId:Rt}),lt=_.options.defaultPendingComponent?jsxRuntimeExports.jsx(_.options.defaultPendingComponent,{}):null;return tt===rootRouteId?jsxRuntimeExports.jsx(reactExports.Suspense,{fallback:lt,children:Ct}):Ct});function Matches(){const s=useRouter(),_=s.options.defaultPendingComponent?jsxRuntimeExports.jsx(s.options.defaultPendingComponent,{}):null,tt=s.isServer||typeof document<"u"&&window.__TSR__?SafeFragment:reactExports.Suspense,at=jsxRuntimeExports.jsxs(tt,{fallback:_,children:[jsxRuntimeExports.jsx(Transitioner,{}),jsxRuntimeExports.jsx(MatchesInner,{})]});return s.options.InnerWrap?jsxRuntimeExports.jsx(s.options.InnerWrap,{children:at}):at}function MatchesInner(){const s=useRouterState({select:tt=>{var at;return(at=tt.matches[0])==null?void 0:at.id}}),_=useRouterState({select:tt=>tt.loadedAt});return jsxRuntimeExports.jsx(matchContext.Provider,{value:s,children:jsxRuntimeExports.jsx(CatchBoundary,{getResetKey:()=>_,errorComponent:ErrorComponent,onCatch:tt=>{tt.message||tt.toString()},children:s?jsxRuntimeExports.jsx(Match,{matchId:s}):null})})}function RouterContextProvider({router:s,children:_,...tt}){s.update({...s.options,...tt,context:{...s.options.context,...tt.context}});const at=getRouterContext(),ut=jsxRuntimeExports.jsx(at.Provider,{value:s,children:_});return s.options.Wrap?jsxRuntimeExports.jsx(s.options.Wrap,{children:ut}):ut}function RouterProvider({router:s,..._}){return jsxRuntimeExports.jsx(RouterContextProvider,{router:s,..._,children:jsxRuntimeExports.jsx(Matches,{})})}var client$1={},m$1=reactDomExports;client$1.createRoot=m$1.createRoot,client$1.hydrateRoot=m$1.hydrateRoot;var Subscribable=class{constructor(){this.listeners=new Set,this.subscribe=this.subscribe.bind(this)}subscribe(s){return this.listeners.add(s),this.onSubscribe(),()=>{this.listeners.delete(s),this.onUnsubscribe()}}hasListeners(){return this.listeners.size>0}onSubscribe(){}onUnsubscribe(){}},isServer=typeof window>"u"||"Deno"in globalThis;function noop$2(){}function functionalUpdate(s,_){return typeof s=="function"?s(_):s}function isValidTimeout(s){return typeof s=="number"&&s>=0&&s!==1/0}function timeUntilStale(s,_){return Math.max(s+(_||0)-Date.now(),0)}function resolveStaleTime(s,_){return typeof s=="function"?s(_):s}function resolveEnabled(s,_){return typeof s=="function"?s(_):s}function matchQuery(s,_){const{type:tt="all",exact:at,fetchStatus:ut,predicate:gt,queryKey:Rt,stale:Ct}=s;if(Rt){if(at){if(_.queryHash!==hashQueryKeyByOptions(Rt,_.options))return!1}else if(!partialMatchKey(_.queryKey,Rt))return!1}if(tt!=="all"){const lt=_.isActive();if(tt==="active"&&!lt||tt==="inactive"&&lt)return!1}return!(typeof Ct=="boolean"&&_.isStale()!==Ct||ut&&ut!==_.state.fetchStatus||gt&&!gt(_))}function matchMutation(s,_){const{exact:tt,status:at,predicate:ut,mutationKey:gt}=s;if(gt){if(!_.options.mutationKey)return!1;if(tt){if(hashKey(_.options.mutationKey)!==hashKey(gt))return!1}else if(!partialMatchKey(_.options.mutationKey,gt))return!1}return!(at&&_.state.status!==at||ut&&!ut(_))}function hashQueryKeyByOptions(s,_){return((_==null?void 0:_.queryKeyHashFn)||hashKey)(s)}function hashKey(s){return JSON.stringify(s,(_,tt)=>isPlainObject(tt)?Object.keys(tt).sort().reduce((at,ut)=>(at[ut]=tt[ut],at),{}):tt)}function partialMatchKey(s,_){return s===_?!0:typeof s!=typeof _?!1:s&&_&&typeof s=="object"&&typeof _=="object"?!Object.keys(_).some(tt=>!partialMatchKey(s[tt],_[tt])):!1}function replaceEqualDeep(s,_){if(s===_)return s;const tt=isPlainArray(s)&&isPlainArray(_);if(tt||isPlainObject(s)&&isPlainObject(_)){const at=tt?s:Object.keys(s),ut=at.length,gt=tt?_:Object.keys(_),Rt=gt.length,Ct=tt?[]:{};let lt=0;for(let rt=0;rt<Rt;rt++){const i=tt?rt:gt[rt];(!tt&&at.includes(i)||tt)&&s[i]===void 0&&_[i]===void 0?(Ct[i]=void 0,lt++):(Ct[i]=replaceEqualDeep(s[i],_[i]),Ct[i]===s[i]&&s[i]!==void 0&&lt++)}return ut===Rt&&lt===ut?s:Ct}return _}function isPlainArray(s){return Array.isArray(s)&&s.length===Object.keys(s).length}function isPlainObject(s){if(!hasObjectPrototype(s))return!1;const _=s.constructor;if(_===void 0)return!0;const tt=_.prototype;return!(!hasObjectPrototype(tt)||!tt.hasOwnProperty("isPrototypeOf")||Object.getPrototypeOf(s)!==Object.prototype)}function hasObjectPrototype(s){return Object.prototype.toString.call(s)==="[object Object]"}function sleep(s){return new Promise(_=>{setTimeout(_,s)})}function replaceData(s,_,tt){return typeof tt.structuralSharing=="function"?tt.structuralSharing(s,_):tt.structuralSharing!==!1?replaceEqualDeep(s,_):_}function addToEnd(s,_,tt=0){const at=[...s,_];return tt&&at.length>tt?at.slice(1):at}function addToStart(s,_,tt=0){const at=[_,...s];return tt&&at.length>tt?at.slice(0,-1):at}var skipToken=Symbol();function ensureQueryFn(s,_){return!s.queryFn&&(_!=null&&_.initialPromise)?()=>_.initialPromise:!s.queryFn||s.queryFn===skipToken?()=>Promise.reject(new Error(`Missing queryFn: '${s.queryHash}'`)):s.queryFn}var jw,c1,FC,t2,FocusManager=(t2=class extends Subscribable{constructor(){super();Mp(this,jw);Mp(this,c1);Mp(this,FC);Hu(this,FC,_=>{if(!isServer&&window.addEventListener){const tt=()=>_();return window.addEventListener("visibilitychange",tt,!1),()=>{window.removeEventListener("visibilitychange",tt)}}})}onSubscribe(){_s(this,c1)||this.setEventListener(_s(this,FC))}onUnsubscribe(){var _;this.hasListeners()||((_=_s(this,c1))==null||_.call(this),Hu(this,c1,void 0))}setEventListener(_){var tt;Hu(this,FC,_),(tt=_s(this,c1))==null||tt.call(this),Hu(this,c1,_(at=>{typeof at=="boolean"?this.setFocused(at):this.onFocus()}))}setFocused(_){_s(this,jw)!==_&&(Hu(this,jw,_),this.onFocus())}onFocus(){const _=this.isFocused();this.listeners.forEach(tt=>{tt(_)})}isFocused(){var _;return typeof _s(this,jw)=="boolean"?_s(this,jw):((_=globalThis.document)==null?void 0:_.visibilityState)!=="hidden"}},jw=new WeakMap,c1=new WeakMap,FC=new WeakMap,t2),focusManager=new FocusManager,KC,d1,WC,n2,OnlineManager=(n2=class extends Subscribable{constructor(){super();Mp(this,KC,!0);Mp(this,d1);Mp(this,WC);Hu(this,WC,_=>{if(!isServer&&window.addEventListener){const tt=()=>_(!0),at=()=>_(!1);return window.addEventListener("online",tt,!1),window.addEventListener("offline",at,!1),()=>{window.removeEventListener("online",tt),window.removeEventListener("offline",at)}}})}onSubscribe(){_s(this,d1)||this.setEventListener(_s(this,WC))}onUnsubscribe(){var _;this.hasListeners()||((_=_s(this,d1))==null||_.call(this),Hu(this,d1,void 0))}setEventListener(_){var tt;Hu(this,WC,_),(tt=_s(this,d1))==null||tt.call(this),Hu(this,d1,_(this.setOnline.bind(this)))}setOnline(_){_s(this,KC)!==_&&(Hu(this,KC,_),this.listeners.forEach(at=>{at(_)}))}isOnline(){return _s(this,KC)}},KC=new WeakMap,d1=new WeakMap,WC=new WeakMap,n2),onlineManager=new OnlineManager;function defaultRetryDelay(s){return Math.min(1e3*2**s,3e4)}function canFetch(s){return(s??"online")==="online"?onlineManager.isOnline():!0}var CancelledError=class extends Error{constructor(s){super("CancelledError"),this.revert=s==null?void 0:s.revert,this.silent=s==null?void 0:s.silent}};function isCancelledError(s){return s instanceof CancelledError}function createRetryer(s){let _=!1,tt=0,at=!1,ut,gt,Rt;const Ct=new Promise((Pt,It)=>{gt=Pt,Rt=It}),lt=Pt=>{var It;at||(ft(new CancelledError(Pt)),(It=s.abort)==null||It.call(s))},rt=()=>{_=!0},i=()=>{_=!1},it=()=>focusManager.isFocused()&&(s.networkMode==="always"||onlineManager.isOnline())&&s.canRun(),dt=()=>canFetch(s.networkMode)&&s.canRun(),mt=Pt=>{var It;at||(at=!0,(It=s.onSuccess)==null||It.call(s,Pt),ut==null||ut(),gt(Pt))},ft=Pt=>{var It;at||(at=!0,(It=s.onError)==null||It.call(s,Pt),ut==null||ut(),Rt(Pt))},ht=()=>new Promise(Pt=>{var It;ut=wt=>{(at||it())&&Pt(wt)},(It=s.onPause)==null||It.call(s)}).then(()=>{var Pt;ut=void 0,at||(Pt=s.onContinue)==null||Pt.call(s)}),_t=()=>{if(at)return;let Pt;const It=tt===0?s.initialPromise:void 0;try{Pt=It??s.fn()}catch(wt){Pt=Promise.reject(wt)}Promise.resolve(Pt).then(mt).catch(wt=>{var bt;if(at)return;const xt=s.retry??(isServer?0:3),pt=s.retryDelay??defaultRetryDelay,vt=typeof pt=="function"?pt(tt,wt):pt,Tt=xt===!0||typeof xt=="number"&&tt<xt||typeof xt=="function"&&xt(tt,wt);if(_||!Tt){ft(wt);return}tt++,(bt=s.onFail)==null||bt.call(s,tt,wt),sleep(vt).then(()=>it()?void 0:ht()).then(()=>{_?ft(wt):_t()})})};return{promise:Ct,cancel:lt,continue:()=>(ut==null||ut(),Ct),cancelRetry:rt,continueRetry:i,canStart:dt,start:()=>(dt()?_t():ht().then(_t),Ct)}}function createNotifyManager(){let s=[],_=0,tt=dt=>{dt()},at=dt=>{dt()},ut=dt=>setTimeout(dt,0);const gt=dt=>{ut=dt},Rt=dt=>{let mt;_++;try{mt=dt()}finally{_--,_||rt()}return mt},Ct=dt=>{_?s.push(dt):ut(()=>{tt(dt)})},lt=dt=>(...mt)=>{Ct(()=>{dt(...mt)})},rt=()=>{const dt=s;s=[],dt.length&&ut(()=>{at(()=>{dt.forEach(mt=>{tt(mt)})})})};return{batch:Rt,batchCalls:lt,schedule:Ct,setNotifyFunction:dt=>{tt=dt},setBatchNotifyFunction:dt=>{at=dt},setScheduler:gt}}var notifyManager=createNotifyManager(),Uw,r2,Removable=(r2=class{constructor(){Mp(this,Uw)}destroy(){this.clearGcTimeout()}scheduleGc(){this.clearGcTimeout(),isValidTimeout(this.gcTime)&&Hu(this,Uw,setTimeout(()=>{this.optionalRemove()},this.gcTime))}updateGcTime(s){this.gcTime=Math.max(this.gcTime||0,s??(isServer?1/0:5*60*1e3))}clearGcTimeout(){_s(this,Uw)&&(clearTimeout(_s(this,Uw)),Hu(this,Uw,void 0))}},Uw=new WeakMap,r2),HC,VC,By,Rv,rO,Nw,v_,nE,a2,Query=(a2=class extends Removable{constructor(_){super();Mp(this,v_);Mp(this,HC);Mp(this,VC);Mp(this,By);Mp(this,Rv);Mp(this,rO);Mp(this,Nw);Hu(this,Nw,!1),Hu(this,rO,_.defaultOptions),this.setOptions(_.options),this.observers=[],Hu(this,By,_.cache),this.queryKey=_.queryKey,this.queryHash=_.queryHash,Hu(this,HC,getDefaultState$1(this.options)),this.state=_.state??_s(this,HC),this.scheduleGc()}get meta(){return this.options.meta}get promise(){var _;return(_=_s(this,Rv))==null?void 0:_.promise}setOptions(_){this.options={..._s(this,rO),..._},this.updateGcTime(this.options.gcTime)}optionalRemove(){!this.observers.length&&this.state.fetchStatus==="idle"&&_s(this,By).remove(this)}setData(_,tt){const at=replaceData(this.state.data,_,this.options);return Mv(this,v_,nE).call(this,{data:at,type:"success",dataUpdatedAt:tt==null?void 0:tt.updatedAt,manual:tt==null?void 0:tt.manual}),at}setState(_,tt){Mv(this,v_,nE).call(this,{type:"setState",state:_,setStateOptions:tt})}cancel(_){var at,ut;const tt=(at=_s(this,Rv))==null?void 0:at.promise;return(ut=_s(this,Rv))==null||ut.cancel(_),tt?tt.then(noop$2).catch(noop$2):Promise.resolve()}destroy(){super.destroy(),this.cancel({silent:!0})}reset(){this.destroy(),this.setState(_s(this,HC))}isActive(){return this.observers.some(_=>resolveEnabled(_.options.enabled,this)!==!1)}isDisabled(){return this.getObserversCount()>0&&!this.isActive()}isStale(){return this.state.isInvalidated?!0:this.getObserversCount()>0?this.observers.some(_=>_.getCurrentResult().isStale):this.state.data===void 0}isStaleByTime(_=0){return this.state.isInvalidated||this.state.data===void 0||!timeUntilStale(this.state.dataUpdatedAt,_)}onFocus(){var tt;const _=this.observers.find(at=>at.shouldFetchOnWindowFocus());_==null||_.refetch({cancelRefetch:!1}),(tt=_s(this,Rv))==null||tt.continue()}onOnline(){var tt;const _=this.observers.find(at=>at.shouldFetchOnReconnect());_==null||_.refetch({cancelRefetch:!1}),(tt=_s(this,Rv))==null||tt.continue()}addObserver(_){this.observers.includes(_)||(this.observers.push(_),this.clearGcTimeout(),_s(this,By).notify({type:"observerAdded",query:this,observer:_}))}removeObserver(_){this.observers.includes(_)&&(this.observers=this.observers.filter(tt=>tt!==_),this.observers.length||(_s(this,Rv)&&(_s(this,Nw)?_s(this,Rv).cancel({revert:!0}):_s(this,Rv).cancelRetry()),this.scheduleGc()),_s(this,By).notify({type:"observerRemoved",query:this,observer:_}))}getObserversCount(){return this.observers.length}invalidate(){this.state.isInvalidated||Mv(this,v_,nE).call(this,{type:"invalidate"})}fetch(_,tt){var lt,rt,i;if(this.state.fetchStatus!=="idle"){if(this.state.data!==void 0&&(tt!=null&&tt.cancelRefetch))this.cancel({silent:!0});else if(_s(this,Rv))return _s(this,Rv).continueRetry(),_s(this,Rv).promise}if(_&&this.setOptions(_),!this.options.queryFn){const it=this.observers.find(dt=>dt.options.queryFn);it&&this.setOptions(it.options)}const at=new AbortController,ut=it=>{Object.defineProperty(it,"signal",{enumerable:!0,get:()=>(Hu(this,Nw,!0),at.signal)})},gt=()=>{const it=ensureQueryFn(this.options,tt),dt={queryKey:this.queryKey,meta:this.meta};return ut(dt),Hu(this,Nw,!1),this.options.persister?this.options.persister(it,dt,this):it(dt)},Rt={fetchOptions:tt,options:this.options,queryKey:this.queryKey,state:this.state,fetchFn:gt};ut(Rt),(lt=this.options.behavior)==null||lt.onFetch(Rt,this),Hu(this,VC,this.state),(this.state.fetchStatus==="idle"||this.state.fetchMeta!==((rt=Rt.fetchOptions)==null?void 0:rt.meta))&&Mv(this,v_,nE).call(this,{type:"fetch",meta:(i=Rt.fetchOptions)==null?void 0:i.meta});const Ct=it=>{var dt,mt,ft,ht;isCancelledError(it)&&it.silent||Mv(this,v_,nE).call(this,{type:"error",error:it}),isCancelledError(it)||((mt=(dt=_s(this,By).config).onError)==null||mt.call(dt,it,this),(ht=(ft=_s(this,By).config).onSettled)==null||ht.call(ft,this.state.data,it,this)),this.isFetchingOptimistic||this.scheduleGc(),this.isFetchingOptimistic=!1};return Hu(this,Rv,createRetryer({initialPromise:tt==null?void 0:tt.initialPromise,fn:Rt.fetchFn,abort:at.abort.bind(at),onSuccess:it=>{var dt,mt,ft,ht;if(it===void 0){Ct(new Error(`${this.queryHash} data is undefined`));return}try{this.setData(it)}catch(_t){Ct(_t);return}(mt=(dt=_s(this,By).config).onSuccess)==null||mt.call(dt,it,this),(ht=(ft=_s(this,By).config).onSettled)==null||ht.call(ft,it,this.state.error,this),this.isFetchingOptimistic||this.scheduleGc(),this.isFetchingOptimistic=!1},onError:Ct,onFail:(it,dt)=>{Mv(this,v_,nE).call(this,{type:"failed",failureCount:it,error:dt})},onPause:()=>{Mv(this,v_,nE).call(this,{type:"pause"})},onContinue:()=>{Mv(this,v_,nE).call(this,{type:"continue"})},retry:Rt.options.retry,retryDelay:Rt.options.retryDelay,networkMode:Rt.options.networkMode,canRun:()=>!0})),_s(this,Rv).start()}},HC=new WeakMap,VC=new WeakMap,By=new WeakMap,Rv=new WeakMap,rO=new WeakMap,Nw=new WeakMap,v_=new WeakSet,nE=function(_){const tt=at=>{switch(_.type){case"failed":return{...at,fetchFailureCount:_.failureCount,fetchFailureReason:_.error};case"pause":return{...at,fetchStatus:"paused"};case"continue":return{...at,fetchStatus:"fetching"};case"fetch":return{...at,...fetchState(at.data,this.options),fetchMeta:_.meta??null};case"success":return{...at,data:_.data,dataUpdateCount:at.dataUpdateCount+1,dataUpdatedAt:_.dataUpdatedAt??Date.now(),error:null,isInvalidated:!1,status:"success",...!_.manual&&{fetchStatus:"idle",fetchFailureCount:0,fetchFailureReason:null}};case"error":const ut=_.error;return isCancelledError(ut)&&ut.revert&&_s(this,VC)?{..._s(this,VC),fetchStatus:"idle"}:{...at,error:ut,errorUpdateCount:at.errorUpdateCount+1,errorUpdatedAt:Date.now(),fetchFailureCount:at.fetchFailureCount+1,fetchFailureReason:ut,fetchStatus:"idle",status:"error"};case"invalidate":return{...at,isInvalidated:!0};case"setState":return{...at,..._.state}}};this.state=tt(this.state),notifyManager.batch(()=>{this.observers.forEach(at=>{at.onQueryUpdate()}),_s(this,By).notify({query:this,type:"updated",action:_})})},a2);function fetchState(s,_){return{fetchFailureCount:0,fetchFailureReason:null,fetchStatus:canFetch(_.networkMode)?"fetching":"paused",...s===void 0&&{error:null,status:"pending"}}}function getDefaultState$1(s){const _=typeof s.initialData=="function"?s.initialData():s.initialData,tt=_!==void 0,at=tt?typeof s.initialDataUpdatedAt=="function"?s.initialDataUpdatedAt():s.initialDataUpdatedAt:0;return{data:_,dataUpdateCount:0,dataUpdatedAt:tt?at??Date.now():0,error:null,errorUpdateCount:0,errorUpdatedAt:0,fetchFailureCount:0,fetchFailureReason:null,fetchMeta:null,isInvalidated:!1,status:tt?"success":"pending",fetchStatus:"idle"}}var l0,o2,QueryCache=(o2=class extends Subscribable{constructor(_={}){super();Mp(this,l0);this.config=_,Hu(this,l0,new Map)}build(_,tt,at){const ut=tt.queryKey,gt=tt.queryHash??hashQueryKeyByOptions(ut,tt);let Rt=this.get(gt);return Rt||(Rt=new Query({cache:this,queryKey:ut,queryHash:gt,options:_.defaultQueryOptions(tt),state:at,defaultOptions:_.getQueryDefaults(ut)}),this.add(Rt)),Rt}add(_){_s(this,l0).has(_.queryHash)||(_s(this,l0).set(_.queryHash,_),this.notify({type:"added",query:_}))}remove(_){const tt=_s(this,l0).get(_.queryHash);tt&&(_.destroy(),tt===_&&_s(this,l0).delete(_.queryHash),this.notify({type:"removed",query:_}))}clear(){notifyManager.batch(()=>{this.getAll().forEach(_=>{this.remove(_)})})}get(_){return _s(this,l0).get(_)}getAll(){return[..._s(this,l0).values()]}find(_){const tt={exact:!0,..._};return this.getAll().find(at=>matchQuery(tt,at))}findAll(_={}){const tt=this.getAll();return Object.keys(_).length>0?tt.filter(at=>matchQuery(_,at)):tt}notify(_){notifyManager.batch(()=>{this.listeners.forEach(tt=>{tt(_)})})}onFocus(){notifyManager.batch(()=>{this.getAll().forEach(_=>{_.onFocus()})})}onOnline(){notifyManager.batch(()=>{this.getAll().forEach(_=>{_.onOnline()})})}},l0=new WeakMap,o2),u0,Gv,Bw,c0,u1,i2,Mutation=(i2=class extends Removable{constructor(_){super();Mp(this,c0);Mp(this,u0);Mp(this,Gv);Mp(this,Bw);this.mutationId=_.mutationId,Hu(this,Gv,_.mutationCache),Hu(this,u0,[]),this.state=_.state||getDefaultState(),this.setOptions(_.options),this.scheduleGc()}setOptions(_){this.options=_,this.updateGcTime(this.options.gcTime)}get meta(){return this.options.meta}addObserver(_){_s(this,u0).includes(_)||(_s(this,u0).push(_),this.clearGcTimeout(),_s(this,Gv).notify({type:"observerAdded",mutation:this,observer:_}))}removeObserver(_){Hu(this,u0,_s(this,u0).filter(tt=>tt!==_)),this.scheduleGc(),_s(this,Gv).notify({type:"observerRemoved",mutation:this,observer:_})}optionalRemove(){_s(this,u0).length||(this.state.status==="pending"?this.scheduleGc():_s(this,Gv).remove(this))}continue(){var _;return((_=_s(this,Bw))==null?void 0:_.continue())??this.execute(this.state.variables)}async execute(_){var ut,gt,Rt,Ct,lt,rt,i,it,dt,mt,ft,ht,_t,Pt,It,wt,xt,pt,vt,Tt;Hu(this,Bw,createRetryer({fn:()=>this.options.mutationFn?this.options.mutationFn(_):Promise.reject(new Error("No mutationFn found")),onFail:(bt,st)=>{Mv(this,c0,u1).call(this,{type:"failed",failureCount:bt,error:st})},onPause:()=>{Mv(this,c0,u1).call(this,{type:"pause"})},onContinue:()=>{Mv(this,c0,u1).call(this,{type:"continue"})},retry:this.options.retry??0,retryDelay:this.options.retryDelay,networkMode:this.options.networkMode,canRun:()=>_s(this,Gv).canRun(this)}));const tt=this.state.status==="pending",at=!_s(this,Bw).canStart();try{if(!tt){Mv(this,c0,u1).call(this,{type:"pending",variables:_,isPaused:at}),await((gt=(ut=_s(this,Gv).config).onMutate)==null?void 0:gt.call(ut,_,this));const st=await((Ct=(Rt=this.options).onMutate)==null?void 0:Ct.call(Rt,_));st!==this.state.context&&Mv(this,c0,u1).call(this,{type:"pending",context:st,variables:_,isPaused:at})}const bt=await _s(this,Bw).start();return await((rt=(lt=_s(this,Gv).config).onSuccess)==null?void 0:rt.call(lt,bt,_,this.state.context,this)),await((it=(i=this.options).onSuccess)==null?void 0:it.call(i,bt,_,this.state.context)),await((mt=(dt=_s(this,Gv).config).onSettled)==null?void 0:mt.call(dt,bt,null,this.state.variables,this.state.context,this)),await((ht=(ft=this.options).onSettled)==null?void 0:ht.call(ft,bt,null,_,this.state.context)),Mv(this,c0,u1).call(this,{type:"success",data:bt}),bt}catch(bt){try{throw await((Pt=(_t=_s(this,Gv).config).onError)==null?void 0:Pt.call(_t,bt,_,this.state.context,this)),await((wt=(It=this.options).onError)==null?void 0:wt.call(It,bt,_,this.state.context)),await((pt=(xt=_s(this,Gv).config).onSettled)==null?void 0:pt.call(xt,void 0,bt,this.state.variables,this.state.context,this)),await((Tt=(vt=this.options).onSettled)==null?void 0:Tt.call(vt,void 0,bt,_,this.state.context)),bt}finally{Mv(this,c0,u1).call(this,{type:"error",error:bt})}}finally{_s(this,Gv).runNext(this)}}},u0=new WeakMap,Gv=new WeakMap,Bw=new WeakMap,c0=new WeakSet,u1=function(_){const tt=at=>{switch(_.type){case"failed":return{...at,failureCount:_.failureCount,failureReason:_.error};case"pause":return{...at,isPaused:!0};case"continue":return{...at,isPaused:!1};case"pending":return{...at,context:_.context,data:void 0,failureCount:0,failureReason:null,error:null,isPaused:_.isPaused,status:"pending",variables:_.variables,submittedAt:Date.now()};case"success":return{...at,data:_.data,failureCount:0,failureReason:null,error:null,status:"success",isPaused:!1};case"error":return{...at,data:void 0,error:_.error,failureCount:at.failureCount+1,failureReason:_.error,isPaused:!1,status:"error"}}};this.state=tt(this.state),notifyManager.batch(()=>{_s(this,u0).forEach(at=>{at.onMutationUpdate(_)}),_s(this,Gv).notify({mutation:this,type:"updated",action:_})})},i2);function getDefaultState(){return{context:void 0,data:void 0,error:null,failureCount:0,failureReason:null,isPaused:!1,status:"idle",variables:void 0,submittedAt:0}}var Ey,aO,s2,MutationCache=(s2=class extends Subscribable{constructor(_={}){super();Mp(this,Ey);Mp(this,aO);this.config=_,Hu(this,Ey,new Map),Hu(this,aO,Date.now())}build(_,tt,at){const ut=new Mutation({mutationCache:this,mutationId:++tM(this,aO)._,options:_.defaultMutationOptions(tt),state:at});return this.add(ut),ut}add(_){const tt=scopeFor(_),at=_s(this,Ey).get(tt)??[];at.push(_),_s(this,Ey).set(tt,at),this.notify({type:"added",mutation:_})}remove(_){var at;const tt=scopeFor(_);if(_s(this,Ey).has(tt)){const ut=(at=_s(this,Ey).get(tt))==null?void 0:at.filter(gt=>gt!==_);ut&&(ut.length===0?_s(this,Ey).delete(tt):_s(this,Ey).set(tt,ut))}this.notify({type:"removed",mutation:_})}canRun(_){var at;const tt=(at=_s(this,Ey).get(scopeFor(_)))==null?void 0:at.find(ut=>ut.state.status==="pending");return!tt||tt===_}runNext(_){var at;const tt=(at=_s(this,Ey).get(scopeFor(_)))==null?void 0:at.find(ut=>ut!==_&&ut.state.isPaused);return(tt==null?void 0:tt.continue())??Promise.resolve()}clear(){notifyManager.batch(()=>{this.getAll().forEach(_=>{this.remove(_)})})}getAll(){return[..._s(this,Ey).values()].flat()}find(_){const tt={exact:!0,..._};return this.getAll().find(at=>matchMutation(tt,at))}findAll(_={}){return this.getAll().filter(tt=>matchMutation(_,tt))}notify(_){notifyManager.batch(()=>{this.listeners.forEach(tt=>{tt(_)})})}resumePausedMutations(){const _=this.getAll().filter(tt=>tt.state.isPaused);return notifyManager.batch(()=>Promise.all(_.map(tt=>tt.continue().catch(noop$2))))}},Ey=new WeakMap,aO=new WeakMap,s2);function scopeFor(s){var _;return((_=s.options.scope)==null?void 0:_.id)??String(s.mutationId)}function infiniteQueryBehavior(s){return{onFetch:(_,tt)=>{const at=async()=>{var ft,ht,_t,Pt,It;const ut=_.options,gt=(_t=(ht=(ft=_.fetchOptions)==null?void 0:ft.meta)==null?void 0:ht.fetchMore)==null?void 0:_t.direction,Rt=((Pt=_.state.data)==null?void 0:Pt.pages)||[],Ct=((It=_.state.data)==null?void 0:It.pageParams)||[],lt={pages:[],pageParams:[]};let rt=!1;const i=wt=>{Object.defineProperty(wt,"signal",{enumerable:!0,get:()=>(_.signal.aborted?rt=!0:_.signal.addEventListener("abort",()=>{rt=!0}),_.signal)})},it=ensureQueryFn(_.options,_.fetchOptions),dt=async(wt,xt,pt)=>{if(rt)return Promise.reject();if(xt==null&&wt.pages.length)return Promise.resolve(wt);const vt={queryKey:_.queryKey,pageParam:xt,direction:pt?"backward":"forward",meta:_.options.meta};i(vt);const Tt=await it(vt),{maxPages:bt}=_.options,st=pt?addToStart:addToEnd;return{pages:st(wt.pages,Tt,bt),pageParams:st(wt.pageParams,xt,bt)}};let mt;if(gt&&Rt.length){const wt=gt==="backward",xt=wt?getPreviousPageParam:getNextPageParam,pt={pages:Rt,pageParams:Ct},vt=xt(ut,pt);mt=await dt(pt,vt,wt)}else{mt=await dt(lt,Ct[0]??ut.initialPageParam);const wt=s??Rt.length;for(let xt=1;xt<wt;xt++){const pt=getNextPageParam(ut,mt);if(pt==null)break;mt=await dt(mt,pt)}}return mt};_.options.persister?_.fetchFn=()=>{var ut,gt;return(gt=(ut=_.options).persister)==null?void 0:gt.call(ut,at,{queryKey:_.queryKey,meta:_.options.meta,signal:_.signal},tt)}:_.fetchFn=at}}}function getNextPageParam(s,{pages:_,pageParams:tt}){const at=_.length-1;return _.length>0?s.getNextPageParam(_[at],_,tt[at],tt):void 0}function getPreviousPageParam(s,{pages:_,pageParams:tt}){var at;return _.length>0?(at=s.getPreviousPageParam)==null?void 0:at.call(s,_[0],_,tt[0],tt):void 0}var Em,p1,f1,zC,qC,m1,$C,GC,l2,QueryClient=(l2=class{constructor(s={}){Mp(this,Em);Mp(this,p1);Mp(this,f1);Mp(this,zC);Mp(this,qC);Mp(this,m1);Mp(this,$C);Mp(this,GC);Hu(this,Em,s.queryCache||new QueryCache),Hu(this,p1,s.mutationCache||new MutationCache),Hu(this,f1,s.defaultOptions||{}),Hu(this,zC,new Map),Hu(this,qC,new Map),Hu(this,m1,0)}mount(){tM(this,m1)._++,_s(this,m1)===1&&(Hu(this,$C,focusManager.subscribe(async s=>{s&&(await this.resumePausedMutations(),_s(this,Em).onFocus())})),Hu(this,GC,onlineManager.subscribe(async s=>{s&&(await this.resumePausedMutations(),_s(this,Em).onOnline())})))}unmount(){var s,_;tM(this,m1)._--,_s(this,m1)===0&&((s=_s(this,$C))==null||s.call(this),Hu(this,$C,void 0),(_=_s(this,GC))==null||_.call(this),Hu(this,GC,void 0))}isFetching(s){return _s(this,Em).findAll({...s,fetchStatus:"fetching"}).length}isMutating(s){return _s(this,p1).findAll({...s,status:"pending"}).length}getQueryData(s){var tt;const _=this.defaultQueryOptions({queryKey:s});return(tt=_s(this,Em).get(_.queryHash))==null?void 0:tt.state.data}ensureQueryData(s){const _=this.getQueryData(s.queryKey);if(_===void 0)return this.fetchQuery(s);{const tt=this.defaultQueryOptions(s),at=_s(this,Em).build(this,tt);return s.revalidateIfStale&&at.isStaleByTime(resolveStaleTime(tt.staleTime,at))&&this.prefetchQuery(tt),Promise.resolve(_)}}getQueriesData(s){return _s(this,Em).findAll(s).map(({queryKey:_,state:tt})=>{const at=tt.data;return[_,at]})}setQueryData(s,_,tt){const at=this.defaultQueryOptions({queryKey:s}),ut=_s(this,Em).get(at.queryHash),gt=ut==null?void 0:ut.state.data,Rt=functionalUpdate(_,gt);if(Rt!==void 0)return _s(this,Em).build(this,at).setData(Rt,{...tt,manual:!0})}setQueriesData(s,_,tt){return notifyManager.batch(()=>_s(this,Em).findAll(s).map(({queryKey:at})=>[at,this.setQueryData(at,_,tt)]))}getQueryState(s){var tt;const _=this.defaultQueryOptions({queryKey:s});return(tt=_s(this,Em).get(_.queryHash))==null?void 0:tt.state}removeQueries(s){const _=_s(this,Em);notifyManager.batch(()=>{_.findAll(s).forEach(tt=>{_.remove(tt)})})}resetQueries(s,_){const tt=_s(this,Em),at={type:"active",...s};return notifyManager.batch(()=>(tt.findAll(s).forEach(ut=>{ut.reset()}),this.refetchQueries(at,_)))}cancelQueries(s={},_={}){const tt={revert:!0,..._},at=notifyManager.batch(()=>_s(this,Em).findAll(s).map(ut=>ut.cancel(tt)));return Promise.all(at).then(noop$2).catch(noop$2)}invalidateQueries(s={},_={}){return notifyManager.batch(()=>{if(_s(this,Em).findAll(s).forEach(at=>{at.invalidate()}),s.refetchType==="none")return Promise.resolve();const tt={...s,type:s.refetchType??s.type??"active"};return this.refetchQueries(tt,_)})}refetchQueries(s={},_){const tt={..._,cancelRefetch:(_==null?void 0:_.cancelRefetch)??!0},at=notifyManager.batch(()=>_s(this,Em).findAll(s).filter(ut=>!ut.isDisabled()).map(ut=>{let gt=ut.fetch(void 0,tt);return tt.throwOnError||(gt=gt.catch(noop$2)),ut.state.fetchStatus==="paused"?Promise.resolve():gt}));return Promise.all(at).then(noop$2)}fetchQuery(s){const _=this.defaultQueryOptions(s);_.retry===void 0&&(_.retry=!1);const tt=_s(this,Em).build(this,_);return tt.isStaleByTime(resolveStaleTime(_.staleTime,tt))?tt.fetch(_):Promise.resolve(tt.state.data)}prefetchQuery(s){return this.fetchQuery(s).then(noop$2).catch(noop$2)}fetchInfiniteQuery(s){return s.behavior=infiniteQueryBehavior(s.pages),this.fetchQuery(s)}prefetchInfiniteQuery(s){return this.fetchInfiniteQuery(s).then(noop$2).catch(noop$2)}resumePausedMutations(){return onlineManager.isOnline()?_s(this,p1).resumePausedMutations():Promise.resolve()}getQueryCache(){return _s(this,Em)}getMutationCache(){return _s(this,p1)}getDefaultOptions(){return _s(this,f1)}setDefaultOptions(s){Hu(this,f1,s)}setQueryDefaults(s,_){_s(this,zC).set(hashKey(s),{queryKey:s,defaultOptions:_})}getQueryDefaults(s){const _=[..._s(this,zC).values()];let tt={};return _.forEach(at=>{partialMatchKey(s,at.queryKey)&&(tt={...tt,...at.defaultOptions})}),tt}setMutationDefaults(s,_){_s(this,qC).set(hashKey(s),{mutationKey:s,defaultOptions:_})}getMutationDefaults(s){const _=[..._s(this,qC).values()];let tt={};return _.forEach(at=>{partialMatchKey(s,at.mutationKey)&&(tt={...tt,...at.defaultOptions})}),tt}defaultQueryOptions(s){if(s._defaulted)return s;const _={..._s(this,f1).queries,...this.getQueryDefaults(s.queryKey),...s,_defaulted:!0};return _.queryHash||(_.queryHash=hashQueryKeyByOptions(_.queryKey,_)),_.refetchOnReconnect===void 0&&(_.refetchOnReconnect=_.networkMode!=="always"),_.throwOnError===void 0&&(_.throwOnError=!!_.suspense),!_.networkMode&&_.persister&&(_.networkMode="offlineFirst"),_.enabled!==!0&&_.queryFn===skipToken&&(_.enabled=!1),_}defaultMutationOptions(s){return s!=null&&s._defaulted?s:{..._s(this,f1).mutations,...(s==null?void 0:s.mutationKey)&&this.getMutationDefaults(s.mutationKey),...s,_defaulted:!0}}clear(){_s(this,Em).clear(),_s(this,p1).clear()}},Em=new WeakMap,p1=new WeakMap,f1=new WeakMap,zC=new WeakMap,qC=new WeakMap,m1=new WeakMap,$C=new WeakMap,GC=new WeakMap,l2),QueryClientContext=reactExports.createContext(void 0),QueryClientProvider=({client:s,children:_})=>(reactExports.useEffect(()=>(s.mount(),()=>{s.unmount()}),[s]),jsxRuntimeExports.jsx(QueryClientContext.Provider,{value:s,children:_}));const queryClient=new QueryClient,App=({router:s})=>jsxRuntimeExports.jsx(QueryClientProvider,{client:queryClient,children:jsxRuntimeExports.jsx(RouterProvider,{router:s})}),Route$3=createRootRoute();var consoleSdk={exports:{}};(function(module,exports){(function(_,tt){module.exports=tt()})(self,function(){return(()=>{var __webpack_modules__={"./src/client.ts":(__unused_webpack_module,__webpack_exports__,__webpack_require__)=>{eval(`__webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "Client": () => (/* binding */ Client),
-/* harmony export */   "AppwriteException": () => (/* binding */ AppwriteException),
+/* harmony export */   "AppcondaException": () => (/* binding */ AppcondaException),
 /* harmony export */   "Query": () => (/* reexport safe */ _query__WEBPACK_IMPORTED_MODULE_0__.Query)
 /* harmony export */ });
 /* harmony import */ var _query__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./query */ "./src/query.ts");
@@ -72,7 +72,7 @@ var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _argume
 /**
  * Exception thrown by the  package
  */
-class AppwriteException extends Error {
+class AppcondaException extends Error {
     /**
      * Initializes a Appconda Exception.
      *
@@ -83,7 +83,7 @@ class AppwriteException extends Error {
      */
     constructor(message, code = 0, type = '', response = '') {
         super(message);
-        this.name = 'AppwriteException';
+        this.name = 'AppcondaException';
         this.message = message;
         this.code = code;
         this.type = type;
@@ -480,7 +480,7 @@ class Client {
                 };
             }
             if (400 <= response.status) {
-                throw new AppwriteException(data === null || data === void 0 ? void 0 : data.message, response.status, data === null || data === void 0 ? void 0 : data.type, data);
+                throw new AppcondaException(data === null || data === void 0 ? void 0 : data.message, response.status, data === null || data === void 0 ? void 0 : data.type, data);
             }
             const cookieFallback = response.headers.get('X-Fallback-Cookies');
             if (typeof window !== 'undefined' && window.localStorage && cookieFallback) {
@@ -1574,7 +1574,7 @@ _a = ID, _ID_hexTimestamp = function _ID_hexTimestamp() {
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "Client": () => (/* reexport safe */ _client__WEBPACK_IMPORTED_MODULE_0__.Client),
 /* harmony export */   "Query": () => (/* reexport safe */ _client__WEBPACK_IMPORTED_MODULE_0__.Query),
-/* harmony export */   "AppwriteException": () => (/* reexport safe */ _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException),
+/* harmony export */   "AppcondaException": () => (/* reexport safe */ _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException),
 /* harmony export */   "Account": () => (/* reexport safe */ _services_account__WEBPACK_IMPORTED_MODULE_1__.Account),
 /* harmony export */   "Avatars": () => (/* reexport safe */ _services_avatars__WEBPACK_IMPORTED_MODULE_2__.Avatars),
 /* harmony export */   "Assistant": () => (/* reexport safe */ _services_assistant__WEBPACK_IMPORTED_MODULE_3__.Assistant),
@@ -2173,7 +2173,7 @@ class Account {
      *
      * Get the currently logged in user.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     get() {
@@ -2196,19 +2196,19 @@ class Account {
      * @param {string} email
      * @param {string} password
      * @param {string} name
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     create(userId, email, password, name) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "userId"');
             }
             if (typeof email === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "email"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "email"');
             }
             if (typeof password === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "password"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "password"');
             }
             const apiPath = '/account';
             const payload = {};
@@ -2236,7 +2236,7 @@ class Account {
      *
      * Delete the currently logged in user.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     delete() {
@@ -2259,16 +2259,16 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      *
      * @param {string} email
      * @param {string} password
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     updateEmail(email, password) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof email === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "email"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "email"');
             }
             if (typeof password === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "password"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "password"');
             }
             const apiPath = '/account/email';
             const payload = {};
@@ -2291,7 +2291,7 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      * Get the list of identities for the currently logged in user.
      *
      * @param {string[]} queries
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.IdentityList>}
      */
     listIdentities(queries) {
@@ -2314,13 +2314,13 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      * Delete an identity by its unique ID.
      *
      * @param {string} identityId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteIdentity(identityId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof identityId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "identityId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "identityId"');
             }
             const apiPath = '/account/identities/{identityId}'.replace('{identityId}', identityId);
             const payload = {};
@@ -2336,7 +2336,7 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      *
      * Use this endpoint to create a JSON Web Token. You can use the resulting JWT to authenticate on behalf of the current user when working with the Appconda server-side API and SDKs. The JWT secret is valid for 15 minutes from its creation and will be invalid if the user will logout in that time frame.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Jwt>}
      */
     createJWT() {
@@ -2356,7 +2356,7 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      * Get the list of latest security activity logs for the currently logged in user. Each log returns user IP address, location and date and time of log.
      *
      * @param {string[]} queries
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.LogList>}
      */
     listLogs(queries) {
@@ -2379,13 +2379,13 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      * Enable or disable MFA on an account.
      *
      * @param {boolean} mfa
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     updateMFA(mfa) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof mfa === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "mfa"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "mfa"');
             }
             const apiPath = '/account/mfa';
             const payload = {};
@@ -2405,13 +2405,13 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      * Add an authenticator app to be used as an MFA factor. Verify the authenticator using the [verify authenticator](/docs/references/cloud/client-web/account#updateMfaAuthenticator) method.
      *
      * @param {AuthenticatorType} type
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.MfaType>}
      */
     createMfaAuthenticator(type) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof type === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "type"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "type"');
             }
             const apiPath = '/account/mfa/authenticators/{type}'.replace('{type}', type);
             const payload = {};
@@ -2429,16 +2429,16 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      *
      * @param {AuthenticatorType} type
      * @param {string} otp
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     updateMfaAuthenticator(type, otp) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof type === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "type"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "type"');
             }
             if (typeof otp === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "otp"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "otp"');
             }
             const apiPath = '/account/mfa/authenticators/{type}'.replace('{type}', type);
             const payload = {};
@@ -2458,13 +2458,13 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      * Delete an authenticator for a user by ID.
      *
      * @param {AuthenticatorType} type
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteMfaAuthenticator(type) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof type === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "type"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "type"');
             }
             const apiPath = '/account/mfa/authenticators/{type}'.replace('{type}', type);
             const payload = {};
@@ -2481,13 +2481,13 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      * Begin the process of MFA verification after sign-in. Finish the flow with [updateMfaChallenge](/docs/references/cloud/client-web/account#updateMfaChallenge) method.
      *
      * @param {AuthenticationFactor} factor
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.MfaChallenge>}
      */
     createMfaChallenge(factor) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof factor === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "factor"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "factor"');
             }
             const apiPath = '/account/mfa/challenge';
             const payload = {};
@@ -2508,16 +2508,16 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      *
      * @param {string} challengeId
      * @param {string} otp
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     updateMfaChallenge(challengeId, otp) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof challengeId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "challengeId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "challengeId"');
             }
             if (typeof otp === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "otp"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "otp"');
             }
             const apiPath = '/account/mfa/challenge';
             const payload = {};
@@ -2539,7 +2539,7 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      *
      * List the factors available on the account to be used as a MFA challange.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.MfaFactors>}
      */
     listMfaFactors() {
@@ -2558,7 +2558,7 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      *
      * Get recovery codes that can be used as backup for MFA flow. Before getting codes, they must be generated using [createMfaRecoveryCodes](/docs/references/cloud/client-web/account#createMfaRecoveryCodes) method. An OTP challenge is required to read recovery codes.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.MfaRecoveryCodes>}
      */
     getMfaRecoveryCodes() {
@@ -2577,7 +2577,7 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      *
      * Generate recovery codes as backup for MFA flow. It&#039;s recommended to generate and show then immediately after user successfully adds their authehticator. Recovery codes can be used as a MFA verification type in [createMfaChallenge](/docs/references/cloud/client-web/account#createMfaChallenge) method.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.MfaRecoveryCodes>}
      */
     createMfaRecoveryCodes() {
@@ -2596,7 +2596,7 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      *
      * Regenerate recovery codes that can be used as backup for MFA flow. Before regenerating codes, they must be first generated using [createMfaRecoveryCodes](/docs/references/cloud/client-web/account#createMfaRecoveryCodes) method. An OTP challenge is required to regenreate recovery codes.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.MfaRecoveryCodes>}
      */
     updateMfaRecoveryCodes() {
@@ -2616,13 +2616,13 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      * Update currently logged in user account name.
      *
      * @param {string} name
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     updateName(name) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof name === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "name"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "name"');
             }
             const apiPath = '/account/name';
             const payload = {};
@@ -2643,13 +2643,13 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      *
      * @param {string} password
      * @param {string} oldPassword
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     updatePassword(password, oldPassword) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof password === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "password"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "password"');
             }
             const apiPath = '/account/password';
             const payload = {};
@@ -2673,16 +2673,16 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      *
      * @param {string} phone
      * @param {string} password
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     updatePhone(phone, password) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof phone === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "phone"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "phone"');
             }
             if (typeof password === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "password"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "password"');
             }
             const apiPath = '/account/phone';
             const payload = {};
@@ -2704,7 +2704,7 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      *
      * Get the preferences as a key-value object for the currently logged in user.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Preferences>}
      */
     getPrefs() {
@@ -2724,13 +2724,13 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      * Update currently logged in user account preferences. The object you pass is stored as is, and replaces any previous value. The maximum allowed prefs size is 64kB and throws error if exceeded.
      *
      * @param {Partial<Preferences>} prefs
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     updatePrefs(prefs) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof prefs === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "prefs"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "prefs"');
             }
             const apiPath = '/account/prefs';
             const payload = {};
@@ -2751,16 +2751,16 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      *
      * @param {string} email
      * @param {string} url
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Token>}
      */
     createRecovery(email, url) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof email === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "email"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "email"');
             }
             if (typeof url === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "url"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "url"');
             }
             const apiPath = '/account/recovery';
             const payload = {};
@@ -2787,19 +2787,19 @@ Please note that in order to avoid a [Redirect Attack](https://github.com/OWASP/
      * @param {string} userId
      * @param {string} secret
      * @param {string} password
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Token>}
      */
     updateRecovery(userId, secret, password) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "userId"');
             }
             if (typeof secret === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "secret"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "secret"');
             }
             if (typeof password === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "password"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "password"');
             }
             const apiPath = '/account/recovery';
             const payload = {};
@@ -2824,7 +2824,7 @@ Please note that in order to avoid a [Redirect Attack](https://github.com/OWASP/
      *
      * Get the list of active sessions across different devices for the currently logged in user.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.SessionList>}
      */
     listSessions() {
@@ -2843,7 +2843,7 @@ Please note that in order to avoid a [Redirect Attack](https://github.com/OWASP/
      *
      * Delete all sessions from the user account and remove any sessions cookies from the end client.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteSessions() {
@@ -2862,7 +2862,7 @@ Please note that in order to avoid a [Redirect Attack](https://github.com/OWASP/
      *
      * Use this endpoint to allow a new user to register an anonymous account in your project. This route will also create a new session for the user. To allow the new user to convert an anonymous account to a normal account, you need to update its [email and password](https://appconda.io/docs/references/cloud/client-web/account#updateEmail) or create an [OAuth2 session](https://appconda.io/docs/references/cloud/client-web/account#CreateOAuth2Session).
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Session>}
      */
     createAnonymousSession() {
@@ -2885,16 +2885,16 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
      *
      * @param {string} email
      * @param {string} password
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Session>}
      */
     createEmailPasswordSession(email, password) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof email === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "email"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "email"');
             }
             if (typeof password === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "password"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "password"');
             }
             const apiPath = '/account/sessions/email';
             const payload = {};
@@ -2918,16 +2918,16 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
      *
      * @param {string} userId
      * @param {string} secret
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Session>}
      */
     updateMagicURLSession(userId, secret) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "userId"');
             }
             if (typeof secret === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "secret"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "secret"');
             }
             const apiPath = '/account/sessions/magic-url';
             const payload = {};
@@ -2958,13 +2958,13 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
      * @param {string} success
      * @param {string} failure
      * @param {string[]} scopes
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<void | string>}
      */
     createOAuth2Session(provider, success, failure, scopes) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof provider === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "provider"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "provider"');
             }
             const apiPath = '/account/sessions/oauth2/{provider}'.replace('{provider}', provider);
             const payload = {};
@@ -3001,16 +3001,16 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
      *
      * @param {string} userId
      * @param {string} secret
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Session>}
      */
     updatePhoneSession(userId, secret) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "userId"');
             }
             if (typeof secret === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "secret"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "secret"');
             }
             const apiPath = '/account/sessions/phone';
             const payload = {};
@@ -3034,16 +3034,16 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
      *
      * @param {string} userId
      * @param {string} secret
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Session>}
      */
     createSession(userId, secret) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "userId"');
             }
             if (typeof secret === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "secret"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "secret"');
             }
             const apiPath = '/account/sessions/token';
             const payload = {};
@@ -3066,13 +3066,13 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
      * Use this endpoint to get a logged in user&#039;s session using a Session ID. Inputting &#039;current&#039; will return the current session being used.
      *
      * @param {string} sessionId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Session>}
      */
     getSession(sessionId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof sessionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "sessionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "sessionId"');
             }
             const apiPath = '/account/sessions/{sessionId}'.replace('{sessionId}', sessionId);
             const payload = {};
@@ -3089,13 +3089,13 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
      * Use this endpoint to extend a session&#039;s length. Extending a session is useful when session expiry is short. If the session was created using an OAuth provider, this endpoint refreshes the access token from the provider.
      *
      * @param {string} sessionId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Session>}
      */
     updateSession(sessionId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof sessionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "sessionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "sessionId"');
             }
             const apiPath = '/account/sessions/{sessionId}'.replace('{sessionId}', sessionId);
             const payload = {};
@@ -3112,13 +3112,13 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
      * Logout the user. Use &#039;current&#039; as the session ID to logout on this device, use a session ID to logout on another device. If you&#039;re looking to logout the user on all devices, use [Delete Sessions](https://appconda.io/docs/references/cloud/client-web/account#deleteSessions) instead.
      *
      * @param {string} sessionId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteSession(sessionId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof sessionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "sessionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "sessionId"');
             }
             const apiPath = '/account/sessions/{sessionId}'.replace('{sessionId}', sessionId);
             const payload = {};
@@ -3134,7 +3134,7 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
      *
      * Block the currently logged in user account. Behind the scene, the user record is not deleted but permanently blocked from any access. To completely delete a user, use the Users API instead.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     updateStatus() {
@@ -3155,16 +3155,16 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
      * @param {string} targetId
      * @param {string} identifier
      * @param {string} providerId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Target>}
      */
     createPushTarget(targetId, identifier, providerId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof targetId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "targetId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "targetId"');
             }
             if (typeof identifier === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "identifier"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "identifier"');
             }
             const apiPath = '/account/targets/push';
             const payload = {};
@@ -3190,16 +3190,16 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
      *
      * @param {string} targetId
      * @param {string} identifier
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Target>}
      */
     updatePushTarget(targetId, identifier) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof targetId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "targetId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "targetId"');
             }
             if (typeof identifier === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "identifier"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "identifier"');
             }
             const apiPath = '/account/targets/{targetId}/push'.replace('{targetId}', targetId);
             const payload = {};
@@ -3218,13 +3218,13 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
      *
      *
      * @param {string} targetId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deletePushTarget(targetId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof targetId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "targetId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "targetId"');
             }
             const apiPath = '/account/targets/{targetId}/push'.replace('{targetId}', targetId);
             const payload = {};
@@ -3245,16 +3245,16 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
      * @param {string} userId
      * @param {string} email
      * @param {boolean} phrase
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Token>}
      */
     createEmailToken(userId, email, phrase) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "userId"');
             }
             if (typeof email === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "email"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "email"');
             }
             const apiPath = '/account/tokens/email';
             const payload = {};
@@ -3286,16 +3286,16 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
      * @param {string} email
      * @param {string} url
      * @param {boolean} phrase
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Token>}
      */
     createMagicURLToken(userId, email, url, phrase) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "userId"');
             }
             if (typeof email === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "email"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "email"');
             }
             const apiPath = '/account/tokens/magic-url';
             const payload = {};
@@ -3331,13 +3331,13 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
      * @param {string} success
      * @param {string} failure
      * @param {string[]} scopes
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<void | string>}
      */
     createOAuth2Token(provider, success, failure, scopes) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof provider === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "provider"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "provider"');
             }
             const apiPath = '/account/tokens/oauth2/{provider}'.replace('{provider}', provider);
             const payload = {};
@@ -3376,16 +3376,16 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
      *
      * @param {string} userId
      * @param {string} phone
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Token>}
      */
     createPhoneToken(userId, phone) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "userId"');
             }
             if (typeof phone === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "phone"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "phone"');
             }
             const apiPath = '/account/tokens/phone';
             const payload = {};
@@ -3411,13 +3411,13 @@ Please note that in order to avoid a [Redirect Attack](https://github.com/OWASP/
 
      *
      * @param {string} url
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Token>}
      */
     createVerification(url) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof url === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "url"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "url"');
             }
             const apiPath = '/account/verification';
             const payload = {};
@@ -3438,16 +3438,16 @@ Please note that in order to avoid a [Redirect Attack](https://github.com/OWASP/
      *
      * @param {string} userId
      * @param {string} secret
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Token>}
      */
     updateVerification(userId, secret) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "userId"');
             }
             if (typeof secret === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "secret"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "secret"');
             }
             const apiPath = '/account/verification';
             const payload = {};
@@ -3469,7 +3469,7 @@ Please note that in order to avoid a [Redirect Attack](https://github.com/OWASP/
      *
      * Use this endpoint to send a verification SMS to the currently logged in user. This endpoint is meant for use after updating a user&#039;s phone number using the [accountUpdatePhone](https://appconda.io/docs/references/cloud/client-web/account#updatePhone) endpoint. Learn more about how to [complete the verification process](https://appconda.io/docs/references/cloud/client-web/account#updatePhoneVerification). The verification code sent to the user&#039;s phone number is valid for 15 minutes.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Token>}
      */
     createPhoneVerification() {
@@ -3490,16 +3490,16 @@ Please note that in order to avoid a [Redirect Attack](https://github.com/OWASP/
      *
      * @param {string} userId
      * @param {string} secret
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Token>}
      */
     updatePhoneVerification(userId, secret) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "userId"');
             }
             if (typeof secret === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "secret"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "secret"');
             }
             const apiPath = '/account/verification/phone';
             const payload = {};
@@ -3543,13 +3543,13 @@ class Assistant {
      *
      *
      * @param {string} prompt
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     chat(prompt) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof prompt === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "prompt"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "prompt"');
             }
             const apiPath = '/console/assistant';
             const payload = {};
@@ -3589,12 +3589,12 @@ When one dimension is specified and the other is 0, the image is scaled with pre
      * @param {number} width
      * @param {number} height
      * @param {number} quality
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {string}
      */
     getBrowser(code, width, height, quality) {
         if (typeof code === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "code"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "code"');
         }
         const apiPath = '/avatars/browsers/{code}'.replace('{code}', code);
         const payload = {};
@@ -3633,12 +3633,12 @@ When one dimension is specified and the other is 0, the image is scaled with pre
      * @param {number} width
      * @param {number} height
      * @param {number} quality
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {string}
      */
     getCreditCard(code, width, height, quality) {
         if (typeof code === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "code"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "code"');
         }
         const apiPath = '/avatars/credit-cards/{code}'.replace('{code}', code);
         const payload = {};
@@ -3673,12 +3673,12 @@ When one dimension is specified and the other is 0, the image is scaled with pre
 This endpoint does not follow HTTP redirects.
      *
      * @param {string} url
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {string}
      */
     getFavicon(url) {
         if (typeof url === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "url"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "url"');
         }
         const apiPath = '/avatars/favicon';
         const payload = {};
@@ -3711,12 +3711,12 @@ When one dimension is specified and the other is 0, the image is scaled with pre
      * @param {number} width
      * @param {number} height
      * @param {number} quality
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {string}
      */
     getFlag(code, width, height, quality) {
         if (typeof code === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "code"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "code"');
         }
         const apiPath = '/avatars/flags/{code}'.replace('{code}', code);
         const payload = {};
@@ -3755,12 +3755,12 @@ This endpoint does not follow HTTP redirects.
      * @param {string} url
      * @param {number} width
      * @param {number} height
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {string}
      */
     getImage(url, width, height) {
         if (typeof url === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "url"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "url"');
         }
         const apiPath = '/avatars/image';
         const payload = {};
@@ -3801,7 +3801,7 @@ When one dimension is specified and the other is 0, the image is scaled with pre
      * @param {number} width
      * @param {number} height
      * @param {string} background
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {string}
      */
     getInitials(name, width, height, background) {
@@ -3843,12 +3843,12 @@ When one dimension is specified and the other is 0, the image is scaled with pre
      * @param {number} size
      * @param {number} margin
      * @param {boolean} download
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {string}
      */
     getQR(text, size, margin, download) {
         if (typeof text === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "text"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "text"');
         }
         const apiPath = '/avatars/qr';
         const payload = {};
@@ -3903,7 +3903,7 @@ class Console {
      *
      * Get all Environment Variables that are relevant for the console.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.ConsoleVariables>}
      */
     variables() {
@@ -3946,7 +3946,7 @@ class Databases {
      *
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.DatabaseList>}
      */
     list(queries, search) {
@@ -3975,16 +3975,16 @@ class Databases {
      * @param {string} databaseId
      * @param {string} name
      * @param {boolean} enabled
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Database>}
      */
     create(databaseId, name, enabled) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof name === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "name"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "name"');
             }
             const apiPath = '/databases';
             const payload = {};
@@ -4009,7 +4009,7 @@ class Databases {
      *
      *
      * @param {DatabaseUsageRange} range
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.UsageDatabases>}
      */
     getUsage(range) {
@@ -4032,13 +4032,13 @@ class Databases {
      * Get a database by its unique ID. This endpoint response returns a JSON object with the database metadata.
      *
      * @param {string} databaseId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Database>}
      */
     get(databaseId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             const apiPath = '/databases/{databaseId}'.replace('{databaseId}', databaseId);
             const payload = {};
@@ -4057,16 +4057,16 @@ class Databases {
      * @param {string} databaseId
      * @param {string} name
      * @param {boolean} enabled
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Database>}
      */
     update(databaseId, name, enabled) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof name === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "name"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "name"');
             }
             const apiPath = '/databases/{databaseId}'.replace('{databaseId}', databaseId);
             const payload = {};
@@ -4089,13 +4089,13 @@ class Databases {
      * Delete a database by its unique ID. Only API keys with with databases.write scope can delete a database.
      *
      * @param {string} databaseId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     delete(databaseId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             const apiPath = '/databases/{databaseId}'.replace('{databaseId}', databaseId);
             const payload = {};
@@ -4114,13 +4114,13 @@ class Databases {
      * @param {string} databaseId
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.CollectionList>}
      */
     listCollections(databaseId, queries, search) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             const apiPath = '/databases/{databaseId}/collections'.replace('{databaseId}', databaseId);
             const payload = {};
@@ -4148,19 +4148,19 @@ class Databases {
      * @param {string[]} permissions
      * @param {boolean} documentSecurity
      * @param {boolean} enabled
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Collection>}
      */
     createCollection(databaseId, collectionId, name, permissions, documentSecurity, enabled) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof collectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "collectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "collectionId"');
             }
             if (typeof name === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "name"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "name"');
             }
             const apiPath = '/databases/{databaseId}/collections'.replace('{databaseId}', databaseId);
             const payload = {};
@@ -4193,16 +4193,16 @@ class Databases {
      *
      * @param {string} databaseId
      * @param {string} collectionId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Collection>}
      */
     getCollection(databaseId, collectionId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof collectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "collectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "collectionId"');
             }
             const apiPath = '/databases/{databaseId}/collections/{collectionId}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
             const payload = {};
@@ -4224,19 +4224,19 @@ class Databases {
      * @param {string[]} permissions
      * @param {boolean} documentSecurity
      * @param {boolean} enabled
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Collection>}
      */
     updateCollection(databaseId, collectionId, name, permissions, documentSecurity, enabled) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof collectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "collectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "collectionId"');
             }
             if (typeof name === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "name"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "name"');
             }
             const apiPath = '/databases/{databaseId}/collections/{collectionId}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
             const payload = {};
@@ -4266,16 +4266,16 @@ class Databases {
      *
      * @param {string} databaseId
      * @param {string} collectionId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteCollection(databaseId, collectionId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof collectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "collectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "collectionId"');
             }
             const apiPath = '/databases/{databaseId}/collections/{collectionId}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
             const payload = {};
@@ -4294,16 +4294,16 @@ class Databases {
      * @param {string} databaseId
      * @param {string} collectionId
      * @param {string[]} queries
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeList>}
      */
     listAttributes(databaseId, collectionId, queries) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof collectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "collectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "collectionId"');
             }
             const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
             const payload = {};
@@ -4329,22 +4329,22 @@ class Databases {
      * @param {boolean} required
      * @param {boolean} xdefault
      * @param {boolean} array
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeBoolean>}
      */
     createBooleanAttribute(databaseId, collectionId, key, required, xdefault, array) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof collectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "collectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "collectionId"');
             }
             if (typeof key === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "key"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "key"');
             }
             if (typeof required === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "required"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "required"');
             }
             const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/boolean'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
             const payload = {};
@@ -4377,25 +4377,25 @@ class Databases {
      * @param {string} key
      * @param {boolean} required
      * @param {boolean} xdefault
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeBoolean>}
      */
     updateBooleanAttribute(databaseId, collectionId, key, required, xdefault) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof collectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "collectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "collectionId"');
             }
             if (typeof key === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "key"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "key"');
             }
             if (typeof required === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "required"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "required"');
             }
             if (typeof xdefault === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "xdefault"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "xdefault"');
             }
             const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/boolean/{key}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{key}', key);
             const payload = {};
@@ -4423,22 +4423,22 @@ class Databases {
      * @param {boolean} required
      * @param {string} xdefault
      * @param {boolean} array
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeDatetime>}
      */
     createDatetimeAttribute(databaseId, collectionId, key, required, xdefault, array) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof collectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "collectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "collectionId"');
             }
             if (typeof key === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "key"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "key"');
             }
             if (typeof required === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "required"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "required"');
             }
             const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/datetime'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
             const payload = {};
@@ -4471,25 +4471,25 @@ class Databases {
      * @param {string} key
      * @param {boolean} required
      * @param {string} xdefault
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeDatetime>}
      */
     updateDatetimeAttribute(databaseId, collectionId, key, required, xdefault) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof collectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "collectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "collectionId"');
             }
             if (typeof key === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "key"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "key"');
             }
             if (typeof required === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "required"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "required"');
             }
             if (typeof xdefault === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "xdefault"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "xdefault"');
             }
             const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/datetime/{key}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{key}', key);
             const payload = {};
@@ -4518,22 +4518,22 @@ class Databases {
      * @param {boolean} required
      * @param {string} xdefault
      * @param {boolean} array
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeEmail>}
      */
     createEmailAttribute(databaseId, collectionId, key, required, xdefault, array) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof collectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "collectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "collectionId"');
             }
             if (typeof key === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "key"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "key"');
             }
             if (typeof required === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "required"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "required"');
             }
             const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/email'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
             const payload = {};
@@ -4567,25 +4567,25 @@ class Databases {
      * @param {string} key
      * @param {boolean} required
      * @param {string} xdefault
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeEmail>}
      */
     updateEmailAttribute(databaseId, collectionId, key, required, xdefault) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof collectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "collectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "collectionId"');
             }
             if (typeof key === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "key"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "key"');
             }
             if (typeof required === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "required"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "required"');
             }
             if (typeof xdefault === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "xdefault"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "xdefault"');
             }
             const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/email/{key}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{key}', key);
             const payload = {};
@@ -4615,25 +4615,25 @@ class Databases {
      * @param {boolean} required
      * @param {string} xdefault
      * @param {boolean} array
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeEnum>}
      */
     createEnumAttribute(databaseId, collectionId, key, elements, required, xdefault, array) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof collectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "collectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "collectionId"');
             }
             if (typeof key === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "key"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "key"');
             }
             if (typeof elements === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "elements"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "elements"');
             }
             if (typeof required === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "required"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "required"');
             }
             const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/enum'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
             const payload = {};
@@ -4671,28 +4671,28 @@ class Databases {
      * @param {string[]} elements
      * @param {boolean} required
      * @param {string} xdefault
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeEnum>}
      */
     updateEnumAttribute(databaseId, collectionId, key, elements, required, xdefault) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof collectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "collectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "collectionId"');
             }
             if (typeof key === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "key"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "key"');
             }
             if (typeof elements === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "elements"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "elements"');
             }
             if (typeof required === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "required"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "required"');
             }
             if (typeof xdefault === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "xdefault"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "xdefault"');
             }
             const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/enum/{key}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{key}', key);
             const payload = {};
@@ -4726,22 +4726,22 @@ class Databases {
      * @param {number} max
      * @param {number} xdefault
      * @param {boolean} array
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeFloat>}
      */
     createFloatAttribute(databaseId, collectionId, key, required, min, max, xdefault, array) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof collectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "collectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "collectionId"');
             }
             if (typeof key === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "key"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "key"');
             }
             if (typeof required === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "required"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "required"');
             }
             const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/float'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
             const payload = {};
@@ -4783,31 +4783,31 @@ class Databases {
      * @param {number} min
      * @param {number} max
      * @param {number} xdefault
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeFloat>}
      */
     updateFloatAttribute(databaseId, collectionId, key, required, min, max, xdefault) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof collectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "collectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "collectionId"');
             }
             if (typeof key === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "key"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "key"');
             }
             if (typeof required === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "required"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "required"');
             }
             if (typeof min === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "min"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "min"');
             }
             if (typeof max === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "max"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "max"');
             }
             if (typeof xdefault === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "xdefault"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "xdefault"');
             }
             const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/float/{key}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{key}', key);
             const payload = {};
@@ -4844,22 +4844,22 @@ class Databases {
      * @param {number} max
      * @param {number} xdefault
      * @param {boolean} array
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeInteger>}
      */
     createIntegerAttribute(databaseId, collectionId, key, required, min, max, xdefault, array) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof collectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "collectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "collectionId"');
             }
             if (typeof key === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "key"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "key"');
             }
             if (typeof required === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "required"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "required"');
             }
             const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/integer'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
             const payload = {};
@@ -4901,31 +4901,31 @@ class Databases {
      * @param {number} min
      * @param {number} max
      * @param {number} xdefault
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeInteger>}
      */
     updateIntegerAttribute(databaseId, collectionId, key, required, min, max, xdefault) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof collectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "collectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "collectionId"');
             }
             if (typeof key === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "key"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "key"');
             }
             if (typeof required === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "required"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "required"');
             }
             if (typeof min === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "min"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "min"');
             }
             if (typeof max === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "max"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "max"');
             }
             if (typeof xdefault === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "xdefault"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "xdefault"');
             }
             const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/integer/{key}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{key}', key);
             const payload = {};
@@ -4960,22 +4960,22 @@ class Databases {
      * @param {boolean} required
      * @param {string} xdefault
      * @param {boolean} array
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeIp>}
      */
     createIpAttribute(databaseId, collectionId, key, required, xdefault, array) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof collectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "collectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "collectionId"');
             }
             if (typeof key === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "key"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "key"');
             }
             if (typeof required === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "required"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "required"');
             }
             const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/ip'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
             const payload = {};
@@ -5009,25 +5009,25 @@ class Databases {
      * @param {string} key
      * @param {boolean} required
      * @param {string} xdefault
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeIp>}
      */
     updateIpAttribute(databaseId, collectionId, key, required, xdefault) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof collectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "collectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "collectionId"');
             }
             if (typeof key === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "key"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "key"');
             }
             if (typeof required === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "required"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "required"');
             }
             if (typeof xdefault === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "xdefault"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "xdefault"');
             }
             const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/ip/{key}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{key}', key);
             const payload = {};
@@ -5058,22 +5058,22 @@ class Databases {
      * @param {string} key
      * @param {string} twoWayKey
      * @param {RelationMutate} onDelete
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeRelationship>}
      */
     createRelationshipAttribute(databaseId, collectionId, relatedCollectionId, type, twoWay, key, twoWayKey, onDelete) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof collectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "collectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "collectionId"');
             }
             if (typeof relatedCollectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "relatedCollectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "relatedCollectionId"');
             }
             if (typeof type === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "type"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "type"');
             }
             const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/relationship'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
             const payload = {};
@@ -5116,25 +5116,25 @@ class Databases {
      * @param {string} xdefault
      * @param {boolean} array
      * @param {boolean} encrypt
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeString>}
      */
     createStringAttribute(databaseId, collectionId, key, size, required, xdefault, array, encrypt) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof collectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "collectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "collectionId"');
             }
             if (typeof key === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "key"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "key"');
             }
             if (typeof size === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "size"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "size"');
             }
             if (typeof required === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "required"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "required"');
             }
             const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/string'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
             const payload = {};
@@ -5174,25 +5174,25 @@ class Databases {
      * @param {string} key
      * @param {boolean} required
      * @param {string} xdefault
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeString>}
      */
     updateStringAttribute(databaseId, collectionId, key, required, xdefault) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof collectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "collectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "collectionId"');
             }
             if (typeof key === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "key"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "key"');
             }
             if (typeof required === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "required"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "required"');
             }
             if (typeof xdefault === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "xdefault"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "xdefault"');
             }
             const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/string/{key}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{key}', key);
             const payload = {};
@@ -5221,22 +5221,22 @@ class Databases {
      * @param {boolean} required
      * @param {string} xdefault
      * @param {boolean} array
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeUrl>}
      */
     createUrlAttribute(databaseId, collectionId, key, required, xdefault, array) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof collectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "collectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "collectionId"');
             }
             if (typeof key === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "key"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "key"');
             }
             if (typeof required === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "required"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "required"');
             }
             const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/url'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
             const payload = {};
@@ -5270,25 +5270,25 @@ class Databases {
      * @param {string} key
      * @param {boolean} required
      * @param {string} xdefault
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeUrl>}
      */
     updateUrlAttribute(databaseId, collectionId, key, required, xdefault) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof collectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "collectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "collectionId"');
             }
             if (typeof key === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "key"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "key"');
             }
             if (typeof required === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "required"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "required"');
             }
             if (typeof xdefault === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "xdefault"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "xdefault"');
             }
             const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/url/{key}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{key}', key);
             const payload = {};
@@ -5313,19 +5313,19 @@ class Databases {
      * @param {string} databaseId
      * @param {string} collectionId
      * @param {string} key
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     getAttribute(databaseId, collectionId, key) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof collectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "collectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "collectionId"');
             }
             if (typeof key === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "key"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "key"');
             }
             const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/{key}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{key}', key);
             const payload = {};
@@ -5344,19 +5344,19 @@ class Databases {
      * @param {string} databaseId
      * @param {string} collectionId
      * @param {string} key
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteAttribute(databaseId, collectionId, key) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof collectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "collectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "collectionId"');
             }
             if (typeof key === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "key"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "key"');
             }
             const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/{key}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{key}', key);
             const payload = {};
@@ -5377,19 +5377,19 @@ class Databases {
      * @param {string} collectionId
      * @param {string} key
      * @param {RelationMutate} onDelete
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeRelationship>}
      */
     updateRelationshipAttribute(databaseId, collectionId, key, onDelete) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof collectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "collectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "collectionId"');
             }
             if (typeof key === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "key"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "key"');
             }
             const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/{key}/relationship'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{key}', key);
             const payload = {};
@@ -5411,16 +5411,16 @@ class Databases {
      * @param {string} databaseId
      * @param {string} collectionId
      * @param {string[]} queries
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.DocumentList<Document>>}
      */
     listDocuments(databaseId, collectionId, queries) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof collectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "collectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "collectionId"');
             }
             const apiPath = '/databases/{databaseId}/collections/{collectionId}/documents'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
             const payload = {};
@@ -5444,22 +5444,22 @@ class Databases {
      * @param {string} documentId
      * @param {Omit<Document, keyof Models.Document>} data
      * @param {string[]} permissions
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Document>}
      */
     createDocument(databaseId, collectionId, documentId, data, permissions) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof collectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "collectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "collectionId"');
             }
             if (typeof documentId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "documentId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "documentId"');
             }
             if (typeof data === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "data"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "data"');
             }
             const apiPath = '/databases/{databaseId}/collections/{collectionId}/documents'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
             const payload = {};
@@ -5488,19 +5488,19 @@ class Databases {
      * @param {string} collectionId
      * @param {string} documentId
      * @param {string[]} queries
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Document>}
      */
     getDocument(databaseId, collectionId, documentId, queries) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof collectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "collectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "collectionId"');
             }
             if (typeof documentId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "documentId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "documentId"');
             }
             const apiPath = '/databases/{databaseId}/collections/{collectionId}/documents/{documentId}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{documentId}', documentId);
             const payload = {};
@@ -5524,19 +5524,19 @@ class Databases {
      * @param {string} documentId
      * @param {Partial<Omit<Document, keyof Models.Document>>} data
      * @param {string[]} permissions
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Document>}
      */
     updateDocument(databaseId, collectionId, documentId, data, permissions) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof collectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "collectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "collectionId"');
             }
             if (typeof documentId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "documentId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "documentId"');
             }
             const apiPath = '/databases/{databaseId}/collections/{collectionId}/documents/{documentId}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{documentId}', documentId);
             const payload = {};
@@ -5561,19 +5561,19 @@ class Databases {
      * @param {string} databaseId
      * @param {string} collectionId
      * @param {string} documentId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteDocument(databaseId, collectionId, documentId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof collectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "collectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "collectionId"');
             }
             if (typeof documentId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "documentId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "documentId"');
             }
             const apiPath = '/databases/{databaseId}/collections/{collectionId}/documents/{documentId}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{documentId}', documentId);
             const payload = {};
@@ -5593,19 +5593,19 @@ class Databases {
      * @param {string} collectionId
      * @param {string} documentId
      * @param {string[]} queries
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.LogList>}
      */
     listDocumentLogs(databaseId, collectionId, documentId, queries) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof collectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "collectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "collectionId"');
             }
             if (typeof documentId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "documentId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "documentId"');
             }
             const apiPath = '/databases/{databaseId}/collections/{collectionId}/documents/{documentId}/logs'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{documentId}', documentId);
             const payload = {};
@@ -5627,16 +5627,16 @@ class Databases {
      * @param {string} databaseId
      * @param {string} collectionId
      * @param {string[]} queries
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.IndexList>}
      */
     listIndexes(databaseId, collectionId, queries) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof collectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "collectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "collectionId"');
             }
             const apiPath = '/databases/{databaseId}/collections/{collectionId}/indexes'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
             const payload = {};
@@ -5662,25 +5662,25 @@ Attributes can be \`key\`, \`fulltext\`, and \`unique\`.
      * @param {IndexType} type
      * @param {string[]} attributes
      * @param {string[]} orders
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Index>}
      */
     createIndex(databaseId, collectionId, key, type, attributes, orders) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof collectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "collectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "collectionId"');
             }
             if (typeof key === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "key"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "key"');
             }
             if (typeof type === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "type"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "type"');
             }
             if (typeof attributes === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "attributes"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "attributes"');
             }
             const apiPath = '/databases/{databaseId}/collections/{collectionId}/indexes'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
             const payload = {};
@@ -5711,19 +5711,19 @@ Attributes can be \`key\`, \`fulltext\`, and \`unique\`.
      * @param {string} databaseId
      * @param {string} collectionId
      * @param {string} key
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Index>}
      */
     getIndex(databaseId, collectionId, key) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof collectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "collectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "collectionId"');
             }
             if (typeof key === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "key"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "key"');
             }
             const apiPath = '/databases/{databaseId}/collections/{collectionId}/indexes/{key}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{key}', key);
             const payload = {};
@@ -5742,19 +5742,19 @@ Attributes can be \`key\`, \`fulltext\`, and \`unique\`.
      * @param {string} databaseId
      * @param {string} collectionId
      * @param {string} key
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteIndex(databaseId, collectionId, key) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof collectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "collectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "collectionId"');
             }
             if (typeof key === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "key"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "key"');
             }
             const apiPath = '/databases/{databaseId}/collections/{collectionId}/indexes/{key}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{key}', key);
             const payload = {};
@@ -5773,16 +5773,16 @@ Attributes can be \`key\`, \`fulltext\`, and \`unique\`.
      * @param {string} databaseId
      * @param {string} collectionId
      * @param {string[]} queries
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.LogList>}
      */
     listCollectionLogs(databaseId, collectionId, queries) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof collectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "collectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "collectionId"');
             }
             const apiPath = '/databases/{databaseId}/collections/{collectionId}/logs'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
             const payload = {};
@@ -5803,16 +5803,16 @@ Attributes can be \`key\`, \`fulltext\`, and \`unique\`.
      * @param {string} databaseId
      * @param {string} collectionId
      * @param {DatabaseUsageRange} range
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.UsageCollection>}
      */
     getCollectionUsage(databaseId, collectionId, range) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof collectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "collectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "collectionId"');
             }
             const apiPath = '/databases/{databaseId}/collections/{collectionId}/usage'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
             const payload = {};
@@ -5833,13 +5833,13 @@ Attributes can be \`key\`, \`fulltext\`, and \`unique\`.
      *
      * @param {string} databaseId
      * @param {string[]} queries
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.LogList>}
      */
     listLogs(databaseId, queries) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             const apiPath = '/databases/{databaseId}/logs'.replace('{databaseId}', databaseId);
             const payload = {};
@@ -5859,13 +5859,13 @@ Attributes can be \`key\`, \`fulltext\`, and \`unique\`.
      *
      * @param {string} databaseId
      * @param {DatabaseUsageRange} range
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.UsageDatabase>}
      */
     getDatabaseUsage(databaseId, range) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             const apiPath = '/databases/{databaseId}/usage'.replace('{databaseId}', databaseId);
             const payload = {};
@@ -5910,7 +5910,7 @@ class Functions {
      *
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.FunctionList>}
      */
     list(queries, search) {
@@ -5957,19 +5957,19 @@ class Functions {
      * @param {string} templateRootDirectory
      * @param {string} templateVersion
      * @param {string} specification
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Function>}
      */
     create(functionId, name, runtime, execute, events, schedule, timeout, enabled, logging, entrypoint, commands, scopes, installationId, providerRepositoryId, providerBranch, providerSilentMode, providerRootDirectory, templateRepository, templateOwner, templateRootDirectory, templateVersion, specification) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof functionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "functionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "functionId"');
             }
             if (typeof name === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "name"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "name"');
             }
             if (typeof runtime === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "runtime"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "runtime"');
             }
             const apiPath = '/functions';
             const payload = {};
@@ -6051,7 +6051,7 @@ class Functions {
      *
      * Get a list of all runtimes that are currently active on your instance.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.RuntimeList>}
      */
     listRuntimes() {
@@ -6071,7 +6071,7 @@ class Functions {
      * List allowed function specifications for this instance.
 
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.SpecificationList>}
      */
     listSpecifications() {
@@ -6094,7 +6094,7 @@ class Functions {
      * @param {string[]} useCases
      * @param {number} limit
      * @param {number} offset
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.TemplateFunctionList>}
      */
     listTemplates(runtimes, useCases, limit, offset) {
@@ -6126,13 +6126,13 @@ class Functions {
      * Get a function template using ID. You can use template details in [createFunction](/docs/references/cloud/server-nodejs/functions#create) method.
      *
      * @param {string} templateId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.TemplateFunction>}
      */
     getTemplate(templateId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof templateId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "templateId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "templateId"');
             }
             const apiPath = '/functions/templates/{templateId}'.replace('{templateId}', templateId);
             const payload = {};
@@ -6148,7 +6148,7 @@ class Functions {
      *
      *
      * @param {FunctionUsageRange} range
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.UsageFunctions>}
      */
     getUsage(range) {
@@ -6171,13 +6171,13 @@ class Functions {
      * Get a function by its unique ID.
      *
      * @param {string} functionId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Function>}
      */
     get(functionId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof functionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "functionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "functionId"');
             }
             const apiPath = '/functions/{functionId}'.replace('{functionId}', functionId);
             const payload = {};
@@ -6211,16 +6211,16 @@ class Functions {
      * @param {boolean} providerSilentMode
      * @param {string} providerRootDirectory
      * @param {string} specification
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Function>}
      */
     update(functionId, name, runtime, execute, events, schedule, timeout, enabled, logging, entrypoint, commands, scopes, installationId, providerRepositoryId, providerBranch, providerSilentMode, providerRootDirectory, specification) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof functionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "functionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "functionId"');
             }
             if (typeof name === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "name"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "name"');
             }
             const apiPath = '/functions/{functionId}'.replace('{functionId}', functionId);
             const payload = {};
@@ -6288,13 +6288,13 @@ class Functions {
      * Delete a function by its unique ID.
      *
      * @param {string} functionId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     delete(functionId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof functionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "functionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "functionId"');
             }
             const apiPath = '/functions/{functionId}'.replace('{functionId}', functionId);
             const payload = {};
@@ -6313,13 +6313,13 @@ class Functions {
      * @param {string} functionId
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.DeploymentList>}
      */
     listDeployments(functionId, queries, search) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof functionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "functionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "functionId"');
             }
             const apiPath = '/functions/{functionId}/deployments'.replace('{functionId}', functionId);
             const payload = {};
@@ -6350,19 +6350,19 @@ Use the &quot;command&quot; param to set the entrypoint used to execute your cod
      * @param {boolean} activate
      * @param {string} entrypoint
      * @param {string} commands
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Deployment>}
      */
     createDeployment(functionId_1, code_1, activate_1, entrypoint_1, commands_1) {
         return __awaiter(this, arguments, void 0, function* (functionId, code, activate, entrypoint, commands, onProgress = (progress) => { }) {
             if (typeof functionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "functionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "functionId"');
             }
             if (typeof code === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "code"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "code"');
             }
             if (typeof activate === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "activate"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "activate"');
             }
             const apiPath = '/functions/{functionId}/deployments'.replace('{functionId}', functionId);
             const payload = {};
@@ -6392,16 +6392,16 @@ Use the &quot;command&quot; param to set the entrypoint used to execute your cod
      *
      * @param {string} functionId
      * @param {string} deploymentId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Deployment>}
      */
     getDeployment(functionId, deploymentId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof functionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "functionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "functionId"');
             }
             if (typeof deploymentId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "deploymentId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "deploymentId"');
             }
             const apiPath = '/functions/{functionId}/deployments/{deploymentId}'.replace('{functionId}', functionId).replace('{deploymentId}', deploymentId);
             const payload = {};
@@ -6419,16 +6419,16 @@ Use the &quot;command&quot; param to set the entrypoint used to execute your cod
      *
      * @param {string} functionId
      * @param {string} deploymentId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Function>}
      */
     updateDeployment(functionId, deploymentId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof functionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "functionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "functionId"');
             }
             if (typeof deploymentId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "deploymentId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "deploymentId"');
             }
             const apiPath = '/functions/{functionId}/deployments/{deploymentId}'.replace('{functionId}', functionId).replace('{deploymentId}', deploymentId);
             const payload = {};
@@ -6446,16 +6446,16 @@ Use the &quot;command&quot; param to set the entrypoint used to execute your cod
      *
      * @param {string} functionId
      * @param {string} deploymentId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteDeployment(functionId, deploymentId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof functionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "functionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "functionId"');
             }
             if (typeof deploymentId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "deploymentId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "deploymentId"');
             }
             const apiPath = '/functions/{functionId}/deployments/{deploymentId}'.replace('{functionId}', functionId).replace('{deploymentId}', deploymentId);
             const payload = {};
@@ -6473,16 +6473,16 @@ Use the &quot;command&quot; param to set the entrypoint used to execute your cod
      * @param {string} functionId
      * @param {string} deploymentId
      * @param {string} buildId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     createBuild(functionId, deploymentId, buildId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof functionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "functionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "functionId"');
             }
             if (typeof deploymentId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "deploymentId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "deploymentId"');
             }
             const apiPath = '/functions/{functionId}/deployments/{deploymentId}/build'.replace('{functionId}', functionId).replace('{deploymentId}', deploymentId);
             const payload = {};
@@ -6502,16 +6502,16 @@ Use the &quot;command&quot; param to set the entrypoint used to execute your cod
      *
      * @param {string} functionId
      * @param {string} deploymentId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Build>}
      */
     updateDeploymentBuild(functionId, deploymentId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof functionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "functionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "functionId"');
             }
             if (typeof deploymentId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "deploymentId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "deploymentId"');
             }
             const apiPath = '/functions/{functionId}/deployments/{deploymentId}/build'.replace('{functionId}', functionId).replace('{deploymentId}', deploymentId);
             const payload = {};
@@ -6529,15 +6529,15 @@ Use the &quot;command&quot; param to set the entrypoint used to execute your cod
      *
      * @param {string} functionId
      * @param {string} deploymentId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {string}
      */
     getDeploymentDownload(functionId, deploymentId) {
         if (typeof functionId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "functionId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "functionId"');
         }
         if (typeof deploymentId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "deploymentId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "deploymentId"');
         }
         const apiPath = '/functions/{functionId}/deployments/{deploymentId}/download'.replace('{functionId}', functionId).replace('{deploymentId}', deploymentId);
         const payload = {};
@@ -6563,13 +6563,13 @@ Use the &quot;command&quot; param to set the entrypoint used to execute your cod
      * @param {string} functionId
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.ExecutionList>}
      */
     listExecutions(functionId, queries, search) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof functionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "functionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "functionId"');
             }
             const apiPath = '/functions/{functionId}/executions'.replace('{functionId}', functionId);
             const payload = {};
@@ -6598,13 +6598,13 @@ Use the &quot;command&quot; param to set the entrypoint used to execute your cod
      * @param {ExecutionMethod} method
      * @param {object} headers
      * @param {string} scheduledAt
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Execution>}
      */
     createExecution(functionId, body, async, xpath, method, headers, scheduledAt) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof functionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "functionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "functionId"');
             }
             const apiPath = '/functions/{functionId}/executions'.replace('{functionId}', functionId);
             const payload = {};
@@ -6640,16 +6640,16 @@ Use the &quot;command&quot; param to set the entrypoint used to execute your cod
      *
      * @param {string} functionId
      * @param {string} executionId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Execution>}
      */
     getExecution(functionId, executionId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof functionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "functionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "functionId"');
             }
             if (typeof executionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "executionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "executionId"');
             }
             const apiPath = '/functions/{functionId}/executions/{executionId}'.replace('{functionId}', functionId).replace('{executionId}', executionId);
             const payload = {};
@@ -6668,16 +6668,16 @@ Use the &quot;command&quot; param to set the entrypoint used to execute your cod
      *
      * @param {string} functionId
      * @param {string} executionId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteExecution(functionId, executionId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof functionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "functionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "functionId"');
             }
             if (typeof executionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "executionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "executionId"');
             }
             const apiPath = '/functions/{functionId}/executions/{executionId}'.replace('{functionId}', functionId).replace('{executionId}', executionId);
             const payload = {};
@@ -6694,13 +6694,13 @@ Use the &quot;command&quot; param to set the entrypoint used to execute your cod
      *
      * @param {string} functionId
      * @param {FunctionUsageRange} range
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.UsageFunction>}
      */
     getFunctionUsage(functionId, range) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof functionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "functionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "functionId"');
             }
             const apiPath = '/functions/{functionId}/usage'.replace('{functionId}', functionId);
             const payload = {};
@@ -6720,13 +6720,13 @@ Use the &quot;command&quot; param to set the entrypoint used to execute your cod
      * Get a list of all variables of a specific function.
      *
      * @param {string} functionId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.VariableList>}
      */
     listVariables(functionId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof functionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "functionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "functionId"');
             }
             const apiPath = '/functions/{functionId}/variables'.replace('{functionId}', functionId);
             const payload = {};
@@ -6745,19 +6745,19 @@ Use the &quot;command&quot; param to set the entrypoint used to execute your cod
      * @param {string} functionId
      * @param {string} key
      * @param {string} value
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Variable>}
      */
     createVariable(functionId, key, value) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof functionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "functionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "functionId"');
             }
             if (typeof key === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "key"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "key"');
             }
             if (typeof value === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "value"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "value"');
             }
             const apiPath = '/functions/{functionId}/variables'.replace('{functionId}', functionId);
             const payload = {};
@@ -6781,16 +6781,16 @@ Use the &quot;command&quot; param to set the entrypoint used to execute your cod
      *
      * @param {string} functionId
      * @param {string} variableId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Variable>}
      */
     getVariable(functionId, variableId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof functionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "functionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "functionId"');
             }
             if (typeof variableId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "variableId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "variableId"');
             }
             const apiPath = '/functions/{functionId}/variables/{variableId}'.replace('{functionId}', functionId).replace('{variableId}', variableId);
             const payload = {};
@@ -6810,19 +6810,19 @@ Use the &quot;command&quot; param to set the entrypoint used to execute your cod
      * @param {string} variableId
      * @param {string} key
      * @param {string} value
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Variable>}
      */
     updateVariable(functionId, variableId, key, value) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof functionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "functionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "functionId"');
             }
             if (typeof variableId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "variableId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "variableId"');
             }
             if (typeof key === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "key"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "key"');
             }
             const apiPath = '/functions/{functionId}/variables/{variableId}'.replace('{functionId}', functionId).replace('{variableId}', variableId);
             const payload = {};
@@ -6846,16 +6846,16 @@ Use the &quot;command&quot; param to set the entrypoint used to execute your cod
      *
      * @param {string} functionId
      * @param {string} variableId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteVariable(functionId, variableId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof functionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "functionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "functionId"');
             }
             if (typeof variableId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "variableId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "variableId"');
             }
             const apiPath = '/functions/{functionId}/variables/{variableId}'.replace('{functionId}', functionId).replace('{variableId}', variableId);
             const payload = {};
@@ -6894,13 +6894,13 @@ class Graphql {
      * Execute a GraphQL mutation.
      *
      * @param {object} query
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     query(query) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof query === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "query"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "query"');
             }
             const apiPath = '/graphql';
             const payload = {};
@@ -6921,13 +6921,13 @@ class Graphql {
      * Execute a GraphQL mutation.
      *
      * @param {object} query
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     mutation(query) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof query === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "query"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "query"');
             }
             const apiPath = '/graphql/mutation';
             const payload = {};
@@ -6969,7 +6969,7 @@ class Health {
      *
      * Check the Appconda HTTP server is up and responsive.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.HealthStatus>}
      */
     get() {
@@ -6988,7 +6988,7 @@ class Health {
      *
      * Check the Appconda Antivirus server is up and connection is successful.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.HealthAntivirus>}
      */
     getAntivirus() {
@@ -7007,7 +7007,7 @@ class Health {
      *
      * Check the Appconda in-memory cache servers are up and connection is successful.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.HealthStatus>}
      */
     getCache() {
@@ -7027,7 +7027,7 @@ class Health {
      * Get the SSL certificate for a domain
      *
      * @param {string} domain
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.HealthCertificate>}
      */
     getCertificate(domain) {
@@ -7049,7 +7049,7 @@ class Health {
      *
      * Check the Appconda database servers are up and connection is successful.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.HealthStatus>}
      */
     getDB() {
@@ -7068,7 +7068,7 @@ class Health {
      *
      * Check the Appconda pub-sub servers are up and connection is successful.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.HealthStatus>}
      */
     getPubSub() {
@@ -7087,7 +7087,7 @@ class Health {
      *
      * Check the Appconda queue messaging servers are up and connection is successful.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.HealthStatus>}
      */
     getQueue() {
@@ -7107,7 +7107,7 @@ class Health {
      * Get the number of builds that are waiting to be processed in the Appconda internal queue server.
      *
      * @param {number} threshold
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.HealthQueue>}
      */
     getQueueBuilds(threshold) {
@@ -7130,7 +7130,7 @@ class Health {
      * Get the number of certificates that are waiting to be issued against [Letsencrypt](https://letsencrypt.org/) in the Appconda internal queue server.
      *
      * @param {number} threshold
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.HealthQueue>}
      */
     getQueueCertificates(threshold) {
@@ -7154,7 +7154,7 @@ class Health {
      *
      * @param {string} name
      * @param {number} threshold
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.HealthQueue>}
      */
     getQueueDatabases(name, threshold) {
@@ -7180,7 +7180,7 @@ class Health {
      * Get the number of background destructive changes that are waiting to be processed in the Appconda internal queue server.
      *
      * @param {number} threshold
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.HealthQueue>}
      */
     getQueueDeletes(threshold) {
@@ -7205,13 +7205,13 @@ class Health {
      *
      * @param {Name} name
      * @param {number} threshold
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.HealthQueue>}
      */
     getFailedJobs(name, threshold) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof name === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "name"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "name"');
             }
             const apiPath = '/health/queue/failed/{name}'.replace('{name}', name);
             const payload = {};
@@ -7231,7 +7231,7 @@ class Health {
      * Get the number of function executions that are waiting to be processed in the Appconda internal queue server.
      *
      * @param {number} threshold
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.HealthQueue>}
      */
     getQueueFunctions(threshold) {
@@ -7254,7 +7254,7 @@ class Health {
      * Get the number of logs that are waiting to be processed in the Appconda internal queue server.
      *
      * @param {number} threshold
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.HealthQueue>}
      */
     getQueueLogs(threshold) {
@@ -7277,7 +7277,7 @@ class Health {
      * Get the number of mails that are waiting to be processed in the Appconda internal queue server.
      *
      * @param {number} threshold
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.HealthQueue>}
      */
     getQueueMails(threshold) {
@@ -7300,7 +7300,7 @@ class Health {
      * Get the number of messages that are waiting to be processed in the Appconda internal queue server.
      *
      * @param {number} threshold
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.HealthQueue>}
      */
     getQueueMessaging(threshold) {
@@ -7323,7 +7323,7 @@ class Health {
      * Get the number of migrations that are waiting to be processed in the Appconda internal queue server.
      *
      * @param {number} threshold
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.HealthQueue>}
      */
     getQueueMigrations(threshold) {
@@ -7346,7 +7346,7 @@ class Health {
      * Get the number of metrics that are waiting to be processed in the Appconda internal queue server.
      *
      * @param {number} threshold
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.HealthQueue>}
      */
     getQueueUsage(threshold) {
@@ -7369,7 +7369,7 @@ class Health {
      * Get the number of projects containing metrics that are waiting to be processed in the Appconda internal queue server.
      *
      * @param {number} threshold
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.HealthQueue>}
      */
     getQueueUsageDump(threshold) {
@@ -7392,7 +7392,7 @@ class Health {
      * Get the number of webhooks that are waiting to be processed in the Appconda internal queue server.
      *
      * @param {number} threshold
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.HealthQueue>}
      */
     getQueueWebhooks(threshold) {
@@ -7414,7 +7414,7 @@ class Health {
      *
      * Check the Appconda storage device is up and connection is successful.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.HealthStatus>}
      */
     getStorage() {
@@ -7433,7 +7433,7 @@ class Health {
      *
      * Check the Appconda local storage device is up and connection is successful.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.HealthStatus>}
      */
     getStorageLocal() {
@@ -7452,7 +7452,7 @@ class Health {
      *
      * Check the Appconda server time is synced with Google remote NTP server. We use this technology to smoothly handle leap seconds with no disruptive events. The [Network Time Protocol](https://en.wikipedia.org/wiki/Network_Time_Protocol) (NTP) is used by hundreds of millions of computers and devices to synchronize their clocks over the Internet. If your computer sets its own clock, it likely uses NTP.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.HealthTime>}
      */
     getTime() {
@@ -7493,7 +7493,7 @@ class Locale {
 
 ([IP Geolocation by DB-IP](https://db-ip.com))
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Locale>}
      */
     get() {
@@ -7512,7 +7512,7 @@ class Locale {
      *
      * List of all locale codes in [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes).
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.LocaleCodeList>}
      */
     listCodes() {
@@ -7531,7 +7531,7 @@ class Locale {
      *
      * List of all continents. You can use the locale header to get the data in a supported language.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.ContinentList>}
      */
     listContinents() {
@@ -7550,7 +7550,7 @@ class Locale {
      *
      * List of all countries. You can use the locale header to get the data in a supported language.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.CountryList>}
      */
     listCountries() {
@@ -7569,7 +7569,7 @@ class Locale {
      *
      * List of all countries that are currently members of the EU. You can use the locale header to get the data in a supported language.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.CountryList>}
      */
     listCountriesEU() {
@@ -7588,7 +7588,7 @@ class Locale {
      *
      * List of all countries phone codes. You can use the locale header to get the data in a supported language.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.PhoneList>}
      */
     listCountriesPhones() {
@@ -7607,7 +7607,7 @@ class Locale {
      *
      * List of all currencies, including currency symbol, name, plural, and decimal digits for all major and minor currencies. You can use the locale header to get the data in a supported language.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.CurrencyList>}
      */
     listCurrencies() {
@@ -7626,7 +7626,7 @@ class Locale {
      *
      * List of all languages classified by ISO 639-1 including 2-letter code, name in English, and name in the respective language.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.LanguageList>}
      */
     listLanguages() {
@@ -7669,7 +7669,7 @@ class Messaging {
      *
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.MessageList>}
      */
     listMessages(queries, search) {
@@ -7706,19 +7706,19 @@ class Messaging {
      * @param {boolean} draft
      * @param {boolean} html
      * @param {string} scheduledAt
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Message>}
      */
     createEmail(messageId, subject, content, topics, users, targets, cc, bcc, attachments, draft, html, scheduledAt) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof messageId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "messageId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "messageId"');
             }
             if (typeof subject === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "subject"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "subject"');
             }
             if (typeof content === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "content"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "content"');
             }
             const apiPath = '/messaging/messages/email';
             const payload = {};
@@ -7783,13 +7783,13 @@ class Messaging {
      * @param {string[]} bcc
      * @param {string} scheduledAt
      * @param {string[]} attachments
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Message>}
      */
     updateEmail(messageId, topics, users, targets, subject, content, draft, html, cc, bcc, scheduledAt, attachments) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof messageId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "messageId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "messageId"');
             }
             const apiPath = '/messaging/messages/email/{messageId}'.replace('{messageId}', messageId);
             const payload = {};
@@ -7854,19 +7854,19 @@ class Messaging {
      * @param {string} badge
      * @param {boolean} draft
      * @param {string} scheduledAt
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Message>}
      */
     createPush(messageId, title, body, topics, users, targets, data, action, image, icon, sound, color, tag, badge, draft, scheduledAt) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof messageId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "messageId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "messageId"');
             }
             if (typeof title === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "title"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "title"');
             }
             if (typeof body === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "body"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "body"');
             }
             const apiPath = '/messaging/messages/push';
             const payload = {};
@@ -7947,13 +7947,13 @@ class Messaging {
      * @param {number} badge
      * @param {boolean} draft
      * @param {string} scheduledAt
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Message>}
      */
     updatePush(messageId, topics, users, targets, title, body, data, action, image, icon, sound, color, tag, badge, draft, scheduledAt) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof messageId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "messageId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "messageId"');
             }
             const apiPath = '/messaging/messages/push/{messageId}'.replace('{messageId}', messageId);
             const payload = {};
@@ -8021,16 +8021,16 @@ class Messaging {
      * @param {string[]} targets
      * @param {boolean} draft
      * @param {string} scheduledAt
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Message>}
      */
     createSms(messageId, content, topics, users, targets, draft, scheduledAt) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof messageId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "messageId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "messageId"');
             }
             if (typeof content === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "content"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "content"');
             }
             const apiPath = '/messaging/messages/sms';
             const payload = {};
@@ -8075,13 +8075,13 @@ class Messaging {
      * @param {string} content
      * @param {boolean} draft
      * @param {string} scheduledAt
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Message>}
      */
     updateSms(messageId, topics, users, targets, content, draft, scheduledAt) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof messageId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "messageId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "messageId"');
             }
             const apiPath = '/messaging/messages/sms/{messageId}'.replace('{messageId}', messageId);
             const payload = {};
@@ -8117,13 +8117,13 @@ class Messaging {
 
      *
      * @param {string} messageId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Message>}
      */
     getMessage(messageId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof messageId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "messageId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "messageId"');
             }
             const apiPath = '/messaging/messages/{messageId}'.replace('{messageId}', messageId);
             const payload = {};
@@ -8140,13 +8140,13 @@ class Messaging {
      * Delete a message. If the message is not a draft or scheduled, but has been sent, this will not recall the message.
      *
      * @param {string} messageId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     delete(messageId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof messageId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "messageId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "messageId"');
             }
             const apiPath = '/messaging/messages/{messageId}'.replace('{messageId}', messageId);
             const payload = {};
@@ -8164,13 +8164,13 @@ class Messaging {
      *
      * @param {string} messageId
      * @param {string[]} queries
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.LogList>}
      */
     listMessageLogs(messageId, queries) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof messageId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "messageId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "messageId"');
             }
             const apiPath = '/messaging/messages/{messageId}/logs'.replace('{messageId}', messageId);
             const payload = {};
@@ -8191,13 +8191,13 @@ class Messaging {
      *
      * @param {string} messageId
      * @param {string[]} queries
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.TargetList>}
      */
     listTargets(messageId, queries) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof messageId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "messageId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "messageId"');
             }
             const apiPath = '/messaging/messages/{messageId}/targets'.replace('{messageId}', messageId);
             const payload = {};
@@ -8218,7 +8218,7 @@ class Messaging {
      *
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.ProviderList>}
      */
     listProviders(queries, search) {
@@ -8251,16 +8251,16 @@ class Messaging {
      * @param {string} bundleId
      * @param {boolean} sandbox
      * @param {boolean} enabled
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     createApnsProvider(providerId, name, authKey, authKeyId, teamId, bundleId, sandbox, enabled) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof providerId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "providerId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "providerId"');
             }
             if (typeof name === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "name"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "name"');
             }
             const apiPath = '/messaging/providers/apns';
             const payload = {};
@@ -8308,13 +8308,13 @@ class Messaging {
      * @param {string} teamId
      * @param {string} bundleId
      * @param {boolean} sandbox
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     updateApnsProvider(providerId, name, enabled, authKey, authKeyId, teamId, bundleId, sandbox) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof providerId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "providerId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "providerId"');
             }
             const apiPath = '/messaging/providers/apns/{providerId}'.replace('{providerId}', providerId);
             const payload = {};
@@ -8355,16 +8355,16 @@ class Messaging {
      * @param {string} name
      * @param {object} serviceAccountJSON
      * @param {boolean} enabled
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     createFcmProvider(providerId, name, serviceAccountJSON, enabled) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof providerId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "providerId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "providerId"');
             }
             if (typeof name === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "name"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "name"');
             }
             const apiPath = '/messaging/providers/fcm';
             const payload = {};
@@ -8396,13 +8396,13 @@ class Messaging {
      * @param {string} name
      * @param {boolean} enabled
      * @param {object} serviceAccountJSON
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     updateFcmProvider(providerId, name, enabled, serviceAccountJSON) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof providerId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "providerId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "providerId"');
             }
             const apiPath = '/messaging/providers/fcm/{providerId}'.replace('{providerId}', providerId);
             const payload = {};
@@ -8437,16 +8437,16 @@ class Messaging {
      * @param {string} replyToName
      * @param {string} replyToEmail
      * @param {boolean} enabled
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     createMailgunProvider(providerId, name, apiKey, domain, isEuRegion, fromName, fromEmail, replyToName, replyToEmail, enabled) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof providerId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "providerId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "providerId"');
             }
             if (typeof name === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "name"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "name"');
             }
             const apiPath = '/messaging/providers/mailgun';
             const payload = {};
@@ -8502,13 +8502,13 @@ class Messaging {
      * @param {string} fromEmail
      * @param {string} replyToName
      * @param {string} replyToEmail
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     updateMailgunProvider(providerId, name, apiKey, domain, isEuRegion, enabled, fromName, fromEmail, replyToName, replyToEmail) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof providerId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "providerId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "providerId"');
             }
             const apiPath = '/messaging/providers/mailgun/{providerId}'.replace('{providerId}', providerId);
             const payload = {};
@@ -8557,16 +8557,16 @@ class Messaging {
      * @param {string} senderId
      * @param {string} authKey
      * @param {boolean} enabled
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     createMsg91Provider(providerId, name, templateId, senderId, authKey, enabled) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof providerId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "providerId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "providerId"');
             }
             if (typeof name === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "name"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "name"');
             }
             const apiPath = '/messaging/providers/msg91';
             const payload = {};
@@ -8606,13 +8606,13 @@ class Messaging {
      * @param {string} templateId
      * @param {string} senderId
      * @param {string} authKey
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     updateMsg91Provider(providerId, name, enabled, templateId, senderId, authKey) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof providerId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "providerId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "providerId"');
             }
             const apiPath = '/messaging/providers/msg91/{providerId}'.replace('{providerId}', providerId);
             const payload = {};
@@ -8651,16 +8651,16 @@ class Messaging {
      * @param {string} replyToName
      * @param {string} replyToEmail
      * @param {boolean} enabled
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     createSendgridProvider(providerId, name, apiKey, fromName, fromEmail, replyToName, replyToEmail, enabled) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof providerId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "providerId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "providerId"');
             }
             if (typeof name === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "name"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "name"');
             }
             const apiPath = '/messaging/providers/sendgrid';
             const payload = {};
@@ -8708,13 +8708,13 @@ class Messaging {
      * @param {string} fromEmail
      * @param {string} replyToName
      * @param {string} replyToEmail
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     updateSendgridProvider(providerId, name, enabled, apiKey, fromName, fromEmail, replyToName, replyToEmail) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof providerId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "providerId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "providerId"');
             }
             const apiPath = '/messaging/providers/sendgrid/{providerId}'.replace('{providerId}', providerId);
             const payload = {};
@@ -8765,19 +8765,19 @@ class Messaging {
      * @param {string} replyToName
      * @param {string} replyToEmail
      * @param {boolean} enabled
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     createSmtpProvider(providerId, name, host, port, username, password, encryption, autoTLS, mailer, fromName, fromEmail, replyToName, replyToEmail, enabled) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof providerId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "providerId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "providerId"');
             }
             if (typeof name === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "name"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "name"');
             }
             if (typeof host === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "host"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "host"');
             }
             const apiPath = '/messaging/providers/smtp';
             const payload = {};
@@ -8849,13 +8849,13 @@ class Messaging {
      * @param {string} replyToName
      * @param {string} replyToEmail
      * @param {boolean} enabled
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     updateSmtpProvider(providerId, name, host, port, username, password, encryption, autoTLS, mailer, fromName, fromEmail, replyToName, replyToEmail, enabled) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof providerId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "providerId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "providerId"');
             }
             const apiPath = '/messaging/providers/smtp/{providerId}'.replace('{providerId}', providerId);
             const payload = {};
@@ -8916,16 +8916,16 @@ class Messaging {
      * @param {string} customerId
      * @param {string} apiKey
      * @param {boolean} enabled
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     createTelesignProvider(providerId, name, from, customerId, apiKey, enabled) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof providerId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "providerId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "providerId"');
             }
             if (typeof name === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "name"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "name"');
             }
             const apiPath = '/messaging/providers/telesign';
             const payload = {};
@@ -8965,13 +8965,13 @@ class Messaging {
      * @param {string} customerId
      * @param {string} apiKey
      * @param {string} from
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     updateTelesignProvider(providerId, name, enabled, customerId, apiKey, from) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof providerId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "providerId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "providerId"');
             }
             const apiPath = '/messaging/providers/telesign/{providerId}'.replace('{providerId}', providerId);
             const payload = {};
@@ -9008,16 +9008,16 @@ class Messaging {
      * @param {string} username
      * @param {string} apiKey
      * @param {boolean} enabled
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     createTextmagicProvider(providerId, name, from, username, apiKey, enabled) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof providerId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "providerId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "providerId"');
             }
             if (typeof name === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "name"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "name"');
             }
             const apiPath = '/messaging/providers/textmagic';
             const payload = {};
@@ -9057,13 +9057,13 @@ class Messaging {
      * @param {string} username
      * @param {string} apiKey
      * @param {string} from
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     updateTextmagicProvider(providerId, name, enabled, username, apiKey, from) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof providerId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "providerId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "providerId"');
             }
             const apiPath = '/messaging/providers/textmagic/{providerId}'.replace('{providerId}', providerId);
             const payload = {};
@@ -9100,16 +9100,16 @@ class Messaging {
      * @param {string} accountSid
      * @param {string} authToken
      * @param {boolean} enabled
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     createTwilioProvider(providerId, name, from, accountSid, authToken, enabled) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof providerId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "providerId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "providerId"');
             }
             if (typeof name === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "name"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "name"');
             }
             const apiPath = '/messaging/providers/twilio';
             const payload = {};
@@ -9149,13 +9149,13 @@ class Messaging {
      * @param {string} accountSid
      * @param {string} authToken
      * @param {string} from
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     updateTwilioProvider(providerId, name, enabled, accountSid, authToken, from) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof providerId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "providerId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "providerId"');
             }
             const apiPath = '/messaging/providers/twilio/{providerId}'.replace('{providerId}', providerId);
             const payload = {};
@@ -9192,16 +9192,16 @@ class Messaging {
      * @param {string} apiKey
      * @param {string} apiSecret
      * @param {boolean} enabled
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     createVonageProvider(providerId, name, from, apiKey, apiSecret, enabled) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof providerId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "providerId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "providerId"');
             }
             if (typeof name === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "name"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "name"');
             }
             const apiPath = '/messaging/providers/vonage';
             const payload = {};
@@ -9241,13 +9241,13 @@ class Messaging {
      * @param {string} apiKey
      * @param {string} apiSecret
      * @param {string} from
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     updateVonageProvider(providerId, name, enabled, apiKey, apiSecret, from) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof providerId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "providerId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "providerId"');
             }
             const apiPath = '/messaging/providers/vonage/{providerId}'.replace('{providerId}', providerId);
             const payload = {};
@@ -9280,13 +9280,13 @@ class Messaging {
 
      *
      * @param {string} providerId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     getProvider(providerId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof providerId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "providerId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "providerId"');
             }
             const apiPath = '/messaging/providers/{providerId}'.replace('{providerId}', providerId);
             const payload = {};
@@ -9303,13 +9303,13 @@ class Messaging {
      * Delete a provider by its unique ID.
      *
      * @param {string} providerId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteProvider(providerId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof providerId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "providerId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "providerId"');
             }
             const apiPath = '/messaging/providers/{providerId}'.replace('{providerId}', providerId);
             const payload = {};
@@ -9327,13 +9327,13 @@ class Messaging {
      *
      * @param {string} providerId
      * @param {string[]} queries
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.LogList>}
      */
     listProviderLogs(providerId, queries) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof providerId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "providerId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "providerId"');
             }
             const apiPath = '/messaging/providers/{providerId}/logs'.replace('{providerId}', providerId);
             const payload = {};
@@ -9354,13 +9354,13 @@ class Messaging {
      *
      * @param {string} subscriberId
      * @param {string[]} queries
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.LogList>}
      */
     listSubscriberLogs(subscriberId, queries) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof subscriberId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "subscriberId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "subscriberId"');
             }
             const apiPath = '/messaging/subscribers/{subscriberId}/logs'.replace('{subscriberId}', subscriberId);
             const payload = {};
@@ -9381,7 +9381,7 @@ class Messaging {
      *
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.TopicList>}
      */
     listTopics(queries, search) {
@@ -9409,16 +9409,16 @@ class Messaging {
      * @param {string} topicId
      * @param {string} name
      * @param {string[]} subscribe
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Topic>}
      */
     createTopic(topicId, name, subscribe) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof topicId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "topicId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "topicId"');
             }
             if (typeof name === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "name"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "name"');
             }
             const apiPath = '/messaging/topics';
             const payload = {};
@@ -9445,13 +9445,13 @@ class Messaging {
 
      *
      * @param {string} topicId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Topic>}
      */
     getTopic(topicId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof topicId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "topicId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "topicId"');
             }
             const apiPath = '/messaging/topics/{topicId}'.replace('{topicId}', topicId);
             const payload = {};
@@ -9471,13 +9471,13 @@ class Messaging {
      * @param {string} topicId
      * @param {string} name
      * @param {string[]} subscribe
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Topic>}
      */
     updateTopic(topicId, name, subscribe) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof topicId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "topicId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "topicId"');
             }
             const apiPath = '/messaging/topics/{topicId}'.replace('{topicId}', topicId);
             const payload = {};
@@ -9500,13 +9500,13 @@ class Messaging {
      * Delete a topic by its unique ID.
      *
      * @param {string} topicId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteTopic(topicId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof topicId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "topicId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "topicId"');
             }
             const apiPath = '/messaging/topics/{topicId}'.replace('{topicId}', topicId);
             const payload = {};
@@ -9524,13 +9524,13 @@ class Messaging {
      *
      * @param {string} topicId
      * @param {string[]} queries
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.LogList>}
      */
     listTopicLogs(topicId, queries) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof topicId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "topicId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "topicId"');
             }
             const apiPath = '/messaging/topics/{topicId}/logs'.replace('{topicId}', topicId);
             const payload = {};
@@ -9552,13 +9552,13 @@ class Messaging {
      * @param {string} topicId
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.SubscriberList>}
      */
     listSubscribers(topicId, queries, search) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof topicId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "topicId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "topicId"');
             }
             const apiPath = '/messaging/topics/{topicId}/subscribers'.replace('{topicId}', topicId);
             const payload = {};
@@ -9583,19 +9583,19 @@ class Messaging {
      * @param {string} topicId
      * @param {string} subscriberId
      * @param {string} targetId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Subscriber>}
      */
     createSubscriber(topicId, subscriberId, targetId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof topicId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "topicId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "topicId"');
             }
             if (typeof subscriberId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "subscriberId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "subscriberId"');
             }
             if (typeof targetId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "targetId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "targetId"');
             }
             const apiPath = '/messaging/topics/{topicId}/subscribers'.replace('{topicId}', topicId);
             const payload = {};
@@ -9620,16 +9620,16 @@ class Messaging {
      *
      * @param {string} topicId
      * @param {string} subscriberId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Subscriber>}
      */
     getSubscriber(topicId, subscriberId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof topicId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "topicId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "topicId"');
             }
             if (typeof subscriberId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "subscriberId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "subscriberId"');
             }
             const apiPath = '/messaging/topics/{topicId}/subscribers/{subscriberId}'.replace('{topicId}', topicId).replace('{subscriberId}', subscriberId);
             const payload = {};
@@ -9647,16 +9647,16 @@ class Messaging {
      *
      * @param {string} topicId
      * @param {string} subscriberId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteSubscriber(topicId, subscriberId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof topicId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "topicId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "topicId"');
             }
             if (typeof subscriberId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "subscriberId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "subscriberId"');
             }
             const apiPath = '/messaging/topics/{topicId}/subscribers/{subscriberId}'.replace('{topicId}', topicId).replace('{subscriberId}', subscriberId);
             const payload = {};
@@ -9695,7 +9695,7 @@ class Migrations {
      *
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.MigrationList>}
      */
     list(queries, search) {
@@ -9723,22 +9723,22 @@ class Migrations {
      * @param {string} endpoint
      * @param {string} projectId
      * @param {string} apiKey
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Migration>}
      */
     createAppwriteMigration(resources, endpoint, projectId, apiKey) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof resources === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "resources"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "resources"');
             }
             if (typeof endpoint === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "endpoint"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "endpoint"');
             }
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof apiKey === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "apiKey"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "apiKey"');
             }
             const apiPath = '/migrations/appconda';
             const payload = {};
@@ -9769,22 +9769,22 @@ class Migrations {
      * @param {string} endpoint
      * @param {string} projectID
      * @param {string} key
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.MigrationReport>}
      */
     getAppwriteReport(resources, endpoint, projectID, key) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof resources === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "resources"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "resources"');
             }
             if (typeof endpoint === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "endpoint"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "endpoint"');
             }
             if (typeof projectID === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectID"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectID"');
             }
             if (typeof key === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "key"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "key"');
             }
             const apiPath = '/migrations/appconda/report';
             const payload = {};
@@ -9813,16 +9813,16 @@ class Migrations {
      *
      * @param {string[]} resources
      * @param {string} serviceAccount
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Migration>}
      */
     createFirebaseMigration(resources, serviceAccount) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof resources === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "resources"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "resources"');
             }
             if (typeof serviceAccount === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "serviceAccount"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "serviceAccount"');
             }
             const apiPath = '/migrations/firebase';
             const payload = {};
@@ -9843,7 +9843,7 @@ class Migrations {
      * Revoke Appconda&#039;s authorization to access Firebase Projects
      *
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteFirebaseAuth() {
@@ -9863,16 +9863,16 @@ class Migrations {
      *
      * @param {string[]} resources
      * @param {string} projectId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Migration>}
      */
     createFirebaseOAuthMigration(resources, projectId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof resources === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "resources"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "resources"');
             }
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             const apiPath = '/migrations/firebase/oauth';
             const payload = {};
@@ -9893,7 +9893,7 @@ class Migrations {
      * List Firebase Projects
      *
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.FirebaseProjectList>}
      */
     listFirebaseProjects() {
@@ -9913,16 +9913,16 @@ class Migrations {
      *
      * @param {string[]} resources
      * @param {string} serviceAccount
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.MigrationReport>}
      */
     getFirebaseReport(resources, serviceAccount) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof resources === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "resources"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "resources"');
             }
             if (typeof serviceAccount === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "serviceAccount"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "serviceAccount"');
             }
             const apiPath = '/migrations/firebase/report';
             const payload = {};
@@ -9945,16 +9945,16 @@ class Migrations {
      *
      * @param {string[]} resources
      * @param {string} projectId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.MigrationReport>}
      */
     getFirebaseReportOAuth(resources, projectId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof resources === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "resources"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "resources"');
             }
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             const apiPath = '/migrations/firebase/report/oauth';
             const payload = {};
@@ -9983,31 +9983,31 @@ class Migrations {
      * @param {string} username
      * @param {string} password
      * @param {number} port
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Migration>}
      */
     createNHostMigration(resources, subdomain, region, adminSecret, database, username, password, port) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof resources === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "resources"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "resources"');
             }
             if (typeof subdomain === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "subdomain"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "subdomain"');
             }
             if (typeof region === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "region"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "region"');
             }
             if (typeof adminSecret === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "adminSecret"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "adminSecret"');
             }
             if (typeof database === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "database"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "database"');
             }
             if (typeof username === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "username"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "username"');
             }
             if (typeof password === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "password"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "password"');
             }
             const apiPath = '/migrations/nhost';
             const payload = {};
@@ -10054,31 +10054,31 @@ class Migrations {
      * @param {string} username
      * @param {string} password
      * @param {number} port
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.MigrationReport>}
      */
     getNHostReport(resources, subdomain, region, adminSecret, database, username, password, port) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof resources === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "resources"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "resources"');
             }
             if (typeof subdomain === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "subdomain"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "subdomain"');
             }
             if (typeof region === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "region"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "region"');
             }
             if (typeof adminSecret === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "adminSecret"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "adminSecret"');
             }
             if (typeof database === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "database"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "database"');
             }
             if (typeof username === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "username"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "username"');
             }
             if (typeof password === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "password"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "password"');
             }
             const apiPath = '/migrations/nhost/report';
             const payload = {};
@@ -10124,28 +10124,28 @@ class Migrations {
      * @param {string} username
      * @param {string} password
      * @param {number} port
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Migration>}
      */
     createSupabaseMigration(resources, endpoint, apiKey, databaseHost, username, password, port) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof resources === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "resources"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "resources"');
             }
             if (typeof endpoint === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "endpoint"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "endpoint"');
             }
             if (typeof apiKey === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "apiKey"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "apiKey"');
             }
             if (typeof databaseHost === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseHost"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseHost"');
             }
             if (typeof username === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "username"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "username"');
             }
             if (typeof password === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "password"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "password"');
             }
             const apiPath = '/migrations/supabase';
             const payload = {};
@@ -10188,28 +10188,28 @@ class Migrations {
      * @param {string} username
      * @param {string} password
      * @param {number} port
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.MigrationReport>}
      */
     getSupabaseReport(resources, endpoint, apiKey, databaseHost, username, password, port) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof resources === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "resources"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "resources"');
             }
             if (typeof endpoint === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "endpoint"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "endpoint"');
             }
             if (typeof apiKey === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "apiKey"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "apiKey"');
             }
             if (typeof databaseHost === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseHost"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseHost"');
             }
             if (typeof username === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "username"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "username"');
             }
             if (typeof password === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "password"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "password"');
             }
             const apiPath = '/migrations/supabase/report';
             const payload = {};
@@ -10246,13 +10246,13 @@ class Migrations {
      *
      *
      * @param {string} migrationId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Migration>}
      */
     get(migrationId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof migrationId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "migrationId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "migrationId"');
             }
             const apiPath = '/migrations/{migrationId}'.replace('{migrationId}', migrationId);
             const payload = {};
@@ -10268,13 +10268,13 @@ class Migrations {
      *
      *
      * @param {string} migrationId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Migration>}
      */
     retry(migrationId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof migrationId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "migrationId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "migrationId"');
             }
             const apiPath = '/migrations/{migrationId}'.replace('{migrationId}', migrationId);
             const payload = {};
@@ -10290,13 +10290,13 @@ class Migrations {
      *
      *
      * @param {string} migrationId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     delete(migrationId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof migrationId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "migrationId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "migrationId"');
             }
             const apiPath = '/migrations/{migrationId}'.replace('{migrationId}', migrationId);
             const payload = {};
@@ -10336,16 +10336,16 @@ class Project {
      * @param {string} startDate
      * @param {string} endDate
      * @param {ProjectUsageRange} period
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.UsageProject>}
      */
     getUsage(startDate, endDate, period) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof startDate === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "startDate"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "startDate"');
             }
             if (typeof endDate === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "endDate"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "endDate"');
             }
             const apiPath = '/project/usage';
             const payload = {};
@@ -10370,7 +10370,7 @@ class Project {
      *
      * Get a list of all project variables. These variables will be accessible in all Appconda Functions at runtime.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.VariableList>}
      */
     listVariables() {
@@ -10391,16 +10391,16 @@ class Project {
      *
      * @param {string} key
      * @param {string} value
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Variable>}
      */
     createVariable(key, value) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof key === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "key"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "key"');
             }
             if (typeof value === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "value"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "value"');
             }
             const apiPath = '/project/variables';
             const payload = {};
@@ -10423,13 +10423,13 @@ class Project {
      * Get a project variable by its unique ID.
      *
      * @param {string} variableId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Variable>}
      */
     getVariable(variableId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof variableId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "variableId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "variableId"');
             }
             const apiPath = '/project/variables/{variableId}'.replace('{variableId}', variableId);
             const payload = {};
@@ -10448,16 +10448,16 @@ class Project {
      * @param {string} variableId
      * @param {string} key
      * @param {string} value
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Variable>}
      */
     updateVariable(variableId, key, value) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof variableId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "variableId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "variableId"');
             }
             if (typeof key === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "key"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "key"');
             }
             const apiPath = '/project/variables/{variableId}'.replace('{variableId}', variableId);
             const payload = {};
@@ -10480,13 +10480,13 @@ class Project {
      * Delete a project variable by its unique ID.
      *
      * @param {string} variableId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteVariable(variableId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof variableId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "variableId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "variableId"');
             }
             const apiPath = '/project/variables/{variableId}'.replace('{variableId}', variableId);
             const payload = {};
@@ -10525,7 +10525,7 @@ class Projects {
      *
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.ProjectList>}
      */
     list(queries, search) {
@@ -10562,19 +10562,19 @@ class Projects {
      * @param {string} legalCity
      * @param {string} legalAddress
      * @param {string} legalTaxId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     create(projectId, name, teamId, region, description, logo, url, legalName, legalCountry, legalState, legalCity, legalAddress, legalTaxId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof name === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "name"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "name"');
             }
             if (typeof teamId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "teamId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "teamId"');
             }
             const apiPath = '/projects';
             const payload = {};
@@ -10629,13 +10629,13 @@ class Projects {
      *
      *
      * @param {string} projectId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     get(projectId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             const apiPath = '/projects/{projectId}'.replace('{projectId}', projectId);
             const payload = {};
@@ -10661,16 +10661,16 @@ class Projects {
      * @param {string} legalCity
      * @param {string} legalAddress
      * @param {string} legalTaxId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     update(projectId, name, description, logo, url, legalName, legalCountry, legalState, legalCity, legalAddress, legalTaxId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof name === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "name"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "name"');
             }
             const apiPath = '/projects/{projectId}'.replace('{projectId}', projectId);
             const payload = {};
@@ -10716,13 +10716,13 @@ class Projects {
      *
      *
      * @param {string} projectId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     delete(projectId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             const apiPath = '/projects/{projectId}'.replace('{projectId}', projectId);
             const payload = {};
@@ -10740,19 +10740,19 @@ class Projects {
      * @param {string} projectId
      * @param {Api} api
      * @param {boolean} status
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     updateApiStatus(projectId, api, status) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof api === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "api"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "api"');
             }
             if (typeof status === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "status"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "status"');
             }
             const apiPath = '/projects/{projectId}/api'.replace('{projectId}', projectId);
             const payload = {};
@@ -10775,16 +10775,16 @@ class Projects {
      *
      * @param {string} projectId
      * @param {boolean} status
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     updateApiStatusAll(projectId, status) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof status === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "status"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "status"');
             }
             const apiPath = '/projects/{projectId}/api/all'.replace('{projectId}', projectId);
             const payload = {};
@@ -10804,16 +10804,16 @@ class Projects {
      *
      * @param {string} projectId
      * @param {number} duration
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     updateAuthDuration(projectId, duration) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof duration === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "duration"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "duration"');
             }
             const apiPath = '/projects/{projectId}/auth/duration'.replace('{projectId}', projectId);
             const payload = {};
@@ -10833,16 +10833,16 @@ class Projects {
      *
      * @param {string} projectId
      * @param {number} limit
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     updateAuthLimit(projectId, limit) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof limit === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "limit"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "limit"');
             }
             const apiPath = '/projects/{projectId}/auth/limit'.replace('{projectId}', projectId);
             const payload = {};
@@ -10862,16 +10862,16 @@ class Projects {
      *
      * @param {string} projectId
      * @param {number} limit
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     updateAuthSessionsLimit(projectId, limit) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof limit === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "limit"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "limit"');
             }
             const apiPath = '/projects/{projectId}/auth/max-sessions'.replace('{projectId}', projectId);
             const payload = {};
@@ -10891,16 +10891,16 @@ class Projects {
      *
      * @param {string} projectId
      * @param {object[]} numbers
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     updateMockNumbers(projectId, numbers) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof numbers === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "numbers"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "numbers"');
             }
             const apiPath = '/projects/{projectId}/auth/mock-numbers'.replace('{projectId}', projectId);
             const payload = {};
@@ -10920,16 +10920,16 @@ class Projects {
      *
      * @param {string} projectId
      * @param {boolean} enabled
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     updateAuthPasswordDictionary(projectId, enabled) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof enabled === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "enabled"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "enabled"');
             }
             const apiPath = '/projects/{projectId}/auth/password-dictionary'.replace('{projectId}', projectId);
             const payload = {};
@@ -10949,16 +10949,16 @@ class Projects {
      *
      * @param {string} projectId
      * @param {number} limit
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     updateAuthPasswordHistory(projectId, limit) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof limit === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "limit"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "limit"');
             }
             const apiPath = '/projects/{projectId}/auth/password-history'.replace('{projectId}', projectId);
             const payload = {};
@@ -10978,16 +10978,16 @@ class Projects {
      *
      * @param {string} projectId
      * @param {boolean} enabled
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     updatePersonalDataCheck(projectId, enabled) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof enabled === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "enabled"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "enabled"');
             }
             const apiPath = '/projects/{projectId}/auth/personal-data'.replace('{projectId}', projectId);
             const payload = {};
@@ -11007,16 +11007,16 @@ class Projects {
      *
      * @param {string} projectId
      * @param {boolean} alerts
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     updateSessionAlerts(projectId, alerts) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof alerts === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "alerts"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "alerts"');
             }
             const apiPath = '/projects/{projectId}/auth/session-alerts'.replace('{projectId}', projectId);
             const payload = {};
@@ -11037,19 +11037,19 @@ class Projects {
      * @param {string} projectId
      * @param {AuthMethod} method
      * @param {boolean} status
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     updateAuthStatus(projectId, method, status) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof method === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "method"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "method"');
             }
             if (typeof status === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "status"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "status"');
             }
             const apiPath = '/projects/{projectId}/auth/{method}'.replace('{projectId}', projectId).replace('{method}', method);
             const payload = {};
@@ -11070,16 +11070,16 @@ class Projects {
      * @param {string} projectId
      * @param {string[]} scopes
      * @param {number} duration
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Jwt>}
      */
     createJWT(projectId, scopes, duration) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof scopes === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "scopes"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "scopes"');
             }
             const apiPath = '/projects/{projectId}/jwts'.replace('{projectId}', projectId);
             const payload = {};
@@ -11101,13 +11101,13 @@ class Projects {
      *
      *
      * @param {string} projectId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.KeyList>}
      */
     listKeys(projectId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             const apiPath = '/projects/{projectId}/keys'.replace('{projectId}', projectId);
             const payload = {};
@@ -11126,19 +11126,19 @@ class Projects {
      * @param {string} name
      * @param {string[]} scopes
      * @param {string} expire
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Key>}
      */
     createKey(projectId, name, scopes, expire) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof name === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "name"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "name"');
             }
             if (typeof scopes === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "scopes"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "scopes"');
             }
             const apiPath = '/projects/{projectId}/keys'.replace('{projectId}', projectId);
             const payload = {};
@@ -11164,16 +11164,16 @@ class Projects {
      *
      * @param {string} projectId
      * @param {string} keyId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Key>}
      */
     getKey(projectId, keyId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof keyId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "keyId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "keyId"');
             }
             const apiPath = '/projects/{projectId}/keys/{keyId}'.replace('{projectId}', projectId).replace('{keyId}', keyId);
             const payload = {};
@@ -11193,22 +11193,22 @@ class Projects {
      * @param {string} name
      * @param {string[]} scopes
      * @param {string} expire
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Key>}
      */
     updateKey(projectId, keyId, name, scopes, expire) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof keyId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "keyId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "keyId"');
             }
             if (typeof name === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "name"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "name"');
             }
             if (typeof scopes === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "scopes"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "scopes"');
             }
             const apiPath = '/projects/{projectId}/keys/{keyId}'.replace('{projectId}', projectId).replace('{keyId}', keyId);
             const payload = {};
@@ -11234,16 +11234,16 @@ class Projects {
      *
      * @param {string} projectId
      * @param {string} keyId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteKey(projectId, keyId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof keyId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "keyId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "keyId"');
             }
             const apiPath = '/projects/{projectId}/keys/{keyId}'.replace('{projectId}', projectId).replace('{keyId}', keyId);
             const payload = {};
@@ -11263,16 +11263,16 @@ class Projects {
      * @param {string} appId
      * @param {string} secret
      * @param {boolean} enabled
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     updateOAuth2(projectId, provider, appId, secret, enabled) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof provider === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "provider"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "provider"');
             }
             const apiPath = '/projects/{projectId}/oauth2'.replace('{projectId}', projectId);
             const payload = {};
@@ -11300,13 +11300,13 @@ class Projects {
      *
      *
      * @param {string} projectId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.PlatformList>}
      */
     listPlatforms(projectId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             const apiPath = '/projects/{projectId}/platforms'.replace('{projectId}', projectId);
             const payload = {};
@@ -11327,19 +11327,19 @@ class Projects {
      * @param {string} key
      * @param {string} store
      * @param {string} hostname
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Platform>}
      */
     createPlatform(projectId, type, name, key, store, hostname) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof type === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "type"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "type"');
             }
             if (typeof name === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "name"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "name"');
             }
             const apiPath = '/projects/{projectId}/platforms'.replace('{projectId}', projectId);
             const payload = {};
@@ -11371,16 +11371,16 @@ class Projects {
      *
      * @param {string} projectId
      * @param {string} platformId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Platform>}
      */
     getPlatform(projectId, platformId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof platformId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "platformId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "platformId"');
             }
             const apiPath = '/projects/{projectId}/platforms/{platformId}'.replace('{projectId}', projectId).replace('{platformId}', platformId);
             const payload = {};
@@ -11401,19 +11401,19 @@ class Projects {
      * @param {string} key
      * @param {string} store
      * @param {string} hostname
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Platform>}
      */
     updatePlatform(projectId, platformId, name, key, store, hostname) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof platformId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "platformId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "platformId"');
             }
             if (typeof name === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "name"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "name"');
             }
             const apiPath = '/projects/{projectId}/platforms/{platformId}'.replace('{projectId}', projectId).replace('{platformId}', platformId);
             const payload = {};
@@ -11442,16 +11442,16 @@ class Projects {
      *
      * @param {string} projectId
      * @param {string} platformId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deletePlatform(projectId, platformId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof platformId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "platformId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "platformId"');
             }
             const apiPath = '/projects/{projectId}/platforms/{platformId}'.replace('{projectId}', projectId).replace('{platformId}', platformId);
             const payload = {};
@@ -11469,19 +11469,19 @@ class Projects {
      * @param {string} projectId
      * @param {ApiService} service
      * @param {boolean} status
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     updateServiceStatus(projectId, service, status) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof service === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "service"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "service"');
             }
             if (typeof status === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "status"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "status"');
             }
             const apiPath = '/projects/{projectId}/service'.replace('{projectId}', projectId);
             const payload = {};
@@ -11504,16 +11504,16 @@ class Projects {
      *
      * @param {string} projectId
      * @param {boolean} status
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     updateServiceStatusAll(projectId, status) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof status === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "status"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "status"');
             }
             const apiPath = '/projects/{projectId}/service/all'.replace('{projectId}', projectId);
             const payload = {};
@@ -11541,16 +11541,16 @@ class Projects {
      * @param {string} username
      * @param {string} password
      * @param {SMTPSecure} secure
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     updateSmtp(projectId, enabled, senderName, senderEmail, replyTo, host, port, username, password, secure) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof enabled === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "enabled"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "enabled"');
             }
             const apiPath = '/projects/{projectId}/smtp'.replace('{projectId}', projectId);
             const payload = {};
@@ -11602,25 +11602,25 @@ class Projects {
      * @param {string} username
      * @param {string} password
      * @param {SMTPSecure} secure
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     createSmtpTest(projectId, emails, senderName, senderEmail, host, replyTo, port, username, password, secure) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof emails === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "emails"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "emails"');
             }
             if (typeof senderName === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "senderName"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "senderName"');
             }
             if (typeof senderEmail === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "senderEmail"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "senderEmail"');
             }
             if (typeof host === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "host"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "host"');
             }
             const apiPath = '/projects/{projectId}/smtp/tests'.replace('{projectId}', projectId);
             const payload = {};
@@ -11664,16 +11664,16 @@ class Projects {
      *
      * @param {string} projectId
      * @param {string} teamId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     updateTeam(projectId, teamId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof teamId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "teamId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "teamId"');
             }
             const apiPath = '/projects/{projectId}/team'.replace('{projectId}', projectId);
             const payload = {};
@@ -11694,19 +11694,19 @@ class Projects {
      * @param {string} projectId
      * @param {EmailTemplateType} type
      * @param {EmailTemplateLocale} locale
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.EmailTemplate>}
      */
     getEmailTemplate(projectId, type, locale) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof type === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "type"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "type"');
             }
             if (typeof locale === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "locale"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "locale"');
             }
             const apiPath = '/projects/{projectId}/templates/email/{type}/{locale}'.replace('{projectId}', projectId).replace('{type}', type).replace('{locale}', locale);
             const payload = {};
@@ -11729,25 +11729,25 @@ class Projects {
      * @param {string} senderName
      * @param {string} senderEmail
      * @param {string} replyTo
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     updateEmailTemplate(projectId, type, locale, subject, message, senderName, senderEmail, replyTo) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof type === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "type"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "type"');
             }
             if (typeof locale === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "locale"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "locale"');
             }
             if (typeof subject === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "subject"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "subject"');
             }
             if (typeof message === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "message"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "message"');
             }
             const apiPath = '/projects/{projectId}/templates/email/{type}/{locale}'.replace('{projectId}', projectId).replace('{type}', type).replace('{locale}', locale);
             const payload = {};
@@ -11780,19 +11780,19 @@ class Projects {
      * @param {string} projectId
      * @param {EmailTemplateType} type
      * @param {EmailTemplateLocale} locale
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.EmailTemplate>}
      */
     deleteEmailTemplate(projectId, type, locale) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof type === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "type"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "type"');
             }
             if (typeof locale === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "locale"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "locale"');
             }
             const apiPath = '/projects/{projectId}/templates/email/{type}/{locale}'.replace('{projectId}', projectId).replace('{type}', type).replace('{locale}', locale);
             const payload = {};
@@ -11810,19 +11810,19 @@ class Projects {
      * @param {string} projectId
      * @param {SmsTemplateType} type
      * @param {SmsTemplateLocale} locale
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.SmsTemplate>}
      */
     getSmsTemplate(projectId, type, locale) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof type === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "type"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "type"');
             }
             if (typeof locale === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "locale"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "locale"');
             }
             const apiPath = '/projects/{projectId}/templates/sms/{type}/{locale}'.replace('{projectId}', projectId).replace('{type}', type).replace('{locale}', locale);
             const payload = {};
@@ -11841,22 +11841,22 @@ class Projects {
      * @param {SmsTemplateType} type
      * @param {SmsTemplateLocale} locale
      * @param {string} message
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.SmsTemplate>}
      */
     updateSmsTemplate(projectId, type, locale, message) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof type === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "type"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "type"');
             }
             if (typeof locale === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "locale"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "locale"');
             }
             if (typeof message === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "message"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "message"');
             }
             const apiPath = '/projects/{projectId}/templates/sms/{type}/{locale}'.replace('{projectId}', projectId).replace('{type}', type).replace('{locale}', locale);
             const payload = {};
@@ -11877,19 +11877,19 @@ class Projects {
      * @param {string} projectId
      * @param {SmsTemplateType} type
      * @param {SmsTemplateLocale} locale
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.SmsTemplate>}
      */
     deleteSmsTemplate(projectId, type, locale) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof type === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "type"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "type"');
             }
             if (typeof locale === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "locale"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "locale"');
             }
             const apiPath = '/projects/{projectId}/templates/sms/{type}/{locale}'.replace('{projectId}', projectId).replace('{type}', type).replace('{locale}', locale);
             const payload = {};
@@ -11905,13 +11905,13 @@ class Projects {
      *
      *
      * @param {string} projectId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.WebhookList>}
      */
     listWebhooks(projectId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             const apiPath = '/projects/{projectId}/webhooks'.replace('{projectId}', projectId);
             const payload = {};
@@ -11934,25 +11934,25 @@ class Projects {
      * @param {boolean} enabled
      * @param {string} httpUser
      * @param {string} httpPass
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Webhook>}
      */
     createWebhook(projectId, name, events, url, security, enabled, httpUser, httpPass) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof name === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "name"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "name"');
             }
             if (typeof events === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "events"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "events"');
             }
             if (typeof url === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "url"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "url"');
             }
             if (typeof security === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "security"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "security"');
             }
             const apiPath = '/projects/{projectId}/webhooks'.replace('{projectId}', projectId);
             const payload = {};
@@ -11990,16 +11990,16 @@ class Projects {
      *
      * @param {string} projectId
      * @param {string} webhookId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Webhook>}
      */
     getWebhook(projectId, webhookId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof webhookId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "webhookId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "webhookId"');
             }
             const apiPath = '/projects/{projectId}/webhooks/{webhookId}'.replace('{projectId}', projectId).replace('{webhookId}', webhookId);
             const payload = {};
@@ -12023,28 +12023,28 @@ class Projects {
      * @param {boolean} enabled
      * @param {string} httpUser
      * @param {string} httpPass
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Webhook>}
      */
     updateWebhook(projectId, webhookId, name, events, url, security, enabled, httpUser, httpPass) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof webhookId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "webhookId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "webhookId"');
             }
             if (typeof name === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "name"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "name"');
             }
             if (typeof events === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "events"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "events"');
             }
             if (typeof url === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "url"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "url"');
             }
             if (typeof security === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "security"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "security"');
             }
             const apiPath = '/projects/{projectId}/webhooks/{webhookId}'.replace('{projectId}', projectId).replace('{webhookId}', webhookId);
             const payload = {};
@@ -12082,16 +12082,16 @@ class Projects {
      *
      * @param {string} projectId
      * @param {string} webhookId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteWebhook(projectId, webhookId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof webhookId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "webhookId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "webhookId"');
             }
             const apiPath = '/projects/{projectId}/webhooks/{webhookId}'.replace('{projectId}', projectId).replace('{webhookId}', webhookId);
             const payload = {};
@@ -12108,16 +12108,16 @@ class Projects {
      *
      * @param {string} projectId
      * @param {string} webhookId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Webhook>}
      */
     updateWebhookSignature(projectId, webhookId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof webhookId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "webhookId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "webhookId"');
             }
             const apiPath = '/projects/{projectId}/webhooks/{webhookId}/signature'.replace('{projectId}', projectId).replace('{webhookId}', webhookId);
             const payload = {};
@@ -12157,7 +12157,7 @@ class Proxy {
      *
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.ProxyRuleList>}
      */
     listRules(queries, search) {
@@ -12185,16 +12185,16 @@ class Proxy {
      * @param {string} domain
      * @param {ResourceType} resourceType
      * @param {string} resourceId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.ProxyRule>}
      */
     createRule(domain, resourceType, resourceId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof domain === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "domain"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "domain"');
             }
             if (typeof resourceType === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "resourceType"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "resourceType"');
             }
             const apiPath = '/proxy/rules';
             const payload = {};
@@ -12220,13 +12220,13 @@ class Proxy {
      * Get a proxy rule by its unique ID.
      *
      * @param {string} ruleId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.ProxyRule>}
      */
     getRule(ruleId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof ruleId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "ruleId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "ruleId"');
             }
             const apiPath = '/proxy/rules/{ruleId}'.replace('{ruleId}', ruleId);
             const payload = {};
@@ -12243,13 +12243,13 @@ class Proxy {
      * Delete a proxy rule by its unique ID.
      *
      * @param {string} ruleId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteRule(ruleId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof ruleId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "ruleId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "ruleId"');
             }
             const apiPath = '/proxy/rules/{ruleId}'.replace('{ruleId}', ruleId);
             const payload = {};
@@ -12265,13 +12265,13 @@ class Proxy {
      *
      *
      * @param {string} ruleId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.ProxyRule>}
      */
     updateRuleVerification(ruleId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof ruleId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "ruleId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "ruleId"');
             }
             const apiPath = '/proxy/rules/{ruleId}/verification'.replace('{ruleId}', ruleId);
             const payload = {};
@@ -12313,7 +12313,7 @@ class Storage {
      *
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.BucketList>}
      */
     listBuckets(queries, search) {
@@ -12348,16 +12348,16 @@ class Storage {
      * @param {Compression} compression
      * @param {boolean} encryption
      * @param {boolean} antivirus
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Bucket>}
      */
     createBucket(bucketId, name, permissions, fileSecurity, enabled, maximumFileSize, allowedFileExtensions, compression, encryption, antivirus) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof bucketId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "bucketId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "bucketId"');
             }
             if (typeof name === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "name"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "name"');
             }
             const apiPath = '/storage/buckets';
             const payload = {};
@@ -12404,13 +12404,13 @@ class Storage {
      * Get a storage bucket by its unique ID. This endpoint response returns a JSON object with the storage bucket metadata.
      *
      * @param {string} bucketId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Bucket>}
      */
     getBucket(bucketId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof bucketId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "bucketId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "bucketId"');
             }
             const apiPath = '/storage/buckets/{bucketId}'.replace('{bucketId}', bucketId);
             const payload = {};
@@ -12436,16 +12436,16 @@ class Storage {
      * @param {Compression} compression
      * @param {boolean} encryption
      * @param {boolean} antivirus
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Bucket>}
      */
     updateBucket(bucketId, name, permissions, fileSecurity, enabled, maximumFileSize, allowedFileExtensions, compression, encryption, antivirus) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof bucketId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "bucketId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "bucketId"');
             }
             if (typeof name === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "name"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "name"');
             }
             const apiPath = '/storage/buckets/{bucketId}'.replace('{bucketId}', bucketId);
             const payload = {};
@@ -12489,13 +12489,13 @@ class Storage {
      * Delete a storage bucket by its unique ID.
      *
      * @param {string} bucketId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteBucket(bucketId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof bucketId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "bucketId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "bucketId"');
             }
             const apiPath = '/storage/buckets/{bucketId}'.replace('{bucketId}', bucketId);
             const payload = {};
@@ -12514,13 +12514,13 @@ class Storage {
      * @param {string} bucketId
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.FileList>}
      */
     listFiles(bucketId, queries, search) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof bucketId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "bucketId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "bucketId"');
             }
             const apiPath = '/storage/buckets/{bucketId}/files'.replace('{bucketId}', bucketId);
             const payload = {};
@@ -12553,19 +12553,19 @@ If you&#039;re creating a new file using one of the Appconda SDKs, all the chunk
      * @param {string} fileId
      * @param {File} file
      * @param {string[]} permissions
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.File>}
      */
     createFile(bucketId_1, fileId_1, file_1, permissions_1) {
         return __awaiter(this, arguments, void 0, function* (bucketId, fileId, file, permissions, onProgress = (progress) => { }) {
             if (typeof bucketId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "bucketId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "bucketId"');
             }
             if (typeof fileId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "fileId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "fileId"');
             }
             if (typeof file === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "file"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "file"');
             }
             const apiPath = '/storage/buckets/{bucketId}/files'.replace('{bucketId}', bucketId);
             const payload = {};
@@ -12592,16 +12592,16 @@ If you&#039;re creating a new file using one of the Appconda SDKs, all the chunk
      *
      * @param {string} bucketId
      * @param {string} fileId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.File>}
      */
     getFile(bucketId, fileId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof bucketId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "bucketId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "bucketId"');
             }
             if (typeof fileId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "fileId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "fileId"');
             }
             const apiPath = '/storage/buckets/{bucketId}/files/{fileId}'.replace('{bucketId}', bucketId).replace('{fileId}', fileId);
             const payload = {};
@@ -12621,16 +12621,16 @@ If you&#039;re creating a new file using one of the Appconda SDKs, all the chunk
      * @param {string} fileId
      * @param {string} name
      * @param {string[]} permissions
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.File>}
      */
     updateFile(bucketId, fileId, name, permissions) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof bucketId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "bucketId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "bucketId"');
             }
             if (typeof fileId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "fileId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "fileId"');
             }
             const apiPath = '/storage/buckets/{bucketId}/files/{fileId}'.replace('{bucketId}', bucketId).replace('{fileId}', fileId);
             const payload = {};
@@ -12654,16 +12654,16 @@ If you&#039;re creating a new file using one of the Appconda SDKs, all the chunk
      *
      * @param {string} bucketId
      * @param {string} fileId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteFile(bucketId, fileId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof bucketId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "bucketId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "bucketId"');
             }
             if (typeof fileId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "fileId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "fileId"');
             }
             const apiPath = '/storage/buckets/{bucketId}/files/{fileId}'.replace('{bucketId}', bucketId).replace('{fileId}', fileId);
             const payload = {};
@@ -12681,15 +12681,15 @@ If you&#039;re creating a new file using one of the Appconda SDKs, all the chunk
      *
      * @param {string} bucketId
      * @param {string} fileId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {string}
      */
     getFileDownload(bucketId, fileId) {
         if (typeof bucketId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "bucketId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "bucketId"');
         }
         if (typeof fileId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "fileId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "fileId"');
         }
         const apiPath = '/storage/buckets/{bucketId}/files/{fileId}/download'.replace('{bucketId}', bucketId).replace('{fileId}', fileId);
         const payload = {};
@@ -12725,15 +12725,15 @@ If you&#039;re creating a new file using one of the Appconda SDKs, all the chunk
      * @param {number} rotation
      * @param {string} background
      * @param {ImageFormat} output
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {string}
      */
     getFilePreview(bucketId, fileId, width, height, gravity, quality, borderWidth, borderColor, borderRadius, opacity, rotation, background, output) {
         if (typeof bucketId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "bucketId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "bucketId"');
         }
         if (typeof fileId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "fileId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "fileId"');
         }
         const apiPath = '/storage/buckets/{bucketId}/files/{fileId}/preview'.replace('{bucketId}', bucketId).replace('{fileId}', fileId);
         const payload = {};
@@ -12791,15 +12791,15 @@ If you&#039;re creating a new file using one of the Appconda SDKs, all the chunk
      *
      * @param {string} bucketId
      * @param {string} fileId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {string}
      */
     getFileView(bucketId, fileId) {
         if (typeof bucketId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "bucketId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "bucketId"');
         }
         if (typeof fileId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "fileId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "fileId"');
         }
         const apiPath = '/storage/buckets/{bucketId}/files/{fileId}/view'.replace('{bucketId}', bucketId).replace('{fileId}', fileId);
         const payload = {};
@@ -12822,7 +12822,7 @@ If you&#039;re creating a new file using one of the Appconda SDKs, all the chunk
      *
      *
      * @param {StorageUsageRange} range
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.UsageStorage>}
      */
     getUsage(range) {
@@ -12845,13 +12845,13 @@ If you&#039;re creating a new file using one of the Appconda SDKs, all the chunk
      *
      * @param {string} bucketId
      * @param {StorageUsageRange} range
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.UsageBuckets>}
      */
     getBucketUsage(bucketId, range) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof bucketId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "bucketId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "bucketId"');
             }
             const apiPath = '/storage/{bucketId}/usage'.replace('{bucketId}', bucketId);
             const payload = {};
@@ -12894,7 +12894,7 @@ class Teams {
      *
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.TeamList<Preferences>>}
      */
     list(queries, search) {
@@ -12922,16 +12922,16 @@ class Teams {
      * @param {string} teamId
      * @param {string} name
      * @param {string[]} roles
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Team<Preferences>>}
      */
     create(teamId, name, roles) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof teamId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "teamId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "teamId"');
             }
             if (typeof name === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "name"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "name"');
             }
             const apiPath = '/teams';
             const payload = {};
@@ -12957,13 +12957,13 @@ class Teams {
      * Get a team by its ID. All team members have read access for this resource.
      *
      * @param {string} teamId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Team<Preferences>>}
      */
     get(teamId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof teamId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "teamId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "teamId"');
             }
             const apiPath = '/teams/{teamId}'.replace('{teamId}', teamId);
             const payload = {};
@@ -12981,16 +12981,16 @@ class Teams {
      *
      * @param {string} teamId
      * @param {string} name
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Team<Preferences>>}
      */
     updateName(teamId, name) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof teamId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "teamId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "teamId"');
             }
             if (typeof name === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "name"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "name"');
             }
             const apiPath = '/teams/{teamId}'.replace('{teamId}', teamId);
             const payload = {};
@@ -13010,13 +13010,13 @@ class Teams {
      * Delete a team using its ID. Only team members with the owner role can delete the team.
      *
      * @param {string} teamId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     delete(teamId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof teamId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "teamId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "teamId"');
             }
             const apiPath = '/teams/{teamId}'.replace('{teamId}', teamId);
             const payload = {};
@@ -13034,13 +13034,13 @@ class Teams {
      *
      * @param {string} teamId
      * @param {string[]} queries
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.LogList>}
      */
     listLogs(teamId, queries) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof teamId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "teamId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "teamId"');
             }
             const apiPath = '/teams/{teamId}/logs'.replace('{teamId}', teamId);
             const payload = {};
@@ -13062,13 +13062,13 @@ class Teams {
      * @param {string} teamId
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.MembershipList>}
      */
     listMemberships(teamId, queries, search) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof teamId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "teamId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "teamId"');
             }
             const apiPath = '/teams/{teamId}/memberships'.replace('{teamId}', teamId);
             const payload = {};
@@ -13104,16 +13104,16 @@ Please note that to avoid a [Redirect Attack](https://github.com/OWASP/CheatShee
      * @param {string} phone
      * @param {string} url
      * @param {string} name
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Membership>}
      */
     createMembership(teamId, roles, email, userId, phone, url, name) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof teamId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "teamId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "teamId"');
             }
             if (typeof roles === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "roles"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "roles"');
             }
             const apiPath = '/teams/{teamId}/memberships'.replace('{teamId}', teamId);
             const payload = {};
@@ -13149,16 +13149,16 @@ Please note that to avoid a [Redirect Attack](https://github.com/OWASP/CheatShee
      *
      * @param {string} teamId
      * @param {string} membershipId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Membership>}
      */
     getMembership(teamId, membershipId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof teamId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "teamId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "teamId"');
             }
             if (typeof membershipId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "membershipId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "membershipId"');
             }
             const apiPath = '/teams/{teamId}/memberships/{membershipId}'.replace('{teamId}', teamId).replace('{membershipId}', membershipId);
             const payload = {};
@@ -13178,19 +13178,19 @@ Please note that to avoid a [Redirect Attack](https://github.com/OWASP/CheatShee
      * @param {string} teamId
      * @param {string} membershipId
      * @param {string[]} roles
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Membership>}
      */
     updateMembership(teamId, membershipId, roles) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof teamId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "teamId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "teamId"');
             }
             if (typeof membershipId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "membershipId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "membershipId"');
             }
             if (typeof roles === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "roles"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "roles"');
             }
             const apiPath = '/teams/{teamId}/memberships/{membershipId}'.replace('{teamId}', teamId).replace('{membershipId}', membershipId);
             const payload = {};
@@ -13211,16 +13211,16 @@ Please note that to avoid a [Redirect Attack](https://github.com/OWASP/CheatShee
      *
      * @param {string} teamId
      * @param {string} membershipId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteMembership(teamId, membershipId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof teamId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "teamId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "teamId"');
             }
             if (typeof membershipId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "membershipId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "membershipId"');
             }
             const apiPath = '/teams/{teamId}/memberships/{membershipId}'.replace('{teamId}', teamId).replace('{membershipId}', membershipId);
             const payload = {};
@@ -13243,22 +13243,22 @@ If the request is successful, a session for the user is automatically created.
      * @param {string} membershipId
      * @param {string} userId
      * @param {string} secret
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Membership>}
      */
     updateMembershipStatus(teamId, membershipId, userId, secret) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof teamId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "teamId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "teamId"');
             }
             if (typeof membershipId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "membershipId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "membershipId"');
             }
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             if (typeof secret === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "secret"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "secret"');
             }
             const apiPath = '/teams/{teamId}/memberships/{membershipId}/status'.replace('{teamId}', teamId).replace('{membershipId}', membershipId);
             const payload = {};
@@ -13281,13 +13281,13 @@ If the request is successful, a session for the user is automatically created.
      * Get the team&#039;s shared preferences by its unique ID. If a preference doesn&#039;t need to be shared by all team members, prefer storing them in [user preferences](https://appconda.io/docs/references/cloud/client-web/account#getPrefs).
      *
      * @param {string} teamId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Preferences>}
      */
     getPrefs(teamId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof teamId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "teamId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "teamId"');
             }
             const apiPath = '/teams/{teamId}/prefs'.replace('{teamId}', teamId);
             const payload = {};
@@ -13305,16 +13305,16 @@ If the request is successful, a session for the user is automatically created.
      *
      * @param {string} teamId
      * @param {object} prefs
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Preferences>}
      */
     updatePrefs(teamId, prefs) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof teamId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "teamId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "teamId"');
             }
             if (typeof prefs === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "prefs"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "prefs"');
             }
             const apiPath = '/teams/{teamId}/prefs'.replace('{teamId}', teamId);
             const payload = {};
@@ -13357,7 +13357,7 @@ class Users {
      *
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.UserList<Preferences>>}
      */
     list(queries, search) {
@@ -13387,13 +13387,13 @@ class Users {
      * @param {string} phone
      * @param {string} password
      * @param {string} name
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     create(userId, email, phone, password, name) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             const apiPath = '/users';
             const payload = {};
@@ -13428,19 +13428,19 @@ class Users {
      * @param {string} email
      * @param {string} password
      * @param {string} name
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     createArgon2User(userId, email, password, name) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             if (typeof email === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "email"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "email"');
             }
             if (typeof password === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "password"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "password"');
             }
             const apiPath = '/users/argon2';
             const payload = {};
@@ -13472,19 +13472,19 @@ class Users {
      * @param {string} email
      * @param {string} password
      * @param {string} name
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     createBcryptUser(userId, email, password, name) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             if (typeof email === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "email"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "email"');
             }
             if (typeof password === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "password"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "password"');
             }
             const apiPath = '/users/bcrypt';
             const payload = {};
@@ -13514,7 +13514,7 @@ class Users {
      *
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.IdentityList>}
      */
     listIdentities(queries, search) {
@@ -13540,13 +13540,13 @@ class Users {
      * Delete an identity by its unique ID.
      *
      * @param {string} identityId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteIdentity(identityId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof identityId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "identityId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "identityId"');
             }
             const apiPath = '/users/identities/{identityId}'.replace('{identityId}', identityId);
             const payload = {};
@@ -13566,19 +13566,19 @@ class Users {
      * @param {string} email
      * @param {string} password
      * @param {string} name
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     createMD5User(userId, email, password, name) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             if (typeof email === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "email"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "email"');
             }
             if (typeof password === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "password"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "password"');
             }
             const apiPath = '/users/md5';
             const payload = {};
@@ -13610,19 +13610,19 @@ class Users {
      * @param {string} email
      * @param {string} password
      * @param {string} name
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     createPHPassUser(userId, email, password, name) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             if (typeof email === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "email"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "email"');
             }
             if (typeof password === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "password"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "password"');
             }
             const apiPath = '/users/phpass';
             const payload = {};
@@ -13659,34 +13659,34 @@ class Users {
      * @param {number} passwordParallel
      * @param {number} passwordLength
      * @param {string} name
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     createScryptUser(userId, email, password, passwordSalt, passwordCpu, passwordMemory, passwordParallel, passwordLength, name) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             if (typeof email === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "email"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "email"');
             }
             if (typeof password === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "password"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "password"');
             }
             if (typeof passwordSalt === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "passwordSalt"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "passwordSalt"');
             }
             if (typeof passwordCpu === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "passwordCpu"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "passwordCpu"');
             }
             if (typeof passwordMemory === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "passwordMemory"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "passwordMemory"');
             }
             if (typeof passwordParallel === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "passwordParallel"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "passwordParallel"');
             }
             if (typeof passwordLength === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "passwordLength"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "passwordLength"');
             }
             const apiPath = '/users/scrypt';
             const payload = {};
@@ -13736,28 +13736,28 @@ class Users {
      * @param {string} passwordSaltSeparator
      * @param {string} passwordSignerKey
      * @param {string} name
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     createScryptModifiedUser(userId, email, password, passwordSalt, passwordSaltSeparator, passwordSignerKey, name) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             if (typeof email === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "email"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "email"');
             }
             if (typeof password === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "password"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "password"');
             }
             if (typeof passwordSalt === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "passwordSalt"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "passwordSalt"');
             }
             if (typeof passwordSaltSeparator === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "passwordSaltSeparator"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "passwordSaltSeparator"');
             }
             if (typeof passwordSignerKey === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "passwordSignerKey"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "passwordSignerKey"');
             }
             const apiPath = '/users/scrypt-modified';
             const payload = {};
@@ -13799,19 +13799,19 @@ class Users {
      * @param {string} password
      * @param {PasswordHash} passwordVersion
      * @param {string} name
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     createSHAUser(userId, email, password, passwordVersion, name) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             if (typeof email === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "email"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "email"');
             }
             if (typeof password === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "password"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "password"');
             }
             const apiPath = '/users/sha';
             const payload = {};
@@ -13842,7 +13842,7 @@ class Users {
      *
      *
      * @param {UserUsageRange} range
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.UsageUsers>}
      */
     getUsage(range) {
@@ -13865,13 +13865,13 @@ class Users {
      * Get a user by its unique ID.
      *
      * @param {string} userId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     get(userId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             const apiPath = '/users/{userId}'.replace('{userId}', userId);
             const payload = {};
@@ -13888,13 +13888,13 @@ class Users {
      * Delete a user by its unique ID, thereby releasing it&#039;s ID. Since ID is released and can be reused, all user-related resources like documents or storage files should be deleted before user deletion. If you want to keep ID reserved, use the [updateStatus](https://appconda.io/docs/server/users#usersUpdateStatus) endpoint instead.
      *
      * @param {string} userId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     delete(userId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             const apiPath = '/users/{userId}'.replace('{userId}', userId);
             const payload = {};
@@ -13912,16 +13912,16 @@ class Users {
      *
      * @param {string} userId
      * @param {string} email
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     updateEmail(userId, email) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             if (typeof email === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "email"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "email"');
             }
             const apiPath = '/users/{userId}/email'.replace('{userId}', userId);
             const payload = {};
@@ -13943,13 +13943,13 @@ class Users {
      * @param {string} userId
      * @param {string} sessionId
      * @param {number} duration
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Jwt>}
      */
     createJWT(userId, sessionId, duration) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             const apiPath = '/users/{userId}/jwts'.replace('{userId}', userId);
             const payload = {};
@@ -13975,16 +13975,16 @@ Labels can be used to grant access to resources. While teams are a way for user&
      *
      * @param {string} userId
      * @param {string[]} labels
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     updateLabels(userId, labels) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             if (typeof labels === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "labels"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "labels"');
             }
             const apiPath = '/users/{userId}/labels'.replace('{userId}', userId);
             const payload = {};
@@ -14005,13 +14005,13 @@ Labels can be used to grant access to resources. While teams are a way for user&
      *
      * @param {string} userId
      * @param {string[]} queries
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.LogList>}
      */
     listLogs(userId, queries) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             const apiPath = '/users/{userId}/logs'.replace('{userId}', userId);
             const payload = {};
@@ -14031,13 +14031,13 @@ Labels can be used to grant access to resources. While teams are a way for user&
      * Get the user membership list by its unique ID.
      *
      * @param {string} userId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.MembershipList>}
      */
     listMemberships(userId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             const apiPath = '/users/{userId}/memberships'.replace('{userId}', userId);
             const payload = {};
@@ -14055,16 +14055,16 @@ Labels can be used to grant access to resources. While teams are a way for user&
      *
      * @param {string} userId
      * @param {boolean} mfa
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     updateMfa(userId, mfa) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             if (typeof mfa === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "mfa"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "mfa"');
             }
             const apiPath = '/users/{userId}/mfa'.replace('{userId}', userId);
             const payload = {};
@@ -14085,16 +14085,16 @@ Labels can be used to grant access to resources. While teams are a way for user&
      *
      * @param {string} userId
      * @param {AuthenticatorType} type
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     deleteMfaAuthenticator(userId, type) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             if (typeof type === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "type"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "type"');
             }
             const apiPath = '/users/{userId}/mfa/authenticators/{type}'.replace('{userId}', userId).replace('{type}', type);
             const payload = {};
@@ -14111,13 +14111,13 @@ Labels can be used to grant access to resources. While teams are a way for user&
      * List the factors available on the account to be used as a MFA challange.
      *
      * @param {string} userId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.MfaFactors>}
      */
     listMfaFactors(userId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             const apiPath = '/users/{userId}/mfa/factors'.replace('{userId}', userId);
             const payload = {};
@@ -14134,13 +14134,13 @@ Labels can be used to grant access to resources. While teams are a way for user&
      * Get recovery codes that can be used as backup for MFA flow by User ID. Before getting codes, they must be generated using [createMfaRecoveryCodes](/docs/references/cloud/client-web/account#createMfaRecoveryCodes) method.
      *
      * @param {string} userId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.MfaRecoveryCodes>}
      */
     getMfaRecoveryCodes(userId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             const apiPath = '/users/{userId}/mfa/recovery-codes'.replace('{userId}', userId);
             const payload = {};
@@ -14157,13 +14157,13 @@ Labels can be used to grant access to resources. While teams are a way for user&
      * Regenerate recovery codes that can be used as backup for MFA flow by User ID. Before regenerating codes, they must be first generated using [createMfaRecoveryCodes](/docs/references/cloud/client-web/account#createMfaRecoveryCodes) method.
      *
      * @param {string} userId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.MfaRecoveryCodes>}
      */
     updateMfaRecoveryCodes(userId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             const apiPath = '/users/{userId}/mfa/recovery-codes'.replace('{userId}', userId);
             const payload = {};
@@ -14180,13 +14180,13 @@ Labels can be used to grant access to resources. While teams are a way for user&
      * Generate recovery codes used as backup for MFA flow for User ID. Recovery codes can be used as a MFA verification type in [createMfaChallenge](/docs/references/cloud/client-web/account#createMfaChallenge) method by client SDK.
      *
      * @param {string} userId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.MfaRecoveryCodes>}
      */
     createMfaRecoveryCodes(userId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             const apiPath = '/users/{userId}/mfa/recovery-codes'.replace('{userId}', userId);
             const payload = {};
@@ -14204,16 +14204,16 @@ Labels can be used to grant access to resources. While teams are a way for user&
      *
      * @param {string} userId
      * @param {string} name
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     updateName(userId, name) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             if (typeof name === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "name"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "name"');
             }
             const apiPath = '/users/{userId}/name'.replace('{userId}', userId);
             const payload = {};
@@ -14234,16 +14234,16 @@ Labels can be used to grant access to resources. While teams are a way for user&
      *
      * @param {string} userId
      * @param {string} password
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     updatePassword(userId, password) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             if (typeof password === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "password"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "password"');
             }
             const apiPath = '/users/{userId}/password'.replace('{userId}', userId);
             const payload = {};
@@ -14264,16 +14264,16 @@ Labels can be used to grant access to resources. While teams are a way for user&
      *
      * @param {string} userId
      * @param {string} number
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     updatePhone(userId, number) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             if (typeof number === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "number"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "number"');
             }
             const apiPath = '/users/{userId}/phone'.replace('{userId}', userId);
             const payload = {};
@@ -14293,13 +14293,13 @@ Labels can be used to grant access to resources. While teams are a way for user&
      * Get the user preferences by its unique ID.
      *
      * @param {string} userId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Preferences>}
      */
     getPrefs(userId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             const apiPath = '/users/{userId}/prefs'.replace('{userId}', userId);
             const payload = {};
@@ -14317,16 +14317,16 @@ Labels can be used to grant access to resources. While teams are a way for user&
      *
      * @param {string} userId
      * @param {object} prefs
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Preferences>}
      */
     updatePrefs(userId, prefs) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             if (typeof prefs === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "prefs"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "prefs"');
             }
             const apiPath = '/users/{userId}/prefs'.replace('{userId}', userId);
             const payload = {};
@@ -14346,13 +14346,13 @@ Labels can be used to grant access to resources. While teams are a way for user&
      * Get the user sessions list by its unique ID.
      *
      * @param {string} userId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.SessionList>}
      */
     listSessions(userId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             const apiPath = '/users/{userId}/sessions'.replace('{userId}', userId);
             const payload = {};
@@ -14371,13 +14371,13 @@ Labels can be used to grant access to resources. While teams are a way for user&
 If you want to generate a token for a custom authentication flow, use the [POST /users/{userId}/tokens](https://appconda.io/docs/server/users#createToken) endpoint.
      *
      * @param {string} userId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Session>}
      */
     createSession(userId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             const apiPath = '/users/{userId}/sessions'.replace('{userId}', userId);
             const payload = {};
@@ -14394,13 +14394,13 @@ If you want to generate a token for a custom authentication flow, use the [POST 
      * Delete all user&#039;s sessions by using the user&#039;s unique ID.
      *
      * @param {string} userId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteSessions(userId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             const apiPath = '/users/{userId}/sessions'.replace('{userId}', userId);
             const payload = {};
@@ -14418,16 +14418,16 @@ If you want to generate a token for a custom authentication flow, use the [POST 
      *
      * @param {string} userId
      * @param {string} sessionId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteSession(userId, sessionId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             if (typeof sessionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "sessionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "sessionId"');
             }
             const apiPath = '/users/{userId}/sessions/{sessionId}'.replace('{userId}', userId).replace('{sessionId}', sessionId);
             const payload = {};
@@ -14445,16 +14445,16 @@ If you want to generate a token for a custom authentication flow, use the [POST 
      *
      * @param {string} userId
      * @param {boolean} status
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     updateStatus(userId, status) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             if (typeof status === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "status"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "status"');
             }
             const apiPath = '/users/{userId}/status'.replace('{userId}', userId);
             const payload = {};
@@ -14475,13 +14475,13 @@ If you want to generate a token for a custom authentication flow, use the [POST 
      *
      * @param {string} userId
      * @param {string[]} queries
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.TargetList>}
      */
     listTargets(userId, queries) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             const apiPath = '/users/{userId}/targets'.replace('{userId}', userId);
             const payload = {};
@@ -14506,22 +14506,22 @@ If you want to generate a token for a custom authentication flow, use the [POST 
      * @param {string} identifier
      * @param {string} providerId
      * @param {string} name
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Target>}
      */
     createTarget(userId, targetId, providerType, identifier, providerId, name) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             if (typeof targetId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "targetId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "targetId"');
             }
             if (typeof providerType === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "providerType"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "providerType"');
             }
             if (typeof identifier === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "identifier"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "identifier"');
             }
             const apiPath = '/users/{userId}/targets'.replace('{userId}', userId);
             const payload = {};
@@ -14554,16 +14554,16 @@ If you want to generate a token for a custom authentication flow, use the [POST 
      *
      * @param {string} userId
      * @param {string} targetId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Target>}
      */
     getTarget(userId, targetId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             if (typeof targetId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "targetId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "targetId"');
             }
             const apiPath = '/users/{userId}/targets/{targetId}'.replace('{userId}', userId).replace('{targetId}', targetId);
             const payload = {};
@@ -14584,16 +14584,16 @@ If you want to generate a token for a custom authentication flow, use the [POST 
      * @param {string} identifier
      * @param {string} providerId
      * @param {string} name
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Target>}
      */
     updateTarget(userId, targetId, identifier, providerId, name) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             if (typeof targetId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "targetId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "targetId"');
             }
             const apiPath = '/users/{userId}/targets/{targetId}'.replace('{userId}', userId).replace('{targetId}', targetId);
             const payload = {};
@@ -14620,16 +14620,16 @@ If you want to generate a token for a custom authentication flow, use the [POST 
      *
      * @param {string} userId
      * @param {string} targetId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteTarget(userId, targetId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             if (typeof targetId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "targetId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "targetId"');
             }
             const apiPath = '/users/{userId}/targets/{targetId}'.replace('{userId}', userId).replace('{targetId}', targetId);
             const payload = {};
@@ -14649,13 +14649,13 @@ If you want to generate a token for a custom authentication flow, use the [POST 
      * @param {string} userId
      * @param {number} length
      * @param {number} expire
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Token>}
      */
     createToken(userId, length, expire) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             const apiPath = '/users/{userId}/tokens'.replace('{userId}', userId);
             const payload = {};
@@ -14679,16 +14679,16 @@ If you want to generate a token for a custom authentication flow, use the [POST 
      *
      * @param {string} userId
      * @param {boolean} emailVerification
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     updateEmailVerification(userId, emailVerification) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             if (typeof emailVerification === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "emailVerification"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "emailVerification"');
             }
             const apiPath = '/users/{userId}/verification'.replace('{userId}', userId);
             const payload = {};
@@ -14709,16 +14709,16 @@ If you want to generate a token for a custom authentication flow, use the [POST 
      *
      * @param {string} userId
      * @param {boolean} phoneVerification
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     updatePhoneVerification(userId, phoneVerification) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             if (typeof phoneVerification === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "phoneVerification"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "phoneVerification"');
             }
             const apiPath = '/users/{userId}/verification/phone'.replace('{userId}', userId);
             const payload = {};
@@ -14760,13 +14760,13 @@ class Vcs {
      *
      * @param {string} installationId
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.ProviderRepositoryList>}
      */
     listRepositories(installationId, search) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof installationId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "installationId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "installationId"');
             }
             const apiPath = '/vcs/github/installations/{installationId}/providerRepositories'.replace('{installationId}', installationId);
             const payload = {};
@@ -14787,19 +14787,19 @@ class Vcs {
      * @param {string} installationId
      * @param {string} name
      * @param {boolean} xprivate
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.ProviderRepository>}
      */
     createRepository(installationId, name, xprivate) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof installationId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "installationId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "installationId"');
             }
             if (typeof name === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "name"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "name"');
             }
             if (typeof xprivate === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "xprivate"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "xprivate"');
             }
             const apiPath = '/vcs/github/installations/{installationId}/providerRepositories'.replace('{installationId}', installationId);
             const payload = {};
@@ -14822,16 +14822,16 @@ class Vcs {
      *
      * @param {string} installationId
      * @param {string} providerRepositoryId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.ProviderRepository>}
      */
     getRepository(installationId, providerRepositoryId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof installationId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "installationId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "installationId"');
             }
             if (typeof providerRepositoryId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "providerRepositoryId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "providerRepositoryId"');
             }
             const apiPath = '/vcs/github/installations/{installationId}/providerRepositories/{providerRepositoryId}'.replace('{installationId}', installationId).replace('{providerRepositoryId}', providerRepositoryId);
             const payload = {};
@@ -14848,16 +14848,16 @@ class Vcs {
      *
      * @param {string} installationId
      * @param {string} providerRepositoryId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.BranchList>}
      */
     listRepositoryBranches(installationId, providerRepositoryId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof installationId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "installationId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "installationId"');
             }
             if (typeof providerRepositoryId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "providerRepositoryId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "providerRepositoryId"');
             }
             const apiPath = '/vcs/github/installations/{installationId}/providerRepositories/{providerRepositoryId}/branches'.replace('{installationId}', installationId).replace('{providerRepositoryId}', providerRepositoryId);
             const payload = {};
@@ -14875,16 +14875,16 @@ class Vcs {
      * @param {string} installationId
      * @param {string} providerRepositoryId
      * @param {string} providerRootDirectory
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.VcsContentList>}
      */
     getRepositoryContents(installationId, providerRepositoryId, providerRootDirectory) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof installationId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "installationId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "installationId"');
             }
             if (typeof providerRepositoryId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "providerRepositoryId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "providerRepositoryId"');
             }
             const apiPath = '/vcs/github/installations/{installationId}/providerRepositories/{providerRepositoryId}/contents'.replace('{installationId}', installationId).replace('{providerRepositoryId}', providerRepositoryId);
             const payload = {};
@@ -14905,16 +14905,16 @@ class Vcs {
      * @param {string} installationId
      * @param {string} providerRepositoryId
      * @param {string} providerRootDirectory
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Detection>}
      */
     createRepositoryDetection(installationId, providerRepositoryId, providerRootDirectory) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof installationId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "installationId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "installationId"');
             }
             if (typeof providerRepositoryId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "providerRepositoryId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "providerRepositoryId"');
             }
             const apiPath = '/vcs/github/installations/{installationId}/providerRepositories/{providerRepositoryId}/detection'.replace('{installationId}', installationId).replace('{providerRepositoryId}', providerRepositoryId);
             const payload = {};
@@ -14935,19 +14935,19 @@ class Vcs {
      * @param {string} installationId
      * @param {string} repositoryId
      * @param {string} providerPullRequestId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     updateExternalDeployments(installationId, repositoryId, providerPullRequestId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof installationId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "installationId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "installationId"');
             }
             if (typeof repositoryId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "repositoryId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "repositoryId"');
             }
             if (typeof providerPullRequestId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "providerPullRequestId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "providerPullRequestId"');
             }
             const apiPath = '/vcs/github/installations/{installationId}/repositories/{repositoryId}'.replace('{installationId}', installationId).replace('{repositoryId}', repositoryId);
             const payload = {};
@@ -14967,7 +14967,7 @@ class Vcs {
      *
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.InstallationList>}
      */
     listInstallations(queries, search) {
@@ -14992,13 +14992,13 @@ class Vcs {
      *
      *
      * @param {string} installationId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Installation>}
      */
     getInstallation(installationId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof installationId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "installationId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "installationId"');
             }
             const apiPath = '/vcs/installations/{installationId}'.replace('{installationId}', installationId);
             const payload = {};
@@ -15014,13 +15014,13 @@ class Vcs {
      *
      *
      * @param {string} installationId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteInstallation(installationId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof installationId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "installationId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "installationId"');
             }
             const apiPath = '/vcs/installations/{installationId}'.replace('{installationId}', installationId);
             const payload = {};

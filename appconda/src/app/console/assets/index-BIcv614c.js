@@ -53,9 +53,9 @@ var dI=_=>{throw TypeError(_)};var IE=(_,b,$)=>b.has(_)||dI("Cannot "+$);var Wn=
 `+ut[wt].replace(" at new "," at ");return _.displayName&&Rt.includes("<anonymous>")&&(Rt=Rt.replace("<anonymous>",_.displayName)),Rt}while(1<=wt&&0<=Ct);break}}}finally{Na=!1,Error.prepareStackTrace=$}return(_=_?_.displayName||_.name:"")?Ma(_):""}function Pa(_){switch(_.tag){case 5:return Ma(_.type);case 16:return Ma("Lazy");case 13:return Ma("Suspense");case 19:return Ma("SuspenseList");case 0:case 2:case 15:return _=Oa(_.type,!1),_;case 11:return _=Oa(_.type.render,!1),_;case 1:return _=Oa(_.type,!0),_;default:return""}}function Qa(_){if(_==null)return null;if(typeof _=="function")return _.displayName||_.name||null;if(typeof _=="string")return _;switch(_){case ya:return"Fragment";case wa:return"Portal";case Aa:return"Profiler";case za:return"StrictMode";case Ea:return"Suspense";case Fa:return"SuspenseList"}if(typeof _=="object")switch(_.$$typeof){case Ca:return(_.displayName||"Context")+".Consumer";case Ba:return(_._context.displayName||"Context")+".Provider";case Da:var b=_.render;return _=_.displayName,_||(_=b.displayName||b.name||"",_=_!==""?"ForwardRef("+_+")":"ForwardRef"),_;case Ga:return b=_.displayName||null,b!==null?b:Qa(_.type)||"Memo";case Ha:b=_._payload,_=_._init;try{return Qa(_(b))}catch{}}return null}function Ra(_){var b=_.type;switch(_.tag){case 24:return"Cache";case 9:return(b.displayName||"Context")+".Consumer";case 10:return(b._context.displayName||"Context")+".Provider";case 18:return"DehydratedFragment";case 11:return _=b.render,_=_.displayName||_.name||"",b.displayName||(_!==""?"ForwardRef("+_+")":"ForwardRef");case 7:return"Fragment";case 5:return b;case 4:return"Portal";case 3:return"Root";case 6:return"Text";case 16:return Qa(b);case 8:return b===za?"StrictMode":"Mode";case 22:return"Offscreen";case 12:return"Profiler";case 21:return"Scope";case 13:return"Suspense";case 19:return"SuspenseList";case 25:return"TracingMarker";case 1:case 0:case 17:case 2:case 14:case 15:if(typeof b=="function")return b.displayName||b.name||null;if(typeof b=="string")return b}return null}function Sa(_){switch(typeof _){case"boolean":case"number":case"string":case"undefined":return _;case"object":return _;default:return""}}function Ta(_){var b=_.type;return(_=_.nodeName)&&_.toLowerCase()==="input"&&(b==="checkbox"||b==="radio")}function Ua(_){var b=Ta(_)?"checked":"value",$=Object.getOwnPropertyDescriptor(_.constructor.prototype,b),_e=""+_[b];if(!_.hasOwnProperty(b)&&typeof $<"u"&&typeof $.get=="function"&&typeof $.set=="function"){var ut=$.get,yt=$.set;return Object.defineProperty(_,b,{configurable:!0,get:function(){return ut.call(this)},set:function(wt){_e=""+wt,yt.call(this,wt)}}),Object.defineProperty(_,b,{enumerable:$.enumerable}),{getValue:function(){return _e},setValue:function(wt){_e=""+wt},stopTracking:function(){_._valueTracker=null,delete _[b]}}}}function Va(_){_._valueTracker||(_._valueTracker=Ua(_))}function Wa(_){if(!_)return!1;var b=_._valueTracker;if(!b)return!0;var $=b.getValue(),_e="";return _&&(_e=Ta(_)?_.checked?"true":"false":_.value),_=_e,_!==$?(b.setValue(_),!0):!1}function Xa(_){if(_=_||(typeof document<"u"?document:void 0),typeof _>"u")return null;try{return _.activeElement||_.body}catch{return _.body}}function Ya(_,b){var $=b.checked;return A({},b,{defaultChecked:void 0,defaultValue:void 0,value:void 0,checked:$??_._wrapperState.initialChecked})}function Za(_,b){var $=b.defaultValue==null?"":b.defaultValue,_e=b.checked!=null?b.checked:b.defaultChecked;$=Sa(b.value!=null?b.value:$),_._wrapperState={initialChecked:_e,initialValue:$,controlled:b.type==="checkbox"||b.type==="radio"?b.checked!=null:b.value!=null}}function ab(_,b){b=b.checked,b!=null&&ta(_,"checked",b,!1)}function bb(_,b){ab(_,b);var $=Sa(b.value),_e=b.type;if($!=null)_e==="number"?($===0&&_.value===""||_.value!=$)&&(_.value=""+$):_.value!==""+$&&(_.value=""+$);else if(_e==="submit"||_e==="reset"){_.removeAttribute("value");return}b.hasOwnProperty("value")?cb(_,b.type,$):b.hasOwnProperty("defaultValue")&&cb(_,b.type,Sa(b.defaultValue)),b.checked==null&&b.defaultChecked!=null&&(_.defaultChecked=!!b.defaultChecked)}function db(_,b,$){if(b.hasOwnProperty("value")||b.hasOwnProperty("defaultValue")){var _e=b.type;if(!(_e!=="submit"&&_e!=="reset"||b.value!==void 0&&b.value!==null))return;b=""+_._wrapperState.initialValue,$||b===_.value||(_.value=b),_.defaultValue=b}$=_.name,$!==""&&(_.name=""),_.defaultChecked=!!_._wrapperState.initialChecked,$!==""&&(_.name=$)}function cb(_,b,$){(b!=="number"||Xa(_.ownerDocument)!==_)&&($==null?_.defaultValue=""+_._wrapperState.initialValue:_.defaultValue!==""+$&&(_.defaultValue=""+$))}var eb=Array.isArray;function fb(_,b,$,_e){if(_=_.options,b){b={};for(var ut=0;ut<$.length;ut++)b["$"+$[ut]]=!0;for($=0;$<_.length;$++)ut=b.hasOwnProperty("$"+_[$].value),_[$].selected!==ut&&(_[$].selected=ut),ut&&_e&&(_[$].defaultSelected=!0)}else{for($=""+Sa($),b=null,ut=0;ut<_.length;ut++){if(_[ut].value===$){_[ut].selected=!0,_e&&(_[ut].defaultSelected=!0);return}b!==null||_[ut].disabled||(b=_[ut])}b!==null&&(b.selected=!0)}}function gb(_,b){if(b.dangerouslySetInnerHTML!=null)throw Error(p$1(91));return A({},b,{value:void 0,defaultValue:void 0,children:""+_._wrapperState.initialValue})}function hb(_,b){var $=b.value;if($==null){if($=b.children,b=b.defaultValue,$!=null){if(b!=null)throw Error(p$1(92));if(eb($)){if(1<$.length)throw Error(p$1(93));$=$[0]}b=$}b==null&&(b=""),$=b}_._wrapperState={initialValue:Sa($)}}function ib(_,b){var $=Sa(b.value),_e=Sa(b.defaultValue);$!=null&&($=""+$,$!==_.value&&(_.value=$),b.defaultValue==null&&_.defaultValue!==$&&(_.defaultValue=$)),_e!=null&&(_.defaultValue=""+_e)}function jb(_){var b=_.textContent;b===_._wrapperState.initialValue&&b!==""&&b!==null&&(_.value=b)}function kb(_){switch(_){case"svg":return"http://www.w3.org/2000/svg";case"math":return"http://www.w3.org/1998/Math/MathML";default:return"http://www.w3.org/1999/xhtml"}}function lb(_,b){return _==null||_==="http://www.w3.org/1999/xhtml"?kb(b):_==="http://www.w3.org/2000/svg"&&b==="foreignObject"?"http://www.w3.org/1999/xhtml":_}var mb,nb=function(_){return typeof MSApp<"u"&&MSApp.execUnsafeLocalFunction?function(b,$,_e,ut){MSApp.execUnsafeLocalFunction(function(){return _(b,$,_e,ut)})}:_}(function(_,b){if(_.namespaceURI!=="http://www.w3.org/2000/svg"||"innerHTML"in _)_.innerHTML=b;else{for(mb=mb||document.createElement("div"),mb.innerHTML="<svg>"+b.valueOf().toString()+"</svg>",b=mb.firstChild;_.firstChild;)_.removeChild(_.firstChild);for(;b.firstChild;)_.appendChild(b.firstChild)}});function ob(_,b){if(b){var $=_.firstChild;if($&&$===_.lastChild&&$.nodeType===3){$.nodeValue=b;return}}_.textContent=b}var pb={animationIterationCount:!0,aspectRatio:!0,borderImageOutset:!0,borderImageSlice:!0,borderImageWidth:!0,boxFlex:!0,boxFlexGroup:!0,boxOrdinalGroup:!0,columnCount:!0,columns:!0,flex:!0,flexGrow:!0,flexPositive:!0,flexShrink:!0,flexNegative:!0,flexOrder:!0,gridArea:!0,gridRow:!0,gridRowEnd:!0,gridRowSpan:!0,gridRowStart:!0,gridColumn:!0,gridColumnEnd:!0,gridColumnSpan:!0,gridColumnStart:!0,fontWeight:!0,lineClamp:!0,lineHeight:!0,opacity:!0,order:!0,orphans:!0,tabSize:!0,widows:!0,zIndex:!0,zoom:!0,fillOpacity:!0,floodOpacity:!0,stopOpacity:!0,strokeDasharray:!0,strokeDashoffset:!0,strokeMiterlimit:!0,strokeOpacity:!0,strokeWidth:!0},qb=["Webkit","ms","Moz","O"];Object.keys(pb).forEach(function(_){qb.forEach(function(b){b=b+_.charAt(0).toUpperCase()+_.substring(1),pb[b]=pb[_]})});function rb(_,b,$){return b==null||typeof b=="boolean"||b===""?"":$||typeof b!="number"||b===0||pb.hasOwnProperty(_)&&pb[_]?(""+b).trim():b+"px"}function sb(_,b){_=_.style;for(var $ in b)if(b.hasOwnProperty($)){var _e=$.indexOf("--")===0,ut=rb($,b[$],_e);$==="float"&&($="cssFloat"),_e?_.setProperty($,ut):_[$]=ut}}var tb=A({menuitem:!0},{area:!0,base:!0,br:!0,col:!0,embed:!0,hr:!0,img:!0,input:!0,keygen:!0,link:!0,meta:!0,param:!0,source:!0,track:!0,wbr:!0});function ub(_,b){if(b){if(tb[_]&&(b.children!=null||b.dangerouslySetInnerHTML!=null))throw Error(p$1(137,_));if(b.dangerouslySetInnerHTML!=null){if(b.children!=null)throw Error(p$1(60));if(typeof b.dangerouslySetInnerHTML!="object"||!("__html"in b.dangerouslySetInnerHTML))throw Error(p$1(61))}if(b.style!=null&&typeof b.style!="object")throw Error(p$1(62))}}function vb(_,b){if(_.indexOf("-")===-1)return typeof b.is=="string";switch(_){case"annotation-xml":case"color-profile":case"font-face":case"font-face-src":case"font-face-uri":case"font-face-format":case"font-face-name":case"missing-glyph":return!1;default:return!0}}var wb=null;function xb(_){return _=_.target||_.srcElement||window,_.correspondingUseElement&&(_=_.correspondingUseElement),_.nodeType===3?_.parentNode:_}var yb=null,zb=null,Ab=null;function Bb(_){if(_=Cb(_)){if(typeof yb!="function")throw Error(p$1(280));var b=_.stateNode;b&&(b=Db(b),yb(_.stateNode,_.type,b))}}function Eb(_){zb?Ab?Ab.push(_):Ab=[_]:zb=_}function Fb(){if(zb){var _=zb,b=Ab;if(Ab=zb=null,Bb(_),b)for(_=0;_<b.length;_++)Bb(b[_])}}function Gb(_,b){return _(b)}function Hb(){}var Ib=!1;function Jb(_,b,$){if(Ib)return _(b,$);Ib=!0;try{return Gb(_,b,$)}finally{Ib=!1,(zb!==null||Ab!==null)&&(Hb(),Fb())}}function Kb(_,b){var $=_.stateNode;if($===null)return null;var _e=Db($);if(_e===null)return null;$=_e[b];e:switch(b){case"onClick":case"onClickCapture":case"onDoubleClick":case"onDoubleClickCapture":case"onMouseDown":case"onMouseDownCapture":case"onMouseMove":case"onMouseMoveCapture":case"onMouseUp":case"onMouseUpCapture":case"onMouseEnter":(_e=!_e.disabled)||(_=_.type,_e=!(_==="button"||_==="input"||_==="select"||_==="textarea")),_=!_e;break e;default:_=!1}if(_)return null;if($&&typeof $!="function")throw Error(p$1(231,b,typeof $));return $}var Lb=!1;if(ia)try{var Mb={};Object.defineProperty(Mb,"passive",{get:function(){Lb=!0}}),window.addEventListener("test",Mb,Mb),window.removeEventListener("test",Mb,Mb)}catch{Lb=!1}function Nb(_,b,$,_e,ut,yt,wt,Ct,Rt){var bt=Array.prototype.slice.call(arguments,3);try{b.apply($,bt)}catch(nt){this.onError(nt)}}var Ob=!1,Pb=null,Qb=!1,Rb=null,Sb={onError:function(_){Ob=!0,Pb=_}};function Tb(_,b,$,_e,ut,yt,wt,Ct,Rt){Ob=!1,Pb=null,Nb.apply(Sb,arguments)}function Ub(_,b,$,_e,ut,yt,wt,Ct,Rt){if(Tb.apply(this,arguments),Ob){if(Ob){var bt=Pb;Ob=!1,Pb=null}else throw Error(p$1(198));Qb||(Qb=!0,Rb=bt)}}function Vb(_){var b=_,$=_;if(_.alternate)for(;b.return;)b=b.return;else{_=b;do b=_,b.flags&4098&&($=b.return),_=b.return;while(_)}return b.tag===3?$:null}function Wb(_){if(_.tag===13){var b=_.memoizedState;if(b===null&&(_=_.alternate,_!==null&&(b=_.memoizedState)),b!==null)return b.dehydrated}return null}function Xb(_){if(Vb(_)!==_)throw Error(p$1(188))}function Yb(_){var b=_.alternate;if(!b){if(b=Vb(_),b===null)throw Error(p$1(188));return b!==_?null:_}for(var $=_,_e=b;;){var ut=$.return;if(ut===null)break;var yt=ut.alternate;if(yt===null){if(_e=ut.return,_e!==null){$=_e;continue}break}if(ut.child===yt.child){for(yt=ut.child;yt;){if(yt===$)return Xb(ut),_;if(yt===_e)return Xb(ut),b;yt=yt.sibling}throw Error(p$1(188))}if($.return!==_e.return)$=ut,_e=yt;else{for(var wt=!1,Ct=ut.child;Ct;){if(Ct===$){wt=!0,$=ut,_e=yt;break}if(Ct===_e){wt=!0,_e=ut,$=yt;break}Ct=Ct.sibling}if(!wt){for(Ct=yt.child;Ct;){if(Ct===$){wt=!0,$=yt,_e=ut;break}if(Ct===_e){wt=!0,_e=yt,$=ut;break}Ct=Ct.sibling}if(!wt)throw Error(p$1(189))}}if($.alternate!==_e)throw Error(p$1(190))}if($.tag!==3)throw Error(p$1(188));return $.stateNode.current===$?_:b}function Zb(_){return _=Yb(_),_!==null?$b(_):null}function $b(_){if(_.tag===5||_.tag===6)return _;for(_=_.child;_!==null;){var b=$b(_);if(b!==null)return b;_=_.sibling}return null}var ac=ca.unstable_scheduleCallback,bc=ca.unstable_cancelCallback,cc=ca.unstable_shouldYield,dc=ca.unstable_requestPaint,B=ca.unstable_now,ec=ca.unstable_getCurrentPriorityLevel,fc=ca.unstable_ImmediatePriority,gc=ca.unstable_UserBlockingPriority,hc=ca.unstable_NormalPriority,ic=ca.unstable_LowPriority,jc=ca.unstable_IdlePriority,kc=null,lc=null;function mc(_){if(lc&&typeof lc.onCommitFiberRoot=="function")try{lc.onCommitFiberRoot(kc,_,void 0,(_.current.flags&128)===128)}catch{}}var oc=Math.clz32?Math.clz32:nc,pc=Math.log,qc=Math.LN2;function nc(_){return _>>>=0,_===0?32:31-(pc(_)/qc|0)|0}var rc=64,sc=4194304;function tc(_){switch(_&-_){case 1:return 1;case 2:return 2;case 4:return 4;case 8:return 8;case 16:return 16;case 32:return 32;case 64:case 128:case 256:case 512:case 1024:case 2048:case 4096:case 8192:case 16384:case 32768:case 65536:case 131072:case 262144:case 524288:case 1048576:case 2097152:return _&4194240;case 4194304:case 8388608:case 16777216:case 33554432:case 67108864:return _&130023424;case 134217728:return 134217728;case 268435456:return 268435456;case 536870912:return 536870912;case 1073741824:return 1073741824;default:return _}}function uc(_,b){var $=_.pendingLanes;if($===0)return 0;var _e=0,ut=_.suspendedLanes,yt=_.pingedLanes,wt=$&268435455;if(wt!==0){var Ct=wt&~ut;Ct!==0?_e=tc(Ct):(yt&=wt,yt!==0&&(_e=tc(yt)))}else wt=$&~ut,wt!==0?_e=tc(wt):yt!==0&&(_e=tc(yt));if(_e===0)return 0;if(b!==0&&b!==_e&&!(b&ut)&&(ut=_e&-_e,yt=b&-b,ut>=yt||ut===16&&(yt&4194240)!==0))return b;if(_e&4&&(_e|=$&16),b=_.entangledLanes,b!==0)for(_=_.entanglements,b&=_e;0<b;)$=31-oc(b),ut=1<<$,_e|=_[$],b&=~ut;return _e}function vc(_,b){switch(_){case 1:case 2:case 4:return b+250;case 8:case 16:case 32:case 64:case 128:case 256:case 512:case 1024:case 2048:case 4096:case 8192:case 16384:case 32768:case 65536:case 131072:case 262144:case 524288:case 1048576:case 2097152:return b+5e3;case 4194304:case 8388608:case 16777216:case 33554432:case 67108864:return-1;case 134217728:case 268435456:case 536870912:case 1073741824:return-1;default:return-1}}function wc(_,b){for(var $=_.suspendedLanes,_e=_.pingedLanes,ut=_.expirationTimes,yt=_.pendingLanes;0<yt;){var wt=31-oc(yt),Ct=1<<wt,Rt=ut[wt];Rt===-1?(!(Ct&$)||Ct&_e)&&(ut[wt]=vc(Ct,b)):Rt<=b&&(_.expiredLanes|=Ct),yt&=~Ct}}function xc(_){return _=_.pendingLanes&-1073741825,_!==0?_:_&1073741824?1073741824:0}function yc(){var _=rc;return rc<<=1,!(rc&4194240)&&(rc=64),_}function zc(_){for(var b=[],$=0;31>$;$++)b.push(_);return b}function Ac(_,b,$){_.pendingLanes|=b,b!==536870912&&(_.suspendedLanes=0,_.pingedLanes=0),_=_.eventTimes,b=31-oc(b),_[b]=$}function Bc(_,b){var $=_.pendingLanes&~b;_.pendingLanes=b,_.suspendedLanes=0,_.pingedLanes=0,_.expiredLanes&=b,_.mutableReadLanes&=b,_.entangledLanes&=b,b=_.entanglements;var _e=_.eventTimes;for(_=_.expirationTimes;0<$;){var ut=31-oc($),yt=1<<ut;b[ut]=0,_e[ut]=-1,_[ut]=-1,$&=~yt}}function Cc(_,b){var $=_.entangledLanes|=b;for(_=_.entanglements;$;){var _e=31-oc($),ut=1<<_e;ut&b|_[_e]&b&&(_[_e]|=b),$&=~ut}}var C=0;function Dc(_){return _&=-_,1<_?4<_?_&268435455?16:536870912:4:1}var Ec,Fc,Gc,Hc,Ic,Jc=!1,Kc=[],Lc=null,Mc=null,Nc=null,Oc=new Map,Pc=new Map,Qc=[],Rc="mousedown mouseup touchcancel touchend touchstart auxclick dblclick pointercancel pointerdown pointerup dragend dragstart drop compositionend compositionstart keydown keypress keyup input textInput copy cut paste click change contextmenu reset submit".split(" ");function Sc(_,b){switch(_){case"focusin":case"focusout":Lc=null;break;case"dragenter":case"dragleave":Mc=null;break;case"mouseover":case"mouseout":Nc=null;break;case"pointerover":case"pointerout":Oc.delete(b.pointerId);break;case"gotpointercapture":case"lostpointercapture":Pc.delete(b.pointerId)}}function Tc(_,b,$,_e,ut,yt){return _===null||_.nativeEvent!==yt?(_={blockedOn:b,domEventName:$,eventSystemFlags:_e,nativeEvent:yt,targetContainers:[ut]},b!==null&&(b=Cb(b),b!==null&&Fc(b)),_):(_.eventSystemFlags|=_e,b=_.targetContainers,ut!==null&&b.indexOf(ut)===-1&&b.push(ut),_)}function Uc(_,b,$,_e,ut){switch(b){case"focusin":return Lc=Tc(Lc,_,b,$,_e,ut),!0;case"dragenter":return Mc=Tc(Mc,_,b,$,_e,ut),!0;case"mouseover":return Nc=Tc(Nc,_,b,$,_e,ut),!0;case"pointerover":var yt=ut.pointerId;return Oc.set(yt,Tc(Oc.get(yt)||null,_,b,$,_e,ut)),!0;case"gotpointercapture":return yt=ut.pointerId,Pc.set(yt,Tc(Pc.get(yt)||null,_,b,$,_e,ut)),!0}return!1}function Vc(_){var b=Wc(_.target);if(b!==null){var $=Vb(b);if($!==null){if(b=$.tag,b===13){if(b=Wb($),b!==null){_.blockedOn=b,Ic(_.priority,function(){Gc($)});return}}else if(b===3&&$.stateNode.current.memoizedState.isDehydrated){_.blockedOn=$.tag===3?$.stateNode.containerInfo:null;return}}}_.blockedOn=null}function Xc(_){if(_.blockedOn!==null)return!1;for(var b=_.targetContainers;0<b.length;){var $=Yc(_.domEventName,_.eventSystemFlags,b[0],_.nativeEvent);if($===null){$=_.nativeEvent;var _e=new $.constructor($.type,$);wb=_e,$.target.dispatchEvent(_e),wb=null}else return b=Cb($),b!==null&&Fc(b),_.blockedOn=$,!1;b.shift()}return!0}function Zc(_,b,$){Xc(_)&&$.delete(b)}function $c(){Jc=!1,Lc!==null&&Xc(Lc)&&(Lc=null),Mc!==null&&Xc(Mc)&&(Mc=null),Nc!==null&&Xc(Nc)&&(Nc=null),Oc.forEach(Zc),Pc.forEach(Zc)}function ad(_,b){_.blockedOn===b&&(_.blockedOn=null,Jc||(Jc=!0,ca.unstable_scheduleCallback(ca.unstable_NormalPriority,$c)))}function bd(_){function b(ut){return ad(ut,_)}if(0<Kc.length){ad(Kc[0],_);for(var $=1;$<Kc.length;$++){var _e=Kc[$];_e.blockedOn===_&&(_e.blockedOn=null)}}for(Lc!==null&&ad(Lc,_),Mc!==null&&ad(Mc,_),Nc!==null&&ad(Nc,_),Oc.forEach(b),Pc.forEach(b),$=0;$<Qc.length;$++)_e=Qc[$],_e.blockedOn===_&&(_e.blockedOn=null);for(;0<Qc.length&&($=Qc[0],$.blockedOn===null);)Vc($),$.blockedOn===null&&Qc.shift()}var cd=ua.ReactCurrentBatchConfig,dd=!0;function ed(_,b,$,_e){var ut=C,yt=cd.transition;cd.transition=null;try{C=1,fd(_,b,$,_e)}finally{C=ut,cd.transition=yt}}function gd(_,b,$,_e){var ut=C,yt=cd.transition;cd.transition=null;try{C=4,fd(_,b,$,_e)}finally{C=ut,cd.transition=yt}}function fd(_,b,$,_e){if(dd){var ut=Yc(_,b,$,_e);if(ut===null)hd(_,b,_e,id,$),Sc(_,_e);else if(Uc(ut,_,b,$,_e))_e.stopPropagation();else if(Sc(_,_e),b&4&&-1<Rc.indexOf(_)){for(;ut!==null;){var yt=Cb(ut);if(yt!==null&&Ec(yt),yt=Yc(_,b,$,_e),yt===null&&hd(_,b,_e,id,$),yt===ut)break;ut=yt}ut!==null&&_e.stopPropagation()}else hd(_,b,_e,null,$)}}var id=null;function Yc(_,b,$,_e){if(id=null,_=xb(_e),_=Wc(_),_!==null)if(b=Vb(_),b===null)_=null;else if($=b.tag,$===13){if(_=Wb(b),_!==null)return _;_=null}else if($===3){if(b.stateNode.current.memoizedState.isDehydrated)return b.tag===3?b.stateNode.containerInfo:null;_=null}else b!==_&&(_=null);return id=_,null}function jd(_){switch(_){case"cancel":case"click":case"close":case"contextmenu":case"copy":case"cut":case"auxclick":case"dblclick":case"dragend":case"dragstart":case"drop":case"focusin":case"focusout":case"input":case"invalid":case"keydown":case"keypress":case"keyup":case"mousedown":case"mouseup":case"paste":case"pause":case"play":case"pointercancel":case"pointerdown":case"pointerup":case"ratechange":case"reset":case"resize":case"seeked":case"submit":case"touchcancel":case"touchend":case"touchstart":case"volumechange":case"change":case"selectionchange":case"textInput":case"compositionstart":case"compositionend":case"compositionupdate":case"beforeblur":case"afterblur":case"beforeinput":case"blur":case"fullscreenchange":case"focus":case"hashchange":case"popstate":case"select":case"selectstart":return 1;case"drag":case"dragenter":case"dragexit":case"dragleave":case"dragover":case"mousemove":case"mouseout":case"mouseover":case"pointermove":case"pointerout":case"pointerover":case"scroll":case"toggle":case"touchmove":case"wheel":case"mouseenter":case"mouseleave":case"pointerenter":case"pointerleave":return 4;case"message":switch(ec()){case fc:return 1;case gc:return 4;case hc:case ic:return 16;case jc:return 536870912;default:return 16}default:return 16}}var kd=null,ld=null,md=null;function nd(){if(md)return md;var _,b=ld,$=b.length,_e,ut="value"in kd?kd.value:kd.textContent,yt=ut.length;for(_=0;_<$&&b[_]===ut[_];_++);var wt=$-_;for(_e=1;_e<=wt&&b[$-_e]===ut[yt-_e];_e++);return md=ut.slice(_,1<_e?1-_e:void 0)}function od(_){var b=_.keyCode;return"charCode"in _?(_=_.charCode,_===0&&b===13&&(_=13)):_=b,_===10&&(_=13),32<=_||_===13?_:0}function pd(){return!0}function qd(){return!1}function rd(_){function b($,_e,ut,yt,wt){this._reactName=$,this._targetInst=ut,this.type=_e,this.nativeEvent=yt,this.target=wt,this.currentTarget=null;for(var Ct in _)_.hasOwnProperty(Ct)&&($=_[Ct],this[Ct]=$?$(yt):yt[Ct]);return this.isDefaultPrevented=(yt.defaultPrevented!=null?yt.defaultPrevented:yt.returnValue===!1)?pd:qd,this.isPropagationStopped=qd,this}return A(b.prototype,{preventDefault:function(){this.defaultPrevented=!0;var $=this.nativeEvent;$&&($.preventDefault?$.preventDefault():typeof $.returnValue!="unknown"&&($.returnValue=!1),this.isDefaultPrevented=pd)},stopPropagation:function(){var $=this.nativeEvent;$&&($.stopPropagation?$.stopPropagation():typeof $.cancelBubble!="unknown"&&($.cancelBubble=!0),this.isPropagationStopped=pd)},persist:function(){},isPersistent:pd}),b}var sd={eventPhase:0,bubbles:0,cancelable:0,timeStamp:function(_){return _.timeStamp||Date.now()},defaultPrevented:0,isTrusted:0},td=rd(sd),ud=A({},sd,{view:0,detail:0}),vd=rd(ud),wd,xd,yd,Ad=A({},ud,{screenX:0,screenY:0,clientX:0,clientY:0,pageX:0,pageY:0,ctrlKey:0,shiftKey:0,altKey:0,metaKey:0,getModifierState:zd,button:0,buttons:0,relatedTarget:function(_){return _.relatedTarget===void 0?_.fromElement===_.srcElement?_.toElement:_.fromElement:_.relatedTarget},movementX:function(_){return"movementX"in _?_.movementX:(_!==yd&&(yd&&_.type==="mousemove"?(wd=_.screenX-yd.screenX,xd=_.screenY-yd.screenY):xd=wd=0,yd=_),wd)},movementY:function(_){return"movementY"in _?_.movementY:xd}}),Bd=rd(Ad),Cd=A({},Ad,{dataTransfer:0}),Dd=rd(Cd),Ed=A({},ud,{relatedTarget:0}),Fd=rd(Ed),Gd=A({},sd,{animationName:0,elapsedTime:0,pseudoElement:0}),Hd=rd(Gd),Id=A({},sd,{clipboardData:function(_){return"clipboardData"in _?_.clipboardData:window.clipboardData}}),Jd=rd(Id),Kd=A({},sd,{data:0}),Ld=rd(Kd),Md={Esc:"Escape",Spacebar:" ",Left:"ArrowLeft",Up:"ArrowUp",Right:"ArrowRight",Down:"ArrowDown",Del:"Delete",Win:"OS",Menu:"ContextMenu",Apps:"ContextMenu",Scroll:"ScrollLock",MozPrintableKey:"Unidentified"},Nd={8:"Backspace",9:"Tab",12:"Clear",13:"Enter",16:"Shift",17:"Control",18:"Alt",19:"Pause",20:"CapsLock",27:"Escape",32:" ",33:"PageUp",34:"PageDown",35:"End",36:"Home",37:"ArrowLeft",38:"ArrowUp",39:"ArrowRight",40:"ArrowDown",45:"Insert",46:"Delete",112:"F1",113:"F2",114:"F3",115:"F4",116:"F5",117:"F6",118:"F7",119:"F8",120:"F9",121:"F10",122:"F11",123:"F12",144:"NumLock",145:"ScrollLock",224:"Meta"},Od={Alt:"altKey",Control:"ctrlKey",Meta:"metaKey",Shift:"shiftKey"};function Pd(_){var b=this.nativeEvent;return b.getModifierState?b.getModifierState(_):(_=Od[_])?!!b[_]:!1}function zd(){return Pd}var Qd=A({},ud,{key:function(_){if(_.key){var b=Md[_.key]||_.key;if(b!=="Unidentified")return b}return _.type==="keypress"?(_=od(_),_===13?"Enter":String.fromCharCode(_)):_.type==="keydown"||_.type==="keyup"?Nd[_.keyCode]||"Unidentified":""},code:0,location:0,ctrlKey:0,shiftKey:0,altKey:0,metaKey:0,repeat:0,locale:0,getModifierState:zd,charCode:function(_){return _.type==="keypress"?od(_):0},keyCode:function(_){return _.type==="keydown"||_.type==="keyup"?_.keyCode:0},which:function(_){return _.type==="keypress"?od(_):_.type==="keydown"||_.type==="keyup"?_.keyCode:0}}),Rd=rd(Qd),Sd=A({},Ad,{pointerId:0,width:0,height:0,pressure:0,tangentialPressure:0,tiltX:0,tiltY:0,twist:0,pointerType:0,isPrimary:0}),Td=rd(Sd),Ud=A({},ud,{touches:0,targetTouches:0,changedTouches:0,altKey:0,metaKey:0,ctrlKey:0,shiftKey:0,getModifierState:zd}),Vd=rd(Ud),Wd=A({},sd,{propertyName:0,elapsedTime:0,pseudoElement:0}),Xd=rd(Wd),Yd=A({},Ad,{deltaX:function(_){return"deltaX"in _?_.deltaX:"wheelDeltaX"in _?-_.wheelDeltaX:0},deltaY:function(_){return"deltaY"in _?_.deltaY:"wheelDeltaY"in _?-_.wheelDeltaY:"wheelDelta"in _?-_.wheelDelta:0},deltaZ:0,deltaMode:0}),Zd=rd(Yd),$d=[9,13,27,32],ae=ia&&"CompositionEvent"in window,be=null;ia&&"documentMode"in document&&(be=document.documentMode);var ce=ia&&"TextEvent"in window&&!be,de=ia&&(!ae||be&&8<be&&11>=be),ee=" ",fe=!1;function ge(_,b){switch(_){case"keyup":return $d.indexOf(b.keyCode)!==-1;case"keydown":return b.keyCode!==229;case"keypress":case"mousedown":case"focusout":return!0;default:return!1}}function he(_){return _=_.detail,typeof _=="object"&&"data"in _?_.data:null}var ie=!1;function je(_,b){switch(_){case"compositionend":return he(b);case"keypress":return b.which!==32?null:(fe=!0,ee);case"textInput":return _=b.data,_===ee&&fe?null:_;default:return null}}function ke(_,b){if(ie)return _==="compositionend"||!ae&&ge(_,b)?(_=nd(),md=ld=kd=null,ie=!1,_):null;switch(_){case"paste":return null;case"keypress":if(!(b.ctrlKey||b.altKey||b.metaKey)||b.ctrlKey&&b.altKey){if(b.char&&1<b.char.length)return b.char;if(b.which)return String.fromCharCode(b.which)}return null;case"compositionend":return de&&b.locale!=="ko"?null:b.data;default:return null}}var le={color:!0,date:!0,datetime:!0,"datetime-local":!0,email:!0,month:!0,number:!0,password:!0,range:!0,search:!0,tel:!0,text:!0,time:!0,url:!0,week:!0};function me(_){var b=_&&_.nodeName&&_.nodeName.toLowerCase();return b==="input"?!!le[_.type]:b==="textarea"}function ne(_,b,$,_e){Eb(_e),b=oe(b,"onChange"),0<b.length&&($=new td("onChange","change",null,$,_e),_.push({event:$,listeners:b}))}var pe=null,qe=null;function re(_){se(_,0)}function te(_){var b=ue(_);if(Wa(b))return _}function ve(_,b){if(_==="change")return b}var we=!1;if(ia){var xe;if(ia){var ye="oninput"in document;if(!ye){var ze=document.createElement("div");ze.setAttribute("oninput","return;"),ye=typeof ze.oninput=="function"}xe=ye}else xe=!1;we=xe&&(!document.documentMode||9<document.documentMode)}function Ae(){pe&&(pe.detachEvent("onpropertychange",Be),qe=pe=null)}function Be(_){if(_.propertyName==="value"&&te(qe)){var b=[];ne(b,qe,_,xb(_)),Jb(re,b)}}function Ce(_,b,$){_==="focusin"?(Ae(),pe=b,qe=$,pe.attachEvent("onpropertychange",Be)):_==="focusout"&&Ae()}function De(_){if(_==="selectionchange"||_==="keyup"||_==="keydown")return te(qe)}function Ee(_,b){if(_==="click")return te(b)}function Fe(_,b){if(_==="input"||_==="change")return te(b)}function Ge(_,b){return _===b&&(_!==0||1/_===1/b)||_!==_&&b!==b}var He=typeof Object.is=="function"?Object.is:Ge;function Ie(_,b){if(He(_,b))return!0;if(typeof _!="object"||_===null||typeof b!="object"||b===null)return!1;var $=Object.keys(_),_e=Object.keys(b);if($.length!==_e.length)return!1;for(_e=0;_e<$.length;_e++){var ut=$[_e];if(!ja.call(b,ut)||!He(_[ut],b[ut]))return!1}return!0}function Je(_){for(;_&&_.firstChild;)_=_.firstChild;return _}function Ke(_,b){var $=Je(_);_=0;for(var _e;$;){if($.nodeType===3){if(_e=_+$.textContent.length,_<=b&&_e>=b)return{node:$,offset:b-_};_=_e}e:{for(;$;){if($.nextSibling){$=$.nextSibling;break e}$=$.parentNode}$=void 0}$=Je($)}}function Le(_,b){return _&&b?_===b?!0:_&&_.nodeType===3?!1:b&&b.nodeType===3?Le(_,b.parentNode):"contains"in _?_.contains(b):_.compareDocumentPosition?!!(_.compareDocumentPosition(b)&16):!1:!1}function Me(){for(var _=window,b=Xa();b instanceof _.HTMLIFrameElement;){try{var $=typeof b.contentWindow.location.href=="string"}catch{$=!1}if($)_=b.contentWindow;else break;b=Xa(_.document)}return b}function Ne(_){var b=_&&_.nodeName&&_.nodeName.toLowerCase();return b&&(b==="input"&&(_.type==="text"||_.type==="search"||_.type==="tel"||_.type==="url"||_.type==="password")||b==="textarea"||_.contentEditable==="true")}function Oe(_){var b=Me(),$=_.focusedElem,_e=_.selectionRange;if(b!==$&&$&&$.ownerDocument&&Le($.ownerDocument.documentElement,$)){if(_e!==null&&Ne($)){if(b=_e.start,_=_e.end,_===void 0&&(_=b),"selectionStart"in $)$.selectionStart=b,$.selectionEnd=Math.min(_,$.value.length);else if(_=(b=$.ownerDocument||document)&&b.defaultView||window,_.getSelection){_=_.getSelection();var ut=$.textContent.length,yt=Math.min(_e.start,ut);_e=_e.end===void 0?yt:Math.min(_e.end,ut),!_.extend&&yt>_e&&(ut=_e,_e=yt,yt=ut),ut=Ke($,yt);var wt=Ke($,_e);ut&&wt&&(_.rangeCount!==1||_.anchorNode!==ut.node||_.anchorOffset!==ut.offset||_.focusNode!==wt.node||_.focusOffset!==wt.offset)&&(b=b.createRange(),b.setStart(ut.node,ut.offset),_.removeAllRanges(),yt>_e?(_.addRange(b),_.extend(wt.node,wt.offset)):(b.setEnd(wt.node,wt.offset),_.addRange(b)))}}for(b=[],_=$;_=_.parentNode;)_.nodeType===1&&b.push({element:_,left:_.scrollLeft,top:_.scrollTop});for(typeof $.focus=="function"&&$.focus(),$=0;$<b.length;$++)_=b[$],_.element.scrollLeft=_.left,_.element.scrollTop=_.top}}var Pe=ia&&"documentMode"in document&&11>=document.documentMode,Qe=null,Re=null,Se=null,Te=!1;function Ue(_,b,$){var _e=$.window===$?$.document:$.nodeType===9?$:$.ownerDocument;Te||Qe==null||Qe!==Xa(_e)||(_e=Qe,"selectionStart"in _e&&Ne(_e)?_e={start:_e.selectionStart,end:_e.selectionEnd}:(_e=(_e.ownerDocument&&_e.ownerDocument.defaultView||window).getSelection(),_e={anchorNode:_e.anchorNode,anchorOffset:_e.anchorOffset,focusNode:_e.focusNode,focusOffset:_e.focusOffset}),Se&&Ie(Se,_e)||(Se=_e,_e=oe(Re,"onSelect"),0<_e.length&&(b=new td("onSelect","select",null,b,$),_.push({event:b,listeners:_e}),b.target=Qe)))}function Ve(_,b){var $={};return $[_.toLowerCase()]=b.toLowerCase(),$["Webkit"+_]="webkit"+b,$["Moz"+_]="moz"+b,$}var We={animationend:Ve("Animation","AnimationEnd"),animationiteration:Ve("Animation","AnimationIteration"),animationstart:Ve("Animation","AnimationStart"),transitionend:Ve("Transition","TransitionEnd")},Xe={},Ye={};ia&&(Ye=document.createElement("div").style,"AnimationEvent"in window||(delete We.animationend.animation,delete We.animationiteration.animation,delete We.animationstart.animation),"TransitionEvent"in window||delete We.transitionend.transition);function Ze(_){if(Xe[_])return Xe[_];if(!We[_])return _;var b=We[_],$;for($ in b)if(b.hasOwnProperty($)&&$ in Ye)return Xe[_]=b[$];return _}var $e=Ze("animationend"),af=Ze("animationiteration"),bf=Ze("animationstart"),cf=Ze("transitionend"),df=new Map,ef="abort auxClick cancel canPlay canPlayThrough click close contextMenu copy cut drag dragEnd dragEnter dragExit dragLeave dragOver dragStart drop durationChange emptied encrypted ended error gotPointerCapture input invalid keyDown keyPress keyUp load loadedData loadedMetadata loadStart lostPointerCapture mouseDown mouseMove mouseOut mouseOver mouseUp paste pause play playing pointerCancel pointerDown pointerMove pointerOut pointerOver pointerUp progress rateChange reset resize seeked seeking stalled submit suspend timeUpdate touchCancel touchEnd touchStart volumeChange scroll toggle touchMove waiting wheel".split(" ");function ff(_,b){df.set(_,b),fa(b,[_])}for(var gf=0;gf<ef.length;gf++){var hf=ef[gf],jf=hf.toLowerCase(),kf=hf[0].toUpperCase()+hf.slice(1);ff(jf,"on"+kf)}ff($e,"onAnimationEnd");ff(af,"onAnimationIteration");ff(bf,"onAnimationStart");ff("dblclick","onDoubleClick");ff("focusin","onFocus");ff("focusout","onBlur");ff(cf,"onTransitionEnd");ha("onMouseEnter",["mouseout","mouseover"]);ha("onMouseLeave",["mouseout","mouseover"]);ha("onPointerEnter",["pointerout","pointerover"]);ha("onPointerLeave",["pointerout","pointerover"]);fa("onChange","change click focusin focusout input keydown keyup selectionchange".split(" "));fa("onSelect","focusout contextmenu dragend focusin keydown keyup mousedown mouseup selectionchange".split(" "));fa("onBeforeInput",["compositionend","keypress","textInput","paste"]);fa("onCompositionEnd","compositionend focusout keydown keypress keyup mousedown".split(" "));fa("onCompositionStart","compositionstart focusout keydown keypress keyup mousedown".split(" "));fa("onCompositionUpdate","compositionupdate focusout keydown keypress keyup mousedown".split(" "));var lf="abort canplay canplaythrough durationchange emptied encrypted ended error loadeddata loadedmetadata loadstart pause play playing progress ratechange resize seeked seeking stalled suspend timeupdate volumechange waiting".split(" "),mf=new Set("cancel close invalid load scroll toggle".split(" ").concat(lf));function nf(_,b,$){var _e=_.type||"unknown-event";_.currentTarget=$,Ub(_e,b,void 0,_),_.currentTarget=null}function se(_,b){b=(b&4)!==0;for(var $=0;$<_.length;$++){var _e=_[$],ut=_e.event;_e=_e.listeners;e:{var yt=void 0;if(b)for(var wt=_e.length-1;0<=wt;wt--){var Ct=_e[wt],Rt=Ct.instance,bt=Ct.currentTarget;if(Ct=Ct.listener,Rt!==yt&&ut.isPropagationStopped())break e;nf(ut,Ct,bt),yt=Rt}else for(wt=0;wt<_e.length;wt++){if(Ct=_e[wt],Rt=Ct.instance,bt=Ct.currentTarget,Ct=Ct.listener,Rt!==yt&&ut.isPropagationStopped())break e;nf(ut,Ct,bt),yt=Rt}}}if(Qb)throw _=Rb,Qb=!1,Rb=null,_}function D(_,b){var $=b[of];$===void 0&&($=b[of]=new Set);var _e=_+"__bubble";$.has(_e)||(pf(b,_,2,!1),$.add(_e))}function qf(_,b,$){var _e=0;b&&(_e|=4),pf($,_,_e,b)}var rf="_reactListening"+Math.random().toString(36).slice(2);function sf(_){if(!_[rf]){_[rf]=!0,da.forEach(function($){$!=="selectionchange"&&(mf.has($)||qf($,!1,_),qf($,!0,_))});var b=_.nodeType===9?_:_.ownerDocument;b===null||b[rf]||(b[rf]=!0,qf("selectionchange",!1,b))}}function pf(_,b,$,_e){switch(jd(b)){case 1:var ut=ed;break;case 4:ut=gd;break;default:ut=fd}$=ut.bind(null,b,$,_),ut=void 0,!Lb||b!=="touchstart"&&b!=="touchmove"&&b!=="wheel"||(ut=!0),_e?ut!==void 0?_.addEventListener(b,$,{capture:!0,passive:ut}):_.addEventListener(b,$,!0):ut!==void 0?_.addEventListener(b,$,{passive:ut}):_.addEventListener(b,$,!1)}function hd(_,b,$,_e,ut){var yt=_e;if(!(b&1)&&!(b&2)&&_e!==null)e:for(;;){if(_e===null)return;var wt=_e.tag;if(wt===3||wt===4){var Ct=_e.stateNode.containerInfo;if(Ct===ut||Ct.nodeType===8&&Ct.parentNode===ut)break;if(wt===4)for(wt=_e.return;wt!==null;){var Rt=wt.tag;if((Rt===3||Rt===4)&&(Rt=wt.stateNode.containerInfo,Rt===ut||Rt.nodeType===8&&Rt.parentNode===ut))return;wt=wt.return}for(;Ct!==null;){if(wt=Wc(Ct),wt===null)return;if(Rt=wt.tag,Rt===5||Rt===6){_e=yt=wt;continue e}Ct=Ct.parentNode}}_e=_e.return}Jb(function(){var bt=yt,nt=xb($),F=[];e:{var y=df.get(_);if(y!==void 0){var et=td,ot=_;switch(_){case"keypress":if(od($)===0)break e;case"keydown":case"keyup":et=Rd;break;case"focusin":ot="focus",et=Fd;break;case"focusout":ot="blur",et=Fd;break;case"beforeblur":case"afterblur":et=Fd;break;case"click":if($.button===2)break e;case"auxclick":case"dblclick":case"mousedown":case"mousemove":case"mouseup":case"mouseout":case"mouseover":case"contextmenu":et=Bd;break;case"drag":case"dragend":case"dragenter":case"dragexit":case"dragleave":case"dragover":case"dragstart":case"drop":et=Dd;break;case"touchcancel":case"touchend":case"touchmove":case"touchstart":et=Vd;break;case $e:case af:case bf:et=Hd;break;case cf:et=Xd;break;case"scroll":et=vd;break;case"wheel":et=Zd;break;case"copy":case"cut":case"paste":et=Jd;break;case"gotpointercapture":case"lostpointercapture":case"pointercancel":case"pointerdown":case"pointermove":case"pointerout":case"pointerover":case"pointerup":et=Td}var it=(b&4)!==0,rt=!it&&_==="scroll",tt=it?y!==null?y+"Capture":null:y;it=[];for(var st=bt,gt;st!==null;){gt=st;var pt=gt.stateNode;if(gt.tag===5&&pt!==null&&(gt=pt,tt!==null&&(pt=Kb(st,tt),pt!=null&&it.push(tf(st,pt,gt)))),rt)break;st=st.return}0<it.length&&(y=new et(y,ot,null,$,nt),F.push({event:y,listeners:it}))}}if(!(b&7)){e:{if(y=_==="mouseover"||_==="pointerover",et=_==="mouseout"||_==="pointerout",y&&$!==wb&&(ot=$.relatedTarget||$.fromElement)&&(Wc(ot)||ot[uf]))break e;if((et||y)&&(y=nt.window===nt?nt:(y=nt.ownerDocument)?y.defaultView||y.parentWindow:window,et?(ot=$.relatedTarget||$.toElement,et=bt,ot=ot?Wc(ot):null,ot!==null&&(rt=Vb(ot),ot!==rt||ot.tag!==5&&ot.tag!==6)&&(ot=null)):(et=null,ot=bt),et!==ot)){if(it=Bd,pt="onMouseLeave",tt="onMouseEnter",st="mouse",(_==="pointerout"||_==="pointerover")&&(it=Td,pt="onPointerLeave",tt="onPointerEnter",st="pointer"),rt=et==null?y:ue(et),gt=ot==null?y:ue(ot),y=new it(pt,st+"leave",et,$,nt),y.target=rt,y.relatedTarget=gt,pt=null,Wc(nt)===bt&&(it=new it(tt,st+"enter",ot,$,nt),it.target=gt,it.relatedTarget=rt,pt=it),rt=pt,et&&ot)t:{for(it=et,tt=ot,st=0,gt=it;gt;gt=vf(gt))st++;for(gt=0,pt=tt;pt;pt=vf(pt))gt++;for(;0<st-gt;)it=vf(it),st--;for(;0<gt-st;)tt=vf(tt),gt--;for(;st--;){if(it===tt||tt!==null&&it===tt.alternate)break t;it=vf(it),tt=vf(tt)}it=null}else it=null;et!==null&&wf(F,y,et,it,!1),ot!==null&&rt!==null&&wf(F,rt,ot,it,!0)}}e:{if(y=bt?ue(bt):window,et=y.nodeName&&y.nodeName.toLowerCase(),et==="select"||et==="input"&&y.type==="file")var ft=ve;else if(me(y))if(we)ft=Fe;else{ft=De;var dt=Ce}else(et=y.nodeName)&&et.toLowerCase()==="input"&&(y.type==="checkbox"||y.type==="radio")&&(ft=Ee);if(ft&&(ft=ft(_,bt))){ne(F,ft,$,nt);break e}dt&&dt(_,y,bt),_==="focusout"&&(dt=y._wrapperState)&&dt.controlled&&y.type==="number"&&cb(y,"number",y.value)}switch(dt=bt?ue(bt):window,_){case"focusin":(me(dt)||dt.contentEditable==="true")&&(Qe=dt,Re=bt,Se=null);break;case"focusout":Se=Re=Qe=null;break;case"mousedown":Te=!0;break;case"contextmenu":case"mouseup":case"dragend":Te=!1,Ue(F,$,nt);break;case"selectionchange":if(Pe)break;case"keydown":case"keyup":Ue(F,$,nt)}var ct;if(ae)e:{switch(_){case"compositionstart":var lt="onCompositionStart";break e;case"compositionend":lt="onCompositionEnd";break e;case"compositionupdate":lt="onCompositionUpdate";break e}lt=void 0}else ie?ge(_,$)&&(lt="onCompositionEnd"):_==="keydown"&&$.keyCode===229&&(lt="onCompositionStart");lt&&(de&&$.locale!=="ko"&&(ie||lt!=="onCompositionStart"?lt==="onCompositionEnd"&&ie&&(ct=nd()):(kd=nt,ld="value"in kd?kd.value:kd.textContent,ie=!0)),dt=oe(bt,lt),0<dt.length&&(lt=new Ld(lt,_,null,$,nt),F.push({event:lt,listeners:dt}),ct?lt.data=ct:(ct=he($),ct!==null&&(lt.data=ct)))),(ct=ce?je(_,$):ke(_,$))&&(bt=oe(bt,"onBeforeInput"),0<bt.length&&(nt=new Ld("onBeforeInput","beforeinput",null,$,nt),F.push({event:nt,listeners:bt}),nt.data=ct))}se(F,b)})}function tf(_,b,$){return{instance:_,listener:b,currentTarget:$}}function oe(_,b){for(var $=b+"Capture",_e=[];_!==null;){var ut=_,yt=ut.stateNode;ut.tag===5&&yt!==null&&(ut=yt,yt=Kb(_,$),yt!=null&&_e.unshift(tf(_,yt,ut)),yt=Kb(_,b),yt!=null&&_e.push(tf(_,yt,ut))),_=_.return}return _e}function vf(_){if(_===null)return null;do _=_.return;while(_&&_.tag!==5);return _||null}function wf(_,b,$,_e,ut){for(var yt=b._reactName,wt=[];$!==null&&$!==_e;){var Ct=$,Rt=Ct.alternate,bt=Ct.stateNode;if(Rt!==null&&Rt===_e)break;Ct.tag===5&&bt!==null&&(Ct=bt,ut?(Rt=Kb($,yt),Rt!=null&&wt.unshift(tf($,Rt,Ct))):ut||(Rt=Kb($,yt),Rt!=null&&wt.push(tf($,Rt,Ct)))),$=$.return}wt.length!==0&&_.push({event:b,listeners:wt})}var xf=/\r\n?/g,yf=/\u0000|\uFFFD/g;function zf(_){return(typeof _=="string"?_:""+_).replace(xf,`
 `).replace(yf,"")}function Af(_,b,$){if(b=zf(b),zf(_)!==b&&$)throw Error(p$1(425))}function Bf(){}var Cf=null,Df=null;function Ef(_,b){return _==="textarea"||_==="noscript"||typeof b.children=="string"||typeof b.children=="number"||typeof b.dangerouslySetInnerHTML=="object"&&b.dangerouslySetInnerHTML!==null&&b.dangerouslySetInnerHTML.__html!=null}var Ff=typeof setTimeout=="function"?setTimeout:void 0,Gf=typeof clearTimeout=="function"?clearTimeout:void 0,Hf=typeof Promise=="function"?Promise:void 0,Jf=typeof queueMicrotask=="function"?queueMicrotask:typeof Hf<"u"?function(_){return Hf.resolve(null).then(_).catch(If)}:Ff;function If(_){setTimeout(function(){throw _})}function Kf(_,b){var $=b,_e=0;do{var ut=$.nextSibling;if(_.removeChild($),ut&&ut.nodeType===8)if($=ut.data,$==="/$"){if(_e===0){_.removeChild(ut),bd(b);return}_e--}else $!=="$"&&$!=="$?"&&$!=="$!"||_e++;$=ut}while($);bd(b)}function Lf(_){for(;_!=null;_=_.nextSibling){var b=_.nodeType;if(b===1||b===3)break;if(b===8){if(b=_.data,b==="$"||b==="$!"||b==="$?")break;if(b==="/$")return null}}return _}function Mf(_){_=_.previousSibling;for(var b=0;_;){if(_.nodeType===8){var $=_.data;if($==="$"||$==="$!"||$==="$?"){if(b===0)return _;b--}else $==="/$"&&b++}_=_.previousSibling}return null}var Nf=Math.random().toString(36).slice(2),Of="__reactFiber$"+Nf,Pf="__reactProps$"+Nf,uf="__reactContainer$"+Nf,of="__reactEvents$"+Nf,Qf="__reactListeners$"+Nf,Rf="__reactHandles$"+Nf;function Wc(_){var b=_[Of];if(b)return b;for(var $=_.parentNode;$;){if(b=$[uf]||$[Of]){if($=b.alternate,b.child!==null||$!==null&&$.child!==null)for(_=Mf(_);_!==null;){if($=_[Of])return $;_=Mf(_)}return b}_=$,$=_.parentNode}return null}function Cb(_){return _=_[Of]||_[uf],!_||_.tag!==5&&_.tag!==6&&_.tag!==13&&_.tag!==3?null:_}function ue(_){if(_.tag===5||_.tag===6)return _.stateNode;throw Error(p$1(33))}function Db(_){return _[Pf]||null}var Sf=[],Tf=-1;function Uf(_){return{current:_}}function E(_){0>Tf||(_.current=Sf[Tf],Sf[Tf]=null,Tf--)}function G(_,b){Tf++,Sf[Tf]=_.current,_.current=b}var Vf={},H=Uf(Vf),Wf=Uf(!1),Xf=Vf;function Yf(_,b){var $=_.type.contextTypes;if(!$)return Vf;var _e=_.stateNode;if(_e&&_e.__reactInternalMemoizedUnmaskedChildContext===b)return _e.__reactInternalMemoizedMaskedChildContext;var ut={},yt;for(yt in $)ut[yt]=b[yt];return _e&&(_=_.stateNode,_.__reactInternalMemoizedUnmaskedChildContext=b,_.__reactInternalMemoizedMaskedChildContext=ut),ut}function Zf(_){return _=_.childContextTypes,_!=null}function $f(){E(Wf),E(H)}function ag(_,b,$){if(H.current!==Vf)throw Error(p$1(168));G(H,b),G(Wf,$)}function bg(_,b,$){var _e=_.stateNode;if(b=b.childContextTypes,typeof _e.getChildContext!="function")return $;_e=_e.getChildContext();for(var ut in _e)if(!(ut in b))throw Error(p$1(108,Ra(_)||"Unknown",ut));return A({},$,_e)}function cg(_){return _=(_=_.stateNode)&&_.__reactInternalMemoizedMergedChildContext||Vf,Xf=H.current,G(H,_),G(Wf,Wf.current),!0}function dg(_,b,$){var _e=_.stateNode;if(!_e)throw Error(p$1(169));$?(_=bg(_,b,Xf),_e.__reactInternalMemoizedMergedChildContext=_,E(Wf),E(H),G(H,_)):E(Wf),G(Wf,$)}var eg=null,fg=!1,gg=!1;function hg(_){eg===null?eg=[_]:eg.push(_)}function ig(_){fg=!0,hg(_)}function jg(){if(!gg&&eg!==null){gg=!0;var _=0,b=C;try{var $=eg;for(C=1;_<$.length;_++){var _e=$[_];do _e=_e(!0);while(_e!==null)}eg=null,fg=!1}catch(ut){throw eg!==null&&(eg=eg.slice(_+1)),ac(fc,jg),ut}finally{C=b,gg=!1}}return null}var kg=[],lg=0,mg=null,ng=0,og=[],pg=0,qg=null,rg=1,sg="";function tg(_,b){kg[lg++]=ng,kg[lg++]=mg,mg=_,ng=b}function ug(_,b,$){og[pg++]=rg,og[pg++]=sg,og[pg++]=qg,qg=_;var _e=rg;_=sg;var ut=32-oc(_e)-1;_e&=~(1<<ut),$+=1;var yt=32-oc(b)+ut;if(30<yt){var wt=ut-ut%5;yt=(_e&(1<<wt)-1).toString(32),_e>>=wt,ut-=wt,rg=1<<32-oc(b)+ut|$<<ut|_e,sg=yt+_}else rg=1<<yt|$<<ut|_e,sg=_}function vg(_){_.return!==null&&(tg(_,1),ug(_,1,0))}function wg(_){for(;_===mg;)mg=kg[--lg],kg[lg]=null,ng=kg[--lg],kg[lg]=null;for(;_===qg;)qg=og[--pg],og[pg]=null,sg=og[--pg],og[pg]=null,rg=og[--pg],og[pg]=null}var xg=null,yg=null,I=!1,zg=null;function Ag(_,b){var $=Bg(5,null,null,0);$.elementType="DELETED",$.stateNode=b,$.return=_,b=_.deletions,b===null?(_.deletions=[$],_.flags|=16):b.push($)}function Cg(_,b){switch(_.tag){case 5:var $=_.type;return b=b.nodeType!==1||$.toLowerCase()!==b.nodeName.toLowerCase()?null:b,b!==null?(_.stateNode=b,xg=_,yg=Lf(b.firstChild),!0):!1;case 6:return b=_.pendingProps===""||b.nodeType!==3?null:b,b!==null?(_.stateNode=b,xg=_,yg=null,!0):!1;case 13:return b=b.nodeType!==8?null:b,b!==null?($=qg!==null?{id:rg,overflow:sg}:null,_.memoizedState={dehydrated:b,treeContext:$,retryLane:1073741824},$=Bg(18,null,null,0),$.stateNode=b,$.return=_,_.child=$,xg=_,yg=null,!0):!1;default:return!1}}function Dg(_){return(_.mode&1)!==0&&(_.flags&128)===0}function Eg(_){if(I){var b=yg;if(b){var $=b;if(!Cg(_,b)){if(Dg(_))throw Error(p$1(418));b=Lf($.nextSibling);var _e=xg;b&&Cg(_,b)?Ag(_e,$):(_.flags=_.flags&-4097|2,I=!1,xg=_)}}else{if(Dg(_))throw Error(p$1(418));_.flags=_.flags&-4097|2,I=!1,xg=_}}}function Fg(_){for(_=_.return;_!==null&&_.tag!==5&&_.tag!==3&&_.tag!==13;)_=_.return;xg=_}function Gg(_){if(_!==xg)return!1;if(!I)return Fg(_),I=!0,!1;var b;if((b=_.tag!==3)&&!(b=_.tag!==5)&&(b=_.type,b=b!=="head"&&b!=="body"&&!Ef(_.type,_.memoizedProps)),b&&(b=yg)){if(Dg(_))throw Hg(),Error(p$1(418));for(;b;)Ag(_,b),b=Lf(b.nextSibling)}if(Fg(_),_.tag===13){if(_=_.memoizedState,_=_!==null?_.dehydrated:null,!_)throw Error(p$1(317));e:{for(_=_.nextSibling,b=0;_;){if(_.nodeType===8){var $=_.data;if($==="/$"){if(b===0){yg=Lf(_.nextSibling);break e}b--}else $!=="$"&&$!=="$!"&&$!=="$?"||b++}_=_.nextSibling}yg=null}}else yg=xg?Lf(_.stateNode.nextSibling):null;return!0}function Hg(){for(var _=yg;_;)_=Lf(_.nextSibling)}function Ig(){yg=xg=null,I=!1}function Jg(_){zg===null?zg=[_]:zg.push(_)}var Kg=ua.ReactCurrentBatchConfig;function Lg(_,b,$){if(_=$.ref,_!==null&&typeof _!="function"&&typeof _!="object"){if($._owner){if($=$._owner,$){if($.tag!==1)throw Error(p$1(309));var _e=$.stateNode}if(!_e)throw Error(p$1(147,_));var ut=_e,yt=""+_;return b!==null&&b.ref!==null&&typeof b.ref=="function"&&b.ref._stringRef===yt?b.ref:(b=function(wt){var Ct=ut.refs;wt===null?delete Ct[yt]:Ct[yt]=wt},b._stringRef=yt,b)}if(typeof _!="string")throw Error(p$1(284));if(!$._owner)throw Error(p$1(290,_))}return _}function Mg(_,b){throw _=Object.prototype.toString.call(b),Error(p$1(31,_==="[object Object]"?"object with keys {"+Object.keys(b).join(", ")+"}":_))}function Ng(_){var b=_._init;return b(_._payload)}function Og(_){function b(tt,st){if(_){var gt=tt.deletions;gt===null?(tt.deletions=[st],tt.flags|=16):gt.push(st)}}function $(tt,st){if(!_)return null;for(;st!==null;)b(tt,st),st=st.sibling;return null}function _e(tt,st){for(tt=new Map;st!==null;)st.key!==null?tt.set(st.key,st):tt.set(st.index,st),st=st.sibling;return tt}function ut(tt,st){return tt=Pg(tt,st),tt.index=0,tt.sibling=null,tt}function yt(tt,st,gt){return tt.index=gt,_?(gt=tt.alternate,gt!==null?(gt=gt.index,gt<st?(tt.flags|=2,st):gt):(tt.flags|=2,st)):(tt.flags|=1048576,st)}function wt(tt){return _&&tt.alternate===null&&(tt.flags|=2),tt}function Ct(tt,st,gt,pt){return st===null||st.tag!==6?(st=Qg(gt,tt.mode,pt),st.return=tt,st):(st=ut(st,gt),st.return=tt,st)}function Rt(tt,st,gt,pt){var ft=gt.type;return ft===ya?nt(tt,st,gt.props.children,pt,gt.key):st!==null&&(st.elementType===ft||typeof ft=="object"&&ft!==null&&ft.$$typeof===Ha&&Ng(ft)===st.type)?(pt=ut(st,gt.props),pt.ref=Lg(tt,st,gt),pt.return=tt,pt):(pt=Rg(gt.type,gt.key,gt.props,null,tt.mode,pt),pt.ref=Lg(tt,st,gt),pt.return=tt,pt)}function bt(tt,st,gt,pt){return st===null||st.tag!==4||st.stateNode.containerInfo!==gt.containerInfo||st.stateNode.implementation!==gt.implementation?(st=Sg(gt,tt.mode,pt),st.return=tt,st):(st=ut(st,gt.children||[]),st.return=tt,st)}function nt(tt,st,gt,pt,ft){return st===null||st.tag!==7?(st=Tg(gt,tt.mode,pt,ft),st.return=tt,st):(st=ut(st,gt),st.return=tt,st)}function F(tt,st,gt){if(typeof st=="string"&&st!==""||typeof st=="number")return st=Qg(""+st,tt.mode,gt),st.return=tt,st;if(typeof st=="object"&&st!==null){switch(st.$$typeof){case va:return gt=Rg(st.type,st.key,st.props,null,tt.mode,gt),gt.ref=Lg(tt,null,st),gt.return=tt,gt;case wa:return st=Sg(st,tt.mode,gt),st.return=tt,st;case Ha:var pt=st._init;return F(tt,pt(st._payload),gt)}if(eb(st)||Ka(st))return st=Tg(st,tt.mode,gt,null),st.return=tt,st;Mg(tt,st)}return null}function y(tt,st,gt,pt){var ft=st!==null?st.key:null;if(typeof gt=="string"&&gt!==""||typeof gt=="number")return ft!==null?null:Ct(tt,st,""+gt,pt);if(typeof gt=="object"&&gt!==null){switch(gt.$$typeof){case va:return gt.key===ft?Rt(tt,st,gt,pt):null;case wa:return gt.key===ft?bt(tt,st,gt,pt):null;case Ha:return ft=gt._init,y(tt,st,ft(gt._payload),pt)}if(eb(gt)||Ka(gt))return ft!==null?null:nt(tt,st,gt,pt,null);Mg(tt,gt)}return null}function et(tt,st,gt,pt,ft){if(typeof pt=="string"&&pt!==""||typeof pt=="number")return tt=tt.get(gt)||null,Ct(st,tt,""+pt,ft);if(typeof pt=="object"&&pt!==null){switch(pt.$$typeof){case va:return tt=tt.get(pt.key===null?gt:pt.key)||null,Rt(st,tt,pt,ft);case wa:return tt=tt.get(pt.key===null?gt:pt.key)||null,bt(st,tt,pt,ft);case Ha:var dt=pt._init;return et(tt,st,gt,dt(pt._payload),ft)}if(eb(pt)||Ka(pt))return tt=tt.get(gt)||null,nt(st,tt,pt,ft,null);Mg(st,pt)}return null}function ot(tt,st,gt,pt){for(var ft=null,dt=null,ct=st,lt=st=0,_t=null;ct!==null&&lt<gt.length;lt++){ct.index>lt?(_t=ct,ct=null):_t=ct.sibling;var mt=y(tt,ct,gt[lt],pt);if(mt===null){ct===null&&(ct=_t);break}_&&ct&&mt.alternate===null&&b(tt,ct),st=yt(mt,st,lt),dt===null?ft=mt:dt.sibling=mt,dt=mt,ct=_t}if(lt===gt.length)return $(tt,ct),I&&tg(tt,lt),ft;if(ct===null){for(;lt<gt.length;lt++)ct=F(tt,gt[lt],pt),ct!==null&&(st=yt(ct,st,lt),dt===null?ft=ct:dt.sibling=ct,dt=ct);return I&&tg(tt,lt),ft}for(ct=_e(tt,ct);lt<gt.length;lt++)_t=et(ct,tt,lt,gt[lt],pt),_t!==null&&(_&&_t.alternate!==null&&ct.delete(_t.key===null?lt:_t.key),st=yt(_t,st,lt),dt===null?ft=_t:dt.sibling=_t,dt=_t);return _&&ct.forEach(function(at){return b(tt,at)}),I&&tg(tt,lt),ft}function it(tt,st,gt,pt){var ft=Ka(gt);if(typeof ft!="function")throw Error(p$1(150));if(gt=ft.call(gt),gt==null)throw Error(p$1(151));for(var dt=ft=null,ct=st,lt=st=0,_t=null,mt=gt.next();ct!==null&&!mt.done;lt++,mt=gt.next()){ct.index>lt?(_t=ct,ct=null):_t=ct.sibling;var at=y(tt,ct,mt.value,pt);if(at===null){ct===null&&(ct=_t);break}_&&ct&&at.alternate===null&&b(tt,ct),st=yt(at,st,lt),dt===null?ft=at:dt.sibling=at,dt=at,ct=_t}if(mt.done)return $(tt,ct),I&&tg(tt,lt),ft;if(ct===null){for(;!mt.done;lt++,mt=gt.next())mt=F(tt,mt.value,pt),mt!==null&&(st=yt(mt,st,lt),dt===null?ft=mt:dt.sibling=mt,dt=mt);return I&&tg(tt,lt),ft}for(ct=_e(tt,ct);!mt.done;lt++,mt=gt.next())mt=et(ct,tt,lt,mt.value,pt),mt!==null&&(_&&mt.alternate!==null&&ct.delete(mt.key===null?lt:mt.key),st=yt(mt,st,lt),dt===null?ft=mt:dt.sibling=mt,dt=mt);return _&&ct.forEach(function(vt){return b(tt,vt)}),I&&tg(tt,lt),ft}function rt(tt,st,gt,pt){if(typeof gt=="object"&&gt!==null&&gt.type===ya&&gt.key===null&&(gt=gt.props.children),typeof gt=="object"&&gt!==null){switch(gt.$$typeof){case va:e:{for(var ft=gt.key,dt=st;dt!==null;){if(dt.key===ft){if(ft=gt.type,ft===ya){if(dt.tag===7){$(tt,dt.sibling),st=ut(dt,gt.props.children),st.return=tt,tt=st;break e}}else if(dt.elementType===ft||typeof ft=="object"&&ft!==null&&ft.$$typeof===Ha&&Ng(ft)===dt.type){$(tt,dt.sibling),st=ut(dt,gt.props),st.ref=Lg(tt,dt,gt),st.return=tt,tt=st;break e}$(tt,dt);break}else b(tt,dt);dt=dt.sibling}gt.type===ya?(st=Tg(gt.props.children,tt.mode,pt,gt.key),st.return=tt,tt=st):(pt=Rg(gt.type,gt.key,gt.props,null,tt.mode,pt),pt.ref=Lg(tt,st,gt),pt.return=tt,tt=pt)}return wt(tt);case wa:e:{for(dt=gt.key;st!==null;){if(st.key===dt)if(st.tag===4&&st.stateNode.containerInfo===gt.containerInfo&&st.stateNode.implementation===gt.implementation){$(tt,st.sibling),st=ut(st,gt.children||[]),st.return=tt,tt=st;break e}else{$(tt,st);break}else b(tt,st);st=st.sibling}st=Sg(gt,tt.mode,pt),st.return=tt,tt=st}return wt(tt);case Ha:return dt=gt._init,rt(tt,st,dt(gt._payload),pt)}if(eb(gt))return ot(tt,st,gt,pt);if(Ka(gt))return it(tt,st,gt,pt);Mg(tt,gt)}return typeof gt=="string"&&gt!==""||typeof gt=="number"?(gt=""+gt,st!==null&&st.tag===6?($(tt,st.sibling),st=ut(st,gt),st.return=tt,tt=st):($(tt,st),st=Qg(gt,tt.mode,pt),st.return=tt,tt=st),wt(tt)):$(tt,st)}return rt}var Ug=Og(!0),Vg=Og(!1),Wg=Uf(null),Xg=null,Yg=null,Zg=null;function $g(){Zg=Yg=Xg=null}function ah(_){var b=Wg.current;E(Wg),_._currentValue=b}function bh(_,b,$){for(;_!==null;){var _e=_.alternate;if((_.childLanes&b)!==b?(_.childLanes|=b,_e!==null&&(_e.childLanes|=b)):_e!==null&&(_e.childLanes&b)!==b&&(_e.childLanes|=b),_===$)break;_=_.return}}function ch(_,b){Xg=_,Zg=Yg=null,_=_.dependencies,_!==null&&_.firstContext!==null&&(_.lanes&b&&(dh=!0),_.firstContext=null)}function eh(_){var b=_._currentValue;if(Zg!==_)if(_={context:_,memoizedValue:b,next:null},Yg===null){if(Xg===null)throw Error(p$1(308));Yg=_,Xg.dependencies={lanes:0,firstContext:_}}else Yg=Yg.next=_;return b}var fh=null;function gh(_){fh===null?fh=[_]:fh.push(_)}function hh(_,b,$,_e){var ut=b.interleaved;return ut===null?($.next=$,gh(b)):($.next=ut.next,ut.next=$),b.interleaved=$,ih(_,_e)}function ih(_,b){_.lanes|=b;var $=_.alternate;for($!==null&&($.lanes|=b),$=_,_=_.return;_!==null;)_.childLanes|=b,$=_.alternate,$!==null&&($.childLanes|=b),$=_,_=_.return;return $.tag===3?$.stateNode:null}var jh=!1;function kh(_){_.updateQueue={baseState:_.memoizedState,firstBaseUpdate:null,lastBaseUpdate:null,shared:{pending:null,interleaved:null,lanes:0},effects:null}}function lh(_,b){_=_.updateQueue,b.updateQueue===_&&(b.updateQueue={baseState:_.baseState,firstBaseUpdate:_.firstBaseUpdate,lastBaseUpdate:_.lastBaseUpdate,shared:_.shared,effects:_.effects})}function mh(_,b){return{eventTime:_,lane:b,tag:0,payload:null,callback:null,next:null}}function nh(_,b,$){var _e=_.updateQueue;if(_e===null)return null;if(_e=_e.shared,K&2){var ut=_e.pending;return ut===null?b.next=b:(b.next=ut.next,ut.next=b),_e.pending=b,ih(_,$)}return ut=_e.interleaved,ut===null?(b.next=b,gh(_e)):(b.next=ut.next,ut.next=b),_e.interleaved=b,ih(_,$)}function oh(_,b,$){if(b=b.updateQueue,b!==null&&(b=b.shared,($&4194240)!==0)){var _e=b.lanes;_e&=_.pendingLanes,$|=_e,b.lanes=$,Cc(_,$)}}function ph(_,b){var $=_.updateQueue,_e=_.alternate;if(_e!==null&&(_e=_e.updateQueue,$===_e)){var ut=null,yt=null;if($=$.firstBaseUpdate,$!==null){do{var wt={eventTime:$.eventTime,lane:$.lane,tag:$.tag,payload:$.payload,callback:$.callback,next:null};yt===null?ut=yt=wt:yt=yt.next=wt,$=$.next}while($!==null);yt===null?ut=yt=b:yt=yt.next=b}else ut=yt=b;$={baseState:_e.baseState,firstBaseUpdate:ut,lastBaseUpdate:yt,shared:_e.shared,effects:_e.effects},_.updateQueue=$;return}_=$.lastBaseUpdate,_===null?$.firstBaseUpdate=b:_.next=b,$.lastBaseUpdate=b}function qh(_,b,$,_e){var ut=_.updateQueue;jh=!1;var yt=ut.firstBaseUpdate,wt=ut.lastBaseUpdate,Ct=ut.shared.pending;if(Ct!==null){ut.shared.pending=null;var Rt=Ct,bt=Rt.next;Rt.next=null,wt===null?yt=bt:wt.next=bt,wt=Rt;var nt=_.alternate;nt!==null&&(nt=nt.updateQueue,Ct=nt.lastBaseUpdate,Ct!==wt&&(Ct===null?nt.firstBaseUpdate=bt:Ct.next=bt,nt.lastBaseUpdate=Rt))}if(yt!==null){var F=ut.baseState;wt=0,nt=bt=Rt=null,Ct=yt;do{var y=Ct.lane,et=Ct.eventTime;if((_e&y)===y){nt!==null&&(nt=nt.next={eventTime:et,lane:0,tag:Ct.tag,payload:Ct.payload,callback:Ct.callback,next:null});e:{var ot=_,it=Ct;switch(y=b,et=$,it.tag){case 1:if(ot=it.payload,typeof ot=="function"){F=ot.call(et,F,y);break e}F=ot;break e;case 3:ot.flags=ot.flags&-65537|128;case 0:if(ot=it.payload,y=typeof ot=="function"?ot.call(et,F,y):ot,y==null)break e;F=A({},F,y);break e;case 2:jh=!0}}Ct.callback!==null&&Ct.lane!==0&&(_.flags|=64,y=ut.effects,y===null?ut.effects=[Ct]:y.push(Ct))}else et={eventTime:et,lane:y,tag:Ct.tag,payload:Ct.payload,callback:Ct.callback,next:null},nt===null?(bt=nt=et,Rt=F):nt=nt.next=et,wt|=y;if(Ct=Ct.next,Ct===null){if(Ct=ut.shared.pending,Ct===null)break;y=Ct,Ct=y.next,y.next=null,ut.lastBaseUpdate=y,ut.shared.pending=null}}while(!0);if(nt===null&&(Rt=F),ut.baseState=Rt,ut.firstBaseUpdate=bt,ut.lastBaseUpdate=nt,b=ut.shared.interleaved,b!==null){ut=b;do wt|=ut.lane,ut=ut.next;while(ut!==b)}else yt===null&&(ut.shared.lanes=0);rh|=wt,_.lanes=wt,_.memoizedState=F}}function sh(_,b,$){if(_=b.effects,b.effects=null,_!==null)for(b=0;b<_.length;b++){var _e=_[b],ut=_e.callback;if(ut!==null){if(_e.callback=null,_e=$,typeof ut!="function")throw Error(p$1(191,ut));ut.call(_e)}}}var th={},uh=Uf(th),vh=Uf(th),wh=Uf(th);function xh(_){if(_===th)throw Error(p$1(174));return _}function yh(_,b){switch(G(wh,b),G(vh,_),G(uh,th),_=b.nodeType,_){case 9:case 11:b=(b=b.documentElement)?b.namespaceURI:lb(null,"");break;default:_=_===8?b.parentNode:b,b=_.namespaceURI||null,_=_.tagName,b=lb(b,_)}E(uh),G(uh,b)}function zh(){E(uh),E(vh),E(wh)}function Ah(_){xh(wh.current);var b=xh(uh.current),$=lb(b,_.type);b!==$&&(G(vh,_),G(uh,$))}function Bh(_){vh.current===_&&(E(uh),E(vh))}var L=Uf(0);function Ch(_){for(var b=_;b!==null;){if(b.tag===13){var $=b.memoizedState;if($!==null&&($=$.dehydrated,$===null||$.data==="$?"||$.data==="$!"))return b}else if(b.tag===19&&b.memoizedProps.revealOrder!==void 0){if(b.flags&128)return b}else if(b.child!==null){b.child.return=b,b=b.child;continue}if(b===_)break;for(;b.sibling===null;){if(b.return===null||b.return===_)return null;b=b.return}b.sibling.return=b.return,b=b.sibling}return null}var Dh=[];function Eh(){for(var _=0;_<Dh.length;_++)Dh[_]._workInProgressVersionPrimary=null;Dh.length=0}var Fh=ua.ReactCurrentDispatcher,Gh=ua.ReactCurrentBatchConfig,Hh=0,M=null,N=null,O=null,Ih=!1,Jh=!1,Kh=0,Lh=0;function P(){throw Error(p$1(321))}function Mh(_,b){if(b===null)return!1;for(var $=0;$<b.length&&$<_.length;$++)if(!He(_[$],b[$]))return!1;return!0}function Nh(_,b,$,_e,ut,yt){if(Hh=yt,M=b,b.memoizedState=null,b.updateQueue=null,b.lanes=0,Fh.current=_===null||_.memoizedState===null?Oh:Ph,_=$(_e,ut),Jh){yt=0;do{if(Jh=!1,Kh=0,25<=yt)throw Error(p$1(301));yt+=1,O=N=null,b.updateQueue=null,Fh.current=Qh,_=$(_e,ut)}while(Jh)}if(Fh.current=Rh,b=N!==null&&N.next!==null,Hh=0,O=N=M=null,Ih=!1,b)throw Error(p$1(300));return _}function Sh(){var _=Kh!==0;return Kh=0,_}function Th(){var _={memoizedState:null,baseState:null,baseQueue:null,queue:null,next:null};return O===null?M.memoizedState=O=_:O=O.next=_,O}function Uh(){if(N===null){var _=M.alternate;_=_!==null?_.memoizedState:null}else _=N.next;var b=O===null?M.memoizedState:O.next;if(b!==null)O=b,N=_;else{if(_===null)throw Error(p$1(310));N=_,_={memoizedState:N.memoizedState,baseState:N.baseState,baseQueue:N.baseQueue,queue:N.queue,next:null},O===null?M.memoizedState=O=_:O=O.next=_}return O}function Vh(_,b){return typeof b=="function"?b(_):b}function Wh(_){var b=Uh(),$=b.queue;if($===null)throw Error(p$1(311));$.lastRenderedReducer=_;var _e=N,ut=_e.baseQueue,yt=$.pending;if(yt!==null){if(ut!==null){var wt=ut.next;ut.next=yt.next,yt.next=wt}_e.baseQueue=ut=yt,$.pending=null}if(ut!==null){yt=ut.next,_e=_e.baseState;var Ct=wt=null,Rt=null,bt=yt;do{var nt=bt.lane;if((Hh&nt)===nt)Rt!==null&&(Rt=Rt.next={lane:0,action:bt.action,hasEagerState:bt.hasEagerState,eagerState:bt.eagerState,next:null}),_e=bt.hasEagerState?bt.eagerState:_(_e,bt.action);else{var F={lane:nt,action:bt.action,hasEagerState:bt.hasEagerState,eagerState:bt.eagerState,next:null};Rt===null?(Ct=Rt=F,wt=_e):Rt=Rt.next=F,M.lanes|=nt,rh|=nt}bt=bt.next}while(bt!==null&&bt!==yt);Rt===null?wt=_e:Rt.next=Ct,He(_e,b.memoizedState)||(dh=!0),b.memoizedState=_e,b.baseState=wt,b.baseQueue=Rt,$.lastRenderedState=_e}if(_=$.interleaved,_!==null){ut=_;do yt=ut.lane,M.lanes|=yt,rh|=yt,ut=ut.next;while(ut!==_)}else ut===null&&($.lanes=0);return[b.memoizedState,$.dispatch]}function Xh(_){var b=Uh(),$=b.queue;if($===null)throw Error(p$1(311));$.lastRenderedReducer=_;var _e=$.dispatch,ut=$.pending,yt=b.memoizedState;if(ut!==null){$.pending=null;var wt=ut=ut.next;do yt=_(yt,wt.action),wt=wt.next;while(wt!==ut);He(yt,b.memoizedState)||(dh=!0),b.memoizedState=yt,b.baseQueue===null&&(b.baseState=yt),$.lastRenderedState=yt}return[yt,_e]}function Yh(){}function Zh(_,b){var $=M,_e=Uh(),ut=b(),yt=!He(_e.memoizedState,ut);if(yt&&(_e.memoizedState=ut,dh=!0),_e=_e.queue,$h(ai.bind(null,$,_e,_),[_]),_e.getSnapshot!==b||yt||O!==null&&O.memoizedState.tag&1){if($.flags|=2048,bi(9,ci.bind(null,$,_e,ut,b),void 0,null),Q===null)throw Error(p$1(349));Hh&30||di($,b,ut)}return ut}function di(_,b,$){_.flags|=16384,_={getSnapshot:b,value:$},b=M.updateQueue,b===null?(b={lastEffect:null,stores:null},M.updateQueue=b,b.stores=[_]):($=b.stores,$===null?b.stores=[_]:$.push(_))}function ci(_,b,$,_e){b.value=$,b.getSnapshot=_e,ei(b)&&fi(_)}function ai(_,b,$){return $(function(){ei(b)&&fi(_)})}function ei(_){var b=_.getSnapshot;_=_.value;try{var $=b();return!He(_,$)}catch{return!0}}function fi(_){var b=ih(_,1);b!==null&&gi(b,_,1,-1)}function hi(_){var b=Th();return typeof _=="function"&&(_=_()),b.memoizedState=b.baseState=_,_={pending:null,interleaved:null,lanes:0,dispatch:null,lastRenderedReducer:Vh,lastRenderedState:_},b.queue=_,_=_.dispatch=ii.bind(null,M,_),[b.memoizedState,_]}function bi(_,b,$,_e){return _={tag:_,create:b,destroy:$,deps:_e,next:null},b=M.updateQueue,b===null?(b={lastEffect:null,stores:null},M.updateQueue=b,b.lastEffect=_.next=_):($=b.lastEffect,$===null?b.lastEffect=_.next=_:(_e=$.next,$.next=_,_.next=_e,b.lastEffect=_)),_}function ji(){return Uh().memoizedState}function ki(_,b,$,_e){var ut=Th();M.flags|=_,ut.memoizedState=bi(1|b,$,void 0,_e===void 0?null:_e)}function li(_,b,$,_e){var ut=Uh();_e=_e===void 0?null:_e;var yt=void 0;if(N!==null){var wt=N.memoizedState;if(yt=wt.destroy,_e!==null&&Mh(_e,wt.deps)){ut.memoizedState=bi(b,$,yt,_e);return}}M.flags|=_,ut.memoizedState=bi(1|b,$,yt,_e)}function mi(_,b){return ki(8390656,8,_,b)}function $h(_,b){return li(2048,8,_,b)}function ni(_,b){return li(4,2,_,b)}function oi(_,b){return li(4,4,_,b)}function pi(_,b){if(typeof b=="function")return _=_(),b(_),function(){b(null)};if(b!=null)return _=_(),b.current=_,function(){b.current=null}}function qi(_,b,$){return $=$!=null?$.concat([_]):null,li(4,4,pi.bind(null,b,_),$)}function ri(){}function si(_,b){var $=Uh();b=b===void 0?null:b;var _e=$.memoizedState;return _e!==null&&b!==null&&Mh(b,_e[1])?_e[0]:($.memoizedState=[_,b],_)}function ti(_,b){var $=Uh();b=b===void 0?null:b;var _e=$.memoizedState;return _e!==null&&b!==null&&Mh(b,_e[1])?_e[0]:(_=_(),$.memoizedState=[_,b],_)}function ui(_,b,$){return Hh&21?(He($,b)||($=yc(),M.lanes|=$,rh|=$,_.baseState=!0),b):(_.baseState&&(_.baseState=!1,dh=!0),_.memoizedState=$)}function vi(_,b){var $=C;C=$!==0&&4>$?$:4,_(!0);var _e=Gh.transition;Gh.transition={};try{_(!1),b()}finally{C=$,Gh.transition=_e}}function wi(){return Uh().memoizedState}function xi(_,b,$){var _e=yi(_);if($={lane:_e,action:$,hasEagerState:!1,eagerState:null,next:null},zi(_))Ai(b,$);else if($=hh(_,b,$,_e),$!==null){var ut=R();gi($,_,_e,ut),Bi($,b,_e)}}function ii(_,b,$){var _e=yi(_),ut={lane:_e,action:$,hasEagerState:!1,eagerState:null,next:null};if(zi(_))Ai(b,ut);else{var yt=_.alternate;if(_.lanes===0&&(yt===null||yt.lanes===0)&&(yt=b.lastRenderedReducer,yt!==null))try{var wt=b.lastRenderedState,Ct=yt(wt,$);if(ut.hasEagerState=!0,ut.eagerState=Ct,He(Ct,wt)){var Rt=b.interleaved;Rt===null?(ut.next=ut,gh(b)):(ut.next=Rt.next,Rt.next=ut),b.interleaved=ut;return}}catch{}finally{}$=hh(_,b,ut,_e),$!==null&&(ut=R(),gi($,_,_e,ut),Bi($,b,_e))}}function zi(_){var b=_.alternate;return _===M||b!==null&&b===M}function Ai(_,b){Jh=Ih=!0;var $=_.pending;$===null?b.next=b:(b.next=$.next,$.next=b),_.pending=b}function Bi(_,b,$){if($&4194240){var _e=b.lanes;_e&=_.pendingLanes,$|=_e,b.lanes=$,Cc(_,$)}}var Rh={readContext:eh,useCallback:P,useContext:P,useEffect:P,useImperativeHandle:P,useInsertionEffect:P,useLayoutEffect:P,useMemo:P,useReducer:P,useRef:P,useState:P,useDebugValue:P,useDeferredValue:P,useTransition:P,useMutableSource:P,useSyncExternalStore:P,useId:P,unstable_isNewReconciler:!1},Oh={readContext:eh,useCallback:function(_,b){return Th().memoizedState=[_,b===void 0?null:b],_},useContext:eh,useEffect:mi,useImperativeHandle:function(_,b,$){return $=$!=null?$.concat([_]):null,ki(4194308,4,pi.bind(null,b,_),$)},useLayoutEffect:function(_,b){return ki(4194308,4,_,b)},useInsertionEffect:function(_,b){return ki(4,2,_,b)},useMemo:function(_,b){var $=Th();return b=b===void 0?null:b,_=_(),$.memoizedState=[_,b],_},useReducer:function(_,b,$){var _e=Th();return b=$!==void 0?$(b):b,_e.memoizedState=_e.baseState=b,_={pending:null,interleaved:null,lanes:0,dispatch:null,lastRenderedReducer:_,lastRenderedState:b},_e.queue=_,_=_.dispatch=xi.bind(null,M,_),[_e.memoizedState,_]},useRef:function(_){var b=Th();return _={current:_},b.memoizedState=_},useState:hi,useDebugValue:ri,useDeferredValue:function(_){return Th().memoizedState=_},useTransition:function(){var _=hi(!1),b=_[0];return _=vi.bind(null,_[1]),Th().memoizedState=_,[b,_]},useMutableSource:function(){},useSyncExternalStore:function(_,b,$){var _e=M,ut=Th();if(I){if($===void 0)throw Error(p$1(407));$=$()}else{if($=b(),Q===null)throw Error(p$1(349));Hh&30||di(_e,b,$)}ut.memoizedState=$;var yt={value:$,getSnapshot:b};return ut.queue=yt,mi(ai.bind(null,_e,yt,_),[_]),_e.flags|=2048,bi(9,ci.bind(null,_e,yt,$,b),void 0,null),$},useId:function(){var _=Th(),b=Q.identifierPrefix;if(I){var $=sg,_e=rg;$=(_e&~(1<<32-oc(_e)-1)).toString(32)+$,b=":"+b+"R"+$,$=Kh++,0<$&&(b+="H"+$.toString(32)),b+=":"}else $=Lh++,b=":"+b+"r"+$.toString(32)+":";return _.memoizedState=b},unstable_isNewReconciler:!1},Ph={readContext:eh,useCallback:si,useContext:eh,useEffect:$h,useImperativeHandle:qi,useInsertionEffect:ni,useLayoutEffect:oi,useMemo:ti,useReducer:Wh,useRef:ji,useState:function(){return Wh(Vh)},useDebugValue:ri,useDeferredValue:function(_){var b=Uh();return ui(b,N.memoizedState,_)},useTransition:function(){var _=Wh(Vh)[0],b=Uh().memoizedState;return[_,b]},useMutableSource:Yh,useSyncExternalStore:Zh,useId:wi,unstable_isNewReconciler:!1},Qh={readContext:eh,useCallback:si,useContext:eh,useEffect:$h,useImperativeHandle:qi,useInsertionEffect:ni,useLayoutEffect:oi,useMemo:ti,useReducer:Xh,useRef:ji,useState:function(){return Xh(Vh)},useDebugValue:ri,useDeferredValue:function(_){var b=Uh();return N===null?b.memoizedState=_:ui(b,N.memoizedState,_)},useTransition:function(){var _=Xh(Vh)[0],b=Uh().memoizedState;return[_,b]},useMutableSource:Yh,useSyncExternalStore:Zh,useId:wi,unstable_isNewReconciler:!1};function Ci(_,b){if(_&&_.defaultProps){b=A({},b),_=_.defaultProps;for(var $ in _)b[$]===void 0&&(b[$]=_[$]);return b}return b}function Di(_,b,$,_e){b=_.memoizedState,$=$(_e,b),$=$==null?b:A({},b,$),_.memoizedState=$,_.lanes===0&&(_.updateQueue.baseState=$)}var Ei={isMounted:function(_){return(_=_._reactInternals)?Vb(_)===_:!1},enqueueSetState:function(_,b,$){_=_._reactInternals;var _e=R(),ut=yi(_),yt=mh(_e,ut);yt.payload=b,$!=null&&(yt.callback=$),b=nh(_,yt,ut),b!==null&&(gi(b,_,ut,_e),oh(b,_,ut))},enqueueReplaceState:function(_,b,$){_=_._reactInternals;var _e=R(),ut=yi(_),yt=mh(_e,ut);yt.tag=1,yt.payload=b,$!=null&&(yt.callback=$),b=nh(_,yt,ut),b!==null&&(gi(b,_,ut,_e),oh(b,_,ut))},enqueueForceUpdate:function(_,b){_=_._reactInternals;var $=R(),_e=yi(_),ut=mh($,_e);ut.tag=2,b!=null&&(ut.callback=b),b=nh(_,ut,_e),b!==null&&(gi(b,_,_e,$),oh(b,_,_e))}};function Fi(_,b,$,_e,ut,yt,wt){return _=_.stateNode,typeof _.shouldComponentUpdate=="function"?_.shouldComponentUpdate(_e,yt,wt):b.prototype&&b.prototype.isPureReactComponent?!Ie($,_e)||!Ie(ut,yt):!0}function Gi(_,b,$){var _e=!1,ut=Vf,yt=b.contextType;return typeof yt=="object"&&yt!==null?yt=eh(yt):(ut=Zf(b)?Xf:H.current,_e=b.contextTypes,yt=(_e=_e!=null)?Yf(_,ut):Vf),b=new b($,yt),_.memoizedState=b.state!==null&&b.state!==void 0?b.state:null,b.updater=Ei,_.stateNode=b,b._reactInternals=_,_e&&(_=_.stateNode,_.__reactInternalMemoizedUnmaskedChildContext=ut,_.__reactInternalMemoizedMaskedChildContext=yt),b}function Hi(_,b,$,_e){_=b.state,typeof b.componentWillReceiveProps=="function"&&b.componentWillReceiveProps($,_e),typeof b.UNSAFE_componentWillReceiveProps=="function"&&b.UNSAFE_componentWillReceiveProps($,_e),b.state!==_&&Ei.enqueueReplaceState(b,b.state,null)}function Ii(_,b,$,_e){var ut=_.stateNode;ut.props=$,ut.state=_.memoizedState,ut.refs={},kh(_);var yt=b.contextType;typeof yt=="object"&&yt!==null?ut.context=eh(yt):(yt=Zf(b)?Xf:H.current,ut.context=Yf(_,yt)),ut.state=_.memoizedState,yt=b.getDerivedStateFromProps,typeof yt=="function"&&(Di(_,b,yt,$),ut.state=_.memoizedState),typeof b.getDerivedStateFromProps=="function"||typeof ut.getSnapshotBeforeUpdate=="function"||typeof ut.UNSAFE_componentWillMount!="function"&&typeof ut.componentWillMount!="function"||(b=ut.state,typeof ut.componentWillMount=="function"&&ut.componentWillMount(),typeof ut.UNSAFE_componentWillMount=="function"&&ut.UNSAFE_componentWillMount(),b!==ut.state&&Ei.enqueueReplaceState(ut,ut.state,null),qh(_,$,ut,_e),ut.state=_.memoizedState),typeof ut.componentDidMount=="function"&&(_.flags|=4194308)}function Ji(_,b){try{var $="",_e=b;do $+=Pa(_e),_e=_e.return;while(_e);var ut=$}catch(yt){ut=`
 Error generating stack: `+yt.message+`
-`+yt.stack}return{value:_,source:b,stack:ut,digest:null}}function Ki(_,b,$){return{value:_,source:null,stack:$??null,digest:b??null}}function Li(_,b){try{console.error(b.value)}catch($){setTimeout(function(){throw $})}}var Mi=typeof WeakMap=="function"?WeakMap:Map;function Ni(_,b,$){$=mh(-1,$),$.tag=3,$.payload={element:null};var _e=b.value;return $.callback=function(){Oi||(Oi=!0,Pi=_e),Li(_,b)},$}function Qi(_,b,$){$=mh(-1,$),$.tag=3;var _e=_.type.getDerivedStateFromError;if(typeof _e=="function"){var ut=b.value;$.payload=function(){return _e(ut)},$.callback=function(){Li(_,b)}}var yt=_.stateNode;return yt!==null&&typeof yt.componentDidCatch=="function"&&($.callback=function(){Li(_,b),typeof _e!="function"&&(Ri===null?Ri=new Set([this]):Ri.add(this));var wt=b.stack;this.componentDidCatch(b.value,{componentStack:wt!==null?wt:""})}),$}function Si(_,b,$){var _e=_.pingCache;if(_e===null){_e=_.pingCache=new Mi;var ut=new Set;_e.set(b,ut)}else ut=_e.get(b),ut===void 0&&(ut=new Set,_e.set(b,ut));ut.has($)||(ut.add($),_=Ti.bind(null,_,b,$),b.then(_,_))}function Ui(_){do{var b;if((b=_.tag===13)&&(b=_.memoizedState,b=b!==null?b.dehydrated!==null:!0),b)return _;_=_.return}while(_!==null);return null}function Vi(_,b,$,_e,ut){return _.mode&1?(_.flags|=65536,_.lanes=ut,_):(_===b?_.flags|=65536:(_.flags|=128,$.flags|=131072,$.flags&=-52805,$.tag===1&&($.alternate===null?$.tag=17:(b=mh(-1,1),b.tag=2,nh($,b,1))),$.lanes|=1),_)}var Wi=ua.ReactCurrentOwner,dh=!1;function Xi(_,b,$,_e){b.child=_===null?Vg(b,null,$,_e):Ug(b,_.child,$,_e)}function Yi(_,b,$,_e,ut){$=$.render;var yt=b.ref;return ch(b,ut),_e=Nh(_,b,$,_e,yt,ut),$=Sh(),_!==null&&!dh?(b.updateQueue=_.updateQueue,b.flags&=-2053,_.lanes&=~ut,Zi(_,b,ut)):(I&&$&&vg(b),b.flags|=1,Xi(_,b,_e,ut),b.child)}function $i(_,b,$,_e,ut){if(_===null){var yt=$.type;return typeof yt=="function"&&!aj(yt)&&yt.defaultProps===void 0&&$.compare===null&&$.defaultProps===void 0?(b.tag=15,b.type=yt,bj(_,b,yt,_e,ut)):(_=Rg($.type,null,_e,b,b.mode,ut),_.ref=b.ref,_.return=b,b.child=_)}if(yt=_.child,!(_.lanes&ut)){var wt=yt.memoizedProps;if($=$.compare,$=$!==null?$:Ie,$(wt,_e)&&_.ref===b.ref)return Zi(_,b,ut)}return b.flags|=1,_=Pg(yt,_e),_.ref=b.ref,_.return=b,b.child=_}function bj(_,b,$,_e,ut){if(_!==null){var yt=_.memoizedProps;if(Ie(yt,_e)&&_.ref===b.ref)if(dh=!1,b.pendingProps=_e=yt,(_.lanes&ut)!==0)_.flags&131072&&(dh=!0);else return b.lanes=_.lanes,Zi(_,b,ut)}return cj(_,b,$,_e,ut)}function dj(_,b,$){var _e=b.pendingProps,ut=_e.children,yt=_!==null?_.memoizedState:null;if(_e.mode==="hidden")if(!(b.mode&1))b.memoizedState={baseLanes:0,cachePool:null,transitions:null},G(ej,fj),fj|=$;else{if(!($&1073741824))return _=yt!==null?yt.baseLanes|$:$,b.lanes=b.childLanes=1073741824,b.memoizedState={baseLanes:_,cachePool:null,transitions:null},b.updateQueue=null,G(ej,fj),fj|=_,null;b.memoizedState={baseLanes:0,cachePool:null,transitions:null},_e=yt!==null?yt.baseLanes:$,G(ej,fj),fj|=_e}else yt!==null?(_e=yt.baseLanes|$,b.memoizedState=null):_e=$,G(ej,fj),fj|=_e;return Xi(_,b,ut,$),b.child}function gj(_,b){var $=b.ref;(_===null&&$!==null||_!==null&&_.ref!==$)&&(b.flags|=512,b.flags|=2097152)}function cj(_,b,$,_e,ut){var yt=Zf($)?Xf:H.current;return yt=Yf(b,yt),ch(b,ut),$=Nh(_,b,$,_e,yt,ut),_e=Sh(),_!==null&&!dh?(b.updateQueue=_.updateQueue,b.flags&=-2053,_.lanes&=~ut,Zi(_,b,ut)):(I&&_e&&vg(b),b.flags|=1,Xi(_,b,$,ut),b.child)}function hj(_,b,$,_e,ut){if(Zf($)){var yt=!0;cg(b)}else yt=!1;if(ch(b,ut),b.stateNode===null)ij(_,b),Gi(b,$,_e),Ii(b,$,_e,ut),_e=!0;else if(_===null){var wt=b.stateNode,Ct=b.memoizedProps;wt.props=Ct;var Rt=wt.context,bt=$.contextType;typeof bt=="object"&&bt!==null?bt=eh(bt):(bt=Zf($)?Xf:H.current,bt=Yf(b,bt));var nt=$.getDerivedStateFromProps,F=typeof nt=="function"||typeof wt.getSnapshotBeforeUpdate=="function";F||typeof wt.UNSAFE_componentWillReceiveProps!="function"&&typeof wt.componentWillReceiveProps!="function"||(Ct!==_e||Rt!==bt)&&Hi(b,wt,_e,bt),jh=!1;var y=b.memoizedState;wt.state=y,qh(b,_e,wt,ut),Rt=b.memoizedState,Ct!==_e||y!==Rt||Wf.current||jh?(typeof nt=="function"&&(Di(b,$,nt,_e),Rt=b.memoizedState),(Ct=jh||Fi(b,$,Ct,_e,y,Rt,bt))?(F||typeof wt.UNSAFE_componentWillMount!="function"&&typeof wt.componentWillMount!="function"||(typeof wt.componentWillMount=="function"&&wt.componentWillMount(),typeof wt.UNSAFE_componentWillMount=="function"&&wt.UNSAFE_componentWillMount()),typeof wt.componentDidMount=="function"&&(b.flags|=4194308)):(typeof wt.componentDidMount=="function"&&(b.flags|=4194308),b.memoizedProps=_e,b.memoizedState=Rt),wt.props=_e,wt.state=Rt,wt.context=bt,_e=Ct):(typeof wt.componentDidMount=="function"&&(b.flags|=4194308),_e=!1)}else{wt=b.stateNode,lh(_,b),Ct=b.memoizedProps,bt=b.type===b.elementType?Ct:Ci(b.type,Ct),wt.props=bt,F=b.pendingProps,y=wt.context,Rt=$.contextType,typeof Rt=="object"&&Rt!==null?Rt=eh(Rt):(Rt=Zf($)?Xf:H.current,Rt=Yf(b,Rt));var et=$.getDerivedStateFromProps;(nt=typeof et=="function"||typeof wt.getSnapshotBeforeUpdate=="function")||typeof wt.UNSAFE_componentWillReceiveProps!="function"&&typeof wt.componentWillReceiveProps!="function"||(Ct!==F||y!==Rt)&&Hi(b,wt,_e,Rt),jh=!1,y=b.memoizedState,wt.state=y,qh(b,_e,wt,ut);var ot=b.memoizedState;Ct!==F||y!==ot||Wf.current||jh?(typeof et=="function"&&(Di(b,$,et,_e),ot=b.memoizedState),(bt=jh||Fi(b,$,bt,_e,y,ot,Rt)||!1)?(nt||typeof wt.UNSAFE_componentWillUpdate!="function"&&typeof wt.componentWillUpdate!="function"||(typeof wt.componentWillUpdate=="function"&&wt.componentWillUpdate(_e,ot,Rt),typeof wt.UNSAFE_componentWillUpdate=="function"&&wt.UNSAFE_componentWillUpdate(_e,ot,Rt)),typeof wt.componentDidUpdate=="function"&&(b.flags|=4),typeof wt.getSnapshotBeforeUpdate=="function"&&(b.flags|=1024)):(typeof wt.componentDidUpdate!="function"||Ct===_.memoizedProps&&y===_.memoizedState||(b.flags|=4),typeof wt.getSnapshotBeforeUpdate!="function"||Ct===_.memoizedProps&&y===_.memoizedState||(b.flags|=1024),b.memoizedProps=_e,b.memoizedState=ot),wt.props=_e,wt.state=ot,wt.context=Rt,_e=bt):(typeof wt.componentDidUpdate!="function"||Ct===_.memoizedProps&&y===_.memoizedState||(b.flags|=4),typeof wt.getSnapshotBeforeUpdate!="function"||Ct===_.memoizedProps&&y===_.memoizedState||(b.flags|=1024),_e=!1)}return jj(_,b,$,_e,yt,ut)}function jj(_,b,$,_e,ut,yt){gj(_,b);var wt=(b.flags&128)!==0;if(!_e&&!wt)return ut&&dg(b,$,!1),Zi(_,b,yt);_e=b.stateNode,Wi.current=b;var Ct=wt&&typeof $.getDerivedStateFromError!="function"?null:_e.render();return b.flags|=1,_!==null&&wt?(b.child=Ug(b,_.child,null,yt),b.child=Ug(b,null,Ct,yt)):Xi(_,b,Ct,yt),b.memoizedState=_e.state,ut&&dg(b,$,!0),b.child}function kj(_){var b=_.stateNode;b.pendingContext?ag(_,b.pendingContext,b.pendingContext!==b.context):b.context&&ag(_,b.context,!1),yh(_,b.containerInfo)}function lj(_,b,$,_e,ut){return Ig(),Jg(ut),b.flags|=256,Xi(_,b,$,_e),b.child}var mj={dehydrated:null,treeContext:null,retryLane:0};function nj(_){return{baseLanes:_,cachePool:null,transitions:null}}function oj(_,b,$){var _e=b.pendingProps,ut=L.current,yt=!1,wt=(b.flags&128)!==0,Ct;if((Ct=wt)||(Ct=_!==null&&_.memoizedState===null?!1:(ut&2)!==0),Ct?(yt=!0,b.flags&=-129):(_===null||_.memoizedState!==null)&&(ut|=1),G(L,ut&1),_===null)return Eg(b),_=b.memoizedState,_!==null&&(_=_.dehydrated,_!==null)?(b.mode&1?_.data==="$!"?b.lanes=8:b.lanes=1073741824:b.lanes=1,null):(wt=_e.children,_=_e.fallback,yt?(_e=b.mode,yt=b.child,wt={mode:"hidden",children:wt},!(_e&1)&&yt!==null?(yt.childLanes=0,yt.pendingProps=wt):yt=pj(wt,_e,0,null),_=Tg(_,_e,$,null),yt.return=b,_.return=b,yt.sibling=_,b.child=yt,b.child.memoizedState=nj($),b.memoizedState=mj,_):qj(b,wt));if(ut=_.memoizedState,ut!==null&&(Ct=ut.dehydrated,Ct!==null))return rj(_,b,wt,_e,Ct,ut,$);if(yt){yt=_e.fallback,wt=b.mode,ut=_.child,Ct=ut.sibling;var Rt={mode:"hidden",children:_e.children};return!(wt&1)&&b.child!==ut?(_e=b.child,_e.childLanes=0,_e.pendingProps=Rt,b.deletions=null):(_e=Pg(ut,Rt),_e.subtreeFlags=ut.subtreeFlags&14680064),Ct!==null?yt=Pg(Ct,yt):(yt=Tg(yt,wt,$,null),yt.flags|=2),yt.return=b,_e.return=b,_e.sibling=yt,b.child=_e,_e=yt,yt=b.child,wt=_.child.memoizedState,wt=wt===null?nj($):{baseLanes:wt.baseLanes|$,cachePool:null,transitions:wt.transitions},yt.memoizedState=wt,yt.childLanes=_.childLanes&~$,b.memoizedState=mj,_e}return yt=_.child,_=yt.sibling,_e=Pg(yt,{mode:"visible",children:_e.children}),!(b.mode&1)&&(_e.lanes=$),_e.return=b,_e.sibling=null,_!==null&&($=b.deletions,$===null?(b.deletions=[_],b.flags|=16):$.push(_)),b.child=_e,b.memoizedState=null,_e}function qj(_,b){return b=pj({mode:"visible",children:b},_.mode,0,null),b.return=_,_.child=b}function sj(_,b,$,_e){return _e!==null&&Jg(_e),Ug(b,_.child,null,$),_=qj(b,b.pendingProps.children),_.flags|=2,b.memoizedState=null,_}function rj(_,b,$,_e,ut,yt,wt){if($)return b.flags&256?(b.flags&=-257,_e=Ki(Error(p$1(422))),sj(_,b,wt,_e)):b.memoizedState!==null?(b.child=_.child,b.flags|=128,null):(yt=_e.fallback,ut=b.mode,_e=pj({mode:"visible",children:_e.children},ut,0,null),yt=Tg(yt,ut,wt,null),yt.flags|=2,_e.return=b,yt.return=b,_e.sibling=yt,b.child=_e,b.mode&1&&Ug(b,_.child,null,wt),b.child.memoizedState=nj(wt),b.memoizedState=mj,yt);if(!(b.mode&1))return sj(_,b,wt,null);if(ut.data==="$!"){if(_e=ut.nextSibling&&ut.nextSibling.dataset,_e)var Ct=_e.dgst;return _e=Ct,yt=Error(p$1(419)),_e=Ki(yt,_e,void 0),sj(_,b,wt,_e)}if(Ct=(wt&_.childLanes)!==0,dh||Ct){if(_e=Q,_e!==null){switch(wt&-wt){case 4:ut=2;break;case 16:ut=8;break;case 64:case 128:case 256:case 512:case 1024:case 2048:case 4096:case 8192:case 16384:case 32768:case 65536:case 131072:case 262144:case 524288:case 1048576:case 2097152:case 4194304:case 8388608:case 16777216:case 33554432:case 67108864:ut=32;break;case 536870912:ut=268435456;break;default:ut=0}ut=ut&(_e.suspendedLanes|wt)?0:ut,ut!==0&&ut!==yt.retryLane&&(yt.retryLane=ut,ih(_,ut),gi(_e,_,ut,-1))}return tj(),_e=Ki(Error(p$1(421))),sj(_,b,wt,_e)}return ut.data==="$?"?(b.flags|=128,b.child=_.child,b=uj.bind(null,_),ut._reactRetry=b,null):(_=yt.treeContext,yg=Lf(ut.nextSibling),xg=b,I=!0,zg=null,_!==null&&(og[pg++]=rg,og[pg++]=sg,og[pg++]=qg,rg=_.id,sg=_.overflow,qg=b),b=qj(b,_e.children),b.flags|=4096,b)}function vj(_,b,$){_.lanes|=b;var _e=_.alternate;_e!==null&&(_e.lanes|=b),bh(_.return,b,$)}function wj(_,b,$,_e,ut){var yt=_.memoizedState;yt===null?_.memoizedState={isBackwards:b,rendering:null,renderingStartTime:0,last:_e,tail:$,tailMode:ut}:(yt.isBackwards=b,yt.rendering=null,yt.renderingStartTime=0,yt.last=_e,yt.tail=$,yt.tailMode=ut)}function xj(_,b,$){var _e=b.pendingProps,ut=_e.revealOrder,yt=_e.tail;if(Xi(_,b,_e.children,$),_e=L.current,_e&2)_e=_e&1|2,b.flags|=128;else{if(_!==null&&_.flags&128)e:for(_=b.child;_!==null;){if(_.tag===13)_.memoizedState!==null&&vj(_,$,b);else if(_.tag===19)vj(_,$,b);else if(_.child!==null){_.child.return=_,_=_.child;continue}if(_===b)break e;for(;_.sibling===null;){if(_.return===null||_.return===b)break e;_=_.return}_.sibling.return=_.return,_=_.sibling}_e&=1}if(G(L,_e),!(b.mode&1))b.memoizedState=null;else switch(ut){case"forwards":for($=b.child,ut=null;$!==null;)_=$.alternate,_!==null&&Ch(_)===null&&(ut=$),$=$.sibling;$=ut,$===null?(ut=b.child,b.child=null):(ut=$.sibling,$.sibling=null),wj(b,!1,ut,$,yt);break;case"backwards":for($=null,ut=b.child,b.child=null;ut!==null;){if(_=ut.alternate,_!==null&&Ch(_)===null){b.child=ut;break}_=ut.sibling,ut.sibling=$,$=ut,ut=_}wj(b,!0,$,null,yt);break;case"together":wj(b,!1,null,null,void 0);break;default:b.memoizedState=null}return b.child}function ij(_,b){!(b.mode&1)&&_!==null&&(_.alternate=null,b.alternate=null,b.flags|=2)}function Zi(_,b,$){if(_!==null&&(b.dependencies=_.dependencies),rh|=b.lanes,!($&b.childLanes))return null;if(_!==null&&b.child!==_.child)throw Error(p$1(153));if(b.child!==null){for(_=b.child,$=Pg(_,_.pendingProps),b.child=$,$.return=b;_.sibling!==null;)_=_.sibling,$=$.sibling=Pg(_,_.pendingProps),$.return=b;$.sibling=null}return b.child}function yj(_,b,$){switch(b.tag){case 3:kj(b),Ig();break;case 5:Ah(b);break;case 1:Zf(b.type)&&cg(b);break;case 4:yh(b,b.stateNode.containerInfo);break;case 10:var _e=b.type._context,ut=b.memoizedProps.value;G(Wg,_e._currentValue),_e._currentValue=ut;break;case 13:if(_e=b.memoizedState,_e!==null)return _e.dehydrated!==null?(G(L,L.current&1),b.flags|=128,null):$&b.child.childLanes?oj(_,b,$):(G(L,L.current&1),_=Zi(_,b,$),_!==null?_.sibling:null);G(L,L.current&1);break;case 19:if(_e=($&b.childLanes)!==0,_.flags&128){if(_e)return xj(_,b,$);b.flags|=128}if(ut=b.memoizedState,ut!==null&&(ut.rendering=null,ut.tail=null,ut.lastEffect=null),G(L,L.current),_e)break;return null;case 22:case 23:return b.lanes=0,dj(_,b,$)}return Zi(_,b,$)}var zj,Aj,Bj,Cj;zj=function(_,b){for(var $=b.child;$!==null;){if($.tag===5||$.tag===6)_.appendChild($.stateNode);else if($.tag!==4&&$.child!==null){$.child.return=$,$=$.child;continue}if($===b)break;for(;$.sibling===null;){if($.return===null||$.return===b)return;$=$.return}$.sibling.return=$.return,$=$.sibling}};Aj=function(){};Bj=function(_,b,$,_e){var ut=_.memoizedProps;if(ut!==_e){_=b.stateNode,xh(uh.current);var yt=null;switch($){case"input":ut=Ya(_,ut),_e=Ya(_,_e),yt=[];break;case"select":ut=A({},ut,{value:void 0}),_e=A({},_e,{value:void 0}),yt=[];break;case"textarea":ut=gb(_,ut),_e=gb(_,_e),yt=[];break;default:typeof ut.onClick!="function"&&typeof _e.onClick=="function"&&(_.onclick=Bf)}ub($,_e);var wt;$=null;for(bt in ut)if(!_e.hasOwnProperty(bt)&&ut.hasOwnProperty(bt)&&ut[bt]!=null)if(bt==="style"){var Ct=ut[bt];for(wt in Ct)Ct.hasOwnProperty(wt)&&($||($={}),$[wt]="")}else bt!=="dangerouslySetInnerHTML"&&bt!=="children"&&bt!=="suppressContentEditableWarning"&&bt!=="suppressHydrationWarning"&&bt!=="autoFocus"&&(ea.hasOwnProperty(bt)?yt||(yt=[]):(yt=yt||[]).push(bt,null));for(bt in _e){var Rt=_e[bt];if(Ct=ut!=null?ut[bt]:void 0,_e.hasOwnProperty(bt)&&Rt!==Ct&&(Rt!=null||Ct!=null))if(bt==="style")if(Ct){for(wt in Ct)!Ct.hasOwnProperty(wt)||Rt&&Rt.hasOwnProperty(wt)||($||($={}),$[wt]="");for(wt in Rt)Rt.hasOwnProperty(wt)&&Ct[wt]!==Rt[wt]&&($||($={}),$[wt]=Rt[wt])}else $||(yt||(yt=[]),yt.push(bt,$)),$=Rt;else bt==="dangerouslySetInnerHTML"?(Rt=Rt?Rt.__html:void 0,Ct=Ct?Ct.__html:void 0,Rt!=null&&Ct!==Rt&&(yt=yt||[]).push(bt,Rt)):bt==="children"?typeof Rt!="string"&&typeof Rt!="number"||(yt=yt||[]).push(bt,""+Rt):bt!=="suppressContentEditableWarning"&&bt!=="suppressHydrationWarning"&&(ea.hasOwnProperty(bt)?(Rt!=null&&bt==="onScroll"&&D("scroll",_),yt||Ct===Rt||(yt=[])):(yt=yt||[]).push(bt,Rt))}$&&(yt=yt||[]).push("style",$);var bt=yt;(b.updateQueue=bt)&&(b.flags|=4)}};Cj=function(_,b,$,_e){$!==_e&&(b.flags|=4)};function Dj(_,b){if(!I)switch(_.tailMode){case"hidden":b=_.tail;for(var $=null;b!==null;)b.alternate!==null&&($=b),b=b.sibling;$===null?_.tail=null:$.sibling=null;break;case"collapsed":$=_.tail;for(var _e=null;$!==null;)$.alternate!==null&&(_e=$),$=$.sibling;_e===null?b||_.tail===null?_.tail=null:_.tail.sibling=null:_e.sibling=null}}function S(_){var b=_.alternate!==null&&_.alternate.child===_.child,$=0,_e=0;if(b)for(var ut=_.child;ut!==null;)$|=ut.lanes|ut.childLanes,_e|=ut.subtreeFlags&14680064,_e|=ut.flags&14680064,ut.return=_,ut=ut.sibling;else for(ut=_.child;ut!==null;)$|=ut.lanes|ut.childLanes,_e|=ut.subtreeFlags,_e|=ut.flags,ut.return=_,ut=ut.sibling;return _.subtreeFlags|=_e,_.childLanes=$,b}function Ej(_,b,$){var _e=b.pendingProps;switch(wg(b),b.tag){case 2:case 16:case 15:case 0:case 11:case 7:case 8:case 12:case 9:case 14:return S(b),null;case 1:return Zf(b.type)&&$f(),S(b),null;case 3:return _e=b.stateNode,zh(),E(Wf),E(H),Eh(),_e.pendingContext&&(_e.context=_e.pendingContext,_e.pendingContext=null),(_===null||_.child===null)&&(Gg(b)?b.flags|=4:_===null||_.memoizedState.isDehydrated&&!(b.flags&256)||(b.flags|=1024,zg!==null&&(Fj(zg),zg=null))),Aj(_,b),S(b),null;case 5:Bh(b);var ut=xh(wh.current);if($=b.type,_!==null&&b.stateNode!=null)Bj(_,b,$,_e,ut),_.ref!==b.ref&&(b.flags|=512,b.flags|=2097152);else{if(!_e){if(b.stateNode===null)throw Error(p$1(166));return S(b),null}if(_=xh(uh.current),Gg(b)){_e=b.stateNode,$=b.type;var yt=b.memoizedProps;switch(_e[Of]=b,_e[Pf]=yt,_=(b.mode&1)!==0,$){case"dialog":D("cancel",_e),D("close",_e);break;case"iframe":case"object":case"embed":D("load",_e);break;case"video":case"audio":for(ut=0;ut<lf.length;ut++)D(lf[ut],_e);break;case"source":D("error",_e);break;case"img":case"image":case"link":D("error",_e),D("load",_e);break;case"details":D("toggle",_e);break;case"input":Za(_e,yt),D("invalid",_e);break;case"select":_e._wrapperState={wasMultiple:!!yt.multiple},D("invalid",_e);break;case"textarea":hb(_e,yt),D("invalid",_e)}ub($,yt),ut=null;for(var wt in yt)if(yt.hasOwnProperty(wt)){var Ct=yt[wt];wt==="children"?typeof Ct=="string"?_e.textContent!==Ct&&(yt.suppressHydrationWarning!==!0&&Af(_e.textContent,Ct,_),ut=["children",Ct]):typeof Ct=="number"&&_e.textContent!==""+Ct&&(yt.suppressHydrationWarning!==!0&&Af(_e.textContent,Ct,_),ut=["children",""+Ct]):ea.hasOwnProperty(wt)&&Ct!=null&&wt==="onScroll"&&D("scroll",_e)}switch($){case"input":Va(_e),db(_e,yt,!0);break;case"textarea":Va(_e),jb(_e);break;case"select":case"option":break;default:typeof yt.onClick=="function"&&(_e.onclick=Bf)}_e=ut,b.updateQueue=_e,_e!==null&&(b.flags|=4)}else{wt=ut.nodeType===9?ut:ut.ownerDocument,_==="http://www.w3.org/1999/xhtml"&&(_=kb($)),_==="http://www.w3.org/1999/xhtml"?$==="script"?(_=wt.createElement("div"),_.innerHTML="<script><\/script>",_=_.removeChild(_.firstChild)):typeof _e.is=="string"?_=wt.createElement($,{is:_e.is}):(_=wt.createElement($),$==="select"&&(wt=_,_e.multiple?wt.multiple=!0:_e.size&&(wt.size=_e.size))):_=wt.createElementNS(_,$),_[Of]=b,_[Pf]=_e,zj(_,b,!1,!1),b.stateNode=_;e:{switch(wt=vb($,_e),$){case"dialog":D("cancel",_),D("close",_),ut=_e;break;case"iframe":case"object":case"embed":D("load",_),ut=_e;break;case"video":case"audio":for(ut=0;ut<lf.length;ut++)D(lf[ut],_);ut=_e;break;case"source":D("error",_),ut=_e;break;case"img":case"image":case"link":D("error",_),D("load",_),ut=_e;break;case"details":D("toggle",_),ut=_e;break;case"input":Za(_,_e),ut=Ya(_,_e),D("invalid",_);break;case"option":ut=_e;break;case"select":_._wrapperState={wasMultiple:!!_e.multiple},ut=A({},_e,{value:void 0}),D("invalid",_);break;case"textarea":hb(_,_e),ut=gb(_,_e),D("invalid",_);break;default:ut=_e}ub($,ut),Ct=ut;for(yt in Ct)if(Ct.hasOwnProperty(yt)){var Rt=Ct[yt];yt==="style"?sb(_,Rt):yt==="dangerouslySetInnerHTML"?(Rt=Rt?Rt.__html:void 0,Rt!=null&&nb(_,Rt)):yt==="children"?typeof Rt=="string"?($!=="textarea"||Rt!=="")&&ob(_,Rt):typeof Rt=="number"&&ob(_,""+Rt):yt!=="suppressContentEditableWarning"&&yt!=="suppressHydrationWarning"&&yt!=="autoFocus"&&(ea.hasOwnProperty(yt)?Rt!=null&&yt==="onScroll"&&D("scroll",_):Rt!=null&&ta(_,yt,Rt,wt))}switch($){case"input":Va(_),db(_,_e,!1);break;case"textarea":Va(_),jb(_);break;case"option":_e.value!=null&&_.setAttribute("value",""+Sa(_e.value));break;case"select":_.multiple=!!_e.multiple,yt=_e.value,yt!=null?fb(_,!!_e.multiple,yt,!1):_e.defaultValue!=null&&fb(_,!!_e.multiple,_e.defaultValue,!0);break;default:typeof ut.onClick=="function"&&(_.onclick=Bf)}switch($){case"button":case"input":case"select":case"textarea":_e=!!_e.autoFocus;break e;case"img":_e=!0;break e;default:_e=!1}}_e&&(b.flags|=4)}b.ref!==null&&(b.flags|=512,b.flags|=2097152)}return S(b),null;case 6:if(_&&b.stateNode!=null)Cj(_,b,_.memoizedProps,_e);else{if(typeof _e!="string"&&b.stateNode===null)throw Error(p$1(166));if($=xh(wh.current),xh(uh.current),Gg(b)){if(_e=b.stateNode,$=b.memoizedProps,_e[Of]=b,(yt=_e.nodeValue!==$)&&(_=xg,_!==null))switch(_.tag){case 3:Af(_e.nodeValue,$,(_.mode&1)!==0);break;case 5:_.memoizedProps.suppressHydrationWarning!==!0&&Af(_e.nodeValue,$,(_.mode&1)!==0)}yt&&(b.flags|=4)}else _e=($.nodeType===9?$:$.ownerDocument).createTextNode(_e),_e[Of]=b,b.stateNode=_e}return S(b),null;case 13:if(E(L),_e=b.memoizedState,_===null||_.memoizedState!==null&&_.memoizedState.dehydrated!==null){if(I&&yg!==null&&b.mode&1&&!(b.flags&128))Hg(),Ig(),b.flags|=98560,yt=!1;else if(yt=Gg(b),_e!==null&&_e.dehydrated!==null){if(_===null){if(!yt)throw Error(p$1(318));if(yt=b.memoizedState,yt=yt!==null?yt.dehydrated:null,!yt)throw Error(p$1(317));yt[Of]=b}else Ig(),!(b.flags&128)&&(b.memoizedState=null),b.flags|=4;S(b),yt=!1}else zg!==null&&(Fj(zg),zg=null),yt=!0;if(!yt)return b.flags&65536?b:null}return b.flags&128?(b.lanes=$,b):(_e=_e!==null,_e!==(_!==null&&_.memoizedState!==null)&&_e&&(b.child.flags|=8192,b.mode&1&&(_===null||L.current&1?T===0&&(T=3):tj())),b.updateQueue!==null&&(b.flags|=4),S(b),null);case 4:return zh(),Aj(_,b),_===null&&sf(b.stateNode.containerInfo),S(b),null;case 10:return ah(b.type._context),S(b),null;case 17:return Zf(b.type)&&$f(),S(b),null;case 19:if(E(L),yt=b.memoizedState,yt===null)return S(b),null;if(_e=(b.flags&128)!==0,wt=yt.rendering,wt===null)if(_e)Dj(yt,!1);else{if(T!==0||_!==null&&_.flags&128)for(_=b.child;_!==null;){if(wt=Ch(_),wt!==null){for(b.flags|=128,Dj(yt,!1),_e=wt.updateQueue,_e!==null&&(b.updateQueue=_e,b.flags|=4),b.subtreeFlags=0,_e=$,$=b.child;$!==null;)yt=$,_=_e,yt.flags&=14680066,wt=yt.alternate,wt===null?(yt.childLanes=0,yt.lanes=_,yt.child=null,yt.subtreeFlags=0,yt.memoizedProps=null,yt.memoizedState=null,yt.updateQueue=null,yt.dependencies=null,yt.stateNode=null):(yt.childLanes=wt.childLanes,yt.lanes=wt.lanes,yt.child=wt.child,yt.subtreeFlags=0,yt.deletions=null,yt.memoizedProps=wt.memoizedProps,yt.memoizedState=wt.memoizedState,yt.updateQueue=wt.updateQueue,yt.type=wt.type,_=wt.dependencies,yt.dependencies=_===null?null:{lanes:_.lanes,firstContext:_.firstContext}),$=$.sibling;return G(L,L.current&1|2),b.child}_=_.sibling}yt.tail!==null&&B()>Gj&&(b.flags|=128,_e=!0,Dj(yt,!1),b.lanes=4194304)}else{if(!_e)if(_=Ch(wt),_!==null){if(b.flags|=128,_e=!0,$=_.updateQueue,$!==null&&(b.updateQueue=$,b.flags|=4),Dj(yt,!0),yt.tail===null&&yt.tailMode==="hidden"&&!wt.alternate&&!I)return S(b),null}else 2*B()-yt.renderingStartTime>Gj&&$!==1073741824&&(b.flags|=128,_e=!0,Dj(yt,!1),b.lanes=4194304);yt.isBackwards?(wt.sibling=b.child,b.child=wt):($=yt.last,$!==null?$.sibling=wt:b.child=wt,yt.last=wt)}return yt.tail!==null?(b=yt.tail,yt.rendering=b,yt.tail=b.sibling,yt.renderingStartTime=B(),b.sibling=null,$=L.current,G(L,_e?$&1|2:$&1),b):(S(b),null);case 22:case 23:return Hj(),_e=b.memoizedState!==null,_!==null&&_.memoizedState!==null!==_e&&(b.flags|=8192),_e&&b.mode&1?fj&1073741824&&(S(b),b.subtreeFlags&6&&(b.flags|=8192)):S(b),null;case 24:return null;case 25:return null}throw Error(p$1(156,b.tag))}function Ij(_,b){switch(wg(b),b.tag){case 1:return Zf(b.type)&&$f(),_=b.flags,_&65536?(b.flags=_&-65537|128,b):null;case 3:return zh(),E(Wf),E(H),Eh(),_=b.flags,_&65536&&!(_&128)?(b.flags=_&-65537|128,b):null;case 5:return Bh(b),null;case 13:if(E(L),_=b.memoizedState,_!==null&&_.dehydrated!==null){if(b.alternate===null)throw Error(p$1(340));Ig()}return _=b.flags,_&65536?(b.flags=_&-65537|128,b):null;case 19:return E(L),null;case 4:return zh(),null;case 10:return ah(b.type._context),null;case 22:case 23:return Hj(),null;case 24:return null;default:return null}}var Jj=!1,U=!1,Kj=typeof WeakSet=="function"?WeakSet:Set,V=null;function Lj(_,b){var $=_.ref;if($!==null)if(typeof $=="function")try{$(null)}catch(_e){W(_,b,_e)}else $.current=null}function Mj(_,b,$){try{$()}catch(_e){W(_,b,_e)}}var Nj=!1;function Oj(_,b){if(Cf=dd,_=Me(),Ne(_)){if("selectionStart"in _)var $={start:_.selectionStart,end:_.selectionEnd};else e:{$=($=_.ownerDocument)&&$.defaultView||window;var _e=$.getSelection&&$.getSelection();if(_e&&_e.rangeCount!==0){$=_e.anchorNode;var ut=_e.anchorOffset,yt=_e.focusNode;_e=_e.focusOffset;try{$.nodeType,yt.nodeType}catch{$=null;break e}var wt=0,Ct=-1,Rt=-1,bt=0,nt=0,F=_,y=null;t:for(;;){for(var et;F!==$||ut!==0&&F.nodeType!==3||(Ct=wt+ut),F!==yt||_e!==0&&F.nodeType!==3||(Rt=wt+_e),F.nodeType===3&&(wt+=F.nodeValue.length),(et=F.firstChild)!==null;)y=F,F=et;for(;;){if(F===_)break t;if(y===$&&++bt===ut&&(Ct=wt),y===yt&&++nt===_e&&(Rt=wt),(et=F.nextSibling)!==null)break;F=y,y=F.parentNode}F=et}$=Ct===-1||Rt===-1?null:{start:Ct,end:Rt}}else $=null}$=$||{start:0,end:0}}else $=null;for(Df={focusedElem:_,selectionRange:$},dd=!1,V=b;V!==null;)if(b=V,_=b.child,(b.subtreeFlags&1028)!==0&&_!==null)_.return=b,V=_;else for(;V!==null;){b=V;try{var ot=b.alternate;if(b.flags&1024)switch(b.tag){case 0:case 11:case 15:break;case 1:if(ot!==null){var it=ot.memoizedProps,rt=ot.memoizedState,tt=b.stateNode,st=tt.getSnapshotBeforeUpdate(b.elementType===b.type?it:Ci(b.type,it),rt);tt.__reactInternalSnapshotBeforeUpdate=st}break;case 3:var gt=b.stateNode.containerInfo;gt.nodeType===1?gt.textContent="":gt.nodeType===9&&gt.documentElement&&gt.removeChild(gt.documentElement);break;case 5:case 6:case 4:case 17:break;default:throw Error(p$1(163))}}catch(pt){W(b,b.return,pt)}if(_=b.sibling,_!==null){_.return=b.return,V=_;break}V=b.return}return ot=Nj,Nj=!1,ot}function Pj(_,b,$){var _e=b.updateQueue;if(_e=_e!==null?_e.lastEffect:null,_e!==null){var ut=_e=_e.next;do{if((ut.tag&_)===_){var yt=ut.destroy;ut.destroy=void 0,yt!==void 0&&Mj(b,$,yt)}ut=ut.next}while(ut!==_e)}}function Qj(_,b){if(b=b.updateQueue,b=b!==null?b.lastEffect:null,b!==null){var $=b=b.next;do{if(($.tag&_)===_){var _e=$.create;$.destroy=_e()}$=$.next}while($!==b)}}function Rj(_){var b=_.ref;if(b!==null){var $=_.stateNode;switch(_.tag){case 5:_=$;break;default:_=$}typeof b=="function"?b(_):b.current=_}}function Sj(_){var b=_.alternate;b!==null&&(_.alternate=null,Sj(b)),_.child=null,_.deletions=null,_.sibling=null,_.tag===5&&(b=_.stateNode,b!==null&&(delete b[Of],delete b[Pf],delete b[of],delete b[Qf],delete b[Rf])),_.stateNode=null,_.return=null,_.dependencies=null,_.memoizedProps=null,_.memoizedState=null,_.pendingProps=null,_.stateNode=null,_.updateQueue=null}function Tj(_){return _.tag===5||_.tag===3||_.tag===4}function Uj(_){e:for(;;){for(;_.sibling===null;){if(_.return===null||Tj(_.return))return null;_=_.return}for(_.sibling.return=_.return,_=_.sibling;_.tag!==5&&_.tag!==6&&_.tag!==18;){if(_.flags&2||_.child===null||_.tag===4)continue e;_.child.return=_,_=_.child}if(!(_.flags&2))return _.stateNode}}function Vj(_,b,$){var _e=_.tag;if(_e===5||_e===6)_=_.stateNode,b?$.nodeType===8?$.parentNode.insertBefore(_,b):$.insertBefore(_,b):($.nodeType===8?(b=$.parentNode,b.insertBefore(_,$)):(b=$,b.appendChild(_)),$=$._reactRootContainer,$!=null||b.onclick!==null||(b.onclick=Bf));else if(_e!==4&&(_=_.child,_!==null))for(Vj(_,b,$),_=_.sibling;_!==null;)Vj(_,b,$),_=_.sibling}function Wj(_,b,$){var _e=_.tag;if(_e===5||_e===6)_=_.stateNode,b?$.insertBefore(_,b):$.appendChild(_);else if(_e!==4&&(_=_.child,_!==null))for(Wj(_,b,$),_=_.sibling;_!==null;)Wj(_,b,$),_=_.sibling}var X=null,Xj=!1;function Yj(_,b,$){for($=$.child;$!==null;)Zj(_,b,$),$=$.sibling}function Zj(_,b,$){if(lc&&typeof lc.onCommitFiberUnmount=="function")try{lc.onCommitFiberUnmount(kc,$)}catch{}switch($.tag){case 5:U||Lj($,b);case 6:var _e=X,ut=Xj;X=null,Yj(_,b,$),X=_e,Xj=ut,X!==null&&(Xj?(_=X,$=$.stateNode,_.nodeType===8?_.parentNode.removeChild($):_.removeChild($)):X.removeChild($.stateNode));break;case 18:X!==null&&(Xj?(_=X,$=$.stateNode,_.nodeType===8?Kf(_.parentNode,$):_.nodeType===1&&Kf(_,$),bd(_)):Kf(X,$.stateNode));break;case 4:_e=X,ut=Xj,X=$.stateNode.containerInfo,Xj=!0,Yj(_,b,$),X=_e,Xj=ut;break;case 0:case 11:case 14:case 15:if(!U&&(_e=$.updateQueue,_e!==null&&(_e=_e.lastEffect,_e!==null))){ut=_e=_e.next;do{var yt=ut,wt=yt.destroy;yt=yt.tag,wt!==void 0&&(yt&2||yt&4)&&Mj($,b,wt),ut=ut.next}while(ut!==_e)}Yj(_,b,$);break;case 1:if(!U&&(Lj($,b),_e=$.stateNode,typeof _e.componentWillUnmount=="function"))try{_e.props=$.memoizedProps,_e.state=$.memoizedState,_e.componentWillUnmount()}catch(Ct){W($,b,Ct)}Yj(_,b,$);break;case 21:Yj(_,b,$);break;case 22:$.mode&1?(U=(_e=U)||$.memoizedState!==null,Yj(_,b,$),U=_e):Yj(_,b,$);break;default:Yj(_,b,$)}}function ak(_){var b=_.updateQueue;if(b!==null){_.updateQueue=null;var $=_.stateNode;$===null&&($=_.stateNode=new Kj),b.forEach(function(_e){var ut=bk.bind(null,_,_e);$.has(_e)||($.add(_e),_e.then(ut,ut))})}}function ck(_,b){var $=b.deletions;if($!==null)for(var _e=0;_e<$.length;_e++){var ut=$[_e];try{var yt=_,wt=b,Ct=wt;e:for(;Ct!==null;){switch(Ct.tag){case 5:X=Ct.stateNode,Xj=!1;break e;case 3:X=Ct.stateNode.containerInfo,Xj=!0;break e;case 4:X=Ct.stateNode.containerInfo,Xj=!0;break e}Ct=Ct.return}if(X===null)throw Error(p$1(160));Zj(yt,wt,ut),X=null,Xj=!1;var Rt=ut.alternate;Rt!==null&&(Rt.return=null),ut.return=null}catch(bt){W(ut,b,bt)}}if(b.subtreeFlags&12854)for(b=b.child;b!==null;)dk(b,_),b=b.sibling}function dk(_,b){var $=_.alternate,_e=_.flags;switch(_.tag){case 0:case 11:case 14:case 15:if(ck(b,_),ek(_),_e&4){try{Pj(3,_,_.return),Qj(3,_)}catch(it){W(_,_.return,it)}try{Pj(5,_,_.return)}catch(it){W(_,_.return,it)}}break;case 1:ck(b,_),ek(_),_e&512&&$!==null&&Lj($,$.return);break;case 5:if(ck(b,_),ek(_),_e&512&&$!==null&&Lj($,$.return),_.flags&32){var ut=_.stateNode;try{ob(ut,"")}catch(it){W(_,_.return,it)}}if(_e&4&&(ut=_.stateNode,ut!=null)){var yt=_.memoizedProps,wt=$!==null?$.memoizedProps:yt,Ct=_.type,Rt=_.updateQueue;if(_.updateQueue=null,Rt!==null)try{Ct==="input"&&yt.type==="radio"&&yt.name!=null&&ab(ut,yt),vb(Ct,wt);var bt=vb(Ct,yt);for(wt=0;wt<Rt.length;wt+=2){var nt=Rt[wt],F=Rt[wt+1];nt==="style"?sb(ut,F):nt==="dangerouslySetInnerHTML"?nb(ut,F):nt==="children"?ob(ut,F):ta(ut,nt,F,bt)}switch(Ct){case"input":bb(ut,yt);break;case"textarea":ib(ut,yt);break;case"select":var y=ut._wrapperState.wasMultiple;ut._wrapperState.wasMultiple=!!yt.multiple;var et=yt.value;et!=null?fb(ut,!!yt.multiple,et,!1):y!==!!yt.multiple&&(yt.defaultValue!=null?fb(ut,!!yt.multiple,yt.defaultValue,!0):fb(ut,!!yt.multiple,yt.multiple?[]:"",!1))}ut[Pf]=yt}catch(it){W(_,_.return,it)}}break;case 6:if(ck(b,_),ek(_),_e&4){if(_.stateNode===null)throw Error(p$1(162));ut=_.stateNode,yt=_.memoizedProps;try{ut.nodeValue=yt}catch(it){W(_,_.return,it)}}break;case 3:if(ck(b,_),ek(_),_e&4&&$!==null&&$.memoizedState.isDehydrated)try{bd(b.containerInfo)}catch(it){W(_,_.return,it)}break;case 4:ck(b,_),ek(_);break;case 13:ck(b,_),ek(_),ut=_.child,ut.flags&8192&&(yt=ut.memoizedState!==null,ut.stateNode.isHidden=yt,!yt||ut.alternate!==null&&ut.alternate.memoizedState!==null||(fk=B())),_e&4&&ak(_);break;case 22:if(nt=$!==null&&$.memoizedState!==null,_.mode&1?(U=(bt=U)||nt,ck(b,_),U=bt):ck(b,_),ek(_),_e&8192){if(bt=_.memoizedState!==null,(_.stateNode.isHidden=bt)&&!nt&&_.mode&1)for(V=_,nt=_.child;nt!==null;){for(F=V=nt;V!==null;){switch(y=V,et=y.child,y.tag){case 0:case 11:case 14:case 15:Pj(4,y,y.return);break;case 1:Lj(y,y.return);var ot=y.stateNode;if(typeof ot.componentWillUnmount=="function"){_e=y,$=y.return;try{b=_e,ot.props=b.memoizedProps,ot.state=b.memoizedState,ot.componentWillUnmount()}catch(it){W(_e,$,it)}}break;case 5:Lj(y,y.return);break;case 22:if(y.memoizedState!==null){gk(F);continue}}et!==null?(et.return=y,V=et):gk(F)}nt=nt.sibling}e:for(nt=null,F=_;;){if(F.tag===5){if(nt===null){nt=F;try{ut=F.stateNode,bt?(yt=ut.style,typeof yt.setProperty=="function"?yt.setProperty("display","none","important"):yt.display="none"):(Ct=F.stateNode,Rt=F.memoizedProps.style,wt=Rt!=null&&Rt.hasOwnProperty("display")?Rt.display:null,Ct.style.display=rb("display",wt))}catch(it){W(_,_.return,it)}}}else if(F.tag===6){if(nt===null)try{F.stateNode.nodeValue=bt?"":F.memoizedProps}catch(it){W(_,_.return,it)}}else if((F.tag!==22&&F.tag!==23||F.memoizedState===null||F===_)&&F.child!==null){F.child.return=F,F=F.child;continue}if(F===_)break e;for(;F.sibling===null;){if(F.return===null||F.return===_)break e;nt===F&&(nt=null),F=F.return}nt===F&&(nt=null),F.sibling.return=F.return,F=F.sibling}}break;case 19:ck(b,_),ek(_),_e&4&&ak(_);break;case 21:break;default:ck(b,_),ek(_)}}function ek(_){var b=_.flags;if(b&2){try{e:{for(var $=_.return;$!==null;){if(Tj($)){var _e=$;break e}$=$.return}throw Error(p$1(160))}switch(_e.tag){case 5:var ut=_e.stateNode;_e.flags&32&&(ob(ut,""),_e.flags&=-33);var yt=Uj(_);Wj(_,yt,ut);break;case 3:case 4:var wt=_e.stateNode.containerInfo,Ct=Uj(_);Vj(_,Ct,wt);break;default:throw Error(p$1(161))}}catch(Rt){W(_,_.return,Rt)}_.flags&=-3}b&4096&&(_.flags&=-4097)}function hk(_,b,$){V=_,ik(_)}function ik(_,b,$){for(var _e=(_.mode&1)!==0;V!==null;){var ut=V,yt=ut.child;if(ut.tag===22&&_e){var wt=ut.memoizedState!==null||Jj;if(!wt){var Ct=ut.alternate,Rt=Ct!==null&&Ct.memoizedState!==null||U;Ct=Jj;var bt=U;if(Jj=wt,(U=Rt)&&!bt)for(V=ut;V!==null;)wt=V,Rt=wt.child,wt.tag===22&&wt.memoizedState!==null?jk(ut):Rt!==null?(Rt.return=wt,V=Rt):jk(ut);for(;yt!==null;)V=yt,ik(yt),yt=yt.sibling;V=ut,Jj=Ct,U=bt}kk(_)}else ut.subtreeFlags&8772&&yt!==null?(yt.return=ut,V=yt):kk(_)}}function kk(_){for(;V!==null;){var b=V;if(b.flags&8772){var $=b.alternate;try{if(b.flags&8772)switch(b.tag){case 0:case 11:case 15:U||Qj(5,b);break;case 1:var _e=b.stateNode;if(b.flags&4&&!U)if($===null)_e.componentDidMount();else{var ut=b.elementType===b.type?$.memoizedProps:Ci(b.type,$.memoizedProps);_e.componentDidUpdate(ut,$.memoizedState,_e.__reactInternalSnapshotBeforeUpdate)}var yt=b.updateQueue;yt!==null&&sh(b,yt,_e);break;case 3:var wt=b.updateQueue;if(wt!==null){if($=null,b.child!==null)switch(b.child.tag){case 5:$=b.child.stateNode;break;case 1:$=b.child.stateNode}sh(b,wt,$)}break;case 5:var Ct=b.stateNode;if($===null&&b.flags&4){$=Ct;var Rt=b.memoizedProps;switch(b.type){case"button":case"input":case"select":case"textarea":Rt.autoFocus&&$.focus();break;case"img":Rt.src&&($.src=Rt.src)}}break;case 6:break;case 4:break;case 12:break;case 13:if(b.memoizedState===null){var bt=b.alternate;if(bt!==null){var nt=bt.memoizedState;if(nt!==null){var F=nt.dehydrated;F!==null&&bd(F)}}}break;case 19:case 17:case 21:case 22:case 23:case 25:break;default:throw Error(p$1(163))}U||b.flags&512&&Rj(b)}catch(y){W(b,b.return,y)}}if(b===_){V=null;break}if($=b.sibling,$!==null){$.return=b.return,V=$;break}V=b.return}}function gk(_){for(;V!==null;){var b=V;if(b===_){V=null;break}var $=b.sibling;if($!==null){$.return=b.return,V=$;break}V=b.return}}function jk(_){for(;V!==null;){var b=V;try{switch(b.tag){case 0:case 11:case 15:var $=b.return;try{Qj(4,b)}catch(Rt){W(b,$,Rt)}break;case 1:var _e=b.stateNode;if(typeof _e.componentDidMount=="function"){var ut=b.return;try{_e.componentDidMount()}catch(Rt){W(b,ut,Rt)}}var yt=b.return;try{Rj(b)}catch(Rt){W(b,yt,Rt)}break;case 5:var wt=b.return;try{Rj(b)}catch(Rt){W(b,wt,Rt)}}}catch(Rt){W(b,b.return,Rt)}if(b===_){V=null;break}var Ct=b.sibling;if(Ct!==null){Ct.return=b.return,V=Ct;break}V=b.return}}var lk=Math.ceil,mk=ua.ReactCurrentDispatcher,nk=ua.ReactCurrentOwner,ok=ua.ReactCurrentBatchConfig,K=0,Q=null,Y=null,Z=0,fj=0,ej=Uf(0),T=0,pk=null,rh=0,qk=0,rk=0,sk=null,tk=null,fk=0,Gj=1/0,uk=null,Oi=!1,Pi=null,Ri=null,vk=!1,wk=null,xk=0,yk=0,zk=null,Ak=-1,Bk=0;function R(){return K&6?B():Ak!==-1?Ak:Ak=B()}function yi(_){return _.mode&1?K&2&&Z!==0?Z&-Z:Kg.transition!==null?(Bk===0&&(Bk=yc()),Bk):(_=C,_!==0||(_=window.event,_=_===void 0?16:jd(_.type)),_):1}function gi(_,b,$,_e){if(50<yk)throw yk=0,zk=null,Error(p$1(185));Ac(_,$,_e),(!(K&2)||_!==Q)&&(_===Q&&(!(K&2)&&(qk|=$),T===4&&Ck(_,Z)),Dk(_,_e),$===1&&K===0&&!(b.mode&1)&&(Gj=B()+500,fg&&jg()))}function Dk(_,b){var $=_.callbackNode;wc(_,b);var _e=uc(_,_===Q?Z:0);if(_e===0)$!==null&&bc($),_.callbackNode=null,_.callbackPriority=0;else if(b=_e&-_e,_.callbackPriority!==b){if($!=null&&bc($),b===1)_.tag===0?ig(Ek.bind(null,_)):hg(Ek.bind(null,_)),Jf(function(){!(K&6)&&jg()}),$=null;else{switch(Dc(_e)){case 1:$=fc;break;case 4:$=gc;break;case 16:$=hc;break;case 536870912:$=jc;break;default:$=hc}$=Fk($,Gk.bind(null,_))}_.callbackPriority=b,_.callbackNode=$}}function Gk(_,b){if(Ak=-1,Bk=0,K&6)throw Error(p$1(327));var $=_.callbackNode;if(Hk()&&_.callbackNode!==$)return null;var _e=uc(_,_===Q?Z:0);if(_e===0)return null;if(_e&30||_e&_.expiredLanes||b)b=Ik(_,_e);else{b=_e;var ut=K;K|=2;var yt=Jk();(Q!==_||Z!==b)&&(uk=null,Gj=B()+500,Kk(_,b));do try{Lk();break}catch(Ct){Mk(_,Ct)}while(!0);$g(),mk.current=yt,K=ut,Y!==null?b=0:(Q=null,Z=0,b=T)}if(b!==0){if(b===2&&(ut=xc(_),ut!==0&&(_e=ut,b=Nk(_,ut))),b===1)throw $=pk,Kk(_,0),Ck(_,_e),Dk(_,B()),$;if(b===6)Ck(_,_e);else{if(ut=_.current.alternate,!(_e&30)&&!Ok(ut)&&(b=Ik(_,_e),b===2&&(yt=xc(_),yt!==0&&(_e=yt,b=Nk(_,yt))),b===1))throw $=pk,Kk(_,0),Ck(_,_e),Dk(_,B()),$;switch(_.finishedWork=ut,_.finishedLanes=_e,b){case 0:case 1:throw Error(p$1(345));case 2:Pk(_,tk,uk);break;case 3:if(Ck(_,_e),(_e&130023424)===_e&&(b=fk+500-B(),10<b)){if(uc(_,0)!==0)break;if(ut=_.suspendedLanes,(ut&_e)!==_e){R(),_.pingedLanes|=_.suspendedLanes&ut;break}_.timeoutHandle=Ff(Pk.bind(null,_,tk,uk),b);break}Pk(_,tk,uk);break;case 4:if(Ck(_,_e),(_e&4194240)===_e)break;for(b=_.eventTimes,ut=-1;0<_e;){var wt=31-oc(_e);yt=1<<wt,wt=b[wt],wt>ut&&(ut=wt),_e&=~yt}if(_e=ut,_e=B()-_e,_e=(120>_e?120:480>_e?480:1080>_e?1080:1920>_e?1920:3e3>_e?3e3:4320>_e?4320:1960*lk(_e/1960))-_e,10<_e){_.timeoutHandle=Ff(Pk.bind(null,_,tk,uk),_e);break}Pk(_,tk,uk);break;case 5:Pk(_,tk,uk);break;default:throw Error(p$1(329))}}}return Dk(_,B()),_.callbackNode===$?Gk.bind(null,_):null}function Nk(_,b){var $=sk;return _.current.memoizedState.isDehydrated&&(Kk(_,b).flags|=256),_=Ik(_,b),_!==2&&(b=tk,tk=$,b!==null&&Fj(b)),_}function Fj(_){tk===null?tk=_:tk.push.apply(tk,_)}function Ok(_){for(var b=_;;){if(b.flags&16384){var $=b.updateQueue;if($!==null&&($=$.stores,$!==null))for(var _e=0;_e<$.length;_e++){var ut=$[_e],yt=ut.getSnapshot;ut=ut.value;try{if(!He(yt(),ut))return!1}catch{return!1}}}if($=b.child,b.subtreeFlags&16384&&$!==null)$.return=b,b=$;else{if(b===_)break;for(;b.sibling===null;){if(b.return===null||b.return===_)return!0;b=b.return}b.sibling.return=b.return,b=b.sibling}}return!0}function Ck(_,b){for(b&=~rk,b&=~qk,_.suspendedLanes|=b,_.pingedLanes&=~b,_=_.expirationTimes;0<b;){var $=31-oc(b),_e=1<<$;_[$]=-1,b&=~_e}}function Ek(_){if(K&6)throw Error(p$1(327));Hk();var b=uc(_,0);if(!(b&1))return Dk(_,B()),null;var $=Ik(_,b);if(_.tag!==0&&$===2){var _e=xc(_);_e!==0&&(b=_e,$=Nk(_,_e))}if($===1)throw $=pk,Kk(_,0),Ck(_,b),Dk(_,B()),$;if($===6)throw Error(p$1(345));return _.finishedWork=_.current.alternate,_.finishedLanes=b,Pk(_,tk,uk),Dk(_,B()),null}function Qk(_,b){var $=K;K|=1;try{return _(b)}finally{K=$,K===0&&(Gj=B()+500,fg&&jg())}}function Rk(_){wk!==null&&wk.tag===0&&!(K&6)&&Hk();var b=K;K|=1;var $=ok.transition,_e=C;try{if(ok.transition=null,C=1,_)return _()}finally{C=_e,ok.transition=$,K=b,!(K&6)&&jg()}}function Hj(){fj=ej.current,E(ej)}function Kk(_,b){_.finishedWork=null,_.finishedLanes=0;var $=_.timeoutHandle;if($!==-1&&(_.timeoutHandle=-1,Gf($)),Y!==null)for($=Y.return;$!==null;){var _e=$;switch(wg(_e),_e.tag){case 1:_e=_e.type.childContextTypes,_e!=null&&$f();break;case 3:zh(),E(Wf),E(H),Eh();break;case 5:Bh(_e);break;case 4:zh();break;case 13:E(L);break;case 19:E(L);break;case 10:ah(_e.type._context);break;case 22:case 23:Hj()}$=$.return}if(Q=_,Y=_=Pg(_.current,null),Z=fj=b,T=0,pk=null,rk=qk=rh=0,tk=sk=null,fh!==null){for(b=0;b<fh.length;b++)if($=fh[b],_e=$.interleaved,_e!==null){$.interleaved=null;var ut=_e.next,yt=$.pending;if(yt!==null){var wt=yt.next;yt.next=ut,_e.next=wt}$.pending=_e}fh=null}return _}function Mk(_,b){do{var $=Y;try{if($g(),Fh.current=Rh,Ih){for(var _e=M.memoizedState;_e!==null;){var ut=_e.queue;ut!==null&&(ut.pending=null),_e=_e.next}Ih=!1}if(Hh=0,O=N=M=null,Jh=!1,Kh=0,nk.current=null,$===null||$.return===null){T=1,pk=b,Y=null;break}e:{var yt=_,wt=$.return,Ct=$,Rt=b;if(b=Z,Ct.flags|=32768,Rt!==null&&typeof Rt=="object"&&typeof Rt.then=="function"){var bt=Rt,nt=Ct,F=nt.tag;if(!(nt.mode&1)&&(F===0||F===11||F===15)){var y=nt.alternate;y?(nt.updateQueue=y.updateQueue,nt.memoizedState=y.memoizedState,nt.lanes=y.lanes):(nt.updateQueue=null,nt.memoizedState=null)}var et=Ui(wt);if(et!==null){et.flags&=-257,Vi(et,wt,Ct,yt,b),et.mode&1&&Si(yt,bt,b),b=et,Rt=bt;var ot=b.updateQueue;if(ot===null){var it=new Set;it.add(Rt),b.updateQueue=it}else ot.add(Rt);break e}else{if(!(b&1)){Si(yt,bt,b),tj();break e}Rt=Error(p$1(426))}}else if(I&&Ct.mode&1){var rt=Ui(wt);if(rt!==null){!(rt.flags&65536)&&(rt.flags|=256),Vi(rt,wt,Ct,yt,b),Jg(Ji(Rt,Ct));break e}}yt=Rt=Ji(Rt,Ct),T!==4&&(T=2),sk===null?sk=[yt]:sk.push(yt),yt=wt;do{switch(yt.tag){case 3:yt.flags|=65536,b&=-b,yt.lanes|=b;var tt=Ni(yt,Rt,b);ph(yt,tt);break e;case 1:Ct=Rt;var st=yt.type,gt=yt.stateNode;if(!(yt.flags&128)&&(typeof st.getDerivedStateFromError=="function"||gt!==null&&typeof gt.componentDidCatch=="function"&&(Ri===null||!Ri.has(gt)))){yt.flags|=65536,b&=-b,yt.lanes|=b;var pt=Qi(yt,Ct,b);ph(yt,pt);break e}}yt=yt.return}while(yt!==null)}Sk($)}catch(ft){b=ft,Y===$&&$!==null&&(Y=$=$.return);continue}break}while(!0)}function Jk(){var _=mk.current;return mk.current=Rh,_===null?Rh:_}function tj(){(T===0||T===3||T===2)&&(T=4),Q===null||!(rh&268435455)&&!(qk&268435455)||Ck(Q,Z)}function Ik(_,b){var $=K;K|=2;var _e=Jk();(Q!==_||Z!==b)&&(uk=null,Kk(_,b));do try{Tk();break}catch(ut){Mk(_,ut)}while(!0);if($g(),K=$,mk.current=_e,Y!==null)throw Error(p$1(261));return Q=null,Z=0,T}function Tk(){for(;Y!==null;)Uk(Y)}function Lk(){for(;Y!==null&&!cc();)Uk(Y)}function Uk(_){var b=Vk(_.alternate,_,fj);_.memoizedProps=_.pendingProps,b===null?Sk(_):Y=b,nk.current=null}function Sk(_){var b=_;do{var $=b.alternate;if(_=b.return,b.flags&32768){if($=Ij($,b),$!==null){$.flags&=32767,Y=$;return}if(_!==null)_.flags|=32768,_.subtreeFlags=0,_.deletions=null;else{T=6,Y=null;return}}else if($=Ej($,b,fj),$!==null){Y=$;return}if(b=b.sibling,b!==null){Y=b;return}Y=b=_}while(b!==null);T===0&&(T=5)}function Pk(_,b,$){var _e=C,ut=ok.transition;try{ok.transition=null,C=1,Wk(_,b,$,_e)}finally{ok.transition=ut,C=_e}return null}function Wk(_,b,$,_e){do Hk();while(wk!==null);if(K&6)throw Error(p$1(327));$=_.finishedWork;var ut=_.finishedLanes;if($===null)return null;if(_.finishedWork=null,_.finishedLanes=0,$===_.current)throw Error(p$1(177));_.callbackNode=null,_.callbackPriority=0;var yt=$.lanes|$.childLanes;if(Bc(_,yt),_===Q&&(Y=Q=null,Z=0),!($.subtreeFlags&2064)&&!($.flags&2064)||vk||(vk=!0,Fk(hc,function(){return Hk(),null})),yt=($.flags&15990)!==0,$.subtreeFlags&15990||yt){yt=ok.transition,ok.transition=null;var wt=C;C=1;var Ct=K;K|=4,nk.current=null,Oj(_,$),dk($,_),Oe(Df),dd=!!Cf,Df=Cf=null,_.current=$,hk($),dc(),K=Ct,C=wt,ok.transition=yt}else _.current=$;if(vk&&(vk=!1,wk=_,xk=ut),yt=_.pendingLanes,yt===0&&(Ri=null),mc($.stateNode),Dk(_,B()),b!==null)for(_e=_.onRecoverableError,$=0;$<b.length;$++)ut=b[$],_e(ut.value,{componentStack:ut.stack,digest:ut.digest});if(Oi)throw Oi=!1,_=Pi,Pi=null,_;return xk&1&&_.tag!==0&&Hk(),yt=_.pendingLanes,yt&1?_===zk?yk++:(yk=0,zk=_):yk=0,jg(),null}function Hk(){if(wk!==null){var _=Dc(xk),b=ok.transition,$=C;try{if(ok.transition=null,C=16>_?16:_,wk===null)var _e=!1;else{if(_=wk,wk=null,xk=0,K&6)throw Error(p$1(331));var ut=K;for(K|=4,V=_.current;V!==null;){var yt=V,wt=yt.child;if(V.flags&16){var Ct=yt.deletions;if(Ct!==null){for(var Rt=0;Rt<Ct.length;Rt++){var bt=Ct[Rt];for(V=bt;V!==null;){var nt=V;switch(nt.tag){case 0:case 11:case 15:Pj(8,nt,yt)}var F=nt.child;if(F!==null)F.return=nt,V=F;else for(;V!==null;){nt=V;var y=nt.sibling,et=nt.return;if(Sj(nt),nt===bt){V=null;break}if(y!==null){y.return=et,V=y;break}V=et}}}var ot=yt.alternate;if(ot!==null){var it=ot.child;if(it!==null){ot.child=null;do{var rt=it.sibling;it.sibling=null,it=rt}while(it!==null)}}V=yt}}if(yt.subtreeFlags&2064&&wt!==null)wt.return=yt,V=wt;else e:for(;V!==null;){if(yt=V,yt.flags&2048)switch(yt.tag){case 0:case 11:case 15:Pj(9,yt,yt.return)}var tt=yt.sibling;if(tt!==null){tt.return=yt.return,V=tt;break e}V=yt.return}}var st=_.current;for(V=st;V!==null;){wt=V;var gt=wt.child;if(wt.subtreeFlags&2064&&gt!==null)gt.return=wt,V=gt;else e:for(wt=st;V!==null;){if(Ct=V,Ct.flags&2048)try{switch(Ct.tag){case 0:case 11:case 15:Qj(9,Ct)}}catch(ft){W(Ct,Ct.return,ft)}if(Ct===wt){V=null;break e}var pt=Ct.sibling;if(pt!==null){pt.return=Ct.return,V=pt;break e}V=Ct.return}}if(K=ut,jg(),lc&&typeof lc.onPostCommitFiberRoot=="function")try{lc.onPostCommitFiberRoot(kc,_)}catch{}_e=!0}return _e}finally{C=$,ok.transition=b}}return!1}function Xk(_,b,$){b=Ji($,b),b=Ni(_,b,1),_=nh(_,b,1),b=R(),_!==null&&(Ac(_,1,b),Dk(_,b))}function W(_,b,$){if(_.tag===3)Xk(_,_,$);else for(;b!==null;){if(b.tag===3){Xk(b,_,$);break}else if(b.tag===1){var _e=b.stateNode;if(typeof b.type.getDerivedStateFromError=="function"||typeof _e.componentDidCatch=="function"&&(Ri===null||!Ri.has(_e))){_=Ji($,_),_=Qi(b,_,1),b=nh(b,_,1),_=R(),b!==null&&(Ac(b,1,_),Dk(b,_));break}}b=b.return}}function Ti(_,b,$){var _e=_.pingCache;_e!==null&&_e.delete(b),b=R(),_.pingedLanes|=_.suspendedLanes&$,Q===_&&(Z&$)===$&&(T===4||T===3&&(Z&130023424)===Z&&500>B()-fk?Kk(_,0):rk|=$),Dk(_,b)}function Yk(_,b){b===0&&(_.mode&1?(b=sc,sc<<=1,!(sc&130023424)&&(sc=4194304)):b=1);var $=R();_=ih(_,b),_!==null&&(Ac(_,b,$),Dk(_,$))}function uj(_){var b=_.memoizedState,$=0;b!==null&&($=b.retryLane),Yk(_,$)}function bk(_,b){var $=0;switch(_.tag){case 13:var _e=_.stateNode,ut=_.memoizedState;ut!==null&&($=ut.retryLane);break;case 19:_e=_.stateNode;break;default:throw Error(p$1(314))}_e!==null&&_e.delete(b),Yk(_,$)}var Vk;Vk=function(_,b,$){if(_!==null)if(_.memoizedProps!==b.pendingProps||Wf.current)dh=!0;else{if(!(_.lanes&$)&&!(b.flags&128))return dh=!1,yj(_,b,$);dh=!!(_.flags&131072)}else dh=!1,I&&b.flags&1048576&&ug(b,ng,b.index);switch(b.lanes=0,b.tag){case 2:var _e=b.type;ij(_,b),_=b.pendingProps;var ut=Yf(b,H.current);ch(b,$),ut=Nh(null,b,_e,_,ut,$);var yt=Sh();return b.flags|=1,typeof ut=="object"&&ut!==null&&typeof ut.render=="function"&&ut.$$typeof===void 0?(b.tag=1,b.memoizedState=null,b.updateQueue=null,Zf(_e)?(yt=!0,cg(b)):yt=!1,b.memoizedState=ut.state!==null&&ut.state!==void 0?ut.state:null,kh(b),ut.updater=Ei,b.stateNode=ut,ut._reactInternals=b,Ii(b,_e,_,$),b=jj(null,b,_e,!0,yt,$)):(b.tag=0,I&&yt&&vg(b),Xi(null,b,ut,$),b=b.child),b;case 16:_e=b.elementType;e:{switch(ij(_,b),_=b.pendingProps,ut=_e._init,_e=ut(_e._payload),b.type=_e,ut=b.tag=Zk(_e),_=Ci(_e,_),ut){case 0:b=cj(null,b,_e,_,$);break e;case 1:b=hj(null,b,_e,_,$);break e;case 11:b=Yi(null,b,_e,_,$);break e;case 14:b=$i(null,b,_e,Ci(_e.type,_),$);break e}throw Error(p$1(306,_e,""))}return b;case 0:return _e=b.type,ut=b.pendingProps,ut=b.elementType===_e?ut:Ci(_e,ut),cj(_,b,_e,ut,$);case 1:return _e=b.type,ut=b.pendingProps,ut=b.elementType===_e?ut:Ci(_e,ut),hj(_,b,_e,ut,$);case 3:e:{if(kj(b),_===null)throw Error(p$1(387));_e=b.pendingProps,yt=b.memoizedState,ut=yt.element,lh(_,b),qh(b,_e,null,$);var wt=b.memoizedState;if(_e=wt.element,yt.isDehydrated)if(yt={element:_e,isDehydrated:!1,cache:wt.cache,pendingSuspenseBoundaries:wt.pendingSuspenseBoundaries,transitions:wt.transitions},b.updateQueue.baseState=yt,b.memoizedState=yt,b.flags&256){ut=Ji(Error(p$1(423)),b),b=lj(_,b,_e,$,ut);break e}else if(_e!==ut){ut=Ji(Error(p$1(424)),b),b=lj(_,b,_e,$,ut);break e}else for(yg=Lf(b.stateNode.containerInfo.firstChild),xg=b,I=!0,zg=null,$=Vg(b,null,_e,$),b.child=$;$;)$.flags=$.flags&-3|4096,$=$.sibling;else{if(Ig(),_e===ut){b=Zi(_,b,$);break e}Xi(_,b,_e,$)}b=b.child}return b;case 5:return Ah(b),_===null&&Eg(b),_e=b.type,ut=b.pendingProps,yt=_!==null?_.memoizedProps:null,wt=ut.children,Ef(_e,ut)?wt=null:yt!==null&&Ef(_e,yt)&&(b.flags|=32),gj(_,b),Xi(_,b,wt,$),b.child;case 6:return _===null&&Eg(b),null;case 13:return oj(_,b,$);case 4:return yh(b,b.stateNode.containerInfo),_e=b.pendingProps,_===null?b.child=Ug(b,null,_e,$):Xi(_,b,_e,$),b.child;case 11:return _e=b.type,ut=b.pendingProps,ut=b.elementType===_e?ut:Ci(_e,ut),Yi(_,b,_e,ut,$);case 7:return Xi(_,b,b.pendingProps,$),b.child;case 8:return Xi(_,b,b.pendingProps.children,$),b.child;case 12:return Xi(_,b,b.pendingProps.children,$),b.child;case 10:e:{if(_e=b.type._context,ut=b.pendingProps,yt=b.memoizedProps,wt=ut.value,G(Wg,_e._currentValue),_e._currentValue=wt,yt!==null)if(He(yt.value,wt)){if(yt.children===ut.children&&!Wf.current){b=Zi(_,b,$);break e}}else for(yt=b.child,yt!==null&&(yt.return=b);yt!==null;){var Ct=yt.dependencies;if(Ct!==null){wt=yt.child;for(var Rt=Ct.firstContext;Rt!==null;){if(Rt.context===_e){if(yt.tag===1){Rt=mh(-1,$&-$),Rt.tag=2;var bt=yt.updateQueue;if(bt!==null){bt=bt.shared;var nt=bt.pending;nt===null?Rt.next=Rt:(Rt.next=nt.next,nt.next=Rt),bt.pending=Rt}}yt.lanes|=$,Rt=yt.alternate,Rt!==null&&(Rt.lanes|=$),bh(yt.return,$,b),Ct.lanes|=$;break}Rt=Rt.next}}else if(yt.tag===10)wt=yt.type===b.type?null:yt.child;else if(yt.tag===18){if(wt=yt.return,wt===null)throw Error(p$1(341));wt.lanes|=$,Ct=wt.alternate,Ct!==null&&(Ct.lanes|=$),bh(wt,$,b),wt=yt.sibling}else wt=yt.child;if(wt!==null)wt.return=yt;else for(wt=yt;wt!==null;){if(wt===b){wt=null;break}if(yt=wt.sibling,yt!==null){yt.return=wt.return,wt=yt;break}wt=wt.return}yt=wt}Xi(_,b,ut.children,$),b=b.child}return b;case 9:return ut=b.type,_e=b.pendingProps.children,ch(b,$),ut=eh(ut),_e=_e(ut),b.flags|=1,Xi(_,b,_e,$),b.child;case 14:return _e=b.type,ut=Ci(_e,b.pendingProps),ut=Ci(_e.type,ut),$i(_,b,_e,ut,$);case 15:return bj(_,b,b.type,b.pendingProps,$);case 17:return _e=b.type,ut=b.pendingProps,ut=b.elementType===_e?ut:Ci(_e,ut),ij(_,b),b.tag=1,Zf(_e)?(_=!0,cg(b)):_=!1,ch(b,$),Gi(b,_e,ut),Ii(b,_e,ut,$),jj(null,b,_e,!0,_,$);case 19:return xj(_,b,$);case 22:return dj(_,b,$)}throw Error(p$1(156,b.tag))};function Fk(_,b){return ac(_,b)}function $k(_,b,$,_e){this.tag=_,this.key=$,this.sibling=this.child=this.return=this.stateNode=this.type=this.elementType=null,this.index=0,this.ref=null,this.pendingProps=b,this.dependencies=this.memoizedState=this.updateQueue=this.memoizedProps=null,this.mode=_e,this.subtreeFlags=this.flags=0,this.deletions=null,this.childLanes=this.lanes=0,this.alternate=null}function Bg(_,b,$,_e){return new $k(_,b,$,_e)}function aj(_){return _=_.prototype,!(!_||!_.isReactComponent)}function Zk(_){if(typeof _=="function")return aj(_)?1:0;if(_!=null){if(_=_.$$typeof,_===Da)return 11;if(_===Ga)return 14}return 2}function Pg(_,b){var $=_.alternate;return $===null?($=Bg(_.tag,b,_.key,_.mode),$.elementType=_.elementType,$.type=_.type,$.stateNode=_.stateNode,$.alternate=_,_.alternate=$):($.pendingProps=b,$.type=_.type,$.flags=0,$.subtreeFlags=0,$.deletions=null),$.flags=_.flags&14680064,$.childLanes=_.childLanes,$.lanes=_.lanes,$.child=_.child,$.memoizedProps=_.memoizedProps,$.memoizedState=_.memoizedState,$.updateQueue=_.updateQueue,b=_.dependencies,$.dependencies=b===null?null:{lanes:b.lanes,firstContext:b.firstContext},$.sibling=_.sibling,$.index=_.index,$.ref=_.ref,$}function Rg(_,b,$,_e,ut,yt){var wt=2;if(_e=_,typeof _=="function")aj(_)&&(wt=1);else if(typeof _=="string")wt=5;else e:switch(_){case ya:return Tg($.children,ut,yt,b);case za:wt=8,ut|=8;break;case Aa:return _=Bg(12,$,b,ut|2),_.elementType=Aa,_.lanes=yt,_;case Ea:return _=Bg(13,$,b,ut),_.elementType=Ea,_.lanes=yt,_;case Fa:return _=Bg(19,$,b,ut),_.elementType=Fa,_.lanes=yt,_;case Ia:return pj($,ut,yt,b);default:if(typeof _=="object"&&_!==null)switch(_.$$typeof){case Ba:wt=10;break e;case Ca:wt=9;break e;case Da:wt=11;break e;case Ga:wt=14;break e;case Ha:wt=16,_e=null;break e}throw Error(p$1(130,_==null?_:typeof _,""))}return b=Bg(wt,$,b,ut),b.elementType=_,b.type=_e,b.lanes=yt,b}function Tg(_,b,$,_e){return _=Bg(7,_,_e,b),_.lanes=$,_}function pj(_,b,$,_e){return _=Bg(22,_,_e,b),_.elementType=Ia,_.lanes=$,_.stateNode={isHidden:!1},_}function Qg(_,b,$){return _=Bg(6,_,null,b),_.lanes=$,_}function Sg(_,b,$){return b=Bg(4,_.children!==null?_.children:[],_.key,b),b.lanes=$,b.stateNode={containerInfo:_.containerInfo,pendingChildren:null,implementation:_.implementation},b}function al(_,b,$,_e,ut){this.tag=b,this.containerInfo=_,this.finishedWork=this.pingCache=this.current=this.pendingChildren=null,this.timeoutHandle=-1,this.callbackNode=this.pendingContext=this.context=null,this.callbackPriority=0,this.eventTimes=zc(0),this.expirationTimes=zc(-1),this.entangledLanes=this.finishedLanes=this.mutableReadLanes=this.expiredLanes=this.pingedLanes=this.suspendedLanes=this.pendingLanes=0,this.entanglements=zc(0),this.identifierPrefix=_e,this.onRecoverableError=ut,this.mutableSourceEagerHydrationData=null}function bl(_,b,$,_e,ut,yt,wt,Ct,Rt){return _=new al(_,b,$,Ct,Rt),b===1?(b=1,yt===!0&&(b|=8)):b=0,yt=Bg(3,null,null,b),_.current=yt,yt.stateNode=_,yt.memoizedState={element:_e,isDehydrated:$,cache:null,transitions:null,pendingSuspenseBoundaries:null},kh(yt),_}function cl(_,b,$){var _e=3<arguments.length&&arguments[3]!==void 0?arguments[3]:null;return{$$typeof:wa,key:_e==null?null:""+_e,children:_,containerInfo:b,implementation:$}}function dl(_){if(!_)return Vf;_=_._reactInternals;e:{if(Vb(_)!==_||_.tag!==1)throw Error(p$1(170));var b=_;do{switch(b.tag){case 3:b=b.stateNode.context;break e;case 1:if(Zf(b.type)){b=b.stateNode.__reactInternalMemoizedMergedChildContext;break e}}b=b.return}while(b!==null);throw Error(p$1(171))}if(_.tag===1){var $=_.type;if(Zf($))return bg(_,$,b)}return b}function el(_,b,$,_e,ut,yt,wt,Ct,Rt){return _=bl($,_e,!0,_,ut,yt,wt,Ct,Rt),_.context=dl(null),$=_.current,_e=R(),ut=yi($),yt=mh(_e,ut),yt.callback=b??null,nh($,yt,ut),_.current.lanes=ut,Ac(_,ut,_e),Dk(_,_e),_}function fl(_,b,$,_e){var ut=b.current,yt=R(),wt=yi(ut);return $=dl($),b.context===null?b.context=$:b.pendingContext=$,b=mh(yt,wt),b.payload={element:_},_e=_e===void 0?null:_e,_e!==null&&(b.callback=_e),_=nh(ut,b,wt),_!==null&&(gi(_,ut,wt,yt),oh(_,ut,wt)),wt}function gl(_){if(_=_.current,!_.child)return null;switch(_.child.tag){case 5:return _.child.stateNode;default:return _.child.stateNode}}function hl(_,b){if(_=_.memoizedState,_!==null&&_.dehydrated!==null){var $=_.retryLane;_.retryLane=$!==0&&$<b?$:b}}function il(_,b){hl(_,b),(_=_.alternate)&&hl(_,b)}function jl(){return null}var kl=typeof reportError=="function"?reportError:function(_){console.error(_)};function ll(_){this._internalRoot=_}ml.prototype.render=ll.prototype.render=function(_){var b=this._internalRoot;if(b===null)throw Error(p$1(409));fl(_,b,null,null)};ml.prototype.unmount=ll.prototype.unmount=function(){var _=this._internalRoot;if(_!==null){this._internalRoot=null;var b=_.containerInfo;Rk(function(){fl(null,_,null,null)}),b[uf]=null}};function ml(_){this._internalRoot=_}ml.prototype.unstable_scheduleHydration=function(_){if(_){var b=Hc();_={blockedOn:null,target:_,priority:b};for(var $=0;$<Qc.length&&b!==0&&b<Qc[$].priority;$++);Qc.splice($,0,_),$===0&&Vc(_)}};function nl(_){return!(!_||_.nodeType!==1&&_.nodeType!==9&&_.nodeType!==11)}function ol(_){return!(!_||_.nodeType!==1&&_.nodeType!==9&&_.nodeType!==11&&(_.nodeType!==8||_.nodeValue!==" react-mount-point-unstable "))}function pl(){}function ql(_,b,$,_e,ut){if(ut){if(typeof _e=="function"){var yt=_e;_e=function(){var bt=gl(wt);yt.call(bt)}}var wt=el(b,_e,_,0,null,!1,!1,"",pl);return _._reactRootContainer=wt,_[uf]=wt.current,sf(_.nodeType===8?_.parentNode:_),Rk(),wt}for(;ut=_.lastChild;)_.removeChild(ut);if(typeof _e=="function"){var Ct=_e;_e=function(){var bt=gl(Rt);Ct.call(bt)}}var Rt=bl(_,0,!1,null,null,!1,!1,"",pl);return _._reactRootContainer=Rt,_[uf]=Rt.current,sf(_.nodeType===8?_.parentNode:_),Rk(function(){fl(b,Rt,$,_e)}),Rt}function rl(_,b,$,_e,ut){var yt=$._reactRootContainer;if(yt){var wt=yt;if(typeof ut=="function"){var Ct=ut;ut=function(){var Rt=gl(wt);Ct.call(Rt)}}fl(b,wt,_,ut)}else wt=ql($,b,_,ut,_e);return gl(wt)}Ec=function(_){switch(_.tag){case 3:var b=_.stateNode;if(b.current.memoizedState.isDehydrated){var $=tc(b.pendingLanes);$!==0&&(Cc(b,$|1),Dk(b,B()),!(K&6)&&(Gj=B()+500,jg()))}break;case 13:Rk(function(){var _e=ih(_,1);if(_e!==null){var ut=R();gi(_e,_,1,ut)}}),il(_,1)}};Fc=function(_){if(_.tag===13){var b=ih(_,134217728);if(b!==null){var $=R();gi(b,_,134217728,$)}il(_,134217728)}};Gc=function(_){if(_.tag===13){var b=yi(_),$=ih(_,b);if($!==null){var _e=R();gi($,_,b,_e)}il(_,b)}};Hc=function(){return C};Ic=function(_,b){var $=C;try{return C=_,b()}finally{C=$}};yb=function(_,b,$){switch(b){case"input":if(bb(_,$),b=$.name,$.type==="radio"&&b!=null){for($=_;$.parentNode;)$=$.parentNode;for($=$.querySelectorAll("input[name="+JSON.stringify(""+b)+'][type="radio"]'),b=0;b<$.length;b++){var _e=$[b];if(_e!==_&&_e.form===_.form){var ut=Db(_e);if(!ut)throw Error(p$1(90));Wa(_e),bb(_e,ut)}}}break;case"textarea":ib(_,$);break;case"select":b=$.value,b!=null&&fb(_,!!$.multiple,b,!1)}};Gb=Qk;Hb=Rk;var sl={usingClientEntryPoint:!1,Events:[Cb,ue,Db,Eb,Fb,Qk]},tl={findFiberByHostInstance:Wc,bundleType:0,version:"18.3.1",rendererPackageName:"react-dom"},ul={bundleType:tl.bundleType,version:tl.version,rendererPackageName:tl.rendererPackageName,rendererConfig:tl.rendererConfig,overrideHookState:null,overrideHookStateDeletePath:null,overrideHookStateRenamePath:null,overrideProps:null,overridePropsDeletePath:null,overridePropsRenamePath:null,setErrorHandler:null,setSuspenseHandler:null,scheduleUpdate:null,currentDispatcherRef:ua.ReactCurrentDispatcher,findHostInstanceByFiber:function(_){return _=Zb(_),_===null?null:_.stateNode},findFiberByHostInstance:tl.findFiberByHostInstance||jl,findHostInstancesForRefresh:null,scheduleRefresh:null,scheduleRoot:null,setRefreshHandler:null,getCurrentFiber:null,reconcilerVersion:"18.3.1-next-f1338f8080-20240426"};if(typeof __REACT_DEVTOOLS_GLOBAL_HOOK__<"u"){var vl=__REACT_DEVTOOLS_GLOBAL_HOOK__;if(!vl.isDisabled&&vl.supportsFiber)try{kc=vl.inject(ul),lc=vl}catch{}}reactDom_production_min.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED=sl;reactDom_production_min.createPortal=function(_,b){var $=2<arguments.length&&arguments[2]!==void 0?arguments[2]:null;if(!nl(b))throw Error(p$1(200));return cl(_,b,null,$)};reactDom_production_min.createRoot=function(_,b){if(!nl(_))throw Error(p$1(299));var $=!1,_e="",ut=kl;return b!=null&&(b.unstable_strictMode===!0&&($=!0),b.identifierPrefix!==void 0&&(_e=b.identifierPrefix),b.onRecoverableError!==void 0&&(ut=b.onRecoverableError)),b=bl(_,1,!1,null,null,$,!1,_e,ut),_[uf]=b.current,sf(_.nodeType===8?_.parentNode:_),new ll(b)};reactDom_production_min.findDOMNode=function(_){if(_==null)return null;if(_.nodeType===1)return _;var b=_._reactInternals;if(b===void 0)throw typeof _.render=="function"?Error(p$1(188)):(_=Object.keys(_).join(","),Error(p$1(268,_)));return _=Zb(b),_=_===null?null:_.stateNode,_};reactDom_production_min.flushSync=function(_){return Rk(_)};reactDom_production_min.hydrate=function(_,b,$){if(!ol(b))throw Error(p$1(200));return rl(null,_,b,!0,$)};reactDom_production_min.hydrateRoot=function(_,b,$){if(!nl(_))throw Error(p$1(405));var _e=$!=null&&$.hydratedSources||null,ut=!1,yt="",wt=kl;if($!=null&&($.unstable_strictMode===!0&&(ut=!0),$.identifierPrefix!==void 0&&(yt=$.identifierPrefix),$.onRecoverableError!==void 0&&(wt=$.onRecoverableError)),b=el(b,null,_,1,$??null,ut,!1,yt,wt),_[uf]=b.current,sf(_),_e)for(_=0;_<_e.length;_++)$=_e[_],ut=$._getVersion,ut=ut($._source),b.mutableSourceEagerHydrationData==null?b.mutableSourceEagerHydrationData=[$,ut]:b.mutableSourceEagerHydrationData.push($,ut);return new ml(b)};reactDom_production_min.render=function(_,b,$){if(!ol(b))throw Error(p$1(200));return rl(null,_,b,!1,$)};reactDom_production_min.unmountComponentAtNode=function(_){if(!ol(_))throw Error(p$1(40));return _._reactRootContainer?(Rk(function(){rl(null,null,_,!1,function(){_._reactRootContainer=null,_[uf]=null})}),!0):!1};reactDom_production_min.unstable_batchedUpdates=Qk;reactDom_production_min.unstable_renderSubtreeIntoContainer=function(_,b,$,_e){if(!ol($))throw Error(p$1(200));if(_==null||_._reactInternals===void 0)throw Error(p$1(38));return rl(_,b,$,!1,_e)};reactDom_production_min.version="18.3.1-next-f1338f8080-20240426";function checkDCE(){if(!(typeof __REACT_DEVTOOLS_GLOBAL_HOOK__>"u"||typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE!="function"))try{__REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE(checkDCE)}catch(_){console.error(_)}}checkDCE(),reactDom.exports=reactDom_production_min;var reactDomExports=reactDom.exports;const preloadWarning="Error preloading route! ☝️";function useLinkProps(_,b){const $=useRouter(),[_e,ut]=reactExports.useState(!1),yt=useForwardedRef(b),{activeProps:wt=()=>({className:"active"}),inactiveProps:Ct=()=>({}),activeOptions:Rt,hash:bt,search:nt,params:F,to:y,state:et,mask:ot,preload:it,preloadDelay:rt,replace:tt,startTransition:st,resetScroll:gt,viewTransition:pt,children:ft,target:dt,disabled:ct,style:lt,className:_t,onClick:mt,onFocus:at,onMouseEnter:vt,onMouseLeave:Mt,onTouchStart:ht,ignoreBlocker:Lt,...Pt}=_,zt=reactExports.useMemo(()=>{try{return new URL(`${y}`),"external"}catch{}return"internal"},[y]),Ht=reactExports.useMemo(()=>$.buildLocation(_),[$,_]),xt=reactExports.useMemo(()=>it??$.options.defaultPreload,[$.options.defaultPreload,it]),kt=rt??$.options.defaultPreloadDelay??0,jt=useRouterState({select:$n=>{const fo=removeTrailingSlash($n.location.pathname,$.basepath).split("/"),No=removeTrailingSlash(Ht.pathname,$.basepath).split("/").every((ps,ho)=>ps===fo[ho]),rs=Rt!=null&&Rt.exact?exactPathTest($n.location.pathname,Ht.pathname,$.basepath):No,us=Rt!=null&&Rt.includeHash?$n.location.hash===Ht.hash:!0,ds=(Rt==null?void 0:Rt.includeSearch)??!0?deepEqual($n.location.search,Ht.search,!(Rt!=null&&Rt.exact)):!0;return rs&&us&&ds}}),Wt=reactExports.useCallback(()=>{$.preloadRoute(_).catch($n=>{console.warn($n),console.warn(preloadWarning)})},[_,$]),mn=reactExports.useCallback($n=>{$n!=null&&$n.isIntersecting&&Wt()},[Wt]);if(useIntersectionObserver(yt,mn,{rootMargin:"100px"},{disabled:!!ct||xt!=="viewport"}),zt==="external")return{...Pt,ref:yt,type:zt,href:y,...ft&&{children:ft},...dt&&{target:dt},...ct&&{disabled:ct},...lt&&{style:lt},..._t&&{className:_t},...mt&&{onClick:mt},...at&&{onFocus:at},...vt&&{onMouseEnter:vt},...Mt&&{onMouseLeave:Mt},...ht&&{onTouchStart:ht}};const Un=$n=>{if(!ct&&!isCtrlEvent($n)&&!$n.defaultPrevented&&(!dt||dt==="_self")&&$n.button===0){$n.preventDefault(),reactDomExports.flushSync(()=>{ut(!0)});const fo=$.subscribe("onResolved",()=>{fo(),ut(!1)});$.commitLocation({...Ht,replace:tt,resetScroll:gt,startTransition:st,viewTransition:pt,ignoreBlocker:Lt})}},Yn=$n=>{ct||xt&&Wt()},Et=Yn,br=$n=>{if(ct)return;const fo=$n.target||{};if(xt){if(fo.preloadTimeout)return;fo.preloadTimeout=setTimeout(()=>{fo.preloadTimeout=null,Wt()},kt)}},Fr=$n=>{if(ct)return;const fo=$n.target||{};fo.preloadTimeout&&(clearTimeout(fo.preloadTimeout),fo.preloadTimeout=null)},Zr=$n=>fo=>{var Bo;(Bo=fo.persist)==null||Bo.call(fo),$n.filter(Boolean).forEach(No=>{fo.defaultPrevented||No(fo)})},Po=jt?functionalUpdate$1(wt,{})??{}:{},At=jt?{}:functionalUpdate$1(Ct,{}),Ir=[_t,Po.className,At.className].filter(Boolean).join(" "),Hr={...lt,...Po.style,...At.style};return{...Po,...At,...Pt,href:ct?void 0:Ht.maskedLocation?$.history.createHref(Ht.maskedLocation.href):$.history.createHref(Ht.href),ref:yt,onClick:Zr([mt,Un]),onFocus:Zr([at,Yn]),onMouseEnter:Zr([vt,br]),onMouseLeave:Zr([Mt,Fr]),onTouchStart:Zr([ht,Et]),disabled:!!ct,target:dt,...Object.keys(Hr).length&&{style:Hr},...Ir&&{className:Ir},...ct&&{role:"link","aria-disabled":!0},...jt&&{"data-status":"active","aria-current":"page"},..._e&&{"data-transitioning":"transitioning"}}}const Link=reactExports.forwardRef((_,b)=>{const{_asChild:$,..._e}=_,{type:ut,ref:yt,...wt}=useLinkProps(_e,b),Ct=typeof _e.children=="function"?_e.children({isActive:wt["data-status"]==="active"}):_e.children;return typeof $>"u"&&delete wt.disabled,reactExports.createElement($||"a",{...wt,ref:yt},Ct)});function isCtrlEvent(_){return!!(_.metaKey||_.altKey||_.ctrlKey||_.shiftKey)}function Transitioner(){const _=useRouter(),b=reactExports.useRef({router:_,mounted:!1}),$=useRouterState({select:bt=>pick(bt,["isLoading","location","resolvedLocation","isTransitioning"])}),[_e,ut]=reactExports.useTransition(),yt=useRouterState({select:bt=>bt.matches.some(nt=>nt.status==="pending")}),wt=usePrevious($.isLoading),Ct=$.isLoading||_e||yt,Rt=usePrevious(Ct);return _.isServer||(_.startReactTransition=ut),reactExports.useEffect(()=>{const bt=_.history.subscribe(_.load),nt=_.buildLocation({to:_.latestLocation.pathname,search:!0,params:!0,hash:!0,state:!0});return trimPathRight(_.latestLocation.href)!==trimPathRight(nt.href)&&_.commitLocation({...nt,replace:!0}),()=>{bt()}},[_,_.history]),useLayoutEffect(()=>{var bt;if(typeof window<"u"&&((bt=window.__TSR__)!=null&&bt.dehydrated)||b.current.router===_&&b.current.mounted)return;b.current={router:_,mounted:!0},(async()=>{try{await _.load()}catch(F){console.error(F)}})()},[_]),useLayoutEffect(()=>{if(wt&&!$.isLoading){const bt=_.state.location,nt=_.state.resolvedLocation,F=nt.href!==bt.href;_.emit({type:"onLoad",fromLocation:nt,toLocation:bt,pathChanged:F})}},[wt,_,$.isLoading]),useLayoutEffect(()=>{if(Rt&&!Ct){const bt=_.state.location,nt=_.state.resolvedLocation,F=nt.href!==bt.href;if(_.emit({type:"onResolved",fromLocation:nt,toLocation:bt,pathChanged:F}),_.__store.setState(y=>({...y,status:"idle",resolvedLocation:y.location})),typeof document<"u"&&document.querySelector&&_.state.location.hash!==""){const y=document.getElementById(_.state.location.hash);y&&y.scrollIntoView()}}},[Ct,Rt,_]),null}function SafeFragment(_){return jsxRuntimeExports.jsx(jsxRuntimeExports.Fragment,{children:_.children})}function renderRouteNotFound(_,b,$){return b.options.notFoundComponent?jsxRuntimeExports.jsx(b.options.notFoundComponent,{data:$}):_.options.defaultNotFoundComponent?jsxRuntimeExports.jsx(_.options.defaultNotFoundComponent,{data:$}):jsxRuntimeExports.jsx(DefaultGlobalNotFound,{})}const Match=reactExports.memo(function({matchId:b}){var $,_e;const ut=useRouter(),yt=useRouterState({select:rt=>{var tt;return(tt=rt.matches.find(st=>st.id===b))==null?void 0:tt.routeId}});invariant(yt);const wt=ut.routesById[yt],Ct=wt.options.pendingComponent??ut.options.defaultPendingComponent,Rt=Ct?jsxRuntimeExports.jsx(Ct,{}):null,bt=wt.options.errorComponent??ut.options.defaultErrorComponent,nt=wt.options.onCatch??ut.options.defaultOnCatch,F=wt.isRoot?wt.options.notFoundComponent??(($=ut.options.notFoundRoute)==null?void 0:$.options.component):wt.options.notFoundComponent,y=(!wt.isRoot||wt.options.wrapInSuspense)&&(wt.options.wrapInSuspense??Ct??((_e=wt.options.errorComponent)==null?void 0:_e.preload))?reactExports.Suspense:SafeFragment,et=bt?CatchBoundary:SafeFragment,ot=F?CatchNotFound:SafeFragment,it=useRouterState({select:rt=>rt.loadedAt});return jsxRuntimeExports.jsx(matchContext.Provider,{value:b,children:jsxRuntimeExports.jsx(y,{fallback:Rt,children:jsxRuntimeExports.jsx(et,{getResetKey:()=>it,errorComponent:bt||ErrorComponent,onCatch:(rt,tt)=>{if(isNotFound(rt))throw rt;warning(!1,`Error in route match: ${b}`),nt==null||nt(rt,tt)},children:jsxRuntimeExports.jsx(ot,{fallback:rt=>{if(!F||rt.routeId&&rt.routeId!==yt||!rt.routeId&&!wt.isRoot)throw rt;return reactExports.createElement(F,rt)},children:jsxRuntimeExports.jsx(MatchInner,{matchId:b})})})})})}),MatchInner=reactExports.memo(function({matchId:b}){var $,_e,ut;const yt=useRouter(),{match:wt,matchIndex:Ct,routeId:Rt}=useRouterState({select:y=>{const et=y.matches.findIndex(rt=>rt.id===b),ot=y.matches[et];return{routeId:ot.routeId,matchIndex:et,match:pick(ot,["id","status","error","loadPromise"])}}}),bt=yt.routesById[Rt],nt=reactExports.useMemo(()=>{const y=bt.options.component??yt.options.defaultComponent;return y?jsxRuntimeExports.jsx(y,{},Rt):jsxRuntimeExports.jsx(Outlet,{})},[Rt,bt.options.component,yt.options.defaultComponent]),F=(bt.options.errorComponent??yt.options.defaultErrorComponent)||ErrorComponent;if(wt.status==="notFound"){let y;return isServerSideError(wt.error)?y=((($=yt.options.errorSerializer)==null?void 0:$.deserialize)??defaultDeserializeError)(wt.error.data):y=wt.error,invariant(isNotFound(y)),renderRouteNotFound(yt,bt,y)}if(wt.status==="redirected")throw invariant(isRedirect(wt.error)),wt.loadPromise;if(wt.status==="error"){if(yt.isServer)return jsxRuntimeExports.jsx(F,{error:wt.error,info:{componentStack:""}});throw isServerSideError(wt.error)?(((_e=yt.options.errorSerializer)==null?void 0:_e.deserialize)??defaultDeserializeError)(wt.error.data):wt.error}if(wt.status==="pending"){const y=bt.options.pendingMinMs??yt.options.defaultPendingMinMs;if(y&&!((ut=yt.getMatch(wt.id))!=null&&ut.minPendingPromise)&&!yt.isServer){const et=createControlledPromise();Promise.resolve().then(()=>{yt.updateMatch(wt.id,ot=>({...ot,minPendingPromise:et}))}),setTimeout(()=>{et.resolve(),yt.updateMatch(wt.id,ot=>({...ot,minPendingPromise:void 0}))},y)}throw wt.loadPromise}return jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment,{children:[nt,yt.AfterEachMatch?jsxRuntimeExports.jsx(yt.AfterEachMatch,{match:wt,matchIndex:Ct}):null]})}),Outlet=reactExports.memo(function(){const b=useRouter(),$=reactExports.useContext(matchContext),_e=useRouterState({select:bt=>{var nt;return(nt=bt.matches.find(F=>F.id===$))==null?void 0:nt.routeId}}),ut=b.routesById[_e],{parentGlobalNotFound:yt}=useRouterState({select:bt=>{const F=bt.matches.find(y=>y.id===$);return invariant(F),{parentGlobalNotFound:F.globalNotFound}}}),wt=useRouterState({select:bt=>{var nt;const F=bt.matches,y=F.findIndex(et=>et.id===$);return(nt=F[y+1])==null?void 0:nt.id}});if(yt)return renderRouteNotFound(b,ut,void 0);if(!wt)return null;const Ct=jsxRuntimeExports.jsx(Match,{matchId:wt}),Rt=b.options.defaultPendingComponent?jsxRuntimeExports.jsx(b.options.defaultPendingComponent,{}):null;return $===rootRouteId?jsxRuntimeExports.jsx(reactExports.Suspense,{fallback:Rt,children:Ct}):Ct});function Matches(){const _=useRouter(),b=_.options.defaultPendingComponent?jsxRuntimeExports.jsx(_.options.defaultPendingComponent,{}):null,$=_.isServer||typeof document<"u"&&window.__TSR__?SafeFragment:reactExports.Suspense,_e=jsxRuntimeExports.jsxs($,{fallback:b,children:[jsxRuntimeExports.jsx(Transitioner,{}),jsxRuntimeExports.jsx(MatchesInner,{})]});return _.options.InnerWrap?jsxRuntimeExports.jsx(_.options.InnerWrap,{children:_e}):_e}function MatchesInner(){const _=useRouterState({select:$=>{var _e;return(_e=$.matches[0])==null?void 0:_e.id}}),b=useRouterState({select:$=>$.loadedAt});return jsxRuntimeExports.jsx(matchContext.Provider,{value:_,children:jsxRuntimeExports.jsx(CatchBoundary,{getResetKey:()=>b,errorComponent:ErrorComponent,onCatch:$=>{warning(!1,"The following error wasn't caught by any route! At the very least, consider setting an 'errorComponent' in your RootRoute!"),warning(!1,$.message||$.toString())},children:_?jsxRuntimeExports.jsx(Match,{matchId:_}):null})})}function RouterContextProvider({router:_,children:b,...$}){_.update({..._.options,...$,context:{..._.options.context,...$.context}});const _e=getRouterContext(),ut=jsxRuntimeExports.jsx(_e.Provider,{value:_,children:b});return _.options.Wrap?jsxRuntimeExports.jsx(_.options.Wrap,{children:ut}):ut}function RouterProvider({router:_,...b}){return jsxRuntimeExports.jsx(RouterContextProvider,{router:_,...b,children:jsxRuntimeExports.jsx(Matches,{})})}var client$1={},m=reactDomExports;client$1.createRoot=m.createRoot,client$1.hydrateRoot=m.hydrateRoot;var Subscribable=class{constructor(){this.listeners=new Set,this.subscribe=this.subscribe.bind(this)}subscribe(_){return this.listeners.add(_),this.onSubscribe(),()=>{this.listeners.delete(_),this.onUnsubscribe()}}hasListeners(){return this.listeners.size>0}onSubscribe(){}onUnsubscribe(){}},isServer$1=typeof window>"u"||"Deno"in globalThis;function noop$1(){}function functionalUpdate(_,b){return typeof _=="function"?_(b):_}function isValidTimeout(_){return typeof _=="number"&&_>=0&&_!==1/0}function timeUntilStale(_,b){return Math.max(_+(b||0)-Date.now(),0)}function resolveStaleTime(_,b){return typeof _=="function"?_(b):_}function resolveEnabled(_,b){return typeof _=="function"?_(b):_}function matchQuery(_,b){const{type:$="all",exact:_e,fetchStatus:ut,predicate:yt,queryKey:wt,stale:Ct}=_;if(wt){if(_e){if(b.queryHash!==hashQueryKeyByOptions(wt,b.options))return!1}else if(!partialMatchKey(b.queryKey,wt))return!1}if($!=="all"){const Rt=b.isActive();if($==="active"&&!Rt||$==="inactive"&&Rt)return!1}return!(typeof Ct=="boolean"&&b.isStale()!==Ct||ut&&ut!==b.state.fetchStatus||yt&&!yt(b))}function matchMutation(_,b){const{exact:$,status:_e,predicate:ut,mutationKey:yt}=_;if(yt){if(!b.options.mutationKey)return!1;if($){if(hashKey(b.options.mutationKey)!==hashKey(yt))return!1}else if(!partialMatchKey(b.options.mutationKey,yt))return!1}return!(_e&&b.state.status!==_e||ut&&!ut(b))}function hashQueryKeyByOptions(_,b){return((b==null?void 0:b.queryKeyHashFn)||hashKey)(_)}function hashKey(_){return JSON.stringify(_,(b,$)=>isPlainObject($)?Object.keys($).sort().reduce((_e,ut)=>(_e[ut]=$[ut],_e),{}):$)}function partialMatchKey(_,b){return _===b?!0:typeof _!=typeof b?!1:_&&b&&typeof _=="object"&&typeof b=="object"?!Object.keys(b).some($=>!partialMatchKey(_[$],b[$])):!1}function replaceEqualDeep(_,b){if(_===b)return _;const $=isPlainArray(_)&&isPlainArray(b);if($||isPlainObject(_)&&isPlainObject(b)){const _e=$?_:Object.keys(_),ut=_e.length,yt=$?b:Object.keys(b),wt=yt.length,Ct=$?[]:{};let Rt=0;for(let bt=0;bt<wt;bt++){const nt=$?bt:yt[bt];(!$&&_e.includes(nt)||$)&&_[nt]===void 0&&b[nt]===void 0?(Ct[nt]=void 0,Rt++):(Ct[nt]=replaceEqualDeep(_[nt],b[nt]),Ct[nt]===_[nt]&&_[nt]!==void 0&&Rt++)}return ut===wt&&Rt===ut?_:Ct}return b}function isPlainArray(_){return Array.isArray(_)&&_.length===Object.keys(_).length}function isPlainObject(_){if(!hasObjectPrototype(_))return!1;const b=_.constructor;if(b===void 0)return!0;const $=b.prototype;return!(!hasObjectPrototype($)||!$.hasOwnProperty("isPrototypeOf")||Object.getPrototypeOf(_)!==Object.prototype)}function hasObjectPrototype(_){return Object.prototype.toString.call(_)==="[object Object]"}function sleep(_){return new Promise(b=>{setTimeout(b,_)})}function replaceData(_,b,$){return typeof $.structuralSharing=="function"?$.structuralSharing(_,b):$.structuralSharing!==!1?replaceEqualDeep(_,b):b}function addToEnd(_,b,$=0){const _e=[..._,b];return $&&_e.length>$?_e.slice(1):_e}function addToStart(_,b,$=0){const _e=[b,..._];return $&&_e.length>$?_e.slice(0,-1):_e}var skipToken=Symbol();function ensureQueryFn(_,b){return!_.queryFn&&(b!=null&&b.initialPromise)?()=>b.initialPromise:!_.queryFn||_.queryFn===skipToken?()=>Promise.reject(new Error(`Missing queryFn: '${_.queryHash}'`)):_.queryFn}var lv,Um,Uv,pI,FocusManager=(pI=class extends Subscribable{constructor(){super();ls(this,lv);ls(this,Um);ls(this,Uv);Vo(this,Uv,b=>{if(!isServer$1&&window.addEventListener){const $=()=>b();return window.addEventListener("visibilitychange",$,!1),()=>{window.removeEventListener("visibilitychange",$)}}})}onSubscribe(){Wn(this,Um)||this.setEventListener(Wn(this,Uv))}onUnsubscribe(){var b;this.hasListeners()||((b=Wn(this,Um))==null||b.call(this),Vo(this,Um,void 0))}setEventListener(b){var $;Vo(this,Uv,b),($=Wn(this,Um))==null||$.call(this),Vo(this,Um,b(_e=>{typeof _e=="boolean"?this.setFocused(_e):this.onFocus()}))}setFocused(b){Wn(this,lv)!==b&&(Vo(this,lv,b),this.onFocus())}onFocus(){const b=this.isFocused();this.listeners.forEach($=>{$(b)})}isFocused(){var b;return typeof Wn(this,lv)=="boolean"?Wn(this,lv):((b=globalThis.document)==null?void 0:b.visibilityState)!=="hidden"}},lv=new WeakMap,Um=new WeakMap,Uv=new WeakMap,pI),focusManager=new FocusManager,Nv,Nm,Bv,fI,OnlineManager=(fI=class extends Subscribable{constructor(){super();ls(this,Nv,!0);ls(this,Nm);ls(this,Bv);Vo(this,Bv,b=>{if(!isServer$1&&window.addEventListener){const $=()=>b(!0),_e=()=>b(!1);return window.addEventListener("online",$,!1),window.addEventListener("offline",_e,!1),()=>{window.removeEventListener("online",$),window.removeEventListener("offline",_e)}}})}onSubscribe(){Wn(this,Nm)||this.setEventListener(Wn(this,Bv))}onUnsubscribe(){var b;this.hasListeners()||((b=Wn(this,Nm))==null||b.call(this),Vo(this,Nm,void 0))}setEventListener(b){var $;Vo(this,Bv,b),($=Wn(this,Nm))==null||$.call(this),Vo(this,Nm,b(this.setOnline.bind(this)))}setOnline(b){Wn(this,Nv)!==b&&(Vo(this,Nv,b),this.listeners.forEach(_e=>{_e(b)}))}isOnline(){return Wn(this,Nv)}},Nv=new WeakMap,Nm=new WeakMap,Bv=new WeakMap,fI),onlineManager=new OnlineManager;function defaultRetryDelay(_){return Math.min(1e3*2**_,3e4)}function canFetch(_){return(_??"online")==="online"?onlineManager.isOnline():!0}var CancelledError=class extends Error{constructor(_){super("CancelledError"),this.revert=_==null?void 0:_.revert,this.silent=_==null?void 0:_.silent}};function isCancelledError(_){return _ instanceof CancelledError}function createRetryer(_){let b=!1,$=0,_e=!1,ut,yt,wt;const Ct=new Promise((tt,st)=>{yt=tt,wt=st}),Rt=tt=>{var st;_e||(ot(new CancelledError(tt)),(st=_.abort)==null||st.call(_))},bt=()=>{b=!0},nt=()=>{b=!1},F=()=>focusManager.isFocused()&&(_.networkMode==="always"||onlineManager.isOnline())&&_.canRun(),y=()=>canFetch(_.networkMode)&&_.canRun(),et=tt=>{var st;_e||(_e=!0,(st=_.onSuccess)==null||st.call(_,tt),ut==null||ut(),yt(tt))},ot=tt=>{var st;_e||(_e=!0,(st=_.onError)==null||st.call(_,tt),ut==null||ut(),wt(tt))},it=()=>new Promise(tt=>{var st;ut=gt=>{(_e||F())&&tt(gt)},(st=_.onPause)==null||st.call(_)}).then(()=>{var tt;ut=void 0,_e||(tt=_.onContinue)==null||tt.call(_)}),rt=()=>{if(_e)return;let tt;const st=$===0?_.initialPromise:void 0;try{tt=st??_.fn()}catch(gt){tt=Promise.reject(gt)}Promise.resolve(tt).then(et).catch(gt=>{var lt;if(_e)return;const pt=_.retry??(isServer$1?0:3),ft=_.retryDelay??defaultRetryDelay,dt=typeof ft=="function"?ft($,gt):ft,ct=pt===!0||typeof pt=="number"&&$<pt||typeof pt=="function"&&pt($,gt);if(b||!ct){ot(gt);return}$++,(lt=_.onFail)==null||lt.call(_,$,gt),sleep(dt).then(()=>F()?void 0:it()).then(()=>{b?ot(gt):rt()})})};return{promise:Ct,cancel:Rt,continue:()=>(ut==null||ut(),Ct),cancelRetry:bt,continueRetry:nt,canStart:y,start:()=>(y()?rt():it().then(rt),Ct)}}function createNotifyManager(){let _=[],b=0,$=y=>{y()},_e=y=>{y()},ut=y=>setTimeout(y,0);const yt=y=>{ut=y},wt=y=>{let et;b++;try{et=y()}finally{b--,b||bt()}return et},Ct=y=>{b?_.push(y):ut(()=>{$(y)})},Rt=y=>(...et)=>{Ct(()=>{y(...et)})},bt=()=>{const y=_;_=[],y.length&&ut(()=>{_e(()=>{y.forEach(et=>{$(et)})})})};return{batch:wt,batchCalls:Rt,schedule:Ct,setNotifyFunction:y=>{$=y},setBatchNotifyFunction:y=>{_e=y},setScheduler:yt}}var notifyManager=createNotifyManager(),cv,mI,Removable=(mI=class{constructor(){ls(this,cv)}destroy(){this.clearGcTimeout()}scheduleGc(){this.clearGcTimeout(),isValidTimeout(this.gcTime)&&Vo(this,cv,setTimeout(()=>{this.optionalRemove()},this.gcTime))}updateGcTime(_){this.gcTime=Math.max(this.gcTime||0,_??(isServer$1?1/0:5*60*1e3))}clearGcTimeout(){Wn(this,cv)&&(clearTimeout(Wn(this,cv)),Vo(this,cv,void 0))}},cv=new WeakMap,mI),Fv,Kv,Mp,Zu,Cy,uv,Bp,gm,hI,Query=(hI=class extends Removable{constructor(b){super();ls(this,Bp);ls(this,Fv);ls(this,Kv);ls(this,Mp);ls(this,Zu);ls(this,Cy);ls(this,uv);Vo(this,uv,!1),Vo(this,Cy,b.defaultOptions),this.setOptions(b.options),this.observers=[],Vo(this,Mp,b.cache),this.queryKey=b.queryKey,this.queryHash=b.queryHash,Vo(this,Fv,getDefaultState$1(this.options)),this.state=b.state??Wn(this,Fv),this.scheduleGc()}get meta(){return this.options.meta}get promise(){var b;return(b=Wn(this,Zu))==null?void 0:b.promise}setOptions(b){this.options={...Wn(this,Cy),...b},this.updateGcTime(this.options.gcTime)}optionalRemove(){!this.observers.length&&this.state.fetchStatus==="idle"&&Wn(this,Mp).remove(this)}setData(b,$){const _e=replaceData(this.state.data,b,this.options);return Rs(this,Bp,gm).call(this,{data:_e,type:"success",dataUpdatedAt:$==null?void 0:$.updatedAt,manual:$==null?void 0:$.manual}),_e}setState(b,$){Rs(this,Bp,gm).call(this,{type:"setState",state:b,setStateOptions:$})}cancel(b){var _e,ut;const $=(_e=Wn(this,Zu))==null?void 0:_e.promise;return(ut=Wn(this,Zu))==null||ut.cancel(b),$?$.then(noop$1).catch(noop$1):Promise.resolve()}destroy(){super.destroy(),this.cancel({silent:!0})}reset(){this.destroy(),this.setState(Wn(this,Fv))}isActive(){return this.observers.some(b=>resolveEnabled(b.options.enabled,this)!==!1)}isDisabled(){return this.getObserversCount()>0&&!this.isActive()}isStale(){return this.state.isInvalidated?!0:this.getObserversCount()>0?this.observers.some(b=>b.getCurrentResult().isStale):this.state.data===void 0}isStaleByTime(b=0){return this.state.isInvalidated||this.state.data===void 0||!timeUntilStale(this.state.dataUpdatedAt,b)}onFocus(){var $;const b=this.observers.find(_e=>_e.shouldFetchOnWindowFocus());b==null||b.refetch({cancelRefetch:!1}),($=Wn(this,Zu))==null||$.continue()}onOnline(){var $;const b=this.observers.find(_e=>_e.shouldFetchOnReconnect());b==null||b.refetch({cancelRefetch:!1}),($=Wn(this,Zu))==null||$.continue()}addObserver(b){this.observers.includes(b)||(this.observers.push(b),this.clearGcTimeout(),Wn(this,Mp).notify({type:"observerAdded",query:this,observer:b}))}removeObserver(b){this.observers.includes(b)&&(this.observers=this.observers.filter($=>$!==b),this.observers.length||(Wn(this,Zu)&&(Wn(this,uv)?Wn(this,Zu).cancel({revert:!0}):Wn(this,Zu).cancelRetry()),this.scheduleGc()),Wn(this,Mp).notify({type:"observerRemoved",query:this,observer:b}))}getObserversCount(){return this.observers.length}invalidate(){this.state.isInvalidated||Rs(this,Bp,gm).call(this,{type:"invalidate"})}fetch(b,$){var Rt,bt,nt;if(this.state.fetchStatus!=="idle"){if(this.state.data!==void 0&&($!=null&&$.cancelRefetch))this.cancel({silent:!0});else if(Wn(this,Zu))return Wn(this,Zu).continueRetry(),Wn(this,Zu).promise}if(b&&this.setOptions(b),!this.options.queryFn){const F=this.observers.find(y=>y.options.queryFn);F&&this.setOptions(F.options)}const _e=new AbortController,ut=F=>{Object.defineProperty(F,"signal",{enumerable:!0,get:()=>(Vo(this,uv,!0),_e.signal)})},yt=()=>{const F=ensureQueryFn(this.options,$),y={queryKey:this.queryKey,meta:this.meta};return ut(y),Vo(this,uv,!1),this.options.persister?this.options.persister(F,y,this):F(y)},wt={fetchOptions:$,options:this.options,queryKey:this.queryKey,state:this.state,fetchFn:yt};ut(wt),(Rt=this.options.behavior)==null||Rt.onFetch(wt,this),Vo(this,Kv,this.state),(this.state.fetchStatus==="idle"||this.state.fetchMeta!==((bt=wt.fetchOptions)==null?void 0:bt.meta))&&Rs(this,Bp,gm).call(this,{type:"fetch",meta:(nt=wt.fetchOptions)==null?void 0:nt.meta});const Ct=F=>{var y,et,ot,it;isCancelledError(F)&&F.silent||Rs(this,Bp,gm).call(this,{type:"error",error:F}),isCancelledError(F)||((et=(y=Wn(this,Mp).config).onError)==null||et.call(y,F,this),(it=(ot=Wn(this,Mp).config).onSettled)==null||it.call(ot,this.state.data,F,this)),this.isFetchingOptimistic||this.scheduleGc(),this.isFetchingOptimistic=!1};return Vo(this,Zu,createRetryer({initialPromise:$==null?void 0:$.initialPromise,fn:wt.fetchFn,abort:_e.abort.bind(_e),onSuccess:F=>{var y,et,ot,it;if(F===void 0){Ct(new Error(`${this.queryHash} data is undefined`));return}try{this.setData(F)}catch(rt){Ct(rt);return}(et=(y=Wn(this,Mp).config).onSuccess)==null||et.call(y,F,this),(it=(ot=Wn(this,Mp).config).onSettled)==null||it.call(ot,F,this.state.error,this),this.isFetchingOptimistic||this.scheduleGc(),this.isFetchingOptimistic=!1},onError:Ct,onFail:(F,y)=>{Rs(this,Bp,gm).call(this,{type:"failed",failureCount:F,error:y})},onPause:()=>{Rs(this,Bp,gm).call(this,{type:"pause"})},onContinue:()=>{Rs(this,Bp,gm).call(this,{type:"continue"})},retry:wt.options.retry,retryDelay:wt.options.retryDelay,networkMode:wt.options.networkMode,canRun:()=>!0})),Wn(this,Zu).start()}},Fv=new WeakMap,Kv=new WeakMap,Mp=new WeakMap,Zu=new WeakMap,Cy=new WeakMap,uv=new WeakMap,Bp=new WeakSet,gm=function(b){const $=_e=>{switch(b.type){case"failed":return{..._e,fetchFailureCount:b.failureCount,fetchFailureReason:b.error};case"pause":return{..._e,fetchStatus:"paused"};case"continue":return{..._e,fetchStatus:"fetching"};case"fetch":return{..._e,...fetchState(_e.data,this.options),fetchMeta:b.meta??null};case"success":return{..._e,data:b.data,dataUpdateCount:_e.dataUpdateCount+1,dataUpdatedAt:b.dataUpdatedAt??Date.now(),error:null,isInvalidated:!1,status:"success",...!b.manual&&{fetchStatus:"idle",fetchFailureCount:0,fetchFailureReason:null}};case"error":const ut=b.error;return isCancelledError(ut)&&ut.revert&&Wn(this,Kv)?{...Wn(this,Kv),fetchStatus:"idle"}:{..._e,error:ut,errorUpdateCount:_e.errorUpdateCount+1,errorUpdatedAt:Date.now(),fetchFailureCount:_e.fetchFailureCount+1,fetchFailureReason:ut,fetchStatus:"idle",status:"error"};case"invalidate":return{..._e,isInvalidated:!0};case"setState":return{..._e,...b.state}}};this.state=$(this.state),notifyManager.batch(()=>{this.observers.forEach(_e=>{_e.onQueryUpdate()}),Wn(this,Mp).notify({query:this,type:"updated",action:b})})},hI);function fetchState(_,b){return{fetchFailureCount:0,fetchFailureReason:null,fetchStatus:canFetch(b.networkMode)?"fetching":"paused",..._===void 0&&{error:null,status:"pending"}}}function getDefaultState$1(_){const b=typeof _.initialData=="function"?_.initialData():_.initialData,$=b!==void 0,_e=$?typeof _.initialDataUpdatedAt=="function"?_.initialDataUpdatedAt():_.initialDataUpdatedAt:0;return{data:b,dataUpdateCount:0,dataUpdatedAt:$?_e??Date.now():0,error:null,errorUpdateCount:0,errorUpdatedAt:0,fetchFailureCount:0,fetchFailureReason:null,fetchMeta:null,isInvalidated:!1,status:$?"success":"pending",fetchStatus:"idle"}}var nm,gI,QueryCache=(gI=class extends Subscribable{constructor(b={}){super();ls(this,nm);this.config=b,Vo(this,nm,new Map)}build(b,$,_e){const ut=$.queryKey,yt=$.queryHash??hashQueryKeyByOptions(ut,$);let wt=this.get(yt);return wt||(wt=new Query({cache:this,queryKey:ut,queryHash:yt,options:b.defaultQueryOptions($),state:_e,defaultOptions:b.getQueryDefaults(ut)}),this.add(wt)),wt}add(b){Wn(this,nm).has(b.queryHash)||(Wn(this,nm).set(b.queryHash,b),this.notify({type:"added",query:b}))}remove(b){const $=Wn(this,nm).get(b.queryHash);$&&(b.destroy(),$===b&&Wn(this,nm).delete(b.queryHash),this.notify({type:"removed",query:b}))}clear(){notifyManager.batch(()=>{this.getAll().forEach(b=>{this.remove(b)})})}get(b){return Wn(this,nm).get(b)}getAll(){return[...Wn(this,nm).values()]}find(b){const $={exact:!0,...b};return this.getAll().find(_e=>matchQuery($,_e))}findAll(b={}){const $=this.getAll();return Object.keys(b).length>0?$.filter(_e=>matchQuery(b,_e)):$}notify(b){notifyManager.batch(()=>{this.listeners.forEach($=>{$(b)})})}onFocus(){notifyManager.batch(()=>{this.getAll().forEach(b=>{b.onFocus()})})}onOnline(){notifyManager.batch(()=>{this.getAll().forEach(b=>{b.onOnline()})})}},nm=new WeakMap,gI),rm,ip,dv,om,Lm,vI,Mutation=(vI=class extends Removable{constructor(b){super();ls(this,om);ls(this,rm);ls(this,ip);ls(this,dv);this.mutationId=b.mutationId,Vo(this,ip,b.mutationCache),Vo(this,rm,[]),this.state=b.state||getDefaultState(),this.setOptions(b.options),this.scheduleGc()}setOptions(b){this.options=b,this.updateGcTime(this.options.gcTime)}get meta(){return this.options.meta}addObserver(b){Wn(this,rm).includes(b)||(Wn(this,rm).push(b),this.clearGcTimeout(),Wn(this,ip).notify({type:"observerAdded",mutation:this,observer:b}))}removeObserver(b){Vo(this,rm,Wn(this,rm).filter($=>$!==b)),this.scheduleGc(),Wn(this,ip).notify({type:"observerRemoved",mutation:this,observer:b})}optionalRemove(){Wn(this,rm).length||(this.state.status==="pending"?this.scheduleGc():Wn(this,ip).remove(this))}continue(){var b;return((b=Wn(this,dv))==null?void 0:b.continue())??this.execute(this.state.variables)}async execute(b){var ut,yt,wt,Ct,Rt,bt,nt,F,y,et,ot,it,rt,tt,st,gt,pt,ft,dt,ct;Vo(this,dv,createRetryer({fn:()=>this.options.mutationFn?this.options.mutationFn(b):Promise.reject(new Error("No mutationFn found")),onFail:(lt,_t)=>{Rs(this,om,Lm).call(this,{type:"failed",failureCount:lt,error:_t})},onPause:()=>{Rs(this,om,Lm).call(this,{type:"pause"})},onContinue:()=>{Rs(this,om,Lm).call(this,{type:"continue"})},retry:this.options.retry??0,retryDelay:this.options.retryDelay,networkMode:this.options.networkMode,canRun:()=>Wn(this,ip).canRun(this)}));const $=this.state.status==="pending",_e=!Wn(this,dv).canStart();try{if(!$){Rs(this,om,Lm).call(this,{type:"pending",variables:b,isPaused:_e}),await((yt=(ut=Wn(this,ip).config).onMutate)==null?void 0:yt.call(ut,b,this));const _t=await((Ct=(wt=this.options).onMutate)==null?void 0:Ct.call(wt,b));_t!==this.state.context&&Rs(this,om,Lm).call(this,{type:"pending",context:_t,variables:b,isPaused:_e})}const lt=await Wn(this,dv).start();return await((bt=(Rt=Wn(this,ip).config).onSuccess)==null?void 0:bt.call(Rt,lt,b,this.state.context,this)),await((F=(nt=this.options).onSuccess)==null?void 0:F.call(nt,lt,b,this.state.context)),await((et=(y=Wn(this,ip).config).onSettled)==null?void 0:et.call(y,lt,null,this.state.variables,this.state.context,this)),await((it=(ot=this.options).onSettled)==null?void 0:it.call(ot,lt,null,b,this.state.context)),Rs(this,om,Lm).call(this,{type:"success",data:lt}),lt}catch(lt){try{throw await((tt=(rt=Wn(this,ip).config).onError)==null?void 0:tt.call(rt,lt,b,this.state.context,this)),await((gt=(st=this.options).onError)==null?void 0:gt.call(st,lt,b,this.state.context)),await((ft=(pt=Wn(this,ip).config).onSettled)==null?void 0:ft.call(pt,void 0,lt,this.state.variables,this.state.context,this)),await((ct=(dt=this.options).onSettled)==null?void 0:ct.call(dt,void 0,lt,b,this.state.context)),lt}finally{Rs(this,om,Lm).call(this,{type:"error",error:lt})}}finally{Wn(this,ip).runNext(this)}}},rm=new WeakMap,ip=new WeakMap,dv=new WeakMap,om=new WeakSet,Lm=function(b){const $=_e=>{switch(b.type){case"failed":return{..._e,failureCount:b.failureCount,failureReason:b.error};case"pause":return{..._e,isPaused:!0};case"continue":return{..._e,isPaused:!1};case"pending":return{..._e,context:b.context,data:void 0,failureCount:0,failureReason:null,error:null,isPaused:b.isPaused,status:"pending",variables:b.variables,submittedAt:Date.now()};case"success":return{..._e,data:b.data,failureCount:0,failureReason:null,error:null,status:"success",isPaused:!1};case"error":return{..._e,data:void 0,error:b.error,failureCount:_e.failureCount+1,failureReason:b.error,isPaused:!1,status:"error"}}};this.state=$(this.state),notifyManager.batch(()=>{Wn(this,rm).forEach(_e=>{_e.onMutationUpdate(b)}),Wn(this,ip).notify({mutation:this,type:"updated",action:b})})},vI);function getDefaultState(){return{context:void 0,data:void 0,error:null,failureCount:0,failureReason:null,isPaused:!1,status:"idle",variables:void 0,submittedAt:0}}var yp,My,yI,MutationCache=(yI=class extends Subscribable{constructor(b={}){super();ls(this,yp);ls(this,My);this.config=b,Vo(this,yp,new Map),Vo(this,My,Date.now())}build(b,$,_e){const ut=new Mutation({mutationCache:this,mutationId:++sv(this,My)._,options:b.defaultMutationOptions($),state:_e});return this.add(ut),ut}add(b){const $=scopeFor(b),_e=Wn(this,yp).get($)??[];_e.push(b),Wn(this,yp).set($,_e),this.notify({type:"added",mutation:b})}remove(b){var _e;const $=scopeFor(b);if(Wn(this,yp).has($)){const ut=(_e=Wn(this,yp).get($))==null?void 0:_e.filter(yt=>yt!==b);ut&&(ut.length===0?Wn(this,yp).delete($):Wn(this,yp).set($,ut))}this.notify({type:"removed",mutation:b})}canRun(b){var _e;const $=(_e=Wn(this,yp).get(scopeFor(b)))==null?void 0:_e.find(ut=>ut.state.status==="pending");return!$||$===b}runNext(b){var _e;const $=(_e=Wn(this,yp).get(scopeFor(b)))==null?void 0:_e.find(ut=>ut!==b&&ut.state.isPaused);return($==null?void 0:$.continue())??Promise.resolve()}clear(){notifyManager.batch(()=>{this.getAll().forEach(b=>{this.remove(b)})})}getAll(){return[...Wn(this,yp).values()].flat()}find(b){const $={exact:!0,...b};return this.getAll().find(_e=>matchMutation($,_e))}findAll(b={}){return this.getAll().filter($=>matchMutation(b,$))}notify(b){notifyManager.batch(()=>{this.listeners.forEach($=>{$(b)})})}resumePausedMutations(){const b=this.getAll().filter($=>$.state.isPaused);return notifyManager.batch(()=>Promise.all(b.map($=>$.continue().catch(noop$1))))}},yp=new WeakMap,My=new WeakMap,yI);function scopeFor(_){var b;return((b=_.options.scope)==null?void 0:b.id)??String(_.mutationId)}function infiniteQueryBehavior(_){return{onFetch:(b,$)=>{const _e=async()=>{var ot,it,rt,tt,st;const ut=b.options,yt=(rt=(it=(ot=b.fetchOptions)==null?void 0:ot.meta)==null?void 0:it.fetchMore)==null?void 0:rt.direction,wt=((tt=b.state.data)==null?void 0:tt.pages)||[],Ct=((st=b.state.data)==null?void 0:st.pageParams)||[],Rt={pages:[],pageParams:[]};let bt=!1;const nt=gt=>{Object.defineProperty(gt,"signal",{enumerable:!0,get:()=>(b.signal.aborted?bt=!0:b.signal.addEventListener("abort",()=>{bt=!0}),b.signal)})},F=ensureQueryFn(b.options,b.fetchOptions),y=async(gt,pt,ft)=>{if(bt)return Promise.reject();if(pt==null&&gt.pages.length)return Promise.resolve(gt);const dt={queryKey:b.queryKey,pageParam:pt,direction:ft?"backward":"forward",meta:b.options.meta};nt(dt);const ct=await F(dt),{maxPages:lt}=b.options,_t=ft?addToStart:addToEnd;return{pages:_t(gt.pages,ct,lt),pageParams:_t(gt.pageParams,pt,lt)}};let et;if(yt&&wt.length){const gt=yt==="backward",pt=gt?getPreviousPageParam:getNextPageParam,ft={pages:wt,pageParams:Ct},dt=pt(ut,ft);et=await y(ft,dt,gt)}else{et=await y(Rt,Ct[0]??ut.initialPageParam);const gt=_??wt.length;for(let pt=1;pt<gt;pt++){const ft=getNextPageParam(ut,et);if(ft==null)break;et=await y(et,ft)}}return et};b.options.persister?b.fetchFn=()=>{var ut,yt;return(yt=(ut=b.options).persister)==null?void 0:yt.call(ut,_e,{queryKey:b.queryKey,meta:b.options.meta,signal:b.signal},$)}:b.fetchFn=_e}}}function getNextPageParam(_,{pages:b,pageParams:$}){const _e=b.length-1;return b.length>0?_.getNextPageParam(b[_e],b,$[_e],$):void 0}function getPreviousPageParam(_,{pages:b,pageParams:$}){var _e;return b.length>0?(_e=_.getPreviousPageParam)==null?void 0:_e.call(_,b[0],b,$[0],$):void 0}var Du,Bm,Fm,Wv,Hv,Km,Vv,qv,_I,QueryClient=(_I=class{constructor(_={}){ls(this,Du);ls(this,Bm);ls(this,Fm);ls(this,Wv);ls(this,Hv);ls(this,Km);ls(this,Vv);ls(this,qv);Vo(this,Du,_.queryCache||new QueryCache),Vo(this,Bm,_.mutationCache||new MutationCache),Vo(this,Fm,_.defaultOptions||{}),Vo(this,Wv,new Map),Vo(this,Hv,new Map),Vo(this,Km,0)}mount(){sv(this,Km)._++,Wn(this,Km)===1&&(Vo(this,Vv,focusManager.subscribe(async _=>{_&&(await this.resumePausedMutations(),Wn(this,Du).onFocus())})),Vo(this,qv,onlineManager.subscribe(async _=>{_&&(await this.resumePausedMutations(),Wn(this,Du).onOnline())})))}unmount(){var _,b;sv(this,Km)._--,Wn(this,Km)===0&&((_=Wn(this,Vv))==null||_.call(this),Vo(this,Vv,void 0),(b=Wn(this,qv))==null||b.call(this),Vo(this,qv,void 0))}isFetching(_){return Wn(this,Du).findAll({..._,fetchStatus:"fetching"}).length}isMutating(_){return Wn(this,Bm).findAll({..._,status:"pending"}).length}getQueryData(_){var $;const b=this.defaultQueryOptions({queryKey:_});return($=Wn(this,Du).get(b.queryHash))==null?void 0:$.state.data}ensureQueryData(_){const b=this.getQueryData(_.queryKey);if(b===void 0)return this.fetchQuery(_);{const $=this.defaultQueryOptions(_),_e=Wn(this,Du).build(this,$);return _.revalidateIfStale&&_e.isStaleByTime(resolveStaleTime($.staleTime,_e))&&this.prefetchQuery($),Promise.resolve(b)}}getQueriesData(_){return Wn(this,Du).findAll(_).map(({queryKey:b,state:$})=>{const _e=$.data;return[b,_e]})}setQueryData(_,b,$){const _e=this.defaultQueryOptions({queryKey:_}),ut=Wn(this,Du).get(_e.queryHash),yt=ut==null?void 0:ut.state.data,wt=functionalUpdate(b,yt);if(wt!==void 0)return Wn(this,Du).build(this,_e).setData(wt,{...$,manual:!0})}setQueriesData(_,b,$){return notifyManager.batch(()=>Wn(this,Du).findAll(_).map(({queryKey:_e})=>[_e,this.setQueryData(_e,b,$)]))}getQueryState(_){var $;const b=this.defaultQueryOptions({queryKey:_});return($=Wn(this,Du).get(b.queryHash))==null?void 0:$.state}removeQueries(_){const b=Wn(this,Du);notifyManager.batch(()=>{b.findAll(_).forEach($=>{b.remove($)})})}resetQueries(_,b){const $=Wn(this,Du),_e={type:"active",..._};return notifyManager.batch(()=>($.findAll(_).forEach(ut=>{ut.reset()}),this.refetchQueries(_e,b)))}cancelQueries(_={},b={}){const $={revert:!0,...b},_e=notifyManager.batch(()=>Wn(this,Du).findAll(_).map(ut=>ut.cancel($)));return Promise.all(_e).then(noop$1).catch(noop$1)}invalidateQueries(_={},b={}){return notifyManager.batch(()=>{if(Wn(this,Du).findAll(_).forEach(_e=>{_e.invalidate()}),_.refetchType==="none")return Promise.resolve();const $={..._,type:_.refetchType??_.type??"active"};return this.refetchQueries($,b)})}refetchQueries(_={},b){const $={...b,cancelRefetch:(b==null?void 0:b.cancelRefetch)??!0},_e=notifyManager.batch(()=>Wn(this,Du).findAll(_).filter(ut=>!ut.isDisabled()).map(ut=>{let yt=ut.fetch(void 0,$);return $.throwOnError||(yt=yt.catch(noop$1)),ut.state.fetchStatus==="paused"?Promise.resolve():yt}));return Promise.all(_e).then(noop$1)}fetchQuery(_){const b=this.defaultQueryOptions(_);b.retry===void 0&&(b.retry=!1);const $=Wn(this,Du).build(this,b);return $.isStaleByTime(resolveStaleTime(b.staleTime,$))?$.fetch(b):Promise.resolve($.state.data)}prefetchQuery(_){return this.fetchQuery(_).then(noop$1).catch(noop$1)}fetchInfiniteQuery(_){return _.behavior=infiniteQueryBehavior(_.pages),this.fetchQuery(_)}prefetchInfiniteQuery(_){return this.fetchInfiniteQuery(_).then(noop$1).catch(noop$1)}resumePausedMutations(){return onlineManager.isOnline()?Wn(this,Bm).resumePausedMutations():Promise.resolve()}getQueryCache(){return Wn(this,Du)}getMutationCache(){return Wn(this,Bm)}getDefaultOptions(){return Wn(this,Fm)}setDefaultOptions(_){Vo(this,Fm,_)}setQueryDefaults(_,b){Wn(this,Wv).set(hashKey(_),{queryKey:_,defaultOptions:b})}getQueryDefaults(_){const b=[...Wn(this,Wv).values()];let $={};return b.forEach(_e=>{partialMatchKey(_,_e.queryKey)&&($={...$,..._e.defaultOptions})}),$}setMutationDefaults(_,b){Wn(this,Hv).set(hashKey(_),{mutationKey:_,defaultOptions:b})}getMutationDefaults(_){const b=[...Wn(this,Hv).values()];let $={};return b.forEach(_e=>{partialMatchKey(_,_e.mutationKey)&&($={...$,..._e.defaultOptions})}),$}defaultQueryOptions(_){if(_._defaulted)return _;const b={...Wn(this,Fm).queries,...this.getQueryDefaults(_.queryKey),..._,_defaulted:!0};return b.queryHash||(b.queryHash=hashQueryKeyByOptions(b.queryKey,b)),b.refetchOnReconnect===void 0&&(b.refetchOnReconnect=b.networkMode!=="always"),b.throwOnError===void 0&&(b.throwOnError=!!b.suspense),!b.networkMode&&b.persister&&(b.networkMode="offlineFirst"),b.enabled!==!0&&b.queryFn===skipToken&&(b.enabled=!1),b}defaultMutationOptions(_){return _!=null&&_._defaulted?_:{...Wn(this,Fm).mutations,...(_==null?void 0:_.mutationKey)&&this.getMutationDefaults(_.mutationKey),..._,_defaulted:!0}}clear(){Wn(this,Du).clear(),Wn(this,Bm).clear()}},Du=new WeakMap,Bm=new WeakMap,Fm=new WeakMap,Wv=new WeakMap,Hv=new WeakMap,Km=new WeakMap,Vv=new WeakMap,qv=new WeakMap,_I),QueryClientContext=reactExports.createContext(void 0),QueryClientProvider=({client:_,children:b})=>(reactExports.useEffect(()=>(_.mount(),()=>{_.unmount()}),[_]),jsxRuntimeExports.jsx(QueryClientContext.Provider,{value:_,children:b}));const queryClient$1=new QueryClient,App=({router:_})=>jsxRuntimeExports.jsx(QueryClientProvider,{client:queryClient$1,children:jsxRuntimeExports.jsx(RouterProvider,{router:_})});var reactSdk={exports:{}},modern$1={exports:{}},modern={exports:{}},subscribable,hasRequiredSubscribable;function requireSubscribable(){if(hasRequiredSubscribable)return subscribable;hasRequiredSubscribable=1;var _=Object.defineProperty,b=Object.getOwnPropertyDescriptor,$=Object.getOwnPropertyNames,_e=Object.prototype.hasOwnProperty,ut=(bt,nt)=>{for(var F in nt)_(bt,F,{get:nt[F],enumerable:!0})},yt=(bt,nt,F,y)=>{if(nt&&typeof nt=="object"||typeof nt=="function")for(let et of $(nt))!_e.call(bt,et)&&et!==F&&_(bt,et,{get:()=>nt[et],enumerable:!(y=b(nt,et))||y.enumerable});return bt},wt=bt=>yt(_({},"__esModule",{value:!0}),bt),Ct={};ut(Ct,{Subscribable:()=>Rt}),subscribable=wt(Ct);var Rt=class{constructor(){this.listeners=new Set,this.subscribe=this.subscribe.bind(this)}subscribe(bt){return this.listeners.add(bt),this.onSubscribe(),()=>{this.listeners.delete(bt),this.onUnsubscribe()}}hasListeners(){return this.listeners.size>0}onSubscribe(){}onUnsubscribe(){}};return subscribable}var utils$1,hasRequiredUtils$1;function requireUtils$1(){if(hasRequiredUtils$1)return utils$1;hasRequiredUtils$1=1;var _=Object.defineProperty,b=Object.getOwnPropertyDescriptor,$=Object.getOwnPropertyNames,_e=Object.prototype.hasOwnProperty,ut=(Pt,zt)=>{for(var Ht in zt)_(Pt,Ht,{get:zt[Ht],enumerable:!0})},yt=(Pt,zt,Ht,xt)=>{if(zt&&typeof zt=="object"||typeof zt=="function")for(let kt of $(zt))!_e.call(Pt,kt)&&kt!==Ht&&_(Pt,kt,{get:()=>zt[kt],enumerable:!(xt=b(zt,kt))||xt.enumerable});return Pt},wt=Pt=>yt(_({},"__esModule",{value:!0}),Pt),Ct={};ut(Ct,{addToEnd:()=>vt,addToStart:()=>Mt,ensureQueryFn:()=>Lt,functionalUpdate:()=>nt,hashKey:()=>st,hashQueryKeyByOptions:()=>tt,isPlainArray:()=>dt,isPlainObject:()=>ct,isServer:()=>Rt,isValidTimeout:()=>F,keepPreviousData:()=>at,matchMutation:()=>rt,matchQuery:()=>it,noop:()=>bt,partialMatchKey:()=>gt,replaceData:()=>mt,replaceEqualDeep:()=>pt,resolveEnabled:()=>ot,resolveStaleTime:()=>et,shallowEqualObjects:()=>ft,skipToken:()=>ht,sleep:()=>_t,timeUntilStale:()=>y}),utils$1=wt(Ct);var Rt=typeof window>"u"||"Deno"in globalThis;function bt(){}function nt(Pt,zt){return typeof Pt=="function"?Pt(zt):Pt}function F(Pt){return typeof Pt=="number"&&Pt>=0&&Pt!==1/0}function y(Pt,zt){return Math.max(Pt+(zt||0)-Date.now(),0)}function et(Pt,zt){return typeof Pt=="function"?Pt(zt):Pt}function ot(Pt,zt){return typeof Pt=="function"?Pt(zt):Pt}function it(Pt,zt){const{type:Ht="all",exact:xt,fetchStatus:kt,predicate:jt,queryKey:Wt,stale:mn}=Pt;if(Wt){if(xt){if(zt.queryHash!==tt(Wt,zt.options))return!1}else if(!gt(zt.queryKey,Wt))return!1}if(Ht!=="all"){const Un=zt.isActive();if(Ht==="active"&&!Un||Ht==="inactive"&&Un)return!1}return!(typeof mn=="boolean"&&zt.isStale()!==mn||kt&&kt!==zt.state.fetchStatus||jt&&!jt(zt))}function rt(Pt,zt){const{exact:Ht,status:xt,predicate:kt,mutationKey:jt}=Pt;if(jt){if(!zt.options.mutationKey)return!1;if(Ht){if(st(zt.options.mutationKey)!==st(jt))return!1}else if(!gt(zt.options.mutationKey,jt))return!1}return!(xt&&zt.state.status!==xt||kt&&!kt(zt))}function tt(Pt,zt){return((zt==null?void 0:zt.queryKeyHashFn)||st)(Pt)}function st(Pt){return JSON.stringify(Pt,(zt,Ht)=>ct(Ht)?Object.keys(Ht).sort().reduce((xt,kt)=>(xt[kt]=Ht[kt],xt),{}):Ht)}function gt(Pt,zt){return Pt===zt?!0:typeof Pt!=typeof zt?!1:Pt&&zt&&typeof Pt=="object"&&typeof zt=="object"?!Object.keys(zt).some(Ht=>!gt(Pt[Ht],zt[Ht])):!1}function pt(Pt,zt){if(Pt===zt)return Pt;const Ht=dt(Pt)&&dt(zt);if(Ht||ct(Pt)&&ct(zt)){const xt=Ht?Pt:Object.keys(Pt),kt=xt.length,jt=Ht?zt:Object.keys(zt),Wt=jt.length,mn=Ht?[]:{};let Un=0;for(let Yn=0;Yn<Wt;Yn++){const Et=Ht?Yn:jt[Yn];(!Ht&&xt.includes(Et)||Ht)&&Pt[Et]===void 0&&zt[Et]===void 0?(mn[Et]=void 0,Un++):(mn[Et]=pt(Pt[Et],zt[Et]),mn[Et]===Pt[Et]&&Pt[Et]!==void 0&&Un++)}return kt===Wt&&Un===kt?Pt:mn}return zt}function ft(Pt,zt){if(!zt||Object.keys(Pt).length!==Object.keys(zt).length)return!1;for(const Ht in Pt)if(Pt[Ht]!==zt[Ht])return!1;return!0}function dt(Pt){return Array.isArray(Pt)&&Pt.length===Object.keys(Pt).length}function ct(Pt){if(!lt(Pt))return!1;const zt=Pt.constructor;if(zt===void 0)return!0;const Ht=zt.prototype;return!(!lt(Ht)||!Ht.hasOwnProperty("isPrototypeOf")||Object.getPrototypeOf(Pt)!==Object.prototype)}function lt(Pt){return Object.prototype.toString.call(Pt)==="[object Object]"}function _t(Pt){return new Promise(zt=>{setTimeout(zt,Pt)})}function mt(Pt,zt,Ht){return typeof Ht.structuralSharing=="function"?Ht.structuralSharing(Pt,zt):Ht.structuralSharing!==!1?pt(Pt,zt):zt}function at(Pt){return Pt}function vt(Pt,zt,Ht=0){const xt=[...Pt,zt];return Ht&&xt.length>Ht?xt.slice(1):xt}function Mt(Pt,zt,Ht=0){const xt=[zt,...Pt];return Ht&&xt.length>Ht?xt.slice(0,-1):xt}var ht=Symbol();function Lt(Pt,zt){return!Pt.queryFn&&(zt!=null&&zt.initialPromise)?()=>zt.initialPromise:!Pt.queryFn||Pt.queryFn===ht?()=>Promise.reject(new Error(`Missing queryFn: '${Pt.queryHash}'`)):Pt.queryFn}return utils$1}var focusManager_1,hasRequiredFocusManager;function requireFocusManager(){var y,et,ot,it;if(hasRequiredFocusManager)return focusManager_1;hasRequiredFocusManager=1;var _=Object.defineProperty,b=Object.getOwnPropertyDescriptor,$=Object.getOwnPropertyNames,_e=Object.prototype.hasOwnProperty,ut=(rt,tt)=>{for(var st in tt)_(rt,st,{get:tt[st],enumerable:!0})},yt=(rt,tt,st,gt)=>{if(tt&&typeof tt=="object"||typeof tt=="function")for(let pt of $(tt))!_e.call(rt,pt)&&pt!==st&&_(rt,pt,{get:()=>tt[pt],enumerable:!(gt=b(tt,pt))||gt.enumerable});return rt},wt=rt=>yt(_({},"__esModule",{value:!0}),rt),Ct={};ut(Ct,{FocusManager:()=>nt,focusManager:()=>F}),focusManager_1=wt(Ct);var Rt=requireSubscribable(),bt=requireUtils$1(),nt=(it=class extends Rt.Subscribable{constructor(){super();ls(this,y);ls(this,et);ls(this,ot);Vo(this,ot,tt=>{if(!bt.isServer&&window.addEventListener){const st=()=>tt();return window.addEventListener("visibilitychange",st,!1),()=>{window.removeEventListener("visibilitychange",st)}}})}onSubscribe(){Wn(this,et)||this.setEventListener(Wn(this,ot))}onUnsubscribe(){var tt;this.hasListeners()||((tt=Wn(this,et))==null||tt.call(this),Vo(this,et,void 0))}setEventListener(tt){var st;Vo(this,ot,tt),(st=Wn(this,et))==null||st.call(this),Vo(this,et,tt(gt=>{typeof gt=="boolean"?this.setFocused(gt):this.onFocus()}))}setFocused(tt){Wn(this,y)!==tt&&(Vo(this,y,tt),this.onFocus())}onFocus(){const tt=this.isFocused();this.listeners.forEach(st=>{st(tt)})}isFocused(){var tt;return typeof Wn(this,y)=="boolean"?Wn(this,y):((tt=globalThis.document)==null?void 0:tt.visibilityState)!=="hidden"}},y=new WeakMap,et=new WeakMap,ot=new WeakMap,it),F=new nt;return focusManager_1}var onlineManager_1,hasRequiredOnlineManager;function requireOnlineManager(){var y,et,ot,it;if(hasRequiredOnlineManager)return onlineManager_1;hasRequiredOnlineManager=1;var _=Object.defineProperty,b=Object.getOwnPropertyDescriptor,$=Object.getOwnPropertyNames,_e=Object.prototype.hasOwnProperty,ut=(rt,tt)=>{for(var st in tt)_(rt,st,{get:tt[st],enumerable:!0})},yt=(rt,tt,st,gt)=>{if(tt&&typeof tt=="object"||typeof tt=="function")for(let pt of $(tt))!_e.call(rt,pt)&&pt!==st&&_(rt,pt,{get:()=>tt[pt],enumerable:!(gt=b(tt,pt))||gt.enumerable});return rt},wt=rt=>yt(_({},"__esModule",{value:!0}),rt),Ct={};ut(Ct,{OnlineManager:()=>nt,onlineManager:()=>F}),onlineManager_1=wt(Ct);var Rt=requireSubscribable(),bt=requireUtils$1(),nt=(it=class extends Rt.Subscribable{constructor(){super();ls(this,y,!0);ls(this,et);ls(this,ot);Vo(this,ot,tt=>{if(!bt.isServer&&window.addEventListener){const st=()=>tt(!0),gt=()=>tt(!1);return window.addEventListener("online",st,!1),window.addEventListener("offline",gt,!1),()=>{window.removeEventListener("online",st),window.removeEventListener("offline",gt)}}})}onSubscribe(){Wn(this,et)||this.setEventListener(Wn(this,ot))}onUnsubscribe(){var tt;this.hasListeners()||((tt=Wn(this,et))==null||tt.call(this),Vo(this,et,void 0))}setEventListener(tt){var st;Vo(this,ot,tt),(st=Wn(this,et))==null||st.call(this),Vo(this,et,tt(this.setOnline.bind(this)))}setOnline(tt){Wn(this,y)!==tt&&(Vo(this,y,tt),this.listeners.forEach(gt=>{gt(tt)}))}isOnline(){return Wn(this,y)}},y=new WeakMap,et=new WeakMap,ot=new WeakMap,it),F=new nt;return onlineManager_1}var thenable,hasRequiredThenable;function requireThenable(){if(hasRequiredThenable)return thenable;hasRequiredThenable=1;var _=Object.defineProperty,b=Object.getOwnPropertyDescriptor,$=Object.getOwnPropertyNames,_e=Object.prototype.hasOwnProperty,ut=(bt,nt)=>{for(var F in nt)_(bt,F,{get:nt[F],enumerable:!0})},yt=(bt,nt,F,y)=>{if(nt&&typeof nt=="object"||typeof nt=="function")for(let et of $(nt))!_e.call(bt,et)&&et!==F&&_(bt,et,{get:()=>nt[et],enumerable:!(y=b(nt,et))||y.enumerable});return bt},wt=bt=>yt(_({},"__esModule",{value:!0}),bt),Ct={};ut(Ct,{pendingThenable:()=>Rt}),thenable=wt(Ct);function Rt(){let bt,nt;const F=new Promise((et,ot)=>{bt=et,nt=ot});F.status="pending",F.catch(()=>{});function y(et){Object.assign(F,et),delete F.resolve,delete F.reject}return F.resolve=et=>{y({status:"fulfilled",value:et}),bt(et)},F.reject=et=>{y({status:"rejected",reason:et}),nt(et)},F}return thenable}var retryer,hasRequiredRetryer;function requireRetryer(){if(hasRequiredRetryer)return retryer;hasRequiredRetryer=1;var _=Object.defineProperty,b=Object.getOwnPropertyDescriptor,$=Object.getOwnPropertyNames,_e=Object.prototype.hasOwnProperty,ut=(tt,st)=>{for(var gt in st)_(tt,gt,{get:st[gt],enumerable:!0})},yt=(tt,st,gt,pt)=>{if(st&&typeof st=="object"||typeof st=="function")for(let ft of $(st))!_e.call(tt,ft)&&ft!==gt&&_(tt,ft,{get:()=>st[ft],enumerable:!(pt=b(st,ft))||pt.enumerable});return tt},wt=tt=>yt(_({},"__esModule",{value:!0}),tt),Ct={};ut(Ct,{CancelledError:()=>ot,canFetch:()=>et,createRetryer:()=>rt,isCancelledError:()=>it}),retryer=wt(Ct);var Rt=requireFocusManager(),bt=requireOnlineManager(),nt=requireThenable(),F=requireUtils$1();function y(tt){return Math.min(1e3*2**tt,3e4)}function et(tt){return(tt??"online")==="online"?bt.onlineManager.isOnline():!0}var ot=class extends Error{constructor(tt){super("CancelledError"),this.revert=tt==null?void 0:tt.revert,this.silent=tt==null?void 0:tt.silent}};function it(tt){return tt instanceof ot}function rt(tt){let st=!1,gt=0,pt=!1,ft;const dt=(0,nt.pendingThenable)(),ct=Pt=>{var zt;pt||(Mt(new ot(Pt)),(zt=tt.abort)==null||zt.call(tt))},lt=()=>{st=!0},_t=()=>{st=!1},mt=()=>Rt.focusManager.isFocused()&&(tt.networkMode==="always"||bt.onlineManager.isOnline())&&tt.canRun(),at=()=>et(tt.networkMode)&&tt.canRun(),vt=Pt=>{var zt;pt||(pt=!0,(zt=tt.onSuccess)==null||zt.call(tt,Pt),ft==null||ft(),dt.resolve(Pt))},Mt=Pt=>{var zt;pt||(pt=!0,(zt=tt.onError)==null||zt.call(tt,Pt),ft==null||ft(),dt.reject(Pt))},ht=()=>new Promise(Pt=>{var zt;ft=Ht=>{(pt||mt())&&Pt(Ht)},(zt=tt.onPause)==null||zt.call(tt)}).then(()=>{var Pt;ft=void 0,pt||(Pt=tt.onContinue)==null||Pt.call(tt)}),Lt=()=>{if(pt)return;let Pt;const zt=gt===0?tt.initialPromise:void 0;try{Pt=zt??tt.fn()}catch(Ht){Pt=Promise.reject(Ht)}Promise.resolve(Pt).then(vt).catch(Ht=>{var mn;if(pt)return;const xt=tt.retry??(F.isServer?0:3),kt=tt.retryDelay??y,jt=typeof kt=="function"?kt(gt,Ht):kt,Wt=xt===!0||typeof xt=="number"&&gt<xt||typeof xt=="function"&&xt(gt,Ht);if(st||!Wt){Mt(Ht);return}gt++,(mn=tt.onFail)==null||mn.call(tt,gt,Ht),(0,F.sleep)(jt).then(()=>mt()?void 0:ht()).then(()=>{st?Mt(Ht):Lt()})})};return{promise:dt,cancel:ct,continue:()=>(ft==null||ft(),dt),cancelRetry:lt,continueRetry:_t,canStart:at,start:()=>(at()?Lt():ht().then(Lt),dt)}}return retryer}var notifyManager_1,hasRequiredNotifyManager;function requireNotifyManager(){if(hasRequiredNotifyManager)return notifyManager_1;hasRequiredNotifyManager=1;var _=Object.defineProperty,b=Object.getOwnPropertyDescriptor,$=Object.getOwnPropertyNames,_e=Object.prototype.hasOwnProperty,ut=(nt,F)=>{for(var y in F)_(nt,y,{get:F[y],enumerable:!0})},yt=(nt,F,y,et)=>{if(F&&typeof F=="object"||typeof F=="function")for(let ot of $(F))!_e.call(nt,ot)&&ot!==y&&_(nt,ot,{get:()=>F[ot],enumerable:!(et=b(F,ot))||et.enumerable});return nt},wt=nt=>yt(_({},"__esModule",{value:!0}),nt),Ct={};ut(Ct,{createNotifyManager:()=>Rt,notifyManager:()=>bt}),notifyManager_1=wt(Ct);function Rt(){let nt=[],F=0,y=tt=>{tt()},et=tt=>{tt()},ot=tt=>setTimeout(tt,0);const it=tt=>{F?nt.push(tt):ot(()=>{y(tt)})},rt=()=>{const tt=nt;nt=[],tt.length&&ot(()=>{et(()=>{tt.forEach(st=>{y(st)})})})};return{batch:tt=>{let st;F++;try{st=tt()}finally{F--,F||rt()}return st},batchCalls:tt=>(...st)=>{it(()=>{tt(...st)})},schedule:it,setNotifyFunction:tt=>{y=tt},setBatchNotifyFunction:tt=>{et=tt},setScheduler:tt=>{ot=tt}}}var bt=Rt();return notifyManager_1}var removable,hasRequiredRemovable;function requireRemovable(){var nt,F;if(hasRequiredRemovable)return removable;hasRequiredRemovable=1;var _=Object.defineProperty,b=Object.getOwnPropertyDescriptor,$=Object.getOwnPropertyNames,_e=Object.prototype.hasOwnProperty,ut=(y,et)=>{for(var ot in et)_(y,ot,{get:et[ot],enumerable:!0})},yt=(y,et,ot,it)=>{if(et&&typeof et=="object"||typeof et=="function")for(let rt of $(et))!_e.call(y,rt)&&rt!==ot&&_(y,rt,{get:()=>et[rt],enumerable:!(it=b(et,rt))||it.enumerable});return y},wt=y=>yt(_({},"__esModule",{value:!0}),y),Ct={};ut(Ct,{Removable:()=>bt}),removable=wt(Ct);var Rt=requireUtils$1(),bt=(F=class{constructor(){ls(this,nt)}destroy(){this.clearGcTimeout()}scheduleGc(){this.clearGcTimeout(),(0,Rt.isValidTimeout)(this.gcTime)&&Vo(this,nt,setTimeout(()=>{this.optionalRemove()},this.gcTime))}updateGcTime(y){this.gcTime=Math.max(this.gcTime||0,y??(Rt.isServer?1/0:5*60*1e3))}clearGcTimeout(){Wn(this,nt)&&(clearTimeout(Wn(this,nt)),Vo(this,nt,void 0))}},nt=new WeakMap,F);return removable}var query,hasRequiredQuery;function requireQuery(){var it,rt,tt,st,gt,pt,ft,vm,ct;if(hasRequiredQuery)return query;hasRequiredQuery=1;var _=Object.defineProperty,b=Object.getOwnPropertyDescriptor,$=Object.getOwnPropertyNames,_e=Object.prototype.hasOwnProperty,ut=(lt,_t)=>{for(var mt in _t)_(lt,mt,{get:_t[mt],enumerable:!0})},yt=(lt,_t,mt,at)=>{if(_t&&typeof _t=="object"||typeof _t=="function")for(let vt of $(_t))!_e.call(lt,vt)&&vt!==mt&&_(lt,vt,{get:()=>_t[vt],enumerable:!(at=b(_t,vt))||at.enumerable});return lt},wt=lt=>yt(_({},"__esModule",{value:!0}),lt),Ct={};ut(Ct,{Query:()=>y,fetchState:()=>et}),query=wt(Ct);var Rt=requireUtils$1(),bt=requireNotifyManager(),nt=requireRetryer(),F=requireRemovable(),y=(ct=class extends F.Removable{constructor(_t){super();ls(this,ft);ls(this,it);ls(this,rt);ls(this,tt);ls(this,st);ls(this,gt);ls(this,pt);Vo(this,pt,!1),Vo(this,gt,_t.defaultOptions),this.setOptions(_t.options),this.observers=[],Vo(this,tt,_t.cache),this.queryKey=_t.queryKey,this.queryHash=_t.queryHash,Vo(this,it,ot(this.options)),this.state=_t.state??Wn(this,it),this.scheduleGc()}get meta(){return this.options.meta}get promise(){var _t;return(_t=Wn(this,st))==null?void 0:_t.promise}setOptions(_t){this.options={...Wn(this,gt),..._t},this.updateGcTime(this.options.gcTime)}optionalRemove(){!this.observers.length&&this.state.fetchStatus==="idle"&&Wn(this,tt).remove(this)}setData(_t,mt){const at=(0,Rt.replaceData)(this.state.data,_t,this.options);return Rs(this,ft,vm).call(this,{data:at,type:"success",dataUpdatedAt:mt==null?void 0:mt.updatedAt,manual:mt==null?void 0:mt.manual}),at}setState(_t,mt){Rs(this,ft,vm).call(this,{type:"setState",state:_t,setStateOptions:mt})}cancel(_t){var at,vt;const mt=(at=Wn(this,st))==null?void 0:at.promise;return(vt=Wn(this,st))==null||vt.cancel(_t),mt?mt.then(Rt.noop).catch(Rt.noop):Promise.resolve()}destroy(){super.destroy(),this.cancel({silent:!0})}reset(){this.destroy(),this.setState(Wn(this,it))}isActive(){return this.observers.some(_t=>(0,Rt.resolveEnabled)(_t.options.enabled,this)!==!1)}isDisabled(){return this.getObserversCount()>0?!this.isActive():this.options.queryFn===Rt.skipToken||this.state.dataUpdateCount+this.state.errorUpdateCount===0}isStale(){return this.state.isInvalidated?!0:this.getObserversCount()>0?this.observers.some(_t=>_t.getCurrentResult().isStale):this.state.data===void 0}isStaleByTime(_t=0){return this.state.isInvalidated||this.state.data===void 0||!(0,Rt.timeUntilStale)(this.state.dataUpdatedAt,_t)}onFocus(){var mt;const _t=this.observers.find(at=>at.shouldFetchOnWindowFocus());_t==null||_t.refetch({cancelRefetch:!1}),(mt=Wn(this,st))==null||mt.continue()}onOnline(){var mt;const _t=this.observers.find(at=>at.shouldFetchOnReconnect());_t==null||_t.refetch({cancelRefetch:!1}),(mt=Wn(this,st))==null||mt.continue()}addObserver(_t){this.observers.includes(_t)||(this.observers.push(_t),this.clearGcTimeout(),Wn(this,tt).notify({type:"observerAdded",query:this,observer:_t}))}removeObserver(_t){this.observers.includes(_t)&&(this.observers=this.observers.filter(mt=>mt!==_t),this.observers.length||(Wn(this,st)&&(Wn(this,pt)?Wn(this,st).cancel({revert:!0}):Wn(this,st).cancelRetry()),this.scheduleGc()),Wn(this,tt).notify({type:"observerRemoved",query:this,observer:_t}))}getObserversCount(){return this.observers.length}invalidate(){this.state.isInvalidated||Rs(this,ft,vm).call(this,{type:"invalidate"})}fetch(_t,mt){var Pt,zt,Ht;if(this.state.fetchStatus!=="idle"){if(this.state.data!==void 0&&(mt!=null&&mt.cancelRefetch))this.cancel({silent:!0});else if(Wn(this,st))return Wn(this,st).continueRetry(),Wn(this,st).promise}if(_t&&this.setOptions(_t),!this.options.queryFn){const xt=this.observers.find(kt=>kt.options.queryFn);xt&&this.setOptions(xt.options)}const at=new AbortController,vt=xt=>{Object.defineProperty(xt,"signal",{enumerable:!0,get:()=>(Vo(this,pt,!0),at.signal)})},Mt=()=>{const xt=(0,Rt.ensureQueryFn)(this.options,mt),kt={queryKey:this.queryKey,meta:this.meta};return vt(kt),Vo(this,pt,!1),this.options.persister?this.options.persister(xt,kt,this):xt(kt)},ht={fetchOptions:mt,options:this.options,queryKey:this.queryKey,state:this.state,fetchFn:Mt};vt(ht),(Pt=this.options.behavior)==null||Pt.onFetch(ht,this),Vo(this,rt,this.state),(this.state.fetchStatus==="idle"||this.state.fetchMeta!==((zt=ht.fetchOptions)==null?void 0:zt.meta))&&Rs(this,ft,vm).call(this,{type:"fetch",meta:(Ht=ht.fetchOptions)==null?void 0:Ht.meta});const Lt=xt=>{var kt,jt,Wt,mn;(0,nt.isCancelledError)(xt)&&xt.silent||Rs(this,ft,vm).call(this,{type:"error",error:xt}),(0,nt.isCancelledError)(xt)||((jt=(kt=Wn(this,tt).config).onError)==null||jt.call(kt,xt,this),(mn=(Wt=Wn(this,tt).config).onSettled)==null||mn.call(Wt,this.state.data,xt,this)),this.isFetchingOptimistic||this.scheduleGc(),this.isFetchingOptimistic=!1};return Vo(this,st,(0,nt.createRetryer)({initialPromise:mt==null?void 0:mt.initialPromise,fn:ht.fetchFn,abort:at.abort.bind(at),onSuccess:xt=>{var kt,jt,Wt,mn;if(xt===void 0){Lt(new Error(`${this.queryHash} data is undefined`));return}try{this.setData(xt)}catch(Un){Lt(Un);return}(jt=(kt=Wn(this,tt).config).onSuccess)==null||jt.call(kt,xt,this),(mn=(Wt=Wn(this,tt).config).onSettled)==null||mn.call(Wt,xt,this.state.error,this),this.isFetchingOptimistic||this.scheduleGc(),this.isFetchingOptimistic=!1},onError:Lt,onFail:(xt,kt)=>{Rs(this,ft,vm).call(this,{type:"failed",failureCount:xt,error:kt})},onPause:()=>{Rs(this,ft,vm).call(this,{type:"pause"})},onContinue:()=>{Rs(this,ft,vm).call(this,{type:"continue"})},retry:ht.options.retry,retryDelay:ht.options.retryDelay,networkMode:ht.options.networkMode,canRun:()=>!0})),Wn(this,st).start()}},it=new WeakMap,rt=new WeakMap,tt=new WeakMap,st=new WeakMap,gt=new WeakMap,pt=new WeakMap,ft=new WeakSet,vm=function(_t){const mt=at=>{switch(_t.type){case"failed":return{...at,fetchFailureCount:_t.failureCount,fetchFailureReason:_t.error};case"pause":return{...at,fetchStatus:"paused"};case"continue":return{...at,fetchStatus:"fetching"};case"fetch":return{...at,...et(at.data,this.options),fetchMeta:_t.meta??null};case"success":return{...at,data:_t.data,dataUpdateCount:at.dataUpdateCount+1,dataUpdatedAt:_t.dataUpdatedAt??Date.now(),error:null,isInvalidated:!1,status:"success",...!_t.manual&&{fetchStatus:"idle",fetchFailureCount:0,fetchFailureReason:null}};case"error":const vt=_t.error;return(0,nt.isCancelledError)(vt)&&vt.revert&&Wn(this,rt)?{...Wn(this,rt),fetchStatus:"idle"}:{...at,error:vt,errorUpdateCount:at.errorUpdateCount+1,errorUpdatedAt:Date.now(),fetchFailureCount:at.fetchFailureCount+1,fetchFailureReason:vt,fetchStatus:"idle",status:"error"};case"invalidate":return{...at,isInvalidated:!0};case"setState":return{...at,..._t.state}}};this.state=mt(this.state),bt.notifyManager.batch(()=>{this.observers.forEach(at=>{at.onQueryUpdate()}),Wn(this,tt).notify({query:this,type:"updated",action:_t})})},ct);function et(lt,_t){return{fetchFailureCount:0,fetchFailureReason:null,fetchStatus:(0,nt.canFetch)(_t.networkMode)?"fetching":"paused",...lt===void 0&&{error:null,status:"pending"}}}function ot(lt){const _t=typeof lt.initialData=="function"?lt.initialData():lt.initialData,mt=_t!==void 0,at=mt?typeof lt.initialDataUpdatedAt=="function"?lt.initialDataUpdatedAt():lt.initialDataUpdatedAt:0;return{data:_t,dataUpdateCount:0,dataUpdatedAt:mt?at??Date.now():0,error:null,errorUpdateCount:0,errorUpdatedAt:0,fetchFailureCount:0,fetchFailureReason:null,fetchMeta:null,isInvalidated:!1,status:mt?"success":"pending",fetchStatus:"idle"}}return query}var queryCache,hasRequiredQueryCache;function requireQueryCache(){var et,ot;if(hasRequiredQueryCache)return queryCache;hasRequiredQueryCache=1;var _=Object.defineProperty,b=Object.getOwnPropertyDescriptor,$=Object.getOwnPropertyNames,_e=Object.prototype.hasOwnProperty,ut=(it,rt)=>{for(var tt in rt)_(it,tt,{get:rt[tt],enumerable:!0})},yt=(it,rt,tt,st)=>{if(rt&&typeof rt=="object"||typeof rt=="function")for(let gt of $(rt))!_e.call(it,gt)&&gt!==tt&&_(it,gt,{get:()=>rt[gt],enumerable:!(st=b(rt,gt))||st.enumerable});return it},wt=it=>yt(_({},"__esModule",{value:!0}),it),Ct={};ut(Ct,{QueryCache:()=>y}),queryCache=wt(Ct);var Rt=requireUtils$1(),bt=requireQuery(),nt=requireNotifyManager(),F=requireSubscribable(),y=(ot=class extends F.Subscribable{constructor(rt={}){super();ls(this,et);this.config=rt,Vo(this,et,new Map)}build(rt,tt,st){const gt=tt.queryKey,pt=tt.queryHash??(0,Rt.hashQueryKeyByOptions)(gt,tt);let ft=this.get(pt);return ft||(ft=new bt.Query({cache:this,queryKey:gt,queryHash:pt,options:rt.defaultQueryOptions(tt),state:st,defaultOptions:rt.getQueryDefaults(gt)}),this.add(ft)),ft}add(rt){Wn(this,et).has(rt.queryHash)||(Wn(this,et).set(rt.queryHash,rt),this.notify({type:"added",query:rt}))}remove(rt){const tt=Wn(this,et).get(rt.queryHash);tt&&(rt.destroy(),tt===rt&&Wn(this,et).delete(rt.queryHash),this.notify({type:"removed",query:rt}))}clear(){nt.notifyManager.batch(()=>{this.getAll().forEach(rt=>{this.remove(rt)})})}get(rt){return Wn(this,et).get(rt)}getAll(){return[...Wn(this,et).values()]}find(rt){const tt={exact:!0,...rt};return this.getAll().find(st=>(0,Rt.matchQuery)(tt,st))}findAll(rt={}){const tt=this.getAll();return Object.keys(rt).length>0?tt.filter(st=>(0,Rt.matchQuery)(rt,st)):tt}notify(rt){nt.notifyManager.batch(()=>{this.listeners.forEach(tt=>{tt(rt)})})}onFocus(){nt.notifyManager.batch(()=>{this.getAll().forEach(rt=>{rt.onFocus()})})}onOnline(){nt.notifyManager.batch(()=>{this.getAll().forEach(rt=>{rt.onOnline()})})}},et=new WeakMap,ot);return queryCache}var mutation,hasRequiredMutation;function requireMutation(){var et,ot,it,rt,km,st;if(hasRequiredMutation)return mutation;hasRequiredMutation=1;var _=Object.defineProperty,b=Object.getOwnPropertyDescriptor,$=Object.getOwnPropertyNames,_e=Object.prototype.hasOwnProperty,ut=(gt,pt)=>{for(var ft in pt)_(gt,ft,{get:pt[ft],enumerable:!0})},yt=(gt,pt,ft,dt)=>{if(pt&&typeof pt=="object"||typeof pt=="function")for(let ct of $(pt))!_e.call(gt,ct)&&ct!==ft&&_(gt,ct,{get:()=>pt[ct],enumerable:!(dt=b(pt,ct))||dt.enumerable});return gt},wt=gt=>yt(_({},"__esModule",{value:!0}),gt),Ct={};ut(Ct,{Mutation:()=>F,getDefaultState:()=>y}),mutation=wt(Ct);var Rt=requireNotifyManager(),bt=requireRemovable(),nt=requireRetryer(),F=(st=class extends bt.Removable{constructor(pt){super();ls(this,rt);ls(this,et);ls(this,ot);ls(this,it);this.mutationId=pt.mutationId,Vo(this,ot,pt.mutationCache),Vo(this,et,[]),this.state=pt.state||y(),this.setOptions(pt.options),this.scheduleGc()}setOptions(pt){this.options=pt,this.updateGcTime(this.options.gcTime)}get meta(){return this.options.meta}addObserver(pt){Wn(this,et).includes(pt)||(Wn(this,et).push(pt),this.clearGcTimeout(),Wn(this,ot).notify({type:"observerAdded",mutation:this,observer:pt}))}removeObserver(pt){Vo(this,et,Wn(this,et).filter(ft=>ft!==pt)),this.scheduleGc(),Wn(this,ot).notify({type:"observerRemoved",mutation:this,observer:pt})}optionalRemove(){Wn(this,et).length||(this.state.status==="pending"?this.scheduleGc():Wn(this,ot).remove(this))}continue(){var pt;return((pt=Wn(this,it))==null?void 0:pt.continue())??this.execute(this.state.variables)}async execute(pt){var ct,lt,_t,mt,at,vt,Mt,ht,Lt,Pt,zt,Ht,xt,kt,jt,Wt,mn,Un,Yn,Et;Vo(this,it,(0,nt.createRetryer)({fn:()=>this.options.mutationFn?this.options.mutationFn(pt):Promise.reject(new Error("No mutationFn found")),onFail:(br,Fr)=>{Rs(this,rt,km).call(this,{type:"failed",failureCount:br,error:Fr})},onPause:()=>{Rs(this,rt,km).call(this,{type:"pause"})},onContinue:()=>{Rs(this,rt,km).call(this,{type:"continue"})},retry:this.options.retry??0,retryDelay:this.options.retryDelay,networkMode:this.options.networkMode,canRun:()=>Wn(this,ot).canRun(this)}));const ft=this.state.status==="pending",dt=!Wn(this,it).canStart();try{if(!ft){Rs(this,rt,km).call(this,{type:"pending",variables:pt,isPaused:dt}),await((lt=(ct=Wn(this,ot).config).onMutate)==null?void 0:lt.call(ct,pt,this));const Fr=await((mt=(_t=this.options).onMutate)==null?void 0:mt.call(_t,pt));Fr!==this.state.context&&Rs(this,rt,km).call(this,{type:"pending",context:Fr,variables:pt,isPaused:dt})}const br=await Wn(this,it).start();return await((vt=(at=Wn(this,ot).config).onSuccess)==null?void 0:vt.call(at,br,pt,this.state.context,this)),await((ht=(Mt=this.options).onSuccess)==null?void 0:ht.call(Mt,br,pt,this.state.context)),await((Pt=(Lt=Wn(this,ot).config).onSettled)==null?void 0:Pt.call(Lt,br,null,this.state.variables,this.state.context,this)),await((Ht=(zt=this.options).onSettled)==null?void 0:Ht.call(zt,br,null,pt,this.state.context)),Rs(this,rt,km).call(this,{type:"success",data:br}),br}catch(br){try{throw await((kt=(xt=Wn(this,ot).config).onError)==null?void 0:kt.call(xt,br,pt,this.state.context,this)),await((Wt=(jt=this.options).onError)==null?void 0:Wt.call(jt,br,pt,this.state.context)),await((Un=(mn=Wn(this,ot).config).onSettled)==null?void 0:Un.call(mn,void 0,br,this.state.variables,this.state.context,this)),await((Et=(Yn=this.options).onSettled)==null?void 0:Et.call(Yn,void 0,br,pt,this.state.context)),br}finally{Rs(this,rt,km).call(this,{type:"error",error:br})}}finally{Wn(this,ot).runNext(this)}}},et=new WeakMap,ot=new WeakMap,it=new WeakMap,rt=new WeakSet,km=function(pt){const ft=dt=>{switch(pt.type){case"failed":return{...dt,failureCount:pt.failureCount,failureReason:pt.error};case"pause":return{...dt,isPaused:!0};case"continue":return{...dt,isPaused:!1};case"pending":return{...dt,context:pt.context,data:void 0,failureCount:0,failureReason:null,error:null,isPaused:pt.isPaused,status:"pending",variables:pt.variables,submittedAt:Date.now()};case"success":return{...dt,data:pt.data,failureCount:0,failureReason:null,error:null,status:"success",isPaused:!1};case"error":return{...dt,data:void 0,error:pt.error,failureCount:dt.failureCount+1,failureReason:pt.error,isPaused:!1,status:"error"}}};this.state=ft(this.state),Rt.notifyManager.batch(()=>{Wn(this,et).forEach(dt=>{dt.onMutationUpdate(pt)}),Wn(this,ot).notify({mutation:this,type:"updated",action:pt})})},st);function y(){return{context:void 0,data:void 0,error:null,failureCount:0,failureReason:null,isPaused:!1,status:"idle",variables:void 0,submittedAt:0}}return mutation}var mutationCache,hasRequiredMutationCache;function requireMutationCache(){var ot,it,rt;if(hasRequiredMutationCache)return mutationCache;hasRequiredMutationCache=1;var _=Object.defineProperty,b=Object.getOwnPropertyDescriptor,$=Object.getOwnPropertyNames,_e=Object.prototype.hasOwnProperty,ut=(tt,st)=>{for(var gt in st)_(tt,gt,{get:st[gt],enumerable:!0})},yt=(tt,st,gt,pt)=>{if(st&&typeof st=="object"||typeof st=="function")for(let ft of $(st))!_e.call(tt,ft)&&ft!==gt&&_(tt,ft,{get:()=>st[ft],enumerable:!(pt=b(st,ft))||pt.enumerable});return tt},wt=tt=>yt(_({},"__esModule",{value:!0}),tt),Ct={};ut(Ct,{MutationCache:()=>y}),mutationCache=wt(Ct);var Rt=requireNotifyManager(),bt=requireMutation(),nt=requireUtils$1(),F=requireSubscribable(),y=(rt=class extends F.Subscribable{constructor(st={}){super();ls(this,ot);ls(this,it);this.config=st,Vo(this,ot,new Map),Vo(this,it,Date.now())}build(st,gt,pt){const ft=new bt.Mutation({mutationCache:this,mutationId:++sv(this,it)._,options:st.defaultMutationOptions(gt),state:pt});return this.add(ft),ft}add(st){const gt=et(st),pt=Wn(this,ot).get(gt)??[];pt.push(st),Wn(this,ot).set(gt,pt),this.notify({type:"added",mutation:st})}remove(st){var pt;const gt=et(st);if(Wn(this,ot).has(gt)){const ft=(pt=Wn(this,ot).get(gt))==null?void 0:pt.filter(dt=>dt!==st);ft&&(ft.length===0?Wn(this,ot).delete(gt):Wn(this,ot).set(gt,ft))}this.notify({type:"removed",mutation:st})}canRun(st){var pt;const gt=(pt=Wn(this,ot).get(et(st)))==null?void 0:pt.find(ft=>ft.state.status==="pending");return!gt||gt===st}runNext(st){var pt;const gt=(pt=Wn(this,ot).get(et(st)))==null?void 0:pt.find(ft=>ft!==st&&ft.state.isPaused);return(gt==null?void 0:gt.continue())??Promise.resolve()}clear(){Rt.notifyManager.batch(()=>{this.getAll().forEach(st=>{this.remove(st)})})}getAll(){return[...Wn(this,ot).values()].flat()}find(st){const gt={exact:!0,...st};return this.getAll().find(pt=>(0,nt.matchMutation)(gt,pt))}findAll(st={}){return this.getAll().filter(gt=>(0,nt.matchMutation)(st,gt))}notify(st){Rt.notifyManager.batch(()=>{this.listeners.forEach(gt=>{gt(st)})})}resumePausedMutations(){const st=this.getAll().filter(gt=>gt.state.isPaused);return Rt.notifyManager.batch(()=>Promise.all(st.map(gt=>gt.continue().catch(nt.noop))))}},ot=new WeakMap,it=new WeakMap,rt);function et(tt){var st;return((st=tt.options.scope)==null?void 0:st.id)??String(tt.mutationId)}return mutationCache}var infiniteQueryBehavior_1,hasRequiredInfiniteQueryBehavior;function requireInfiniteQueryBehavior(){if(hasRequiredInfiniteQueryBehavior)return infiniteQueryBehavior_1;hasRequiredInfiniteQueryBehavior=1;var _=Object.defineProperty,b=Object.getOwnPropertyDescriptor,$=Object.getOwnPropertyNames,_e=Object.prototype.hasOwnProperty,ut=(ot,it)=>{for(var rt in it)_(ot,rt,{get:it[rt],enumerable:!0})},yt=(ot,it,rt,tt)=>{if(it&&typeof it=="object"||typeof it=="function")for(let st of $(it))!_e.call(ot,st)&&st!==rt&&_(ot,st,{get:()=>it[st],enumerable:!(tt=b(it,st))||tt.enumerable});return ot},wt=ot=>yt(_({},"__esModule",{value:!0}),ot),Ct={};ut(Ct,{hasNextPage:()=>y,hasPreviousPage:()=>et,infiniteQueryBehavior:()=>bt}),infiniteQueryBehavior_1=wt(Ct);var Rt=requireUtils$1();function bt(ot){return{onFetch:(it,rt)=>{var lt,_t,mt,at,vt;const tt=it.options,st=(mt=(_t=(lt=it.fetchOptions)==null?void 0:lt.meta)==null?void 0:_t.fetchMore)==null?void 0:mt.direction,gt=((at=it.state.data)==null?void 0:at.pages)||[],pt=((vt=it.state.data)==null?void 0:vt.pageParams)||[];let ft={pages:[],pageParams:[]},dt=0;const ct=async()=>{let Mt=!1;const ht=zt=>{Object.defineProperty(zt,"signal",{enumerable:!0,get:()=>(it.signal.aborted?Mt=!0:it.signal.addEventListener("abort",()=>{Mt=!0}),it.signal)})},Lt=(0,Rt.ensureQueryFn)(it.options,it.fetchOptions),Pt=async(zt,Ht,xt)=>{if(Mt)return Promise.reject();if(Ht==null&&zt.pages.length)return Promise.resolve(zt);const kt={queryKey:it.queryKey,pageParam:Ht,direction:xt?"backward":"forward",meta:it.options.meta};ht(kt);const jt=await Lt(kt),{maxPages:Wt}=it.options,mn=xt?Rt.addToStart:Rt.addToEnd;return{pages:mn(zt.pages,jt,Wt),pageParams:mn(zt.pageParams,Ht,Wt)}};if(st&&gt.length){const zt=st==="backward",Ht=zt?F:nt,xt={pages:gt,pageParams:pt},kt=Ht(tt,xt);ft=await Pt(xt,kt,zt)}else{const zt=ot??gt.length;do{const Ht=dt===0?pt[0]??tt.initialPageParam:nt(tt,ft);if(dt>0&&Ht==null)break;ft=await Pt(ft,Ht),dt++}while(dt<zt)}return ft};it.options.persister?it.fetchFn=()=>{var Mt,ht;return(ht=(Mt=it.options).persister)==null?void 0:ht.call(Mt,ct,{queryKey:it.queryKey,meta:it.options.meta,signal:it.signal},rt)}:it.fetchFn=ct}}}function nt(ot,{pages:it,pageParams:rt}){const tt=it.length-1;return it.length>0?ot.getNextPageParam(it[tt],it,rt[tt],rt):void 0}function F(ot,{pages:it,pageParams:rt}){var tt;return it.length>0?(tt=ot.getPreviousPageParam)==null?void 0:tt.call(ot,it[0],it,rt[0],rt):void 0}function y(ot,it){return it?nt(ot,it)!=null:!1}function et(ot,it){return!it||!ot.getPreviousPageParam?!1:F(ot,it)!=null}return infiniteQueryBehavior_1}var queryClient,hasRequiredQueryClient;function requireQueryClient(){var rt,tt,st,gt,pt,ft,dt,ct,lt;if(hasRequiredQueryClient)return queryClient;hasRequiredQueryClient=1;var _=Object.defineProperty,b=Object.getOwnPropertyDescriptor,$=Object.getOwnPropertyNames,_e=Object.prototype.hasOwnProperty,ut=(_t,mt)=>{for(var at in mt)_(_t,at,{get:mt[at],enumerable:!0})},yt=(_t,mt,at,vt)=>{if(mt&&typeof mt=="object"||typeof mt=="function")for(let Mt of $(mt))!_e.call(_t,Mt)&&Mt!==at&&_(_t,Mt,{get:()=>mt[Mt],enumerable:!(vt=b(mt,Mt))||vt.enumerable});return _t},wt=_t=>yt(_({},"__esModule",{value:!0}),_t),Ct={};ut(Ct,{QueryClient:()=>it}),queryClient=wt(Ct);var Rt=requireUtils$1(),bt=requireQueryCache(),nt=requireMutationCache(),F=requireFocusManager(),y=requireOnlineManager(),et=requireNotifyManager(),ot=requireInfiniteQueryBehavior(),it=(lt=class{constructor(_t={}){ls(this,rt);ls(this,tt);ls(this,st);ls(this,gt);ls(this,pt);ls(this,ft);ls(this,dt);ls(this,ct);Vo(this,rt,_t.queryCache||new bt.QueryCache),Vo(this,tt,_t.mutationCache||new nt.MutationCache),Vo(this,st,_t.defaultOptions||{}),Vo(this,gt,new Map),Vo(this,pt,new Map),Vo(this,ft,0)}mount(){sv(this,ft)._++,Wn(this,ft)===1&&(Vo(this,dt,F.focusManager.subscribe(async _t=>{_t&&(await this.resumePausedMutations(),Wn(this,rt).onFocus())})),Vo(this,ct,y.onlineManager.subscribe(async _t=>{_t&&(await this.resumePausedMutations(),Wn(this,rt).onOnline())})))}unmount(){var _t,mt;sv(this,ft)._--,Wn(this,ft)===0&&((_t=Wn(this,dt))==null||_t.call(this),Vo(this,dt,void 0),(mt=Wn(this,ct))==null||mt.call(this),Vo(this,ct,void 0))}isFetching(_t){return Wn(this,rt).findAll({..._t,fetchStatus:"fetching"}).length}isMutating(_t){return Wn(this,tt).findAll({..._t,status:"pending"}).length}getQueryData(_t){var at;const mt=this.defaultQueryOptions({queryKey:_t});return(at=Wn(this,rt).get(mt.queryHash))==null?void 0:at.state.data}ensureQueryData(_t){const mt=this.getQueryData(_t.queryKey);if(mt===void 0)return this.fetchQuery(_t);{const at=this.defaultQueryOptions(_t),vt=Wn(this,rt).build(this,at);return _t.revalidateIfStale&&vt.isStaleByTime((0,Rt.resolveStaleTime)(at.staleTime,vt))&&this.prefetchQuery(at),Promise.resolve(mt)}}getQueriesData(_t){return Wn(this,rt).findAll(_t).map(({queryKey:mt,state:at})=>{const vt=at.data;return[mt,vt]})}setQueryData(_t,mt,at){const vt=this.defaultQueryOptions({queryKey:_t}),Mt=Wn(this,rt).get(vt.queryHash),ht=Mt==null?void 0:Mt.state.data,Lt=(0,Rt.functionalUpdate)(mt,ht);if(Lt!==void 0)return Wn(this,rt).build(this,vt).setData(Lt,{...at,manual:!0})}setQueriesData(_t,mt,at){return et.notifyManager.batch(()=>Wn(this,rt).findAll(_t).map(({queryKey:vt})=>[vt,this.setQueryData(vt,mt,at)]))}getQueryState(_t){var at;const mt=this.defaultQueryOptions({queryKey:_t});return(at=Wn(this,rt).get(mt.queryHash))==null?void 0:at.state}removeQueries(_t){const mt=Wn(this,rt);et.notifyManager.batch(()=>{mt.findAll(_t).forEach(at=>{mt.remove(at)})})}resetQueries(_t,mt){const at=Wn(this,rt),vt={type:"active",..._t};return et.notifyManager.batch(()=>(at.findAll(_t).forEach(Mt=>{Mt.reset()}),this.refetchQueries(vt,mt)))}cancelQueries(_t={},mt={}){const at={revert:!0,...mt},vt=et.notifyManager.batch(()=>Wn(this,rt).findAll(_t).map(Mt=>Mt.cancel(at)));return Promise.all(vt).then(Rt.noop).catch(Rt.noop)}invalidateQueries(_t={},mt={}){return et.notifyManager.batch(()=>{if(Wn(this,rt).findAll(_t).forEach(vt=>{vt.invalidate()}),_t.refetchType==="none")return Promise.resolve();const at={..._t,type:_t.refetchType??_t.type??"active"};return this.refetchQueries(at,mt)})}refetchQueries(_t={},mt){const at={...mt,cancelRefetch:(mt==null?void 0:mt.cancelRefetch)??!0},vt=et.notifyManager.batch(()=>Wn(this,rt).findAll(_t).filter(Mt=>!Mt.isDisabled()).map(Mt=>{let ht=Mt.fetch(void 0,at);return at.throwOnError||(ht=ht.catch(Rt.noop)),Mt.state.fetchStatus==="paused"?Promise.resolve():ht}));return Promise.all(vt).then(Rt.noop)}fetchQuery(_t){const mt=this.defaultQueryOptions(_t);mt.retry===void 0&&(mt.retry=!1);const at=Wn(this,rt).build(this,mt);return at.isStaleByTime((0,Rt.resolveStaleTime)(mt.staleTime,at))?at.fetch(mt):Promise.resolve(at.state.data)}prefetchQuery(_t){return this.fetchQuery(_t).then(Rt.noop).catch(Rt.noop)}fetchInfiniteQuery(_t){return _t.behavior=(0,ot.infiniteQueryBehavior)(_t.pages),this.fetchQuery(_t)}prefetchInfiniteQuery(_t){return this.fetchInfiniteQuery(_t).then(Rt.noop).catch(Rt.noop)}ensureInfiniteQueryData(_t){return _t.behavior=(0,ot.infiniteQueryBehavior)(_t.pages),this.ensureQueryData(_t)}resumePausedMutations(){return y.onlineManager.isOnline()?Wn(this,tt).resumePausedMutations():Promise.resolve()}getQueryCache(){return Wn(this,rt)}getMutationCache(){return Wn(this,tt)}getDefaultOptions(){return Wn(this,st)}setDefaultOptions(_t){Vo(this,st,_t)}setQueryDefaults(_t,mt){Wn(this,gt).set((0,Rt.hashKey)(_t),{queryKey:_t,defaultOptions:mt})}getQueryDefaults(_t){const mt=[...Wn(this,gt).values()];let at={};return mt.forEach(vt=>{(0,Rt.partialMatchKey)(_t,vt.queryKey)&&(at={...at,...vt.defaultOptions})}),at}setMutationDefaults(_t,mt){Wn(this,pt).set((0,Rt.hashKey)(_t),{mutationKey:_t,defaultOptions:mt})}getMutationDefaults(_t){const mt=[...Wn(this,pt).values()];let at={};return mt.forEach(vt=>{(0,Rt.partialMatchKey)(_t,vt.mutationKey)&&(at={...at,...vt.defaultOptions})}),at}defaultQueryOptions(_t){if(_t._defaulted)return _t;const mt={...Wn(this,st).queries,...this.getQueryDefaults(_t.queryKey),..._t,_defaulted:!0};return mt.queryHash||(mt.queryHash=(0,Rt.hashQueryKeyByOptions)(mt.queryKey,mt)),mt.refetchOnReconnect===void 0&&(mt.refetchOnReconnect=mt.networkMode!=="always"),mt.throwOnError===void 0&&(mt.throwOnError=!!mt.suspense),!mt.networkMode&&mt.persister&&(mt.networkMode="offlineFirst"),mt.enabled!==!0&&mt.queryFn===Rt.skipToken&&(mt.enabled=!1),mt}defaultMutationOptions(_t){return _t!=null&&_t._defaulted?_t:{...Wn(this,st).mutations,...(_t==null?void 0:_t.mutationKey)&&this.getMutationDefaults(_t.mutationKey),..._t,_defaulted:!0}}clear(){Wn(this,rt).clear(),Wn(this,tt).clear()}},rt=new WeakMap,tt=new WeakMap,st=new WeakMap,gt=new WeakMap,pt=new WeakMap,ft=new WeakMap,dt=new WeakMap,ct=new WeakMap,lt);return queryClient}var queryObserver,hasRequiredQueryObserver;function requireQueryObserver(){var ft,dt,ct,lt,_t,mt,at,vt,Mt,ht,Lt,Pt,zt,Ht,xt,kt,Oy,OE,CE,ME,DE,RE,SE,TE,bI,Po;if(hasRequiredQueryObserver)return queryObserver;hasRequiredQueryObserver=1;var _=Object.defineProperty,b=Object.getOwnPropertyDescriptor,$=Object.getOwnPropertyNames,_e=Object.prototype.hasOwnProperty,ut=(At,Ir)=>{for(var Hr in Ir)_(At,Hr,{get:Ir[Hr],enumerable:!0})},yt=(At,Ir,Hr,$n)=>{if(Ir&&typeof Ir=="object"||typeof Ir=="function")for(let fo of $(Ir))!_e.call(At,fo)&&fo!==Hr&&_(At,fo,{get:()=>Ir[fo],enumerable:!($n=b(Ir,fo))||$n.enumerable});return At},wt=At=>yt(_({},"__esModule",{value:!0}),At),Ct={};ut(Ct,{QueryObserver:()=>ot}),queryObserver=wt(Ct);var Rt=requireFocusManager(),bt=requireNotifyManager(),nt=requireQuery(),F=requireSubscribable(),y=requireThenable(),et=requireUtils$1(),ot=(Po=class extends F.Subscribable{constructor(Ir,Hr){super();ls(this,kt);ls(this,ft);ls(this,dt);ls(this,ct);ls(this,lt);ls(this,_t);ls(this,mt);ls(this,at);ls(this,vt);ls(this,Mt);ls(this,ht);ls(this,Lt);ls(this,Pt);ls(this,zt);ls(this,Ht);ls(this,xt,new Set);this.options=Hr,Vo(this,ft,Ir),Vo(this,vt,null),Vo(this,at,(0,y.pendingThenable)()),this.options.experimental_prefetchInRender||Wn(this,at).reject(new Error("experimental_prefetchInRender feature flag is not enabled")),this.bindMethods(),this.setOptions(Hr)}bindMethods(){this.refetch=this.refetch.bind(this)}onSubscribe(){this.listeners.size===1&&(Wn(this,dt).addObserver(this),rt(Wn(this,dt),this.options)?Rs(this,kt,Oy).call(this):this.updateResult(),Rs(this,kt,DE).call(this))}onUnsubscribe(){this.hasListeners()||this.destroy()}shouldFetchOnReconnect(){return tt(Wn(this,dt),this.options,this.options.refetchOnReconnect)}shouldFetchOnWindowFocus(){return tt(Wn(this,dt),this.options,this.options.refetchOnWindowFocus)}destroy(){this.listeners=new Set,Rs(this,kt,RE).call(this),Rs(this,kt,SE).call(this),Wn(this,dt).removeObserver(this)}setOptions(Ir,Hr){const $n=this.options,fo=Wn(this,dt);if(this.options=Wn(this,ft).defaultQueryOptions(Ir),this.options.enabled!==void 0&&typeof this.options.enabled!="boolean"&&typeof this.options.enabled!="function"&&typeof(0,et.resolveEnabled)(this.options.enabled,Wn(this,dt))!="boolean")throw new Error("Expected enabled to be a boolean or a callback that returns a boolean");Rs(this,kt,TE).call(this),Wn(this,dt).setOptions(this.options),$n._defaulted&&!(0,et.shallowEqualObjects)(this.options,$n)&&Wn(this,ft).getQueryCache().notify({type:"observerOptionsUpdated",query:Wn(this,dt),observer:this});const Bo=this.hasListeners();Bo&&st(Wn(this,dt),fo,this.options,$n)&&Rs(this,kt,Oy).call(this),this.updateResult(Hr),Bo&&(Wn(this,dt)!==fo||(0,et.resolveEnabled)(this.options.enabled,Wn(this,dt))!==(0,et.resolveEnabled)($n.enabled,Wn(this,dt))||(0,et.resolveStaleTime)(this.options.staleTime,Wn(this,dt))!==(0,et.resolveStaleTime)($n.staleTime,Wn(this,dt)))&&Rs(this,kt,OE).call(this);const No=Rs(this,kt,CE).call(this);Bo&&(Wn(this,dt)!==fo||(0,et.resolveEnabled)(this.options.enabled,Wn(this,dt))!==(0,et.resolveEnabled)($n.enabled,Wn(this,dt))||No!==Wn(this,Ht))&&Rs(this,kt,ME).call(this,No)}getOptimisticResult(Ir){const Hr=Wn(this,ft).getQueryCache().build(Wn(this,ft),Ir),$n=this.createResult(Hr,Ir);return pt(this,$n)&&(Vo(this,lt,$n),Vo(this,mt,this.options),Vo(this,_t,Wn(this,dt).state)),$n}getCurrentResult(){return Wn(this,lt)}trackResult(Ir,Hr){const $n={};return Object.keys(Ir).forEach(fo=>{Object.defineProperty($n,fo,{configurable:!1,enumerable:!0,get:()=>(this.trackProp(fo),Hr==null||Hr(fo),Ir[fo])})}),$n}trackProp(Ir){Wn(this,xt).add(Ir)}getCurrentQuery(){return Wn(this,dt)}refetch({...Ir}={}){return this.fetch({...Ir})}fetchOptimistic(Ir){const Hr=Wn(this,ft).defaultQueryOptions(Ir),$n=Wn(this,ft).getQueryCache().build(Wn(this,ft),Hr);return $n.isFetchingOptimistic=!0,$n.fetch().then(()=>this.createResult($n,Hr))}fetch(Ir){return Rs(this,kt,Oy).call(this,{...Ir,cancelRefetch:Ir.cancelRefetch??!0}).then(()=>(this.updateResult(),Wn(this,lt)))}createResult(Ir,Hr){var bu;const $n=Wn(this,dt),fo=this.options,Bo=Wn(this,lt),No=Wn(this,_t),rs=Wn(this,mt),ds=Ir!==$n?Ir.state:Wn(this,ct),{state:ps}=Ir;let ho={...ps},ts=!1,ks;if(Hr._optimisticResults){const Zl=this.hasListeners(),jo=!Zl&&rt(Ir,Hr),Fs=Zl&&st(Ir,$n,Hr,fo);(jo||Fs)&&(ho={...ho,...(0,nt.fetchState)(ps.data,Ir.options)}),Hr._optimisticResults==="isRestoring"&&(ho.fetchStatus="idle")}let{error:Wl,errorUpdatedAt:ru,status:Go}=ho;if(Hr.select&&ho.data!==void 0)if(Bo&&ho.data===(No==null?void 0:No.data)&&Hr.select===Wn(this,Mt))ks=Wn(this,ht);else try{Vo(this,Mt,Hr.select),ks=Hr.select(ho.data),ks=(0,et.replaceData)(Bo==null?void 0:Bo.data,ks,Hr),Vo(this,ht,ks),Vo(this,vt,null)}catch(Zl){Vo(this,vt,Zl)}else ks=ho.data;if(Hr.placeholderData!==void 0&&ks===void 0&&Go==="pending"){let Zl;if(Bo!=null&&Bo.isPlaceholderData&&Hr.placeholderData===(rs==null?void 0:rs.placeholderData))Zl=Bo.data;else if(Zl=typeof Hr.placeholderData=="function"?Hr.placeholderData((bu=Wn(this,Lt))==null?void 0:bu.state.data,Wn(this,Lt)):Hr.placeholderData,Hr.select&&Zl!==void 0)try{Zl=Hr.select(Zl),Vo(this,vt,null)}catch(jo){Vo(this,vt,jo)}Zl!==void 0&&(Go="success",ks=(0,et.replaceData)(Bo==null?void 0:Bo.data,Zl,Hr),ts=!0)}Wn(this,vt)&&(Wl=Wn(this,vt),ks=Wn(this,ht),ru=Date.now(),Go="error");const ou=ho.fetchStatus==="fetching",_u=Go==="pending",gu=Go==="error",Ul=_u&&ou,Ol=ks!==void 0;return{status:Go,fetchStatus:ho.fetchStatus,isPending:_u,isSuccess:Go==="success",isError:gu,isInitialLoading:Ul,isLoading:Ul,data:ks,dataUpdatedAt:ho.dataUpdatedAt,error:Wl,errorUpdatedAt:ru,failureCount:ho.fetchFailureCount,failureReason:ho.fetchFailureReason,errorUpdateCount:ho.errorUpdateCount,isFetched:ho.dataUpdateCount>0||ho.errorUpdateCount>0,isFetchedAfterMount:ho.dataUpdateCount>ds.dataUpdateCount||ho.errorUpdateCount>ds.errorUpdateCount,isFetching:ou,isRefetching:ou&&!_u,isLoadingError:gu&&!Ol,isPaused:ho.fetchStatus==="paused",isPlaceholderData:ts,isRefetchError:gu&&Ol,isStale:gt(Ir,Hr),refetch:this.refetch,promise:Wn(this,at)}}updateResult(Ir){const Hr=Wn(this,lt),$n=this.createResult(Wn(this,dt),this.options);if(Vo(this,_t,Wn(this,dt).state),Vo(this,mt,this.options),Wn(this,_t).data!==void 0&&Vo(this,Lt,Wn(this,dt)),(0,et.shallowEqualObjects)($n,Hr))return;if(this.options.experimental_prefetchInRender){const No=ds=>{$n.status==="error"?ds.reject($n.error):$n.data!==void 0&&ds.resolve($n.data)},rs=()=>{const ds=Vo(this,at,$n.promise=(0,y.pendingThenable)());No(ds)},us=Wn(this,at);switch(us.status){case"pending":No(us);break;case"fulfilled":($n.status==="error"||$n.data!==us.value)&&rs();break;case"rejected":($n.status!=="error"||$n.error!==us.reason)&&rs();break}}Vo(this,lt,$n);const fo={},Bo=()=>{if(!Hr)return!0;const{notifyOnChangeProps:No}=this.options,rs=typeof No=="function"?No():No;if(rs==="all"||!rs&&!Wn(this,xt).size)return!0;const us=new Set(rs??Wn(this,xt));return this.options.throwOnError&&us.add("error"),Object.keys(Wn(this,lt)).some(ds=>{const ps=ds;return Wn(this,lt)[ps]!==Hr[ps]&&us.has(ps)})};(Ir==null?void 0:Ir.listeners)!==!1&&Bo()&&(fo.listeners=!0),Rs(this,kt,bI).call(this,{...fo,...Ir})}onQueryUpdate(){this.updateResult(),this.hasListeners()&&Rs(this,kt,DE).call(this)}},ft=new WeakMap,dt=new WeakMap,ct=new WeakMap,lt=new WeakMap,_t=new WeakMap,mt=new WeakMap,at=new WeakMap,vt=new WeakMap,Mt=new WeakMap,ht=new WeakMap,Lt=new WeakMap,Pt=new WeakMap,zt=new WeakMap,Ht=new WeakMap,xt=new WeakMap,kt=new WeakSet,Oy=function(Ir){Rs(this,kt,TE).call(this);let Hr=Wn(this,dt).fetch(this.options,Ir);return Ir!=null&&Ir.throwOnError||(Hr=Hr.catch(et.noop)),Hr},OE=function(){Rs(this,kt,RE).call(this);const Ir=(0,et.resolveStaleTime)(this.options.staleTime,Wn(this,dt));if(et.isServer||Wn(this,lt).isStale||!(0,et.isValidTimeout)(Ir))return;const $n=(0,et.timeUntilStale)(Wn(this,lt).dataUpdatedAt,Ir)+1;Vo(this,Pt,setTimeout(()=>{Wn(this,lt).isStale||this.updateResult()},$n))},CE=function(){return(typeof this.options.refetchInterval=="function"?this.options.refetchInterval(Wn(this,dt)):this.options.refetchInterval)??!1},ME=function(Ir){Rs(this,kt,SE).call(this),Vo(this,Ht,Ir),!(et.isServer||(0,et.resolveEnabled)(this.options.enabled,Wn(this,dt))===!1||!(0,et.isValidTimeout)(Wn(this,Ht))||Wn(this,Ht)===0)&&Vo(this,zt,setInterval(()=>{(this.options.refetchIntervalInBackground||Rt.focusManager.isFocused())&&Rs(this,kt,Oy).call(this)},Wn(this,Ht)))},DE=function(){Rs(this,kt,OE).call(this),Rs(this,kt,ME).call(this,Rs(this,kt,CE).call(this))},RE=function(){Wn(this,Pt)&&(clearTimeout(Wn(this,Pt)),Vo(this,Pt,void 0))},SE=function(){Wn(this,zt)&&(clearInterval(Wn(this,zt)),Vo(this,zt,void 0))},TE=function(){const Ir=Wn(this,ft).getQueryCache().build(Wn(this,ft),this.options);if(Ir===Wn(this,dt))return;const Hr=Wn(this,dt);Vo(this,dt,Ir),Vo(this,ct,Ir.state),this.hasListeners()&&(Hr==null||Hr.removeObserver(this),Ir.addObserver(this))},bI=function(Ir){bt.notifyManager.batch(()=>{Ir.listeners&&this.listeners.forEach(Hr=>{Hr(Wn(this,lt))}),Wn(this,ft).getQueryCache().notify({query:Wn(this,dt),type:"observerResultsUpdated"})})},Po);function it(At,Ir){return(0,et.resolveEnabled)(Ir.enabled,At)!==!1&&At.state.data===void 0&&!(At.state.status==="error"&&Ir.retryOnMount===!1)}function rt(At,Ir){return it(At,Ir)||At.state.data!==void 0&&tt(At,Ir,Ir.refetchOnMount)}function tt(At,Ir,Hr){if((0,et.resolveEnabled)(Ir.enabled,At)!==!1){const $n=typeof Hr=="function"?Hr(At):Hr;return $n==="always"||$n!==!1&&gt(At,Ir)}return!1}function st(At,Ir,Hr,$n){return(At!==Ir||(0,et.resolveEnabled)($n.enabled,At)===!1)&&(!Hr.suspense||At.state.status!=="error")&&gt(At,Hr)}function gt(At,Ir){return(0,et.resolveEnabled)(Ir.enabled,At)!==!1&&At.isStaleByTime((0,et.resolveStaleTime)(Ir.staleTime,At))}function pt(At,Ir){return!(0,et.shallowEqualObjects)(At.getCurrentResult(),Ir)}return queryObserver}var queriesObserver,hasRequiredQueriesObserver;function requireQueriesObserver(){var it,rt,tt,st,gt,pt,ft,dt,ct,AE,jE,LE,kE,vt;if(hasRequiredQueriesObserver)return queriesObserver;hasRequiredQueriesObserver=1;var _=Object.defineProperty,b=Object.getOwnPropertyDescriptor,$=Object.getOwnPropertyNames,_e=Object.prototype.hasOwnProperty,ut=(Mt,ht)=>{for(var Lt in ht)_(Mt,Lt,{get:ht[Lt],enumerable:!0})},yt=(Mt,ht,Lt,Pt)=>{if(ht&&typeof ht=="object"||typeof ht=="function")for(let zt of $(ht))!_e.call(Mt,zt)&&zt!==Lt&&_(Mt,zt,{get:()=>ht[zt],enumerable:!(Pt=b(ht,zt))||Pt.enumerable});return Mt},wt=Mt=>yt(_({},"__esModule",{value:!0}),Mt),Ct={};ut(Ct,{QueriesObserver:()=>ot}),queriesObserver=wt(Ct);var Rt=requireNotifyManager(),bt=requireQueryObserver(),nt=requireSubscribable(),F=requireUtils$1();function y(Mt,ht){return Mt.filter(Lt=>!ht.includes(Lt))}function et(Mt,ht,Lt){const Pt=Mt.slice(0);return Pt[ht]=Lt,Pt}var ot=(vt=class extends nt.Subscribable{constructor(ht,Lt,Pt){super();ls(this,ct);ls(this,it);ls(this,rt);ls(this,tt);ls(this,st);ls(this,gt);ls(this,pt);ls(this,ft);ls(this,dt);Vo(this,it,ht),Vo(this,st,Pt),Vo(this,tt,[]),Vo(this,gt,[]),Vo(this,rt,[]),this.setQueries(Lt)}onSubscribe(){this.listeners.size===1&&Wn(this,gt).forEach(ht=>{ht.subscribe(Lt=>{Rs(this,ct,LE).call(this,ht,Lt)})})}onUnsubscribe(){this.listeners.size||this.destroy()}destroy(){this.listeners=new Set,Wn(this,gt).forEach(ht=>{ht.destroy()})}setQueries(ht,Lt,Pt){Vo(this,tt,ht),Vo(this,st,Lt),Rt.notifyManager.batch(()=>{const zt=Wn(this,gt),Ht=Rs(this,ct,jE).call(this,Wn(this,tt));Ht.forEach(Wt=>Wt.observer.setOptions(Wt.defaultedQueryOptions,Pt));const xt=Ht.map(Wt=>Wt.observer),kt=xt.map(Wt=>Wt.getCurrentResult()),jt=xt.some((Wt,mn)=>Wt!==zt[mn]);zt.length===xt.length&&!jt||(Vo(this,gt,xt),Vo(this,rt,kt),this.hasListeners()&&(y(zt,xt).forEach(Wt=>{Wt.destroy()}),y(xt,zt).forEach(Wt=>{Wt.subscribe(mn=>{Rs(this,ct,LE).call(this,Wt,mn)})}),Rs(this,ct,kE).call(this)))})}getCurrentResult(){return Wn(this,rt)}getQueries(){return Wn(this,gt).map(ht=>ht.getCurrentQuery())}getObservers(){return Wn(this,gt)}getOptimisticResult(ht,Lt){const Pt=Rs(this,ct,jE).call(this,ht),zt=Pt.map(Ht=>Ht.observer.getOptimisticResult(Ht.defaultedQueryOptions));return[zt,Ht=>Rs(this,ct,AE).call(this,Ht??zt,Lt),()=>Pt.map((Ht,xt)=>{const kt=zt[xt];return Ht.defaultedQueryOptions.notifyOnChangeProps?kt:Ht.observer.trackResult(kt,jt=>{Pt.forEach(Wt=>{Wt.observer.trackProp(jt)})})})]}},it=new WeakMap,rt=new WeakMap,tt=new WeakMap,st=new WeakMap,gt=new WeakMap,pt=new WeakMap,ft=new WeakMap,dt=new WeakMap,ct=new WeakSet,AE=function(ht,Lt){return Lt?((!Wn(this,pt)||Wn(this,rt)!==Wn(this,dt)||Lt!==Wn(this,ft))&&(Vo(this,ft,Lt),Vo(this,dt,Wn(this,rt)),Vo(this,pt,(0,F.replaceEqualDeep)(Wn(this,pt),Lt(ht)))),Wn(this,pt)):ht},jE=function(ht){const Lt=new Map(Wn(this,gt).map(zt=>[zt.options.queryHash,zt])),Pt=[];return ht.forEach(zt=>{const Ht=Wn(this,it).defaultQueryOptions(zt),xt=Lt.get(Ht.queryHash);if(xt)Pt.push({defaultedQueryOptions:Ht,observer:xt});else{const kt=Wn(this,gt).find(jt=>jt.options.queryHash===Ht.queryHash);Pt.push({defaultedQueryOptions:Ht,observer:kt??new bt.QueryObserver(Wn(this,it),Ht)})}}),Pt.sort((zt,Ht)=>ht.findIndex(xt=>xt.queryHash===zt.defaultedQueryOptions.queryHash)-ht.findIndex(xt=>xt.queryHash===Ht.defaultedQueryOptions.queryHash))},LE=function(ht,Lt){const Pt=Wn(this,gt).indexOf(ht);Pt!==-1&&(Vo(this,rt,et(Wn(this,rt),Pt,Lt)),Rs(this,ct,kE).call(this))},kE=function(){var ht;if(this.hasListeners()){const Lt=Wn(this,pt),Pt=Rs(this,ct,AE).call(this,Wn(this,rt),(ht=Wn(this,st))==null?void 0:ht.combine);Lt!==Pt&&Rt.notifyManager.batch(()=>{this.listeners.forEach(zt=>{zt(Wn(this,rt))})})}},vt);return queriesObserver}var infiniteQueryObserver,hasRequiredInfiniteQueryObserver;function requireInfiniteQueryObserver(){if(hasRequiredInfiniteQueryObserver)return infiniteQueryObserver;hasRequiredInfiniteQueryObserver=1;var _=Object.defineProperty,b=Object.getOwnPropertyDescriptor,$=Object.getOwnPropertyNames,_e=Object.prototype.hasOwnProperty,ut=(F,y)=>{for(var et in y)_(F,et,{get:y[et],enumerable:!0})},yt=(F,y,et,ot)=>{if(y&&typeof y=="object"||typeof y=="function")for(let it of $(y))!_e.call(F,it)&&it!==et&&_(F,it,{get:()=>y[it],enumerable:!(ot=b(y,it))||ot.enumerable});return F},wt=F=>yt(_({},"__esModule",{value:!0}),F),Ct={};ut(Ct,{InfiniteQueryObserver:()=>nt}),infiniteQueryObserver=wt(Ct);var Rt=requireQueryObserver(),bt=requireInfiniteQueryBehavior(),nt=class extends Rt.QueryObserver{constructor(F,y){super(F,y)}bindMethods(){super.bindMethods(),this.fetchNextPage=this.fetchNextPage.bind(this),this.fetchPreviousPage=this.fetchPreviousPage.bind(this)}setOptions(F,y){super.setOptions({...F,behavior:(0,bt.infiniteQueryBehavior)()},y)}getOptimisticResult(F){return F.behavior=(0,bt.infiniteQueryBehavior)(),super.getOptimisticResult(F)}fetchNextPage(F){return this.fetch({...F,meta:{fetchMore:{direction:"forward"}}})}fetchPreviousPage(F){return this.fetch({...F,meta:{fetchMore:{direction:"backward"}}})}createResult(F,y){var _t,mt;const{state:et}=F,ot=super.createResult(F,y),{isFetching:it,isRefetching:rt,isError:tt,isRefetchError:st}=ot,gt=(mt=(_t=et.fetchMeta)==null?void 0:_t.fetchMore)==null?void 0:mt.direction,pt=tt&&gt==="forward",ft=it&&gt==="forward",dt=tt&&gt==="backward",ct=it&&gt==="backward";return{...ot,fetchNextPage:this.fetchNextPage,fetchPreviousPage:this.fetchPreviousPage,hasNextPage:(0,bt.hasNextPage)(y,et.data),hasPreviousPage:(0,bt.hasPreviousPage)(y,et.data),isFetchNextPageError:pt,isFetchingNextPage:ft,isFetchPreviousPageError:dt,isFetchingPreviousPage:ct,isRefetchError:st&&!pt&&!dt,isRefetching:rt&&!ft&&!ct}}};return infiniteQueryObserver}var mutationObserver,hasRequiredMutationObserver;function requireMutationObserver(){var et,ot,it,rt,tt,g_,UE,pt;if(hasRequiredMutationObserver)return mutationObserver;hasRequiredMutationObserver=1;var _=Object.defineProperty,b=Object.getOwnPropertyDescriptor,$=Object.getOwnPropertyNames,_e=Object.prototype.hasOwnProperty,ut=(ft,dt)=>{for(var ct in dt)_(ft,ct,{get:dt[ct],enumerable:!0})},yt=(ft,dt,ct,lt)=>{if(dt&&typeof dt=="object"||typeof dt=="function")for(let _t of $(dt))!_e.call(ft,_t)&&_t!==ct&&_(ft,_t,{get:()=>dt[_t],enumerable:!(lt=b(dt,_t))||lt.enumerable});return ft},wt=ft=>yt(_({},"__esModule",{value:!0}),ft),Ct={};ut(Ct,{MutationObserver:()=>y}),mutationObserver=wt(Ct);var Rt=requireMutation(),bt=requireNotifyManager(),nt=requireSubscribable(),F=requireUtils$1(),y=(pt=class extends nt.Subscribable{constructor(dt,ct){super();ls(this,tt);ls(this,et);ls(this,ot);ls(this,it);ls(this,rt);Vo(this,et,dt),this.setOptions(ct),this.bindMethods(),Rs(this,tt,g_).call(this)}bindMethods(){this.mutate=this.mutate.bind(this),this.reset=this.reset.bind(this)}setOptions(dt){var lt;const ct=this.options;this.options=Wn(this,et).defaultMutationOptions(dt),(0,F.shallowEqualObjects)(this.options,ct)||Wn(this,et).getMutationCache().notify({type:"observerOptionsUpdated",mutation:Wn(this,it),observer:this}),ct!=null&&ct.mutationKey&&this.options.mutationKey&&(0,F.hashKey)(ct.mutationKey)!==(0,F.hashKey)(this.options.mutationKey)?this.reset():((lt=Wn(this,it))==null?void 0:lt.state.status)==="pending"&&Wn(this,it).setOptions(this.options)}onUnsubscribe(){var dt;this.hasListeners()||(dt=Wn(this,it))==null||dt.removeObserver(this)}onMutationUpdate(dt){Rs(this,tt,g_).call(this),Rs(this,tt,UE).call(this,dt)}getCurrentResult(){return Wn(this,ot)}reset(){var dt;(dt=Wn(this,it))==null||dt.removeObserver(this),Vo(this,it,void 0),Rs(this,tt,g_).call(this),Rs(this,tt,UE).call(this)}mutate(dt,ct){var lt;return Vo(this,rt,ct),(lt=Wn(this,it))==null||lt.removeObserver(this),Vo(this,it,Wn(this,et).getMutationCache().build(Wn(this,et),this.options)),Wn(this,it).addObserver(this),Wn(this,it).execute(dt)}},et=new WeakMap,ot=new WeakMap,it=new WeakMap,rt=new WeakMap,tt=new WeakSet,g_=function(){var ct;const dt=((ct=Wn(this,it))==null?void 0:ct.state)??(0,Rt.getDefaultState)();Vo(this,ot,{...dt,isPending:dt.status==="pending",isSuccess:dt.status==="success",isError:dt.status==="error",isIdle:dt.status==="idle",mutate:this.mutate,reset:this.reset})},UE=function(dt){bt.notifyManager.batch(()=>{var ct,lt,_t,mt,at,vt,Mt,ht;if(Wn(this,rt)&&this.hasListeners()){const Lt=Wn(this,ot).variables,Pt=Wn(this,ot).context;(dt==null?void 0:dt.type)==="success"?((lt=(ct=Wn(this,rt)).onSuccess)==null||lt.call(ct,dt.data,Lt,Pt),(mt=(_t=Wn(this,rt)).onSettled)==null||mt.call(_t,dt.data,null,Lt,Pt)):(dt==null?void 0:dt.type)==="error"&&((vt=(at=Wn(this,rt)).onError)==null||vt.call(at,dt.error,Lt,Pt),(ht=(Mt=Wn(this,rt)).onSettled)==null||ht.call(Mt,void 0,dt.error,Lt,Pt))}this.listeners.forEach(Lt=>{Lt(Wn(this,ot))})})},pt);return mutationObserver}var hydration,hasRequiredHydration;function requireHydration(){if(hasRequiredHydration)return hydration;hasRequiredHydration=1;var _=Object.defineProperty,b=Object.getOwnPropertyDescriptor,$=Object.getOwnPropertyNames,_e=Object.prototype.hasOwnProperty,ut=(it,rt)=>{for(var tt in rt)_(it,tt,{get:rt[tt],enumerable:!0})},yt=(it,rt,tt,st)=>{if(rt&&typeof rt=="object"||typeof rt=="function")for(let gt of $(rt))!_e.call(it,gt)&&gt!==tt&&_(it,gt,{get:()=>rt[gt],enumerable:!(st=b(rt,gt))||st.enumerable});return it},wt=it=>yt(_({},"__esModule",{value:!0}),it),Ct={};ut(Ct,{defaultShouldDehydrateMutation:()=>F,defaultShouldDehydrateQuery:()=>y,dehydrate:()=>et,hydrate:()=>ot}),hydration=wt(Ct);function Rt(it){return it}function bt(it){return{mutationKey:it.options.mutationKey,state:it.state,...it.options.scope&&{scope:it.options.scope},...it.meta&&{meta:it.meta}}}function nt(it,rt){var tt;return{state:{...it.state,...it.state.data!==void 0&&{data:rt(it.state.data)}},queryKey:it.queryKey,queryHash:it.queryHash,...it.state.status==="pending"&&{promise:(tt=it.promise)==null?void 0:tt.then(rt).catch(st=>Promise.reject(new Error("redacted")))},...it.meta&&{meta:it.meta}}}function F(it){return it.state.isPaused}function y(it){return it.state.status==="success"}function et(it,rt={}){var dt,ct,lt;const tt=rt.shouldDehydrateMutation??((dt=it.getDefaultOptions().dehydrate)==null?void 0:dt.shouldDehydrateMutation)??F,st=it.getMutationCache().getAll().flatMap(_t=>tt(_t)?[bt(_t)]:[]),gt=rt.shouldDehydrateQuery??((ct=it.getDefaultOptions().dehydrate)==null?void 0:ct.shouldDehydrateQuery)??y,pt=rt.serializeData??((lt=it.getDefaultOptions().dehydrate)==null?void 0:lt.serializeData)??Rt,ft=it.getQueryCache().getAll().flatMap(_t=>gt(_t)?[nt(_t,pt)]:[]);return{mutations:st,queries:ft}}function ot(it,rt,tt){var ct,lt;if(typeof rt!="object"||rt===null)return;const st=it.getMutationCache(),gt=it.getQueryCache(),pt=((ct=tt==null?void 0:tt.defaultOptions)==null?void 0:ct.deserializeData)??((lt=it.getDefaultOptions().hydrate)==null?void 0:lt.deserializeData)??Rt,ft=rt.mutations||[],dt=rt.queries||[];ft.forEach(({state:_t,...mt})=>{var at,vt;st.build(it,{...(at=it.getDefaultOptions().hydrate)==null?void 0:at.mutations,...(vt=tt==null?void 0:tt.defaultOptions)==null?void 0:vt.mutations,...mt},_t)}),dt.forEach(({queryKey:_t,state:mt,queryHash:at,meta:vt,promise:Mt})=>{var Pt,zt;let ht=gt.get(at);const Lt=mt.data===void 0?mt.data:pt(mt.data);if(ht){if(ht.state.dataUpdatedAt<mt.dataUpdatedAt){const{fetchStatus:Ht,...xt}=mt;ht.setState({...xt,data:Lt})}}else ht=gt.build(it,{...(Pt=it.getDefaultOptions().hydrate)==null?void 0:Pt.queries,...(zt=tt==null?void 0:tt.defaultOptions)==null?void 0:zt.queries,queryKey:_t,queryHash:at,meta:vt},{...mt,data:Lt,fetchStatus:"idle"});if(Mt){const Ht=Promise.resolve(Mt).then(pt);ht.fetch(void 0,{initialPromise:Ht})}})}return hydration}var types$1,hasRequiredTypes$1;function requireTypes$1(){if(hasRequiredTypes$1)return types$1;hasRequiredTypes$1=1;var _=Object.defineProperty,b=Object.getOwnPropertyDescriptor,$=Object.getOwnPropertyNames,_e=Object.prototype.hasOwnProperty,ut=(Ct,Rt,bt,nt)=>{if(Rt&&typeof Rt=="object"||typeof Rt=="function")for(let F of $(Rt))!_e.call(Ct,F)&&F!==bt&&_(Ct,F,{get:()=>Rt[F],enumerable:!(nt=b(Rt,F))||nt.enumerable});return Ct},yt=Ct=>ut(_({},"__esModule",{value:!0}),Ct),wt={};return types$1=yt(wt),types$1}var hasRequiredModern$1;function requireModern$1(){return hasRequiredModern$1||(hasRequiredModern$1=1,function(_){var b=Object.defineProperty,$=Object.getOwnPropertyDescriptor,_e=Object.getOwnPropertyNames,ut=Object.prototype.hasOwnProperty,yt=(mt,at)=>{for(var vt in at)b(mt,vt,{get:at[vt],enumerable:!0})},wt=(mt,at,vt,Mt)=>{if(at&&typeof at=="object"||typeof at=="function")for(let ht of _e(at))!ut.call(mt,ht)&&ht!==vt&&b(mt,ht,{get:()=>at[ht],enumerable:!(Mt=$(at,ht))||Mt.enumerable});return mt},Ct=(mt,at,vt)=>(wt(mt,at,"default"),vt&&wt(vt,at,"default")),Rt=mt=>wt(b({},"__esModule",{value:!0}),mt),bt={};yt(bt,{CancelledError:()=>nt.CancelledError,InfiniteQueryObserver:()=>it.InfiniteQueryObserver,Mutation:()=>_t.Mutation,MutationCache:()=>rt.MutationCache,MutationObserver:()=>tt.MutationObserver,QueriesObserver:()=>ot.QueriesObserver,Query:()=>lt.Query,QueryCache:()=>F.QueryCache,QueryClient:()=>y.QueryClient,QueryObserver:()=>et.QueryObserver,defaultShouldDehydrateMutation:()=>ct.defaultShouldDehydrateMutation,defaultShouldDehydrateQuery:()=>ct.defaultShouldDehydrateQuery,dehydrate:()=>ct.dehydrate,focusManager:()=>gt.focusManager,hashKey:()=>ft.hashKey,hydrate:()=>ct.hydrate,isCancelledError:()=>dt.isCancelledError,isServer:()=>ft.isServer,keepPreviousData:()=>ft.keepPreviousData,matchMutation:()=>ft.matchMutation,matchQuery:()=>ft.matchQuery,notifyManager:()=>st.notifyManager,onlineManager:()=>pt.onlineManager,replaceEqualDeep:()=>ft.replaceEqualDeep,skipToken:()=>ft.skipToken}),_.exports=Rt(bt);var nt=requireRetryer(),F=requireQueryCache(),y=requireQueryClient(),et=requireQueryObserver(),ot=requireQueriesObserver(),it=requireInfiniteQueryObserver(),rt=requireMutationCache(),tt=requireMutationObserver(),st=requireNotifyManager(),gt=requireFocusManager(),pt=requireOnlineManager(),ft=requireUtils$1(),dt=requireRetryer(),ct=requireHydration();Ct(bt,requireTypes$1(),_.exports);var lt=requireQuery(),_t=requireMutation()}(modern)),modern.exports}var types,hasRequiredTypes;function requireTypes(){if(hasRequiredTypes)return types;hasRequiredTypes=1;var _=Object.defineProperty,b=Object.getOwnPropertyDescriptor,$=Object.getOwnPropertyNames,_e=Object.prototype.hasOwnProperty,ut=(Ct,Rt,bt,nt)=>{if(Rt&&typeof Rt=="object"||typeof Rt=="function")for(let F of $(Rt))!_e.call(Ct,F)&&F!==bt&&_(Ct,F,{get:()=>Rt[F],enumerable:!(nt=b(Rt,F))||nt.enumerable});return Ct},yt=Ct=>ut(_({},"__esModule",{value:!0}),Ct),wt={};return types=yt(wt),types}var QueryClientProvider_1,hasRequiredQueryClientProvider;function requireQueryClientProvider(){if(hasRequiredQueryClientProvider)return QueryClientProvider_1;hasRequiredQueryClientProvider=1;var _=Object.create,b=Object.defineProperty,$=Object.getOwnPropertyDescriptor,_e=Object.getOwnPropertyNames,ut=Object.getPrototypeOf,yt=Object.prototype.hasOwnProperty,wt=(rt,tt)=>{for(var st in tt)b(rt,st,{get:tt[st],enumerable:!0})},Ct=(rt,tt,st,gt)=>{if(tt&&typeof tt=="object"||typeof tt=="function")for(let pt of _e(tt))!yt.call(rt,pt)&&pt!==st&&b(rt,pt,{get:()=>tt[pt],enumerable:!(gt=$(tt,pt))||gt.enumerable});return rt},Rt=(rt,tt,st)=>(st=rt!=null?_(ut(rt)):{},Ct(b(st,"default",{value:rt,enumerable:!0}),rt)),bt=rt=>Ct(b({},"__esModule",{value:!0}),rt),nt={};wt(nt,{QueryClientContext:()=>et,QueryClientProvider:()=>it,useQueryClient:()=>ot}),QueryClientProvider_1=bt(nt);var F=Rt(requireReact()),y=jsxRuntimeExports,et=F.createContext(void 0),ot=rt=>{const tt=F.useContext(et);if(rt)return rt;if(!tt)throw new Error("No QueryClient set, use QueryClientProvider to set one");return tt},it=({client:rt,children:tt})=>(F.useEffect(()=>(rt.mount(),()=>{rt.unmount()}),[rt]),(0,y.jsx)(et.Provider,{value:rt,children:tt}));return QueryClientProvider_1}var isRestoring,hasRequiredIsRestoring;function requireIsRestoring(){if(hasRequiredIsRestoring)return isRestoring;hasRequiredIsRestoring=1;var _=Object.create,b=Object.defineProperty,$=Object.getOwnPropertyDescriptor,_e=Object.getOwnPropertyNames,ut=Object.getPrototypeOf,yt=Object.prototype.hasOwnProperty,wt=(it,rt)=>{for(var tt in rt)b(it,tt,{get:rt[tt],enumerable:!0})},Ct=(it,rt,tt,st)=>{if(rt&&typeof rt=="object"||typeof rt=="function")for(let gt of _e(rt))!yt.call(it,gt)&&gt!==tt&&b(it,gt,{get:()=>rt[gt],enumerable:!(st=$(rt,gt))||st.enumerable});return it},Rt=(it,rt,tt)=>(tt=it!=null?_(ut(it)):{},Ct(b(tt,"default",{value:it,enumerable:!0}),it)),bt=it=>Ct(b({},"__esModule",{value:!0}),it),nt={};wt(nt,{IsRestoringProvider:()=>ot,useIsRestoring:()=>et}),isRestoring=bt(nt);var F=Rt(requireReact()),y=F.createContext(!1),et=()=>F.useContext(y),ot=y.Provider;return isRestoring}var QueryErrorResetBoundary_1,hasRequiredQueryErrorResetBoundary;function requireQueryErrorResetBoundary(){if(hasRequiredQueryErrorResetBoundary)return QueryErrorResetBoundary_1;hasRequiredQueryErrorResetBoundary=1;var _=Object.create,b=Object.defineProperty,$=Object.getOwnPropertyDescriptor,_e=Object.getOwnPropertyNames,ut=Object.getPrototypeOf,yt=Object.prototype.hasOwnProperty,wt=(tt,st)=>{for(var gt in st)b(tt,gt,{get:st[gt],enumerable:!0})},Ct=(tt,st,gt,pt)=>{if(st&&typeof st=="object"||typeof st=="function")for(let ft of _e(st))!yt.call(tt,ft)&&ft!==gt&&b(tt,ft,{get:()=>st[ft],enumerable:!(pt=$(st,ft))||pt.enumerable});return tt},Rt=(tt,st,gt)=>(gt=tt!=null?_(ut(tt)):{},Ct(b(gt,"default",{value:tt,enumerable:!0}),tt)),bt=tt=>Ct(b({},"__esModule",{value:!0}),tt),nt={};wt(nt,{QueryErrorResetBoundary:()=>rt,useQueryErrorResetBoundary:()=>it}),QueryErrorResetBoundary_1=bt(nt);var F=Rt(requireReact()),y=jsxRuntimeExports;function et(){let tt=!1;return{clearReset:()=>{tt=!1},reset:()=>{tt=!0},isReset:()=>tt}}var ot=F.createContext(et()),it=()=>F.useContext(ot),rt=({children:tt})=>{const[st]=F.useState(()=>et());return(0,y.jsx)(ot.Provider,{value:st,children:typeof tt=="function"?tt(st):tt})};return QueryErrorResetBoundary_1}var utils,hasRequiredUtils;function requireUtils(){if(hasRequiredUtils)return utils;hasRequiredUtils=1;var _=Object.defineProperty,b=Object.getOwnPropertyDescriptor,$=Object.getOwnPropertyNames,_e=Object.prototype.hasOwnProperty,ut=(nt,F)=>{for(var y in F)_(nt,y,{get:F[y],enumerable:!0})},yt=(nt,F,y,et)=>{if(F&&typeof F=="object"||typeof F=="function")for(let ot of $(F))!_e.call(nt,ot)&&ot!==y&&_(nt,ot,{get:()=>F[ot],enumerable:!(et=b(F,ot))||et.enumerable});return nt},wt=nt=>yt(_({},"__esModule",{value:!0}),nt),Ct={};ut(Ct,{noop:()=>bt,shouldThrowError:()=>Rt}),utils=wt(Ct);function Rt(nt,F){return typeof nt=="function"?nt(...F):!!nt}function bt(){}return utils}var errorBoundaryUtils,hasRequiredErrorBoundaryUtils;function requireErrorBoundaryUtils(){if(hasRequiredErrorBoundaryUtils)return errorBoundaryUtils;hasRequiredErrorBoundaryUtils=1;var _=Object.create,b=Object.defineProperty,$=Object.getOwnPropertyDescriptor,_e=Object.getOwnPropertyNames,ut=Object.getPrototypeOf,yt=Object.prototype.hasOwnProperty,wt=(rt,tt)=>{for(var st in tt)b(rt,st,{get:tt[st],enumerable:!0})},Ct=(rt,tt,st,gt)=>{if(tt&&typeof tt=="object"||typeof tt=="function")for(let pt of _e(tt))!yt.call(rt,pt)&&pt!==st&&b(rt,pt,{get:()=>tt[pt],enumerable:!(gt=$(tt,pt))||gt.enumerable});return rt},Rt=(rt,tt,st)=>(st=rt!=null?_(ut(rt)):{},Ct(b(st,"default",{value:rt,enumerable:!0}),rt)),bt=rt=>Ct(b({},"__esModule",{value:!0}),rt),nt={};wt(nt,{ensurePreventErrorBoundaryRetry:()=>et,getHasError:()=>it,useClearResetErrorBoundary:()=>ot}),errorBoundaryUtils=bt(nt);var F=Rt(requireReact()),y=requireUtils(),et=(rt,tt)=>{(rt.suspense||rt.throwOnError)&&(tt.isReset()||(rt.retryOnMount=!1))},ot=rt=>{F.useEffect(()=>{rt.clearReset()},[rt])},it=({result:rt,errorResetBoundary:tt,throwOnError:st,query:gt})=>rt.isError&&!tt.isReset()&&!rt.isFetching&&gt&&(0,y.shouldThrowError)(st,[rt.error,gt]);return errorBoundaryUtils}var suspense,hasRequiredSuspense;function requireSuspense(){if(hasRequiredSuspense)return suspense;hasRequiredSuspense=1;var _=Object.defineProperty,b=Object.getOwnPropertyDescriptor,$=Object.getOwnPropertyNames,_e=Object.prototype.hasOwnProperty,ut=(et,ot)=>{for(var it in ot)_(et,it,{get:ot[it],enumerable:!0})},yt=(et,ot,it,rt)=>{if(ot&&typeof ot=="object"||typeof ot=="function")for(let tt of $(ot))!_e.call(et,tt)&&tt!==it&&_(et,tt,{get:()=>ot[tt],enumerable:!(rt=b(ot,tt))||rt.enumerable});return et},wt=et=>yt(_({},"__esModule",{value:!0}),et),Ct={};ut(Ct,{defaultThrowOnError:()=>Rt,ensureSuspenseTimers:()=>bt,fetchOptimistic:()=>y,shouldSuspend:()=>F,willFetch:()=>nt}),suspense=wt(Ct);var Rt=(et,ot)=>ot.state.data===void 0,bt=et=>{et.suspense&&(typeof et.staleTime!="number"&&(et.staleTime=1e3),typeof et.gcTime=="number"&&(et.gcTime=Math.max(et.gcTime,1e3)))},nt=(et,ot)=>et.isLoading&&et.isFetching&&!ot,F=(et,ot)=>(et==null?void 0:et.suspense)&&ot.isPending,y=(et,ot,it)=>ot.fetchOptimistic(et).catch(()=>{it.clearReset()});return suspense}var useQueries_1,hasRequiredUseQueries;function requireUseQueries(){if(hasRequiredUseQueries)return useQueries_1;hasRequiredUseQueries=1;var _=Object.create,b=Object.defineProperty,$=Object.getOwnPropertyDescriptor,_e=Object.getOwnPropertyNames,ut=Object.getPrototypeOf,yt=Object.prototype.hasOwnProperty,wt=(gt,pt)=>{for(var ft in pt)b(gt,ft,{get:pt[ft],enumerable:!0})},Ct=(gt,pt,ft,dt)=>{if(pt&&typeof pt=="object"||typeof pt=="function")for(let ct of _e(pt))!yt.call(gt,ct)&&ct!==ft&&b(gt,ct,{get:()=>pt[ct],enumerable:!(dt=$(pt,ct))||dt.enumerable});return gt},Rt=(gt,pt,ft)=>(ft=gt!=null?_(ut(gt)):{},Ct(b(ft,"default",{value:gt,enumerable:!0}),gt)),bt=gt=>Ct(b({},"__esModule",{value:!0}),gt),nt={};wt(nt,{useQueries:()=>st}),useQueries_1=bt(nt);var F=Rt(requireReact()),y=requireModern$1(),et=requireQueryClientProvider(),ot=requireIsRestoring(),it=requireQueryErrorResetBoundary(),rt=requireErrorBoundaryUtils(),tt=requireSuspense();function st({queries:gt,...pt},ft){const dt=(0,et.useQueryClient)(ft),ct=(0,ot.useIsRestoring)(),lt=(0,it.useQueryErrorResetBoundary)(),_t=F.useMemo(()=>gt.map(zt=>{const Ht=dt.defaultQueryOptions(zt);return Ht._optimisticResults=ct?"isRestoring":"optimistic",Ht}),[gt,dt,ct]);_t.forEach(zt=>{(0,tt.ensureSuspenseTimers)(zt),(0,rt.ensurePreventErrorBoundaryRetry)(zt,lt)}),(0,rt.useClearResetErrorBoundary)(lt);const[mt]=F.useState(()=>new y.QueriesObserver(dt,_t,pt)),[at,vt,Mt]=mt.getOptimisticResult(_t,pt.combine);F.useSyncExternalStore(F.useCallback(zt=>ct?()=>{}:mt.subscribe(y.notifyManager.batchCalls(zt)),[mt,ct]),()=>mt.getCurrentResult(),()=>mt.getCurrentResult()),F.useEffect(()=>{mt.setQueries(_t,pt,{listeners:!1})},[_t,pt,mt]);const Lt=at.some((zt,Ht)=>(0,tt.shouldSuspend)(_t[Ht],zt))?at.flatMap((zt,Ht)=>{const xt=_t[Ht];if(xt){const kt=new y.QueryObserver(dt,xt);if((0,tt.shouldSuspend)(xt,zt))return(0,tt.fetchOptimistic)(xt,kt,lt);(0,tt.willFetch)(zt,ct)&&(0,tt.fetchOptimistic)(xt,kt,lt)}return[]}):[];if(Lt.length>0)throw Promise.all(Lt);const Pt=at.find((zt,Ht)=>{const xt=_t[Ht];return xt&&(0,rt.getHasError)({result:zt,errorResetBoundary:lt,throwOnError:xt.throwOnError,query:dt.getQueryCache().get(xt.queryHash)})});if(Pt!=null&&Pt.error)throw Pt.error;return vt(Mt())}return useQueries_1}var useBaseQuery_1,hasRequiredUseBaseQuery;function requireUseBaseQuery(){if(hasRequiredUseBaseQuery)return useBaseQuery_1;hasRequiredUseBaseQuery=1;var _=Object.create,b=Object.defineProperty,$=Object.getOwnPropertyDescriptor,_e=Object.getOwnPropertyNames,ut=Object.getPrototypeOf,yt=Object.prototype.hasOwnProperty,wt=(pt,ft)=>{for(var dt in ft)b(pt,dt,{get:ft[dt],enumerable:!0})},Ct=(pt,ft,dt,ct)=>{if(ft&&typeof ft=="object"||typeof ft=="function")for(let lt of _e(ft))!yt.call(pt,lt)&&lt!==dt&&b(pt,lt,{get:()=>ft[lt],enumerable:!(ct=$(ft,lt))||ct.enumerable});return pt},Rt=(pt,ft,dt)=>(dt=pt!=null?_(ut(pt)):{},Ct(b(dt,"default",{value:pt,enumerable:!0}),pt)),bt=pt=>Ct(b({},"__esModule",{value:!0}),pt),nt={};wt(nt,{useBaseQuery:()=>gt}),useBaseQuery_1=bt(nt);var F=Rt(requireReact()),y=requireModern$1(),et=requireQueryClientProvider(),ot=requireQueryErrorResetBoundary(),it=requireErrorBoundaryUtils(),rt=requireIsRestoring(),tt=requireSuspense(),st=requireUtils();function gt(pt,ft,dt){var ht,Lt,Pt,zt,Ht;const ct=(0,et.useQueryClient)(dt),lt=(0,rt.useIsRestoring)(),_t=(0,ot.useQueryErrorResetBoundary)(),mt=ct.defaultQueryOptions(pt);(Lt=(ht=ct.getDefaultOptions().queries)==null?void 0:ht._experimental_beforeQuery)==null||Lt.call(ht,mt),mt._optimisticResults=lt?"isRestoring":"optimistic",(0,tt.ensureSuspenseTimers)(mt),(0,it.ensurePreventErrorBoundaryRetry)(mt,_t),(0,it.useClearResetErrorBoundary)(_t);const at=!ct.getQueryCache().get(mt.queryHash),[vt]=F.useState(()=>new ft(ct,mt)),Mt=vt.getOptimisticResult(mt);if(F.useSyncExternalStore(F.useCallback(xt=>{const kt=lt?()=>{}:vt.subscribe(y.notifyManager.batchCalls(xt));return vt.updateResult(),kt},[vt,lt]),()=>vt.getCurrentResult(),()=>vt.getCurrentResult()),F.useEffect(()=>{vt.setOptions(mt,{listeners:!1})},[mt,vt]),(0,tt.shouldSuspend)(mt,Mt))throw(0,tt.fetchOptimistic)(mt,vt,_t);if((0,it.getHasError)({result:Mt,errorResetBoundary:_t,throwOnError:mt.throwOnError,query:ct.getQueryCache().get(mt.queryHash)}))throw Mt.error;if((zt=(Pt=ct.getDefaultOptions().queries)==null?void 0:Pt._experimental_afterQuery)==null||zt.call(Pt,mt,Mt),mt.experimental_prefetchInRender&&!y.isServer&&(0,tt.willFetch)(Mt,lt)){const xt=at?(0,tt.fetchOptimistic)(mt,vt,_t):(Ht=ct.getQueryCache().get(mt.queryHash))==null?void 0:Ht.promise;xt==null||xt.catch(st.noop).finally(()=>{vt.hasListeners()||vt.updateResult()})}return mt.notifyOnChangeProps?Mt:vt.trackResult(Mt)}return useBaseQuery_1}var useQuery_1,hasRequiredUseQuery;function requireUseQuery(){if(hasRequiredUseQuery)return useQuery_1;hasRequiredUseQuery=1;var _=Object.defineProperty,b=Object.getOwnPropertyDescriptor,$=Object.getOwnPropertyNames,_e=Object.prototype.hasOwnProperty,ut=(F,y)=>{for(var et in y)_(F,et,{get:y[et],enumerable:!0})},yt=(F,y,et,ot)=>{if(y&&typeof y=="object"||typeof y=="function")for(let it of $(y))!_e.call(F,it)&&it!==et&&_(F,it,{get:()=>y[it],enumerable:!(ot=b(y,it))||ot.enumerable});return F},wt=F=>yt(_({},"__esModule",{value:!0}),F),Ct={};ut(Ct,{useQuery:()=>nt}),useQuery_1=wt(Ct);var Rt=requireModern$1(),bt=requireUseBaseQuery();function nt(F,y){return(0,bt.useBaseQuery)(F,Rt.QueryObserver,y)}return useQuery_1}var useSuspenseQuery_1,hasRequiredUseSuspenseQuery;function requireUseSuspenseQuery(){if(hasRequiredUseSuspenseQuery)return useSuspenseQuery_1;hasRequiredUseSuspenseQuery=1;var _=Object.defineProperty,b=Object.getOwnPropertyDescriptor,$=Object.getOwnPropertyNames,_e=Object.prototype.hasOwnProperty,ut=(y,et)=>{for(var ot in et)_(y,ot,{get:et[ot],enumerable:!0})},yt=(y,et,ot,it)=>{if(et&&typeof et=="object"||typeof et=="function")for(let rt of $(et))!_e.call(y,rt)&&rt!==ot&&_(y,rt,{get:()=>et[rt],enumerable:!(it=b(et,rt))||it.enumerable});return y},wt=y=>yt(_({},"__esModule",{value:!0}),y),Ct={};ut(Ct,{useSuspenseQuery:()=>F}),useSuspenseQuery_1=wt(Ct);var Rt=requireModern$1(),bt=requireUseBaseQuery(),nt=requireSuspense();function F(y,et){return(0,bt.useBaseQuery)({...y,enabled:!0,suspense:!0,throwOnError:nt.defaultThrowOnError,placeholderData:void 0},Rt.QueryObserver,et)}return useSuspenseQuery_1}var useSuspenseInfiniteQuery_1,hasRequiredUseSuspenseInfiniteQuery;function requireUseSuspenseInfiniteQuery(){if(hasRequiredUseSuspenseInfiniteQuery)return useSuspenseInfiniteQuery_1;hasRequiredUseSuspenseInfiniteQuery=1;var _=Object.defineProperty,b=Object.getOwnPropertyDescriptor,$=Object.getOwnPropertyNames,_e=Object.prototype.hasOwnProperty,ut=(y,et)=>{for(var ot in et)_(y,ot,{get:et[ot],enumerable:!0})},yt=(y,et,ot,it)=>{if(et&&typeof et=="object"||typeof et=="function")for(let rt of $(et))!_e.call(y,rt)&&rt!==ot&&_(y,rt,{get:()=>et[rt],enumerable:!(it=b(et,rt))||it.enumerable});return y},wt=y=>yt(_({},"__esModule",{value:!0}),y),Ct={};ut(Ct,{useSuspenseInfiniteQuery:()=>F}),useSuspenseInfiniteQuery_1=wt(Ct);var Rt=requireModern$1(),bt=requireUseBaseQuery(),nt=requireSuspense();function F(y,et){return(0,bt.useBaseQuery)({...y,enabled:!0,suspense:!0,throwOnError:nt.defaultThrowOnError},Rt.InfiniteQueryObserver,et)}return useSuspenseInfiniteQuery_1}var useSuspenseQueries_1,hasRequiredUseSuspenseQueries;function requireUseSuspenseQueries(){if(hasRequiredUseSuspenseQueries)return useSuspenseQueries_1;hasRequiredUseSuspenseQueries=1;var _=Object.defineProperty,b=Object.getOwnPropertyDescriptor,$=Object.getOwnPropertyNames,_e=Object.prototype.hasOwnProperty,ut=(F,y)=>{for(var et in y)_(F,et,{get:y[et],enumerable:!0})},yt=(F,y,et,ot)=>{if(y&&typeof y=="object"||typeof y=="function")for(let it of $(y))!_e.call(F,it)&&it!==et&&_(F,it,{get:()=>y[it],enumerable:!(ot=b(y,it))||ot.enumerable});return F},wt=F=>yt(_({},"__esModule",{value:!0}),F),Ct={};ut(Ct,{useSuspenseQueries:()=>nt}),useSuspenseQueries_1=wt(Ct),requireModern$1();var Rt=requireUseQueries(),bt=requireSuspense();function nt(F,y){return(0,Rt.useQueries)({...F,queries:F.queries.map(et=>({...et,suspense:!0,throwOnError:bt.defaultThrowOnError,enabled:!0,placeholderData:void 0}))},y)}return useSuspenseQueries_1}var usePrefetchQuery_1,hasRequiredUsePrefetchQuery;function requireUsePrefetchQuery(){if(hasRequiredUsePrefetchQuery)return usePrefetchQuery_1;hasRequiredUsePrefetchQuery=1;var _=Object.defineProperty,b=Object.getOwnPropertyDescriptor,$=Object.getOwnPropertyNames,_e=Object.prototype.hasOwnProperty,ut=(nt,F)=>{for(var y in F)_(nt,y,{get:F[y],enumerable:!0})},yt=(nt,F,y,et)=>{if(F&&typeof F=="object"||typeof F=="function")for(let ot of $(F))!_e.call(nt,ot)&&ot!==y&&_(nt,ot,{get:()=>F[ot],enumerable:!(et=b(F,ot))||et.enumerable});return nt},wt=nt=>yt(_({},"__esModule",{value:!0}),nt),Ct={};ut(Ct,{usePrefetchQuery:()=>bt}),usePrefetchQuery_1=wt(Ct);var Rt=requireQueryClientProvider();function bt(nt,F){const y=(0,Rt.useQueryClient)(F);y.getQueryState(nt.queryKey)||y.prefetchQuery(nt)}return usePrefetchQuery_1}var usePrefetchInfiniteQuery_1,hasRequiredUsePrefetchInfiniteQuery;function requireUsePrefetchInfiniteQuery(){if(hasRequiredUsePrefetchInfiniteQuery)return usePrefetchInfiniteQuery_1;hasRequiredUsePrefetchInfiniteQuery=1;var _=Object.defineProperty,b=Object.getOwnPropertyDescriptor,$=Object.getOwnPropertyNames,_e=Object.prototype.hasOwnProperty,ut=(nt,F)=>{for(var y in F)_(nt,y,{get:F[y],enumerable:!0})},yt=(nt,F,y,et)=>{if(F&&typeof F=="object"||typeof F=="function")for(let ot of $(F))!_e.call(nt,ot)&&ot!==y&&_(nt,ot,{get:()=>F[ot],enumerable:!(et=b(F,ot))||et.enumerable});return nt},wt=nt=>yt(_({},"__esModule",{value:!0}),nt),Ct={};ut(Ct,{usePrefetchInfiniteQuery:()=>bt}),usePrefetchInfiniteQuery_1=wt(Ct);var Rt=requireQueryClientProvider();function bt(nt,F){const y=(0,Rt.useQueryClient)(F);y.getQueryState(nt.queryKey)||y.prefetchInfiniteQuery(nt)}return usePrefetchInfiniteQuery_1}var queryOptions_1,hasRequiredQueryOptions;function requireQueryOptions(){if(hasRequiredQueryOptions)return queryOptions_1;hasRequiredQueryOptions=1;var _=Object.defineProperty,b=Object.getOwnPropertyDescriptor,$=Object.getOwnPropertyNames,_e=Object.prototype.hasOwnProperty,ut=(bt,nt)=>{for(var F in nt)_(bt,F,{get:nt[F],enumerable:!0})},yt=(bt,nt,F,y)=>{if(nt&&typeof nt=="object"||typeof nt=="function")for(let et of $(nt))!_e.call(bt,et)&&et!==F&&_(bt,et,{get:()=>nt[et],enumerable:!(y=b(nt,et))||y.enumerable});return bt},wt=bt=>yt(_({},"__esModule",{value:!0}),bt),Ct={};ut(Ct,{queryOptions:()=>Rt}),queryOptions_1=wt(Ct);function Rt(bt){return bt}return queryOptions_1}var infiniteQueryOptions_1,hasRequiredInfiniteQueryOptions;function requireInfiniteQueryOptions(){if(hasRequiredInfiniteQueryOptions)return infiniteQueryOptions_1;hasRequiredInfiniteQueryOptions=1;var _=Object.defineProperty,b=Object.getOwnPropertyDescriptor,$=Object.getOwnPropertyNames,_e=Object.prototype.hasOwnProperty,ut=(bt,nt)=>{for(var F in nt)_(bt,F,{get:nt[F],enumerable:!0})},yt=(bt,nt,F,y)=>{if(nt&&typeof nt=="object"||typeof nt=="function")for(let et of $(nt))!_e.call(bt,et)&&et!==F&&_(bt,et,{get:()=>nt[et],enumerable:!(y=b(nt,et))||y.enumerable});return bt},wt=bt=>yt(_({},"__esModule",{value:!0}),bt),Ct={};ut(Ct,{infiniteQueryOptions:()=>Rt}),infiniteQueryOptions_1=wt(Ct);function Rt(bt){return bt}return infiniteQueryOptions_1}var HydrationBoundary_1,hasRequiredHydrationBoundary;function requireHydrationBoundary(){if(hasRequiredHydrationBoundary)return HydrationBoundary_1;hasRequiredHydrationBoundary=1;var _=Object.create,b=Object.defineProperty,$=Object.getOwnPropertyDescriptor,_e=Object.getOwnPropertyNames,ut=Object.getPrototypeOf,yt=Object.prototype.hasOwnProperty,wt=(it,rt)=>{for(var tt in rt)b(it,tt,{get:rt[tt],enumerable:!0})},Ct=(it,rt,tt,st)=>{if(rt&&typeof rt=="object"||typeof rt=="function")for(let gt of _e(rt))!yt.call(it,gt)&&gt!==tt&&b(it,gt,{get:()=>rt[gt],enumerable:!(st=$(rt,gt))||st.enumerable});return it},Rt=(it,rt,tt)=>(tt=it!=null?_(ut(it)):{},Ct(b(tt,"default",{value:it,enumerable:!0}),it)),bt=it=>Ct(b({},"__esModule",{value:!0}),it),nt={};wt(nt,{HydrationBoundary:()=>ot}),HydrationBoundary_1=bt(nt);var F=Rt(requireReact()),y=requireModern$1(),et=requireQueryClientProvider(),ot=({children:it,options:rt={},state:tt,queryClient:st})=>{const gt=(0,et.useQueryClient)(st),[pt,ft]=F.useState(),dt=F.useRef(rt);return dt.current=rt,F.useMemo(()=>{if(tt){if(typeof tt!="object")return;const ct=gt.getQueryCache(),lt=tt.queries||[],_t=[],mt=[];for(const at of lt){const vt=ct.get(at.queryHash);if(!vt)_t.push(at);else{const Mt=at.state.dataUpdatedAt>vt.state.dataUpdatedAt,ht=pt==null?void 0:pt.find(Lt=>Lt.queryHash===at.queryHash);Mt&&(!ht||at.state.dataUpdatedAt>ht.state.dataUpdatedAt)&&mt.push(at)}}_t.length>0&&(0,y.hydrate)(gt,{queries:_t},dt.current),mt.length>0&&ft(at=>at?[...at,...mt]:mt)}},[gt,pt,tt]),F.useEffect(()=>{pt&&((0,y.hydrate)(gt,{queries:pt},dt.current),ft(void 0))},[gt,pt]),it};return HydrationBoundary_1}var useIsFetching_1,hasRequiredUseIsFetching;function requireUseIsFetching(){if(hasRequiredUseIsFetching)return useIsFetching_1;hasRequiredUseIsFetching=1;var _=Object.create,b=Object.defineProperty,$=Object.getOwnPropertyDescriptor,_e=Object.getOwnPropertyNames,ut=Object.getPrototypeOf,yt=Object.prototype.hasOwnProperty,wt=(it,rt)=>{for(var tt in rt)b(it,tt,{get:rt[tt],enumerable:!0})},Ct=(it,rt,tt,st)=>{if(rt&&typeof rt=="object"||typeof rt=="function")for(let gt of _e(rt))!yt.call(it,gt)&&gt!==tt&&b(it,gt,{get:()=>rt[gt],enumerable:!(st=$(rt,gt))||st.enumerable});return it},Rt=(it,rt,tt)=>(tt=it!=null?_(ut(it)):{},Ct(b(tt,"default",{value:it,enumerable:!0}),it)),bt=it=>Ct(b({},"__esModule",{value:!0}),it),nt={};wt(nt,{useIsFetching:()=>ot}),useIsFetching_1=bt(nt);var F=Rt(requireReact()),y=requireModern$1(),et=requireQueryClientProvider();function ot(it,rt){const tt=(0,et.useQueryClient)(rt),st=tt.getQueryCache();return F.useSyncExternalStore(F.useCallback(gt=>st.subscribe(y.notifyManager.batchCalls(gt)),[st]),()=>tt.isFetching(it),()=>tt.isFetching(it))}return useIsFetching_1}var useMutationState_1,hasRequiredUseMutationState;function requireUseMutationState(){if(hasRequiredUseMutationState)return useMutationState_1;hasRequiredUseMutationState=1;var _=Object.create,b=Object.defineProperty,$=Object.getOwnPropertyDescriptor,_e=Object.getOwnPropertyNames,ut=Object.getPrototypeOf,yt=Object.prototype.hasOwnProperty,wt=(tt,st)=>{for(var gt in st)b(tt,gt,{get:st[gt],enumerable:!0})},Ct=(tt,st,gt,pt)=>{if(st&&typeof st=="object"||typeof st=="function")for(let ft of _e(st))!yt.call(tt,ft)&&ft!==gt&&b(tt,ft,{get:()=>st[ft],enumerable:!(pt=$(st,ft))||pt.enumerable});return tt},Rt=(tt,st,gt)=>(gt=tt!=null?_(ut(tt)):{},Ct(b(gt,"default",{value:tt,enumerable:!0}),tt)),bt=tt=>Ct(b({},"__esModule",{value:!0}),tt),nt={};wt(nt,{useIsMutating:()=>ot,useMutationState:()=>rt}),useMutationState_1=bt(nt);var F=Rt(requireReact()),y=requireModern$1(),et=requireQueryClientProvider();function ot(tt,st){const gt=(0,et.useQueryClient)(st);return rt({filters:{...tt,status:"pending"}},gt).length}function it(tt,st){return tt.findAll(st.filters).map(gt=>st.select?st.select(gt):gt.state)}function rt(tt={},st){const gt=(0,et.useQueryClient)(st).getMutationCache(),pt=F.useRef(tt),ft=F.useRef(null);return ft.current||(ft.current=it(gt,tt)),F.useEffect(()=>{pt.current=tt}),F.useSyncExternalStore(F.useCallback(dt=>gt.subscribe(()=>{const ct=(0,y.replaceEqualDeep)(ft.current,it(gt,pt.current));ft.current!==ct&&(ft.current=ct,y.notifyManager.schedule(dt))}),[gt]),()=>ft.current,()=>ft.current)}return useMutationState_1}var useMutation_1,hasRequiredUseMutation;function requireUseMutation(){if(hasRequiredUseMutation)return useMutation_1;hasRequiredUseMutation=1;var _=Object.create,b=Object.defineProperty,$=Object.getOwnPropertyDescriptor,_e=Object.getOwnPropertyNames,ut=Object.getPrototypeOf,yt=Object.prototype.hasOwnProperty,wt=(rt,tt)=>{for(var st in tt)b(rt,st,{get:tt[st],enumerable:!0})},Ct=(rt,tt,st,gt)=>{if(tt&&typeof tt=="object"||typeof tt=="function")for(let pt of _e(tt))!yt.call(rt,pt)&&pt!==st&&b(rt,pt,{get:()=>tt[pt],enumerable:!(gt=$(tt,pt))||gt.enumerable});return rt},Rt=(rt,tt,st)=>(st=rt!=null?_(ut(rt)):{},Ct(b(st,"default",{value:rt,enumerable:!0}),rt)),bt=rt=>Ct(b({},"__esModule",{value:!0}),rt),nt={};wt(nt,{useMutation:()=>it}),useMutation_1=bt(nt);var F=Rt(requireReact()),y=requireModern$1(),et=requireQueryClientProvider(),ot=requireUtils();function it(rt,tt){const st=(0,et.useQueryClient)(tt),[gt]=F.useState(()=>new y.MutationObserver(st,rt));F.useEffect(()=>{gt.setOptions(rt)},[gt,rt]);const pt=F.useSyncExternalStore(F.useCallback(dt=>gt.subscribe(y.notifyManager.batchCalls(dt)),[gt]),()=>gt.getCurrentResult(),()=>gt.getCurrentResult()),ft=F.useCallback((dt,ct)=>{gt.mutate(dt,ct).catch(ot.noop)},[gt]);if(pt.error&&(0,ot.shouldThrowError)(gt.options.throwOnError,[pt.error]))throw pt.error;return{...pt,mutate:ft,mutateAsync:pt.mutate}}return useMutation_1}var useInfiniteQuery_1,hasRequiredUseInfiniteQuery;function requireUseInfiniteQuery(){if(hasRequiredUseInfiniteQuery)return useInfiniteQuery_1;hasRequiredUseInfiniteQuery=1;var _=Object.defineProperty,b=Object.getOwnPropertyDescriptor,$=Object.getOwnPropertyNames,_e=Object.prototype.hasOwnProperty,ut=(F,y)=>{for(var et in y)_(F,et,{get:y[et],enumerable:!0})},yt=(F,y,et,ot)=>{if(y&&typeof y=="object"||typeof y=="function")for(let it of $(y))!_e.call(F,it)&&it!==et&&_(F,it,{get:()=>y[it],enumerable:!(ot=b(y,it))||ot.enumerable});return F},wt=F=>yt(_({},"__esModule",{value:!0}),F),Ct={};ut(Ct,{useInfiniteQuery:()=>nt}),useInfiniteQuery_1=wt(Ct);var Rt=requireModern$1(),bt=requireUseBaseQuery();function nt(F,y){return(0,bt.useBaseQuery)(F,Rt.InfiniteQueryObserver,y)}return useInfiniteQuery_1}var hasRequiredModern;function requireModern(){return hasRequiredModern||(hasRequiredModern=1,function(_){var b=Object.defineProperty,$=Object.getOwnPropertyDescriptor,_e=Object.getOwnPropertyNames,ut=Object.prototype.hasOwnProperty,yt=(at,vt)=>{for(var Mt in vt)b(at,Mt,{get:vt[Mt],enumerable:!0})},wt=(at,vt,Mt,ht)=>{if(vt&&typeof vt=="object"||typeof vt=="function")for(let Lt of _e(vt))!ut.call(at,Lt)&&Lt!==Mt&&b(at,Lt,{get:()=>vt[Lt],enumerable:!(ht=$(vt,Lt))||ht.enumerable});return at},Ct=(at,vt,Mt)=>(wt(at,vt,"default"),Mt&&wt(Mt,vt,"default")),Rt=at=>wt(b({},"__esModule",{value:!0}),at),bt={};yt(bt,{HydrationBoundary:()=>pt.HydrationBoundary,IsRestoringProvider:()=>mt.IsRestoringProvider,QueryClientContext:()=>gt.QueryClientContext,QueryClientProvider:()=>gt.QueryClientProvider,QueryErrorResetBoundary:()=>ft.QueryErrorResetBoundary,infiniteQueryOptions:()=>st.infiniteQueryOptions,queryOptions:()=>tt.queryOptions,useInfiniteQuery:()=>_t.useInfiniteQuery,useIsFetching:()=>dt.useIsFetching,useIsMutating:()=>ct.useIsMutating,useIsRestoring:()=>mt.useIsRestoring,useMutation:()=>lt.useMutation,useMutationState:()=>ct.useMutationState,usePrefetchInfiniteQuery:()=>rt.usePrefetchInfiniteQuery,usePrefetchQuery:()=>it.usePrefetchQuery,useQueries:()=>nt.useQueries,useQuery:()=>F.useQuery,useQueryClient:()=>gt.useQueryClient,useQueryErrorResetBoundary:()=>ft.useQueryErrorResetBoundary,useSuspenseInfiniteQuery:()=>et.useSuspenseInfiniteQuery,useSuspenseQueries:()=>ot.useSuspenseQueries,useSuspenseQuery:()=>y.useSuspenseQuery}),_.exports=Rt(bt),Ct(bt,requireModern$1(),_.exports),Ct(bt,requireTypes(),_.exports);var nt=requireUseQueries(),F=requireUseQuery(),y=requireUseSuspenseQuery(),et=requireUseSuspenseInfiniteQuery(),ot=requireUseSuspenseQueries(),it=requireUsePrefetchQuery(),rt=requireUsePrefetchInfiniteQuery(),tt=requireQueryOptions(),st=requireInfiniteQueryOptions(),gt=requireQueryClientProvider(),pt=requireHydrationBoundary(),ft=requireQueryErrorResetBoundary(),dt=requireUseIsFetching(),ct=requireUseMutationState(),lt=requireUseMutation(),_t=requireUseInfiniteQuery(),mt=requireIsRestoring()}(modern$1)),modern$1.exports}(function(_,b){(function(_e,ut){_.exports=ut(requireReact(),requireModern())})(self,function($,_e){return(()=>{var ut={"./node_modules/@appconda/web-sdk/index.js":Rt=>{(function(nt,F){Rt.exports=F()})(self,function(){return(()=>{var bt={"./src/client.ts":(et,ot,it)=>{it.r(ot),it.d(ot,{Client:()=>gt,AppwriteException:()=>st,Query:()=>tt.Query});var rt=it("./src/service.ts"),tt=it("./src/query.ts");class st extends Error{constructor(ft,dt=0,ct="",lt=""){super(ft),this.name="AppwriteException",this.message=ft,this.code=dt,this.type=ct,this.response=lt}}class gt{constructor(){this.config={endpoint:"https://cloud.appconda.io/v1",endpointRealtime:"",project:"",jwt:"",locale:"",session:""},this.headers={"x-sdk-name":"Web","x-sdk-platform":"client","x-sdk-language":"web","x-sdk-version":"15.0.0","X-Appconda-Response-Format":"1.5.0"},this.realtime={socket:void 0,timeout:void 0,url:"",channels:new Set,subscriptions:new Map,subscriptionsCounter:0,reconnect:!0,reconnectAttempts:0,lastMessage:void 0,connect:()=>{clearTimeout(this.realtime.timeout),this.realtime.timeout=window==null?void 0:window.setTimeout(()=>{this.realtime.createSocket()},50)},getTimeout:()=>{switch(!0){case this.realtime.reconnectAttempts<5:return 1e3;case this.realtime.reconnectAttempts<15:return 5e3;case this.realtime.reconnectAttempts<100:return 1e4;default:return 6e4}},createSocket:()=>{var ct,lt,_t;if(this.realtime.channels.size<1){this.realtime.reconnect=!1,(ct=this.realtime.socket)==null||ct.close();return}const ft=new URLSearchParams;ft.set("project",this.config.project),this.realtime.channels.forEach(mt=>{ft.append("channels[]",mt)});const dt=this.config.endpointRealtime+"/realtime?"+ft.toString();(dt!==this.realtime.url||!this.realtime.socket||((lt=this.realtime.socket)==null?void 0:lt.readyState)>WebSocket.OPEN)&&(this.realtime.socket&&((_t=this.realtime.socket)==null?void 0:_t.readyState)<WebSocket.CLOSING&&(this.realtime.reconnect=!1,this.realtime.socket.close()),this.realtime.url=dt,this.realtime.socket=new WebSocket(dt),this.realtime.socket.addEventListener("message",this.realtime.onMessage),this.realtime.socket.addEventListener("open",mt=>{this.realtime.reconnectAttempts=0}),this.realtime.socket.addEventListener("close",mt=>{var vt,Mt,ht;if(!this.realtime.reconnect||((Mt=(vt=this.realtime)==null?void 0:vt.lastMessage)==null?void 0:Mt.type)==="error"&&((ht=this.realtime)==null?void 0:ht.lastMessage.data).code===1008){this.realtime.reconnect=!0;return}const at=this.realtime.getTimeout();console.error(`Realtime got disconnected. Reconnect will be attempted in ${at/1e3} seconds.`,mt.reason),setTimeout(()=>{this.realtime.reconnectAttempts++,this.realtime.createSocket()},at)}))},onMessage:ft=>{var dt;try{const ct=JSON.parse(ft.data);switch(this.realtime.lastMessage=ct,ct.type){case"connected":const lt=JSON.parse(window.localStorage.getItem("cookieFallback")??"{}"),_t=lt==null?void 0:lt[`a_session_${this.config.project}`],mt=ct.data;_t&&!mt.user&&((dt=this.realtime.socket)==null||dt.send(JSON.stringify({type:"authentication",data:{session:_t}})));break;case"event":let at=ct.data;if(at!=null&&at.channels){if(!at.channels.some(Mt=>this.realtime.channels.has(Mt)))return;this.realtime.subscriptions.forEach(Mt=>{at.channels.some(ht=>Mt.channels.includes(ht))&&setTimeout(()=>Mt.callback(at))})}break;case"error":throw ct.data;default:break}}catch(ct){console.error(ct)}},cleanUp:ft=>{this.realtime.channels.forEach(dt=>{ft.includes(dt)&&(Array.from(this.realtime.subscriptions).some(([lt,_t])=>_t.channels.includes(dt))||this.realtime.channels.delete(dt))})}}}setEndpoint(ft){return this.config.endpoint=ft,this.config.endpointRealtime=this.config.endpointRealtime||this.config.endpoint.replace("https://","wss://").replace("http://","ws://"),this}setEndpointRealtime(ft){return this.config.endpointRealtime=ft,this}setProject(ft){return this.headers["X-Appconda-Project"]=ft,this.config.project=ft,this}setJWT(ft){return this.headers["X-Appconda-JWT"]=ft,this.config.jwt=ft,this}setLocale(ft){return this.headers["X-Appconda-Locale"]=ft,this.config.locale=ft,this}setSession(ft){return this.headers["X-Appconda-Session"]=ft,this.config.session=ft,this}subscribe(ft,dt){let ct=typeof ft=="string"?[ft]:ft;ct.forEach(_t=>this.realtime.channels.add(_t));const lt=this.realtime.subscriptionsCounter++;return this.realtime.subscriptions.set(lt,{channels:ct,callback:dt}),this.realtime.connect(),()=>{this.realtime.subscriptions.delete(lt),this.realtime.cleanUp(ct),this.realtime.connect()}}async call(ft,dt,ct={},lt={}){var mt;ft=ft.toUpperCase(),ct=Object.assign({},this.headers,ct);let _t={method:ft,headers:ct,credentials:"include"};if(typeof window<"u"&&window.localStorage){const at=window.localStorage.getItem("cookieFallback");at&&(ct["X-Fallback-Cookies"]=at)}if(ft==="GET")for(const[at,vt]of Object.entries(rt.Service.flatten(lt)))dt.searchParams.append(at,vt);else switch(ct["content-type"]){case"application/json":_t.body=JSON.stringify(lt);break;case"multipart/form-data":let at=new FormData;for(const vt in lt)Array.isArray(lt[vt])?lt[vt].forEach(Mt=>{at.append(vt+"[]",Mt)}):at.append(vt,lt[vt]);_t.body=at,delete ct["content-type"];break}try{let at=null;const vt=await fetch(dt.toString(),_t);if((mt=vt.headers.get("content-type"))!=null&&mt.includes("application/json")?at=await vt.json():at={message:await vt.text()},400<=vt.status)throw new st(at==null?void 0:at.message,vt.status,at==null?void 0:at.type,at);const Mt=vt.headers.get("X-Fallback-Cookies");return typeof window<"u"&&window.localStorage&&Mt&&(window.console.warn("Appconda is using localStorage for session management. Increase your security by adding a custom domain as your API endpoint."),window.localStorage.setItem("cookieFallback",Mt)),at}catch(at){throw at instanceof st?at:new st(at.message)}}}},"./src/enums/authentication-factor.ts":(et,ot,it)=>{it.r(ot),it.d(ot,{AuthenticationFactor:()=>rt});var rt;(function(tt){tt.Email="email",tt.Phone="phone",tt.Totp="totp",tt.Recoverycode="recoverycode"})(rt||(rt={}))},"./src/enums/authenticator-type.ts":(et,ot,it)=>{it.r(ot),it.d(ot,{AuthenticatorType:()=>rt});var rt;(function(tt){tt.Totp="totp"})(rt||(rt={}))},"./src/enums/browser.ts":(et,ot,it)=>{it.r(ot),it.d(ot,{Browser:()=>rt});var rt;(function(tt){tt.AvantBrowser="aa",tt.AndroidWebViewBeta="an",tt.GoogleChrome="ch",tt.GoogleChromeIOS="ci",tt.GoogleChromeMobile="cm",tt.Chromium="cr",tt.MozillaFirefox="ff",tt.Safari="sf",tt.MobileSafari="mf",tt.MicrosoftEdge="ps",tt.MicrosoftEdgeIOS="oi",tt.OperaMini="om",tt.Opera="op",tt.OperaNext="on"})(rt||(rt={}))},"./src/enums/credit-card.ts":(et,ot,it)=>{it.r(ot),it.d(ot,{CreditCard:()=>rt});var rt;(function(tt){tt.AmericanExpress="amex",tt.Argencard="argencard",tt.Cabal="cabal",tt.Cencosud="cencosud",tt.DinersClub="diners",tt.Discover="discover",tt.Elo="elo",tt.Hipercard="hipercard",tt.JCB="jcb",tt.Mastercard="mastercard",tt.Naranja="naranja",tt.TarjetaShopping="targeta-shopping",tt.UnionChinaPay="union-china-pay",tt.Visa="visa",tt.MIR="mir",tt.Maestro="maestro"})(rt||(rt={}))},"./src/enums/execution-method.ts":(et,ot,it)=>{it.r(ot),it.d(ot,{ExecutionMethod:()=>rt});var rt;(function(tt){tt.GET="GET",tt.POST="POST",tt.PUT="PUT",tt.PATCH="PATCH",tt.DELETE="DELETE",tt.OPTIONS="OPTIONS"})(rt||(rt={}))},"./src/enums/flag.ts":(et,ot,it)=>{it.r(ot),it.d(ot,{Flag:()=>rt});var rt;(function(tt){tt.Afghanistan="af",tt.Angola="ao",tt.Albania="al",tt.Andorra="ad",tt.UnitedArabEmirates="ae",tt.Argentina="ar",tt.Armenia="am",tt.AntiguaAndBarbuda="ag",tt.Australia="au",tt.Austria="at",tt.Azerbaijan="az",tt.Burundi="bi",tt.Belgium="be",tt.Benin="bj",tt.BurkinaFaso="bf",tt.Bangladesh="bd",tt.Bulgaria="bg",tt.Bahrain="bh",tt.Bahamas="bs",tt.BosniaAndHerzegovina="ba",tt.Belarus="by",tt.Belize="bz",tt.Bolivia="bo",tt.Brazil="br",tt.Barbados="bb",tt.BruneiDarussalam="bn",tt.Bhutan="bt",tt.Botswana="bw",tt.CentralAfricanRepublic="cf",tt.Canada="ca",tt.Switzerland="ch",tt.Chile="cl",tt.China="cn",tt.CoteDIvoire="ci",tt.Cameroon="cm",tt.DemocraticRepublicOfTheCongo="cd",tt.RepublicOfTheCongo="cg",tt.Colombia="co",tt.Comoros="km",tt.CapeVerde="cv",tt.CostaRica="cr",tt.Cuba="cu",tt.Cyprus="cy",tt.CzechRepublic="cz",tt.Germany="de",tt.Djibouti="dj",tt.Dominica="dm",tt.Denmark="dk",tt.DominicanRepublic="do",tt.Algeria="dz",tt.Ecuador="ec",tt.Egypt="eg",tt.Eritrea="er",tt.Spain="es",tt.Estonia="ee",tt.Ethiopia="et",tt.Finland="fi",tt.Fiji="fj",tt.France="fr",tt.MicronesiaFederatedStatesOf="fm",tt.Gabon="ga",tt.UnitedKingdom="gb",tt.Georgia="ge",tt.Ghana="gh",tt.Guinea="gn",tt.Gambia="gm",tt.GuineaBissau="gw",tt.EquatorialGuinea="gq",tt.Greece="gr",tt.Grenada="gd",tt.Guatemala="gt",tt.Guyana="gy",tt.Honduras="hn",tt.Croatia="hr",tt.Haiti="ht",tt.Hungary="hu",tt.Indonesia="id",tt.India="in",tt.Ireland="ie",tt.IranIslamicRepublicOf="ir",tt.Iraq="iq",tt.Iceland="is",tt.Israel="il",tt.Italy="it",tt.Jamaica="jm",tt.Jordan="jo",tt.Japan="jp",tt.Kazakhstan="kz",tt.Kenya="ke",tt.Kyrgyzstan="kg",tt.Cambodia="kh",tt.Kiribati="ki",tt.SaintKittsAndNevis="kn",tt.SouthKorea="kr",tt.Kuwait="kw",tt.LaoPeopleSDemocraticRepublic="la",tt.Lebanon="lb",tt.Liberia="lr",tt.Libya="ly",tt.SaintLucia="lc",tt.Liechtenstein="li",tt.SriLanka="lk",tt.Lesotho="ls",tt.Lithuania="lt",tt.Luxembourg="lu",tt.Latvia="lv",tt.Morocco="ma",tt.Monaco="mc",tt.Moldova="md",tt.Madagascar="mg",tt.Maldives="mv",tt.Mexico="mx",tt.MarshallIslands="mh",tt.NorthMacedonia="mk",tt.Mali="ml",tt.Malta="mt",tt.Myanmar="mm",tt.Montenegro="me",tt.Mongolia="mn",tt.Mozambique="mz",tt.Mauritania="mr",tt.Mauritius="mu",tt.Malawi="mw",tt.Malaysia="my",tt.Namibia="na",tt.Niger="ne",tt.Nigeria="ng",tt.Nicaragua="ni",tt.Netherlands="nl",tt.Norway="no",tt.Nepal="np",tt.Nauru="nr",tt.NewZealand="nz",tt.Oman="om",tt.Pakistan="pk",tt.Panama="pa",tt.Peru="pe",tt.Philippines="ph",tt.Palau="pw",tt.PapuaNewGuinea="pg",tt.Poland="pl",tt.FrenchPolynesia="pf",tt.NorthKorea="kp",tt.Portugal="pt",tt.Paraguay="py",tt.Qatar="qa",tt.Romania="ro",tt.Russia="ru",tt.Rwanda="rw",tt.SaudiArabia="sa",tt.Sudan="sd",tt.Senegal="sn",tt.Singapore="sg",tt.SolomonIslands="sb",tt.SierraLeone="sl",tt.ElSalvador="sv",tt.SanMarino="sm",tt.Somalia="so",tt.Serbia="rs",tt.SouthSudan="ss",tt.SaoTomeAndPrincipe="st",tt.Suriname="sr",tt.Slovakia="sk",tt.Slovenia="si",tt.Sweden="se",tt.Eswatini="sz",tt.Seychelles="sc",tt.Syria="sy",tt.Chad="td",tt.Togo="tg",tt.Thailand="th",tt.Tajikistan="tj",tt.Turkmenistan="tm",tt.TimorLeste="tl",tt.Tonga="to",tt.TrinidadAndTobago="tt",tt.Tunisia="tn",tt.Turkey="tr",tt.Tuvalu="tv",tt.Tanzania="tz",tt.Uganda="ug",tt.Ukraine="ua",tt.Uruguay="uy",tt.UnitedStates="us",tt.Uzbekistan="uz",tt.VaticanCity="va",tt.SaintVincentAndTheGrenadines="vc",tt.Venezuela="ve",tt.Vietnam="vn",tt.Vanuatu="vu",tt.Samoa="ws",tt.Yemen="ye",tt.SouthAfrica="za",tt.Zambia="zm",tt.Zimbabwe="zw"})(rt||(rt={}))},"./src/enums/image-format.ts":(et,ot,it)=>{it.r(ot),it.d(ot,{ImageFormat:()=>rt});var rt;(function(tt){tt.Jpg="jpg",tt.Jpeg="jpeg",tt.Gif="gif",tt.Png="png",tt.Webp="webp"})(rt||(rt={}))},"./src/enums/image-gravity.ts":(et,ot,it)=>{it.r(ot),it.d(ot,{ImageGravity:()=>rt});var rt;(function(tt){tt.Center="center",tt.Topleft="top-left",tt.Top="top",tt.Topright="top-right",tt.Left="left",tt.Right="right",tt.Bottomleft="bottom-left",tt.Bottom="bottom",tt.Bottomright="bottom-right"})(rt||(rt={}))},"./src/enums/o-auth-provider.ts":(et,ot,it)=>{it.r(ot),it.d(ot,{OAuthProvider:()=>rt});var rt;(function(tt){tt.Amazon="amazon",tt.Apple="apple",tt.Auth0="auth0",tt.Authentik="authentik",tt.Autodesk="autodesk",tt.Bitbucket="bitbucket",tt.Bitly="bitly",tt.Box="box",tt.Dailymotion="dailymotion",tt.Discord="discord",tt.Disqus="disqus",tt.Dropbox="dropbox",tt.Etsy="etsy",tt.Facebook="facebook",tt.Github="github",tt.Gitlab="gitlab",tt.Google="google",tt.Linkedin="linkedin",tt.Microsoft="microsoft",tt.Notion="notion",tt.Oidc="oidc",tt.Okta="okta",tt.Paypal="paypal",tt.PaypalSandbox="paypalSandbox",tt.Podio="podio",tt.Salesforce="salesforce",tt.Slack="slack",tt.Spotify="spotify",tt.Stripe="stripe",tt.Tradeshift="tradeshift",tt.TradeshiftBox="tradeshiftBox",tt.Twitch="twitch",tt.Wordpress="wordpress",tt.Yahoo="yahoo",tt.Yammer="yammer",tt.Yandex="yandex",tt.Zoho="zoho",tt.Zoom="zoom",tt.Mock="mock"})(rt||(rt={}))},"./src/id.ts":(et,ot,it)=>{it.r(ot),it.d(ot,{ID:()=>gt});var rt=function(pt,ft,dt,ct){if(dt==="a"&&!ct)throw new TypeError("Private accessor was defined without a getter");if(typeof ft=="function"?pt!==ft||!ct:!ft.has(pt))throw new TypeError("Cannot read private member from an object whose class did not declare it");return dt==="m"?ct:dt==="a"?ct.call(pt):ct?ct.value:ft.get(pt)},tt,st;class gt{static custom(ft){return ft}static unique(ft=7){const dt=rt(tt,tt,"m",st).call(tt);let ct="";for(let lt=0;lt<ft;lt++){const _t=Math.floor(Math.random()*16).toString(16);ct+=_t}return dt+ct}}tt=gt,st=function(){const ft=new Date,dt=Math.floor(ft.getTime()/1e3),ct=ft.getMilliseconds();return dt.toString(16)+ct.toString(16).padStart(5,"0")}},"./src/permission.ts":(et,ot,it)=>{it.r(ot),it.d(ot,{Permission:()=>rt});class rt{}rt.read=tt=>`read("${tt}")`,rt.write=tt=>`write("${tt}")`,rt.create=tt=>`create("${tt}")`,rt.update=tt=>`update("${tt}")`,rt.delete=tt=>`delete("${tt}")`},"./src/query.ts":(et,ot,it)=>{it.r(ot),it.d(ot,{Query:()=>rt});class rt{constructor(st,gt,pt){this.method=st,this.attribute=gt,pt!==void 0&&(Array.isArray(pt)?this.values=pt:this.values=[pt])}toString(){return JSON.stringify({method:this.method,attribute:this.attribute,values:this.values})}}rt.equal=(tt,st)=>new rt("equal",tt,st).toString(),rt.notEqual=(tt,st)=>new rt("notEqual",tt,st).toString(),rt.lessThan=(tt,st)=>new rt("lessThan",tt,st).toString(),rt.lessThanEqual=(tt,st)=>new rt("lessThanEqual",tt,st).toString(),rt.greaterThan=(tt,st)=>new rt("greaterThan",tt,st).toString(),rt.greaterThanEqual=(tt,st)=>new rt("greaterThanEqual",tt,st).toString(),rt.isNull=tt=>new rt("isNull",tt).toString(),rt.isNotNull=tt=>new rt("isNotNull",tt).toString(),rt.between=(tt,st,gt)=>new rt("between",tt,[st,gt]).toString(),rt.startsWith=(tt,st)=>new rt("startsWith",tt,st).toString(),rt.endsWith=(tt,st)=>new rt("endsWith",tt,st).toString(),rt.select=tt=>new rt("select",void 0,tt).toString(),rt.search=(tt,st)=>new rt("search",tt,st).toString(),rt.orderDesc=tt=>new rt("orderDesc",tt).toString(),rt.orderAsc=tt=>new rt("orderAsc",tt).toString(),rt.cursorAfter=tt=>new rt("cursorAfter",void 0,tt).toString(),rt.cursorBefore=tt=>new rt("cursorBefore",void 0,tt).toString(),rt.limit=tt=>new rt("limit",void 0,tt).toString(),rt.offset=tt=>new rt("offset",void 0,tt).toString(),rt.contains=(tt,st)=>new rt("contains",tt,st).toString(),rt.or=tt=>new rt("or",void 0,tt.map(st=>JSON.parse(st))).toString(),rt.and=tt=>new rt("and",void 0,tt.map(st=>JSON.parse(st))).toString()},"./src/role.ts":(et,ot,it)=>{it.r(ot),it.d(ot,{Role:()=>rt});class rt{static any(){return"any"}static user(st,gt=""){return gt===""?`user:${st}`:`user:${st}/${gt}`}static users(st=""){return st===""?"users":`users/${st}`}static guests(){return"guests"}static team(st,gt=""){return gt===""?`team:${st}`:`team:${st}/${gt}`}static member(st){return`member:${st}`}static label(st){return`label:${st}`}}},"./src/service.ts":(et,ot,it)=>{it.r(ot),it.d(ot,{Service:()=>rt});class rt{constructor(st){this.client=st}static flatten(st,gt=""){let pt={};for(const[ft,dt]of Object.entries(st)){let ct=gt?gt+"["+ft+"]":ft;Array.isArray(dt)?pt={...pt,...rt.flatten(dt,ct)}:pt[ct]=dt}return pt}}rt.CHUNK_SIZE=5242880},"./src/services/account.ts":(et,ot,it)=>{it.r(ot),it.d(ot,{Account:()=>st});var rt=it("./src/service.ts"),tt=it("./src/client.ts");class st extends rt.Service{constructor(pt){super(pt)}async get(){const pt="/account",ft={},dt=new URL(this.client.config.endpoint+pt);return await this.client.call("get",dt,{"content-type":"application/json"},ft)}async create(pt,ft,dt,ct){if(typeof pt>"u")throw new tt.AppwriteException('Missing required parameter: "userId"');if(typeof ft>"u")throw new tt.AppwriteException('Missing required parameter: "email"');if(typeof dt>"u")throw new tt.AppwriteException('Missing required parameter: "password"');const lt="/account",_t={};typeof pt<"u"&&(_t.userId=pt),typeof ft<"u"&&(_t.email=ft),typeof dt<"u"&&(_t.password=dt),typeof ct<"u"&&(_t.name=ct);const mt=new URL(this.client.config.endpoint+lt);return await this.client.call("post",mt,{"content-type":"application/json"},_t)}async updateEmail(pt,ft){if(typeof pt>"u")throw new tt.AppwriteException('Missing required parameter: "email"');if(typeof ft>"u")throw new tt.AppwriteException('Missing required parameter: "password"');const dt="/account/email",ct={};typeof pt<"u"&&(ct.email=pt),typeof ft<"u"&&(ct.password=ft);const lt=new URL(this.client.config.endpoint+dt);return await this.client.call("patch",lt,{"content-type":"application/json"},ct)}async listIdentities(pt){const ft="/account/identities",dt={};typeof pt<"u"&&(dt.queries=pt);const ct=new URL(this.client.config.endpoint+ft);return await this.client.call("get",ct,{"content-type":"application/json"},dt)}async deleteIdentity(pt){if(typeof pt>"u")throw new tt.AppwriteException('Missing required parameter: "identityId"');const ft="/account/identities/{identityId}".replace("{identityId}",pt),dt={},ct=new URL(this.client.config.endpoint+ft);return await this.client.call("delete",ct,{"content-type":"application/json"},dt)}async createJWT(){const pt="/account/jwt",ft={},dt=new URL(this.client.config.endpoint+pt);return await this.client.call("post",dt,{"content-type":"application/json"},ft)}async listLogs(pt){const ft="/account/logs",dt={};typeof pt<"u"&&(dt.queries=pt);const ct=new URL(this.client.config.endpoint+ft);return await this.client.call("get",ct,{"content-type":"application/json"},dt)}async updateMFA(pt){if(typeof pt>"u")throw new tt.AppwriteException('Missing required parameter: "mfa"');const ft="/account/mfa",dt={};typeof pt<"u"&&(dt.mfa=pt);const ct=new URL(this.client.config.endpoint+ft);return await this.client.call("patch",ct,{"content-type":"application/json"},dt)}async createMfaAuthenticator(pt){if(typeof pt>"u")throw new tt.AppwriteException('Missing required parameter: "type"');const ft="/account/mfa/authenticators/{type}".replace("{type}",pt),dt={},ct=new URL(this.client.config.endpoint+ft);return await this.client.call("post",ct,{"content-type":"application/json"},dt)}async updateMfaAuthenticator(pt,ft){if(typeof pt>"u")throw new tt.AppwriteException('Missing required parameter: "type"');if(typeof ft>"u")throw new tt.AppwriteException('Missing required parameter: "otp"');const dt="/account/mfa/authenticators/{type}".replace("{type}",pt),ct={};typeof ft<"u"&&(ct.otp=ft);const lt=new URL(this.client.config.endpoint+dt);return await this.client.call("put",lt,{"content-type":"application/json"},ct)}async deleteMfaAuthenticator(pt,ft){if(typeof pt>"u")throw new tt.AppwriteException('Missing required parameter: "type"');if(typeof ft>"u")throw new tt.AppwriteException('Missing required parameter: "otp"');const dt="/account/mfa/authenticators/{type}".replace("{type}",pt),ct={};typeof ft<"u"&&(ct.otp=ft);const lt=new URL(this.client.config.endpoint+dt);return await this.client.call("delete",lt,{"content-type":"application/json"},ct)}async createMfaChallenge(pt){if(typeof pt>"u")throw new tt.AppwriteException('Missing required parameter: "factor"');const ft="/account/mfa/challenge",dt={};typeof pt<"u"&&(dt.factor=pt);const ct=new URL(this.client.config.endpoint+ft);return await this.client.call("post",ct,{"content-type":"application/json"},dt)}async updateMfaChallenge(pt,ft){if(typeof pt>"u")throw new tt.AppwriteException('Missing required parameter: "challengeId"');if(typeof ft>"u")throw new tt.AppwriteException('Missing required parameter: "otp"');const dt="/account/mfa/challenge",ct={};typeof pt<"u"&&(ct.challengeId=pt),typeof ft<"u"&&(ct.otp=ft);const lt=new URL(this.client.config.endpoint+dt);return await this.client.call("put",lt,{"content-type":"application/json"},ct)}async listMfaFactors(){const pt="/account/mfa/factors",ft={},dt=new URL(this.client.config.endpoint+pt);return await this.client.call("get",dt,{"content-type":"application/json"},ft)}async getMfaRecoveryCodes(){const pt="/account/mfa/recovery-codes",ft={},dt=new URL(this.client.config.endpoint+pt);return await this.client.call("get",dt,{"content-type":"application/json"},ft)}async createMfaRecoveryCodes(){const pt="/account/mfa/recovery-codes",ft={},dt=new URL(this.client.config.endpoint+pt);return await this.client.call("post",dt,{"content-type":"application/json"},ft)}async updateMfaRecoveryCodes(){const pt="/account/mfa/recovery-codes",ft={},dt=new URL(this.client.config.endpoint+pt);return await this.client.call("patch",dt,{"content-type":"application/json"},ft)}async updateName(pt){if(typeof pt>"u")throw new tt.AppwriteException('Missing required parameter: "name"');const ft="/account/name",dt={};typeof pt<"u"&&(dt.name=pt);const ct=new URL(this.client.config.endpoint+ft);return await this.client.call("patch",ct,{"content-type":"application/json"},dt)}async updatePassword(pt,ft){if(typeof pt>"u")throw new tt.AppwriteException('Missing required parameter: "password"');const dt="/account/password",ct={};typeof pt<"u"&&(ct.password=pt),typeof ft<"u"&&(ct.oldPassword=ft);const lt=new URL(this.client.config.endpoint+dt);return await this.client.call("patch",lt,{"content-type":"application/json"},ct)}async updatePhone(pt,ft){if(typeof pt>"u")throw new tt.AppwriteException('Missing required parameter: "phone"');if(typeof ft>"u")throw new tt.AppwriteException('Missing required parameter: "password"');const dt="/account/phone",ct={};typeof pt<"u"&&(ct.phone=pt),typeof ft<"u"&&(ct.password=ft);const lt=new URL(this.client.config.endpoint+dt);return await this.client.call("patch",lt,{"content-type":"application/json"},ct)}async getPrefs(){const pt="/account/prefs",ft={},dt=new URL(this.client.config.endpoint+pt);return await this.client.call("get",dt,{"content-type":"application/json"},ft)}async updatePrefs(pt){if(typeof pt>"u")throw new tt.AppwriteException('Missing required parameter: "prefs"');const ft="/account/prefs",dt={};typeof pt<"u"&&(dt.prefs=pt);const ct=new URL(this.client.config.endpoint+ft);return await this.client.call("patch",ct,{"content-type":"application/json"},dt)}async createRecovery(pt,ft){if(typeof pt>"u")throw new tt.AppwriteException('Missing required parameter: "email"');if(typeof ft>"u")throw new tt.AppwriteException('Missing required parameter: "url"');const dt="/account/recovery",ct={};typeof pt<"u"&&(ct.email=pt),typeof ft<"u"&&(ct.url=ft);const lt=new URL(this.client.config.endpoint+dt);return await this.client.call("post",lt,{"content-type":"application/json"},ct)}async updateRecovery(pt,ft,dt){if(typeof pt>"u")throw new tt.AppwriteException('Missing required parameter: "userId"');if(typeof ft>"u")throw new tt.AppwriteException('Missing required parameter: "secret"');if(typeof dt>"u")throw new tt.AppwriteException('Missing required parameter: "password"');const ct="/account/recovery",lt={};typeof pt<"u"&&(lt.userId=pt),typeof ft<"u"&&(lt.secret=ft),typeof dt<"u"&&(lt.password=dt);const _t=new URL(this.client.config.endpoint+ct);return await this.client.call("put",_t,{"content-type":"application/json"},lt)}async listSessions(){const pt="/account/sessions",ft={},dt=new URL(this.client.config.endpoint+pt);return await this.client.call("get",dt,{"content-type":"application/json"},ft)}async deleteSessions(){const pt="/account/sessions",ft={},dt=new URL(this.client.config.endpoint+pt);return await this.client.call("delete",dt,{"content-type":"application/json"},ft)}async createAnonymousSession(){const pt="/account/sessions/anonymous",ft={},dt=new URL(this.client.config.endpoint+pt);return await this.client.call("post",dt,{"content-type":"application/json"},ft)}async createEmailPasswordSession(pt,ft){if(typeof pt>"u")throw new tt.AppwriteException('Missing required parameter: "email"');if(typeof ft>"u")throw new tt.AppwriteException('Missing required parameter: "password"');const dt="/account/sessions/email",ct={};typeof pt<"u"&&(ct.email=pt),typeof ft<"u"&&(ct.password=ft);const lt=new URL(this.client.config.endpoint+dt);return await this.client.call("post",lt,{"content-type":"application/json"},ct)}async updateMagicURLSession(pt,ft){if(typeof pt>"u")throw new tt.AppwriteException('Missing required parameter: "userId"');if(typeof ft>"u")throw new tt.AppwriteException('Missing required parameter: "secret"');const dt="/account/sessions/magic-url",ct={};typeof pt<"u"&&(ct.userId=pt),typeof ft<"u"&&(ct.secret=ft);const lt=new URL(this.client.config.endpoint+dt);return await this.client.call("put",lt,{"content-type":"application/json"},ct)}createOAuth2Session(pt,ft,dt,ct){if(typeof pt>"u")throw new tt.AppwriteException('Missing required parameter: "provider"');const lt="/account/sessions/oauth2/{provider}".replace("{provider}",pt),_t={};typeof ft<"u"&&(_t.success=ft),typeof dt<"u"&&(_t.failure=dt),typeof ct<"u"&&(_t.scopes=ct);const mt=new URL(this.client.config.endpoint+lt);_t.project=this.client.config.project;for(const[at,vt]of Object.entries(rt.Service.flatten(_t)))mt.searchParams.append(at,vt);if(typeof window<"u"&&(window!=null&&window.location))window.location.href=mt.toString();else return mt}async updatePhoneSession(pt,ft){if(typeof pt>"u")throw new tt.AppwriteException('Missing required parameter: "userId"');if(typeof ft>"u")throw new tt.AppwriteException('Missing required parameter: "secret"');const dt="/account/sessions/phone",ct={};typeof pt<"u"&&(ct.userId=pt),typeof ft<"u"&&(ct.secret=ft);const lt=new URL(this.client.config.endpoint+dt);return await this.client.call("put",lt,{"content-type":"application/json"},ct)}async createSession(pt,ft){if(typeof pt>"u")throw new tt.AppwriteException('Missing required parameter: "userId"');if(typeof ft>"u")throw new tt.AppwriteException('Missing required parameter: "secret"');const dt="/account/sessions/token",ct={};typeof pt<"u"&&(ct.userId=pt),typeof ft<"u"&&(ct.secret=ft);const lt=new URL(this.client.config.endpoint+dt);return await this.client.call("post",lt,{"content-type":"application/json"},ct)}async getSession(pt){if(typeof pt>"u")throw new tt.AppwriteException('Missing required parameter: "sessionId"');const ft="/account/sessions/{sessionId}".replace("{sessionId}",pt),dt={},ct=new URL(this.client.config.endpoint+ft);return await this.client.call("get",ct,{"content-type":"application/json"},dt)}async updateSession(pt){if(typeof pt>"u")throw new tt.AppwriteException('Missing required parameter: "sessionId"');const ft="/account/sessions/{sessionId}".replace("{sessionId}",pt),dt={},ct=new URL(this.client.config.endpoint+ft);return await this.client.call("patch",ct,{"content-type":"application/json"},dt)}async deleteSession(pt){if(typeof pt>"u")throw new tt.AppwriteException('Missing required parameter: "sessionId"');const ft="/account/sessions/{sessionId}".replace("{sessionId}",pt),dt={},ct=new URL(this.client.config.endpoint+ft);return await this.client.call("delete",ct,{"content-type":"application/json"},dt)}async updateStatus(){const pt="/account/status",ft={},dt=new URL(this.client.config.endpoint+pt);return await this.client.call("patch",dt,{"content-type":"application/json"},ft)}async createPushTarget(pt,ft,dt){if(typeof pt>"u")throw new tt.AppwriteException('Missing required parameter: "targetId"');if(typeof ft>"u")throw new tt.AppwriteException('Missing required parameter: "identifier"');const ct="/account/targets/push",lt={};typeof pt<"u"&&(lt.targetId=pt),typeof ft<"u"&&(lt.identifier=ft),typeof dt<"u"&&(lt.providerId=dt);const _t=new URL(this.client.config.endpoint+ct);return await this.client.call("post",_t,{"content-type":"application/json"},lt)}async updatePushTarget(pt,ft){if(typeof pt>"u")throw new tt.AppwriteException('Missing required parameter: "targetId"');if(typeof ft>"u")throw new tt.AppwriteException('Missing required parameter: "identifier"');const dt="/account/targets/{targetId}/push".replace("{targetId}",pt),ct={};typeof ft<"u"&&(ct.identifier=ft);const lt=new URL(this.client.config.endpoint+dt);return await this.client.call("put",lt,{"content-type":"application/json"},ct)}async deletePushTarget(pt){if(typeof pt>"u")throw new tt.AppwriteException('Missing required parameter: "targetId"');const ft="/account/targets/{targetId}/push".replace("{targetId}",pt),dt={},ct=new URL(this.client.config.endpoint+ft);return await this.client.call("delete",ct,{"content-type":"application/json"},dt)}async createEmailToken(pt,ft,dt){if(typeof pt>"u")throw new tt.AppwriteException('Missing required parameter: "userId"');if(typeof ft>"u")throw new tt.AppwriteException('Missing required parameter: "email"');const ct="/account/tokens/email",lt={};typeof pt<"u"&&(lt.userId=pt),typeof ft<"u"&&(lt.email=ft),typeof dt<"u"&&(lt.phrase=dt);const _t=new URL(this.client.config.endpoint+ct);return await this.client.call("post",_t,{"content-type":"application/json"},lt)}async createMagicURLToken(pt,ft,dt,ct){if(typeof pt>"u")throw new tt.AppwriteException('Missing required parameter: "userId"');if(typeof ft>"u")throw new tt.AppwriteException('Missing required parameter: "email"');const lt="/account/tokens/magic-url",_t={};typeof pt<"u"&&(_t.userId=pt),typeof ft<"u"&&(_t.email=ft),typeof dt<"u"&&(_t.url=dt),typeof ct<"u"&&(_t.phrase=ct);const mt=new URL(this.client.config.endpoint+lt);return await this.client.call("post",mt,{"content-type":"application/json"},_t)}createOAuth2Token(pt,ft,dt,ct){if(typeof pt>"u")throw new tt.AppwriteException('Missing required parameter: "provider"');const lt="/account/tokens/oauth2/{provider}".replace("{provider}",pt),_t={};typeof ft<"u"&&(_t.success=ft),typeof dt<"u"&&(_t.failure=dt),typeof ct<"u"&&(_t.scopes=ct);const mt=new URL(this.client.config.endpoint+lt);_t.project=this.client.config.project;for(const[at,vt]of Object.entries(rt.Service.flatten(_t)))mt.searchParams.append(at,vt);if(typeof window<"u"&&(window!=null&&window.location))window.location.href=mt.toString();else return mt}async createPhoneToken(pt,ft){if(typeof pt>"u")throw new tt.AppwriteException('Missing required parameter: "userId"');if(typeof ft>"u")throw new tt.AppwriteException('Missing required parameter: "phone"');const dt="/account/tokens/phone",ct={};typeof pt<"u"&&(ct.userId=pt),typeof ft<"u"&&(ct.phone=ft);const lt=new URL(this.client.config.endpoint+dt);return await this.client.call("post",lt,{"content-type":"application/json"},ct)}async createVerification(pt){if(typeof pt>"u")throw new tt.AppwriteException('Missing required parameter: "url"');const ft="/account/verification",dt={};typeof pt<"u"&&(dt.url=pt);const ct=new URL(this.client.config.endpoint+ft);return await this.client.call("post",ct,{"content-type":"application/json"},dt)}async updateVerification(pt,ft){if(typeof pt>"u")throw new tt.AppwriteException('Missing required parameter: "userId"');if(typeof ft>"u")throw new tt.AppwriteException('Missing required parameter: "secret"');const dt="/account/verification",ct={};typeof pt<"u"&&(ct.userId=pt),typeof ft<"u"&&(ct.secret=ft);const lt=new URL(this.client.config.endpoint+dt);return await this.client.call("put",lt,{"content-type":"application/json"},ct)}async createPhoneVerification(){const pt="/account/verification/phone",ft={},dt=new URL(this.client.config.endpoint+pt);return await this.client.call("post",dt,{"content-type":"application/json"},ft)}async updatePhoneVerification(pt,ft){if(typeof pt>"u")throw new tt.AppwriteException('Missing required parameter: "userId"');if(typeof ft>"u")throw new tt.AppwriteException('Missing required parameter: "secret"');const dt="/account/verification/phone",ct={};typeof pt<"u"&&(ct.userId=pt),typeof ft<"u"&&(ct.secret=ft);const lt=new URL(this.client.config.endpoint+dt);return await this.client.call("put",lt,{"content-type":"application/json"},ct)}}},"./src/services/avatars.ts":(et,ot,it)=>{it.r(ot),it.d(ot,{Avatars:()=>st});var rt=it("./src/service.ts"),tt=it("./src/client.ts");class st extends rt.Service{constructor(pt){super(pt)}getBrowser(pt,ft,dt,ct){if(typeof pt>"u")throw new tt.AppwriteException('Missing required parameter: "code"');const lt="/avatars/browsers/{code}".replace("{code}",pt),_t={};typeof ft<"u"&&(_t.width=ft),typeof dt<"u"&&(_t.height=dt),typeof ct<"u"&&(_t.quality=ct);const mt=new URL(this.client.config.endpoint+lt);_t.project=this.client.config.project;for(const[at,vt]of Object.entries(rt.Service.flatten(_t)))mt.searchParams.append(at,vt);return mt}getCreditCard(pt,ft,dt,ct){if(typeof pt>"u")throw new tt.AppwriteException('Missing required parameter: "code"');const lt="/avatars/credit-cards/{code}".replace("{code}",pt),_t={};typeof ft<"u"&&(_t.width=ft),typeof dt<"u"&&(_t.height=dt),typeof ct<"u"&&(_t.quality=ct);const mt=new URL(this.client.config.endpoint+lt);_t.project=this.client.config.project;for(const[at,vt]of Object.entries(rt.Service.flatten(_t)))mt.searchParams.append(at,vt);return mt}getFavicon(pt){if(typeof pt>"u")throw new tt.AppwriteException('Missing required parameter: "url"');const ft="/avatars/favicon",dt={};typeof pt<"u"&&(dt.url=pt);const ct=new URL(this.client.config.endpoint+ft);dt.project=this.client.config.project;for(const[lt,_t]of Object.entries(rt.Service.flatten(dt)))ct.searchParams.append(lt,_t);return ct}getFlag(pt,ft,dt,ct){if(typeof pt>"u")throw new tt.AppwriteException('Missing required parameter: "code"');const lt="/avatars/flags/{code}".replace("{code}",pt),_t={};typeof ft<"u"&&(_t.width=ft),typeof dt<"u"&&(_t.height=dt),typeof ct<"u"&&(_t.quality=ct);const mt=new URL(this.client.config.endpoint+lt);_t.project=this.client.config.project;for(const[at,vt]of Object.entries(rt.Service.flatten(_t)))mt.searchParams.append(at,vt);return mt}getImage(pt,ft,dt){if(typeof pt>"u")throw new tt.AppwriteException('Missing required parameter: "url"');const ct="/avatars/image",lt={};typeof pt<"u"&&(lt.url=pt),typeof ft<"u"&&(lt.width=ft),typeof dt<"u"&&(lt.height=dt);const _t=new URL(this.client.config.endpoint+ct);lt.project=this.client.config.project;for(const[mt,at]of Object.entries(rt.Service.flatten(lt)))_t.searchParams.append(mt,at);return _t}getInitials(pt,ft,dt,ct){const lt="/avatars/initials",_t={};typeof pt<"u"&&(_t.name=pt),typeof ft<"u"&&(_t.width=ft),typeof dt<"u"&&(_t.height=dt),typeof ct<"u"&&(_t.background=ct);const mt=new URL(this.client.config.endpoint+lt);_t.project=this.client.config.project;for(const[at,vt]of Object.entries(rt.Service.flatten(_t)))mt.searchParams.append(at,vt);return mt}getQR(pt,ft,dt,ct){if(typeof pt>"u")throw new tt.AppwriteException('Missing required parameter: "text"');const lt="/avatars/qr",_t={};typeof pt<"u"&&(_t.text=pt),typeof ft<"u"&&(_t.size=ft),typeof dt<"u"&&(_t.margin=dt),typeof ct<"u"&&(_t.download=ct);const mt=new URL(this.client.config.endpoint+lt);_t.project=this.client.config.project;for(const[at,vt]of Object.entries(rt.Service.flatten(_t)))mt.searchParams.append(at,vt);return mt}}},"./src/services/databases.ts":(et,ot,it)=>{it.r(ot),it.d(ot,{Databases:()=>st});var rt=it("./src/service.ts"),tt=it("./src/client.ts");class st extends rt.Service{constructor(pt){super(pt)}async listDocuments(pt,ft,dt){if(typeof pt>"u")throw new tt.AppwriteException('Missing required parameter: "databaseId"');if(typeof ft>"u")throw new tt.AppwriteException('Missing required parameter: "collectionId"');const ct="/databases/{databaseId}/collections/{collectionId}/documents".replace("{databaseId}",pt).replace("{collectionId}",ft),lt={};typeof dt<"u"&&(lt.queries=dt);const _t=new URL(this.client.config.endpoint+ct);return await this.client.call("get",_t,{"content-type":"application/json"},lt)}async createDocument(pt,ft,dt,ct,lt){if(typeof pt>"u")throw new tt.AppwriteException('Missing required parameter: "databaseId"');if(typeof ft>"u")throw new tt.AppwriteException('Missing required parameter: "collectionId"');if(typeof dt>"u")throw new tt.AppwriteException('Missing required parameter: "documentId"');if(typeof ct>"u")throw new tt.AppwriteException('Missing required parameter: "data"');const _t="/databases/{databaseId}/collections/{collectionId}/documents".replace("{databaseId}",pt).replace("{collectionId}",ft),mt={};typeof dt<"u"&&(mt.documentId=dt),typeof ct<"u"&&(mt.data=ct),typeof lt<"u"&&(mt.permissions=lt);const at=new URL(this.client.config.endpoint+_t);return await this.client.call("post",at,{"content-type":"application/json"},mt)}async getDocument(pt,ft,dt,ct){if(typeof pt>"u")throw new tt.AppwriteException('Missing required parameter: "databaseId"');if(typeof ft>"u")throw new tt.AppwriteException('Missing required parameter: "collectionId"');if(typeof dt>"u")throw new tt.AppwriteException('Missing required parameter: "documentId"');const lt="/databases/{databaseId}/collections/{collectionId}/documents/{documentId}".replace("{databaseId}",pt).replace("{collectionId}",ft).replace("{documentId}",dt),_t={};typeof ct<"u"&&(_t.queries=ct);const mt=new URL(this.client.config.endpoint+lt);return await this.client.call("get",mt,{"content-type":"application/json"},_t)}async updateDocument(pt,ft,dt,ct,lt){if(typeof pt>"u")throw new tt.AppwriteException('Missing required parameter: "databaseId"');if(typeof ft>"u")throw new tt.AppwriteException('Missing required parameter: "collectionId"');if(typeof dt>"u")throw new tt.AppwriteException('Missing required parameter: "documentId"');const _t="/databases/{databaseId}/collections/{collectionId}/documents/{documentId}".replace("{databaseId}",pt).replace("{collectionId}",ft).replace("{documentId}",dt),mt={};typeof ct<"u"&&(mt.data=ct),typeof lt<"u"&&(mt.permissions=lt);const at=new URL(this.client.config.endpoint+_t);return await this.client.call("patch",at,{"content-type":"application/json"},mt)}async deleteDocument(pt,ft,dt){if(typeof pt>"u")throw new tt.AppwriteException('Missing required parameter: "databaseId"');if(typeof ft>"u")throw new tt.AppwriteException('Missing required parameter: "collectionId"');if(typeof dt>"u")throw new tt.AppwriteException('Missing required parameter: "documentId"');const ct="/databases/{databaseId}/collections/{collectionId}/documents/{documentId}".replace("{databaseId}",pt).replace("{collectionId}",ft).replace("{documentId}",dt),lt={},_t=new URL(this.client.config.endpoint+ct);return await this.client.call("delete",_t,{"content-type":"application/json"},lt)}}},"./src/services/functions.ts":(et,ot,it)=>{it.r(ot),it.d(ot,{Functions:()=>st});var rt=it("./src/service.ts"),tt=it("./src/client.ts");class st extends rt.Service{constructor(pt){super(pt)}async listExecutions(pt,ft,dt){if(typeof pt>"u")throw new tt.AppwriteException('Missing required parameter: "functionId"');const ct="/functions/{functionId}/executions".replace("{functionId}",pt),lt={};typeof ft<"u"&&(lt.queries=ft),typeof dt<"u"&&(lt.search=dt);const _t=new URL(this.client.config.endpoint+ct);return await this.client.call("get",_t,{"content-type":"application/json"},lt)}async createExecution(pt,ft,dt,ct,lt,_t){if(typeof pt>"u")throw new tt.AppwriteException('Missing required parameter: "functionId"');const mt="/functions/{functionId}/executions".replace("{functionId}",pt),at={};typeof ft<"u"&&(at.body=ft),typeof dt<"u"&&(at.async=dt),typeof ct<"u"&&(at.path=ct),typeof lt<"u"&&(at.method=lt),typeof _t<"u"&&(at.headers=_t);const vt=new URL(this.client.config.endpoint+mt);return await this.client.call("post",vt,{"content-type":"application/json"},at)}async getExecution(pt,ft){if(typeof pt>"u")throw new tt.AppwriteException('Missing required parameter: "functionId"');if(typeof ft>"u")throw new tt.AppwriteException('Missing required parameter: "executionId"');const dt="/functions/{functionId}/executions/{executionId}".replace("{functionId}",pt).replace("{executionId}",ft),ct={},lt=new URL(this.client.config.endpoint+dt);return await this.client.call("get",lt,{"content-type":"application/json"},ct)}}},"./src/services/graphql.ts":(et,ot,it)=>{it.r(ot),it.d(ot,{Graphql:()=>st});var rt=it("./src/service.ts"),tt=it("./src/client.ts");class st extends rt.Service{constructor(pt){super(pt)}async query(pt){if(typeof pt>"u")throw new tt.AppwriteException('Missing required parameter: "query"');const ft="/graphql",dt={};typeof pt<"u"&&(dt.query=pt);const ct=new URL(this.client.config.endpoint+ft);return await this.client.call("post",ct,{"x-sdk-graphql":"true","content-type":"application/json"},dt)}async mutation(pt){if(typeof pt>"u")throw new tt.AppwriteException('Missing required parameter: "query"');const ft="/graphql/mutation",dt={};typeof pt<"u"&&(dt.query=pt);const ct=new URL(this.client.config.endpoint+ft);return await this.client.call("post",ct,{"x-sdk-graphql":"true","content-type":"application/json"},dt)}}},"./src/services/locale.ts":(et,ot,it)=>{it.r(ot),it.d(ot,{Locale:()=>tt});var rt=it("./src/service.ts");class tt extends rt.Service{constructor(gt){super(gt)}async get(){const gt="/locale",pt={},ft=new URL(this.client.config.endpoint+gt);return await this.client.call("get",ft,{"content-type":"application/json"},pt)}async listCodes(){const gt="/locale/codes",pt={},ft=new URL(this.client.config.endpoint+gt);return await this.client.call("get",ft,{"content-type":"application/json"},pt)}async listContinents(){const gt="/locale/continents",pt={},ft=new URL(this.client.config.endpoint+gt);return await this.client.call("get",ft,{"content-type":"application/json"},pt)}async listCountries(){const gt="/locale/countries",pt={},ft=new URL(this.client.config.endpoint+gt);return await this.client.call("get",ft,{"content-type":"application/json"},pt)}async listCountriesEU(){const gt="/locale/countries/eu",pt={},ft=new URL(this.client.config.endpoint+gt);return await this.client.call("get",ft,{"content-type":"application/json"},pt)}async listCountriesPhones(){const gt="/locale/countries/phones",pt={},ft=new URL(this.client.config.endpoint+gt);return await this.client.call("get",ft,{"content-type":"application/json"},pt)}async listCurrencies(){const gt="/locale/currencies",pt={},ft=new URL(this.client.config.endpoint+gt);return await this.client.call("get",ft,{"content-type":"application/json"},pt)}async listLanguages(){const gt="/locale/languages",pt={},ft=new URL(this.client.config.endpoint+gt);return await this.client.call("get",ft,{"content-type":"application/json"},pt)}}},"./src/services/messaging.ts":(et,ot,it)=>{it.r(ot),it.d(ot,{Messaging:()=>st});var rt=it("./src/service.ts"),tt=it("./src/client.ts");class st extends rt.Service{constructor(pt){super(pt)}async createSubscriber(pt,ft,dt){if(typeof pt>"u")throw new tt.AppwriteException('Missing required parameter: "topicId"');if(typeof ft>"u")throw new tt.AppwriteException('Missing required parameter: "subscriberId"');if(typeof dt>"u")throw new tt.AppwriteException('Missing required parameter: "targetId"');const ct="/messaging/topics/{topicId}/subscribers".replace("{topicId}",pt),lt={};typeof ft<"u"&&(lt.subscriberId=ft),typeof dt<"u"&&(lt.targetId=dt);const _t=new URL(this.client.config.endpoint+ct);return await this.client.call("post",_t,{"content-type":"application/json"},lt)}async deleteSubscriber(pt,ft){if(typeof pt>"u")throw new tt.AppwriteException('Missing required parameter: "topicId"');if(typeof ft>"u")throw new tt.AppwriteException('Missing required parameter: "subscriberId"');const dt="/messaging/topics/{topicId}/subscribers/{subscriberId}".replace("{topicId}",pt).replace("{subscriberId}",ft),ct={},lt=new URL(this.client.config.endpoint+dt);return await this.client.call("delete",lt,{"content-type":"application/json"},ct)}}},"./src/services/storage.ts":(et,ot,it)=>{it.r(ot),it.d(ot,{Storage:()=>st});var rt=it("./src/service.ts"),tt=it("./src/client.ts");class st extends rt.Service{constructor(pt){super(pt)}async listFiles(pt,ft,dt){if(typeof pt>"u")throw new tt.AppwriteException('Missing required parameter: "bucketId"');const ct="/storage/buckets/{bucketId}/files".replace("{bucketId}",pt),lt={};typeof ft<"u"&&(lt.queries=ft),typeof dt<"u"&&(lt.search=dt);const _t=new URL(this.client.config.endpoint+ct);return await this.client.call("get",_t,{"content-type":"application/json"},lt)}async createFile(pt,ft,dt,ct,lt=_t=>{}){if(typeof pt>"u")throw new tt.AppwriteException('Missing required parameter: "bucketId"');if(typeof ft>"u")throw new tt.AppwriteException('Missing required parameter: "fileId"');if(typeof dt>"u")throw new tt.AppwriteException('Missing required parameter: "file"');const _t="/storage/buckets/{bucketId}/files".replace("{bucketId}",pt),mt={};typeof ft<"u"&&(mt.fileId=ft),typeof dt<"u"&&(mt.file=dt),typeof ct<"u"&&(mt.permissions=ct);const at=new URL(this.client.config.endpoint+_t);if(!(dt instanceof File))throw new tt.AppwriteException('Parameter "file" has to be a File.');const vt=dt.size;if(vt<=rt.Service.CHUNK_SIZE)return await this.client.call("post",at,{"content-type":"multipart/form-data"},mt);const Mt={"content-type":"multipart/form-data"};let ht=0,Lt;if(ft!="unique()")try{Lt=await this.client.call("GET",new URL(this.client.config.endpoint+_t+"/"+ft),Mt),ht=Lt.chunksUploaded*rt.Service.CHUNK_SIZE}catch{}for(;ht<vt;){let Pt=Math.min(ht+rt.Service.CHUNK_SIZE-1,vt-1);Mt["content-range"]="bytes "+ht+"-"+Pt+"/"+vt,Lt&&Lt.$id&&(Mt["x-appconda-id"]=Lt.$id);const zt=dt.slice(ht,Pt+1);mt.file=new File([zt],dt.name),Lt=await this.client.call("post",at,Mt,mt),lt&&lt({$id:Lt.$id,progress:ht/vt*100,sizeUploaded:ht,chunksTotal:Lt.chunksTotal,chunksUploaded:Lt.chunksUploaded}),ht+=rt.Service.CHUNK_SIZE}return Lt}async getFile(pt,ft){if(typeof pt>"u")throw new tt.AppwriteException('Missing required parameter: "bucketId"');if(typeof ft>"u")throw new tt.AppwriteException('Missing required parameter: "fileId"');const dt="/storage/buckets/{bucketId}/files/{fileId}".replace("{bucketId}",pt).replace("{fileId}",ft),ct={},lt=new URL(this.client.config.endpoint+dt);return await this.client.call("get",lt,{"content-type":"application/json"},ct)}async updateFile(pt,ft,dt,ct){if(typeof pt>"u")throw new tt.AppwriteException('Missing required parameter: "bucketId"');if(typeof ft>"u")throw new tt.AppwriteException('Missing required parameter: "fileId"');const lt="/storage/buckets/{bucketId}/files/{fileId}".replace("{bucketId}",pt).replace("{fileId}",ft),_t={};typeof dt<"u"&&(_t.name=dt),typeof ct<"u"&&(_t.permissions=ct);const mt=new URL(this.client.config.endpoint+lt);return await this.client.call("put",mt,{"content-type":"application/json"},_t)}async deleteFile(pt,ft){if(typeof pt>"u")throw new tt.AppwriteException('Missing required parameter: "bucketId"');if(typeof ft>"u")throw new tt.AppwriteException('Missing required parameter: "fileId"');const dt="/storage/buckets/{bucketId}/files/{fileId}".replace("{bucketId}",pt).replace("{fileId}",ft),ct={},lt=new URL(this.client.config.endpoint+dt);return await this.client.call("delete",lt,{"content-type":"application/json"},ct)}getFileDownload(pt,ft){if(typeof pt>"u")throw new tt.AppwriteException('Missing required parameter: "bucketId"');if(typeof ft>"u")throw new tt.AppwriteException('Missing required parameter: "fileId"');const dt="/storage/buckets/{bucketId}/files/{fileId}/download".replace("{bucketId}",pt).replace("{fileId}",ft),ct={},lt=new URL(this.client.config.endpoint+dt);ct.project=this.client.config.project;for(const[_t,mt]of Object.entries(rt.Service.flatten(ct)))lt.searchParams.append(_t,mt);return lt}getFilePreview(pt,ft,dt,ct,lt,_t,mt,at,vt,Mt,ht,Lt,Pt){if(typeof pt>"u")throw new tt.AppwriteException('Missing required parameter: "bucketId"');if(typeof ft>"u")throw new tt.AppwriteException('Missing required parameter: "fileId"');const zt="/storage/buckets/{bucketId}/files/{fileId}/preview".replace("{bucketId}",pt).replace("{fileId}",ft),Ht={};typeof dt<"u"&&(Ht.width=dt),typeof ct<"u"&&(Ht.height=ct),typeof lt<"u"&&(Ht.gravity=lt),typeof _t<"u"&&(Ht.quality=_t),typeof mt<"u"&&(Ht.borderWidth=mt),typeof at<"u"&&(Ht.borderColor=at),typeof vt<"u"&&(Ht.borderRadius=vt),typeof Mt<"u"&&(Ht.opacity=Mt),typeof ht<"u"&&(Ht.rotation=ht),typeof Lt<"u"&&(Ht.background=Lt),typeof Pt<"u"&&(Ht.output=Pt);const xt=new URL(this.client.config.endpoint+zt);Ht.project=this.client.config.project;for(const[kt,jt]of Object.entries(rt.Service.flatten(Ht)))xt.searchParams.append(kt,jt);return xt}getFileView(pt,ft){if(typeof pt>"u")throw new tt.AppwriteException('Missing required parameter: "bucketId"');if(typeof ft>"u")throw new tt.AppwriteException('Missing required parameter: "fileId"');const dt="/storage/buckets/{bucketId}/files/{fileId}/view".replace("{bucketId}",pt).replace("{fileId}",ft),ct={},lt=new URL(this.client.config.endpoint+dt);ct.project=this.client.config.project;for(const[_t,mt]of Object.entries(rt.Service.flatten(ct)))lt.searchParams.append(_t,mt);return lt}}},"./src/services/teams.ts":(et,ot,it)=>{it.r(ot),it.d(ot,{Teams:()=>st});var rt=it("./src/service.ts"),tt=it("./src/client.ts");class st extends rt.Service{constructor(pt){super(pt)}async list(pt,ft){const dt="/teams",ct={};typeof pt<"u"&&(ct.queries=pt),typeof ft<"u"&&(ct.search=ft);const lt=new URL(this.client.config.endpoint+dt);return await this.client.call("get",lt,{"content-type":"application/json"},ct)}async create(pt,ft,dt){if(typeof pt>"u")throw new tt.AppwriteException('Missing required parameter: "teamId"');if(typeof ft>"u")throw new tt.AppwriteException('Missing required parameter: "name"');const ct="/teams",lt={};typeof pt<"u"&&(lt.teamId=pt),typeof ft<"u"&&(lt.name=ft),typeof dt<"u"&&(lt.roles=dt);const _t=new URL(this.client.config.endpoint+ct);return await this.client.call("post",_t,{"content-type":"application/json"},lt)}async get(pt){if(typeof pt>"u")throw new tt.AppwriteException('Missing required parameter: "teamId"');const ft="/teams/{teamId}".replace("{teamId}",pt),dt={},ct=new URL(this.client.config.endpoint+ft);return await this.client.call("get",ct,{"content-type":"application/json"},dt)}async updateName(pt,ft){if(typeof pt>"u")throw new tt.AppwriteException('Missing required parameter: "teamId"');if(typeof ft>"u")throw new tt.AppwriteException('Missing required parameter: "name"');const dt="/teams/{teamId}".replace("{teamId}",pt),ct={};typeof ft<"u"&&(ct.name=ft);const lt=new URL(this.client.config.endpoint+dt);return await this.client.call("put",lt,{"content-type":"application/json"},ct)}async delete(pt){if(typeof pt>"u")throw new tt.AppwriteException('Missing required parameter: "teamId"');const ft="/teams/{teamId}".replace("{teamId}",pt),dt={},ct=new URL(this.client.config.endpoint+ft);return await this.client.call("delete",ct,{"content-type":"application/json"},dt)}async listMemberships(pt,ft,dt){if(typeof pt>"u")throw new tt.AppwriteException('Missing required parameter: "teamId"');const ct="/teams/{teamId}/memberships".replace("{teamId}",pt),lt={};typeof ft<"u"&&(lt.queries=ft),typeof dt<"u"&&(lt.search=dt);const _t=new URL(this.client.config.endpoint+ct);return await this.client.call("get",_t,{"content-type":"application/json"},lt)}async createMembership(pt,ft,dt,ct,lt,_t,mt){if(typeof pt>"u")throw new tt.AppwriteException('Missing required parameter: "teamId"');if(typeof ft>"u")throw new tt.AppwriteException('Missing required parameter: "roles"');const at="/teams/{teamId}/memberships".replace("{teamId}",pt),vt={};typeof dt<"u"&&(vt.email=dt),typeof ct<"u"&&(vt.userId=ct),typeof lt<"u"&&(vt.phone=lt),typeof ft<"u"&&(vt.roles=ft),typeof _t<"u"&&(vt.url=_t),typeof mt<"u"&&(vt.name=mt);const Mt=new URL(this.client.config.endpoint+at);return await this.client.call("post",Mt,{"content-type":"application/json"},vt)}async getMembership(pt,ft){if(typeof pt>"u")throw new tt.AppwriteException('Missing required parameter: "teamId"');if(typeof ft>"u")throw new tt.AppwriteException('Missing required parameter: "membershipId"');const dt="/teams/{teamId}/memberships/{membershipId}".replace("{teamId}",pt).replace("{membershipId}",ft),ct={},lt=new URL(this.client.config.endpoint+dt);return await this.client.call("get",lt,{"content-type":"application/json"},ct)}async updateMembership(pt,ft,dt){if(typeof pt>"u")throw new tt.AppwriteException('Missing required parameter: "teamId"');if(typeof ft>"u")throw new tt.AppwriteException('Missing required parameter: "membershipId"');if(typeof dt>"u")throw new tt.AppwriteException('Missing required parameter: "roles"');const ct="/teams/{teamId}/memberships/{membershipId}".replace("{teamId}",pt).replace("{membershipId}",ft),lt={};typeof dt<"u"&&(lt.roles=dt);const _t=new URL(this.client.config.endpoint+ct);return await this.client.call("patch",_t,{"content-type":"application/json"},lt)}async deleteMembership(pt,ft){if(typeof pt>"u")throw new tt.AppwriteException('Missing required parameter: "teamId"');if(typeof ft>"u")throw new tt.AppwriteException('Missing required parameter: "membershipId"');const dt="/teams/{teamId}/memberships/{membershipId}".replace("{teamId}",pt).replace("{membershipId}",ft),ct={},lt=new URL(this.client.config.endpoint+dt);return await this.client.call("delete",lt,{"content-type":"application/json"},ct)}async updateMembershipStatus(pt,ft,dt,ct){if(typeof pt>"u")throw new tt.AppwriteException('Missing required parameter: "teamId"');if(typeof ft>"u")throw new tt.AppwriteException('Missing required parameter: "membershipId"');if(typeof dt>"u")throw new tt.AppwriteException('Missing required parameter: "userId"');if(typeof ct>"u")throw new tt.AppwriteException('Missing required parameter: "secret"');const lt="/teams/{teamId}/memberships/{membershipId}/status".replace("{teamId}",pt).replace("{membershipId}",ft),_t={};typeof dt<"u"&&(_t.userId=dt),typeof ct<"u"&&(_t.secret=ct);const mt=new URL(this.client.config.endpoint+lt);return await this.client.call("patch",mt,{"content-type":"application/json"},_t)}async getPrefs(pt){if(typeof pt>"u")throw new tt.AppwriteException('Missing required parameter: "teamId"');const ft="/teams/{teamId}/prefs".replace("{teamId}",pt),dt={},ct=new URL(this.client.config.endpoint+ft);return await this.client.call("get",ct,{"content-type":"application/json"},dt)}async updatePrefs(pt,ft){if(typeof pt>"u")throw new tt.AppwriteException('Missing required parameter: "teamId"');if(typeof ft>"u")throw new tt.AppwriteException('Missing required parameter: "prefs"');const dt="/teams/{teamId}/prefs".replace("{teamId}",pt),ct={};typeof ft<"u"&&(ct.prefs=ft);const lt=new URL(this.client.config.endpoint+dt);return await this.client.call("put",lt,{"content-type":"application/json"},ct)}}}},nt={};function F(et){var ot=nt[et];if(ot!==void 0)return ot.exports;var it=nt[et]={exports:{}};return bt[et](it,it.exports,F),it.exports}F.d=(et,ot)=>{for(var it in ot)F.o(ot,it)&&!F.o(et,it)&&Object.defineProperty(et,it,{enumerable:!0,get:ot[it]})},F.o=(et,ot)=>Object.prototype.hasOwnProperty.call(et,ot),F.r=et=>{typeof Symbol<"u"&&Symbol.toStringTag&&Object.defineProperty(et,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(et,"__esModule",{value:!0})};var y={};return(()=>{/*!**********************!*\
+`+yt.stack}return{value:_,source:b,stack:ut,digest:null}}function Ki(_,b,$){return{value:_,source:null,stack:$??null,digest:b??null}}function Li(_,b){try{console.error(b.value)}catch($){setTimeout(function(){throw $})}}var Mi=typeof WeakMap=="function"?WeakMap:Map;function Ni(_,b,$){$=mh(-1,$),$.tag=3,$.payload={element:null};var _e=b.value;return $.callback=function(){Oi||(Oi=!0,Pi=_e),Li(_,b)},$}function Qi(_,b,$){$=mh(-1,$),$.tag=3;var _e=_.type.getDerivedStateFromError;if(typeof _e=="function"){var ut=b.value;$.payload=function(){return _e(ut)},$.callback=function(){Li(_,b)}}var yt=_.stateNode;return yt!==null&&typeof yt.componentDidCatch=="function"&&($.callback=function(){Li(_,b),typeof _e!="function"&&(Ri===null?Ri=new Set([this]):Ri.add(this));var wt=b.stack;this.componentDidCatch(b.value,{componentStack:wt!==null?wt:""})}),$}function Si(_,b,$){var _e=_.pingCache;if(_e===null){_e=_.pingCache=new Mi;var ut=new Set;_e.set(b,ut)}else ut=_e.get(b),ut===void 0&&(ut=new Set,_e.set(b,ut));ut.has($)||(ut.add($),_=Ti.bind(null,_,b,$),b.then(_,_))}function Ui(_){do{var b;if((b=_.tag===13)&&(b=_.memoizedState,b=b!==null?b.dehydrated!==null:!0),b)return _;_=_.return}while(_!==null);return null}function Vi(_,b,$,_e,ut){return _.mode&1?(_.flags|=65536,_.lanes=ut,_):(_===b?_.flags|=65536:(_.flags|=128,$.flags|=131072,$.flags&=-52805,$.tag===1&&($.alternate===null?$.tag=17:(b=mh(-1,1),b.tag=2,nh($,b,1))),$.lanes|=1),_)}var Wi=ua.ReactCurrentOwner,dh=!1;function Xi(_,b,$,_e){b.child=_===null?Vg(b,null,$,_e):Ug(b,_.child,$,_e)}function Yi(_,b,$,_e,ut){$=$.render;var yt=b.ref;return ch(b,ut),_e=Nh(_,b,$,_e,yt,ut),$=Sh(),_!==null&&!dh?(b.updateQueue=_.updateQueue,b.flags&=-2053,_.lanes&=~ut,Zi(_,b,ut)):(I&&$&&vg(b),b.flags|=1,Xi(_,b,_e,ut),b.child)}function $i(_,b,$,_e,ut){if(_===null){var yt=$.type;return typeof yt=="function"&&!aj(yt)&&yt.defaultProps===void 0&&$.compare===null&&$.defaultProps===void 0?(b.tag=15,b.type=yt,bj(_,b,yt,_e,ut)):(_=Rg($.type,null,_e,b,b.mode,ut),_.ref=b.ref,_.return=b,b.child=_)}if(yt=_.child,!(_.lanes&ut)){var wt=yt.memoizedProps;if($=$.compare,$=$!==null?$:Ie,$(wt,_e)&&_.ref===b.ref)return Zi(_,b,ut)}return b.flags|=1,_=Pg(yt,_e),_.ref=b.ref,_.return=b,b.child=_}function bj(_,b,$,_e,ut){if(_!==null){var yt=_.memoizedProps;if(Ie(yt,_e)&&_.ref===b.ref)if(dh=!1,b.pendingProps=_e=yt,(_.lanes&ut)!==0)_.flags&131072&&(dh=!0);else return b.lanes=_.lanes,Zi(_,b,ut)}return cj(_,b,$,_e,ut)}function dj(_,b,$){var _e=b.pendingProps,ut=_e.children,yt=_!==null?_.memoizedState:null;if(_e.mode==="hidden")if(!(b.mode&1))b.memoizedState={baseLanes:0,cachePool:null,transitions:null},G(ej,fj),fj|=$;else{if(!($&1073741824))return _=yt!==null?yt.baseLanes|$:$,b.lanes=b.childLanes=1073741824,b.memoizedState={baseLanes:_,cachePool:null,transitions:null},b.updateQueue=null,G(ej,fj),fj|=_,null;b.memoizedState={baseLanes:0,cachePool:null,transitions:null},_e=yt!==null?yt.baseLanes:$,G(ej,fj),fj|=_e}else yt!==null?(_e=yt.baseLanes|$,b.memoizedState=null):_e=$,G(ej,fj),fj|=_e;return Xi(_,b,ut,$),b.child}function gj(_,b){var $=b.ref;(_===null&&$!==null||_!==null&&_.ref!==$)&&(b.flags|=512,b.flags|=2097152)}function cj(_,b,$,_e,ut){var yt=Zf($)?Xf:H.current;return yt=Yf(b,yt),ch(b,ut),$=Nh(_,b,$,_e,yt,ut),_e=Sh(),_!==null&&!dh?(b.updateQueue=_.updateQueue,b.flags&=-2053,_.lanes&=~ut,Zi(_,b,ut)):(I&&_e&&vg(b),b.flags|=1,Xi(_,b,$,ut),b.child)}function hj(_,b,$,_e,ut){if(Zf($)){var yt=!0;cg(b)}else yt=!1;if(ch(b,ut),b.stateNode===null)ij(_,b),Gi(b,$,_e),Ii(b,$,_e,ut),_e=!0;else if(_===null){var wt=b.stateNode,Ct=b.memoizedProps;wt.props=Ct;var Rt=wt.context,bt=$.contextType;typeof bt=="object"&&bt!==null?bt=eh(bt):(bt=Zf($)?Xf:H.current,bt=Yf(b,bt));var nt=$.getDerivedStateFromProps,F=typeof nt=="function"||typeof wt.getSnapshotBeforeUpdate=="function";F||typeof wt.UNSAFE_componentWillReceiveProps!="function"&&typeof wt.componentWillReceiveProps!="function"||(Ct!==_e||Rt!==bt)&&Hi(b,wt,_e,bt),jh=!1;var y=b.memoizedState;wt.state=y,qh(b,_e,wt,ut),Rt=b.memoizedState,Ct!==_e||y!==Rt||Wf.current||jh?(typeof nt=="function"&&(Di(b,$,nt,_e),Rt=b.memoizedState),(Ct=jh||Fi(b,$,Ct,_e,y,Rt,bt))?(F||typeof wt.UNSAFE_componentWillMount!="function"&&typeof wt.componentWillMount!="function"||(typeof wt.componentWillMount=="function"&&wt.componentWillMount(),typeof wt.UNSAFE_componentWillMount=="function"&&wt.UNSAFE_componentWillMount()),typeof wt.componentDidMount=="function"&&(b.flags|=4194308)):(typeof wt.componentDidMount=="function"&&(b.flags|=4194308),b.memoizedProps=_e,b.memoizedState=Rt),wt.props=_e,wt.state=Rt,wt.context=bt,_e=Ct):(typeof wt.componentDidMount=="function"&&(b.flags|=4194308),_e=!1)}else{wt=b.stateNode,lh(_,b),Ct=b.memoizedProps,bt=b.type===b.elementType?Ct:Ci(b.type,Ct),wt.props=bt,F=b.pendingProps,y=wt.context,Rt=$.contextType,typeof Rt=="object"&&Rt!==null?Rt=eh(Rt):(Rt=Zf($)?Xf:H.current,Rt=Yf(b,Rt));var et=$.getDerivedStateFromProps;(nt=typeof et=="function"||typeof wt.getSnapshotBeforeUpdate=="function")||typeof wt.UNSAFE_componentWillReceiveProps!="function"&&typeof wt.componentWillReceiveProps!="function"||(Ct!==F||y!==Rt)&&Hi(b,wt,_e,Rt),jh=!1,y=b.memoizedState,wt.state=y,qh(b,_e,wt,ut);var ot=b.memoizedState;Ct!==F||y!==ot||Wf.current||jh?(typeof et=="function"&&(Di(b,$,et,_e),ot=b.memoizedState),(bt=jh||Fi(b,$,bt,_e,y,ot,Rt)||!1)?(nt||typeof wt.UNSAFE_componentWillUpdate!="function"&&typeof wt.componentWillUpdate!="function"||(typeof wt.componentWillUpdate=="function"&&wt.componentWillUpdate(_e,ot,Rt),typeof wt.UNSAFE_componentWillUpdate=="function"&&wt.UNSAFE_componentWillUpdate(_e,ot,Rt)),typeof wt.componentDidUpdate=="function"&&(b.flags|=4),typeof wt.getSnapshotBeforeUpdate=="function"&&(b.flags|=1024)):(typeof wt.componentDidUpdate!="function"||Ct===_.memoizedProps&&y===_.memoizedState||(b.flags|=4),typeof wt.getSnapshotBeforeUpdate!="function"||Ct===_.memoizedProps&&y===_.memoizedState||(b.flags|=1024),b.memoizedProps=_e,b.memoizedState=ot),wt.props=_e,wt.state=ot,wt.context=Rt,_e=bt):(typeof wt.componentDidUpdate!="function"||Ct===_.memoizedProps&&y===_.memoizedState||(b.flags|=4),typeof wt.getSnapshotBeforeUpdate!="function"||Ct===_.memoizedProps&&y===_.memoizedState||(b.flags|=1024),_e=!1)}return jj(_,b,$,_e,yt,ut)}function jj(_,b,$,_e,ut,yt){gj(_,b);var wt=(b.flags&128)!==0;if(!_e&&!wt)return ut&&dg(b,$,!1),Zi(_,b,yt);_e=b.stateNode,Wi.current=b;var Ct=wt&&typeof $.getDerivedStateFromError!="function"?null:_e.render();return b.flags|=1,_!==null&&wt?(b.child=Ug(b,_.child,null,yt),b.child=Ug(b,null,Ct,yt)):Xi(_,b,Ct,yt),b.memoizedState=_e.state,ut&&dg(b,$,!0),b.child}function kj(_){var b=_.stateNode;b.pendingContext?ag(_,b.pendingContext,b.pendingContext!==b.context):b.context&&ag(_,b.context,!1),yh(_,b.containerInfo)}function lj(_,b,$,_e,ut){return Ig(),Jg(ut),b.flags|=256,Xi(_,b,$,_e),b.child}var mj={dehydrated:null,treeContext:null,retryLane:0};function nj(_){return{baseLanes:_,cachePool:null,transitions:null}}function oj(_,b,$){var _e=b.pendingProps,ut=L.current,yt=!1,wt=(b.flags&128)!==0,Ct;if((Ct=wt)||(Ct=_!==null&&_.memoizedState===null?!1:(ut&2)!==0),Ct?(yt=!0,b.flags&=-129):(_===null||_.memoizedState!==null)&&(ut|=1),G(L,ut&1),_===null)return Eg(b),_=b.memoizedState,_!==null&&(_=_.dehydrated,_!==null)?(b.mode&1?_.data==="$!"?b.lanes=8:b.lanes=1073741824:b.lanes=1,null):(wt=_e.children,_=_e.fallback,yt?(_e=b.mode,yt=b.child,wt={mode:"hidden",children:wt},!(_e&1)&&yt!==null?(yt.childLanes=0,yt.pendingProps=wt):yt=pj(wt,_e,0,null),_=Tg(_,_e,$,null),yt.return=b,_.return=b,yt.sibling=_,b.child=yt,b.child.memoizedState=nj($),b.memoizedState=mj,_):qj(b,wt));if(ut=_.memoizedState,ut!==null&&(Ct=ut.dehydrated,Ct!==null))return rj(_,b,wt,_e,Ct,ut,$);if(yt){yt=_e.fallback,wt=b.mode,ut=_.child,Ct=ut.sibling;var Rt={mode:"hidden",children:_e.children};return!(wt&1)&&b.child!==ut?(_e=b.child,_e.childLanes=0,_e.pendingProps=Rt,b.deletions=null):(_e=Pg(ut,Rt),_e.subtreeFlags=ut.subtreeFlags&14680064),Ct!==null?yt=Pg(Ct,yt):(yt=Tg(yt,wt,$,null),yt.flags|=2),yt.return=b,_e.return=b,_e.sibling=yt,b.child=_e,_e=yt,yt=b.child,wt=_.child.memoizedState,wt=wt===null?nj($):{baseLanes:wt.baseLanes|$,cachePool:null,transitions:wt.transitions},yt.memoizedState=wt,yt.childLanes=_.childLanes&~$,b.memoizedState=mj,_e}return yt=_.child,_=yt.sibling,_e=Pg(yt,{mode:"visible",children:_e.children}),!(b.mode&1)&&(_e.lanes=$),_e.return=b,_e.sibling=null,_!==null&&($=b.deletions,$===null?(b.deletions=[_],b.flags|=16):$.push(_)),b.child=_e,b.memoizedState=null,_e}function qj(_,b){return b=pj({mode:"visible",children:b},_.mode,0,null),b.return=_,_.child=b}function sj(_,b,$,_e){return _e!==null&&Jg(_e),Ug(b,_.child,null,$),_=qj(b,b.pendingProps.children),_.flags|=2,b.memoizedState=null,_}function rj(_,b,$,_e,ut,yt,wt){if($)return b.flags&256?(b.flags&=-257,_e=Ki(Error(p$1(422))),sj(_,b,wt,_e)):b.memoizedState!==null?(b.child=_.child,b.flags|=128,null):(yt=_e.fallback,ut=b.mode,_e=pj({mode:"visible",children:_e.children},ut,0,null),yt=Tg(yt,ut,wt,null),yt.flags|=2,_e.return=b,yt.return=b,_e.sibling=yt,b.child=_e,b.mode&1&&Ug(b,_.child,null,wt),b.child.memoizedState=nj(wt),b.memoizedState=mj,yt);if(!(b.mode&1))return sj(_,b,wt,null);if(ut.data==="$!"){if(_e=ut.nextSibling&&ut.nextSibling.dataset,_e)var Ct=_e.dgst;return _e=Ct,yt=Error(p$1(419)),_e=Ki(yt,_e,void 0),sj(_,b,wt,_e)}if(Ct=(wt&_.childLanes)!==0,dh||Ct){if(_e=Q,_e!==null){switch(wt&-wt){case 4:ut=2;break;case 16:ut=8;break;case 64:case 128:case 256:case 512:case 1024:case 2048:case 4096:case 8192:case 16384:case 32768:case 65536:case 131072:case 262144:case 524288:case 1048576:case 2097152:case 4194304:case 8388608:case 16777216:case 33554432:case 67108864:ut=32;break;case 536870912:ut=268435456;break;default:ut=0}ut=ut&(_e.suspendedLanes|wt)?0:ut,ut!==0&&ut!==yt.retryLane&&(yt.retryLane=ut,ih(_,ut),gi(_e,_,ut,-1))}return tj(),_e=Ki(Error(p$1(421))),sj(_,b,wt,_e)}return ut.data==="$?"?(b.flags|=128,b.child=_.child,b=uj.bind(null,_),ut._reactRetry=b,null):(_=yt.treeContext,yg=Lf(ut.nextSibling),xg=b,I=!0,zg=null,_!==null&&(og[pg++]=rg,og[pg++]=sg,og[pg++]=qg,rg=_.id,sg=_.overflow,qg=b),b=qj(b,_e.children),b.flags|=4096,b)}function vj(_,b,$){_.lanes|=b;var _e=_.alternate;_e!==null&&(_e.lanes|=b),bh(_.return,b,$)}function wj(_,b,$,_e,ut){var yt=_.memoizedState;yt===null?_.memoizedState={isBackwards:b,rendering:null,renderingStartTime:0,last:_e,tail:$,tailMode:ut}:(yt.isBackwards=b,yt.rendering=null,yt.renderingStartTime=0,yt.last=_e,yt.tail=$,yt.tailMode=ut)}function xj(_,b,$){var _e=b.pendingProps,ut=_e.revealOrder,yt=_e.tail;if(Xi(_,b,_e.children,$),_e=L.current,_e&2)_e=_e&1|2,b.flags|=128;else{if(_!==null&&_.flags&128)e:for(_=b.child;_!==null;){if(_.tag===13)_.memoizedState!==null&&vj(_,$,b);else if(_.tag===19)vj(_,$,b);else if(_.child!==null){_.child.return=_,_=_.child;continue}if(_===b)break e;for(;_.sibling===null;){if(_.return===null||_.return===b)break e;_=_.return}_.sibling.return=_.return,_=_.sibling}_e&=1}if(G(L,_e),!(b.mode&1))b.memoizedState=null;else switch(ut){case"forwards":for($=b.child,ut=null;$!==null;)_=$.alternate,_!==null&&Ch(_)===null&&(ut=$),$=$.sibling;$=ut,$===null?(ut=b.child,b.child=null):(ut=$.sibling,$.sibling=null),wj(b,!1,ut,$,yt);break;case"backwards":for($=null,ut=b.child,b.child=null;ut!==null;){if(_=ut.alternate,_!==null&&Ch(_)===null){b.child=ut;break}_=ut.sibling,ut.sibling=$,$=ut,ut=_}wj(b,!0,$,null,yt);break;case"together":wj(b,!1,null,null,void 0);break;default:b.memoizedState=null}return b.child}function ij(_,b){!(b.mode&1)&&_!==null&&(_.alternate=null,b.alternate=null,b.flags|=2)}function Zi(_,b,$){if(_!==null&&(b.dependencies=_.dependencies),rh|=b.lanes,!($&b.childLanes))return null;if(_!==null&&b.child!==_.child)throw Error(p$1(153));if(b.child!==null){for(_=b.child,$=Pg(_,_.pendingProps),b.child=$,$.return=b;_.sibling!==null;)_=_.sibling,$=$.sibling=Pg(_,_.pendingProps),$.return=b;$.sibling=null}return b.child}function yj(_,b,$){switch(b.tag){case 3:kj(b),Ig();break;case 5:Ah(b);break;case 1:Zf(b.type)&&cg(b);break;case 4:yh(b,b.stateNode.containerInfo);break;case 10:var _e=b.type._context,ut=b.memoizedProps.value;G(Wg,_e._currentValue),_e._currentValue=ut;break;case 13:if(_e=b.memoizedState,_e!==null)return _e.dehydrated!==null?(G(L,L.current&1),b.flags|=128,null):$&b.child.childLanes?oj(_,b,$):(G(L,L.current&1),_=Zi(_,b,$),_!==null?_.sibling:null);G(L,L.current&1);break;case 19:if(_e=($&b.childLanes)!==0,_.flags&128){if(_e)return xj(_,b,$);b.flags|=128}if(ut=b.memoizedState,ut!==null&&(ut.rendering=null,ut.tail=null,ut.lastEffect=null),G(L,L.current),_e)break;return null;case 22:case 23:return b.lanes=0,dj(_,b,$)}return Zi(_,b,$)}var zj,Aj,Bj,Cj;zj=function(_,b){for(var $=b.child;$!==null;){if($.tag===5||$.tag===6)_.appendChild($.stateNode);else if($.tag!==4&&$.child!==null){$.child.return=$,$=$.child;continue}if($===b)break;for(;$.sibling===null;){if($.return===null||$.return===b)return;$=$.return}$.sibling.return=$.return,$=$.sibling}};Aj=function(){};Bj=function(_,b,$,_e){var ut=_.memoizedProps;if(ut!==_e){_=b.stateNode,xh(uh.current);var yt=null;switch($){case"input":ut=Ya(_,ut),_e=Ya(_,_e),yt=[];break;case"select":ut=A({},ut,{value:void 0}),_e=A({},_e,{value:void 0}),yt=[];break;case"textarea":ut=gb(_,ut),_e=gb(_,_e),yt=[];break;default:typeof ut.onClick!="function"&&typeof _e.onClick=="function"&&(_.onclick=Bf)}ub($,_e);var wt;$=null;for(bt in ut)if(!_e.hasOwnProperty(bt)&&ut.hasOwnProperty(bt)&&ut[bt]!=null)if(bt==="style"){var Ct=ut[bt];for(wt in Ct)Ct.hasOwnProperty(wt)&&($||($={}),$[wt]="")}else bt!=="dangerouslySetInnerHTML"&&bt!=="children"&&bt!=="suppressContentEditableWarning"&&bt!=="suppressHydrationWarning"&&bt!=="autoFocus"&&(ea.hasOwnProperty(bt)?yt||(yt=[]):(yt=yt||[]).push(bt,null));for(bt in _e){var Rt=_e[bt];if(Ct=ut!=null?ut[bt]:void 0,_e.hasOwnProperty(bt)&&Rt!==Ct&&(Rt!=null||Ct!=null))if(bt==="style")if(Ct){for(wt in Ct)!Ct.hasOwnProperty(wt)||Rt&&Rt.hasOwnProperty(wt)||($||($={}),$[wt]="");for(wt in Rt)Rt.hasOwnProperty(wt)&&Ct[wt]!==Rt[wt]&&($||($={}),$[wt]=Rt[wt])}else $||(yt||(yt=[]),yt.push(bt,$)),$=Rt;else bt==="dangerouslySetInnerHTML"?(Rt=Rt?Rt.__html:void 0,Ct=Ct?Ct.__html:void 0,Rt!=null&&Ct!==Rt&&(yt=yt||[]).push(bt,Rt)):bt==="children"?typeof Rt!="string"&&typeof Rt!="number"||(yt=yt||[]).push(bt,""+Rt):bt!=="suppressContentEditableWarning"&&bt!=="suppressHydrationWarning"&&(ea.hasOwnProperty(bt)?(Rt!=null&&bt==="onScroll"&&D("scroll",_),yt||Ct===Rt||(yt=[])):(yt=yt||[]).push(bt,Rt))}$&&(yt=yt||[]).push("style",$);var bt=yt;(b.updateQueue=bt)&&(b.flags|=4)}};Cj=function(_,b,$,_e){$!==_e&&(b.flags|=4)};function Dj(_,b){if(!I)switch(_.tailMode){case"hidden":b=_.tail;for(var $=null;b!==null;)b.alternate!==null&&($=b),b=b.sibling;$===null?_.tail=null:$.sibling=null;break;case"collapsed":$=_.tail;for(var _e=null;$!==null;)$.alternate!==null&&(_e=$),$=$.sibling;_e===null?b||_.tail===null?_.tail=null:_.tail.sibling=null:_e.sibling=null}}function S(_){var b=_.alternate!==null&&_.alternate.child===_.child,$=0,_e=0;if(b)for(var ut=_.child;ut!==null;)$|=ut.lanes|ut.childLanes,_e|=ut.subtreeFlags&14680064,_e|=ut.flags&14680064,ut.return=_,ut=ut.sibling;else for(ut=_.child;ut!==null;)$|=ut.lanes|ut.childLanes,_e|=ut.subtreeFlags,_e|=ut.flags,ut.return=_,ut=ut.sibling;return _.subtreeFlags|=_e,_.childLanes=$,b}function Ej(_,b,$){var _e=b.pendingProps;switch(wg(b),b.tag){case 2:case 16:case 15:case 0:case 11:case 7:case 8:case 12:case 9:case 14:return S(b),null;case 1:return Zf(b.type)&&$f(),S(b),null;case 3:return _e=b.stateNode,zh(),E(Wf),E(H),Eh(),_e.pendingContext&&(_e.context=_e.pendingContext,_e.pendingContext=null),(_===null||_.child===null)&&(Gg(b)?b.flags|=4:_===null||_.memoizedState.isDehydrated&&!(b.flags&256)||(b.flags|=1024,zg!==null&&(Fj(zg),zg=null))),Aj(_,b),S(b),null;case 5:Bh(b);var ut=xh(wh.current);if($=b.type,_!==null&&b.stateNode!=null)Bj(_,b,$,_e,ut),_.ref!==b.ref&&(b.flags|=512,b.flags|=2097152);else{if(!_e){if(b.stateNode===null)throw Error(p$1(166));return S(b),null}if(_=xh(uh.current),Gg(b)){_e=b.stateNode,$=b.type;var yt=b.memoizedProps;switch(_e[Of]=b,_e[Pf]=yt,_=(b.mode&1)!==0,$){case"dialog":D("cancel",_e),D("close",_e);break;case"iframe":case"object":case"embed":D("load",_e);break;case"video":case"audio":for(ut=0;ut<lf.length;ut++)D(lf[ut],_e);break;case"source":D("error",_e);break;case"img":case"image":case"link":D("error",_e),D("load",_e);break;case"details":D("toggle",_e);break;case"input":Za(_e,yt),D("invalid",_e);break;case"select":_e._wrapperState={wasMultiple:!!yt.multiple},D("invalid",_e);break;case"textarea":hb(_e,yt),D("invalid",_e)}ub($,yt),ut=null;for(var wt in yt)if(yt.hasOwnProperty(wt)){var Ct=yt[wt];wt==="children"?typeof Ct=="string"?_e.textContent!==Ct&&(yt.suppressHydrationWarning!==!0&&Af(_e.textContent,Ct,_),ut=["children",Ct]):typeof Ct=="number"&&_e.textContent!==""+Ct&&(yt.suppressHydrationWarning!==!0&&Af(_e.textContent,Ct,_),ut=["children",""+Ct]):ea.hasOwnProperty(wt)&&Ct!=null&&wt==="onScroll"&&D("scroll",_e)}switch($){case"input":Va(_e),db(_e,yt,!0);break;case"textarea":Va(_e),jb(_e);break;case"select":case"option":break;default:typeof yt.onClick=="function"&&(_e.onclick=Bf)}_e=ut,b.updateQueue=_e,_e!==null&&(b.flags|=4)}else{wt=ut.nodeType===9?ut:ut.ownerDocument,_==="http://www.w3.org/1999/xhtml"&&(_=kb($)),_==="http://www.w3.org/1999/xhtml"?$==="script"?(_=wt.createElement("div"),_.innerHTML="<script><\/script>",_=_.removeChild(_.firstChild)):typeof _e.is=="string"?_=wt.createElement($,{is:_e.is}):(_=wt.createElement($),$==="select"&&(wt=_,_e.multiple?wt.multiple=!0:_e.size&&(wt.size=_e.size))):_=wt.createElementNS(_,$),_[Of]=b,_[Pf]=_e,zj(_,b,!1,!1),b.stateNode=_;e:{switch(wt=vb($,_e),$){case"dialog":D("cancel",_),D("close",_),ut=_e;break;case"iframe":case"object":case"embed":D("load",_),ut=_e;break;case"video":case"audio":for(ut=0;ut<lf.length;ut++)D(lf[ut],_);ut=_e;break;case"source":D("error",_),ut=_e;break;case"img":case"image":case"link":D("error",_),D("load",_),ut=_e;break;case"details":D("toggle",_),ut=_e;break;case"input":Za(_,_e),ut=Ya(_,_e),D("invalid",_);break;case"option":ut=_e;break;case"select":_._wrapperState={wasMultiple:!!_e.multiple},ut=A({},_e,{value:void 0}),D("invalid",_);break;case"textarea":hb(_,_e),ut=gb(_,_e),D("invalid",_);break;default:ut=_e}ub($,ut),Ct=ut;for(yt in Ct)if(Ct.hasOwnProperty(yt)){var Rt=Ct[yt];yt==="style"?sb(_,Rt):yt==="dangerouslySetInnerHTML"?(Rt=Rt?Rt.__html:void 0,Rt!=null&&nb(_,Rt)):yt==="children"?typeof Rt=="string"?($!=="textarea"||Rt!=="")&&ob(_,Rt):typeof Rt=="number"&&ob(_,""+Rt):yt!=="suppressContentEditableWarning"&&yt!=="suppressHydrationWarning"&&yt!=="autoFocus"&&(ea.hasOwnProperty(yt)?Rt!=null&&yt==="onScroll"&&D("scroll",_):Rt!=null&&ta(_,yt,Rt,wt))}switch($){case"input":Va(_),db(_,_e,!1);break;case"textarea":Va(_),jb(_);break;case"option":_e.value!=null&&_.setAttribute("value",""+Sa(_e.value));break;case"select":_.multiple=!!_e.multiple,yt=_e.value,yt!=null?fb(_,!!_e.multiple,yt,!1):_e.defaultValue!=null&&fb(_,!!_e.multiple,_e.defaultValue,!0);break;default:typeof ut.onClick=="function"&&(_.onclick=Bf)}switch($){case"button":case"input":case"select":case"textarea":_e=!!_e.autoFocus;break e;case"img":_e=!0;break e;default:_e=!1}}_e&&(b.flags|=4)}b.ref!==null&&(b.flags|=512,b.flags|=2097152)}return S(b),null;case 6:if(_&&b.stateNode!=null)Cj(_,b,_.memoizedProps,_e);else{if(typeof _e!="string"&&b.stateNode===null)throw Error(p$1(166));if($=xh(wh.current),xh(uh.current),Gg(b)){if(_e=b.stateNode,$=b.memoizedProps,_e[Of]=b,(yt=_e.nodeValue!==$)&&(_=xg,_!==null))switch(_.tag){case 3:Af(_e.nodeValue,$,(_.mode&1)!==0);break;case 5:_.memoizedProps.suppressHydrationWarning!==!0&&Af(_e.nodeValue,$,(_.mode&1)!==0)}yt&&(b.flags|=4)}else _e=($.nodeType===9?$:$.ownerDocument).createTextNode(_e),_e[Of]=b,b.stateNode=_e}return S(b),null;case 13:if(E(L),_e=b.memoizedState,_===null||_.memoizedState!==null&&_.memoizedState.dehydrated!==null){if(I&&yg!==null&&b.mode&1&&!(b.flags&128))Hg(),Ig(),b.flags|=98560,yt=!1;else if(yt=Gg(b),_e!==null&&_e.dehydrated!==null){if(_===null){if(!yt)throw Error(p$1(318));if(yt=b.memoizedState,yt=yt!==null?yt.dehydrated:null,!yt)throw Error(p$1(317));yt[Of]=b}else Ig(),!(b.flags&128)&&(b.memoizedState=null),b.flags|=4;S(b),yt=!1}else zg!==null&&(Fj(zg),zg=null),yt=!0;if(!yt)return b.flags&65536?b:null}return b.flags&128?(b.lanes=$,b):(_e=_e!==null,_e!==(_!==null&&_.memoizedState!==null)&&_e&&(b.child.flags|=8192,b.mode&1&&(_===null||L.current&1?T===0&&(T=3):tj())),b.updateQueue!==null&&(b.flags|=4),S(b),null);case 4:return zh(),Aj(_,b),_===null&&sf(b.stateNode.containerInfo),S(b),null;case 10:return ah(b.type._context),S(b),null;case 17:return Zf(b.type)&&$f(),S(b),null;case 19:if(E(L),yt=b.memoizedState,yt===null)return S(b),null;if(_e=(b.flags&128)!==0,wt=yt.rendering,wt===null)if(_e)Dj(yt,!1);else{if(T!==0||_!==null&&_.flags&128)for(_=b.child;_!==null;){if(wt=Ch(_),wt!==null){for(b.flags|=128,Dj(yt,!1),_e=wt.updateQueue,_e!==null&&(b.updateQueue=_e,b.flags|=4),b.subtreeFlags=0,_e=$,$=b.child;$!==null;)yt=$,_=_e,yt.flags&=14680066,wt=yt.alternate,wt===null?(yt.childLanes=0,yt.lanes=_,yt.child=null,yt.subtreeFlags=0,yt.memoizedProps=null,yt.memoizedState=null,yt.updateQueue=null,yt.dependencies=null,yt.stateNode=null):(yt.childLanes=wt.childLanes,yt.lanes=wt.lanes,yt.child=wt.child,yt.subtreeFlags=0,yt.deletions=null,yt.memoizedProps=wt.memoizedProps,yt.memoizedState=wt.memoizedState,yt.updateQueue=wt.updateQueue,yt.type=wt.type,_=wt.dependencies,yt.dependencies=_===null?null:{lanes:_.lanes,firstContext:_.firstContext}),$=$.sibling;return G(L,L.current&1|2),b.child}_=_.sibling}yt.tail!==null&&B()>Gj&&(b.flags|=128,_e=!0,Dj(yt,!1),b.lanes=4194304)}else{if(!_e)if(_=Ch(wt),_!==null){if(b.flags|=128,_e=!0,$=_.updateQueue,$!==null&&(b.updateQueue=$,b.flags|=4),Dj(yt,!0),yt.tail===null&&yt.tailMode==="hidden"&&!wt.alternate&&!I)return S(b),null}else 2*B()-yt.renderingStartTime>Gj&&$!==1073741824&&(b.flags|=128,_e=!0,Dj(yt,!1),b.lanes=4194304);yt.isBackwards?(wt.sibling=b.child,b.child=wt):($=yt.last,$!==null?$.sibling=wt:b.child=wt,yt.last=wt)}return yt.tail!==null?(b=yt.tail,yt.rendering=b,yt.tail=b.sibling,yt.renderingStartTime=B(),b.sibling=null,$=L.current,G(L,_e?$&1|2:$&1),b):(S(b),null);case 22:case 23:return Hj(),_e=b.memoizedState!==null,_!==null&&_.memoizedState!==null!==_e&&(b.flags|=8192),_e&&b.mode&1?fj&1073741824&&(S(b),b.subtreeFlags&6&&(b.flags|=8192)):S(b),null;case 24:return null;case 25:return null}throw Error(p$1(156,b.tag))}function Ij(_,b){switch(wg(b),b.tag){case 1:return Zf(b.type)&&$f(),_=b.flags,_&65536?(b.flags=_&-65537|128,b):null;case 3:return zh(),E(Wf),E(H),Eh(),_=b.flags,_&65536&&!(_&128)?(b.flags=_&-65537|128,b):null;case 5:return Bh(b),null;case 13:if(E(L),_=b.memoizedState,_!==null&&_.dehydrated!==null){if(b.alternate===null)throw Error(p$1(340));Ig()}return _=b.flags,_&65536?(b.flags=_&-65537|128,b):null;case 19:return E(L),null;case 4:return zh(),null;case 10:return ah(b.type._context),null;case 22:case 23:return Hj(),null;case 24:return null;default:return null}}var Jj=!1,U=!1,Kj=typeof WeakSet=="function"?WeakSet:Set,V=null;function Lj(_,b){var $=_.ref;if($!==null)if(typeof $=="function")try{$(null)}catch(_e){W(_,b,_e)}else $.current=null}function Mj(_,b,$){try{$()}catch(_e){W(_,b,_e)}}var Nj=!1;function Oj(_,b){if(Cf=dd,_=Me(),Ne(_)){if("selectionStart"in _)var $={start:_.selectionStart,end:_.selectionEnd};else e:{$=($=_.ownerDocument)&&$.defaultView||window;var _e=$.getSelection&&$.getSelection();if(_e&&_e.rangeCount!==0){$=_e.anchorNode;var ut=_e.anchorOffset,yt=_e.focusNode;_e=_e.focusOffset;try{$.nodeType,yt.nodeType}catch{$=null;break e}var wt=0,Ct=-1,Rt=-1,bt=0,nt=0,F=_,y=null;t:for(;;){for(var et;F!==$||ut!==0&&F.nodeType!==3||(Ct=wt+ut),F!==yt||_e!==0&&F.nodeType!==3||(Rt=wt+_e),F.nodeType===3&&(wt+=F.nodeValue.length),(et=F.firstChild)!==null;)y=F,F=et;for(;;){if(F===_)break t;if(y===$&&++bt===ut&&(Ct=wt),y===yt&&++nt===_e&&(Rt=wt),(et=F.nextSibling)!==null)break;F=y,y=F.parentNode}F=et}$=Ct===-1||Rt===-1?null:{start:Ct,end:Rt}}else $=null}$=$||{start:0,end:0}}else $=null;for(Df={focusedElem:_,selectionRange:$},dd=!1,V=b;V!==null;)if(b=V,_=b.child,(b.subtreeFlags&1028)!==0&&_!==null)_.return=b,V=_;else for(;V!==null;){b=V;try{var ot=b.alternate;if(b.flags&1024)switch(b.tag){case 0:case 11:case 15:break;case 1:if(ot!==null){var it=ot.memoizedProps,rt=ot.memoizedState,tt=b.stateNode,st=tt.getSnapshotBeforeUpdate(b.elementType===b.type?it:Ci(b.type,it),rt);tt.__reactInternalSnapshotBeforeUpdate=st}break;case 3:var gt=b.stateNode.containerInfo;gt.nodeType===1?gt.textContent="":gt.nodeType===9&&gt.documentElement&&gt.removeChild(gt.documentElement);break;case 5:case 6:case 4:case 17:break;default:throw Error(p$1(163))}}catch(pt){W(b,b.return,pt)}if(_=b.sibling,_!==null){_.return=b.return,V=_;break}V=b.return}return ot=Nj,Nj=!1,ot}function Pj(_,b,$){var _e=b.updateQueue;if(_e=_e!==null?_e.lastEffect:null,_e!==null){var ut=_e=_e.next;do{if((ut.tag&_)===_){var yt=ut.destroy;ut.destroy=void 0,yt!==void 0&&Mj(b,$,yt)}ut=ut.next}while(ut!==_e)}}function Qj(_,b){if(b=b.updateQueue,b=b!==null?b.lastEffect:null,b!==null){var $=b=b.next;do{if(($.tag&_)===_){var _e=$.create;$.destroy=_e()}$=$.next}while($!==b)}}function Rj(_){var b=_.ref;if(b!==null){var $=_.stateNode;switch(_.tag){case 5:_=$;break;default:_=$}typeof b=="function"?b(_):b.current=_}}function Sj(_){var b=_.alternate;b!==null&&(_.alternate=null,Sj(b)),_.child=null,_.deletions=null,_.sibling=null,_.tag===5&&(b=_.stateNode,b!==null&&(delete b[Of],delete b[Pf],delete b[of],delete b[Qf],delete b[Rf])),_.stateNode=null,_.return=null,_.dependencies=null,_.memoizedProps=null,_.memoizedState=null,_.pendingProps=null,_.stateNode=null,_.updateQueue=null}function Tj(_){return _.tag===5||_.tag===3||_.tag===4}function Uj(_){e:for(;;){for(;_.sibling===null;){if(_.return===null||Tj(_.return))return null;_=_.return}for(_.sibling.return=_.return,_=_.sibling;_.tag!==5&&_.tag!==6&&_.tag!==18;){if(_.flags&2||_.child===null||_.tag===4)continue e;_.child.return=_,_=_.child}if(!(_.flags&2))return _.stateNode}}function Vj(_,b,$){var _e=_.tag;if(_e===5||_e===6)_=_.stateNode,b?$.nodeType===8?$.parentNode.insertBefore(_,b):$.insertBefore(_,b):($.nodeType===8?(b=$.parentNode,b.insertBefore(_,$)):(b=$,b.appendChild(_)),$=$._reactRootContainer,$!=null||b.onclick!==null||(b.onclick=Bf));else if(_e!==4&&(_=_.child,_!==null))for(Vj(_,b,$),_=_.sibling;_!==null;)Vj(_,b,$),_=_.sibling}function Wj(_,b,$){var _e=_.tag;if(_e===5||_e===6)_=_.stateNode,b?$.insertBefore(_,b):$.appendChild(_);else if(_e!==4&&(_=_.child,_!==null))for(Wj(_,b,$),_=_.sibling;_!==null;)Wj(_,b,$),_=_.sibling}var X=null,Xj=!1;function Yj(_,b,$){for($=$.child;$!==null;)Zj(_,b,$),$=$.sibling}function Zj(_,b,$){if(lc&&typeof lc.onCommitFiberUnmount=="function")try{lc.onCommitFiberUnmount(kc,$)}catch{}switch($.tag){case 5:U||Lj($,b);case 6:var _e=X,ut=Xj;X=null,Yj(_,b,$),X=_e,Xj=ut,X!==null&&(Xj?(_=X,$=$.stateNode,_.nodeType===8?_.parentNode.removeChild($):_.removeChild($)):X.removeChild($.stateNode));break;case 18:X!==null&&(Xj?(_=X,$=$.stateNode,_.nodeType===8?Kf(_.parentNode,$):_.nodeType===1&&Kf(_,$),bd(_)):Kf(X,$.stateNode));break;case 4:_e=X,ut=Xj,X=$.stateNode.containerInfo,Xj=!0,Yj(_,b,$),X=_e,Xj=ut;break;case 0:case 11:case 14:case 15:if(!U&&(_e=$.updateQueue,_e!==null&&(_e=_e.lastEffect,_e!==null))){ut=_e=_e.next;do{var yt=ut,wt=yt.destroy;yt=yt.tag,wt!==void 0&&(yt&2||yt&4)&&Mj($,b,wt),ut=ut.next}while(ut!==_e)}Yj(_,b,$);break;case 1:if(!U&&(Lj($,b),_e=$.stateNode,typeof _e.componentWillUnmount=="function"))try{_e.props=$.memoizedProps,_e.state=$.memoizedState,_e.componentWillUnmount()}catch(Ct){W($,b,Ct)}Yj(_,b,$);break;case 21:Yj(_,b,$);break;case 22:$.mode&1?(U=(_e=U)||$.memoizedState!==null,Yj(_,b,$),U=_e):Yj(_,b,$);break;default:Yj(_,b,$)}}function ak(_){var b=_.updateQueue;if(b!==null){_.updateQueue=null;var $=_.stateNode;$===null&&($=_.stateNode=new Kj),b.forEach(function(_e){var ut=bk.bind(null,_,_e);$.has(_e)||($.add(_e),_e.then(ut,ut))})}}function ck(_,b){var $=b.deletions;if($!==null)for(var _e=0;_e<$.length;_e++){var ut=$[_e];try{var yt=_,wt=b,Ct=wt;e:for(;Ct!==null;){switch(Ct.tag){case 5:X=Ct.stateNode,Xj=!1;break e;case 3:X=Ct.stateNode.containerInfo,Xj=!0;break e;case 4:X=Ct.stateNode.containerInfo,Xj=!0;break e}Ct=Ct.return}if(X===null)throw Error(p$1(160));Zj(yt,wt,ut),X=null,Xj=!1;var Rt=ut.alternate;Rt!==null&&(Rt.return=null),ut.return=null}catch(bt){W(ut,b,bt)}}if(b.subtreeFlags&12854)for(b=b.child;b!==null;)dk(b,_),b=b.sibling}function dk(_,b){var $=_.alternate,_e=_.flags;switch(_.tag){case 0:case 11:case 14:case 15:if(ck(b,_),ek(_),_e&4){try{Pj(3,_,_.return),Qj(3,_)}catch(it){W(_,_.return,it)}try{Pj(5,_,_.return)}catch(it){W(_,_.return,it)}}break;case 1:ck(b,_),ek(_),_e&512&&$!==null&&Lj($,$.return);break;case 5:if(ck(b,_),ek(_),_e&512&&$!==null&&Lj($,$.return),_.flags&32){var ut=_.stateNode;try{ob(ut,"")}catch(it){W(_,_.return,it)}}if(_e&4&&(ut=_.stateNode,ut!=null)){var yt=_.memoizedProps,wt=$!==null?$.memoizedProps:yt,Ct=_.type,Rt=_.updateQueue;if(_.updateQueue=null,Rt!==null)try{Ct==="input"&&yt.type==="radio"&&yt.name!=null&&ab(ut,yt),vb(Ct,wt);var bt=vb(Ct,yt);for(wt=0;wt<Rt.length;wt+=2){var nt=Rt[wt],F=Rt[wt+1];nt==="style"?sb(ut,F):nt==="dangerouslySetInnerHTML"?nb(ut,F):nt==="children"?ob(ut,F):ta(ut,nt,F,bt)}switch(Ct){case"input":bb(ut,yt);break;case"textarea":ib(ut,yt);break;case"select":var y=ut._wrapperState.wasMultiple;ut._wrapperState.wasMultiple=!!yt.multiple;var et=yt.value;et!=null?fb(ut,!!yt.multiple,et,!1):y!==!!yt.multiple&&(yt.defaultValue!=null?fb(ut,!!yt.multiple,yt.defaultValue,!0):fb(ut,!!yt.multiple,yt.multiple?[]:"",!1))}ut[Pf]=yt}catch(it){W(_,_.return,it)}}break;case 6:if(ck(b,_),ek(_),_e&4){if(_.stateNode===null)throw Error(p$1(162));ut=_.stateNode,yt=_.memoizedProps;try{ut.nodeValue=yt}catch(it){W(_,_.return,it)}}break;case 3:if(ck(b,_),ek(_),_e&4&&$!==null&&$.memoizedState.isDehydrated)try{bd(b.containerInfo)}catch(it){W(_,_.return,it)}break;case 4:ck(b,_),ek(_);break;case 13:ck(b,_),ek(_),ut=_.child,ut.flags&8192&&(yt=ut.memoizedState!==null,ut.stateNode.isHidden=yt,!yt||ut.alternate!==null&&ut.alternate.memoizedState!==null||(fk=B())),_e&4&&ak(_);break;case 22:if(nt=$!==null&&$.memoizedState!==null,_.mode&1?(U=(bt=U)||nt,ck(b,_),U=bt):ck(b,_),ek(_),_e&8192){if(bt=_.memoizedState!==null,(_.stateNode.isHidden=bt)&&!nt&&_.mode&1)for(V=_,nt=_.child;nt!==null;){for(F=V=nt;V!==null;){switch(y=V,et=y.child,y.tag){case 0:case 11:case 14:case 15:Pj(4,y,y.return);break;case 1:Lj(y,y.return);var ot=y.stateNode;if(typeof ot.componentWillUnmount=="function"){_e=y,$=y.return;try{b=_e,ot.props=b.memoizedProps,ot.state=b.memoizedState,ot.componentWillUnmount()}catch(it){W(_e,$,it)}}break;case 5:Lj(y,y.return);break;case 22:if(y.memoizedState!==null){gk(F);continue}}et!==null?(et.return=y,V=et):gk(F)}nt=nt.sibling}e:for(nt=null,F=_;;){if(F.tag===5){if(nt===null){nt=F;try{ut=F.stateNode,bt?(yt=ut.style,typeof yt.setProperty=="function"?yt.setProperty("display","none","important"):yt.display="none"):(Ct=F.stateNode,Rt=F.memoizedProps.style,wt=Rt!=null&&Rt.hasOwnProperty("display")?Rt.display:null,Ct.style.display=rb("display",wt))}catch(it){W(_,_.return,it)}}}else if(F.tag===6){if(nt===null)try{F.stateNode.nodeValue=bt?"":F.memoizedProps}catch(it){W(_,_.return,it)}}else if((F.tag!==22&&F.tag!==23||F.memoizedState===null||F===_)&&F.child!==null){F.child.return=F,F=F.child;continue}if(F===_)break e;for(;F.sibling===null;){if(F.return===null||F.return===_)break e;nt===F&&(nt=null),F=F.return}nt===F&&(nt=null),F.sibling.return=F.return,F=F.sibling}}break;case 19:ck(b,_),ek(_),_e&4&&ak(_);break;case 21:break;default:ck(b,_),ek(_)}}function ek(_){var b=_.flags;if(b&2){try{e:{for(var $=_.return;$!==null;){if(Tj($)){var _e=$;break e}$=$.return}throw Error(p$1(160))}switch(_e.tag){case 5:var ut=_e.stateNode;_e.flags&32&&(ob(ut,""),_e.flags&=-33);var yt=Uj(_);Wj(_,yt,ut);break;case 3:case 4:var wt=_e.stateNode.containerInfo,Ct=Uj(_);Vj(_,Ct,wt);break;default:throw Error(p$1(161))}}catch(Rt){W(_,_.return,Rt)}_.flags&=-3}b&4096&&(_.flags&=-4097)}function hk(_,b,$){V=_,ik(_)}function ik(_,b,$){for(var _e=(_.mode&1)!==0;V!==null;){var ut=V,yt=ut.child;if(ut.tag===22&&_e){var wt=ut.memoizedState!==null||Jj;if(!wt){var Ct=ut.alternate,Rt=Ct!==null&&Ct.memoizedState!==null||U;Ct=Jj;var bt=U;if(Jj=wt,(U=Rt)&&!bt)for(V=ut;V!==null;)wt=V,Rt=wt.child,wt.tag===22&&wt.memoizedState!==null?jk(ut):Rt!==null?(Rt.return=wt,V=Rt):jk(ut);for(;yt!==null;)V=yt,ik(yt),yt=yt.sibling;V=ut,Jj=Ct,U=bt}kk(_)}else ut.subtreeFlags&8772&&yt!==null?(yt.return=ut,V=yt):kk(_)}}function kk(_){for(;V!==null;){var b=V;if(b.flags&8772){var $=b.alternate;try{if(b.flags&8772)switch(b.tag){case 0:case 11:case 15:U||Qj(5,b);break;case 1:var _e=b.stateNode;if(b.flags&4&&!U)if($===null)_e.componentDidMount();else{var ut=b.elementType===b.type?$.memoizedProps:Ci(b.type,$.memoizedProps);_e.componentDidUpdate(ut,$.memoizedState,_e.__reactInternalSnapshotBeforeUpdate)}var yt=b.updateQueue;yt!==null&&sh(b,yt,_e);break;case 3:var wt=b.updateQueue;if(wt!==null){if($=null,b.child!==null)switch(b.child.tag){case 5:$=b.child.stateNode;break;case 1:$=b.child.stateNode}sh(b,wt,$)}break;case 5:var Ct=b.stateNode;if($===null&&b.flags&4){$=Ct;var Rt=b.memoizedProps;switch(b.type){case"button":case"input":case"select":case"textarea":Rt.autoFocus&&$.focus();break;case"img":Rt.src&&($.src=Rt.src)}}break;case 6:break;case 4:break;case 12:break;case 13:if(b.memoizedState===null){var bt=b.alternate;if(bt!==null){var nt=bt.memoizedState;if(nt!==null){var F=nt.dehydrated;F!==null&&bd(F)}}}break;case 19:case 17:case 21:case 22:case 23:case 25:break;default:throw Error(p$1(163))}U||b.flags&512&&Rj(b)}catch(y){W(b,b.return,y)}}if(b===_){V=null;break}if($=b.sibling,$!==null){$.return=b.return,V=$;break}V=b.return}}function gk(_){for(;V!==null;){var b=V;if(b===_){V=null;break}var $=b.sibling;if($!==null){$.return=b.return,V=$;break}V=b.return}}function jk(_){for(;V!==null;){var b=V;try{switch(b.tag){case 0:case 11:case 15:var $=b.return;try{Qj(4,b)}catch(Rt){W(b,$,Rt)}break;case 1:var _e=b.stateNode;if(typeof _e.componentDidMount=="function"){var ut=b.return;try{_e.componentDidMount()}catch(Rt){W(b,ut,Rt)}}var yt=b.return;try{Rj(b)}catch(Rt){W(b,yt,Rt)}break;case 5:var wt=b.return;try{Rj(b)}catch(Rt){W(b,wt,Rt)}}}catch(Rt){W(b,b.return,Rt)}if(b===_){V=null;break}var Ct=b.sibling;if(Ct!==null){Ct.return=b.return,V=Ct;break}V=b.return}}var lk=Math.ceil,mk=ua.ReactCurrentDispatcher,nk=ua.ReactCurrentOwner,ok=ua.ReactCurrentBatchConfig,K=0,Q=null,Y=null,Z=0,fj=0,ej=Uf(0),T=0,pk=null,rh=0,qk=0,rk=0,sk=null,tk=null,fk=0,Gj=1/0,uk=null,Oi=!1,Pi=null,Ri=null,vk=!1,wk=null,xk=0,yk=0,zk=null,Ak=-1,Bk=0;function R(){return K&6?B():Ak!==-1?Ak:Ak=B()}function yi(_){return _.mode&1?K&2&&Z!==0?Z&-Z:Kg.transition!==null?(Bk===0&&(Bk=yc()),Bk):(_=C,_!==0||(_=window.event,_=_===void 0?16:jd(_.type)),_):1}function gi(_,b,$,_e){if(50<yk)throw yk=0,zk=null,Error(p$1(185));Ac(_,$,_e),(!(K&2)||_!==Q)&&(_===Q&&(!(K&2)&&(qk|=$),T===4&&Ck(_,Z)),Dk(_,_e),$===1&&K===0&&!(b.mode&1)&&(Gj=B()+500,fg&&jg()))}function Dk(_,b){var $=_.callbackNode;wc(_,b);var _e=uc(_,_===Q?Z:0);if(_e===0)$!==null&&bc($),_.callbackNode=null,_.callbackPriority=0;else if(b=_e&-_e,_.callbackPriority!==b){if($!=null&&bc($),b===1)_.tag===0?ig(Ek.bind(null,_)):hg(Ek.bind(null,_)),Jf(function(){!(K&6)&&jg()}),$=null;else{switch(Dc(_e)){case 1:$=fc;break;case 4:$=gc;break;case 16:$=hc;break;case 536870912:$=jc;break;default:$=hc}$=Fk($,Gk.bind(null,_))}_.callbackPriority=b,_.callbackNode=$}}function Gk(_,b){if(Ak=-1,Bk=0,K&6)throw Error(p$1(327));var $=_.callbackNode;if(Hk()&&_.callbackNode!==$)return null;var _e=uc(_,_===Q?Z:0);if(_e===0)return null;if(_e&30||_e&_.expiredLanes||b)b=Ik(_,_e);else{b=_e;var ut=K;K|=2;var yt=Jk();(Q!==_||Z!==b)&&(uk=null,Gj=B()+500,Kk(_,b));do try{Lk();break}catch(Ct){Mk(_,Ct)}while(!0);$g(),mk.current=yt,K=ut,Y!==null?b=0:(Q=null,Z=0,b=T)}if(b!==0){if(b===2&&(ut=xc(_),ut!==0&&(_e=ut,b=Nk(_,ut))),b===1)throw $=pk,Kk(_,0),Ck(_,_e),Dk(_,B()),$;if(b===6)Ck(_,_e);else{if(ut=_.current.alternate,!(_e&30)&&!Ok(ut)&&(b=Ik(_,_e),b===2&&(yt=xc(_),yt!==0&&(_e=yt,b=Nk(_,yt))),b===1))throw $=pk,Kk(_,0),Ck(_,_e),Dk(_,B()),$;switch(_.finishedWork=ut,_.finishedLanes=_e,b){case 0:case 1:throw Error(p$1(345));case 2:Pk(_,tk,uk);break;case 3:if(Ck(_,_e),(_e&130023424)===_e&&(b=fk+500-B(),10<b)){if(uc(_,0)!==0)break;if(ut=_.suspendedLanes,(ut&_e)!==_e){R(),_.pingedLanes|=_.suspendedLanes&ut;break}_.timeoutHandle=Ff(Pk.bind(null,_,tk,uk),b);break}Pk(_,tk,uk);break;case 4:if(Ck(_,_e),(_e&4194240)===_e)break;for(b=_.eventTimes,ut=-1;0<_e;){var wt=31-oc(_e);yt=1<<wt,wt=b[wt],wt>ut&&(ut=wt),_e&=~yt}if(_e=ut,_e=B()-_e,_e=(120>_e?120:480>_e?480:1080>_e?1080:1920>_e?1920:3e3>_e?3e3:4320>_e?4320:1960*lk(_e/1960))-_e,10<_e){_.timeoutHandle=Ff(Pk.bind(null,_,tk,uk),_e);break}Pk(_,tk,uk);break;case 5:Pk(_,tk,uk);break;default:throw Error(p$1(329))}}}return Dk(_,B()),_.callbackNode===$?Gk.bind(null,_):null}function Nk(_,b){var $=sk;return _.current.memoizedState.isDehydrated&&(Kk(_,b).flags|=256),_=Ik(_,b),_!==2&&(b=tk,tk=$,b!==null&&Fj(b)),_}function Fj(_){tk===null?tk=_:tk.push.apply(tk,_)}function Ok(_){for(var b=_;;){if(b.flags&16384){var $=b.updateQueue;if($!==null&&($=$.stores,$!==null))for(var _e=0;_e<$.length;_e++){var ut=$[_e],yt=ut.getSnapshot;ut=ut.value;try{if(!He(yt(),ut))return!1}catch{return!1}}}if($=b.child,b.subtreeFlags&16384&&$!==null)$.return=b,b=$;else{if(b===_)break;for(;b.sibling===null;){if(b.return===null||b.return===_)return!0;b=b.return}b.sibling.return=b.return,b=b.sibling}}return!0}function Ck(_,b){for(b&=~rk,b&=~qk,_.suspendedLanes|=b,_.pingedLanes&=~b,_=_.expirationTimes;0<b;){var $=31-oc(b),_e=1<<$;_[$]=-1,b&=~_e}}function Ek(_){if(K&6)throw Error(p$1(327));Hk();var b=uc(_,0);if(!(b&1))return Dk(_,B()),null;var $=Ik(_,b);if(_.tag!==0&&$===2){var _e=xc(_);_e!==0&&(b=_e,$=Nk(_,_e))}if($===1)throw $=pk,Kk(_,0),Ck(_,b),Dk(_,B()),$;if($===6)throw Error(p$1(345));return _.finishedWork=_.current.alternate,_.finishedLanes=b,Pk(_,tk,uk),Dk(_,B()),null}function Qk(_,b){var $=K;K|=1;try{return _(b)}finally{K=$,K===0&&(Gj=B()+500,fg&&jg())}}function Rk(_){wk!==null&&wk.tag===0&&!(K&6)&&Hk();var b=K;K|=1;var $=ok.transition,_e=C;try{if(ok.transition=null,C=1,_)return _()}finally{C=_e,ok.transition=$,K=b,!(K&6)&&jg()}}function Hj(){fj=ej.current,E(ej)}function Kk(_,b){_.finishedWork=null,_.finishedLanes=0;var $=_.timeoutHandle;if($!==-1&&(_.timeoutHandle=-1,Gf($)),Y!==null)for($=Y.return;$!==null;){var _e=$;switch(wg(_e),_e.tag){case 1:_e=_e.type.childContextTypes,_e!=null&&$f();break;case 3:zh(),E(Wf),E(H),Eh();break;case 5:Bh(_e);break;case 4:zh();break;case 13:E(L);break;case 19:E(L);break;case 10:ah(_e.type._context);break;case 22:case 23:Hj()}$=$.return}if(Q=_,Y=_=Pg(_.current,null),Z=fj=b,T=0,pk=null,rk=qk=rh=0,tk=sk=null,fh!==null){for(b=0;b<fh.length;b++)if($=fh[b],_e=$.interleaved,_e!==null){$.interleaved=null;var ut=_e.next,yt=$.pending;if(yt!==null){var wt=yt.next;yt.next=ut,_e.next=wt}$.pending=_e}fh=null}return _}function Mk(_,b){do{var $=Y;try{if($g(),Fh.current=Rh,Ih){for(var _e=M.memoizedState;_e!==null;){var ut=_e.queue;ut!==null&&(ut.pending=null),_e=_e.next}Ih=!1}if(Hh=0,O=N=M=null,Jh=!1,Kh=0,nk.current=null,$===null||$.return===null){T=1,pk=b,Y=null;break}e:{var yt=_,wt=$.return,Ct=$,Rt=b;if(b=Z,Ct.flags|=32768,Rt!==null&&typeof Rt=="object"&&typeof Rt.then=="function"){var bt=Rt,nt=Ct,F=nt.tag;if(!(nt.mode&1)&&(F===0||F===11||F===15)){var y=nt.alternate;y?(nt.updateQueue=y.updateQueue,nt.memoizedState=y.memoizedState,nt.lanes=y.lanes):(nt.updateQueue=null,nt.memoizedState=null)}var et=Ui(wt);if(et!==null){et.flags&=-257,Vi(et,wt,Ct,yt,b),et.mode&1&&Si(yt,bt,b),b=et,Rt=bt;var ot=b.updateQueue;if(ot===null){var it=new Set;it.add(Rt),b.updateQueue=it}else ot.add(Rt);break e}else{if(!(b&1)){Si(yt,bt,b),tj();break e}Rt=Error(p$1(426))}}else if(I&&Ct.mode&1){var rt=Ui(wt);if(rt!==null){!(rt.flags&65536)&&(rt.flags|=256),Vi(rt,wt,Ct,yt,b),Jg(Ji(Rt,Ct));break e}}yt=Rt=Ji(Rt,Ct),T!==4&&(T=2),sk===null?sk=[yt]:sk.push(yt),yt=wt;do{switch(yt.tag){case 3:yt.flags|=65536,b&=-b,yt.lanes|=b;var tt=Ni(yt,Rt,b);ph(yt,tt);break e;case 1:Ct=Rt;var st=yt.type,gt=yt.stateNode;if(!(yt.flags&128)&&(typeof st.getDerivedStateFromError=="function"||gt!==null&&typeof gt.componentDidCatch=="function"&&(Ri===null||!Ri.has(gt)))){yt.flags|=65536,b&=-b,yt.lanes|=b;var pt=Qi(yt,Ct,b);ph(yt,pt);break e}}yt=yt.return}while(yt!==null)}Sk($)}catch(ft){b=ft,Y===$&&$!==null&&(Y=$=$.return);continue}break}while(!0)}function Jk(){var _=mk.current;return mk.current=Rh,_===null?Rh:_}function tj(){(T===0||T===3||T===2)&&(T=4),Q===null||!(rh&268435455)&&!(qk&268435455)||Ck(Q,Z)}function Ik(_,b){var $=K;K|=2;var _e=Jk();(Q!==_||Z!==b)&&(uk=null,Kk(_,b));do try{Tk();break}catch(ut){Mk(_,ut)}while(!0);if($g(),K=$,mk.current=_e,Y!==null)throw Error(p$1(261));return Q=null,Z=0,T}function Tk(){for(;Y!==null;)Uk(Y)}function Lk(){for(;Y!==null&&!cc();)Uk(Y)}function Uk(_){var b=Vk(_.alternate,_,fj);_.memoizedProps=_.pendingProps,b===null?Sk(_):Y=b,nk.current=null}function Sk(_){var b=_;do{var $=b.alternate;if(_=b.return,b.flags&32768){if($=Ij($,b),$!==null){$.flags&=32767,Y=$;return}if(_!==null)_.flags|=32768,_.subtreeFlags=0,_.deletions=null;else{T=6,Y=null;return}}else if($=Ej($,b,fj),$!==null){Y=$;return}if(b=b.sibling,b!==null){Y=b;return}Y=b=_}while(b!==null);T===0&&(T=5)}function Pk(_,b,$){var _e=C,ut=ok.transition;try{ok.transition=null,C=1,Wk(_,b,$,_e)}finally{ok.transition=ut,C=_e}return null}function Wk(_,b,$,_e){do Hk();while(wk!==null);if(K&6)throw Error(p$1(327));$=_.finishedWork;var ut=_.finishedLanes;if($===null)return null;if(_.finishedWork=null,_.finishedLanes=0,$===_.current)throw Error(p$1(177));_.callbackNode=null,_.callbackPriority=0;var yt=$.lanes|$.childLanes;if(Bc(_,yt),_===Q&&(Y=Q=null,Z=0),!($.subtreeFlags&2064)&&!($.flags&2064)||vk||(vk=!0,Fk(hc,function(){return Hk(),null})),yt=($.flags&15990)!==0,$.subtreeFlags&15990||yt){yt=ok.transition,ok.transition=null;var wt=C;C=1;var Ct=K;K|=4,nk.current=null,Oj(_,$),dk($,_),Oe(Df),dd=!!Cf,Df=Cf=null,_.current=$,hk($),dc(),K=Ct,C=wt,ok.transition=yt}else _.current=$;if(vk&&(vk=!1,wk=_,xk=ut),yt=_.pendingLanes,yt===0&&(Ri=null),mc($.stateNode),Dk(_,B()),b!==null)for(_e=_.onRecoverableError,$=0;$<b.length;$++)ut=b[$],_e(ut.value,{componentStack:ut.stack,digest:ut.digest});if(Oi)throw Oi=!1,_=Pi,Pi=null,_;return xk&1&&_.tag!==0&&Hk(),yt=_.pendingLanes,yt&1?_===zk?yk++:(yk=0,zk=_):yk=0,jg(),null}function Hk(){if(wk!==null){var _=Dc(xk),b=ok.transition,$=C;try{if(ok.transition=null,C=16>_?16:_,wk===null)var _e=!1;else{if(_=wk,wk=null,xk=0,K&6)throw Error(p$1(331));var ut=K;for(K|=4,V=_.current;V!==null;){var yt=V,wt=yt.child;if(V.flags&16){var Ct=yt.deletions;if(Ct!==null){for(var Rt=0;Rt<Ct.length;Rt++){var bt=Ct[Rt];for(V=bt;V!==null;){var nt=V;switch(nt.tag){case 0:case 11:case 15:Pj(8,nt,yt)}var F=nt.child;if(F!==null)F.return=nt,V=F;else for(;V!==null;){nt=V;var y=nt.sibling,et=nt.return;if(Sj(nt),nt===bt){V=null;break}if(y!==null){y.return=et,V=y;break}V=et}}}var ot=yt.alternate;if(ot!==null){var it=ot.child;if(it!==null){ot.child=null;do{var rt=it.sibling;it.sibling=null,it=rt}while(it!==null)}}V=yt}}if(yt.subtreeFlags&2064&&wt!==null)wt.return=yt,V=wt;else e:for(;V!==null;){if(yt=V,yt.flags&2048)switch(yt.tag){case 0:case 11:case 15:Pj(9,yt,yt.return)}var tt=yt.sibling;if(tt!==null){tt.return=yt.return,V=tt;break e}V=yt.return}}var st=_.current;for(V=st;V!==null;){wt=V;var gt=wt.child;if(wt.subtreeFlags&2064&&gt!==null)gt.return=wt,V=gt;else e:for(wt=st;V!==null;){if(Ct=V,Ct.flags&2048)try{switch(Ct.tag){case 0:case 11:case 15:Qj(9,Ct)}}catch(ft){W(Ct,Ct.return,ft)}if(Ct===wt){V=null;break e}var pt=Ct.sibling;if(pt!==null){pt.return=Ct.return,V=pt;break e}V=Ct.return}}if(K=ut,jg(),lc&&typeof lc.onPostCommitFiberRoot=="function")try{lc.onPostCommitFiberRoot(kc,_)}catch{}_e=!0}return _e}finally{C=$,ok.transition=b}}return!1}function Xk(_,b,$){b=Ji($,b),b=Ni(_,b,1),_=nh(_,b,1),b=R(),_!==null&&(Ac(_,1,b),Dk(_,b))}function W(_,b,$){if(_.tag===3)Xk(_,_,$);else for(;b!==null;){if(b.tag===3){Xk(b,_,$);break}else if(b.tag===1){var _e=b.stateNode;if(typeof b.type.getDerivedStateFromError=="function"||typeof _e.componentDidCatch=="function"&&(Ri===null||!Ri.has(_e))){_=Ji($,_),_=Qi(b,_,1),b=nh(b,_,1),_=R(),b!==null&&(Ac(b,1,_),Dk(b,_));break}}b=b.return}}function Ti(_,b,$){var _e=_.pingCache;_e!==null&&_e.delete(b),b=R(),_.pingedLanes|=_.suspendedLanes&$,Q===_&&(Z&$)===$&&(T===4||T===3&&(Z&130023424)===Z&&500>B()-fk?Kk(_,0):rk|=$),Dk(_,b)}function Yk(_,b){b===0&&(_.mode&1?(b=sc,sc<<=1,!(sc&130023424)&&(sc=4194304)):b=1);var $=R();_=ih(_,b),_!==null&&(Ac(_,b,$),Dk(_,$))}function uj(_){var b=_.memoizedState,$=0;b!==null&&($=b.retryLane),Yk(_,$)}function bk(_,b){var $=0;switch(_.tag){case 13:var _e=_.stateNode,ut=_.memoizedState;ut!==null&&($=ut.retryLane);break;case 19:_e=_.stateNode;break;default:throw Error(p$1(314))}_e!==null&&_e.delete(b),Yk(_,$)}var Vk;Vk=function(_,b,$){if(_!==null)if(_.memoizedProps!==b.pendingProps||Wf.current)dh=!0;else{if(!(_.lanes&$)&&!(b.flags&128))return dh=!1,yj(_,b,$);dh=!!(_.flags&131072)}else dh=!1,I&&b.flags&1048576&&ug(b,ng,b.index);switch(b.lanes=0,b.tag){case 2:var _e=b.type;ij(_,b),_=b.pendingProps;var ut=Yf(b,H.current);ch(b,$),ut=Nh(null,b,_e,_,ut,$);var yt=Sh();return b.flags|=1,typeof ut=="object"&&ut!==null&&typeof ut.render=="function"&&ut.$$typeof===void 0?(b.tag=1,b.memoizedState=null,b.updateQueue=null,Zf(_e)?(yt=!0,cg(b)):yt=!1,b.memoizedState=ut.state!==null&&ut.state!==void 0?ut.state:null,kh(b),ut.updater=Ei,b.stateNode=ut,ut._reactInternals=b,Ii(b,_e,_,$),b=jj(null,b,_e,!0,yt,$)):(b.tag=0,I&&yt&&vg(b),Xi(null,b,ut,$),b=b.child),b;case 16:_e=b.elementType;e:{switch(ij(_,b),_=b.pendingProps,ut=_e._init,_e=ut(_e._payload),b.type=_e,ut=b.tag=Zk(_e),_=Ci(_e,_),ut){case 0:b=cj(null,b,_e,_,$);break e;case 1:b=hj(null,b,_e,_,$);break e;case 11:b=Yi(null,b,_e,_,$);break e;case 14:b=$i(null,b,_e,Ci(_e.type,_),$);break e}throw Error(p$1(306,_e,""))}return b;case 0:return _e=b.type,ut=b.pendingProps,ut=b.elementType===_e?ut:Ci(_e,ut),cj(_,b,_e,ut,$);case 1:return _e=b.type,ut=b.pendingProps,ut=b.elementType===_e?ut:Ci(_e,ut),hj(_,b,_e,ut,$);case 3:e:{if(kj(b),_===null)throw Error(p$1(387));_e=b.pendingProps,yt=b.memoizedState,ut=yt.element,lh(_,b),qh(b,_e,null,$);var wt=b.memoizedState;if(_e=wt.element,yt.isDehydrated)if(yt={element:_e,isDehydrated:!1,cache:wt.cache,pendingSuspenseBoundaries:wt.pendingSuspenseBoundaries,transitions:wt.transitions},b.updateQueue.baseState=yt,b.memoizedState=yt,b.flags&256){ut=Ji(Error(p$1(423)),b),b=lj(_,b,_e,$,ut);break e}else if(_e!==ut){ut=Ji(Error(p$1(424)),b),b=lj(_,b,_e,$,ut);break e}else for(yg=Lf(b.stateNode.containerInfo.firstChild),xg=b,I=!0,zg=null,$=Vg(b,null,_e,$),b.child=$;$;)$.flags=$.flags&-3|4096,$=$.sibling;else{if(Ig(),_e===ut){b=Zi(_,b,$);break e}Xi(_,b,_e,$)}b=b.child}return b;case 5:return Ah(b),_===null&&Eg(b),_e=b.type,ut=b.pendingProps,yt=_!==null?_.memoizedProps:null,wt=ut.children,Ef(_e,ut)?wt=null:yt!==null&&Ef(_e,yt)&&(b.flags|=32),gj(_,b),Xi(_,b,wt,$),b.child;case 6:return _===null&&Eg(b),null;case 13:return oj(_,b,$);case 4:return yh(b,b.stateNode.containerInfo),_e=b.pendingProps,_===null?b.child=Ug(b,null,_e,$):Xi(_,b,_e,$),b.child;case 11:return _e=b.type,ut=b.pendingProps,ut=b.elementType===_e?ut:Ci(_e,ut),Yi(_,b,_e,ut,$);case 7:return Xi(_,b,b.pendingProps,$),b.child;case 8:return Xi(_,b,b.pendingProps.children,$),b.child;case 12:return Xi(_,b,b.pendingProps.children,$),b.child;case 10:e:{if(_e=b.type._context,ut=b.pendingProps,yt=b.memoizedProps,wt=ut.value,G(Wg,_e._currentValue),_e._currentValue=wt,yt!==null)if(He(yt.value,wt)){if(yt.children===ut.children&&!Wf.current){b=Zi(_,b,$);break e}}else for(yt=b.child,yt!==null&&(yt.return=b);yt!==null;){var Ct=yt.dependencies;if(Ct!==null){wt=yt.child;for(var Rt=Ct.firstContext;Rt!==null;){if(Rt.context===_e){if(yt.tag===1){Rt=mh(-1,$&-$),Rt.tag=2;var bt=yt.updateQueue;if(bt!==null){bt=bt.shared;var nt=bt.pending;nt===null?Rt.next=Rt:(Rt.next=nt.next,nt.next=Rt),bt.pending=Rt}}yt.lanes|=$,Rt=yt.alternate,Rt!==null&&(Rt.lanes|=$),bh(yt.return,$,b),Ct.lanes|=$;break}Rt=Rt.next}}else if(yt.tag===10)wt=yt.type===b.type?null:yt.child;else if(yt.tag===18){if(wt=yt.return,wt===null)throw Error(p$1(341));wt.lanes|=$,Ct=wt.alternate,Ct!==null&&(Ct.lanes|=$),bh(wt,$,b),wt=yt.sibling}else wt=yt.child;if(wt!==null)wt.return=yt;else for(wt=yt;wt!==null;){if(wt===b){wt=null;break}if(yt=wt.sibling,yt!==null){yt.return=wt.return,wt=yt;break}wt=wt.return}yt=wt}Xi(_,b,ut.children,$),b=b.child}return b;case 9:return ut=b.type,_e=b.pendingProps.children,ch(b,$),ut=eh(ut),_e=_e(ut),b.flags|=1,Xi(_,b,_e,$),b.child;case 14:return _e=b.type,ut=Ci(_e,b.pendingProps),ut=Ci(_e.type,ut),$i(_,b,_e,ut,$);case 15:return bj(_,b,b.type,b.pendingProps,$);case 17:return _e=b.type,ut=b.pendingProps,ut=b.elementType===_e?ut:Ci(_e,ut),ij(_,b),b.tag=1,Zf(_e)?(_=!0,cg(b)):_=!1,ch(b,$),Gi(b,_e,ut),Ii(b,_e,ut,$),jj(null,b,_e,!0,_,$);case 19:return xj(_,b,$);case 22:return dj(_,b,$)}throw Error(p$1(156,b.tag))};function Fk(_,b){return ac(_,b)}function $k(_,b,$,_e){this.tag=_,this.key=$,this.sibling=this.child=this.return=this.stateNode=this.type=this.elementType=null,this.index=0,this.ref=null,this.pendingProps=b,this.dependencies=this.memoizedState=this.updateQueue=this.memoizedProps=null,this.mode=_e,this.subtreeFlags=this.flags=0,this.deletions=null,this.childLanes=this.lanes=0,this.alternate=null}function Bg(_,b,$,_e){return new $k(_,b,$,_e)}function aj(_){return _=_.prototype,!(!_||!_.isReactComponent)}function Zk(_){if(typeof _=="function")return aj(_)?1:0;if(_!=null){if(_=_.$$typeof,_===Da)return 11;if(_===Ga)return 14}return 2}function Pg(_,b){var $=_.alternate;return $===null?($=Bg(_.tag,b,_.key,_.mode),$.elementType=_.elementType,$.type=_.type,$.stateNode=_.stateNode,$.alternate=_,_.alternate=$):($.pendingProps=b,$.type=_.type,$.flags=0,$.subtreeFlags=0,$.deletions=null),$.flags=_.flags&14680064,$.childLanes=_.childLanes,$.lanes=_.lanes,$.child=_.child,$.memoizedProps=_.memoizedProps,$.memoizedState=_.memoizedState,$.updateQueue=_.updateQueue,b=_.dependencies,$.dependencies=b===null?null:{lanes:b.lanes,firstContext:b.firstContext},$.sibling=_.sibling,$.index=_.index,$.ref=_.ref,$}function Rg(_,b,$,_e,ut,yt){var wt=2;if(_e=_,typeof _=="function")aj(_)&&(wt=1);else if(typeof _=="string")wt=5;else e:switch(_){case ya:return Tg($.children,ut,yt,b);case za:wt=8,ut|=8;break;case Aa:return _=Bg(12,$,b,ut|2),_.elementType=Aa,_.lanes=yt,_;case Ea:return _=Bg(13,$,b,ut),_.elementType=Ea,_.lanes=yt,_;case Fa:return _=Bg(19,$,b,ut),_.elementType=Fa,_.lanes=yt,_;case Ia:return pj($,ut,yt,b);default:if(typeof _=="object"&&_!==null)switch(_.$$typeof){case Ba:wt=10;break e;case Ca:wt=9;break e;case Da:wt=11;break e;case Ga:wt=14;break e;case Ha:wt=16,_e=null;break e}throw Error(p$1(130,_==null?_:typeof _,""))}return b=Bg(wt,$,b,ut),b.elementType=_,b.type=_e,b.lanes=yt,b}function Tg(_,b,$,_e){return _=Bg(7,_,_e,b),_.lanes=$,_}function pj(_,b,$,_e){return _=Bg(22,_,_e,b),_.elementType=Ia,_.lanes=$,_.stateNode={isHidden:!1},_}function Qg(_,b,$){return _=Bg(6,_,null,b),_.lanes=$,_}function Sg(_,b,$){return b=Bg(4,_.children!==null?_.children:[],_.key,b),b.lanes=$,b.stateNode={containerInfo:_.containerInfo,pendingChildren:null,implementation:_.implementation},b}function al(_,b,$,_e,ut){this.tag=b,this.containerInfo=_,this.finishedWork=this.pingCache=this.current=this.pendingChildren=null,this.timeoutHandle=-1,this.callbackNode=this.pendingContext=this.context=null,this.callbackPriority=0,this.eventTimes=zc(0),this.expirationTimes=zc(-1),this.entangledLanes=this.finishedLanes=this.mutableReadLanes=this.expiredLanes=this.pingedLanes=this.suspendedLanes=this.pendingLanes=0,this.entanglements=zc(0),this.identifierPrefix=_e,this.onRecoverableError=ut,this.mutableSourceEagerHydrationData=null}function bl(_,b,$,_e,ut,yt,wt,Ct,Rt){return _=new al(_,b,$,Ct,Rt),b===1?(b=1,yt===!0&&(b|=8)):b=0,yt=Bg(3,null,null,b),_.current=yt,yt.stateNode=_,yt.memoizedState={element:_e,isDehydrated:$,cache:null,transitions:null,pendingSuspenseBoundaries:null},kh(yt),_}function cl(_,b,$){var _e=3<arguments.length&&arguments[3]!==void 0?arguments[3]:null;return{$$typeof:wa,key:_e==null?null:""+_e,children:_,containerInfo:b,implementation:$}}function dl(_){if(!_)return Vf;_=_._reactInternals;e:{if(Vb(_)!==_||_.tag!==1)throw Error(p$1(170));var b=_;do{switch(b.tag){case 3:b=b.stateNode.context;break e;case 1:if(Zf(b.type)){b=b.stateNode.__reactInternalMemoizedMergedChildContext;break e}}b=b.return}while(b!==null);throw Error(p$1(171))}if(_.tag===1){var $=_.type;if(Zf($))return bg(_,$,b)}return b}function el(_,b,$,_e,ut,yt,wt,Ct,Rt){return _=bl($,_e,!0,_,ut,yt,wt,Ct,Rt),_.context=dl(null),$=_.current,_e=R(),ut=yi($),yt=mh(_e,ut),yt.callback=b??null,nh($,yt,ut),_.current.lanes=ut,Ac(_,ut,_e),Dk(_,_e),_}function fl(_,b,$,_e){var ut=b.current,yt=R(),wt=yi(ut);return $=dl($),b.context===null?b.context=$:b.pendingContext=$,b=mh(yt,wt),b.payload={element:_},_e=_e===void 0?null:_e,_e!==null&&(b.callback=_e),_=nh(ut,b,wt),_!==null&&(gi(_,ut,wt,yt),oh(_,ut,wt)),wt}function gl(_){if(_=_.current,!_.child)return null;switch(_.child.tag){case 5:return _.child.stateNode;default:return _.child.stateNode}}function hl(_,b){if(_=_.memoizedState,_!==null&&_.dehydrated!==null){var $=_.retryLane;_.retryLane=$!==0&&$<b?$:b}}function il(_,b){hl(_,b),(_=_.alternate)&&hl(_,b)}function jl(){return null}var kl=typeof reportError=="function"?reportError:function(_){console.error(_)};function ll(_){this._internalRoot=_}ml.prototype.render=ll.prototype.render=function(_){var b=this._internalRoot;if(b===null)throw Error(p$1(409));fl(_,b,null,null)};ml.prototype.unmount=ll.prototype.unmount=function(){var _=this._internalRoot;if(_!==null){this._internalRoot=null;var b=_.containerInfo;Rk(function(){fl(null,_,null,null)}),b[uf]=null}};function ml(_){this._internalRoot=_}ml.prototype.unstable_scheduleHydration=function(_){if(_){var b=Hc();_={blockedOn:null,target:_,priority:b};for(var $=0;$<Qc.length&&b!==0&&b<Qc[$].priority;$++);Qc.splice($,0,_),$===0&&Vc(_)}};function nl(_){return!(!_||_.nodeType!==1&&_.nodeType!==9&&_.nodeType!==11)}function ol(_){return!(!_||_.nodeType!==1&&_.nodeType!==9&&_.nodeType!==11&&(_.nodeType!==8||_.nodeValue!==" react-mount-point-unstable "))}function pl(){}function ql(_,b,$,_e,ut){if(ut){if(typeof _e=="function"){var yt=_e;_e=function(){var bt=gl(wt);yt.call(bt)}}var wt=el(b,_e,_,0,null,!1,!1,"",pl);return _._reactRootContainer=wt,_[uf]=wt.current,sf(_.nodeType===8?_.parentNode:_),Rk(),wt}for(;ut=_.lastChild;)_.removeChild(ut);if(typeof _e=="function"){var Ct=_e;_e=function(){var bt=gl(Rt);Ct.call(bt)}}var Rt=bl(_,0,!1,null,null,!1,!1,"",pl);return _._reactRootContainer=Rt,_[uf]=Rt.current,sf(_.nodeType===8?_.parentNode:_),Rk(function(){fl(b,Rt,$,_e)}),Rt}function rl(_,b,$,_e,ut){var yt=$._reactRootContainer;if(yt){var wt=yt;if(typeof ut=="function"){var Ct=ut;ut=function(){var Rt=gl(wt);Ct.call(Rt)}}fl(b,wt,_,ut)}else wt=ql($,b,_,ut,_e);return gl(wt)}Ec=function(_){switch(_.tag){case 3:var b=_.stateNode;if(b.current.memoizedState.isDehydrated){var $=tc(b.pendingLanes);$!==0&&(Cc(b,$|1),Dk(b,B()),!(K&6)&&(Gj=B()+500,jg()))}break;case 13:Rk(function(){var _e=ih(_,1);if(_e!==null){var ut=R();gi(_e,_,1,ut)}}),il(_,1)}};Fc=function(_){if(_.tag===13){var b=ih(_,134217728);if(b!==null){var $=R();gi(b,_,134217728,$)}il(_,134217728)}};Gc=function(_){if(_.tag===13){var b=yi(_),$=ih(_,b);if($!==null){var _e=R();gi($,_,b,_e)}il(_,b)}};Hc=function(){return C};Ic=function(_,b){var $=C;try{return C=_,b()}finally{C=$}};yb=function(_,b,$){switch(b){case"input":if(bb(_,$),b=$.name,$.type==="radio"&&b!=null){for($=_;$.parentNode;)$=$.parentNode;for($=$.querySelectorAll("input[name="+JSON.stringify(""+b)+'][type="radio"]'),b=0;b<$.length;b++){var _e=$[b];if(_e!==_&&_e.form===_.form){var ut=Db(_e);if(!ut)throw Error(p$1(90));Wa(_e),bb(_e,ut)}}}break;case"textarea":ib(_,$);break;case"select":b=$.value,b!=null&&fb(_,!!$.multiple,b,!1)}};Gb=Qk;Hb=Rk;var sl={usingClientEntryPoint:!1,Events:[Cb,ue,Db,Eb,Fb,Qk]},tl={findFiberByHostInstance:Wc,bundleType:0,version:"18.3.1",rendererPackageName:"react-dom"},ul={bundleType:tl.bundleType,version:tl.version,rendererPackageName:tl.rendererPackageName,rendererConfig:tl.rendererConfig,overrideHookState:null,overrideHookStateDeletePath:null,overrideHookStateRenamePath:null,overrideProps:null,overridePropsDeletePath:null,overridePropsRenamePath:null,setErrorHandler:null,setSuspenseHandler:null,scheduleUpdate:null,currentDispatcherRef:ua.ReactCurrentDispatcher,findHostInstanceByFiber:function(_){return _=Zb(_),_===null?null:_.stateNode},findFiberByHostInstance:tl.findFiberByHostInstance||jl,findHostInstancesForRefresh:null,scheduleRefresh:null,scheduleRoot:null,setRefreshHandler:null,getCurrentFiber:null,reconcilerVersion:"18.3.1-next-f1338f8080-20240426"};if(typeof __REACT_DEVTOOLS_GLOBAL_HOOK__<"u"){var vl=__REACT_DEVTOOLS_GLOBAL_HOOK__;if(!vl.isDisabled&&vl.supportsFiber)try{kc=vl.inject(ul),lc=vl}catch{}}reactDom_production_min.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED=sl;reactDom_production_min.createPortal=function(_,b){var $=2<arguments.length&&arguments[2]!==void 0?arguments[2]:null;if(!nl(b))throw Error(p$1(200));return cl(_,b,null,$)};reactDom_production_min.createRoot=function(_,b){if(!nl(_))throw Error(p$1(299));var $=!1,_e="",ut=kl;return b!=null&&(b.unstable_strictMode===!0&&($=!0),b.identifierPrefix!==void 0&&(_e=b.identifierPrefix),b.onRecoverableError!==void 0&&(ut=b.onRecoverableError)),b=bl(_,1,!1,null,null,$,!1,_e,ut),_[uf]=b.current,sf(_.nodeType===8?_.parentNode:_),new ll(b)};reactDom_production_min.findDOMNode=function(_){if(_==null)return null;if(_.nodeType===1)return _;var b=_._reactInternals;if(b===void 0)throw typeof _.render=="function"?Error(p$1(188)):(_=Object.keys(_).join(","),Error(p$1(268,_)));return _=Zb(b),_=_===null?null:_.stateNode,_};reactDom_production_min.flushSync=function(_){return Rk(_)};reactDom_production_min.hydrate=function(_,b,$){if(!ol(b))throw Error(p$1(200));return rl(null,_,b,!0,$)};reactDom_production_min.hydrateRoot=function(_,b,$){if(!nl(_))throw Error(p$1(405));var _e=$!=null&&$.hydratedSources||null,ut=!1,yt="",wt=kl;if($!=null&&($.unstable_strictMode===!0&&(ut=!0),$.identifierPrefix!==void 0&&(yt=$.identifierPrefix),$.onRecoverableError!==void 0&&(wt=$.onRecoverableError)),b=el(b,null,_,1,$??null,ut,!1,yt,wt),_[uf]=b.current,sf(_),_e)for(_=0;_<_e.length;_++)$=_e[_],ut=$._getVersion,ut=ut($._source),b.mutableSourceEagerHydrationData==null?b.mutableSourceEagerHydrationData=[$,ut]:b.mutableSourceEagerHydrationData.push($,ut);return new ml(b)};reactDom_production_min.render=function(_,b,$){if(!ol(b))throw Error(p$1(200));return rl(null,_,b,!1,$)};reactDom_production_min.unmountComponentAtNode=function(_){if(!ol(_))throw Error(p$1(40));return _._reactRootContainer?(Rk(function(){rl(null,null,_,!1,function(){_._reactRootContainer=null,_[uf]=null})}),!0):!1};reactDom_production_min.unstable_batchedUpdates=Qk;reactDom_production_min.unstable_renderSubtreeIntoContainer=function(_,b,$,_e){if(!ol($))throw Error(p$1(200));if(_==null||_._reactInternals===void 0)throw Error(p$1(38));return rl(_,b,$,!1,_e)};reactDom_production_min.version="18.3.1-next-f1338f8080-20240426";function checkDCE(){if(!(typeof __REACT_DEVTOOLS_GLOBAL_HOOK__>"u"||typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE!="function"))try{__REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE(checkDCE)}catch(_){console.error(_)}}checkDCE(),reactDom.exports=reactDom_production_min;var reactDomExports=reactDom.exports;const preloadWarning="Error preloading route! ☝️";function useLinkProps(_,b){const $=useRouter(),[_e,ut]=reactExports.useState(!1),yt=useForwardedRef(b),{activeProps:wt=()=>({className:"active"}),inactiveProps:Ct=()=>({}),activeOptions:Rt,hash:bt,search:nt,params:F,to:y,state:et,mask:ot,preload:it,preloadDelay:rt,replace:tt,startTransition:st,resetScroll:gt,viewTransition:pt,children:ft,target:dt,disabled:ct,style:lt,className:_t,onClick:mt,onFocus:at,onMouseEnter:vt,onMouseLeave:Mt,onTouchStart:ht,ignoreBlocker:Lt,...Pt}=_,zt=reactExports.useMemo(()=>{try{return new URL(`${y}`),"external"}catch{}return"internal"},[y]),Ht=reactExports.useMemo(()=>$.buildLocation(_),[$,_]),xt=reactExports.useMemo(()=>it??$.options.defaultPreload,[$.options.defaultPreload,it]),kt=rt??$.options.defaultPreloadDelay??0,jt=useRouterState({select:$n=>{const fo=removeTrailingSlash($n.location.pathname,$.basepath).split("/"),No=removeTrailingSlash(Ht.pathname,$.basepath).split("/").every((ps,ho)=>ps===fo[ho]),rs=Rt!=null&&Rt.exact?exactPathTest($n.location.pathname,Ht.pathname,$.basepath):No,us=Rt!=null&&Rt.includeHash?$n.location.hash===Ht.hash:!0,ds=(Rt==null?void 0:Rt.includeSearch)??!0?deepEqual($n.location.search,Ht.search,!(Rt!=null&&Rt.exact)):!0;return rs&&us&&ds}}),Wt=reactExports.useCallback(()=>{$.preloadRoute(_).catch($n=>{console.warn($n),console.warn(preloadWarning)})},[_,$]),mn=reactExports.useCallback($n=>{$n!=null&&$n.isIntersecting&&Wt()},[Wt]);if(useIntersectionObserver(yt,mn,{rootMargin:"100px"},{disabled:!!ct||xt!=="viewport"}),zt==="external")return{...Pt,ref:yt,type:zt,href:y,...ft&&{children:ft},...dt&&{target:dt},...ct&&{disabled:ct},...lt&&{style:lt},..._t&&{className:_t},...mt&&{onClick:mt},...at&&{onFocus:at},...vt&&{onMouseEnter:vt},...Mt&&{onMouseLeave:Mt},...ht&&{onTouchStart:ht}};const Un=$n=>{if(!ct&&!isCtrlEvent($n)&&!$n.defaultPrevented&&(!dt||dt==="_self")&&$n.button===0){$n.preventDefault(),reactDomExports.flushSync(()=>{ut(!0)});const fo=$.subscribe("onResolved",()=>{fo(),ut(!1)});$.commitLocation({...Ht,replace:tt,resetScroll:gt,startTransition:st,viewTransition:pt,ignoreBlocker:Lt})}},Yn=$n=>{ct||xt&&Wt()},Et=Yn,br=$n=>{if(ct)return;const fo=$n.target||{};if(xt){if(fo.preloadTimeout)return;fo.preloadTimeout=setTimeout(()=>{fo.preloadTimeout=null,Wt()},kt)}},Fr=$n=>{if(ct)return;const fo=$n.target||{};fo.preloadTimeout&&(clearTimeout(fo.preloadTimeout),fo.preloadTimeout=null)},Zr=$n=>fo=>{var Bo;(Bo=fo.persist)==null||Bo.call(fo),$n.filter(Boolean).forEach(No=>{fo.defaultPrevented||No(fo)})},Po=jt?functionalUpdate$1(wt,{})??{}:{},At=jt?{}:functionalUpdate$1(Ct,{}),Ir=[_t,Po.className,At.className].filter(Boolean).join(" "),Hr={...lt,...Po.style,...At.style};return{...Po,...At,...Pt,href:ct?void 0:Ht.maskedLocation?$.history.createHref(Ht.maskedLocation.href):$.history.createHref(Ht.href),ref:yt,onClick:Zr([mt,Un]),onFocus:Zr([at,Yn]),onMouseEnter:Zr([vt,br]),onMouseLeave:Zr([Mt,Fr]),onTouchStart:Zr([ht,Et]),disabled:!!ct,target:dt,...Object.keys(Hr).length&&{style:Hr},...Ir&&{className:Ir},...ct&&{role:"link","aria-disabled":!0},...jt&&{"data-status":"active","aria-current":"page"},..._e&&{"data-transitioning":"transitioning"}}}const Link=reactExports.forwardRef((_,b)=>{const{_asChild:$,..._e}=_,{type:ut,ref:yt,...wt}=useLinkProps(_e,b),Ct=typeof _e.children=="function"?_e.children({isActive:wt["data-status"]==="active"}):_e.children;return typeof $>"u"&&delete wt.disabled,reactExports.createElement($||"a",{...wt,ref:yt},Ct)});function isCtrlEvent(_){return!!(_.metaKey||_.altKey||_.ctrlKey||_.shiftKey)}function Transitioner(){const _=useRouter(),b=reactExports.useRef({router:_,mounted:!1}),$=useRouterState({select:bt=>pick(bt,["isLoading","location","resolvedLocation","isTransitioning"])}),[_e,ut]=reactExports.useTransition(),yt=useRouterState({select:bt=>bt.matches.some(nt=>nt.status==="pending")}),wt=usePrevious($.isLoading),Ct=$.isLoading||_e||yt,Rt=usePrevious(Ct);return _.isServer||(_.startReactTransition=ut),reactExports.useEffect(()=>{const bt=_.history.subscribe(_.load),nt=_.buildLocation({to:_.latestLocation.pathname,search:!0,params:!0,hash:!0,state:!0});return trimPathRight(_.latestLocation.href)!==trimPathRight(nt.href)&&_.commitLocation({...nt,replace:!0}),()=>{bt()}},[_,_.history]),useLayoutEffect(()=>{var bt;if(typeof window<"u"&&((bt=window.__TSR__)!=null&&bt.dehydrated)||b.current.router===_&&b.current.mounted)return;b.current={router:_,mounted:!0},(async()=>{try{await _.load()}catch(F){console.error(F)}})()},[_]),useLayoutEffect(()=>{if(wt&&!$.isLoading){const bt=_.state.location,nt=_.state.resolvedLocation,F=nt.href!==bt.href;_.emit({type:"onLoad",fromLocation:nt,toLocation:bt,pathChanged:F})}},[wt,_,$.isLoading]),useLayoutEffect(()=>{if(Rt&&!Ct){const bt=_.state.location,nt=_.state.resolvedLocation,F=nt.href!==bt.href;if(_.emit({type:"onResolved",fromLocation:nt,toLocation:bt,pathChanged:F}),_.__store.setState(y=>({...y,status:"idle",resolvedLocation:y.location})),typeof document<"u"&&document.querySelector&&_.state.location.hash!==""){const y=document.getElementById(_.state.location.hash);y&&y.scrollIntoView()}}},[Ct,Rt,_]),null}function SafeFragment(_){return jsxRuntimeExports.jsx(jsxRuntimeExports.Fragment,{children:_.children})}function renderRouteNotFound(_,b,$){return b.options.notFoundComponent?jsxRuntimeExports.jsx(b.options.notFoundComponent,{data:$}):_.options.defaultNotFoundComponent?jsxRuntimeExports.jsx(_.options.defaultNotFoundComponent,{data:$}):jsxRuntimeExports.jsx(DefaultGlobalNotFound,{})}const Match=reactExports.memo(function({matchId:b}){var $,_e;const ut=useRouter(),yt=useRouterState({select:rt=>{var tt;return(tt=rt.matches.find(st=>st.id===b))==null?void 0:tt.routeId}});invariant(yt);const wt=ut.routesById[yt],Ct=wt.options.pendingComponent??ut.options.defaultPendingComponent,Rt=Ct?jsxRuntimeExports.jsx(Ct,{}):null,bt=wt.options.errorComponent??ut.options.defaultErrorComponent,nt=wt.options.onCatch??ut.options.defaultOnCatch,F=wt.isRoot?wt.options.notFoundComponent??(($=ut.options.notFoundRoute)==null?void 0:$.options.component):wt.options.notFoundComponent,y=(!wt.isRoot||wt.options.wrapInSuspense)&&(wt.options.wrapInSuspense??Ct??((_e=wt.options.errorComponent)==null?void 0:_e.preload))?reactExports.Suspense:SafeFragment,et=bt?CatchBoundary:SafeFragment,ot=F?CatchNotFound:SafeFragment,it=useRouterState({select:rt=>rt.loadedAt});return jsxRuntimeExports.jsx(matchContext.Provider,{value:b,children:jsxRuntimeExports.jsx(y,{fallback:Rt,children:jsxRuntimeExports.jsx(et,{getResetKey:()=>it,errorComponent:bt||ErrorComponent,onCatch:(rt,tt)=>{if(isNotFound(rt))throw rt;warning(!1,`Error in route match: ${b}`),nt==null||nt(rt,tt)},children:jsxRuntimeExports.jsx(ot,{fallback:rt=>{if(!F||rt.routeId&&rt.routeId!==yt||!rt.routeId&&!wt.isRoot)throw rt;return reactExports.createElement(F,rt)},children:jsxRuntimeExports.jsx(MatchInner,{matchId:b})})})})})}),MatchInner=reactExports.memo(function({matchId:b}){var $,_e,ut;const yt=useRouter(),{match:wt,matchIndex:Ct,routeId:Rt}=useRouterState({select:y=>{const et=y.matches.findIndex(rt=>rt.id===b),ot=y.matches[et];return{routeId:ot.routeId,matchIndex:et,match:pick(ot,["id","status","error","loadPromise"])}}}),bt=yt.routesById[Rt],nt=reactExports.useMemo(()=>{const y=bt.options.component??yt.options.defaultComponent;return y?jsxRuntimeExports.jsx(y,{},Rt):jsxRuntimeExports.jsx(Outlet,{})},[Rt,bt.options.component,yt.options.defaultComponent]),F=(bt.options.errorComponent??yt.options.defaultErrorComponent)||ErrorComponent;if(wt.status==="notFound"){let y;return isServerSideError(wt.error)?y=((($=yt.options.errorSerializer)==null?void 0:$.deserialize)??defaultDeserializeError)(wt.error.data):y=wt.error,invariant(isNotFound(y)),renderRouteNotFound(yt,bt,y)}if(wt.status==="redirected")throw invariant(isRedirect(wt.error)),wt.loadPromise;if(wt.status==="error"){if(yt.isServer)return jsxRuntimeExports.jsx(F,{error:wt.error,info:{componentStack:""}});throw isServerSideError(wt.error)?(((_e=yt.options.errorSerializer)==null?void 0:_e.deserialize)??defaultDeserializeError)(wt.error.data):wt.error}if(wt.status==="pending"){const y=bt.options.pendingMinMs??yt.options.defaultPendingMinMs;if(y&&!((ut=yt.getMatch(wt.id))!=null&&ut.minPendingPromise)&&!yt.isServer){const et=createControlledPromise();Promise.resolve().then(()=>{yt.updateMatch(wt.id,ot=>({...ot,minPendingPromise:et}))}),setTimeout(()=>{et.resolve(),yt.updateMatch(wt.id,ot=>({...ot,minPendingPromise:void 0}))},y)}throw wt.loadPromise}return jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment,{children:[nt,yt.AfterEachMatch?jsxRuntimeExports.jsx(yt.AfterEachMatch,{match:wt,matchIndex:Ct}):null]})}),Outlet=reactExports.memo(function(){const b=useRouter(),$=reactExports.useContext(matchContext),_e=useRouterState({select:bt=>{var nt;return(nt=bt.matches.find(F=>F.id===$))==null?void 0:nt.routeId}}),ut=b.routesById[_e],{parentGlobalNotFound:yt}=useRouterState({select:bt=>{const F=bt.matches.find(y=>y.id===$);return invariant(F),{parentGlobalNotFound:F.globalNotFound}}}),wt=useRouterState({select:bt=>{var nt;const F=bt.matches,y=F.findIndex(et=>et.id===$);return(nt=F[y+1])==null?void 0:nt.id}});if(yt)return renderRouteNotFound(b,ut,void 0);if(!wt)return null;const Ct=jsxRuntimeExports.jsx(Match,{matchId:wt}),Rt=b.options.defaultPendingComponent?jsxRuntimeExports.jsx(b.options.defaultPendingComponent,{}):null;return $===rootRouteId?jsxRuntimeExports.jsx(reactExports.Suspense,{fallback:Rt,children:Ct}):Ct});function Matches(){const _=useRouter(),b=_.options.defaultPendingComponent?jsxRuntimeExports.jsx(_.options.defaultPendingComponent,{}):null,$=_.isServer||typeof document<"u"&&window.__TSR__?SafeFragment:reactExports.Suspense,_e=jsxRuntimeExports.jsxs($,{fallback:b,children:[jsxRuntimeExports.jsx(Transitioner,{}),jsxRuntimeExports.jsx(MatchesInner,{})]});return _.options.InnerWrap?jsxRuntimeExports.jsx(_.options.InnerWrap,{children:_e}):_e}function MatchesInner(){const _=useRouterState({select:$=>{var _e;return(_e=$.matches[0])==null?void 0:_e.id}}),b=useRouterState({select:$=>$.loadedAt});return jsxRuntimeExports.jsx(matchContext.Provider,{value:_,children:jsxRuntimeExports.jsx(CatchBoundary,{getResetKey:()=>b,errorComponent:ErrorComponent,onCatch:$=>{warning(!1,"The following error wasn't caught by any route! At the very least, consider setting an 'errorComponent' in your RootRoute!"),warning(!1,$.message||$.toString())},children:_?jsxRuntimeExports.jsx(Match,{matchId:_}):null})})}function RouterContextProvider({router:_,children:b,...$}){_.update({..._.options,...$,context:{..._.options.context,...$.context}});const _e=getRouterContext(),ut=jsxRuntimeExports.jsx(_e.Provider,{value:_,children:b});return _.options.Wrap?jsxRuntimeExports.jsx(_.options.Wrap,{children:ut}):ut}function RouterProvider({router:_,...b}){return jsxRuntimeExports.jsx(RouterContextProvider,{router:_,...b,children:jsxRuntimeExports.jsx(Matches,{})})}var client$1={},m=reactDomExports;client$1.createRoot=m.createRoot,client$1.hydrateRoot=m.hydrateRoot;var Subscribable=class{constructor(){this.listeners=new Set,this.subscribe=this.subscribe.bind(this)}subscribe(_){return this.listeners.add(_),this.onSubscribe(),()=>{this.listeners.delete(_),this.onUnsubscribe()}}hasListeners(){return this.listeners.size>0}onSubscribe(){}onUnsubscribe(){}},isServer$1=typeof window>"u"||"Deno"in globalThis;function noop$1(){}function functionalUpdate(_,b){return typeof _=="function"?_(b):_}function isValidTimeout(_){return typeof _=="number"&&_>=0&&_!==1/0}function timeUntilStale(_,b){return Math.max(_+(b||0)-Date.now(),0)}function resolveStaleTime(_,b){return typeof _=="function"?_(b):_}function resolveEnabled(_,b){return typeof _=="function"?_(b):_}function matchQuery(_,b){const{type:$="all",exact:_e,fetchStatus:ut,predicate:yt,queryKey:wt,stale:Ct}=_;if(wt){if(_e){if(b.queryHash!==hashQueryKeyByOptions(wt,b.options))return!1}else if(!partialMatchKey(b.queryKey,wt))return!1}if($!=="all"){const Rt=b.isActive();if($==="active"&&!Rt||$==="inactive"&&Rt)return!1}return!(typeof Ct=="boolean"&&b.isStale()!==Ct||ut&&ut!==b.state.fetchStatus||yt&&!yt(b))}function matchMutation(_,b){const{exact:$,status:_e,predicate:ut,mutationKey:yt}=_;if(yt){if(!b.options.mutationKey)return!1;if($){if(hashKey(b.options.mutationKey)!==hashKey(yt))return!1}else if(!partialMatchKey(b.options.mutationKey,yt))return!1}return!(_e&&b.state.status!==_e||ut&&!ut(b))}function hashQueryKeyByOptions(_,b){return((b==null?void 0:b.queryKeyHashFn)||hashKey)(_)}function hashKey(_){return JSON.stringify(_,(b,$)=>isPlainObject($)?Object.keys($).sort().reduce((_e,ut)=>(_e[ut]=$[ut],_e),{}):$)}function partialMatchKey(_,b){return _===b?!0:typeof _!=typeof b?!1:_&&b&&typeof _=="object"&&typeof b=="object"?!Object.keys(b).some($=>!partialMatchKey(_[$],b[$])):!1}function replaceEqualDeep(_,b){if(_===b)return _;const $=isPlainArray(_)&&isPlainArray(b);if($||isPlainObject(_)&&isPlainObject(b)){const _e=$?_:Object.keys(_),ut=_e.length,yt=$?b:Object.keys(b),wt=yt.length,Ct=$?[]:{};let Rt=0;for(let bt=0;bt<wt;bt++){const nt=$?bt:yt[bt];(!$&&_e.includes(nt)||$)&&_[nt]===void 0&&b[nt]===void 0?(Ct[nt]=void 0,Rt++):(Ct[nt]=replaceEqualDeep(_[nt],b[nt]),Ct[nt]===_[nt]&&_[nt]!==void 0&&Rt++)}return ut===wt&&Rt===ut?_:Ct}return b}function isPlainArray(_){return Array.isArray(_)&&_.length===Object.keys(_).length}function isPlainObject(_){if(!hasObjectPrototype(_))return!1;const b=_.constructor;if(b===void 0)return!0;const $=b.prototype;return!(!hasObjectPrototype($)||!$.hasOwnProperty("isPrototypeOf")||Object.getPrototypeOf(_)!==Object.prototype)}function hasObjectPrototype(_){return Object.prototype.toString.call(_)==="[object Object]"}function sleep(_){return new Promise(b=>{setTimeout(b,_)})}function replaceData(_,b,$){return typeof $.structuralSharing=="function"?$.structuralSharing(_,b):$.structuralSharing!==!1?replaceEqualDeep(_,b):b}function addToEnd(_,b,$=0){const _e=[..._,b];return $&&_e.length>$?_e.slice(1):_e}function addToStart(_,b,$=0){const _e=[b,..._];return $&&_e.length>$?_e.slice(0,-1):_e}var skipToken=Symbol();function ensureQueryFn(_,b){return!_.queryFn&&(b!=null&&b.initialPromise)?()=>b.initialPromise:!_.queryFn||_.queryFn===skipToken?()=>Promise.reject(new Error(`Missing queryFn: '${_.queryHash}'`)):_.queryFn}var lv,Um,Uv,pI,FocusManager=(pI=class extends Subscribable{constructor(){super();ls(this,lv);ls(this,Um);ls(this,Uv);Vo(this,Uv,b=>{if(!isServer$1&&window.addEventListener){const $=()=>b();return window.addEventListener("visibilitychange",$,!1),()=>{window.removeEventListener("visibilitychange",$)}}})}onSubscribe(){Wn(this,Um)||this.setEventListener(Wn(this,Uv))}onUnsubscribe(){var b;this.hasListeners()||((b=Wn(this,Um))==null||b.call(this),Vo(this,Um,void 0))}setEventListener(b){var $;Vo(this,Uv,b),($=Wn(this,Um))==null||$.call(this),Vo(this,Um,b(_e=>{typeof _e=="boolean"?this.setFocused(_e):this.onFocus()}))}setFocused(b){Wn(this,lv)!==b&&(Vo(this,lv,b),this.onFocus())}onFocus(){const b=this.isFocused();this.listeners.forEach($=>{$(b)})}isFocused(){var b;return typeof Wn(this,lv)=="boolean"?Wn(this,lv):((b=globalThis.document)==null?void 0:b.visibilityState)!=="hidden"}},lv=new WeakMap,Um=new WeakMap,Uv=new WeakMap,pI),focusManager=new FocusManager,Nv,Nm,Bv,fI,OnlineManager=(fI=class extends Subscribable{constructor(){super();ls(this,Nv,!0);ls(this,Nm);ls(this,Bv);Vo(this,Bv,b=>{if(!isServer$1&&window.addEventListener){const $=()=>b(!0),_e=()=>b(!1);return window.addEventListener("online",$,!1),window.addEventListener("offline",_e,!1),()=>{window.removeEventListener("online",$),window.removeEventListener("offline",_e)}}})}onSubscribe(){Wn(this,Nm)||this.setEventListener(Wn(this,Bv))}onUnsubscribe(){var b;this.hasListeners()||((b=Wn(this,Nm))==null||b.call(this),Vo(this,Nm,void 0))}setEventListener(b){var $;Vo(this,Bv,b),($=Wn(this,Nm))==null||$.call(this),Vo(this,Nm,b(this.setOnline.bind(this)))}setOnline(b){Wn(this,Nv)!==b&&(Vo(this,Nv,b),this.listeners.forEach(_e=>{_e(b)}))}isOnline(){return Wn(this,Nv)}},Nv=new WeakMap,Nm=new WeakMap,Bv=new WeakMap,fI),onlineManager=new OnlineManager;function defaultRetryDelay(_){return Math.min(1e3*2**_,3e4)}function canFetch(_){return(_??"online")==="online"?onlineManager.isOnline():!0}var CancelledError=class extends Error{constructor(_){super("CancelledError"),this.revert=_==null?void 0:_.revert,this.silent=_==null?void 0:_.silent}};function isCancelledError(_){return _ instanceof CancelledError}function createRetryer(_){let b=!1,$=0,_e=!1,ut,yt,wt;const Ct=new Promise((tt,st)=>{yt=tt,wt=st}),Rt=tt=>{var st;_e||(ot(new CancelledError(tt)),(st=_.abort)==null||st.call(_))},bt=()=>{b=!0},nt=()=>{b=!1},F=()=>focusManager.isFocused()&&(_.networkMode==="always"||onlineManager.isOnline())&&_.canRun(),y=()=>canFetch(_.networkMode)&&_.canRun(),et=tt=>{var st;_e||(_e=!0,(st=_.onSuccess)==null||st.call(_,tt),ut==null||ut(),yt(tt))},ot=tt=>{var st;_e||(_e=!0,(st=_.onError)==null||st.call(_,tt),ut==null||ut(),wt(tt))},it=()=>new Promise(tt=>{var st;ut=gt=>{(_e||F())&&tt(gt)},(st=_.onPause)==null||st.call(_)}).then(()=>{var tt;ut=void 0,_e||(tt=_.onContinue)==null||tt.call(_)}),rt=()=>{if(_e)return;let tt;const st=$===0?_.initialPromise:void 0;try{tt=st??_.fn()}catch(gt){tt=Promise.reject(gt)}Promise.resolve(tt).then(et).catch(gt=>{var lt;if(_e)return;const pt=_.retry??(isServer$1?0:3),ft=_.retryDelay??defaultRetryDelay,dt=typeof ft=="function"?ft($,gt):ft,ct=pt===!0||typeof pt=="number"&&$<pt||typeof pt=="function"&&pt($,gt);if(b||!ct){ot(gt);return}$++,(lt=_.onFail)==null||lt.call(_,$,gt),sleep(dt).then(()=>F()?void 0:it()).then(()=>{b?ot(gt):rt()})})};return{promise:Ct,cancel:Rt,continue:()=>(ut==null||ut(),Ct),cancelRetry:bt,continueRetry:nt,canStart:y,start:()=>(y()?rt():it().then(rt),Ct)}}function createNotifyManager(){let _=[],b=0,$=y=>{y()},_e=y=>{y()},ut=y=>setTimeout(y,0);const yt=y=>{ut=y},wt=y=>{let et;b++;try{et=y()}finally{b--,b||bt()}return et},Ct=y=>{b?_.push(y):ut(()=>{$(y)})},Rt=y=>(...et)=>{Ct(()=>{y(...et)})},bt=()=>{const y=_;_=[],y.length&&ut(()=>{_e(()=>{y.forEach(et=>{$(et)})})})};return{batch:wt,batchCalls:Rt,schedule:Ct,setNotifyFunction:y=>{$=y},setBatchNotifyFunction:y=>{_e=y},setScheduler:yt}}var notifyManager=createNotifyManager(),cv,mI,Removable=(mI=class{constructor(){ls(this,cv)}destroy(){this.clearGcTimeout()}scheduleGc(){this.clearGcTimeout(),isValidTimeout(this.gcTime)&&Vo(this,cv,setTimeout(()=>{this.optionalRemove()},this.gcTime))}updateGcTime(_){this.gcTime=Math.max(this.gcTime||0,_??(isServer$1?1/0:5*60*1e3))}clearGcTimeout(){Wn(this,cv)&&(clearTimeout(Wn(this,cv)),Vo(this,cv,void 0))}},cv=new WeakMap,mI),Fv,Kv,Mp,Zu,Cy,uv,Bp,gm,hI,Query=(hI=class extends Removable{constructor(b){super();ls(this,Bp);ls(this,Fv);ls(this,Kv);ls(this,Mp);ls(this,Zu);ls(this,Cy);ls(this,uv);Vo(this,uv,!1),Vo(this,Cy,b.defaultOptions),this.setOptions(b.options),this.observers=[],Vo(this,Mp,b.cache),this.queryKey=b.queryKey,this.queryHash=b.queryHash,Vo(this,Fv,getDefaultState$1(this.options)),this.state=b.state??Wn(this,Fv),this.scheduleGc()}get meta(){return this.options.meta}get promise(){var b;return(b=Wn(this,Zu))==null?void 0:b.promise}setOptions(b){this.options={...Wn(this,Cy),...b},this.updateGcTime(this.options.gcTime)}optionalRemove(){!this.observers.length&&this.state.fetchStatus==="idle"&&Wn(this,Mp).remove(this)}setData(b,$){const _e=replaceData(this.state.data,b,this.options);return Rs(this,Bp,gm).call(this,{data:_e,type:"success",dataUpdatedAt:$==null?void 0:$.updatedAt,manual:$==null?void 0:$.manual}),_e}setState(b,$){Rs(this,Bp,gm).call(this,{type:"setState",state:b,setStateOptions:$})}cancel(b){var _e,ut;const $=(_e=Wn(this,Zu))==null?void 0:_e.promise;return(ut=Wn(this,Zu))==null||ut.cancel(b),$?$.then(noop$1).catch(noop$1):Promise.resolve()}destroy(){super.destroy(),this.cancel({silent:!0})}reset(){this.destroy(),this.setState(Wn(this,Fv))}isActive(){return this.observers.some(b=>resolveEnabled(b.options.enabled,this)!==!1)}isDisabled(){return this.getObserversCount()>0&&!this.isActive()}isStale(){return this.state.isInvalidated?!0:this.getObserversCount()>0?this.observers.some(b=>b.getCurrentResult().isStale):this.state.data===void 0}isStaleByTime(b=0){return this.state.isInvalidated||this.state.data===void 0||!timeUntilStale(this.state.dataUpdatedAt,b)}onFocus(){var $;const b=this.observers.find(_e=>_e.shouldFetchOnWindowFocus());b==null||b.refetch({cancelRefetch:!1}),($=Wn(this,Zu))==null||$.continue()}onOnline(){var $;const b=this.observers.find(_e=>_e.shouldFetchOnReconnect());b==null||b.refetch({cancelRefetch:!1}),($=Wn(this,Zu))==null||$.continue()}addObserver(b){this.observers.includes(b)||(this.observers.push(b),this.clearGcTimeout(),Wn(this,Mp).notify({type:"observerAdded",query:this,observer:b}))}removeObserver(b){this.observers.includes(b)&&(this.observers=this.observers.filter($=>$!==b),this.observers.length||(Wn(this,Zu)&&(Wn(this,uv)?Wn(this,Zu).cancel({revert:!0}):Wn(this,Zu).cancelRetry()),this.scheduleGc()),Wn(this,Mp).notify({type:"observerRemoved",query:this,observer:b}))}getObserversCount(){return this.observers.length}invalidate(){this.state.isInvalidated||Rs(this,Bp,gm).call(this,{type:"invalidate"})}fetch(b,$){var Rt,bt,nt;if(this.state.fetchStatus!=="idle"){if(this.state.data!==void 0&&($!=null&&$.cancelRefetch))this.cancel({silent:!0});else if(Wn(this,Zu))return Wn(this,Zu).continueRetry(),Wn(this,Zu).promise}if(b&&this.setOptions(b),!this.options.queryFn){const F=this.observers.find(y=>y.options.queryFn);F&&this.setOptions(F.options)}const _e=new AbortController,ut=F=>{Object.defineProperty(F,"signal",{enumerable:!0,get:()=>(Vo(this,uv,!0),_e.signal)})},yt=()=>{const F=ensureQueryFn(this.options,$),y={queryKey:this.queryKey,meta:this.meta};return ut(y),Vo(this,uv,!1),this.options.persister?this.options.persister(F,y,this):F(y)},wt={fetchOptions:$,options:this.options,queryKey:this.queryKey,state:this.state,fetchFn:yt};ut(wt),(Rt=this.options.behavior)==null||Rt.onFetch(wt,this),Vo(this,Kv,this.state),(this.state.fetchStatus==="idle"||this.state.fetchMeta!==((bt=wt.fetchOptions)==null?void 0:bt.meta))&&Rs(this,Bp,gm).call(this,{type:"fetch",meta:(nt=wt.fetchOptions)==null?void 0:nt.meta});const Ct=F=>{var y,et,ot,it;isCancelledError(F)&&F.silent||Rs(this,Bp,gm).call(this,{type:"error",error:F}),isCancelledError(F)||((et=(y=Wn(this,Mp).config).onError)==null||et.call(y,F,this),(it=(ot=Wn(this,Mp).config).onSettled)==null||it.call(ot,this.state.data,F,this)),this.isFetchingOptimistic||this.scheduleGc(),this.isFetchingOptimistic=!1};return Vo(this,Zu,createRetryer({initialPromise:$==null?void 0:$.initialPromise,fn:wt.fetchFn,abort:_e.abort.bind(_e),onSuccess:F=>{var y,et,ot,it;if(F===void 0){Ct(new Error(`${this.queryHash} data is undefined`));return}try{this.setData(F)}catch(rt){Ct(rt);return}(et=(y=Wn(this,Mp).config).onSuccess)==null||et.call(y,F,this),(it=(ot=Wn(this,Mp).config).onSettled)==null||it.call(ot,F,this.state.error,this),this.isFetchingOptimistic||this.scheduleGc(),this.isFetchingOptimistic=!1},onError:Ct,onFail:(F,y)=>{Rs(this,Bp,gm).call(this,{type:"failed",failureCount:F,error:y})},onPause:()=>{Rs(this,Bp,gm).call(this,{type:"pause"})},onContinue:()=>{Rs(this,Bp,gm).call(this,{type:"continue"})},retry:wt.options.retry,retryDelay:wt.options.retryDelay,networkMode:wt.options.networkMode,canRun:()=>!0})),Wn(this,Zu).start()}},Fv=new WeakMap,Kv=new WeakMap,Mp=new WeakMap,Zu=new WeakMap,Cy=new WeakMap,uv=new WeakMap,Bp=new WeakSet,gm=function(b){const $=_e=>{switch(b.type){case"failed":return{..._e,fetchFailureCount:b.failureCount,fetchFailureReason:b.error};case"pause":return{..._e,fetchStatus:"paused"};case"continue":return{..._e,fetchStatus:"fetching"};case"fetch":return{..._e,...fetchState(_e.data,this.options),fetchMeta:b.meta??null};case"success":return{..._e,data:b.data,dataUpdateCount:_e.dataUpdateCount+1,dataUpdatedAt:b.dataUpdatedAt??Date.now(),error:null,isInvalidated:!1,status:"success",...!b.manual&&{fetchStatus:"idle",fetchFailureCount:0,fetchFailureReason:null}};case"error":const ut=b.error;return isCancelledError(ut)&&ut.revert&&Wn(this,Kv)?{...Wn(this,Kv),fetchStatus:"idle"}:{..._e,error:ut,errorUpdateCount:_e.errorUpdateCount+1,errorUpdatedAt:Date.now(),fetchFailureCount:_e.fetchFailureCount+1,fetchFailureReason:ut,fetchStatus:"idle",status:"error"};case"invalidate":return{..._e,isInvalidated:!0};case"setState":return{..._e,...b.state}}};this.state=$(this.state),notifyManager.batch(()=>{this.observers.forEach(_e=>{_e.onQueryUpdate()}),Wn(this,Mp).notify({query:this,type:"updated",action:b})})},hI);function fetchState(_,b){return{fetchFailureCount:0,fetchFailureReason:null,fetchStatus:canFetch(b.networkMode)?"fetching":"paused",..._===void 0&&{error:null,status:"pending"}}}function getDefaultState$1(_){const b=typeof _.initialData=="function"?_.initialData():_.initialData,$=b!==void 0,_e=$?typeof _.initialDataUpdatedAt=="function"?_.initialDataUpdatedAt():_.initialDataUpdatedAt:0;return{data:b,dataUpdateCount:0,dataUpdatedAt:$?_e??Date.now():0,error:null,errorUpdateCount:0,errorUpdatedAt:0,fetchFailureCount:0,fetchFailureReason:null,fetchMeta:null,isInvalidated:!1,status:$?"success":"pending",fetchStatus:"idle"}}var nm,gI,QueryCache=(gI=class extends Subscribable{constructor(b={}){super();ls(this,nm);this.config=b,Vo(this,nm,new Map)}build(b,$,_e){const ut=$.queryKey,yt=$.queryHash??hashQueryKeyByOptions(ut,$);let wt=this.get(yt);return wt||(wt=new Query({cache:this,queryKey:ut,queryHash:yt,options:b.defaultQueryOptions($),state:_e,defaultOptions:b.getQueryDefaults(ut)}),this.add(wt)),wt}add(b){Wn(this,nm).has(b.queryHash)||(Wn(this,nm).set(b.queryHash,b),this.notify({type:"added",query:b}))}remove(b){const $=Wn(this,nm).get(b.queryHash);$&&(b.destroy(),$===b&&Wn(this,nm).delete(b.queryHash),this.notify({type:"removed",query:b}))}clear(){notifyManager.batch(()=>{this.getAll().forEach(b=>{this.remove(b)})})}get(b){return Wn(this,nm).get(b)}getAll(){return[...Wn(this,nm).values()]}find(b){const $={exact:!0,...b};return this.getAll().find(_e=>matchQuery($,_e))}findAll(b={}){const $=this.getAll();return Object.keys(b).length>0?$.filter(_e=>matchQuery(b,_e)):$}notify(b){notifyManager.batch(()=>{this.listeners.forEach($=>{$(b)})})}onFocus(){notifyManager.batch(()=>{this.getAll().forEach(b=>{b.onFocus()})})}onOnline(){notifyManager.batch(()=>{this.getAll().forEach(b=>{b.onOnline()})})}},nm=new WeakMap,gI),rm,ip,dv,om,Lm,vI,Mutation=(vI=class extends Removable{constructor(b){super();ls(this,om);ls(this,rm);ls(this,ip);ls(this,dv);this.mutationId=b.mutationId,Vo(this,ip,b.mutationCache),Vo(this,rm,[]),this.state=b.state||getDefaultState(),this.setOptions(b.options),this.scheduleGc()}setOptions(b){this.options=b,this.updateGcTime(this.options.gcTime)}get meta(){return this.options.meta}addObserver(b){Wn(this,rm).includes(b)||(Wn(this,rm).push(b),this.clearGcTimeout(),Wn(this,ip).notify({type:"observerAdded",mutation:this,observer:b}))}removeObserver(b){Vo(this,rm,Wn(this,rm).filter($=>$!==b)),this.scheduleGc(),Wn(this,ip).notify({type:"observerRemoved",mutation:this,observer:b})}optionalRemove(){Wn(this,rm).length||(this.state.status==="pending"?this.scheduleGc():Wn(this,ip).remove(this))}continue(){var b;return((b=Wn(this,dv))==null?void 0:b.continue())??this.execute(this.state.variables)}async execute(b){var ut,yt,wt,Ct,Rt,bt,nt,F,y,et,ot,it,rt,tt,st,gt,pt,ft,dt,ct;Vo(this,dv,createRetryer({fn:()=>this.options.mutationFn?this.options.mutationFn(b):Promise.reject(new Error("No mutationFn found")),onFail:(lt,_t)=>{Rs(this,om,Lm).call(this,{type:"failed",failureCount:lt,error:_t})},onPause:()=>{Rs(this,om,Lm).call(this,{type:"pause"})},onContinue:()=>{Rs(this,om,Lm).call(this,{type:"continue"})},retry:this.options.retry??0,retryDelay:this.options.retryDelay,networkMode:this.options.networkMode,canRun:()=>Wn(this,ip).canRun(this)}));const $=this.state.status==="pending",_e=!Wn(this,dv).canStart();try{if(!$){Rs(this,om,Lm).call(this,{type:"pending",variables:b,isPaused:_e}),await((yt=(ut=Wn(this,ip).config).onMutate)==null?void 0:yt.call(ut,b,this));const _t=await((Ct=(wt=this.options).onMutate)==null?void 0:Ct.call(wt,b));_t!==this.state.context&&Rs(this,om,Lm).call(this,{type:"pending",context:_t,variables:b,isPaused:_e})}const lt=await Wn(this,dv).start();return await((bt=(Rt=Wn(this,ip).config).onSuccess)==null?void 0:bt.call(Rt,lt,b,this.state.context,this)),await((F=(nt=this.options).onSuccess)==null?void 0:F.call(nt,lt,b,this.state.context)),await((et=(y=Wn(this,ip).config).onSettled)==null?void 0:et.call(y,lt,null,this.state.variables,this.state.context,this)),await((it=(ot=this.options).onSettled)==null?void 0:it.call(ot,lt,null,b,this.state.context)),Rs(this,om,Lm).call(this,{type:"success",data:lt}),lt}catch(lt){try{throw await((tt=(rt=Wn(this,ip).config).onError)==null?void 0:tt.call(rt,lt,b,this.state.context,this)),await((gt=(st=this.options).onError)==null?void 0:gt.call(st,lt,b,this.state.context)),await((ft=(pt=Wn(this,ip).config).onSettled)==null?void 0:ft.call(pt,void 0,lt,this.state.variables,this.state.context,this)),await((ct=(dt=this.options).onSettled)==null?void 0:ct.call(dt,void 0,lt,b,this.state.context)),lt}finally{Rs(this,om,Lm).call(this,{type:"error",error:lt})}}finally{Wn(this,ip).runNext(this)}}},rm=new WeakMap,ip=new WeakMap,dv=new WeakMap,om=new WeakSet,Lm=function(b){const $=_e=>{switch(b.type){case"failed":return{..._e,failureCount:b.failureCount,failureReason:b.error};case"pause":return{..._e,isPaused:!0};case"continue":return{..._e,isPaused:!1};case"pending":return{..._e,context:b.context,data:void 0,failureCount:0,failureReason:null,error:null,isPaused:b.isPaused,status:"pending",variables:b.variables,submittedAt:Date.now()};case"success":return{..._e,data:b.data,failureCount:0,failureReason:null,error:null,status:"success",isPaused:!1};case"error":return{..._e,data:void 0,error:b.error,failureCount:_e.failureCount+1,failureReason:b.error,isPaused:!1,status:"error"}}};this.state=$(this.state),notifyManager.batch(()=>{Wn(this,rm).forEach(_e=>{_e.onMutationUpdate(b)}),Wn(this,ip).notify({mutation:this,type:"updated",action:b})})},vI);function getDefaultState(){return{context:void 0,data:void 0,error:null,failureCount:0,failureReason:null,isPaused:!1,status:"idle",variables:void 0,submittedAt:0}}var yp,My,yI,MutationCache=(yI=class extends Subscribable{constructor(b={}){super();ls(this,yp);ls(this,My);this.config=b,Vo(this,yp,new Map),Vo(this,My,Date.now())}build(b,$,_e){const ut=new Mutation({mutationCache:this,mutationId:++sv(this,My)._,options:b.defaultMutationOptions($),state:_e});return this.add(ut),ut}add(b){const $=scopeFor(b),_e=Wn(this,yp).get($)??[];_e.push(b),Wn(this,yp).set($,_e),this.notify({type:"added",mutation:b})}remove(b){var _e;const $=scopeFor(b);if(Wn(this,yp).has($)){const ut=(_e=Wn(this,yp).get($))==null?void 0:_e.filter(yt=>yt!==b);ut&&(ut.length===0?Wn(this,yp).delete($):Wn(this,yp).set($,ut))}this.notify({type:"removed",mutation:b})}canRun(b){var _e;const $=(_e=Wn(this,yp).get(scopeFor(b)))==null?void 0:_e.find(ut=>ut.state.status==="pending");return!$||$===b}runNext(b){var _e;const $=(_e=Wn(this,yp).get(scopeFor(b)))==null?void 0:_e.find(ut=>ut!==b&&ut.state.isPaused);return($==null?void 0:$.continue())??Promise.resolve()}clear(){notifyManager.batch(()=>{this.getAll().forEach(b=>{this.remove(b)})})}getAll(){return[...Wn(this,yp).values()].flat()}find(b){const $={exact:!0,...b};return this.getAll().find(_e=>matchMutation($,_e))}findAll(b={}){return this.getAll().filter($=>matchMutation(b,$))}notify(b){notifyManager.batch(()=>{this.listeners.forEach($=>{$(b)})})}resumePausedMutations(){const b=this.getAll().filter($=>$.state.isPaused);return notifyManager.batch(()=>Promise.all(b.map($=>$.continue().catch(noop$1))))}},yp=new WeakMap,My=new WeakMap,yI);function scopeFor(_){var b;return((b=_.options.scope)==null?void 0:b.id)??String(_.mutationId)}function infiniteQueryBehavior(_){return{onFetch:(b,$)=>{const _e=async()=>{var ot,it,rt,tt,st;const ut=b.options,yt=(rt=(it=(ot=b.fetchOptions)==null?void 0:ot.meta)==null?void 0:it.fetchMore)==null?void 0:rt.direction,wt=((tt=b.state.data)==null?void 0:tt.pages)||[],Ct=((st=b.state.data)==null?void 0:st.pageParams)||[],Rt={pages:[],pageParams:[]};let bt=!1;const nt=gt=>{Object.defineProperty(gt,"signal",{enumerable:!0,get:()=>(b.signal.aborted?bt=!0:b.signal.addEventListener("abort",()=>{bt=!0}),b.signal)})},F=ensureQueryFn(b.options,b.fetchOptions),y=async(gt,pt,ft)=>{if(bt)return Promise.reject();if(pt==null&&gt.pages.length)return Promise.resolve(gt);const dt={queryKey:b.queryKey,pageParam:pt,direction:ft?"backward":"forward",meta:b.options.meta};nt(dt);const ct=await F(dt),{maxPages:lt}=b.options,_t=ft?addToStart:addToEnd;return{pages:_t(gt.pages,ct,lt),pageParams:_t(gt.pageParams,pt,lt)}};let et;if(yt&&wt.length){const gt=yt==="backward",pt=gt?getPreviousPageParam:getNextPageParam,ft={pages:wt,pageParams:Ct},dt=pt(ut,ft);et=await y(ft,dt,gt)}else{et=await y(Rt,Ct[0]??ut.initialPageParam);const gt=_??wt.length;for(let pt=1;pt<gt;pt++){const ft=getNextPageParam(ut,et);if(ft==null)break;et=await y(et,ft)}}return et};b.options.persister?b.fetchFn=()=>{var ut,yt;return(yt=(ut=b.options).persister)==null?void 0:yt.call(ut,_e,{queryKey:b.queryKey,meta:b.options.meta,signal:b.signal},$)}:b.fetchFn=_e}}}function getNextPageParam(_,{pages:b,pageParams:$}){const _e=b.length-1;return b.length>0?_.getNextPageParam(b[_e],b,$[_e],$):void 0}function getPreviousPageParam(_,{pages:b,pageParams:$}){var _e;return b.length>0?(_e=_.getPreviousPageParam)==null?void 0:_e.call(_,b[0],b,$[0],$):void 0}var Du,Bm,Fm,Wv,Hv,Km,Vv,qv,_I,QueryClient=(_I=class{constructor(_={}){ls(this,Du);ls(this,Bm);ls(this,Fm);ls(this,Wv);ls(this,Hv);ls(this,Km);ls(this,Vv);ls(this,qv);Vo(this,Du,_.queryCache||new QueryCache),Vo(this,Bm,_.mutationCache||new MutationCache),Vo(this,Fm,_.defaultOptions||{}),Vo(this,Wv,new Map),Vo(this,Hv,new Map),Vo(this,Km,0)}mount(){sv(this,Km)._++,Wn(this,Km)===1&&(Vo(this,Vv,focusManager.subscribe(async _=>{_&&(await this.resumePausedMutations(),Wn(this,Du).onFocus())})),Vo(this,qv,onlineManager.subscribe(async _=>{_&&(await this.resumePausedMutations(),Wn(this,Du).onOnline())})))}unmount(){var _,b;sv(this,Km)._--,Wn(this,Km)===0&&((_=Wn(this,Vv))==null||_.call(this),Vo(this,Vv,void 0),(b=Wn(this,qv))==null||b.call(this),Vo(this,qv,void 0))}isFetching(_){return Wn(this,Du).findAll({..._,fetchStatus:"fetching"}).length}isMutating(_){return Wn(this,Bm).findAll({..._,status:"pending"}).length}getQueryData(_){var $;const b=this.defaultQueryOptions({queryKey:_});return($=Wn(this,Du).get(b.queryHash))==null?void 0:$.state.data}ensureQueryData(_){const b=this.getQueryData(_.queryKey);if(b===void 0)return this.fetchQuery(_);{const $=this.defaultQueryOptions(_),_e=Wn(this,Du).build(this,$);return _.revalidateIfStale&&_e.isStaleByTime(resolveStaleTime($.staleTime,_e))&&this.prefetchQuery($),Promise.resolve(b)}}getQueriesData(_){return Wn(this,Du).findAll(_).map(({queryKey:b,state:$})=>{const _e=$.data;return[b,_e]})}setQueryData(_,b,$){const _e=this.defaultQueryOptions({queryKey:_}),ut=Wn(this,Du).get(_e.queryHash),yt=ut==null?void 0:ut.state.data,wt=functionalUpdate(b,yt);if(wt!==void 0)return Wn(this,Du).build(this,_e).setData(wt,{...$,manual:!0})}setQueriesData(_,b,$){return notifyManager.batch(()=>Wn(this,Du).findAll(_).map(({queryKey:_e})=>[_e,this.setQueryData(_e,b,$)]))}getQueryState(_){var $;const b=this.defaultQueryOptions({queryKey:_});return($=Wn(this,Du).get(b.queryHash))==null?void 0:$.state}removeQueries(_){const b=Wn(this,Du);notifyManager.batch(()=>{b.findAll(_).forEach($=>{b.remove($)})})}resetQueries(_,b){const $=Wn(this,Du),_e={type:"active",..._};return notifyManager.batch(()=>($.findAll(_).forEach(ut=>{ut.reset()}),this.refetchQueries(_e,b)))}cancelQueries(_={},b={}){const $={revert:!0,...b},_e=notifyManager.batch(()=>Wn(this,Du).findAll(_).map(ut=>ut.cancel($)));return Promise.all(_e).then(noop$1).catch(noop$1)}invalidateQueries(_={},b={}){return notifyManager.batch(()=>{if(Wn(this,Du).findAll(_).forEach(_e=>{_e.invalidate()}),_.refetchType==="none")return Promise.resolve();const $={..._,type:_.refetchType??_.type??"active"};return this.refetchQueries($,b)})}refetchQueries(_={},b){const $={...b,cancelRefetch:(b==null?void 0:b.cancelRefetch)??!0},_e=notifyManager.batch(()=>Wn(this,Du).findAll(_).filter(ut=>!ut.isDisabled()).map(ut=>{let yt=ut.fetch(void 0,$);return $.throwOnError||(yt=yt.catch(noop$1)),ut.state.fetchStatus==="paused"?Promise.resolve():yt}));return Promise.all(_e).then(noop$1)}fetchQuery(_){const b=this.defaultQueryOptions(_);b.retry===void 0&&(b.retry=!1);const $=Wn(this,Du).build(this,b);return $.isStaleByTime(resolveStaleTime(b.staleTime,$))?$.fetch(b):Promise.resolve($.state.data)}prefetchQuery(_){return this.fetchQuery(_).then(noop$1).catch(noop$1)}fetchInfiniteQuery(_){return _.behavior=infiniteQueryBehavior(_.pages),this.fetchQuery(_)}prefetchInfiniteQuery(_){return this.fetchInfiniteQuery(_).then(noop$1).catch(noop$1)}resumePausedMutations(){return onlineManager.isOnline()?Wn(this,Bm).resumePausedMutations():Promise.resolve()}getQueryCache(){return Wn(this,Du)}getMutationCache(){return Wn(this,Bm)}getDefaultOptions(){return Wn(this,Fm)}setDefaultOptions(_){Vo(this,Fm,_)}setQueryDefaults(_,b){Wn(this,Wv).set(hashKey(_),{queryKey:_,defaultOptions:b})}getQueryDefaults(_){const b=[...Wn(this,Wv).values()];let $={};return b.forEach(_e=>{partialMatchKey(_,_e.queryKey)&&($={...$,..._e.defaultOptions})}),$}setMutationDefaults(_,b){Wn(this,Hv).set(hashKey(_),{mutationKey:_,defaultOptions:b})}getMutationDefaults(_){const b=[...Wn(this,Hv).values()];let $={};return b.forEach(_e=>{partialMatchKey(_,_e.mutationKey)&&($={...$,..._e.defaultOptions})}),$}defaultQueryOptions(_){if(_._defaulted)return _;const b={...Wn(this,Fm).queries,...this.getQueryDefaults(_.queryKey),..._,_defaulted:!0};return b.queryHash||(b.queryHash=hashQueryKeyByOptions(b.queryKey,b)),b.refetchOnReconnect===void 0&&(b.refetchOnReconnect=b.networkMode!=="always"),b.throwOnError===void 0&&(b.throwOnError=!!b.suspense),!b.networkMode&&b.persister&&(b.networkMode="offlineFirst"),b.enabled!==!0&&b.queryFn===skipToken&&(b.enabled=!1),b}defaultMutationOptions(_){return _!=null&&_._defaulted?_:{...Wn(this,Fm).mutations,...(_==null?void 0:_.mutationKey)&&this.getMutationDefaults(_.mutationKey),..._,_defaulted:!0}}clear(){Wn(this,Du).clear(),Wn(this,Bm).clear()}},Du=new WeakMap,Bm=new WeakMap,Fm=new WeakMap,Wv=new WeakMap,Hv=new WeakMap,Km=new WeakMap,Vv=new WeakMap,qv=new WeakMap,_I),QueryClientContext=reactExports.createContext(void 0),QueryClientProvider=({client:_,children:b})=>(reactExports.useEffect(()=>(_.mount(),()=>{_.unmount()}),[_]),jsxRuntimeExports.jsx(QueryClientContext.Provider,{value:_,children:b}));const queryClient$1=new QueryClient,App=({router:_})=>jsxRuntimeExports.jsx(QueryClientProvider,{client:queryClient$1,children:jsxRuntimeExports.jsx(RouterProvider,{router:_})});var reactSdk={exports:{}},modern$1={exports:{}},modern={exports:{}},subscribable,hasRequiredSubscribable;function requireSubscribable(){if(hasRequiredSubscribable)return subscribable;hasRequiredSubscribable=1;var _=Object.defineProperty,b=Object.getOwnPropertyDescriptor,$=Object.getOwnPropertyNames,_e=Object.prototype.hasOwnProperty,ut=(bt,nt)=>{for(var F in nt)_(bt,F,{get:nt[F],enumerable:!0})},yt=(bt,nt,F,y)=>{if(nt&&typeof nt=="object"||typeof nt=="function")for(let et of $(nt))!_e.call(bt,et)&&et!==F&&_(bt,et,{get:()=>nt[et],enumerable:!(y=b(nt,et))||y.enumerable});return bt},wt=bt=>yt(_({},"__esModule",{value:!0}),bt),Ct={};ut(Ct,{Subscribable:()=>Rt}),subscribable=wt(Ct);var Rt=class{constructor(){this.listeners=new Set,this.subscribe=this.subscribe.bind(this)}subscribe(bt){return this.listeners.add(bt),this.onSubscribe(),()=>{this.listeners.delete(bt),this.onUnsubscribe()}}hasListeners(){return this.listeners.size>0}onSubscribe(){}onUnsubscribe(){}};return subscribable}var utils$1,hasRequiredUtils$1;function requireUtils$1(){if(hasRequiredUtils$1)return utils$1;hasRequiredUtils$1=1;var _=Object.defineProperty,b=Object.getOwnPropertyDescriptor,$=Object.getOwnPropertyNames,_e=Object.prototype.hasOwnProperty,ut=(Pt,zt)=>{for(var Ht in zt)_(Pt,Ht,{get:zt[Ht],enumerable:!0})},yt=(Pt,zt,Ht,xt)=>{if(zt&&typeof zt=="object"||typeof zt=="function")for(let kt of $(zt))!_e.call(Pt,kt)&&kt!==Ht&&_(Pt,kt,{get:()=>zt[kt],enumerable:!(xt=b(zt,kt))||xt.enumerable});return Pt},wt=Pt=>yt(_({},"__esModule",{value:!0}),Pt),Ct={};ut(Ct,{addToEnd:()=>vt,addToStart:()=>Mt,ensureQueryFn:()=>Lt,functionalUpdate:()=>nt,hashKey:()=>st,hashQueryKeyByOptions:()=>tt,isPlainArray:()=>dt,isPlainObject:()=>ct,isServer:()=>Rt,isValidTimeout:()=>F,keepPreviousData:()=>at,matchMutation:()=>rt,matchQuery:()=>it,noop:()=>bt,partialMatchKey:()=>gt,replaceData:()=>mt,replaceEqualDeep:()=>pt,resolveEnabled:()=>ot,resolveStaleTime:()=>et,shallowEqualObjects:()=>ft,skipToken:()=>ht,sleep:()=>_t,timeUntilStale:()=>y}),utils$1=wt(Ct);var Rt=typeof window>"u"||"Deno"in globalThis;function bt(){}function nt(Pt,zt){return typeof Pt=="function"?Pt(zt):Pt}function F(Pt){return typeof Pt=="number"&&Pt>=0&&Pt!==1/0}function y(Pt,zt){return Math.max(Pt+(zt||0)-Date.now(),0)}function et(Pt,zt){return typeof Pt=="function"?Pt(zt):Pt}function ot(Pt,zt){return typeof Pt=="function"?Pt(zt):Pt}function it(Pt,zt){const{type:Ht="all",exact:xt,fetchStatus:kt,predicate:jt,queryKey:Wt,stale:mn}=Pt;if(Wt){if(xt){if(zt.queryHash!==tt(Wt,zt.options))return!1}else if(!gt(zt.queryKey,Wt))return!1}if(Ht!=="all"){const Un=zt.isActive();if(Ht==="active"&&!Un||Ht==="inactive"&&Un)return!1}return!(typeof mn=="boolean"&&zt.isStale()!==mn||kt&&kt!==zt.state.fetchStatus||jt&&!jt(zt))}function rt(Pt,zt){const{exact:Ht,status:xt,predicate:kt,mutationKey:jt}=Pt;if(jt){if(!zt.options.mutationKey)return!1;if(Ht){if(st(zt.options.mutationKey)!==st(jt))return!1}else if(!gt(zt.options.mutationKey,jt))return!1}return!(xt&&zt.state.status!==xt||kt&&!kt(zt))}function tt(Pt,zt){return((zt==null?void 0:zt.queryKeyHashFn)||st)(Pt)}function st(Pt){return JSON.stringify(Pt,(zt,Ht)=>ct(Ht)?Object.keys(Ht).sort().reduce((xt,kt)=>(xt[kt]=Ht[kt],xt),{}):Ht)}function gt(Pt,zt){return Pt===zt?!0:typeof Pt!=typeof zt?!1:Pt&&zt&&typeof Pt=="object"&&typeof zt=="object"?!Object.keys(zt).some(Ht=>!gt(Pt[Ht],zt[Ht])):!1}function pt(Pt,zt){if(Pt===zt)return Pt;const Ht=dt(Pt)&&dt(zt);if(Ht||ct(Pt)&&ct(zt)){const xt=Ht?Pt:Object.keys(Pt),kt=xt.length,jt=Ht?zt:Object.keys(zt),Wt=jt.length,mn=Ht?[]:{};let Un=0;for(let Yn=0;Yn<Wt;Yn++){const Et=Ht?Yn:jt[Yn];(!Ht&&xt.includes(Et)||Ht)&&Pt[Et]===void 0&&zt[Et]===void 0?(mn[Et]=void 0,Un++):(mn[Et]=pt(Pt[Et],zt[Et]),mn[Et]===Pt[Et]&&Pt[Et]!==void 0&&Un++)}return kt===Wt&&Un===kt?Pt:mn}return zt}function ft(Pt,zt){if(!zt||Object.keys(Pt).length!==Object.keys(zt).length)return!1;for(const Ht in Pt)if(Pt[Ht]!==zt[Ht])return!1;return!0}function dt(Pt){return Array.isArray(Pt)&&Pt.length===Object.keys(Pt).length}function ct(Pt){if(!lt(Pt))return!1;const zt=Pt.constructor;if(zt===void 0)return!0;const Ht=zt.prototype;return!(!lt(Ht)||!Ht.hasOwnProperty("isPrototypeOf")||Object.getPrototypeOf(Pt)!==Object.prototype)}function lt(Pt){return Object.prototype.toString.call(Pt)==="[object Object]"}function _t(Pt){return new Promise(zt=>{setTimeout(zt,Pt)})}function mt(Pt,zt,Ht){return typeof Ht.structuralSharing=="function"?Ht.structuralSharing(Pt,zt):Ht.structuralSharing!==!1?pt(Pt,zt):zt}function at(Pt){return Pt}function vt(Pt,zt,Ht=0){const xt=[...Pt,zt];return Ht&&xt.length>Ht?xt.slice(1):xt}function Mt(Pt,zt,Ht=0){const xt=[zt,...Pt];return Ht&&xt.length>Ht?xt.slice(0,-1):xt}var ht=Symbol();function Lt(Pt,zt){return!Pt.queryFn&&(zt!=null&&zt.initialPromise)?()=>zt.initialPromise:!Pt.queryFn||Pt.queryFn===ht?()=>Promise.reject(new Error(`Missing queryFn: '${Pt.queryHash}'`)):Pt.queryFn}return utils$1}var focusManager_1,hasRequiredFocusManager;function requireFocusManager(){var y,et,ot,it;if(hasRequiredFocusManager)return focusManager_1;hasRequiredFocusManager=1;var _=Object.defineProperty,b=Object.getOwnPropertyDescriptor,$=Object.getOwnPropertyNames,_e=Object.prototype.hasOwnProperty,ut=(rt,tt)=>{for(var st in tt)_(rt,st,{get:tt[st],enumerable:!0})},yt=(rt,tt,st,gt)=>{if(tt&&typeof tt=="object"||typeof tt=="function")for(let pt of $(tt))!_e.call(rt,pt)&&pt!==st&&_(rt,pt,{get:()=>tt[pt],enumerable:!(gt=b(tt,pt))||gt.enumerable});return rt},wt=rt=>yt(_({},"__esModule",{value:!0}),rt),Ct={};ut(Ct,{FocusManager:()=>nt,focusManager:()=>F}),focusManager_1=wt(Ct);var Rt=requireSubscribable(),bt=requireUtils$1(),nt=(it=class extends Rt.Subscribable{constructor(){super();ls(this,y);ls(this,et);ls(this,ot);Vo(this,ot,tt=>{if(!bt.isServer&&window.addEventListener){const st=()=>tt();return window.addEventListener("visibilitychange",st,!1),()=>{window.removeEventListener("visibilitychange",st)}}})}onSubscribe(){Wn(this,et)||this.setEventListener(Wn(this,ot))}onUnsubscribe(){var tt;this.hasListeners()||((tt=Wn(this,et))==null||tt.call(this),Vo(this,et,void 0))}setEventListener(tt){var st;Vo(this,ot,tt),(st=Wn(this,et))==null||st.call(this),Vo(this,et,tt(gt=>{typeof gt=="boolean"?this.setFocused(gt):this.onFocus()}))}setFocused(tt){Wn(this,y)!==tt&&(Vo(this,y,tt),this.onFocus())}onFocus(){const tt=this.isFocused();this.listeners.forEach(st=>{st(tt)})}isFocused(){var tt;return typeof Wn(this,y)=="boolean"?Wn(this,y):((tt=globalThis.document)==null?void 0:tt.visibilityState)!=="hidden"}},y=new WeakMap,et=new WeakMap,ot=new WeakMap,it),F=new nt;return focusManager_1}var onlineManager_1,hasRequiredOnlineManager;function requireOnlineManager(){var y,et,ot,it;if(hasRequiredOnlineManager)return onlineManager_1;hasRequiredOnlineManager=1;var _=Object.defineProperty,b=Object.getOwnPropertyDescriptor,$=Object.getOwnPropertyNames,_e=Object.prototype.hasOwnProperty,ut=(rt,tt)=>{for(var st in tt)_(rt,st,{get:tt[st],enumerable:!0})},yt=(rt,tt,st,gt)=>{if(tt&&typeof tt=="object"||typeof tt=="function")for(let pt of $(tt))!_e.call(rt,pt)&&pt!==st&&_(rt,pt,{get:()=>tt[pt],enumerable:!(gt=b(tt,pt))||gt.enumerable});return rt},wt=rt=>yt(_({},"__esModule",{value:!0}),rt),Ct={};ut(Ct,{OnlineManager:()=>nt,onlineManager:()=>F}),onlineManager_1=wt(Ct);var Rt=requireSubscribable(),bt=requireUtils$1(),nt=(it=class extends Rt.Subscribable{constructor(){super();ls(this,y,!0);ls(this,et);ls(this,ot);Vo(this,ot,tt=>{if(!bt.isServer&&window.addEventListener){const st=()=>tt(!0),gt=()=>tt(!1);return window.addEventListener("online",st,!1),window.addEventListener("offline",gt,!1),()=>{window.removeEventListener("online",st),window.removeEventListener("offline",gt)}}})}onSubscribe(){Wn(this,et)||this.setEventListener(Wn(this,ot))}onUnsubscribe(){var tt;this.hasListeners()||((tt=Wn(this,et))==null||tt.call(this),Vo(this,et,void 0))}setEventListener(tt){var st;Vo(this,ot,tt),(st=Wn(this,et))==null||st.call(this),Vo(this,et,tt(this.setOnline.bind(this)))}setOnline(tt){Wn(this,y)!==tt&&(Vo(this,y,tt),this.listeners.forEach(gt=>{gt(tt)}))}isOnline(){return Wn(this,y)}},y=new WeakMap,et=new WeakMap,ot=new WeakMap,it),F=new nt;return onlineManager_1}var thenable,hasRequiredThenable;function requireThenable(){if(hasRequiredThenable)return thenable;hasRequiredThenable=1;var _=Object.defineProperty,b=Object.getOwnPropertyDescriptor,$=Object.getOwnPropertyNames,_e=Object.prototype.hasOwnProperty,ut=(bt,nt)=>{for(var F in nt)_(bt,F,{get:nt[F],enumerable:!0})},yt=(bt,nt,F,y)=>{if(nt&&typeof nt=="object"||typeof nt=="function")for(let et of $(nt))!_e.call(bt,et)&&et!==F&&_(bt,et,{get:()=>nt[et],enumerable:!(y=b(nt,et))||y.enumerable});return bt},wt=bt=>yt(_({},"__esModule",{value:!0}),bt),Ct={};ut(Ct,{pendingThenable:()=>Rt}),thenable=wt(Ct);function Rt(){let bt,nt;const F=new Promise((et,ot)=>{bt=et,nt=ot});F.status="pending",F.catch(()=>{});function y(et){Object.assign(F,et),delete F.resolve,delete F.reject}return F.resolve=et=>{y({status:"fulfilled",value:et}),bt(et)},F.reject=et=>{y({status:"rejected",reason:et}),nt(et)},F}return thenable}var retryer,hasRequiredRetryer;function requireRetryer(){if(hasRequiredRetryer)return retryer;hasRequiredRetryer=1;var _=Object.defineProperty,b=Object.getOwnPropertyDescriptor,$=Object.getOwnPropertyNames,_e=Object.prototype.hasOwnProperty,ut=(tt,st)=>{for(var gt in st)_(tt,gt,{get:st[gt],enumerable:!0})},yt=(tt,st,gt,pt)=>{if(st&&typeof st=="object"||typeof st=="function")for(let ft of $(st))!_e.call(tt,ft)&&ft!==gt&&_(tt,ft,{get:()=>st[ft],enumerable:!(pt=b(st,ft))||pt.enumerable});return tt},wt=tt=>yt(_({},"__esModule",{value:!0}),tt),Ct={};ut(Ct,{CancelledError:()=>ot,canFetch:()=>et,createRetryer:()=>rt,isCancelledError:()=>it}),retryer=wt(Ct);var Rt=requireFocusManager(),bt=requireOnlineManager(),nt=requireThenable(),F=requireUtils$1();function y(tt){return Math.min(1e3*2**tt,3e4)}function et(tt){return(tt??"online")==="online"?bt.onlineManager.isOnline():!0}var ot=class extends Error{constructor(tt){super("CancelledError"),this.revert=tt==null?void 0:tt.revert,this.silent=tt==null?void 0:tt.silent}};function it(tt){return tt instanceof ot}function rt(tt){let st=!1,gt=0,pt=!1,ft;const dt=(0,nt.pendingThenable)(),ct=Pt=>{var zt;pt||(Mt(new ot(Pt)),(zt=tt.abort)==null||zt.call(tt))},lt=()=>{st=!0},_t=()=>{st=!1},mt=()=>Rt.focusManager.isFocused()&&(tt.networkMode==="always"||bt.onlineManager.isOnline())&&tt.canRun(),at=()=>et(tt.networkMode)&&tt.canRun(),vt=Pt=>{var zt;pt||(pt=!0,(zt=tt.onSuccess)==null||zt.call(tt,Pt),ft==null||ft(),dt.resolve(Pt))},Mt=Pt=>{var zt;pt||(pt=!0,(zt=tt.onError)==null||zt.call(tt,Pt),ft==null||ft(),dt.reject(Pt))},ht=()=>new Promise(Pt=>{var zt;ft=Ht=>{(pt||mt())&&Pt(Ht)},(zt=tt.onPause)==null||zt.call(tt)}).then(()=>{var Pt;ft=void 0,pt||(Pt=tt.onContinue)==null||Pt.call(tt)}),Lt=()=>{if(pt)return;let Pt;const zt=gt===0?tt.initialPromise:void 0;try{Pt=zt??tt.fn()}catch(Ht){Pt=Promise.reject(Ht)}Promise.resolve(Pt).then(vt).catch(Ht=>{var mn;if(pt)return;const xt=tt.retry??(F.isServer?0:3),kt=tt.retryDelay??y,jt=typeof kt=="function"?kt(gt,Ht):kt,Wt=xt===!0||typeof xt=="number"&&gt<xt||typeof xt=="function"&&xt(gt,Ht);if(st||!Wt){Mt(Ht);return}gt++,(mn=tt.onFail)==null||mn.call(tt,gt,Ht),(0,F.sleep)(jt).then(()=>mt()?void 0:ht()).then(()=>{st?Mt(Ht):Lt()})})};return{promise:dt,cancel:ct,continue:()=>(ft==null||ft(),dt),cancelRetry:lt,continueRetry:_t,canStart:at,start:()=>(at()?Lt():ht().then(Lt),dt)}}return retryer}var notifyManager_1,hasRequiredNotifyManager;function requireNotifyManager(){if(hasRequiredNotifyManager)return notifyManager_1;hasRequiredNotifyManager=1;var _=Object.defineProperty,b=Object.getOwnPropertyDescriptor,$=Object.getOwnPropertyNames,_e=Object.prototype.hasOwnProperty,ut=(nt,F)=>{for(var y in F)_(nt,y,{get:F[y],enumerable:!0})},yt=(nt,F,y,et)=>{if(F&&typeof F=="object"||typeof F=="function")for(let ot of $(F))!_e.call(nt,ot)&&ot!==y&&_(nt,ot,{get:()=>F[ot],enumerable:!(et=b(F,ot))||et.enumerable});return nt},wt=nt=>yt(_({},"__esModule",{value:!0}),nt),Ct={};ut(Ct,{createNotifyManager:()=>Rt,notifyManager:()=>bt}),notifyManager_1=wt(Ct);function Rt(){let nt=[],F=0,y=tt=>{tt()},et=tt=>{tt()},ot=tt=>setTimeout(tt,0);const it=tt=>{F?nt.push(tt):ot(()=>{y(tt)})},rt=()=>{const tt=nt;nt=[],tt.length&&ot(()=>{et(()=>{tt.forEach(st=>{y(st)})})})};return{batch:tt=>{let st;F++;try{st=tt()}finally{F--,F||rt()}return st},batchCalls:tt=>(...st)=>{it(()=>{tt(...st)})},schedule:it,setNotifyFunction:tt=>{y=tt},setBatchNotifyFunction:tt=>{et=tt},setScheduler:tt=>{ot=tt}}}var bt=Rt();return notifyManager_1}var removable,hasRequiredRemovable;function requireRemovable(){var nt,F;if(hasRequiredRemovable)return removable;hasRequiredRemovable=1;var _=Object.defineProperty,b=Object.getOwnPropertyDescriptor,$=Object.getOwnPropertyNames,_e=Object.prototype.hasOwnProperty,ut=(y,et)=>{for(var ot in et)_(y,ot,{get:et[ot],enumerable:!0})},yt=(y,et,ot,it)=>{if(et&&typeof et=="object"||typeof et=="function")for(let rt of $(et))!_e.call(y,rt)&&rt!==ot&&_(y,rt,{get:()=>et[rt],enumerable:!(it=b(et,rt))||it.enumerable});return y},wt=y=>yt(_({},"__esModule",{value:!0}),y),Ct={};ut(Ct,{Removable:()=>bt}),removable=wt(Ct);var Rt=requireUtils$1(),bt=(F=class{constructor(){ls(this,nt)}destroy(){this.clearGcTimeout()}scheduleGc(){this.clearGcTimeout(),(0,Rt.isValidTimeout)(this.gcTime)&&Vo(this,nt,setTimeout(()=>{this.optionalRemove()},this.gcTime))}updateGcTime(y){this.gcTime=Math.max(this.gcTime||0,y??(Rt.isServer?1/0:5*60*1e3))}clearGcTimeout(){Wn(this,nt)&&(clearTimeout(Wn(this,nt)),Vo(this,nt,void 0))}},nt=new WeakMap,F);return removable}var query,hasRequiredQuery;function requireQuery(){var it,rt,tt,st,gt,pt,ft,vm,ct;if(hasRequiredQuery)return query;hasRequiredQuery=1;var _=Object.defineProperty,b=Object.getOwnPropertyDescriptor,$=Object.getOwnPropertyNames,_e=Object.prototype.hasOwnProperty,ut=(lt,_t)=>{for(var mt in _t)_(lt,mt,{get:_t[mt],enumerable:!0})},yt=(lt,_t,mt,at)=>{if(_t&&typeof _t=="object"||typeof _t=="function")for(let vt of $(_t))!_e.call(lt,vt)&&vt!==mt&&_(lt,vt,{get:()=>_t[vt],enumerable:!(at=b(_t,vt))||at.enumerable});return lt},wt=lt=>yt(_({},"__esModule",{value:!0}),lt),Ct={};ut(Ct,{Query:()=>y,fetchState:()=>et}),query=wt(Ct);var Rt=requireUtils$1(),bt=requireNotifyManager(),nt=requireRetryer(),F=requireRemovable(),y=(ct=class extends F.Removable{constructor(_t){super();ls(this,ft);ls(this,it);ls(this,rt);ls(this,tt);ls(this,st);ls(this,gt);ls(this,pt);Vo(this,pt,!1),Vo(this,gt,_t.defaultOptions),this.setOptions(_t.options),this.observers=[],Vo(this,tt,_t.cache),this.queryKey=_t.queryKey,this.queryHash=_t.queryHash,Vo(this,it,ot(this.options)),this.state=_t.state??Wn(this,it),this.scheduleGc()}get meta(){return this.options.meta}get promise(){var _t;return(_t=Wn(this,st))==null?void 0:_t.promise}setOptions(_t){this.options={...Wn(this,gt),..._t},this.updateGcTime(this.options.gcTime)}optionalRemove(){!this.observers.length&&this.state.fetchStatus==="idle"&&Wn(this,tt).remove(this)}setData(_t,mt){const at=(0,Rt.replaceData)(this.state.data,_t,this.options);return Rs(this,ft,vm).call(this,{data:at,type:"success",dataUpdatedAt:mt==null?void 0:mt.updatedAt,manual:mt==null?void 0:mt.manual}),at}setState(_t,mt){Rs(this,ft,vm).call(this,{type:"setState",state:_t,setStateOptions:mt})}cancel(_t){var at,vt;const mt=(at=Wn(this,st))==null?void 0:at.promise;return(vt=Wn(this,st))==null||vt.cancel(_t),mt?mt.then(Rt.noop).catch(Rt.noop):Promise.resolve()}destroy(){super.destroy(),this.cancel({silent:!0})}reset(){this.destroy(),this.setState(Wn(this,it))}isActive(){return this.observers.some(_t=>(0,Rt.resolveEnabled)(_t.options.enabled,this)!==!1)}isDisabled(){return this.getObserversCount()>0?!this.isActive():this.options.queryFn===Rt.skipToken||this.state.dataUpdateCount+this.state.errorUpdateCount===0}isStale(){return this.state.isInvalidated?!0:this.getObserversCount()>0?this.observers.some(_t=>_t.getCurrentResult().isStale):this.state.data===void 0}isStaleByTime(_t=0){return this.state.isInvalidated||this.state.data===void 0||!(0,Rt.timeUntilStale)(this.state.dataUpdatedAt,_t)}onFocus(){var mt;const _t=this.observers.find(at=>at.shouldFetchOnWindowFocus());_t==null||_t.refetch({cancelRefetch:!1}),(mt=Wn(this,st))==null||mt.continue()}onOnline(){var mt;const _t=this.observers.find(at=>at.shouldFetchOnReconnect());_t==null||_t.refetch({cancelRefetch:!1}),(mt=Wn(this,st))==null||mt.continue()}addObserver(_t){this.observers.includes(_t)||(this.observers.push(_t),this.clearGcTimeout(),Wn(this,tt).notify({type:"observerAdded",query:this,observer:_t}))}removeObserver(_t){this.observers.includes(_t)&&(this.observers=this.observers.filter(mt=>mt!==_t),this.observers.length||(Wn(this,st)&&(Wn(this,pt)?Wn(this,st).cancel({revert:!0}):Wn(this,st).cancelRetry()),this.scheduleGc()),Wn(this,tt).notify({type:"observerRemoved",query:this,observer:_t}))}getObserversCount(){return this.observers.length}invalidate(){this.state.isInvalidated||Rs(this,ft,vm).call(this,{type:"invalidate"})}fetch(_t,mt){var Pt,zt,Ht;if(this.state.fetchStatus!=="idle"){if(this.state.data!==void 0&&(mt!=null&&mt.cancelRefetch))this.cancel({silent:!0});else if(Wn(this,st))return Wn(this,st).continueRetry(),Wn(this,st).promise}if(_t&&this.setOptions(_t),!this.options.queryFn){const xt=this.observers.find(kt=>kt.options.queryFn);xt&&this.setOptions(xt.options)}const at=new AbortController,vt=xt=>{Object.defineProperty(xt,"signal",{enumerable:!0,get:()=>(Vo(this,pt,!0),at.signal)})},Mt=()=>{const xt=(0,Rt.ensureQueryFn)(this.options,mt),kt={queryKey:this.queryKey,meta:this.meta};return vt(kt),Vo(this,pt,!1),this.options.persister?this.options.persister(xt,kt,this):xt(kt)},ht={fetchOptions:mt,options:this.options,queryKey:this.queryKey,state:this.state,fetchFn:Mt};vt(ht),(Pt=this.options.behavior)==null||Pt.onFetch(ht,this),Vo(this,rt,this.state),(this.state.fetchStatus==="idle"||this.state.fetchMeta!==((zt=ht.fetchOptions)==null?void 0:zt.meta))&&Rs(this,ft,vm).call(this,{type:"fetch",meta:(Ht=ht.fetchOptions)==null?void 0:Ht.meta});const Lt=xt=>{var kt,jt,Wt,mn;(0,nt.isCancelledError)(xt)&&xt.silent||Rs(this,ft,vm).call(this,{type:"error",error:xt}),(0,nt.isCancelledError)(xt)||((jt=(kt=Wn(this,tt).config).onError)==null||jt.call(kt,xt,this),(mn=(Wt=Wn(this,tt).config).onSettled)==null||mn.call(Wt,this.state.data,xt,this)),this.isFetchingOptimistic||this.scheduleGc(),this.isFetchingOptimistic=!1};return Vo(this,st,(0,nt.createRetryer)({initialPromise:mt==null?void 0:mt.initialPromise,fn:ht.fetchFn,abort:at.abort.bind(at),onSuccess:xt=>{var kt,jt,Wt,mn;if(xt===void 0){Lt(new Error(`${this.queryHash} data is undefined`));return}try{this.setData(xt)}catch(Un){Lt(Un);return}(jt=(kt=Wn(this,tt).config).onSuccess)==null||jt.call(kt,xt,this),(mn=(Wt=Wn(this,tt).config).onSettled)==null||mn.call(Wt,xt,this.state.error,this),this.isFetchingOptimistic||this.scheduleGc(),this.isFetchingOptimistic=!1},onError:Lt,onFail:(xt,kt)=>{Rs(this,ft,vm).call(this,{type:"failed",failureCount:xt,error:kt})},onPause:()=>{Rs(this,ft,vm).call(this,{type:"pause"})},onContinue:()=>{Rs(this,ft,vm).call(this,{type:"continue"})},retry:ht.options.retry,retryDelay:ht.options.retryDelay,networkMode:ht.options.networkMode,canRun:()=>!0})),Wn(this,st).start()}},it=new WeakMap,rt=new WeakMap,tt=new WeakMap,st=new WeakMap,gt=new WeakMap,pt=new WeakMap,ft=new WeakSet,vm=function(_t){const mt=at=>{switch(_t.type){case"failed":return{...at,fetchFailureCount:_t.failureCount,fetchFailureReason:_t.error};case"pause":return{...at,fetchStatus:"paused"};case"continue":return{...at,fetchStatus:"fetching"};case"fetch":return{...at,...et(at.data,this.options),fetchMeta:_t.meta??null};case"success":return{...at,data:_t.data,dataUpdateCount:at.dataUpdateCount+1,dataUpdatedAt:_t.dataUpdatedAt??Date.now(),error:null,isInvalidated:!1,status:"success",...!_t.manual&&{fetchStatus:"idle",fetchFailureCount:0,fetchFailureReason:null}};case"error":const vt=_t.error;return(0,nt.isCancelledError)(vt)&&vt.revert&&Wn(this,rt)?{...Wn(this,rt),fetchStatus:"idle"}:{...at,error:vt,errorUpdateCount:at.errorUpdateCount+1,errorUpdatedAt:Date.now(),fetchFailureCount:at.fetchFailureCount+1,fetchFailureReason:vt,fetchStatus:"idle",status:"error"};case"invalidate":return{...at,isInvalidated:!0};case"setState":return{...at,..._t.state}}};this.state=mt(this.state),bt.notifyManager.batch(()=>{this.observers.forEach(at=>{at.onQueryUpdate()}),Wn(this,tt).notify({query:this,type:"updated",action:_t})})},ct);function et(lt,_t){return{fetchFailureCount:0,fetchFailureReason:null,fetchStatus:(0,nt.canFetch)(_t.networkMode)?"fetching":"paused",...lt===void 0&&{error:null,status:"pending"}}}function ot(lt){const _t=typeof lt.initialData=="function"?lt.initialData():lt.initialData,mt=_t!==void 0,at=mt?typeof lt.initialDataUpdatedAt=="function"?lt.initialDataUpdatedAt():lt.initialDataUpdatedAt:0;return{data:_t,dataUpdateCount:0,dataUpdatedAt:mt?at??Date.now():0,error:null,errorUpdateCount:0,errorUpdatedAt:0,fetchFailureCount:0,fetchFailureReason:null,fetchMeta:null,isInvalidated:!1,status:mt?"success":"pending",fetchStatus:"idle"}}return query}var queryCache,hasRequiredQueryCache;function requireQueryCache(){var et,ot;if(hasRequiredQueryCache)return queryCache;hasRequiredQueryCache=1;var _=Object.defineProperty,b=Object.getOwnPropertyDescriptor,$=Object.getOwnPropertyNames,_e=Object.prototype.hasOwnProperty,ut=(it,rt)=>{for(var tt in rt)_(it,tt,{get:rt[tt],enumerable:!0})},yt=(it,rt,tt,st)=>{if(rt&&typeof rt=="object"||typeof rt=="function")for(let gt of $(rt))!_e.call(it,gt)&&gt!==tt&&_(it,gt,{get:()=>rt[gt],enumerable:!(st=b(rt,gt))||st.enumerable});return it},wt=it=>yt(_({},"__esModule",{value:!0}),it),Ct={};ut(Ct,{QueryCache:()=>y}),queryCache=wt(Ct);var Rt=requireUtils$1(),bt=requireQuery(),nt=requireNotifyManager(),F=requireSubscribable(),y=(ot=class extends F.Subscribable{constructor(rt={}){super();ls(this,et);this.config=rt,Vo(this,et,new Map)}build(rt,tt,st){const gt=tt.queryKey,pt=tt.queryHash??(0,Rt.hashQueryKeyByOptions)(gt,tt);let ft=this.get(pt);return ft||(ft=new bt.Query({cache:this,queryKey:gt,queryHash:pt,options:rt.defaultQueryOptions(tt),state:st,defaultOptions:rt.getQueryDefaults(gt)}),this.add(ft)),ft}add(rt){Wn(this,et).has(rt.queryHash)||(Wn(this,et).set(rt.queryHash,rt),this.notify({type:"added",query:rt}))}remove(rt){const tt=Wn(this,et).get(rt.queryHash);tt&&(rt.destroy(),tt===rt&&Wn(this,et).delete(rt.queryHash),this.notify({type:"removed",query:rt}))}clear(){nt.notifyManager.batch(()=>{this.getAll().forEach(rt=>{this.remove(rt)})})}get(rt){return Wn(this,et).get(rt)}getAll(){return[...Wn(this,et).values()]}find(rt){const tt={exact:!0,...rt};return this.getAll().find(st=>(0,Rt.matchQuery)(tt,st))}findAll(rt={}){const tt=this.getAll();return Object.keys(rt).length>0?tt.filter(st=>(0,Rt.matchQuery)(rt,st)):tt}notify(rt){nt.notifyManager.batch(()=>{this.listeners.forEach(tt=>{tt(rt)})})}onFocus(){nt.notifyManager.batch(()=>{this.getAll().forEach(rt=>{rt.onFocus()})})}onOnline(){nt.notifyManager.batch(()=>{this.getAll().forEach(rt=>{rt.onOnline()})})}},et=new WeakMap,ot);return queryCache}var mutation,hasRequiredMutation;function requireMutation(){var et,ot,it,rt,km,st;if(hasRequiredMutation)return mutation;hasRequiredMutation=1;var _=Object.defineProperty,b=Object.getOwnPropertyDescriptor,$=Object.getOwnPropertyNames,_e=Object.prototype.hasOwnProperty,ut=(gt,pt)=>{for(var ft in pt)_(gt,ft,{get:pt[ft],enumerable:!0})},yt=(gt,pt,ft,dt)=>{if(pt&&typeof pt=="object"||typeof pt=="function")for(let ct of $(pt))!_e.call(gt,ct)&&ct!==ft&&_(gt,ct,{get:()=>pt[ct],enumerable:!(dt=b(pt,ct))||dt.enumerable});return gt},wt=gt=>yt(_({},"__esModule",{value:!0}),gt),Ct={};ut(Ct,{Mutation:()=>F,getDefaultState:()=>y}),mutation=wt(Ct);var Rt=requireNotifyManager(),bt=requireRemovable(),nt=requireRetryer(),F=(st=class extends bt.Removable{constructor(pt){super();ls(this,rt);ls(this,et);ls(this,ot);ls(this,it);this.mutationId=pt.mutationId,Vo(this,ot,pt.mutationCache),Vo(this,et,[]),this.state=pt.state||y(),this.setOptions(pt.options),this.scheduleGc()}setOptions(pt){this.options=pt,this.updateGcTime(this.options.gcTime)}get meta(){return this.options.meta}addObserver(pt){Wn(this,et).includes(pt)||(Wn(this,et).push(pt),this.clearGcTimeout(),Wn(this,ot).notify({type:"observerAdded",mutation:this,observer:pt}))}removeObserver(pt){Vo(this,et,Wn(this,et).filter(ft=>ft!==pt)),this.scheduleGc(),Wn(this,ot).notify({type:"observerRemoved",mutation:this,observer:pt})}optionalRemove(){Wn(this,et).length||(this.state.status==="pending"?this.scheduleGc():Wn(this,ot).remove(this))}continue(){var pt;return((pt=Wn(this,it))==null?void 0:pt.continue())??this.execute(this.state.variables)}async execute(pt){var ct,lt,_t,mt,at,vt,Mt,ht,Lt,Pt,zt,Ht,xt,kt,jt,Wt,mn,Un,Yn,Et;Vo(this,it,(0,nt.createRetryer)({fn:()=>this.options.mutationFn?this.options.mutationFn(pt):Promise.reject(new Error("No mutationFn found")),onFail:(br,Fr)=>{Rs(this,rt,km).call(this,{type:"failed",failureCount:br,error:Fr})},onPause:()=>{Rs(this,rt,km).call(this,{type:"pause"})},onContinue:()=>{Rs(this,rt,km).call(this,{type:"continue"})},retry:this.options.retry??0,retryDelay:this.options.retryDelay,networkMode:this.options.networkMode,canRun:()=>Wn(this,ot).canRun(this)}));const ft=this.state.status==="pending",dt=!Wn(this,it).canStart();try{if(!ft){Rs(this,rt,km).call(this,{type:"pending",variables:pt,isPaused:dt}),await((lt=(ct=Wn(this,ot).config).onMutate)==null?void 0:lt.call(ct,pt,this));const Fr=await((mt=(_t=this.options).onMutate)==null?void 0:mt.call(_t,pt));Fr!==this.state.context&&Rs(this,rt,km).call(this,{type:"pending",context:Fr,variables:pt,isPaused:dt})}const br=await Wn(this,it).start();return await((vt=(at=Wn(this,ot).config).onSuccess)==null?void 0:vt.call(at,br,pt,this.state.context,this)),await((ht=(Mt=this.options).onSuccess)==null?void 0:ht.call(Mt,br,pt,this.state.context)),await((Pt=(Lt=Wn(this,ot).config).onSettled)==null?void 0:Pt.call(Lt,br,null,this.state.variables,this.state.context,this)),await((Ht=(zt=this.options).onSettled)==null?void 0:Ht.call(zt,br,null,pt,this.state.context)),Rs(this,rt,km).call(this,{type:"success",data:br}),br}catch(br){try{throw await((kt=(xt=Wn(this,ot).config).onError)==null?void 0:kt.call(xt,br,pt,this.state.context,this)),await((Wt=(jt=this.options).onError)==null?void 0:Wt.call(jt,br,pt,this.state.context)),await((Un=(mn=Wn(this,ot).config).onSettled)==null?void 0:Un.call(mn,void 0,br,this.state.variables,this.state.context,this)),await((Et=(Yn=this.options).onSettled)==null?void 0:Et.call(Yn,void 0,br,pt,this.state.context)),br}finally{Rs(this,rt,km).call(this,{type:"error",error:br})}}finally{Wn(this,ot).runNext(this)}}},et=new WeakMap,ot=new WeakMap,it=new WeakMap,rt=new WeakSet,km=function(pt){const ft=dt=>{switch(pt.type){case"failed":return{...dt,failureCount:pt.failureCount,failureReason:pt.error};case"pause":return{...dt,isPaused:!0};case"continue":return{...dt,isPaused:!1};case"pending":return{...dt,context:pt.context,data:void 0,failureCount:0,failureReason:null,error:null,isPaused:pt.isPaused,status:"pending",variables:pt.variables,submittedAt:Date.now()};case"success":return{...dt,data:pt.data,failureCount:0,failureReason:null,error:null,status:"success",isPaused:!1};case"error":return{...dt,data:void 0,error:pt.error,failureCount:dt.failureCount+1,failureReason:pt.error,isPaused:!1,status:"error"}}};this.state=ft(this.state),Rt.notifyManager.batch(()=>{Wn(this,et).forEach(dt=>{dt.onMutationUpdate(pt)}),Wn(this,ot).notify({mutation:this,type:"updated",action:pt})})},st);function y(){return{context:void 0,data:void 0,error:null,failureCount:0,failureReason:null,isPaused:!1,status:"idle",variables:void 0,submittedAt:0}}return mutation}var mutationCache,hasRequiredMutationCache;function requireMutationCache(){var ot,it,rt;if(hasRequiredMutationCache)return mutationCache;hasRequiredMutationCache=1;var _=Object.defineProperty,b=Object.getOwnPropertyDescriptor,$=Object.getOwnPropertyNames,_e=Object.prototype.hasOwnProperty,ut=(tt,st)=>{for(var gt in st)_(tt,gt,{get:st[gt],enumerable:!0})},yt=(tt,st,gt,pt)=>{if(st&&typeof st=="object"||typeof st=="function")for(let ft of $(st))!_e.call(tt,ft)&&ft!==gt&&_(tt,ft,{get:()=>st[ft],enumerable:!(pt=b(st,ft))||pt.enumerable});return tt},wt=tt=>yt(_({},"__esModule",{value:!0}),tt),Ct={};ut(Ct,{MutationCache:()=>y}),mutationCache=wt(Ct);var Rt=requireNotifyManager(),bt=requireMutation(),nt=requireUtils$1(),F=requireSubscribable(),y=(rt=class extends F.Subscribable{constructor(st={}){super();ls(this,ot);ls(this,it);this.config=st,Vo(this,ot,new Map),Vo(this,it,Date.now())}build(st,gt,pt){const ft=new bt.Mutation({mutationCache:this,mutationId:++sv(this,it)._,options:st.defaultMutationOptions(gt),state:pt});return this.add(ft),ft}add(st){const gt=et(st),pt=Wn(this,ot).get(gt)??[];pt.push(st),Wn(this,ot).set(gt,pt),this.notify({type:"added",mutation:st})}remove(st){var pt;const gt=et(st);if(Wn(this,ot).has(gt)){const ft=(pt=Wn(this,ot).get(gt))==null?void 0:pt.filter(dt=>dt!==st);ft&&(ft.length===0?Wn(this,ot).delete(gt):Wn(this,ot).set(gt,ft))}this.notify({type:"removed",mutation:st})}canRun(st){var pt;const gt=(pt=Wn(this,ot).get(et(st)))==null?void 0:pt.find(ft=>ft.state.status==="pending");return!gt||gt===st}runNext(st){var pt;const gt=(pt=Wn(this,ot).get(et(st)))==null?void 0:pt.find(ft=>ft!==st&&ft.state.isPaused);return(gt==null?void 0:gt.continue())??Promise.resolve()}clear(){Rt.notifyManager.batch(()=>{this.getAll().forEach(st=>{this.remove(st)})})}getAll(){return[...Wn(this,ot).values()].flat()}find(st){const gt={exact:!0,...st};return this.getAll().find(pt=>(0,nt.matchMutation)(gt,pt))}findAll(st={}){return this.getAll().filter(gt=>(0,nt.matchMutation)(st,gt))}notify(st){Rt.notifyManager.batch(()=>{this.listeners.forEach(gt=>{gt(st)})})}resumePausedMutations(){const st=this.getAll().filter(gt=>gt.state.isPaused);return Rt.notifyManager.batch(()=>Promise.all(st.map(gt=>gt.continue().catch(nt.noop))))}},ot=new WeakMap,it=new WeakMap,rt);function et(tt){var st;return((st=tt.options.scope)==null?void 0:st.id)??String(tt.mutationId)}return mutationCache}var infiniteQueryBehavior_1,hasRequiredInfiniteQueryBehavior;function requireInfiniteQueryBehavior(){if(hasRequiredInfiniteQueryBehavior)return infiniteQueryBehavior_1;hasRequiredInfiniteQueryBehavior=1;var _=Object.defineProperty,b=Object.getOwnPropertyDescriptor,$=Object.getOwnPropertyNames,_e=Object.prototype.hasOwnProperty,ut=(ot,it)=>{for(var rt in it)_(ot,rt,{get:it[rt],enumerable:!0})},yt=(ot,it,rt,tt)=>{if(it&&typeof it=="object"||typeof it=="function")for(let st of $(it))!_e.call(ot,st)&&st!==rt&&_(ot,st,{get:()=>it[st],enumerable:!(tt=b(it,st))||tt.enumerable});return ot},wt=ot=>yt(_({},"__esModule",{value:!0}),ot),Ct={};ut(Ct,{hasNextPage:()=>y,hasPreviousPage:()=>et,infiniteQueryBehavior:()=>bt}),infiniteQueryBehavior_1=wt(Ct);var Rt=requireUtils$1();function bt(ot){return{onFetch:(it,rt)=>{var lt,_t,mt,at,vt;const tt=it.options,st=(mt=(_t=(lt=it.fetchOptions)==null?void 0:lt.meta)==null?void 0:_t.fetchMore)==null?void 0:mt.direction,gt=((at=it.state.data)==null?void 0:at.pages)||[],pt=((vt=it.state.data)==null?void 0:vt.pageParams)||[];let ft={pages:[],pageParams:[]},dt=0;const ct=async()=>{let Mt=!1;const ht=zt=>{Object.defineProperty(zt,"signal",{enumerable:!0,get:()=>(it.signal.aborted?Mt=!0:it.signal.addEventListener("abort",()=>{Mt=!0}),it.signal)})},Lt=(0,Rt.ensureQueryFn)(it.options,it.fetchOptions),Pt=async(zt,Ht,xt)=>{if(Mt)return Promise.reject();if(Ht==null&&zt.pages.length)return Promise.resolve(zt);const kt={queryKey:it.queryKey,pageParam:Ht,direction:xt?"backward":"forward",meta:it.options.meta};ht(kt);const jt=await Lt(kt),{maxPages:Wt}=it.options,mn=xt?Rt.addToStart:Rt.addToEnd;return{pages:mn(zt.pages,jt,Wt),pageParams:mn(zt.pageParams,Ht,Wt)}};if(st&&gt.length){const zt=st==="backward",Ht=zt?F:nt,xt={pages:gt,pageParams:pt},kt=Ht(tt,xt);ft=await Pt(xt,kt,zt)}else{const zt=ot??gt.length;do{const Ht=dt===0?pt[0]??tt.initialPageParam:nt(tt,ft);if(dt>0&&Ht==null)break;ft=await Pt(ft,Ht),dt++}while(dt<zt)}return ft};it.options.persister?it.fetchFn=()=>{var Mt,ht;return(ht=(Mt=it.options).persister)==null?void 0:ht.call(Mt,ct,{queryKey:it.queryKey,meta:it.options.meta,signal:it.signal},rt)}:it.fetchFn=ct}}}function nt(ot,{pages:it,pageParams:rt}){const tt=it.length-1;return it.length>0?ot.getNextPageParam(it[tt],it,rt[tt],rt):void 0}function F(ot,{pages:it,pageParams:rt}){var tt;return it.length>0?(tt=ot.getPreviousPageParam)==null?void 0:tt.call(ot,it[0],it,rt[0],rt):void 0}function y(ot,it){return it?nt(ot,it)!=null:!1}function et(ot,it){return!it||!ot.getPreviousPageParam?!1:F(ot,it)!=null}return infiniteQueryBehavior_1}var queryClient,hasRequiredQueryClient;function requireQueryClient(){var rt,tt,st,gt,pt,ft,dt,ct,lt;if(hasRequiredQueryClient)return queryClient;hasRequiredQueryClient=1;var _=Object.defineProperty,b=Object.getOwnPropertyDescriptor,$=Object.getOwnPropertyNames,_e=Object.prototype.hasOwnProperty,ut=(_t,mt)=>{for(var at in mt)_(_t,at,{get:mt[at],enumerable:!0})},yt=(_t,mt,at,vt)=>{if(mt&&typeof mt=="object"||typeof mt=="function")for(let Mt of $(mt))!_e.call(_t,Mt)&&Mt!==at&&_(_t,Mt,{get:()=>mt[Mt],enumerable:!(vt=b(mt,Mt))||vt.enumerable});return _t},wt=_t=>yt(_({},"__esModule",{value:!0}),_t),Ct={};ut(Ct,{QueryClient:()=>it}),queryClient=wt(Ct);var Rt=requireUtils$1(),bt=requireQueryCache(),nt=requireMutationCache(),F=requireFocusManager(),y=requireOnlineManager(),et=requireNotifyManager(),ot=requireInfiniteQueryBehavior(),it=(lt=class{constructor(_t={}){ls(this,rt);ls(this,tt);ls(this,st);ls(this,gt);ls(this,pt);ls(this,ft);ls(this,dt);ls(this,ct);Vo(this,rt,_t.queryCache||new bt.QueryCache),Vo(this,tt,_t.mutationCache||new nt.MutationCache),Vo(this,st,_t.defaultOptions||{}),Vo(this,gt,new Map),Vo(this,pt,new Map),Vo(this,ft,0)}mount(){sv(this,ft)._++,Wn(this,ft)===1&&(Vo(this,dt,F.focusManager.subscribe(async _t=>{_t&&(await this.resumePausedMutations(),Wn(this,rt).onFocus())})),Vo(this,ct,y.onlineManager.subscribe(async _t=>{_t&&(await this.resumePausedMutations(),Wn(this,rt).onOnline())})))}unmount(){var _t,mt;sv(this,ft)._--,Wn(this,ft)===0&&((_t=Wn(this,dt))==null||_t.call(this),Vo(this,dt,void 0),(mt=Wn(this,ct))==null||mt.call(this),Vo(this,ct,void 0))}isFetching(_t){return Wn(this,rt).findAll({..._t,fetchStatus:"fetching"}).length}isMutating(_t){return Wn(this,tt).findAll({..._t,status:"pending"}).length}getQueryData(_t){var at;const mt=this.defaultQueryOptions({queryKey:_t});return(at=Wn(this,rt).get(mt.queryHash))==null?void 0:at.state.data}ensureQueryData(_t){const mt=this.getQueryData(_t.queryKey);if(mt===void 0)return this.fetchQuery(_t);{const at=this.defaultQueryOptions(_t),vt=Wn(this,rt).build(this,at);return _t.revalidateIfStale&&vt.isStaleByTime((0,Rt.resolveStaleTime)(at.staleTime,vt))&&this.prefetchQuery(at),Promise.resolve(mt)}}getQueriesData(_t){return Wn(this,rt).findAll(_t).map(({queryKey:mt,state:at})=>{const vt=at.data;return[mt,vt]})}setQueryData(_t,mt,at){const vt=this.defaultQueryOptions({queryKey:_t}),Mt=Wn(this,rt).get(vt.queryHash),ht=Mt==null?void 0:Mt.state.data,Lt=(0,Rt.functionalUpdate)(mt,ht);if(Lt!==void 0)return Wn(this,rt).build(this,vt).setData(Lt,{...at,manual:!0})}setQueriesData(_t,mt,at){return et.notifyManager.batch(()=>Wn(this,rt).findAll(_t).map(({queryKey:vt})=>[vt,this.setQueryData(vt,mt,at)]))}getQueryState(_t){var at;const mt=this.defaultQueryOptions({queryKey:_t});return(at=Wn(this,rt).get(mt.queryHash))==null?void 0:at.state}removeQueries(_t){const mt=Wn(this,rt);et.notifyManager.batch(()=>{mt.findAll(_t).forEach(at=>{mt.remove(at)})})}resetQueries(_t,mt){const at=Wn(this,rt),vt={type:"active",..._t};return et.notifyManager.batch(()=>(at.findAll(_t).forEach(Mt=>{Mt.reset()}),this.refetchQueries(vt,mt)))}cancelQueries(_t={},mt={}){const at={revert:!0,...mt},vt=et.notifyManager.batch(()=>Wn(this,rt).findAll(_t).map(Mt=>Mt.cancel(at)));return Promise.all(vt).then(Rt.noop).catch(Rt.noop)}invalidateQueries(_t={},mt={}){return et.notifyManager.batch(()=>{if(Wn(this,rt).findAll(_t).forEach(vt=>{vt.invalidate()}),_t.refetchType==="none")return Promise.resolve();const at={..._t,type:_t.refetchType??_t.type??"active"};return this.refetchQueries(at,mt)})}refetchQueries(_t={},mt){const at={...mt,cancelRefetch:(mt==null?void 0:mt.cancelRefetch)??!0},vt=et.notifyManager.batch(()=>Wn(this,rt).findAll(_t).filter(Mt=>!Mt.isDisabled()).map(Mt=>{let ht=Mt.fetch(void 0,at);return at.throwOnError||(ht=ht.catch(Rt.noop)),Mt.state.fetchStatus==="paused"?Promise.resolve():ht}));return Promise.all(vt).then(Rt.noop)}fetchQuery(_t){const mt=this.defaultQueryOptions(_t);mt.retry===void 0&&(mt.retry=!1);const at=Wn(this,rt).build(this,mt);return at.isStaleByTime((0,Rt.resolveStaleTime)(mt.staleTime,at))?at.fetch(mt):Promise.resolve(at.state.data)}prefetchQuery(_t){return this.fetchQuery(_t).then(Rt.noop).catch(Rt.noop)}fetchInfiniteQuery(_t){return _t.behavior=(0,ot.infiniteQueryBehavior)(_t.pages),this.fetchQuery(_t)}prefetchInfiniteQuery(_t){return this.fetchInfiniteQuery(_t).then(Rt.noop).catch(Rt.noop)}ensureInfiniteQueryData(_t){return _t.behavior=(0,ot.infiniteQueryBehavior)(_t.pages),this.ensureQueryData(_t)}resumePausedMutations(){return y.onlineManager.isOnline()?Wn(this,tt).resumePausedMutations():Promise.resolve()}getQueryCache(){return Wn(this,rt)}getMutationCache(){return Wn(this,tt)}getDefaultOptions(){return Wn(this,st)}setDefaultOptions(_t){Vo(this,st,_t)}setQueryDefaults(_t,mt){Wn(this,gt).set((0,Rt.hashKey)(_t),{queryKey:_t,defaultOptions:mt})}getQueryDefaults(_t){const mt=[...Wn(this,gt).values()];let at={};return mt.forEach(vt=>{(0,Rt.partialMatchKey)(_t,vt.queryKey)&&(at={...at,...vt.defaultOptions})}),at}setMutationDefaults(_t,mt){Wn(this,pt).set((0,Rt.hashKey)(_t),{mutationKey:_t,defaultOptions:mt})}getMutationDefaults(_t){const mt=[...Wn(this,pt).values()];let at={};return mt.forEach(vt=>{(0,Rt.partialMatchKey)(_t,vt.mutationKey)&&(at={...at,...vt.defaultOptions})}),at}defaultQueryOptions(_t){if(_t._defaulted)return _t;const mt={...Wn(this,st).queries,...this.getQueryDefaults(_t.queryKey),..._t,_defaulted:!0};return mt.queryHash||(mt.queryHash=(0,Rt.hashQueryKeyByOptions)(mt.queryKey,mt)),mt.refetchOnReconnect===void 0&&(mt.refetchOnReconnect=mt.networkMode!=="always"),mt.throwOnError===void 0&&(mt.throwOnError=!!mt.suspense),!mt.networkMode&&mt.persister&&(mt.networkMode="offlineFirst"),mt.enabled!==!0&&mt.queryFn===Rt.skipToken&&(mt.enabled=!1),mt}defaultMutationOptions(_t){return _t!=null&&_t._defaulted?_t:{...Wn(this,st).mutations,...(_t==null?void 0:_t.mutationKey)&&this.getMutationDefaults(_t.mutationKey),..._t,_defaulted:!0}}clear(){Wn(this,rt).clear(),Wn(this,tt).clear()}},rt=new WeakMap,tt=new WeakMap,st=new WeakMap,gt=new WeakMap,pt=new WeakMap,ft=new WeakMap,dt=new WeakMap,ct=new WeakMap,lt);return queryClient}var queryObserver,hasRequiredQueryObserver;function requireQueryObserver(){var ft,dt,ct,lt,_t,mt,at,vt,Mt,ht,Lt,Pt,zt,Ht,xt,kt,Oy,OE,CE,ME,DE,RE,SE,TE,bI,Po;if(hasRequiredQueryObserver)return queryObserver;hasRequiredQueryObserver=1;var _=Object.defineProperty,b=Object.getOwnPropertyDescriptor,$=Object.getOwnPropertyNames,_e=Object.prototype.hasOwnProperty,ut=(At,Ir)=>{for(var Hr in Ir)_(At,Hr,{get:Ir[Hr],enumerable:!0})},yt=(At,Ir,Hr,$n)=>{if(Ir&&typeof Ir=="object"||typeof Ir=="function")for(let fo of $(Ir))!_e.call(At,fo)&&fo!==Hr&&_(At,fo,{get:()=>Ir[fo],enumerable:!($n=b(Ir,fo))||$n.enumerable});return At},wt=At=>yt(_({},"__esModule",{value:!0}),At),Ct={};ut(Ct,{QueryObserver:()=>ot}),queryObserver=wt(Ct);var Rt=requireFocusManager(),bt=requireNotifyManager(),nt=requireQuery(),F=requireSubscribable(),y=requireThenable(),et=requireUtils$1(),ot=(Po=class extends F.Subscribable{constructor(Ir,Hr){super();ls(this,kt);ls(this,ft);ls(this,dt);ls(this,ct);ls(this,lt);ls(this,_t);ls(this,mt);ls(this,at);ls(this,vt);ls(this,Mt);ls(this,ht);ls(this,Lt);ls(this,Pt);ls(this,zt);ls(this,Ht);ls(this,xt,new Set);this.options=Hr,Vo(this,ft,Ir),Vo(this,vt,null),Vo(this,at,(0,y.pendingThenable)()),this.options.experimental_prefetchInRender||Wn(this,at).reject(new Error("experimental_prefetchInRender feature flag is not enabled")),this.bindMethods(),this.setOptions(Hr)}bindMethods(){this.refetch=this.refetch.bind(this)}onSubscribe(){this.listeners.size===1&&(Wn(this,dt).addObserver(this),rt(Wn(this,dt),this.options)?Rs(this,kt,Oy).call(this):this.updateResult(),Rs(this,kt,DE).call(this))}onUnsubscribe(){this.hasListeners()||this.destroy()}shouldFetchOnReconnect(){return tt(Wn(this,dt),this.options,this.options.refetchOnReconnect)}shouldFetchOnWindowFocus(){return tt(Wn(this,dt),this.options,this.options.refetchOnWindowFocus)}destroy(){this.listeners=new Set,Rs(this,kt,RE).call(this),Rs(this,kt,SE).call(this),Wn(this,dt).removeObserver(this)}setOptions(Ir,Hr){const $n=this.options,fo=Wn(this,dt);if(this.options=Wn(this,ft).defaultQueryOptions(Ir),this.options.enabled!==void 0&&typeof this.options.enabled!="boolean"&&typeof this.options.enabled!="function"&&typeof(0,et.resolveEnabled)(this.options.enabled,Wn(this,dt))!="boolean")throw new Error("Expected enabled to be a boolean or a callback that returns a boolean");Rs(this,kt,TE).call(this),Wn(this,dt).setOptions(this.options),$n._defaulted&&!(0,et.shallowEqualObjects)(this.options,$n)&&Wn(this,ft).getQueryCache().notify({type:"observerOptionsUpdated",query:Wn(this,dt),observer:this});const Bo=this.hasListeners();Bo&&st(Wn(this,dt),fo,this.options,$n)&&Rs(this,kt,Oy).call(this),this.updateResult(Hr),Bo&&(Wn(this,dt)!==fo||(0,et.resolveEnabled)(this.options.enabled,Wn(this,dt))!==(0,et.resolveEnabled)($n.enabled,Wn(this,dt))||(0,et.resolveStaleTime)(this.options.staleTime,Wn(this,dt))!==(0,et.resolveStaleTime)($n.staleTime,Wn(this,dt)))&&Rs(this,kt,OE).call(this);const No=Rs(this,kt,CE).call(this);Bo&&(Wn(this,dt)!==fo||(0,et.resolveEnabled)(this.options.enabled,Wn(this,dt))!==(0,et.resolveEnabled)($n.enabled,Wn(this,dt))||No!==Wn(this,Ht))&&Rs(this,kt,ME).call(this,No)}getOptimisticResult(Ir){const Hr=Wn(this,ft).getQueryCache().build(Wn(this,ft),Ir),$n=this.createResult(Hr,Ir);return pt(this,$n)&&(Vo(this,lt,$n),Vo(this,mt,this.options),Vo(this,_t,Wn(this,dt).state)),$n}getCurrentResult(){return Wn(this,lt)}trackResult(Ir,Hr){const $n={};return Object.keys(Ir).forEach(fo=>{Object.defineProperty($n,fo,{configurable:!1,enumerable:!0,get:()=>(this.trackProp(fo),Hr==null||Hr(fo),Ir[fo])})}),$n}trackProp(Ir){Wn(this,xt).add(Ir)}getCurrentQuery(){return Wn(this,dt)}refetch({...Ir}={}){return this.fetch({...Ir})}fetchOptimistic(Ir){const Hr=Wn(this,ft).defaultQueryOptions(Ir),$n=Wn(this,ft).getQueryCache().build(Wn(this,ft),Hr);return $n.isFetchingOptimistic=!0,$n.fetch().then(()=>this.createResult($n,Hr))}fetch(Ir){return Rs(this,kt,Oy).call(this,{...Ir,cancelRefetch:Ir.cancelRefetch??!0}).then(()=>(this.updateResult(),Wn(this,lt)))}createResult(Ir,Hr){var bu;const $n=Wn(this,dt),fo=this.options,Bo=Wn(this,lt),No=Wn(this,_t),rs=Wn(this,mt),ds=Ir!==$n?Ir.state:Wn(this,ct),{state:ps}=Ir;let ho={...ps},ts=!1,ks;if(Hr._optimisticResults){const Zl=this.hasListeners(),jo=!Zl&&rt(Ir,Hr),Fs=Zl&&st(Ir,$n,Hr,fo);(jo||Fs)&&(ho={...ho,...(0,nt.fetchState)(ps.data,Ir.options)}),Hr._optimisticResults==="isRestoring"&&(ho.fetchStatus="idle")}let{error:Wl,errorUpdatedAt:ru,status:Go}=ho;if(Hr.select&&ho.data!==void 0)if(Bo&&ho.data===(No==null?void 0:No.data)&&Hr.select===Wn(this,Mt))ks=Wn(this,ht);else try{Vo(this,Mt,Hr.select),ks=Hr.select(ho.data),ks=(0,et.replaceData)(Bo==null?void 0:Bo.data,ks,Hr),Vo(this,ht,ks),Vo(this,vt,null)}catch(Zl){Vo(this,vt,Zl)}else ks=ho.data;if(Hr.placeholderData!==void 0&&ks===void 0&&Go==="pending"){let Zl;if(Bo!=null&&Bo.isPlaceholderData&&Hr.placeholderData===(rs==null?void 0:rs.placeholderData))Zl=Bo.data;else if(Zl=typeof Hr.placeholderData=="function"?Hr.placeholderData((bu=Wn(this,Lt))==null?void 0:bu.state.data,Wn(this,Lt)):Hr.placeholderData,Hr.select&&Zl!==void 0)try{Zl=Hr.select(Zl),Vo(this,vt,null)}catch(jo){Vo(this,vt,jo)}Zl!==void 0&&(Go="success",ks=(0,et.replaceData)(Bo==null?void 0:Bo.data,Zl,Hr),ts=!0)}Wn(this,vt)&&(Wl=Wn(this,vt),ks=Wn(this,ht),ru=Date.now(),Go="error");const ou=ho.fetchStatus==="fetching",_u=Go==="pending",gu=Go==="error",Ul=_u&&ou,Ol=ks!==void 0;return{status:Go,fetchStatus:ho.fetchStatus,isPending:_u,isSuccess:Go==="success",isError:gu,isInitialLoading:Ul,isLoading:Ul,data:ks,dataUpdatedAt:ho.dataUpdatedAt,error:Wl,errorUpdatedAt:ru,failureCount:ho.fetchFailureCount,failureReason:ho.fetchFailureReason,errorUpdateCount:ho.errorUpdateCount,isFetched:ho.dataUpdateCount>0||ho.errorUpdateCount>0,isFetchedAfterMount:ho.dataUpdateCount>ds.dataUpdateCount||ho.errorUpdateCount>ds.errorUpdateCount,isFetching:ou,isRefetching:ou&&!_u,isLoadingError:gu&&!Ol,isPaused:ho.fetchStatus==="paused",isPlaceholderData:ts,isRefetchError:gu&&Ol,isStale:gt(Ir,Hr),refetch:this.refetch,promise:Wn(this,at)}}updateResult(Ir){const Hr=Wn(this,lt),$n=this.createResult(Wn(this,dt),this.options);if(Vo(this,_t,Wn(this,dt).state),Vo(this,mt,this.options),Wn(this,_t).data!==void 0&&Vo(this,Lt,Wn(this,dt)),(0,et.shallowEqualObjects)($n,Hr))return;if(this.options.experimental_prefetchInRender){const No=ds=>{$n.status==="error"?ds.reject($n.error):$n.data!==void 0&&ds.resolve($n.data)},rs=()=>{const ds=Vo(this,at,$n.promise=(0,y.pendingThenable)());No(ds)},us=Wn(this,at);switch(us.status){case"pending":No(us);break;case"fulfilled":($n.status==="error"||$n.data!==us.value)&&rs();break;case"rejected":($n.status!=="error"||$n.error!==us.reason)&&rs();break}}Vo(this,lt,$n);const fo={},Bo=()=>{if(!Hr)return!0;const{notifyOnChangeProps:No}=this.options,rs=typeof No=="function"?No():No;if(rs==="all"||!rs&&!Wn(this,xt).size)return!0;const us=new Set(rs??Wn(this,xt));return this.options.throwOnError&&us.add("error"),Object.keys(Wn(this,lt)).some(ds=>{const ps=ds;return Wn(this,lt)[ps]!==Hr[ps]&&us.has(ps)})};(Ir==null?void 0:Ir.listeners)!==!1&&Bo()&&(fo.listeners=!0),Rs(this,kt,bI).call(this,{...fo,...Ir})}onQueryUpdate(){this.updateResult(),this.hasListeners()&&Rs(this,kt,DE).call(this)}},ft=new WeakMap,dt=new WeakMap,ct=new WeakMap,lt=new WeakMap,_t=new WeakMap,mt=new WeakMap,at=new WeakMap,vt=new WeakMap,Mt=new WeakMap,ht=new WeakMap,Lt=new WeakMap,Pt=new WeakMap,zt=new WeakMap,Ht=new WeakMap,xt=new WeakMap,kt=new WeakSet,Oy=function(Ir){Rs(this,kt,TE).call(this);let Hr=Wn(this,dt).fetch(this.options,Ir);return Ir!=null&&Ir.throwOnError||(Hr=Hr.catch(et.noop)),Hr},OE=function(){Rs(this,kt,RE).call(this);const Ir=(0,et.resolveStaleTime)(this.options.staleTime,Wn(this,dt));if(et.isServer||Wn(this,lt).isStale||!(0,et.isValidTimeout)(Ir))return;const $n=(0,et.timeUntilStale)(Wn(this,lt).dataUpdatedAt,Ir)+1;Vo(this,Pt,setTimeout(()=>{Wn(this,lt).isStale||this.updateResult()},$n))},CE=function(){return(typeof this.options.refetchInterval=="function"?this.options.refetchInterval(Wn(this,dt)):this.options.refetchInterval)??!1},ME=function(Ir){Rs(this,kt,SE).call(this),Vo(this,Ht,Ir),!(et.isServer||(0,et.resolveEnabled)(this.options.enabled,Wn(this,dt))===!1||!(0,et.isValidTimeout)(Wn(this,Ht))||Wn(this,Ht)===0)&&Vo(this,zt,setInterval(()=>{(this.options.refetchIntervalInBackground||Rt.focusManager.isFocused())&&Rs(this,kt,Oy).call(this)},Wn(this,Ht)))},DE=function(){Rs(this,kt,OE).call(this),Rs(this,kt,ME).call(this,Rs(this,kt,CE).call(this))},RE=function(){Wn(this,Pt)&&(clearTimeout(Wn(this,Pt)),Vo(this,Pt,void 0))},SE=function(){Wn(this,zt)&&(clearInterval(Wn(this,zt)),Vo(this,zt,void 0))},TE=function(){const Ir=Wn(this,ft).getQueryCache().build(Wn(this,ft),this.options);if(Ir===Wn(this,dt))return;const Hr=Wn(this,dt);Vo(this,dt,Ir),Vo(this,ct,Ir.state),this.hasListeners()&&(Hr==null||Hr.removeObserver(this),Ir.addObserver(this))},bI=function(Ir){bt.notifyManager.batch(()=>{Ir.listeners&&this.listeners.forEach(Hr=>{Hr(Wn(this,lt))}),Wn(this,ft).getQueryCache().notify({query:Wn(this,dt),type:"observerResultsUpdated"})})},Po);function it(At,Ir){return(0,et.resolveEnabled)(Ir.enabled,At)!==!1&&At.state.data===void 0&&!(At.state.status==="error"&&Ir.retryOnMount===!1)}function rt(At,Ir){return it(At,Ir)||At.state.data!==void 0&&tt(At,Ir,Ir.refetchOnMount)}function tt(At,Ir,Hr){if((0,et.resolveEnabled)(Ir.enabled,At)!==!1){const $n=typeof Hr=="function"?Hr(At):Hr;return $n==="always"||$n!==!1&&gt(At,Ir)}return!1}function st(At,Ir,Hr,$n){return(At!==Ir||(0,et.resolveEnabled)($n.enabled,At)===!1)&&(!Hr.suspense||At.state.status!=="error")&&gt(At,Hr)}function gt(At,Ir){return(0,et.resolveEnabled)(Ir.enabled,At)!==!1&&At.isStaleByTime((0,et.resolveStaleTime)(Ir.staleTime,At))}function pt(At,Ir){return!(0,et.shallowEqualObjects)(At.getCurrentResult(),Ir)}return queryObserver}var queriesObserver,hasRequiredQueriesObserver;function requireQueriesObserver(){var it,rt,tt,st,gt,pt,ft,dt,ct,AE,jE,LE,kE,vt;if(hasRequiredQueriesObserver)return queriesObserver;hasRequiredQueriesObserver=1;var _=Object.defineProperty,b=Object.getOwnPropertyDescriptor,$=Object.getOwnPropertyNames,_e=Object.prototype.hasOwnProperty,ut=(Mt,ht)=>{for(var Lt in ht)_(Mt,Lt,{get:ht[Lt],enumerable:!0})},yt=(Mt,ht,Lt,Pt)=>{if(ht&&typeof ht=="object"||typeof ht=="function")for(let zt of $(ht))!_e.call(Mt,zt)&&zt!==Lt&&_(Mt,zt,{get:()=>ht[zt],enumerable:!(Pt=b(ht,zt))||Pt.enumerable});return Mt},wt=Mt=>yt(_({},"__esModule",{value:!0}),Mt),Ct={};ut(Ct,{QueriesObserver:()=>ot}),queriesObserver=wt(Ct);var Rt=requireNotifyManager(),bt=requireQueryObserver(),nt=requireSubscribable(),F=requireUtils$1();function y(Mt,ht){return Mt.filter(Lt=>!ht.includes(Lt))}function et(Mt,ht,Lt){const Pt=Mt.slice(0);return Pt[ht]=Lt,Pt}var ot=(vt=class extends nt.Subscribable{constructor(ht,Lt,Pt){super();ls(this,ct);ls(this,it);ls(this,rt);ls(this,tt);ls(this,st);ls(this,gt);ls(this,pt);ls(this,ft);ls(this,dt);Vo(this,it,ht),Vo(this,st,Pt),Vo(this,tt,[]),Vo(this,gt,[]),Vo(this,rt,[]),this.setQueries(Lt)}onSubscribe(){this.listeners.size===1&&Wn(this,gt).forEach(ht=>{ht.subscribe(Lt=>{Rs(this,ct,LE).call(this,ht,Lt)})})}onUnsubscribe(){this.listeners.size||this.destroy()}destroy(){this.listeners=new Set,Wn(this,gt).forEach(ht=>{ht.destroy()})}setQueries(ht,Lt,Pt){Vo(this,tt,ht),Vo(this,st,Lt),Rt.notifyManager.batch(()=>{const zt=Wn(this,gt),Ht=Rs(this,ct,jE).call(this,Wn(this,tt));Ht.forEach(Wt=>Wt.observer.setOptions(Wt.defaultedQueryOptions,Pt));const xt=Ht.map(Wt=>Wt.observer),kt=xt.map(Wt=>Wt.getCurrentResult()),jt=xt.some((Wt,mn)=>Wt!==zt[mn]);zt.length===xt.length&&!jt||(Vo(this,gt,xt),Vo(this,rt,kt),this.hasListeners()&&(y(zt,xt).forEach(Wt=>{Wt.destroy()}),y(xt,zt).forEach(Wt=>{Wt.subscribe(mn=>{Rs(this,ct,LE).call(this,Wt,mn)})}),Rs(this,ct,kE).call(this)))})}getCurrentResult(){return Wn(this,rt)}getQueries(){return Wn(this,gt).map(ht=>ht.getCurrentQuery())}getObservers(){return Wn(this,gt)}getOptimisticResult(ht,Lt){const Pt=Rs(this,ct,jE).call(this,ht),zt=Pt.map(Ht=>Ht.observer.getOptimisticResult(Ht.defaultedQueryOptions));return[zt,Ht=>Rs(this,ct,AE).call(this,Ht??zt,Lt),()=>Pt.map((Ht,xt)=>{const kt=zt[xt];return Ht.defaultedQueryOptions.notifyOnChangeProps?kt:Ht.observer.trackResult(kt,jt=>{Pt.forEach(Wt=>{Wt.observer.trackProp(jt)})})})]}},it=new WeakMap,rt=new WeakMap,tt=new WeakMap,st=new WeakMap,gt=new WeakMap,pt=new WeakMap,ft=new WeakMap,dt=new WeakMap,ct=new WeakSet,AE=function(ht,Lt){return Lt?((!Wn(this,pt)||Wn(this,rt)!==Wn(this,dt)||Lt!==Wn(this,ft))&&(Vo(this,ft,Lt),Vo(this,dt,Wn(this,rt)),Vo(this,pt,(0,F.replaceEqualDeep)(Wn(this,pt),Lt(ht)))),Wn(this,pt)):ht},jE=function(ht){const Lt=new Map(Wn(this,gt).map(zt=>[zt.options.queryHash,zt])),Pt=[];return ht.forEach(zt=>{const Ht=Wn(this,it).defaultQueryOptions(zt),xt=Lt.get(Ht.queryHash);if(xt)Pt.push({defaultedQueryOptions:Ht,observer:xt});else{const kt=Wn(this,gt).find(jt=>jt.options.queryHash===Ht.queryHash);Pt.push({defaultedQueryOptions:Ht,observer:kt??new bt.QueryObserver(Wn(this,it),Ht)})}}),Pt.sort((zt,Ht)=>ht.findIndex(xt=>xt.queryHash===zt.defaultedQueryOptions.queryHash)-ht.findIndex(xt=>xt.queryHash===Ht.defaultedQueryOptions.queryHash))},LE=function(ht,Lt){const Pt=Wn(this,gt).indexOf(ht);Pt!==-1&&(Vo(this,rt,et(Wn(this,rt),Pt,Lt)),Rs(this,ct,kE).call(this))},kE=function(){var ht;if(this.hasListeners()){const Lt=Wn(this,pt),Pt=Rs(this,ct,AE).call(this,Wn(this,rt),(ht=Wn(this,st))==null?void 0:ht.combine);Lt!==Pt&&Rt.notifyManager.batch(()=>{this.listeners.forEach(zt=>{zt(Wn(this,rt))})})}},vt);return queriesObserver}var infiniteQueryObserver,hasRequiredInfiniteQueryObserver;function requireInfiniteQueryObserver(){if(hasRequiredInfiniteQueryObserver)return infiniteQueryObserver;hasRequiredInfiniteQueryObserver=1;var _=Object.defineProperty,b=Object.getOwnPropertyDescriptor,$=Object.getOwnPropertyNames,_e=Object.prototype.hasOwnProperty,ut=(F,y)=>{for(var et in y)_(F,et,{get:y[et],enumerable:!0})},yt=(F,y,et,ot)=>{if(y&&typeof y=="object"||typeof y=="function")for(let it of $(y))!_e.call(F,it)&&it!==et&&_(F,it,{get:()=>y[it],enumerable:!(ot=b(y,it))||ot.enumerable});return F},wt=F=>yt(_({},"__esModule",{value:!0}),F),Ct={};ut(Ct,{InfiniteQueryObserver:()=>nt}),infiniteQueryObserver=wt(Ct);var Rt=requireQueryObserver(),bt=requireInfiniteQueryBehavior(),nt=class extends Rt.QueryObserver{constructor(F,y){super(F,y)}bindMethods(){super.bindMethods(),this.fetchNextPage=this.fetchNextPage.bind(this),this.fetchPreviousPage=this.fetchPreviousPage.bind(this)}setOptions(F,y){super.setOptions({...F,behavior:(0,bt.infiniteQueryBehavior)()},y)}getOptimisticResult(F){return F.behavior=(0,bt.infiniteQueryBehavior)(),super.getOptimisticResult(F)}fetchNextPage(F){return this.fetch({...F,meta:{fetchMore:{direction:"forward"}}})}fetchPreviousPage(F){return this.fetch({...F,meta:{fetchMore:{direction:"backward"}}})}createResult(F,y){var _t,mt;const{state:et}=F,ot=super.createResult(F,y),{isFetching:it,isRefetching:rt,isError:tt,isRefetchError:st}=ot,gt=(mt=(_t=et.fetchMeta)==null?void 0:_t.fetchMore)==null?void 0:mt.direction,pt=tt&&gt==="forward",ft=it&&gt==="forward",dt=tt&&gt==="backward",ct=it&&gt==="backward";return{...ot,fetchNextPage:this.fetchNextPage,fetchPreviousPage:this.fetchPreviousPage,hasNextPage:(0,bt.hasNextPage)(y,et.data),hasPreviousPage:(0,bt.hasPreviousPage)(y,et.data),isFetchNextPageError:pt,isFetchingNextPage:ft,isFetchPreviousPageError:dt,isFetchingPreviousPage:ct,isRefetchError:st&&!pt&&!dt,isRefetching:rt&&!ft&&!ct}}};return infiniteQueryObserver}var mutationObserver,hasRequiredMutationObserver;function requireMutationObserver(){var et,ot,it,rt,tt,g_,UE,pt;if(hasRequiredMutationObserver)return mutationObserver;hasRequiredMutationObserver=1;var _=Object.defineProperty,b=Object.getOwnPropertyDescriptor,$=Object.getOwnPropertyNames,_e=Object.prototype.hasOwnProperty,ut=(ft,dt)=>{for(var ct in dt)_(ft,ct,{get:dt[ct],enumerable:!0})},yt=(ft,dt,ct,lt)=>{if(dt&&typeof dt=="object"||typeof dt=="function")for(let _t of $(dt))!_e.call(ft,_t)&&_t!==ct&&_(ft,_t,{get:()=>dt[_t],enumerable:!(lt=b(dt,_t))||lt.enumerable});return ft},wt=ft=>yt(_({},"__esModule",{value:!0}),ft),Ct={};ut(Ct,{MutationObserver:()=>y}),mutationObserver=wt(Ct);var Rt=requireMutation(),bt=requireNotifyManager(),nt=requireSubscribable(),F=requireUtils$1(),y=(pt=class extends nt.Subscribable{constructor(dt,ct){super();ls(this,tt);ls(this,et);ls(this,ot);ls(this,it);ls(this,rt);Vo(this,et,dt),this.setOptions(ct),this.bindMethods(),Rs(this,tt,g_).call(this)}bindMethods(){this.mutate=this.mutate.bind(this),this.reset=this.reset.bind(this)}setOptions(dt){var lt;const ct=this.options;this.options=Wn(this,et).defaultMutationOptions(dt),(0,F.shallowEqualObjects)(this.options,ct)||Wn(this,et).getMutationCache().notify({type:"observerOptionsUpdated",mutation:Wn(this,it),observer:this}),ct!=null&&ct.mutationKey&&this.options.mutationKey&&(0,F.hashKey)(ct.mutationKey)!==(0,F.hashKey)(this.options.mutationKey)?this.reset():((lt=Wn(this,it))==null?void 0:lt.state.status)==="pending"&&Wn(this,it).setOptions(this.options)}onUnsubscribe(){var dt;this.hasListeners()||(dt=Wn(this,it))==null||dt.removeObserver(this)}onMutationUpdate(dt){Rs(this,tt,g_).call(this),Rs(this,tt,UE).call(this,dt)}getCurrentResult(){return Wn(this,ot)}reset(){var dt;(dt=Wn(this,it))==null||dt.removeObserver(this),Vo(this,it,void 0),Rs(this,tt,g_).call(this),Rs(this,tt,UE).call(this)}mutate(dt,ct){var lt;return Vo(this,rt,ct),(lt=Wn(this,it))==null||lt.removeObserver(this),Vo(this,it,Wn(this,et).getMutationCache().build(Wn(this,et),this.options)),Wn(this,it).addObserver(this),Wn(this,it).execute(dt)}},et=new WeakMap,ot=new WeakMap,it=new WeakMap,rt=new WeakMap,tt=new WeakSet,g_=function(){var ct;const dt=((ct=Wn(this,it))==null?void 0:ct.state)??(0,Rt.getDefaultState)();Vo(this,ot,{...dt,isPending:dt.status==="pending",isSuccess:dt.status==="success",isError:dt.status==="error",isIdle:dt.status==="idle",mutate:this.mutate,reset:this.reset})},UE=function(dt){bt.notifyManager.batch(()=>{var ct,lt,_t,mt,at,vt,Mt,ht;if(Wn(this,rt)&&this.hasListeners()){const Lt=Wn(this,ot).variables,Pt=Wn(this,ot).context;(dt==null?void 0:dt.type)==="success"?((lt=(ct=Wn(this,rt)).onSuccess)==null||lt.call(ct,dt.data,Lt,Pt),(mt=(_t=Wn(this,rt)).onSettled)==null||mt.call(_t,dt.data,null,Lt,Pt)):(dt==null?void 0:dt.type)==="error"&&((vt=(at=Wn(this,rt)).onError)==null||vt.call(at,dt.error,Lt,Pt),(ht=(Mt=Wn(this,rt)).onSettled)==null||ht.call(Mt,void 0,dt.error,Lt,Pt))}this.listeners.forEach(Lt=>{Lt(Wn(this,ot))})})},pt);return mutationObserver}var hydration,hasRequiredHydration;function requireHydration(){if(hasRequiredHydration)return hydration;hasRequiredHydration=1;var _=Object.defineProperty,b=Object.getOwnPropertyDescriptor,$=Object.getOwnPropertyNames,_e=Object.prototype.hasOwnProperty,ut=(it,rt)=>{for(var tt in rt)_(it,tt,{get:rt[tt],enumerable:!0})},yt=(it,rt,tt,st)=>{if(rt&&typeof rt=="object"||typeof rt=="function")for(let gt of $(rt))!_e.call(it,gt)&&gt!==tt&&_(it,gt,{get:()=>rt[gt],enumerable:!(st=b(rt,gt))||st.enumerable});return it},wt=it=>yt(_({},"__esModule",{value:!0}),it),Ct={};ut(Ct,{defaultShouldDehydrateMutation:()=>F,defaultShouldDehydrateQuery:()=>y,dehydrate:()=>et,hydrate:()=>ot}),hydration=wt(Ct);function Rt(it){return it}function bt(it){return{mutationKey:it.options.mutationKey,state:it.state,...it.options.scope&&{scope:it.options.scope},...it.meta&&{meta:it.meta}}}function nt(it,rt){var tt;return{state:{...it.state,...it.state.data!==void 0&&{data:rt(it.state.data)}},queryKey:it.queryKey,queryHash:it.queryHash,...it.state.status==="pending"&&{promise:(tt=it.promise)==null?void 0:tt.then(rt).catch(st=>Promise.reject(new Error("redacted")))},...it.meta&&{meta:it.meta}}}function F(it){return it.state.isPaused}function y(it){return it.state.status==="success"}function et(it,rt={}){var dt,ct,lt;const tt=rt.shouldDehydrateMutation??((dt=it.getDefaultOptions().dehydrate)==null?void 0:dt.shouldDehydrateMutation)??F,st=it.getMutationCache().getAll().flatMap(_t=>tt(_t)?[bt(_t)]:[]),gt=rt.shouldDehydrateQuery??((ct=it.getDefaultOptions().dehydrate)==null?void 0:ct.shouldDehydrateQuery)??y,pt=rt.serializeData??((lt=it.getDefaultOptions().dehydrate)==null?void 0:lt.serializeData)??Rt,ft=it.getQueryCache().getAll().flatMap(_t=>gt(_t)?[nt(_t,pt)]:[]);return{mutations:st,queries:ft}}function ot(it,rt,tt){var ct,lt;if(typeof rt!="object"||rt===null)return;const st=it.getMutationCache(),gt=it.getQueryCache(),pt=((ct=tt==null?void 0:tt.defaultOptions)==null?void 0:ct.deserializeData)??((lt=it.getDefaultOptions().hydrate)==null?void 0:lt.deserializeData)??Rt,ft=rt.mutations||[],dt=rt.queries||[];ft.forEach(({state:_t,...mt})=>{var at,vt;st.build(it,{...(at=it.getDefaultOptions().hydrate)==null?void 0:at.mutations,...(vt=tt==null?void 0:tt.defaultOptions)==null?void 0:vt.mutations,...mt},_t)}),dt.forEach(({queryKey:_t,state:mt,queryHash:at,meta:vt,promise:Mt})=>{var Pt,zt;let ht=gt.get(at);const Lt=mt.data===void 0?mt.data:pt(mt.data);if(ht){if(ht.state.dataUpdatedAt<mt.dataUpdatedAt){const{fetchStatus:Ht,...xt}=mt;ht.setState({...xt,data:Lt})}}else ht=gt.build(it,{...(Pt=it.getDefaultOptions().hydrate)==null?void 0:Pt.queries,...(zt=tt==null?void 0:tt.defaultOptions)==null?void 0:zt.queries,queryKey:_t,queryHash:at,meta:vt},{...mt,data:Lt,fetchStatus:"idle"});if(Mt){const Ht=Promise.resolve(Mt).then(pt);ht.fetch(void 0,{initialPromise:Ht})}})}return hydration}var types$1,hasRequiredTypes$1;function requireTypes$1(){if(hasRequiredTypes$1)return types$1;hasRequiredTypes$1=1;var _=Object.defineProperty,b=Object.getOwnPropertyDescriptor,$=Object.getOwnPropertyNames,_e=Object.prototype.hasOwnProperty,ut=(Ct,Rt,bt,nt)=>{if(Rt&&typeof Rt=="object"||typeof Rt=="function")for(let F of $(Rt))!_e.call(Ct,F)&&F!==bt&&_(Ct,F,{get:()=>Rt[F],enumerable:!(nt=b(Rt,F))||nt.enumerable});return Ct},yt=Ct=>ut(_({},"__esModule",{value:!0}),Ct),wt={};return types$1=yt(wt),types$1}var hasRequiredModern$1;function requireModern$1(){return hasRequiredModern$1||(hasRequiredModern$1=1,function(_){var b=Object.defineProperty,$=Object.getOwnPropertyDescriptor,_e=Object.getOwnPropertyNames,ut=Object.prototype.hasOwnProperty,yt=(mt,at)=>{for(var vt in at)b(mt,vt,{get:at[vt],enumerable:!0})},wt=(mt,at,vt,Mt)=>{if(at&&typeof at=="object"||typeof at=="function")for(let ht of _e(at))!ut.call(mt,ht)&&ht!==vt&&b(mt,ht,{get:()=>at[ht],enumerable:!(Mt=$(at,ht))||Mt.enumerable});return mt},Ct=(mt,at,vt)=>(wt(mt,at,"default"),vt&&wt(vt,at,"default")),Rt=mt=>wt(b({},"__esModule",{value:!0}),mt),bt={};yt(bt,{CancelledError:()=>nt.CancelledError,InfiniteQueryObserver:()=>it.InfiniteQueryObserver,Mutation:()=>_t.Mutation,MutationCache:()=>rt.MutationCache,MutationObserver:()=>tt.MutationObserver,QueriesObserver:()=>ot.QueriesObserver,Query:()=>lt.Query,QueryCache:()=>F.QueryCache,QueryClient:()=>y.QueryClient,QueryObserver:()=>et.QueryObserver,defaultShouldDehydrateMutation:()=>ct.defaultShouldDehydrateMutation,defaultShouldDehydrateQuery:()=>ct.defaultShouldDehydrateQuery,dehydrate:()=>ct.dehydrate,focusManager:()=>gt.focusManager,hashKey:()=>ft.hashKey,hydrate:()=>ct.hydrate,isCancelledError:()=>dt.isCancelledError,isServer:()=>ft.isServer,keepPreviousData:()=>ft.keepPreviousData,matchMutation:()=>ft.matchMutation,matchQuery:()=>ft.matchQuery,notifyManager:()=>st.notifyManager,onlineManager:()=>pt.onlineManager,replaceEqualDeep:()=>ft.replaceEqualDeep,skipToken:()=>ft.skipToken}),_.exports=Rt(bt);var nt=requireRetryer(),F=requireQueryCache(),y=requireQueryClient(),et=requireQueryObserver(),ot=requireQueriesObserver(),it=requireInfiniteQueryObserver(),rt=requireMutationCache(),tt=requireMutationObserver(),st=requireNotifyManager(),gt=requireFocusManager(),pt=requireOnlineManager(),ft=requireUtils$1(),dt=requireRetryer(),ct=requireHydration();Ct(bt,requireTypes$1(),_.exports);var lt=requireQuery(),_t=requireMutation()}(modern)),modern.exports}var types,hasRequiredTypes;function requireTypes(){if(hasRequiredTypes)return types;hasRequiredTypes=1;var _=Object.defineProperty,b=Object.getOwnPropertyDescriptor,$=Object.getOwnPropertyNames,_e=Object.prototype.hasOwnProperty,ut=(Ct,Rt,bt,nt)=>{if(Rt&&typeof Rt=="object"||typeof Rt=="function")for(let F of $(Rt))!_e.call(Ct,F)&&F!==bt&&_(Ct,F,{get:()=>Rt[F],enumerable:!(nt=b(Rt,F))||nt.enumerable});return Ct},yt=Ct=>ut(_({},"__esModule",{value:!0}),Ct),wt={};return types=yt(wt),types}var QueryClientProvider_1,hasRequiredQueryClientProvider;function requireQueryClientProvider(){if(hasRequiredQueryClientProvider)return QueryClientProvider_1;hasRequiredQueryClientProvider=1;var _=Object.create,b=Object.defineProperty,$=Object.getOwnPropertyDescriptor,_e=Object.getOwnPropertyNames,ut=Object.getPrototypeOf,yt=Object.prototype.hasOwnProperty,wt=(rt,tt)=>{for(var st in tt)b(rt,st,{get:tt[st],enumerable:!0})},Ct=(rt,tt,st,gt)=>{if(tt&&typeof tt=="object"||typeof tt=="function")for(let pt of _e(tt))!yt.call(rt,pt)&&pt!==st&&b(rt,pt,{get:()=>tt[pt],enumerable:!(gt=$(tt,pt))||gt.enumerable});return rt},Rt=(rt,tt,st)=>(st=rt!=null?_(ut(rt)):{},Ct(b(st,"default",{value:rt,enumerable:!0}),rt)),bt=rt=>Ct(b({},"__esModule",{value:!0}),rt),nt={};wt(nt,{QueryClientContext:()=>et,QueryClientProvider:()=>it,useQueryClient:()=>ot}),QueryClientProvider_1=bt(nt);var F=Rt(requireReact()),y=jsxRuntimeExports,et=F.createContext(void 0),ot=rt=>{const tt=F.useContext(et);if(rt)return rt;if(!tt)throw new Error("No QueryClient set, use QueryClientProvider to set one");return tt},it=({client:rt,children:tt})=>(F.useEffect(()=>(rt.mount(),()=>{rt.unmount()}),[rt]),(0,y.jsx)(et.Provider,{value:rt,children:tt}));return QueryClientProvider_1}var isRestoring,hasRequiredIsRestoring;function requireIsRestoring(){if(hasRequiredIsRestoring)return isRestoring;hasRequiredIsRestoring=1;var _=Object.create,b=Object.defineProperty,$=Object.getOwnPropertyDescriptor,_e=Object.getOwnPropertyNames,ut=Object.getPrototypeOf,yt=Object.prototype.hasOwnProperty,wt=(it,rt)=>{for(var tt in rt)b(it,tt,{get:rt[tt],enumerable:!0})},Ct=(it,rt,tt,st)=>{if(rt&&typeof rt=="object"||typeof rt=="function")for(let gt of _e(rt))!yt.call(it,gt)&&gt!==tt&&b(it,gt,{get:()=>rt[gt],enumerable:!(st=$(rt,gt))||st.enumerable});return it},Rt=(it,rt,tt)=>(tt=it!=null?_(ut(it)):{},Ct(b(tt,"default",{value:it,enumerable:!0}),it)),bt=it=>Ct(b({},"__esModule",{value:!0}),it),nt={};wt(nt,{IsRestoringProvider:()=>ot,useIsRestoring:()=>et}),isRestoring=bt(nt);var F=Rt(requireReact()),y=F.createContext(!1),et=()=>F.useContext(y),ot=y.Provider;return isRestoring}var QueryErrorResetBoundary_1,hasRequiredQueryErrorResetBoundary;function requireQueryErrorResetBoundary(){if(hasRequiredQueryErrorResetBoundary)return QueryErrorResetBoundary_1;hasRequiredQueryErrorResetBoundary=1;var _=Object.create,b=Object.defineProperty,$=Object.getOwnPropertyDescriptor,_e=Object.getOwnPropertyNames,ut=Object.getPrototypeOf,yt=Object.prototype.hasOwnProperty,wt=(tt,st)=>{for(var gt in st)b(tt,gt,{get:st[gt],enumerable:!0})},Ct=(tt,st,gt,pt)=>{if(st&&typeof st=="object"||typeof st=="function")for(let ft of _e(st))!yt.call(tt,ft)&&ft!==gt&&b(tt,ft,{get:()=>st[ft],enumerable:!(pt=$(st,ft))||pt.enumerable});return tt},Rt=(tt,st,gt)=>(gt=tt!=null?_(ut(tt)):{},Ct(b(gt,"default",{value:tt,enumerable:!0}),tt)),bt=tt=>Ct(b({},"__esModule",{value:!0}),tt),nt={};wt(nt,{QueryErrorResetBoundary:()=>rt,useQueryErrorResetBoundary:()=>it}),QueryErrorResetBoundary_1=bt(nt);var F=Rt(requireReact()),y=jsxRuntimeExports;function et(){let tt=!1;return{clearReset:()=>{tt=!1},reset:()=>{tt=!0},isReset:()=>tt}}var ot=F.createContext(et()),it=()=>F.useContext(ot),rt=({children:tt})=>{const[st]=F.useState(()=>et());return(0,y.jsx)(ot.Provider,{value:st,children:typeof tt=="function"?tt(st):tt})};return QueryErrorResetBoundary_1}var utils,hasRequiredUtils;function requireUtils(){if(hasRequiredUtils)return utils;hasRequiredUtils=1;var _=Object.defineProperty,b=Object.getOwnPropertyDescriptor,$=Object.getOwnPropertyNames,_e=Object.prototype.hasOwnProperty,ut=(nt,F)=>{for(var y in F)_(nt,y,{get:F[y],enumerable:!0})},yt=(nt,F,y,et)=>{if(F&&typeof F=="object"||typeof F=="function")for(let ot of $(F))!_e.call(nt,ot)&&ot!==y&&_(nt,ot,{get:()=>F[ot],enumerable:!(et=b(F,ot))||et.enumerable});return nt},wt=nt=>yt(_({},"__esModule",{value:!0}),nt),Ct={};ut(Ct,{noop:()=>bt,shouldThrowError:()=>Rt}),utils=wt(Ct);function Rt(nt,F){return typeof nt=="function"?nt(...F):!!nt}function bt(){}return utils}var errorBoundaryUtils,hasRequiredErrorBoundaryUtils;function requireErrorBoundaryUtils(){if(hasRequiredErrorBoundaryUtils)return errorBoundaryUtils;hasRequiredErrorBoundaryUtils=1;var _=Object.create,b=Object.defineProperty,$=Object.getOwnPropertyDescriptor,_e=Object.getOwnPropertyNames,ut=Object.getPrototypeOf,yt=Object.prototype.hasOwnProperty,wt=(rt,tt)=>{for(var st in tt)b(rt,st,{get:tt[st],enumerable:!0})},Ct=(rt,tt,st,gt)=>{if(tt&&typeof tt=="object"||typeof tt=="function")for(let pt of _e(tt))!yt.call(rt,pt)&&pt!==st&&b(rt,pt,{get:()=>tt[pt],enumerable:!(gt=$(tt,pt))||gt.enumerable});return rt},Rt=(rt,tt,st)=>(st=rt!=null?_(ut(rt)):{},Ct(b(st,"default",{value:rt,enumerable:!0}),rt)),bt=rt=>Ct(b({},"__esModule",{value:!0}),rt),nt={};wt(nt,{ensurePreventErrorBoundaryRetry:()=>et,getHasError:()=>it,useClearResetErrorBoundary:()=>ot}),errorBoundaryUtils=bt(nt);var F=Rt(requireReact()),y=requireUtils(),et=(rt,tt)=>{(rt.suspense||rt.throwOnError)&&(tt.isReset()||(rt.retryOnMount=!1))},ot=rt=>{F.useEffect(()=>{rt.clearReset()},[rt])},it=({result:rt,errorResetBoundary:tt,throwOnError:st,query:gt})=>rt.isError&&!tt.isReset()&&!rt.isFetching&&gt&&(0,y.shouldThrowError)(st,[rt.error,gt]);return errorBoundaryUtils}var suspense,hasRequiredSuspense;function requireSuspense(){if(hasRequiredSuspense)return suspense;hasRequiredSuspense=1;var _=Object.defineProperty,b=Object.getOwnPropertyDescriptor,$=Object.getOwnPropertyNames,_e=Object.prototype.hasOwnProperty,ut=(et,ot)=>{for(var it in ot)_(et,it,{get:ot[it],enumerable:!0})},yt=(et,ot,it,rt)=>{if(ot&&typeof ot=="object"||typeof ot=="function")for(let tt of $(ot))!_e.call(et,tt)&&tt!==it&&_(et,tt,{get:()=>ot[tt],enumerable:!(rt=b(ot,tt))||rt.enumerable});return et},wt=et=>yt(_({},"__esModule",{value:!0}),et),Ct={};ut(Ct,{defaultThrowOnError:()=>Rt,ensureSuspenseTimers:()=>bt,fetchOptimistic:()=>y,shouldSuspend:()=>F,willFetch:()=>nt}),suspense=wt(Ct);var Rt=(et,ot)=>ot.state.data===void 0,bt=et=>{et.suspense&&(typeof et.staleTime!="number"&&(et.staleTime=1e3),typeof et.gcTime=="number"&&(et.gcTime=Math.max(et.gcTime,1e3)))},nt=(et,ot)=>et.isLoading&&et.isFetching&&!ot,F=(et,ot)=>(et==null?void 0:et.suspense)&&ot.isPending,y=(et,ot,it)=>ot.fetchOptimistic(et).catch(()=>{it.clearReset()});return suspense}var useQueries_1,hasRequiredUseQueries;function requireUseQueries(){if(hasRequiredUseQueries)return useQueries_1;hasRequiredUseQueries=1;var _=Object.create,b=Object.defineProperty,$=Object.getOwnPropertyDescriptor,_e=Object.getOwnPropertyNames,ut=Object.getPrototypeOf,yt=Object.prototype.hasOwnProperty,wt=(gt,pt)=>{for(var ft in pt)b(gt,ft,{get:pt[ft],enumerable:!0})},Ct=(gt,pt,ft,dt)=>{if(pt&&typeof pt=="object"||typeof pt=="function")for(let ct of _e(pt))!yt.call(gt,ct)&&ct!==ft&&b(gt,ct,{get:()=>pt[ct],enumerable:!(dt=$(pt,ct))||dt.enumerable});return gt},Rt=(gt,pt,ft)=>(ft=gt!=null?_(ut(gt)):{},Ct(b(ft,"default",{value:gt,enumerable:!0}),gt)),bt=gt=>Ct(b({},"__esModule",{value:!0}),gt),nt={};wt(nt,{useQueries:()=>st}),useQueries_1=bt(nt);var F=Rt(requireReact()),y=requireModern$1(),et=requireQueryClientProvider(),ot=requireIsRestoring(),it=requireQueryErrorResetBoundary(),rt=requireErrorBoundaryUtils(),tt=requireSuspense();function st({queries:gt,...pt},ft){const dt=(0,et.useQueryClient)(ft),ct=(0,ot.useIsRestoring)(),lt=(0,it.useQueryErrorResetBoundary)(),_t=F.useMemo(()=>gt.map(zt=>{const Ht=dt.defaultQueryOptions(zt);return Ht._optimisticResults=ct?"isRestoring":"optimistic",Ht}),[gt,dt,ct]);_t.forEach(zt=>{(0,tt.ensureSuspenseTimers)(zt),(0,rt.ensurePreventErrorBoundaryRetry)(zt,lt)}),(0,rt.useClearResetErrorBoundary)(lt);const[mt]=F.useState(()=>new y.QueriesObserver(dt,_t,pt)),[at,vt,Mt]=mt.getOptimisticResult(_t,pt.combine);F.useSyncExternalStore(F.useCallback(zt=>ct?()=>{}:mt.subscribe(y.notifyManager.batchCalls(zt)),[mt,ct]),()=>mt.getCurrentResult(),()=>mt.getCurrentResult()),F.useEffect(()=>{mt.setQueries(_t,pt,{listeners:!1})},[_t,pt,mt]);const Lt=at.some((zt,Ht)=>(0,tt.shouldSuspend)(_t[Ht],zt))?at.flatMap((zt,Ht)=>{const xt=_t[Ht];if(xt){const kt=new y.QueryObserver(dt,xt);if((0,tt.shouldSuspend)(xt,zt))return(0,tt.fetchOptimistic)(xt,kt,lt);(0,tt.willFetch)(zt,ct)&&(0,tt.fetchOptimistic)(xt,kt,lt)}return[]}):[];if(Lt.length>0)throw Promise.all(Lt);const Pt=at.find((zt,Ht)=>{const xt=_t[Ht];return xt&&(0,rt.getHasError)({result:zt,errorResetBoundary:lt,throwOnError:xt.throwOnError,query:dt.getQueryCache().get(xt.queryHash)})});if(Pt!=null&&Pt.error)throw Pt.error;return vt(Mt())}return useQueries_1}var useBaseQuery_1,hasRequiredUseBaseQuery;function requireUseBaseQuery(){if(hasRequiredUseBaseQuery)return useBaseQuery_1;hasRequiredUseBaseQuery=1;var _=Object.create,b=Object.defineProperty,$=Object.getOwnPropertyDescriptor,_e=Object.getOwnPropertyNames,ut=Object.getPrototypeOf,yt=Object.prototype.hasOwnProperty,wt=(pt,ft)=>{for(var dt in ft)b(pt,dt,{get:ft[dt],enumerable:!0})},Ct=(pt,ft,dt,ct)=>{if(ft&&typeof ft=="object"||typeof ft=="function")for(let lt of _e(ft))!yt.call(pt,lt)&&lt!==dt&&b(pt,lt,{get:()=>ft[lt],enumerable:!(ct=$(ft,lt))||ct.enumerable});return pt},Rt=(pt,ft,dt)=>(dt=pt!=null?_(ut(pt)):{},Ct(b(dt,"default",{value:pt,enumerable:!0}),pt)),bt=pt=>Ct(b({},"__esModule",{value:!0}),pt),nt={};wt(nt,{useBaseQuery:()=>gt}),useBaseQuery_1=bt(nt);var F=Rt(requireReact()),y=requireModern$1(),et=requireQueryClientProvider(),ot=requireQueryErrorResetBoundary(),it=requireErrorBoundaryUtils(),rt=requireIsRestoring(),tt=requireSuspense(),st=requireUtils();function gt(pt,ft,dt){var ht,Lt,Pt,zt,Ht;const ct=(0,et.useQueryClient)(dt),lt=(0,rt.useIsRestoring)(),_t=(0,ot.useQueryErrorResetBoundary)(),mt=ct.defaultQueryOptions(pt);(Lt=(ht=ct.getDefaultOptions().queries)==null?void 0:ht._experimental_beforeQuery)==null||Lt.call(ht,mt),mt._optimisticResults=lt?"isRestoring":"optimistic",(0,tt.ensureSuspenseTimers)(mt),(0,it.ensurePreventErrorBoundaryRetry)(mt,_t),(0,it.useClearResetErrorBoundary)(_t);const at=!ct.getQueryCache().get(mt.queryHash),[vt]=F.useState(()=>new ft(ct,mt)),Mt=vt.getOptimisticResult(mt);if(F.useSyncExternalStore(F.useCallback(xt=>{const kt=lt?()=>{}:vt.subscribe(y.notifyManager.batchCalls(xt));return vt.updateResult(),kt},[vt,lt]),()=>vt.getCurrentResult(),()=>vt.getCurrentResult()),F.useEffect(()=>{vt.setOptions(mt,{listeners:!1})},[mt,vt]),(0,tt.shouldSuspend)(mt,Mt))throw(0,tt.fetchOptimistic)(mt,vt,_t);if((0,it.getHasError)({result:Mt,errorResetBoundary:_t,throwOnError:mt.throwOnError,query:ct.getQueryCache().get(mt.queryHash)}))throw Mt.error;if((zt=(Pt=ct.getDefaultOptions().queries)==null?void 0:Pt._experimental_afterQuery)==null||zt.call(Pt,mt,Mt),mt.experimental_prefetchInRender&&!y.isServer&&(0,tt.willFetch)(Mt,lt)){const xt=at?(0,tt.fetchOptimistic)(mt,vt,_t):(Ht=ct.getQueryCache().get(mt.queryHash))==null?void 0:Ht.promise;xt==null||xt.catch(st.noop).finally(()=>{vt.hasListeners()||vt.updateResult()})}return mt.notifyOnChangeProps?Mt:vt.trackResult(Mt)}return useBaseQuery_1}var useQuery_1,hasRequiredUseQuery;function requireUseQuery(){if(hasRequiredUseQuery)return useQuery_1;hasRequiredUseQuery=1;var _=Object.defineProperty,b=Object.getOwnPropertyDescriptor,$=Object.getOwnPropertyNames,_e=Object.prototype.hasOwnProperty,ut=(F,y)=>{for(var et in y)_(F,et,{get:y[et],enumerable:!0})},yt=(F,y,et,ot)=>{if(y&&typeof y=="object"||typeof y=="function")for(let it of $(y))!_e.call(F,it)&&it!==et&&_(F,it,{get:()=>y[it],enumerable:!(ot=b(y,it))||ot.enumerable});return F},wt=F=>yt(_({},"__esModule",{value:!0}),F),Ct={};ut(Ct,{useQuery:()=>nt}),useQuery_1=wt(Ct);var Rt=requireModern$1(),bt=requireUseBaseQuery();function nt(F,y){return(0,bt.useBaseQuery)(F,Rt.QueryObserver,y)}return useQuery_1}var useSuspenseQuery_1,hasRequiredUseSuspenseQuery;function requireUseSuspenseQuery(){if(hasRequiredUseSuspenseQuery)return useSuspenseQuery_1;hasRequiredUseSuspenseQuery=1;var _=Object.defineProperty,b=Object.getOwnPropertyDescriptor,$=Object.getOwnPropertyNames,_e=Object.prototype.hasOwnProperty,ut=(y,et)=>{for(var ot in et)_(y,ot,{get:et[ot],enumerable:!0})},yt=(y,et,ot,it)=>{if(et&&typeof et=="object"||typeof et=="function")for(let rt of $(et))!_e.call(y,rt)&&rt!==ot&&_(y,rt,{get:()=>et[rt],enumerable:!(it=b(et,rt))||it.enumerable});return y},wt=y=>yt(_({},"__esModule",{value:!0}),y),Ct={};ut(Ct,{useSuspenseQuery:()=>F}),useSuspenseQuery_1=wt(Ct);var Rt=requireModern$1(),bt=requireUseBaseQuery(),nt=requireSuspense();function F(y,et){return(0,bt.useBaseQuery)({...y,enabled:!0,suspense:!0,throwOnError:nt.defaultThrowOnError,placeholderData:void 0},Rt.QueryObserver,et)}return useSuspenseQuery_1}var useSuspenseInfiniteQuery_1,hasRequiredUseSuspenseInfiniteQuery;function requireUseSuspenseInfiniteQuery(){if(hasRequiredUseSuspenseInfiniteQuery)return useSuspenseInfiniteQuery_1;hasRequiredUseSuspenseInfiniteQuery=1;var _=Object.defineProperty,b=Object.getOwnPropertyDescriptor,$=Object.getOwnPropertyNames,_e=Object.prototype.hasOwnProperty,ut=(y,et)=>{for(var ot in et)_(y,ot,{get:et[ot],enumerable:!0})},yt=(y,et,ot,it)=>{if(et&&typeof et=="object"||typeof et=="function")for(let rt of $(et))!_e.call(y,rt)&&rt!==ot&&_(y,rt,{get:()=>et[rt],enumerable:!(it=b(et,rt))||it.enumerable});return y},wt=y=>yt(_({},"__esModule",{value:!0}),y),Ct={};ut(Ct,{useSuspenseInfiniteQuery:()=>F}),useSuspenseInfiniteQuery_1=wt(Ct);var Rt=requireModern$1(),bt=requireUseBaseQuery(),nt=requireSuspense();function F(y,et){return(0,bt.useBaseQuery)({...y,enabled:!0,suspense:!0,throwOnError:nt.defaultThrowOnError},Rt.InfiniteQueryObserver,et)}return useSuspenseInfiniteQuery_1}var useSuspenseQueries_1,hasRequiredUseSuspenseQueries;function requireUseSuspenseQueries(){if(hasRequiredUseSuspenseQueries)return useSuspenseQueries_1;hasRequiredUseSuspenseQueries=1;var _=Object.defineProperty,b=Object.getOwnPropertyDescriptor,$=Object.getOwnPropertyNames,_e=Object.prototype.hasOwnProperty,ut=(F,y)=>{for(var et in y)_(F,et,{get:y[et],enumerable:!0})},yt=(F,y,et,ot)=>{if(y&&typeof y=="object"||typeof y=="function")for(let it of $(y))!_e.call(F,it)&&it!==et&&_(F,it,{get:()=>y[it],enumerable:!(ot=b(y,it))||ot.enumerable});return F},wt=F=>yt(_({},"__esModule",{value:!0}),F),Ct={};ut(Ct,{useSuspenseQueries:()=>nt}),useSuspenseQueries_1=wt(Ct),requireModern$1();var Rt=requireUseQueries(),bt=requireSuspense();function nt(F,y){return(0,Rt.useQueries)({...F,queries:F.queries.map(et=>({...et,suspense:!0,throwOnError:bt.defaultThrowOnError,enabled:!0,placeholderData:void 0}))},y)}return useSuspenseQueries_1}var usePrefetchQuery_1,hasRequiredUsePrefetchQuery;function requireUsePrefetchQuery(){if(hasRequiredUsePrefetchQuery)return usePrefetchQuery_1;hasRequiredUsePrefetchQuery=1;var _=Object.defineProperty,b=Object.getOwnPropertyDescriptor,$=Object.getOwnPropertyNames,_e=Object.prototype.hasOwnProperty,ut=(nt,F)=>{for(var y in F)_(nt,y,{get:F[y],enumerable:!0})},yt=(nt,F,y,et)=>{if(F&&typeof F=="object"||typeof F=="function")for(let ot of $(F))!_e.call(nt,ot)&&ot!==y&&_(nt,ot,{get:()=>F[ot],enumerable:!(et=b(F,ot))||et.enumerable});return nt},wt=nt=>yt(_({},"__esModule",{value:!0}),nt),Ct={};ut(Ct,{usePrefetchQuery:()=>bt}),usePrefetchQuery_1=wt(Ct);var Rt=requireQueryClientProvider();function bt(nt,F){const y=(0,Rt.useQueryClient)(F);y.getQueryState(nt.queryKey)||y.prefetchQuery(nt)}return usePrefetchQuery_1}var usePrefetchInfiniteQuery_1,hasRequiredUsePrefetchInfiniteQuery;function requireUsePrefetchInfiniteQuery(){if(hasRequiredUsePrefetchInfiniteQuery)return usePrefetchInfiniteQuery_1;hasRequiredUsePrefetchInfiniteQuery=1;var _=Object.defineProperty,b=Object.getOwnPropertyDescriptor,$=Object.getOwnPropertyNames,_e=Object.prototype.hasOwnProperty,ut=(nt,F)=>{for(var y in F)_(nt,y,{get:F[y],enumerable:!0})},yt=(nt,F,y,et)=>{if(F&&typeof F=="object"||typeof F=="function")for(let ot of $(F))!_e.call(nt,ot)&&ot!==y&&_(nt,ot,{get:()=>F[ot],enumerable:!(et=b(F,ot))||et.enumerable});return nt},wt=nt=>yt(_({},"__esModule",{value:!0}),nt),Ct={};ut(Ct,{usePrefetchInfiniteQuery:()=>bt}),usePrefetchInfiniteQuery_1=wt(Ct);var Rt=requireQueryClientProvider();function bt(nt,F){const y=(0,Rt.useQueryClient)(F);y.getQueryState(nt.queryKey)||y.prefetchInfiniteQuery(nt)}return usePrefetchInfiniteQuery_1}var queryOptions_1,hasRequiredQueryOptions;function requireQueryOptions(){if(hasRequiredQueryOptions)return queryOptions_1;hasRequiredQueryOptions=1;var _=Object.defineProperty,b=Object.getOwnPropertyDescriptor,$=Object.getOwnPropertyNames,_e=Object.prototype.hasOwnProperty,ut=(bt,nt)=>{for(var F in nt)_(bt,F,{get:nt[F],enumerable:!0})},yt=(bt,nt,F,y)=>{if(nt&&typeof nt=="object"||typeof nt=="function")for(let et of $(nt))!_e.call(bt,et)&&et!==F&&_(bt,et,{get:()=>nt[et],enumerable:!(y=b(nt,et))||y.enumerable});return bt},wt=bt=>yt(_({},"__esModule",{value:!0}),bt),Ct={};ut(Ct,{queryOptions:()=>Rt}),queryOptions_1=wt(Ct);function Rt(bt){return bt}return queryOptions_1}var infiniteQueryOptions_1,hasRequiredInfiniteQueryOptions;function requireInfiniteQueryOptions(){if(hasRequiredInfiniteQueryOptions)return infiniteQueryOptions_1;hasRequiredInfiniteQueryOptions=1;var _=Object.defineProperty,b=Object.getOwnPropertyDescriptor,$=Object.getOwnPropertyNames,_e=Object.prototype.hasOwnProperty,ut=(bt,nt)=>{for(var F in nt)_(bt,F,{get:nt[F],enumerable:!0})},yt=(bt,nt,F,y)=>{if(nt&&typeof nt=="object"||typeof nt=="function")for(let et of $(nt))!_e.call(bt,et)&&et!==F&&_(bt,et,{get:()=>nt[et],enumerable:!(y=b(nt,et))||y.enumerable});return bt},wt=bt=>yt(_({},"__esModule",{value:!0}),bt),Ct={};ut(Ct,{infiniteQueryOptions:()=>Rt}),infiniteQueryOptions_1=wt(Ct);function Rt(bt){return bt}return infiniteQueryOptions_1}var HydrationBoundary_1,hasRequiredHydrationBoundary;function requireHydrationBoundary(){if(hasRequiredHydrationBoundary)return HydrationBoundary_1;hasRequiredHydrationBoundary=1;var _=Object.create,b=Object.defineProperty,$=Object.getOwnPropertyDescriptor,_e=Object.getOwnPropertyNames,ut=Object.getPrototypeOf,yt=Object.prototype.hasOwnProperty,wt=(it,rt)=>{for(var tt in rt)b(it,tt,{get:rt[tt],enumerable:!0})},Ct=(it,rt,tt,st)=>{if(rt&&typeof rt=="object"||typeof rt=="function")for(let gt of _e(rt))!yt.call(it,gt)&&gt!==tt&&b(it,gt,{get:()=>rt[gt],enumerable:!(st=$(rt,gt))||st.enumerable});return it},Rt=(it,rt,tt)=>(tt=it!=null?_(ut(it)):{},Ct(b(tt,"default",{value:it,enumerable:!0}),it)),bt=it=>Ct(b({},"__esModule",{value:!0}),it),nt={};wt(nt,{HydrationBoundary:()=>ot}),HydrationBoundary_1=bt(nt);var F=Rt(requireReact()),y=requireModern$1(),et=requireQueryClientProvider(),ot=({children:it,options:rt={},state:tt,queryClient:st})=>{const gt=(0,et.useQueryClient)(st),[pt,ft]=F.useState(),dt=F.useRef(rt);return dt.current=rt,F.useMemo(()=>{if(tt){if(typeof tt!="object")return;const ct=gt.getQueryCache(),lt=tt.queries||[],_t=[],mt=[];for(const at of lt){const vt=ct.get(at.queryHash);if(!vt)_t.push(at);else{const Mt=at.state.dataUpdatedAt>vt.state.dataUpdatedAt,ht=pt==null?void 0:pt.find(Lt=>Lt.queryHash===at.queryHash);Mt&&(!ht||at.state.dataUpdatedAt>ht.state.dataUpdatedAt)&&mt.push(at)}}_t.length>0&&(0,y.hydrate)(gt,{queries:_t},dt.current),mt.length>0&&ft(at=>at?[...at,...mt]:mt)}},[gt,pt,tt]),F.useEffect(()=>{pt&&((0,y.hydrate)(gt,{queries:pt},dt.current),ft(void 0))},[gt,pt]),it};return HydrationBoundary_1}var useIsFetching_1,hasRequiredUseIsFetching;function requireUseIsFetching(){if(hasRequiredUseIsFetching)return useIsFetching_1;hasRequiredUseIsFetching=1;var _=Object.create,b=Object.defineProperty,$=Object.getOwnPropertyDescriptor,_e=Object.getOwnPropertyNames,ut=Object.getPrototypeOf,yt=Object.prototype.hasOwnProperty,wt=(it,rt)=>{for(var tt in rt)b(it,tt,{get:rt[tt],enumerable:!0})},Ct=(it,rt,tt,st)=>{if(rt&&typeof rt=="object"||typeof rt=="function")for(let gt of _e(rt))!yt.call(it,gt)&&gt!==tt&&b(it,gt,{get:()=>rt[gt],enumerable:!(st=$(rt,gt))||st.enumerable});return it},Rt=(it,rt,tt)=>(tt=it!=null?_(ut(it)):{},Ct(b(tt,"default",{value:it,enumerable:!0}),it)),bt=it=>Ct(b({},"__esModule",{value:!0}),it),nt={};wt(nt,{useIsFetching:()=>ot}),useIsFetching_1=bt(nt);var F=Rt(requireReact()),y=requireModern$1(),et=requireQueryClientProvider();function ot(it,rt){const tt=(0,et.useQueryClient)(rt),st=tt.getQueryCache();return F.useSyncExternalStore(F.useCallback(gt=>st.subscribe(y.notifyManager.batchCalls(gt)),[st]),()=>tt.isFetching(it),()=>tt.isFetching(it))}return useIsFetching_1}var useMutationState_1,hasRequiredUseMutationState;function requireUseMutationState(){if(hasRequiredUseMutationState)return useMutationState_1;hasRequiredUseMutationState=1;var _=Object.create,b=Object.defineProperty,$=Object.getOwnPropertyDescriptor,_e=Object.getOwnPropertyNames,ut=Object.getPrototypeOf,yt=Object.prototype.hasOwnProperty,wt=(tt,st)=>{for(var gt in st)b(tt,gt,{get:st[gt],enumerable:!0})},Ct=(tt,st,gt,pt)=>{if(st&&typeof st=="object"||typeof st=="function")for(let ft of _e(st))!yt.call(tt,ft)&&ft!==gt&&b(tt,ft,{get:()=>st[ft],enumerable:!(pt=$(st,ft))||pt.enumerable});return tt},Rt=(tt,st,gt)=>(gt=tt!=null?_(ut(tt)):{},Ct(b(gt,"default",{value:tt,enumerable:!0}),tt)),bt=tt=>Ct(b({},"__esModule",{value:!0}),tt),nt={};wt(nt,{useIsMutating:()=>ot,useMutationState:()=>rt}),useMutationState_1=bt(nt);var F=Rt(requireReact()),y=requireModern$1(),et=requireQueryClientProvider();function ot(tt,st){const gt=(0,et.useQueryClient)(st);return rt({filters:{...tt,status:"pending"}},gt).length}function it(tt,st){return tt.findAll(st.filters).map(gt=>st.select?st.select(gt):gt.state)}function rt(tt={},st){const gt=(0,et.useQueryClient)(st).getMutationCache(),pt=F.useRef(tt),ft=F.useRef(null);return ft.current||(ft.current=it(gt,tt)),F.useEffect(()=>{pt.current=tt}),F.useSyncExternalStore(F.useCallback(dt=>gt.subscribe(()=>{const ct=(0,y.replaceEqualDeep)(ft.current,it(gt,pt.current));ft.current!==ct&&(ft.current=ct,y.notifyManager.schedule(dt))}),[gt]),()=>ft.current,()=>ft.current)}return useMutationState_1}var useMutation_1,hasRequiredUseMutation;function requireUseMutation(){if(hasRequiredUseMutation)return useMutation_1;hasRequiredUseMutation=1;var _=Object.create,b=Object.defineProperty,$=Object.getOwnPropertyDescriptor,_e=Object.getOwnPropertyNames,ut=Object.getPrototypeOf,yt=Object.prototype.hasOwnProperty,wt=(rt,tt)=>{for(var st in tt)b(rt,st,{get:tt[st],enumerable:!0})},Ct=(rt,tt,st,gt)=>{if(tt&&typeof tt=="object"||typeof tt=="function")for(let pt of _e(tt))!yt.call(rt,pt)&&pt!==st&&b(rt,pt,{get:()=>tt[pt],enumerable:!(gt=$(tt,pt))||gt.enumerable});return rt},Rt=(rt,tt,st)=>(st=rt!=null?_(ut(rt)):{},Ct(b(st,"default",{value:rt,enumerable:!0}),rt)),bt=rt=>Ct(b({},"__esModule",{value:!0}),rt),nt={};wt(nt,{useMutation:()=>it}),useMutation_1=bt(nt);var F=Rt(requireReact()),y=requireModern$1(),et=requireQueryClientProvider(),ot=requireUtils();function it(rt,tt){const st=(0,et.useQueryClient)(tt),[gt]=F.useState(()=>new y.MutationObserver(st,rt));F.useEffect(()=>{gt.setOptions(rt)},[gt,rt]);const pt=F.useSyncExternalStore(F.useCallback(dt=>gt.subscribe(y.notifyManager.batchCalls(dt)),[gt]),()=>gt.getCurrentResult(),()=>gt.getCurrentResult()),ft=F.useCallback((dt,ct)=>{gt.mutate(dt,ct).catch(ot.noop)},[gt]);if(pt.error&&(0,ot.shouldThrowError)(gt.options.throwOnError,[pt.error]))throw pt.error;return{...pt,mutate:ft,mutateAsync:pt.mutate}}return useMutation_1}var useInfiniteQuery_1,hasRequiredUseInfiniteQuery;function requireUseInfiniteQuery(){if(hasRequiredUseInfiniteQuery)return useInfiniteQuery_1;hasRequiredUseInfiniteQuery=1;var _=Object.defineProperty,b=Object.getOwnPropertyDescriptor,$=Object.getOwnPropertyNames,_e=Object.prototype.hasOwnProperty,ut=(F,y)=>{for(var et in y)_(F,et,{get:y[et],enumerable:!0})},yt=(F,y,et,ot)=>{if(y&&typeof y=="object"||typeof y=="function")for(let it of $(y))!_e.call(F,it)&&it!==et&&_(F,it,{get:()=>y[it],enumerable:!(ot=b(y,it))||ot.enumerable});return F},wt=F=>yt(_({},"__esModule",{value:!0}),F),Ct={};ut(Ct,{useInfiniteQuery:()=>nt}),useInfiniteQuery_1=wt(Ct);var Rt=requireModern$1(),bt=requireUseBaseQuery();function nt(F,y){return(0,bt.useBaseQuery)(F,Rt.InfiniteQueryObserver,y)}return useInfiniteQuery_1}var hasRequiredModern;function requireModern(){return hasRequiredModern||(hasRequiredModern=1,function(_){var b=Object.defineProperty,$=Object.getOwnPropertyDescriptor,_e=Object.getOwnPropertyNames,ut=Object.prototype.hasOwnProperty,yt=(at,vt)=>{for(var Mt in vt)b(at,Mt,{get:vt[Mt],enumerable:!0})},wt=(at,vt,Mt,ht)=>{if(vt&&typeof vt=="object"||typeof vt=="function")for(let Lt of _e(vt))!ut.call(at,Lt)&&Lt!==Mt&&b(at,Lt,{get:()=>vt[Lt],enumerable:!(ht=$(vt,Lt))||ht.enumerable});return at},Ct=(at,vt,Mt)=>(wt(at,vt,"default"),Mt&&wt(Mt,vt,"default")),Rt=at=>wt(b({},"__esModule",{value:!0}),at),bt={};yt(bt,{HydrationBoundary:()=>pt.HydrationBoundary,IsRestoringProvider:()=>mt.IsRestoringProvider,QueryClientContext:()=>gt.QueryClientContext,QueryClientProvider:()=>gt.QueryClientProvider,QueryErrorResetBoundary:()=>ft.QueryErrorResetBoundary,infiniteQueryOptions:()=>st.infiniteQueryOptions,queryOptions:()=>tt.queryOptions,useInfiniteQuery:()=>_t.useInfiniteQuery,useIsFetching:()=>dt.useIsFetching,useIsMutating:()=>ct.useIsMutating,useIsRestoring:()=>mt.useIsRestoring,useMutation:()=>lt.useMutation,useMutationState:()=>ct.useMutationState,usePrefetchInfiniteQuery:()=>rt.usePrefetchInfiniteQuery,usePrefetchQuery:()=>it.usePrefetchQuery,useQueries:()=>nt.useQueries,useQuery:()=>F.useQuery,useQueryClient:()=>gt.useQueryClient,useQueryErrorResetBoundary:()=>ft.useQueryErrorResetBoundary,useSuspenseInfiniteQuery:()=>et.useSuspenseInfiniteQuery,useSuspenseQueries:()=>ot.useSuspenseQueries,useSuspenseQuery:()=>y.useSuspenseQuery}),_.exports=Rt(bt),Ct(bt,requireModern$1(),_.exports),Ct(bt,requireTypes(),_.exports);var nt=requireUseQueries(),F=requireUseQuery(),y=requireUseSuspenseQuery(),et=requireUseSuspenseInfiniteQuery(),ot=requireUseSuspenseQueries(),it=requireUsePrefetchQuery(),rt=requireUsePrefetchInfiniteQuery(),tt=requireQueryOptions(),st=requireInfiniteQueryOptions(),gt=requireQueryClientProvider(),pt=requireHydrationBoundary(),ft=requireQueryErrorResetBoundary(),dt=requireUseIsFetching(),ct=requireUseMutationState(),lt=requireUseMutation(),_t=requireUseInfiniteQuery(),mt=requireIsRestoring()}(modern$1)),modern$1.exports}(function(_,b){(function(_e,ut){_.exports=ut(requireReact(),requireModern())})(self,function($,_e){return(()=>{var ut={"./node_modules/@appconda/web-sdk/index.js":Rt=>{(function(nt,F){Rt.exports=F()})(self,function(){return(()=>{var bt={"./src/client.ts":(et,ot,it)=>{it.r(ot),it.d(ot,{Client:()=>gt,AppcondaException:()=>st,Query:()=>tt.Query});var rt=it("./src/service.ts"),tt=it("./src/query.ts");class st extends Error{constructor(ft,dt=0,ct="",lt=""){super(ft),this.name="AppcondaException",this.message=ft,this.code=dt,this.type=ct,this.response=lt}}class gt{constructor(){this.config={endpoint:"https://cloud.appconda.io/v1",endpointRealtime:"",project:"",jwt:"",locale:"",session:""},this.headers={"x-sdk-name":"Web","x-sdk-platform":"client","x-sdk-language":"web","x-sdk-version":"15.0.0","X-Appconda-Response-Format":"1.5.0"},this.realtime={socket:void 0,timeout:void 0,url:"",channels:new Set,subscriptions:new Map,subscriptionsCounter:0,reconnect:!0,reconnectAttempts:0,lastMessage:void 0,connect:()=>{clearTimeout(this.realtime.timeout),this.realtime.timeout=window==null?void 0:window.setTimeout(()=>{this.realtime.createSocket()},50)},getTimeout:()=>{switch(!0){case this.realtime.reconnectAttempts<5:return 1e3;case this.realtime.reconnectAttempts<15:return 5e3;case this.realtime.reconnectAttempts<100:return 1e4;default:return 6e4}},createSocket:()=>{var ct,lt,_t;if(this.realtime.channels.size<1){this.realtime.reconnect=!1,(ct=this.realtime.socket)==null||ct.close();return}const ft=new URLSearchParams;ft.set("project",this.config.project),this.realtime.channels.forEach(mt=>{ft.append("channels[]",mt)});const dt=this.config.endpointRealtime+"/realtime?"+ft.toString();(dt!==this.realtime.url||!this.realtime.socket||((lt=this.realtime.socket)==null?void 0:lt.readyState)>WebSocket.OPEN)&&(this.realtime.socket&&((_t=this.realtime.socket)==null?void 0:_t.readyState)<WebSocket.CLOSING&&(this.realtime.reconnect=!1,this.realtime.socket.close()),this.realtime.url=dt,this.realtime.socket=new WebSocket(dt),this.realtime.socket.addEventListener("message",this.realtime.onMessage),this.realtime.socket.addEventListener("open",mt=>{this.realtime.reconnectAttempts=0}),this.realtime.socket.addEventListener("close",mt=>{var vt,Mt,ht;if(!this.realtime.reconnect||((Mt=(vt=this.realtime)==null?void 0:vt.lastMessage)==null?void 0:Mt.type)==="error"&&((ht=this.realtime)==null?void 0:ht.lastMessage.data).code===1008){this.realtime.reconnect=!0;return}const at=this.realtime.getTimeout();console.error(`Realtime got disconnected. Reconnect will be attempted in ${at/1e3} seconds.`,mt.reason),setTimeout(()=>{this.realtime.reconnectAttempts++,this.realtime.createSocket()},at)}))},onMessage:ft=>{var dt;try{const ct=JSON.parse(ft.data);switch(this.realtime.lastMessage=ct,ct.type){case"connected":const lt=JSON.parse(window.localStorage.getItem("cookieFallback")??"{}"),_t=lt==null?void 0:lt[`a_session_${this.config.project}`],mt=ct.data;_t&&!mt.user&&((dt=this.realtime.socket)==null||dt.send(JSON.stringify({type:"authentication",data:{session:_t}})));break;case"event":let at=ct.data;if(at!=null&&at.channels){if(!at.channels.some(Mt=>this.realtime.channels.has(Mt)))return;this.realtime.subscriptions.forEach(Mt=>{at.channels.some(ht=>Mt.channels.includes(ht))&&setTimeout(()=>Mt.callback(at))})}break;case"error":throw ct.data;default:break}}catch(ct){console.error(ct)}},cleanUp:ft=>{this.realtime.channels.forEach(dt=>{ft.includes(dt)&&(Array.from(this.realtime.subscriptions).some(([lt,_t])=>_t.channels.includes(dt))||this.realtime.channels.delete(dt))})}}}setEndpoint(ft){return this.config.endpoint=ft,this.config.endpointRealtime=this.config.endpointRealtime||this.config.endpoint.replace("https://","wss://").replace("http://","ws://"),this}setEndpointRealtime(ft){return this.config.endpointRealtime=ft,this}setProject(ft){return this.headers["X-Appconda-Project"]=ft,this.config.project=ft,this}setJWT(ft){return this.headers["X-Appconda-JWT"]=ft,this.config.jwt=ft,this}setLocale(ft){return this.headers["X-Appconda-Locale"]=ft,this.config.locale=ft,this}setSession(ft){return this.headers["X-Appconda-Session"]=ft,this.config.session=ft,this}subscribe(ft,dt){let ct=typeof ft=="string"?[ft]:ft;ct.forEach(_t=>this.realtime.channels.add(_t));const lt=this.realtime.subscriptionsCounter++;return this.realtime.subscriptions.set(lt,{channels:ct,callback:dt}),this.realtime.connect(),()=>{this.realtime.subscriptions.delete(lt),this.realtime.cleanUp(ct),this.realtime.connect()}}async call(ft,dt,ct={},lt={}){var mt;ft=ft.toUpperCase(),ct=Object.assign({},this.headers,ct);let _t={method:ft,headers:ct,credentials:"include"};if(typeof window<"u"&&window.localStorage){const at=window.localStorage.getItem("cookieFallback");at&&(ct["X-Fallback-Cookies"]=at)}if(ft==="GET")for(const[at,vt]of Object.entries(rt.Service.flatten(lt)))dt.searchParams.append(at,vt);else switch(ct["content-type"]){case"application/json":_t.body=JSON.stringify(lt);break;case"multipart/form-data":let at=new FormData;for(const vt in lt)Array.isArray(lt[vt])?lt[vt].forEach(Mt=>{at.append(vt+"[]",Mt)}):at.append(vt,lt[vt]);_t.body=at,delete ct["content-type"];break}try{let at=null;const vt=await fetch(dt.toString(),_t);if((mt=vt.headers.get("content-type"))!=null&&mt.includes("application/json")?at=await vt.json():at={message:await vt.text()},400<=vt.status)throw new st(at==null?void 0:at.message,vt.status,at==null?void 0:at.type,at);const Mt=vt.headers.get("X-Fallback-Cookies");return typeof window<"u"&&window.localStorage&&Mt&&(window.console.warn("Appconda is using localStorage for session management. Increase your security by adding a custom domain as your API endpoint."),window.localStorage.setItem("cookieFallback",Mt)),at}catch(at){throw at instanceof st?at:new st(at.message)}}}},"./src/enums/authentication-factor.ts":(et,ot,it)=>{it.r(ot),it.d(ot,{AuthenticationFactor:()=>rt});var rt;(function(tt){tt.Email="email",tt.Phone="phone",tt.Totp="totp",tt.Recoverycode="recoverycode"})(rt||(rt={}))},"./src/enums/authenticator-type.ts":(et,ot,it)=>{it.r(ot),it.d(ot,{AuthenticatorType:()=>rt});var rt;(function(tt){tt.Totp="totp"})(rt||(rt={}))},"./src/enums/browser.ts":(et,ot,it)=>{it.r(ot),it.d(ot,{Browser:()=>rt});var rt;(function(tt){tt.AvantBrowser="aa",tt.AndroidWebViewBeta="an",tt.GoogleChrome="ch",tt.GoogleChromeIOS="ci",tt.GoogleChromeMobile="cm",tt.Chromium="cr",tt.MozillaFirefox="ff",tt.Safari="sf",tt.MobileSafari="mf",tt.MicrosoftEdge="ps",tt.MicrosoftEdgeIOS="oi",tt.OperaMini="om",tt.Opera="op",tt.OperaNext="on"})(rt||(rt={}))},"./src/enums/credit-card.ts":(et,ot,it)=>{it.r(ot),it.d(ot,{CreditCard:()=>rt});var rt;(function(tt){tt.AmericanExpress="amex",tt.Argencard="argencard",tt.Cabal="cabal",tt.Cencosud="cencosud",tt.DinersClub="diners",tt.Discover="discover",tt.Elo="elo",tt.Hipercard="hipercard",tt.JCB="jcb",tt.Mastercard="mastercard",tt.Naranja="naranja",tt.TarjetaShopping="targeta-shopping",tt.UnionChinaPay="union-china-pay",tt.Visa="visa",tt.MIR="mir",tt.Maestro="maestro"})(rt||(rt={}))},"./src/enums/execution-method.ts":(et,ot,it)=>{it.r(ot),it.d(ot,{ExecutionMethod:()=>rt});var rt;(function(tt){tt.GET="GET",tt.POST="POST",tt.PUT="PUT",tt.PATCH="PATCH",tt.DELETE="DELETE",tt.OPTIONS="OPTIONS"})(rt||(rt={}))},"./src/enums/flag.ts":(et,ot,it)=>{it.r(ot),it.d(ot,{Flag:()=>rt});var rt;(function(tt){tt.Afghanistan="af",tt.Angola="ao",tt.Albania="al",tt.Andorra="ad",tt.UnitedArabEmirates="ae",tt.Argentina="ar",tt.Armenia="am",tt.AntiguaAndBarbuda="ag",tt.Australia="au",tt.Austria="at",tt.Azerbaijan="az",tt.Burundi="bi",tt.Belgium="be",tt.Benin="bj",tt.BurkinaFaso="bf",tt.Bangladesh="bd",tt.Bulgaria="bg",tt.Bahrain="bh",tt.Bahamas="bs",tt.BosniaAndHerzegovina="ba",tt.Belarus="by",tt.Belize="bz",tt.Bolivia="bo",tt.Brazil="br",tt.Barbados="bb",tt.BruneiDarussalam="bn",tt.Bhutan="bt",tt.Botswana="bw",tt.CentralAfricanRepublic="cf",tt.Canada="ca",tt.Switzerland="ch",tt.Chile="cl",tt.China="cn",tt.CoteDIvoire="ci",tt.Cameroon="cm",tt.DemocraticRepublicOfTheCongo="cd",tt.RepublicOfTheCongo="cg",tt.Colombia="co",tt.Comoros="km",tt.CapeVerde="cv",tt.CostaRica="cr",tt.Cuba="cu",tt.Cyprus="cy",tt.CzechRepublic="cz",tt.Germany="de",tt.Djibouti="dj",tt.Dominica="dm",tt.Denmark="dk",tt.DominicanRepublic="do",tt.Algeria="dz",tt.Ecuador="ec",tt.Egypt="eg",tt.Eritrea="er",tt.Spain="es",tt.Estonia="ee",tt.Ethiopia="et",tt.Finland="fi",tt.Fiji="fj",tt.France="fr",tt.MicronesiaFederatedStatesOf="fm",tt.Gabon="ga",tt.UnitedKingdom="gb",tt.Georgia="ge",tt.Ghana="gh",tt.Guinea="gn",tt.Gambia="gm",tt.GuineaBissau="gw",tt.EquatorialGuinea="gq",tt.Greece="gr",tt.Grenada="gd",tt.Guatemala="gt",tt.Guyana="gy",tt.Honduras="hn",tt.Croatia="hr",tt.Haiti="ht",tt.Hungary="hu",tt.Indonesia="id",tt.India="in",tt.Ireland="ie",tt.IranIslamicRepublicOf="ir",tt.Iraq="iq",tt.Iceland="is",tt.Israel="il",tt.Italy="it",tt.Jamaica="jm",tt.Jordan="jo",tt.Japan="jp",tt.Kazakhstan="kz",tt.Kenya="ke",tt.Kyrgyzstan="kg",tt.Cambodia="kh",tt.Kiribati="ki",tt.SaintKittsAndNevis="kn",tt.SouthKorea="kr",tt.Kuwait="kw",tt.LaoPeopleSDemocraticRepublic="la",tt.Lebanon="lb",tt.Liberia="lr",tt.Libya="ly",tt.SaintLucia="lc",tt.Liechtenstein="li",tt.SriLanka="lk",tt.Lesotho="ls",tt.Lithuania="lt",tt.Luxembourg="lu",tt.Latvia="lv",tt.Morocco="ma",tt.Monaco="mc",tt.Moldova="md",tt.Madagascar="mg",tt.Maldives="mv",tt.Mexico="mx",tt.MarshallIslands="mh",tt.NorthMacedonia="mk",tt.Mali="ml",tt.Malta="mt",tt.Myanmar="mm",tt.Montenegro="me",tt.Mongolia="mn",tt.Mozambique="mz",tt.Mauritania="mr",tt.Mauritius="mu",tt.Malawi="mw",tt.Malaysia="my",tt.Namibia="na",tt.Niger="ne",tt.Nigeria="ng",tt.Nicaragua="ni",tt.Netherlands="nl",tt.Norway="no",tt.Nepal="np",tt.Nauru="nr",tt.NewZealand="nz",tt.Oman="om",tt.Pakistan="pk",tt.Panama="pa",tt.Peru="pe",tt.Philippines="ph",tt.Palau="pw",tt.PapuaNewGuinea="pg",tt.Poland="pl",tt.FrenchPolynesia="pf",tt.NorthKorea="kp",tt.Portugal="pt",tt.Paraguay="py",tt.Qatar="qa",tt.Romania="ro",tt.Russia="ru",tt.Rwanda="rw",tt.SaudiArabia="sa",tt.Sudan="sd",tt.Senegal="sn",tt.Singapore="sg",tt.SolomonIslands="sb",tt.SierraLeone="sl",tt.ElSalvador="sv",tt.SanMarino="sm",tt.Somalia="so",tt.Serbia="rs",tt.SouthSudan="ss",tt.SaoTomeAndPrincipe="st",tt.Suriname="sr",tt.Slovakia="sk",tt.Slovenia="si",tt.Sweden="se",tt.Eswatini="sz",tt.Seychelles="sc",tt.Syria="sy",tt.Chad="td",tt.Togo="tg",tt.Thailand="th",tt.Tajikistan="tj",tt.Turkmenistan="tm",tt.TimorLeste="tl",tt.Tonga="to",tt.TrinidadAndTobago="tt",tt.Tunisia="tn",tt.Turkey="tr",tt.Tuvalu="tv",tt.Tanzania="tz",tt.Uganda="ug",tt.Ukraine="ua",tt.Uruguay="uy",tt.UnitedStates="us",tt.Uzbekistan="uz",tt.VaticanCity="va",tt.SaintVincentAndTheGrenadines="vc",tt.Venezuela="ve",tt.Vietnam="vn",tt.Vanuatu="vu",tt.Samoa="ws",tt.Yemen="ye",tt.SouthAfrica="za",tt.Zambia="zm",tt.Zimbabwe="zw"})(rt||(rt={}))},"./src/enums/image-format.ts":(et,ot,it)=>{it.r(ot),it.d(ot,{ImageFormat:()=>rt});var rt;(function(tt){tt.Jpg="jpg",tt.Jpeg="jpeg",tt.Gif="gif",tt.Png="png",tt.Webp="webp"})(rt||(rt={}))},"./src/enums/image-gravity.ts":(et,ot,it)=>{it.r(ot),it.d(ot,{ImageGravity:()=>rt});var rt;(function(tt){tt.Center="center",tt.Topleft="top-left",tt.Top="top",tt.Topright="top-right",tt.Left="left",tt.Right="right",tt.Bottomleft="bottom-left",tt.Bottom="bottom",tt.Bottomright="bottom-right"})(rt||(rt={}))},"./src/enums/o-auth-provider.ts":(et,ot,it)=>{it.r(ot),it.d(ot,{OAuthProvider:()=>rt});var rt;(function(tt){tt.Amazon="amazon",tt.Apple="apple",tt.Auth0="auth0",tt.Authentik="authentik",tt.Autodesk="autodesk",tt.Bitbucket="bitbucket",tt.Bitly="bitly",tt.Box="box",tt.Dailymotion="dailymotion",tt.Discord="discord",tt.Disqus="disqus",tt.Dropbox="dropbox",tt.Etsy="etsy",tt.Facebook="facebook",tt.Github="github",tt.Gitlab="gitlab",tt.Google="google",tt.Linkedin="linkedin",tt.Microsoft="microsoft",tt.Notion="notion",tt.Oidc="oidc",tt.Okta="okta",tt.Paypal="paypal",tt.PaypalSandbox="paypalSandbox",tt.Podio="podio",tt.Salesforce="salesforce",tt.Slack="slack",tt.Spotify="spotify",tt.Stripe="stripe",tt.Tradeshift="tradeshift",tt.TradeshiftBox="tradeshiftBox",tt.Twitch="twitch",tt.Wordpress="wordpress",tt.Yahoo="yahoo",tt.Yammer="yammer",tt.Yandex="yandex",tt.Zoho="zoho",tt.Zoom="zoom",tt.Mock="mock"})(rt||(rt={}))},"./src/id.ts":(et,ot,it)=>{it.r(ot),it.d(ot,{ID:()=>gt});var rt=function(pt,ft,dt,ct){if(dt==="a"&&!ct)throw new TypeError("Private accessor was defined without a getter");if(typeof ft=="function"?pt!==ft||!ct:!ft.has(pt))throw new TypeError("Cannot read private member from an object whose class did not declare it");return dt==="m"?ct:dt==="a"?ct.call(pt):ct?ct.value:ft.get(pt)},tt,st;class gt{static custom(ft){return ft}static unique(ft=7){const dt=rt(tt,tt,"m",st).call(tt);let ct="";for(let lt=0;lt<ft;lt++){const _t=Math.floor(Math.random()*16).toString(16);ct+=_t}return dt+ct}}tt=gt,st=function(){const ft=new Date,dt=Math.floor(ft.getTime()/1e3),ct=ft.getMilliseconds();return dt.toString(16)+ct.toString(16).padStart(5,"0")}},"./src/permission.ts":(et,ot,it)=>{it.r(ot),it.d(ot,{Permission:()=>rt});class rt{}rt.read=tt=>`read("${tt}")`,rt.write=tt=>`write("${tt}")`,rt.create=tt=>`create("${tt}")`,rt.update=tt=>`update("${tt}")`,rt.delete=tt=>`delete("${tt}")`},"./src/query.ts":(et,ot,it)=>{it.r(ot),it.d(ot,{Query:()=>rt});class rt{constructor(st,gt,pt){this.method=st,this.attribute=gt,pt!==void 0&&(Array.isArray(pt)?this.values=pt:this.values=[pt])}toString(){return JSON.stringify({method:this.method,attribute:this.attribute,values:this.values})}}rt.equal=(tt,st)=>new rt("equal",tt,st).toString(),rt.notEqual=(tt,st)=>new rt("notEqual",tt,st).toString(),rt.lessThan=(tt,st)=>new rt("lessThan",tt,st).toString(),rt.lessThanEqual=(tt,st)=>new rt("lessThanEqual",tt,st).toString(),rt.greaterThan=(tt,st)=>new rt("greaterThan",tt,st).toString(),rt.greaterThanEqual=(tt,st)=>new rt("greaterThanEqual",tt,st).toString(),rt.isNull=tt=>new rt("isNull",tt).toString(),rt.isNotNull=tt=>new rt("isNotNull",tt).toString(),rt.between=(tt,st,gt)=>new rt("between",tt,[st,gt]).toString(),rt.startsWith=(tt,st)=>new rt("startsWith",tt,st).toString(),rt.endsWith=(tt,st)=>new rt("endsWith",tt,st).toString(),rt.select=tt=>new rt("select",void 0,tt).toString(),rt.search=(tt,st)=>new rt("search",tt,st).toString(),rt.orderDesc=tt=>new rt("orderDesc",tt).toString(),rt.orderAsc=tt=>new rt("orderAsc",tt).toString(),rt.cursorAfter=tt=>new rt("cursorAfter",void 0,tt).toString(),rt.cursorBefore=tt=>new rt("cursorBefore",void 0,tt).toString(),rt.limit=tt=>new rt("limit",void 0,tt).toString(),rt.offset=tt=>new rt("offset",void 0,tt).toString(),rt.contains=(tt,st)=>new rt("contains",tt,st).toString(),rt.or=tt=>new rt("or",void 0,tt.map(st=>JSON.parse(st))).toString(),rt.and=tt=>new rt("and",void 0,tt.map(st=>JSON.parse(st))).toString()},"./src/role.ts":(et,ot,it)=>{it.r(ot),it.d(ot,{Role:()=>rt});class rt{static any(){return"any"}static user(st,gt=""){return gt===""?`user:${st}`:`user:${st}/${gt}`}static users(st=""){return st===""?"users":`users/${st}`}static guests(){return"guests"}static team(st,gt=""){return gt===""?`team:${st}`:`team:${st}/${gt}`}static member(st){return`member:${st}`}static label(st){return`label:${st}`}}},"./src/service.ts":(et,ot,it)=>{it.r(ot),it.d(ot,{Service:()=>rt});class rt{constructor(st){this.client=st}static flatten(st,gt=""){let pt={};for(const[ft,dt]of Object.entries(st)){let ct=gt?gt+"["+ft+"]":ft;Array.isArray(dt)?pt={...pt,...rt.flatten(dt,ct)}:pt[ct]=dt}return pt}}rt.CHUNK_SIZE=5242880},"./src/services/account.ts":(et,ot,it)=>{it.r(ot),it.d(ot,{Account:()=>st});var rt=it("./src/service.ts"),tt=it("./src/client.ts");class st extends rt.Service{constructor(pt){super(pt)}async get(){const pt="/account",ft={},dt=new URL(this.client.config.endpoint+pt);return await this.client.call("get",dt,{"content-type":"application/json"},ft)}async create(pt,ft,dt,ct){if(typeof pt>"u")throw new tt.AppcondaException('Missing required parameter: "userId"');if(typeof ft>"u")throw new tt.AppcondaException('Missing required parameter: "email"');if(typeof dt>"u")throw new tt.AppcondaException('Missing required parameter: "password"');const lt="/account",_t={};typeof pt<"u"&&(_t.userId=pt),typeof ft<"u"&&(_t.email=ft),typeof dt<"u"&&(_t.password=dt),typeof ct<"u"&&(_t.name=ct);const mt=new URL(this.client.config.endpoint+lt);return await this.client.call("post",mt,{"content-type":"application/json"},_t)}async updateEmail(pt,ft){if(typeof pt>"u")throw new tt.AppcondaException('Missing required parameter: "email"');if(typeof ft>"u")throw new tt.AppcondaException('Missing required parameter: "password"');const dt="/account/email",ct={};typeof pt<"u"&&(ct.email=pt),typeof ft<"u"&&(ct.password=ft);const lt=new URL(this.client.config.endpoint+dt);return await this.client.call("patch",lt,{"content-type":"application/json"},ct)}async listIdentities(pt){const ft="/account/identities",dt={};typeof pt<"u"&&(dt.queries=pt);const ct=new URL(this.client.config.endpoint+ft);return await this.client.call("get",ct,{"content-type":"application/json"},dt)}async deleteIdentity(pt){if(typeof pt>"u")throw new tt.AppcondaException('Missing required parameter: "identityId"');const ft="/account/identities/{identityId}".replace("{identityId}",pt),dt={},ct=new URL(this.client.config.endpoint+ft);return await this.client.call("delete",ct,{"content-type":"application/json"},dt)}async createJWT(){const pt="/account/jwt",ft={},dt=new URL(this.client.config.endpoint+pt);return await this.client.call("post",dt,{"content-type":"application/json"},ft)}async listLogs(pt){const ft="/account/logs",dt={};typeof pt<"u"&&(dt.queries=pt);const ct=new URL(this.client.config.endpoint+ft);return await this.client.call("get",ct,{"content-type":"application/json"},dt)}async updateMFA(pt){if(typeof pt>"u")throw new tt.AppcondaException('Missing required parameter: "mfa"');const ft="/account/mfa",dt={};typeof pt<"u"&&(dt.mfa=pt);const ct=new URL(this.client.config.endpoint+ft);return await this.client.call("patch",ct,{"content-type":"application/json"},dt)}async createMfaAuthenticator(pt){if(typeof pt>"u")throw new tt.AppcondaException('Missing required parameter: "type"');const ft="/account/mfa/authenticators/{type}".replace("{type}",pt),dt={},ct=new URL(this.client.config.endpoint+ft);return await this.client.call("post",ct,{"content-type":"application/json"},dt)}async updateMfaAuthenticator(pt,ft){if(typeof pt>"u")throw new tt.AppcondaException('Missing required parameter: "type"');if(typeof ft>"u")throw new tt.AppcondaException('Missing required parameter: "otp"');const dt="/account/mfa/authenticators/{type}".replace("{type}",pt),ct={};typeof ft<"u"&&(ct.otp=ft);const lt=new URL(this.client.config.endpoint+dt);return await this.client.call("put",lt,{"content-type":"application/json"},ct)}async deleteMfaAuthenticator(pt,ft){if(typeof pt>"u")throw new tt.AppcondaException('Missing required parameter: "type"');if(typeof ft>"u")throw new tt.AppcondaException('Missing required parameter: "otp"');const dt="/account/mfa/authenticators/{type}".replace("{type}",pt),ct={};typeof ft<"u"&&(ct.otp=ft);const lt=new URL(this.client.config.endpoint+dt);return await this.client.call("delete",lt,{"content-type":"application/json"},ct)}async createMfaChallenge(pt){if(typeof pt>"u")throw new tt.AppcondaException('Missing required parameter: "factor"');const ft="/account/mfa/challenge",dt={};typeof pt<"u"&&(dt.factor=pt);const ct=new URL(this.client.config.endpoint+ft);return await this.client.call("post",ct,{"content-type":"application/json"},dt)}async updateMfaChallenge(pt,ft){if(typeof pt>"u")throw new tt.AppcondaException('Missing required parameter: "challengeId"');if(typeof ft>"u")throw new tt.AppcondaException('Missing required parameter: "otp"');const dt="/account/mfa/challenge",ct={};typeof pt<"u"&&(ct.challengeId=pt),typeof ft<"u"&&(ct.otp=ft);const lt=new URL(this.client.config.endpoint+dt);return await this.client.call("put",lt,{"content-type":"application/json"},ct)}async listMfaFactors(){const pt="/account/mfa/factors",ft={},dt=new URL(this.client.config.endpoint+pt);return await this.client.call("get",dt,{"content-type":"application/json"},ft)}async getMfaRecoveryCodes(){const pt="/account/mfa/recovery-codes",ft={},dt=new URL(this.client.config.endpoint+pt);return await this.client.call("get",dt,{"content-type":"application/json"},ft)}async createMfaRecoveryCodes(){const pt="/account/mfa/recovery-codes",ft={},dt=new URL(this.client.config.endpoint+pt);return await this.client.call("post",dt,{"content-type":"application/json"},ft)}async updateMfaRecoveryCodes(){const pt="/account/mfa/recovery-codes",ft={},dt=new URL(this.client.config.endpoint+pt);return await this.client.call("patch",dt,{"content-type":"application/json"},ft)}async updateName(pt){if(typeof pt>"u")throw new tt.AppcondaException('Missing required parameter: "name"');const ft="/account/name",dt={};typeof pt<"u"&&(dt.name=pt);const ct=new URL(this.client.config.endpoint+ft);return await this.client.call("patch",ct,{"content-type":"application/json"},dt)}async updatePassword(pt,ft){if(typeof pt>"u")throw new tt.AppcondaException('Missing required parameter: "password"');const dt="/account/password",ct={};typeof pt<"u"&&(ct.password=pt),typeof ft<"u"&&(ct.oldPassword=ft);const lt=new URL(this.client.config.endpoint+dt);return await this.client.call("patch",lt,{"content-type":"application/json"},ct)}async updatePhone(pt,ft){if(typeof pt>"u")throw new tt.AppcondaException('Missing required parameter: "phone"');if(typeof ft>"u")throw new tt.AppcondaException('Missing required parameter: "password"');const dt="/account/phone",ct={};typeof pt<"u"&&(ct.phone=pt),typeof ft<"u"&&(ct.password=ft);const lt=new URL(this.client.config.endpoint+dt);return await this.client.call("patch",lt,{"content-type":"application/json"},ct)}async getPrefs(){const pt="/account/prefs",ft={},dt=new URL(this.client.config.endpoint+pt);return await this.client.call("get",dt,{"content-type":"application/json"},ft)}async updatePrefs(pt){if(typeof pt>"u")throw new tt.AppcondaException('Missing required parameter: "prefs"');const ft="/account/prefs",dt={};typeof pt<"u"&&(dt.prefs=pt);const ct=new URL(this.client.config.endpoint+ft);return await this.client.call("patch",ct,{"content-type":"application/json"},dt)}async createRecovery(pt,ft){if(typeof pt>"u")throw new tt.AppcondaException('Missing required parameter: "email"');if(typeof ft>"u")throw new tt.AppcondaException('Missing required parameter: "url"');const dt="/account/recovery",ct={};typeof pt<"u"&&(ct.email=pt),typeof ft<"u"&&(ct.url=ft);const lt=new URL(this.client.config.endpoint+dt);return await this.client.call("post",lt,{"content-type":"application/json"},ct)}async updateRecovery(pt,ft,dt){if(typeof pt>"u")throw new tt.AppcondaException('Missing required parameter: "userId"');if(typeof ft>"u")throw new tt.AppcondaException('Missing required parameter: "secret"');if(typeof dt>"u")throw new tt.AppcondaException('Missing required parameter: "password"');const ct="/account/recovery",lt={};typeof pt<"u"&&(lt.userId=pt),typeof ft<"u"&&(lt.secret=ft),typeof dt<"u"&&(lt.password=dt);const _t=new URL(this.client.config.endpoint+ct);return await this.client.call("put",_t,{"content-type":"application/json"},lt)}async listSessions(){const pt="/account/sessions",ft={},dt=new URL(this.client.config.endpoint+pt);return await this.client.call("get",dt,{"content-type":"application/json"},ft)}async deleteSessions(){const pt="/account/sessions",ft={},dt=new URL(this.client.config.endpoint+pt);return await this.client.call("delete",dt,{"content-type":"application/json"},ft)}async createAnonymousSession(){const pt="/account/sessions/anonymous",ft={},dt=new URL(this.client.config.endpoint+pt);return await this.client.call("post",dt,{"content-type":"application/json"},ft)}async createEmailPasswordSession(pt,ft){if(typeof pt>"u")throw new tt.AppcondaException('Missing required parameter: "email"');if(typeof ft>"u")throw new tt.AppcondaException('Missing required parameter: "password"');const dt="/account/sessions/email",ct={};typeof pt<"u"&&(ct.email=pt),typeof ft<"u"&&(ct.password=ft);const lt=new URL(this.client.config.endpoint+dt);return await this.client.call("post",lt,{"content-type":"application/json"},ct)}async updateMagicURLSession(pt,ft){if(typeof pt>"u")throw new tt.AppcondaException('Missing required parameter: "userId"');if(typeof ft>"u")throw new tt.AppcondaException('Missing required parameter: "secret"');const dt="/account/sessions/magic-url",ct={};typeof pt<"u"&&(ct.userId=pt),typeof ft<"u"&&(ct.secret=ft);const lt=new URL(this.client.config.endpoint+dt);return await this.client.call("put",lt,{"content-type":"application/json"},ct)}createOAuth2Session(pt,ft,dt,ct){if(typeof pt>"u")throw new tt.AppcondaException('Missing required parameter: "provider"');const lt="/account/sessions/oauth2/{provider}".replace("{provider}",pt),_t={};typeof ft<"u"&&(_t.success=ft),typeof dt<"u"&&(_t.failure=dt),typeof ct<"u"&&(_t.scopes=ct);const mt=new URL(this.client.config.endpoint+lt);_t.project=this.client.config.project;for(const[at,vt]of Object.entries(rt.Service.flatten(_t)))mt.searchParams.append(at,vt);if(typeof window<"u"&&(window!=null&&window.location))window.location.href=mt.toString();else return mt}async updatePhoneSession(pt,ft){if(typeof pt>"u")throw new tt.AppcondaException('Missing required parameter: "userId"');if(typeof ft>"u")throw new tt.AppcondaException('Missing required parameter: "secret"');const dt="/account/sessions/phone",ct={};typeof pt<"u"&&(ct.userId=pt),typeof ft<"u"&&(ct.secret=ft);const lt=new URL(this.client.config.endpoint+dt);return await this.client.call("put",lt,{"content-type":"application/json"},ct)}async createSession(pt,ft){if(typeof pt>"u")throw new tt.AppcondaException('Missing required parameter: "userId"');if(typeof ft>"u")throw new tt.AppcondaException('Missing required parameter: "secret"');const dt="/account/sessions/token",ct={};typeof pt<"u"&&(ct.userId=pt),typeof ft<"u"&&(ct.secret=ft);const lt=new URL(this.client.config.endpoint+dt);return await this.client.call("post",lt,{"content-type":"application/json"},ct)}async getSession(pt){if(typeof pt>"u")throw new tt.AppcondaException('Missing required parameter: "sessionId"');const ft="/account/sessions/{sessionId}".replace("{sessionId}",pt),dt={},ct=new URL(this.client.config.endpoint+ft);return await this.client.call("get",ct,{"content-type":"application/json"},dt)}async updateSession(pt){if(typeof pt>"u")throw new tt.AppcondaException('Missing required parameter: "sessionId"');const ft="/account/sessions/{sessionId}".replace("{sessionId}",pt),dt={},ct=new URL(this.client.config.endpoint+ft);return await this.client.call("patch",ct,{"content-type":"application/json"},dt)}async deleteSession(pt){if(typeof pt>"u")throw new tt.AppcondaException('Missing required parameter: "sessionId"');const ft="/account/sessions/{sessionId}".replace("{sessionId}",pt),dt={},ct=new URL(this.client.config.endpoint+ft);return await this.client.call("delete",ct,{"content-type":"application/json"},dt)}async updateStatus(){const pt="/account/status",ft={},dt=new URL(this.client.config.endpoint+pt);return await this.client.call("patch",dt,{"content-type":"application/json"},ft)}async createPushTarget(pt,ft,dt){if(typeof pt>"u")throw new tt.AppcondaException('Missing required parameter: "targetId"');if(typeof ft>"u")throw new tt.AppcondaException('Missing required parameter: "identifier"');const ct="/account/targets/push",lt={};typeof pt<"u"&&(lt.targetId=pt),typeof ft<"u"&&(lt.identifier=ft),typeof dt<"u"&&(lt.providerId=dt);const _t=new URL(this.client.config.endpoint+ct);return await this.client.call("post",_t,{"content-type":"application/json"},lt)}async updatePushTarget(pt,ft){if(typeof pt>"u")throw new tt.AppcondaException('Missing required parameter: "targetId"');if(typeof ft>"u")throw new tt.AppcondaException('Missing required parameter: "identifier"');const dt="/account/targets/{targetId}/push".replace("{targetId}",pt),ct={};typeof ft<"u"&&(ct.identifier=ft);const lt=new URL(this.client.config.endpoint+dt);return await this.client.call("put",lt,{"content-type":"application/json"},ct)}async deletePushTarget(pt){if(typeof pt>"u")throw new tt.AppcondaException('Missing required parameter: "targetId"');const ft="/account/targets/{targetId}/push".replace("{targetId}",pt),dt={},ct=new URL(this.client.config.endpoint+ft);return await this.client.call("delete",ct,{"content-type":"application/json"},dt)}async createEmailToken(pt,ft,dt){if(typeof pt>"u")throw new tt.AppcondaException('Missing required parameter: "userId"');if(typeof ft>"u")throw new tt.AppcondaException('Missing required parameter: "email"');const ct="/account/tokens/email",lt={};typeof pt<"u"&&(lt.userId=pt),typeof ft<"u"&&(lt.email=ft),typeof dt<"u"&&(lt.phrase=dt);const _t=new URL(this.client.config.endpoint+ct);return await this.client.call("post",_t,{"content-type":"application/json"},lt)}async createMagicURLToken(pt,ft,dt,ct){if(typeof pt>"u")throw new tt.AppcondaException('Missing required parameter: "userId"');if(typeof ft>"u")throw new tt.AppcondaException('Missing required parameter: "email"');const lt="/account/tokens/magic-url",_t={};typeof pt<"u"&&(_t.userId=pt),typeof ft<"u"&&(_t.email=ft),typeof dt<"u"&&(_t.url=dt),typeof ct<"u"&&(_t.phrase=ct);const mt=new URL(this.client.config.endpoint+lt);return await this.client.call("post",mt,{"content-type":"application/json"},_t)}createOAuth2Token(pt,ft,dt,ct){if(typeof pt>"u")throw new tt.AppcondaException('Missing required parameter: "provider"');const lt="/account/tokens/oauth2/{provider}".replace("{provider}",pt),_t={};typeof ft<"u"&&(_t.success=ft),typeof dt<"u"&&(_t.failure=dt),typeof ct<"u"&&(_t.scopes=ct);const mt=new URL(this.client.config.endpoint+lt);_t.project=this.client.config.project;for(const[at,vt]of Object.entries(rt.Service.flatten(_t)))mt.searchParams.append(at,vt);if(typeof window<"u"&&(window!=null&&window.location))window.location.href=mt.toString();else return mt}async createPhoneToken(pt,ft){if(typeof pt>"u")throw new tt.AppcondaException('Missing required parameter: "userId"');if(typeof ft>"u")throw new tt.AppcondaException('Missing required parameter: "phone"');const dt="/account/tokens/phone",ct={};typeof pt<"u"&&(ct.userId=pt),typeof ft<"u"&&(ct.phone=ft);const lt=new URL(this.client.config.endpoint+dt);return await this.client.call("post",lt,{"content-type":"application/json"},ct)}async createVerification(pt){if(typeof pt>"u")throw new tt.AppcondaException('Missing required parameter: "url"');const ft="/account/verification",dt={};typeof pt<"u"&&(dt.url=pt);const ct=new URL(this.client.config.endpoint+ft);return await this.client.call("post",ct,{"content-type":"application/json"},dt)}async updateVerification(pt,ft){if(typeof pt>"u")throw new tt.AppcondaException('Missing required parameter: "userId"');if(typeof ft>"u")throw new tt.AppcondaException('Missing required parameter: "secret"');const dt="/account/verification",ct={};typeof pt<"u"&&(ct.userId=pt),typeof ft<"u"&&(ct.secret=ft);const lt=new URL(this.client.config.endpoint+dt);return await this.client.call("put",lt,{"content-type":"application/json"},ct)}async createPhoneVerification(){const pt="/account/verification/phone",ft={},dt=new URL(this.client.config.endpoint+pt);return await this.client.call("post",dt,{"content-type":"application/json"},ft)}async updatePhoneVerification(pt,ft){if(typeof pt>"u")throw new tt.AppcondaException('Missing required parameter: "userId"');if(typeof ft>"u")throw new tt.AppcondaException('Missing required parameter: "secret"');const dt="/account/verification/phone",ct={};typeof pt<"u"&&(ct.userId=pt),typeof ft<"u"&&(ct.secret=ft);const lt=new URL(this.client.config.endpoint+dt);return await this.client.call("put",lt,{"content-type":"application/json"},ct)}}},"./src/services/avatars.ts":(et,ot,it)=>{it.r(ot),it.d(ot,{Avatars:()=>st});var rt=it("./src/service.ts"),tt=it("./src/client.ts");class st extends rt.Service{constructor(pt){super(pt)}getBrowser(pt,ft,dt,ct){if(typeof pt>"u")throw new tt.AppcondaException('Missing required parameter: "code"');const lt="/avatars/browsers/{code}".replace("{code}",pt),_t={};typeof ft<"u"&&(_t.width=ft),typeof dt<"u"&&(_t.height=dt),typeof ct<"u"&&(_t.quality=ct);const mt=new URL(this.client.config.endpoint+lt);_t.project=this.client.config.project;for(const[at,vt]of Object.entries(rt.Service.flatten(_t)))mt.searchParams.append(at,vt);return mt}getCreditCard(pt,ft,dt,ct){if(typeof pt>"u")throw new tt.AppcondaException('Missing required parameter: "code"');const lt="/avatars/credit-cards/{code}".replace("{code}",pt),_t={};typeof ft<"u"&&(_t.width=ft),typeof dt<"u"&&(_t.height=dt),typeof ct<"u"&&(_t.quality=ct);const mt=new URL(this.client.config.endpoint+lt);_t.project=this.client.config.project;for(const[at,vt]of Object.entries(rt.Service.flatten(_t)))mt.searchParams.append(at,vt);return mt}getFavicon(pt){if(typeof pt>"u")throw new tt.AppcondaException('Missing required parameter: "url"');const ft="/avatars/favicon",dt={};typeof pt<"u"&&(dt.url=pt);const ct=new URL(this.client.config.endpoint+ft);dt.project=this.client.config.project;for(const[lt,_t]of Object.entries(rt.Service.flatten(dt)))ct.searchParams.append(lt,_t);return ct}getFlag(pt,ft,dt,ct){if(typeof pt>"u")throw new tt.AppcondaException('Missing required parameter: "code"');const lt="/avatars/flags/{code}".replace("{code}",pt),_t={};typeof ft<"u"&&(_t.width=ft),typeof dt<"u"&&(_t.height=dt),typeof ct<"u"&&(_t.quality=ct);const mt=new URL(this.client.config.endpoint+lt);_t.project=this.client.config.project;for(const[at,vt]of Object.entries(rt.Service.flatten(_t)))mt.searchParams.append(at,vt);return mt}getImage(pt,ft,dt){if(typeof pt>"u")throw new tt.AppcondaException('Missing required parameter: "url"');const ct="/avatars/image",lt={};typeof pt<"u"&&(lt.url=pt),typeof ft<"u"&&(lt.width=ft),typeof dt<"u"&&(lt.height=dt);const _t=new URL(this.client.config.endpoint+ct);lt.project=this.client.config.project;for(const[mt,at]of Object.entries(rt.Service.flatten(lt)))_t.searchParams.append(mt,at);return _t}getInitials(pt,ft,dt,ct){const lt="/avatars/initials",_t={};typeof pt<"u"&&(_t.name=pt),typeof ft<"u"&&(_t.width=ft),typeof dt<"u"&&(_t.height=dt),typeof ct<"u"&&(_t.background=ct);const mt=new URL(this.client.config.endpoint+lt);_t.project=this.client.config.project;for(const[at,vt]of Object.entries(rt.Service.flatten(_t)))mt.searchParams.append(at,vt);return mt}getQR(pt,ft,dt,ct){if(typeof pt>"u")throw new tt.AppcondaException('Missing required parameter: "text"');const lt="/avatars/qr",_t={};typeof pt<"u"&&(_t.text=pt),typeof ft<"u"&&(_t.size=ft),typeof dt<"u"&&(_t.margin=dt),typeof ct<"u"&&(_t.download=ct);const mt=new URL(this.client.config.endpoint+lt);_t.project=this.client.config.project;for(const[at,vt]of Object.entries(rt.Service.flatten(_t)))mt.searchParams.append(at,vt);return mt}}},"./src/services/databases.ts":(et,ot,it)=>{it.r(ot),it.d(ot,{Databases:()=>st});var rt=it("./src/service.ts"),tt=it("./src/client.ts");class st extends rt.Service{constructor(pt){super(pt)}async listDocuments(pt,ft,dt){if(typeof pt>"u")throw new tt.AppcondaException('Missing required parameter: "databaseId"');if(typeof ft>"u")throw new tt.AppcondaException('Missing required parameter: "collectionId"');const ct="/databases/{databaseId}/collections/{collectionId}/documents".replace("{databaseId}",pt).replace("{collectionId}",ft),lt={};typeof dt<"u"&&(lt.queries=dt);const _t=new URL(this.client.config.endpoint+ct);return await this.client.call("get",_t,{"content-type":"application/json"},lt)}async createDocument(pt,ft,dt,ct,lt){if(typeof pt>"u")throw new tt.AppcondaException('Missing required parameter: "databaseId"');if(typeof ft>"u")throw new tt.AppcondaException('Missing required parameter: "collectionId"');if(typeof dt>"u")throw new tt.AppcondaException('Missing required parameter: "documentId"');if(typeof ct>"u")throw new tt.AppcondaException('Missing required parameter: "data"');const _t="/databases/{databaseId}/collections/{collectionId}/documents".replace("{databaseId}",pt).replace("{collectionId}",ft),mt={};typeof dt<"u"&&(mt.documentId=dt),typeof ct<"u"&&(mt.data=ct),typeof lt<"u"&&(mt.permissions=lt);const at=new URL(this.client.config.endpoint+_t);return await this.client.call("post",at,{"content-type":"application/json"},mt)}async getDocument(pt,ft,dt,ct){if(typeof pt>"u")throw new tt.AppcondaException('Missing required parameter: "databaseId"');if(typeof ft>"u")throw new tt.AppcondaException('Missing required parameter: "collectionId"');if(typeof dt>"u")throw new tt.AppcondaException('Missing required parameter: "documentId"');const lt="/databases/{databaseId}/collections/{collectionId}/documents/{documentId}".replace("{databaseId}",pt).replace("{collectionId}",ft).replace("{documentId}",dt),_t={};typeof ct<"u"&&(_t.queries=ct);const mt=new URL(this.client.config.endpoint+lt);return await this.client.call("get",mt,{"content-type":"application/json"},_t)}async updateDocument(pt,ft,dt,ct,lt){if(typeof pt>"u")throw new tt.AppcondaException('Missing required parameter: "databaseId"');if(typeof ft>"u")throw new tt.AppcondaException('Missing required parameter: "collectionId"');if(typeof dt>"u")throw new tt.AppcondaException('Missing required parameter: "documentId"');const _t="/databases/{databaseId}/collections/{collectionId}/documents/{documentId}".replace("{databaseId}",pt).replace("{collectionId}",ft).replace("{documentId}",dt),mt={};typeof ct<"u"&&(mt.data=ct),typeof lt<"u"&&(mt.permissions=lt);const at=new URL(this.client.config.endpoint+_t);return await this.client.call("patch",at,{"content-type":"application/json"},mt)}async deleteDocument(pt,ft,dt){if(typeof pt>"u")throw new tt.AppcondaException('Missing required parameter: "databaseId"');if(typeof ft>"u")throw new tt.AppcondaException('Missing required parameter: "collectionId"');if(typeof dt>"u")throw new tt.AppcondaException('Missing required parameter: "documentId"');const ct="/databases/{databaseId}/collections/{collectionId}/documents/{documentId}".replace("{databaseId}",pt).replace("{collectionId}",ft).replace("{documentId}",dt),lt={},_t=new URL(this.client.config.endpoint+ct);return await this.client.call("delete",_t,{"content-type":"application/json"},lt)}}},"./src/services/functions.ts":(et,ot,it)=>{it.r(ot),it.d(ot,{Functions:()=>st});var rt=it("./src/service.ts"),tt=it("./src/client.ts");class st extends rt.Service{constructor(pt){super(pt)}async listExecutions(pt,ft,dt){if(typeof pt>"u")throw new tt.AppcondaException('Missing required parameter: "functionId"');const ct="/functions/{functionId}/executions".replace("{functionId}",pt),lt={};typeof ft<"u"&&(lt.queries=ft),typeof dt<"u"&&(lt.search=dt);const _t=new URL(this.client.config.endpoint+ct);return await this.client.call("get",_t,{"content-type":"application/json"},lt)}async createExecution(pt,ft,dt,ct,lt,_t){if(typeof pt>"u")throw new tt.AppcondaException('Missing required parameter: "functionId"');const mt="/functions/{functionId}/executions".replace("{functionId}",pt),at={};typeof ft<"u"&&(at.body=ft),typeof dt<"u"&&(at.async=dt),typeof ct<"u"&&(at.path=ct),typeof lt<"u"&&(at.method=lt),typeof _t<"u"&&(at.headers=_t);const vt=new URL(this.client.config.endpoint+mt);return await this.client.call("post",vt,{"content-type":"application/json"},at)}async getExecution(pt,ft){if(typeof pt>"u")throw new tt.AppcondaException('Missing required parameter: "functionId"');if(typeof ft>"u")throw new tt.AppcondaException('Missing required parameter: "executionId"');const dt="/functions/{functionId}/executions/{executionId}".replace("{functionId}",pt).replace("{executionId}",ft),ct={},lt=new URL(this.client.config.endpoint+dt);return await this.client.call("get",lt,{"content-type":"application/json"},ct)}}},"./src/services/graphql.ts":(et,ot,it)=>{it.r(ot),it.d(ot,{Graphql:()=>st});var rt=it("./src/service.ts"),tt=it("./src/client.ts");class st extends rt.Service{constructor(pt){super(pt)}async query(pt){if(typeof pt>"u")throw new tt.AppcondaException('Missing required parameter: "query"');const ft="/graphql",dt={};typeof pt<"u"&&(dt.query=pt);const ct=new URL(this.client.config.endpoint+ft);return await this.client.call("post",ct,{"x-sdk-graphql":"true","content-type":"application/json"},dt)}async mutation(pt){if(typeof pt>"u")throw new tt.AppcondaException('Missing required parameter: "query"');const ft="/graphql/mutation",dt={};typeof pt<"u"&&(dt.query=pt);const ct=new URL(this.client.config.endpoint+ft);return await this.client.call("post",ct,{"x-sdk-graphql":"true","content-type":"application/json"},dt)}}},"./src/services/locale.ts":(et,ot,it)=>{it.r(ot),it.d(ot,{Locale:()=>tt});var rt=it("./src/service.ts");class tt extends rt.Service{constructor(gt){super(gt)}async get(){const gt="/locale",pt={},ft=new URL(this.client.config.endpoint+gt);return await this.client.call("get",ft,{"content-type":"application/json"},pt)}async listCodes(){const gt="/locale/codes",pt={},ft=new URL(this.client.config.endpoint+gt);return await this.client.call("get",ft,{"content-type":"application/json"},pt)}async listContinents(){const gt="/locale/continents",pt={},ft=new URL(this.client.config.endpoint+gt);return await this.client.call("get",ft,{"content-type":"application/json"},pt)}async listCountries(){const gt="/locale/countries",pt={},ft=new URL(this.client.config.endpoint+gt);return await this.client.call("get",ft,{"content-type":"application/json"},pt)}async listCountriesEU(){const gt="/locale/countries/eu",pt={},ft=new URL(this.client.config.endpoint+gt);return await this.client.call("get",ft,{"content-type":"application/json"},pt)}async listCountriesPhones(){const gt="/locale/countries/phones",pt={},ft=new URL(this.client.config.endpoint+gt);return await this.client.call("get",ft,{"content-type":"application/json"},pt)}async listCurrencies(){const gt="/locale/currencies",pt={},ft=new URL(this.client.config.endpoint+gt);return await this.client.call("get",ft,{"content-type":"application/json"},pt)}async listLanguages(){const gt="/locale/languages",pt={},ft=new URL(this.client.config.endpoint+gt);return await this.client.call("get",ft,{"content-type":"application/json"},pt)}}},"./src/services/messaging.ts":(et,ot,it)=>{it.r(ot),it.d(ot,{Messaging:()=>st});var rt=it("./src/service.ts"),tt=it("./src/client.ts");class st extends rt.Service{constructor(pt){super(pt)}async createSubscriber(pt,ft,dt){if(typeof pt>"u")throw new tt.AppcondaException('Missing required parameter: "topicId"');if(typeof ft>"u")throw new tt.AppcondaException('Missing required parameter: "subscriberId"');if(typeof dt>"u")throw new tt.AppcondaException('Missing required parameter: "targetId"');const ct="/messaging/topics/{topicId}/subscribers".replace("{topicId}",pt),lt={};typeof ft<"u"&&(lt.subscriberId=ft),typeof dt<"u"&&(lt.targetId=dt);const _t=new URL(this.client.config.endpoint+ct);return await this.client.call("post",_t,{"content-type":"application/json"},lt)}async deleteSubscriber(pt,ft){if(typeof pt>"u")throw new tt.AppcondaException('Missing required parameter: "topicId"');if(typeof ft>"u")throw new tt.AppcondaException('Missing required parameter: "subscriberId"');const dt="/messaging/topics/{topicId}/subscribers/{subscriberId}".replace("{topicId}",pt).replace("{subscriberId}",ft),ct={},lt=new URL(this.client.config.endpoint+dt);return await this.client.call("delete",lt,{"content-type":"application/json"},ct)}}},"./src/services/storage.ts":(et,ot,it)=>{it.r(ot),it.d(ot,{Storage:()=>st});var rt=it("./src/service.ts"),tt=it("./src/client.ts");class st extends rt.Service{constructor(pt){super(pt)}async listFiles(pt,ft,dt){if(typeof pt>"u")throw new tt.AppcondaException('Missing required parameter: "bucketId"');const ct="/storage/buckets/{bucketId}/files".replace("{bucketId}",pt),lt={};typeof ft<"u"&&(lt.queries=ft),typeof dt<"u"&&(lt.search=dt);const _t=new URL(this.client.config.endpoint+ct);return await this.client.call("get",_t,{"content-type":"application/json"},lt)}async createFile(pt,ft,dt,ct,lt=_t=>{}){if(typeof pt>"u")throw new tt.AppcondaException('Missing required parameter: "bucketId"');if(typeof ft>"u")throw new tt.AppcondaException('Missing required parameter: "fileId"');if(typeof dt>"u")throw new tt.AppcondaException('Missing required parameter: "file"');const _t="/storage/buckets/{bucketId}/files".replace("{bucketId}",pt),mt={};typeof ft<"u"&&(mt.fileId=ft),typeof dt<"u"&&(mt.file=dt),typeof ct<"u"&&(mt.permissions=ct);const at=new URL(this.client.config.endpoint+_t);if(!(dt instanceof File))throw new tt.AppcondaException('Parameter "file" has to be a File.');const vt=dt.size;if(vt<=rt.Service.CHUNK_SIZE)return await this.client.call("post",at,{"content-type":"multipart/form-data"},mt);const Mt={"content-type":"multipart/form-data"};let ht=0,Lt;if(ft!="unique()")try{Lt=await this.client.call("GET",new URL(this.client.config.endpoint+_t+"/"+ft),Mt),ht=Lt.chunksUploaded*rt.Service.CHUNK_SIZE}catch{}for(;ht<vt;){let Pt=Math.min(ht+rt.Service.CHUNK_SIZE-1,vt-1);Mt["content-range"]="bytes "+ht+"-"+Pt+"/"+vt,Lt&&Lt.$id&&(Mt["x-appconda-id"]=Lt.$id);const zt=dt.slice(ht,Pt+1);mt.file=new File([zt],dt.name),Lt=await this.client.call("post",at,Mt,mt),lt&&lt({$id:Lt.$id,progress:ht/vt*100,sizeUploaded:ht,chunksTotal:Lt.chunksTotal,chunksUploaded:Lt.chunksUploaded}),ht+=rt.Service.CHUNK_SIZE}return Lt}async getFile(pt,ft){if(typeof pt>"u")throw new tt.AppcondaException('Missing required parameter: "bucketId"');if(typeof ft>"u")throw new tt.AppcondaException('Missing required parameter: "fileId"');const dt="/storage/buckets/{bucketId}/files/{fileId}".replace("{bucketId}",pt).replace("{fileId}",ft),ct={},lt=new URL(this.client.config.endpoint+dt);return await this.client.call("get",lt,{"content-type":"application/json"},ct)}async updateFile(pt,ft,dt,ct){if(typeof pt>"u")throw new tt.AppcondaException('Missing required parameter: "bucketId"');if(typeof ft>"u")throw new tt.AppcondaException('Missing required parameter: "fileId"');const lt="/storage/buckets/{bucketId}/files/{fileId}".replace("{bucketId}",pt).replace("{fileId}",ft),_t={};typeof dt<"u"&&(_t.name=dt),typeof ct<"u"&&(_t.permissions=ct);const mt=new URL(this.client.config.endpoint+lt);return await this.client.call("put",mt,{"content-type":"application/json"},_t)}async deleteFile(pt,ft){if(typeof pt>"u")throw new tt.AppcondaException('Missing required parameter: "bucketId"');if(typeof ft>"u")throw new tt.AppcondaException('Missing required parameter: "fileId"');const dt="/storage/buckets/{bucketId}/files/{fileId}".replace("{bucketId}",pt).replace("{fileId}",ft),ct={},lt=new URL(this.client.config.endpoint+dt);return await this.client.call("delete",lt,{"content-type":"application/json"},ct)}getFileDownload(pt,ft){if(typeof pt>"u")throw new tt.AppcondaException('Missing required parameter: "bucketId"');if(typeof ft>"u")throw new tt.AppcondaException('Missing required parameter: "fileId"');const dt="/storage/buckets/{bucketId}/files/{fileId}/download".replace("{bucketId}",pt).replace("{fileId}",ft),ct={},lt=new URL(this.client.config.endpoint+dt);ct.project=this.client.config.project;for(const[_t,mt]of Object.entries(rt.Service.flatten(ct)))lt.searchParams.append(_t,mt);return lt}getFilePreview(pt,ft,dt,ct,lt,_t,mt,at,vt,Mt,ht,Lt,Pt){if(typeof pt>"u")throw new tt.AppcondaException('Missing required parameter: "bucketId"');if(typeof ft>"u")throw new tt.AppcondaException('Missing required parameter: "fileId"');const zt="/storage/buckets/{bucketId}/files/{fileId}/preview".replace("{bucketId}",pt).replace("{fileId}",ft),Ht={};typeof dt<"u"&&(Ht.width=dt),typeof ct<"u"&&(Ht.height=ct),typeof lt<"u"&&(Ht.gravity=lt),typeof _t<"u"&&(Ht.quality=_t),typeof mt<"u"&&(Ht.borderWidth=mt),typeof at<"u"&&(Ht.borderColor=at),typeof vt<"u"&&(Ht.borderRadius=vt),typeof Mt<"u"&&(Ht.opacity=Mt),typeof ht<"u"&&(Ht.rotation=ht),typeof Lt<"u"&&(Ht.background=Lt),typeof Pt<"u"&&(Ht.output=Pt);const xt=new URL(this.client.config.endpoint+zt);Ht.project=this.client.config.project;for(const[kt,jt]of Object.entries(rt.Service.flatten(Ht)))xt.searchParams.append(kt,jt);return xt}getFileView(pt,ft){if(typeof pt>"u")throw new tt.AppcondaException('Missing required parameter: "bucketId"');if(typeof ft>"u")throw new tt.AppcondaException('Missing required parameter: "fileId"');const dt="/storage/buckets/{bucketId}/files/{fileId}/view".replace("{bucketId}",pt).replace("{fileId}",ft),ct={},lt=new URL(this.client.config.endpoint+dt);ct.project=this.client.config.project;for(const[_t,mt]of Object.entries(rt.Service.flatten(ct)))lt.searchParams.append(_t,mt);return lt}}},"./src/services/teams.ts":(et,ot,it)=>{it.r(ot),it.d(ot,{Teams:()=>st});var rt=it("./src/service.ts"),tt=it("./src/client.ts");class st extends rt.Service{constructor(pt){super(pt)}async list(pt,ft){const dt="/teams",ct={};typeof pt<"u"&&(ct.queries=pt),typeof ft<"u"&&(ct.search=ft);const lt=new URL(this.client.config.endpoint+dt);return await this.client.call("get",lt,{"content-type":"application/json"},ct)}async create(pt,ft,dt){if(typeof pt>"u")throw new tt.AppcondaException('Missing required parameter: "teamId"');if(typeof ft>"u")throw new tt.AppcondaException('Missing required parameter: "name"');const ct="/teams",lt={};typeof pt<"u"&&(lt.teamId=pt),typeof ft<"u"&&(lt.name=ft),typeof dt<"u"&&(lt.roles=dt);const _t=new URL(this.client.config.endpoint+ct);return await this.client.call("post",_t,{"content-type":"application/json"},lt)}async get(pt){if(typeof pt>"u")throw new tt.AppcondaException('Missing required parameter: "teamId"');const ft="/teams/{teamId}".replace("{teamId}",pt),dt={},ct=new URL(this.client.config.endpoint+ft);return await this.client.call("get",ct,{"content-type":"application/json"},dt)}async updateName(pt,ft){if(typeof pt>"u")throw new tt.AppcondaException('Missing required parameter: "teamId"');if(typeof ft>"u")throw new tt.AppcondaException('Missing required parameter: "name"');const dt="/teams/{teamId}".replace("{teamId}",pt),ct={};typeof ft<"u"&&(ct.name=ft);const lt=new URL(this.client.config.endpoint+dt);return await this.client.call("put",lt,{"content-type":"application/json"},ct)}async delete(pt){if(typeof pt>"u")throw new tt.AppcondaException('Missing required parameter: "teamId"');const ft="/teams/{teamId}".replace("{teamId}",pt),dt={},ct=new URL(this.client.config.endpoint+ft);return await this.client.call("delete",ct,{"content-type":"application/json"},dt)}async listMemberships(pt,ft,dt){if(typeof pt>"u")throw new tt.AppcondaException('Missing required parameter: "teamId"');const ct="/teams/{teamId}/memberships".replace("{teamId}",pt),lt={};typeof ft<"u"&&(lt.queries=ft),typeof dt<"u"&&(lt.search=dt);const _t=new URL(this.client.config.endpoint+ct);return await this.client.call("get",_t,{"content-type":"application/json"},lt)}async createMembership(pt,ft,dt,ct,lt,_t,mt){if(typeof pt>"u")throw new tt.AppcondaException('Missing required parameter: "teamId"');if(typeof ft>"u")throw new tt.AppcondaException('Missing required parameter: "roles"');const at="/teams/{teamId}/memberships".replace("{teamId}",pt),vt={};typeof dt<"u"&&(vt.email=dt),typeof ct<"u"&&(vt.userId=ct),typeof lt<"u"&&(vt.phone=lt),typeof ft<"u"&&(vt.roles=ft),typeof _t<"u"&&(vt.url=_t),typeof mt<"u"&&(vt.name=mt);const Mt=new URL(this.client.config.endpoint+at);return await this.client.call("post",Mt,{"content-type":"application/json"},vt)}async getMembership(pt,ft){if(typeof pt>"u")throw new tt.AppcondaException('Missing required parameter: "teamId"');if(typeof ft>"u")throw new tt.AppcondaException('Missing required parameter: "membershipId"');const dt="/teams/{teamId}/memberships/{membershipId}".replace("{teamId}",pt).replace("{membershipId}",ft),ct={},lt=new URL(this.client.config.endpoint+dt);return await this.client.call("get",lt,{"content-type":"application/json"},ct)}async updateMembership(pt,ft,dt){if(typeof pt>"u")throw new tt.AppcondaException('Missing required parameter: "teamId"');if(typeof ft>"u")throw new tt.AppcondaException('Missing required parameter: "membershipId"');if(typeof dt>"u")throw new tt.AppcondaException('Missing required parameter: "roles"');const ct="/teams/{teamId}/memberships/{membershipId}".replace("{teamId}",pt).replace("{membershipId}",ft),lt={};typeof dt<"u"&&(lt.roles=dt);const _t=new URL(this.client.config.endpoint+ct);return await this.client.call("patch",_t,{"content-type":"application/json"},lt)}async deleteMembership(pt,ft){if(typeof pt>"u")throw new tt.AppcondaException('Missing required parameter: "teamId"');if(typeof ft>"u")throw new tt.AppcondaException('Missing required parameter: "membershipId"');const dt="/teams/{teamId}/memberships/{membershipId}".replace("{teamId}",pt).replace("{membershipId}",ft),ct={},lt=new URL(this.client.config.endpoint+dt);return await this.client.call("delete",lt,{"content-type":"application/json"},ct)}async updateMembershipStatus(pt,ft,dt,ct){if(typeof pt>"u")throw new tt.AppcondaException('Missing required parameter: "teamId"');if(typeof ft>"u")throw new tt.AppcondaException('Missing required parameter: "membershipId"');if(typeof dt>"u")throw new tt.AppcondaException('Missing required parameter: "userId"');if(typeof ct>"u")throw new tt.AppcondaException('Missing required parameter: "secret"');const lt="/teams/{teamId}/memberships/{membershipId}/status".replace("{teamId}",pt).replace("{membershipId}",ft),_t={};typeof dt<"u"&&(_t.userId=dt),typeof ct<"u"&&(_t.secret=ct);const mt=new URL(this.client.config.endpoint+lt);return await this.client.call("patch",mt,{"content-type":"application/json"},_t)}async getPrefs(pt){if(typeof pt>"u")throw new tt.AppcondaException('Missing required parameter: "teamId"');const ft="/teams/{teamId}/prefs".replace("{teamId}",pt),dt={},ct=new URL(this.client.config.endpoint+ft);return await this.client.call("get",ct,{"content-type":"application/json"},dt)}async updatePrefs(pt,ft){if(typeof pt>"u")throw new tt.AppcondaException('Missing required parameter: "teamId"');if(typeof ft>"u")throw new tt.AppcondaException('Missing required parameter: "prefs"');const dt="/teams/{teamId}/prefs".replace("{teamId}",pt),ct={};typeof ft<"u"&&(ct.prefs=ft);const lt=new URL(this.client.config.endpoint+dt);return await this.client.call("put",lt,{"content-type":"application/json"},ct)}}}},nt={};function F(et){var ot=nt[et];if(ot!==void 0)return ot.exports;var it=nt[et]={exports:{}};return bt[et](it,it.exports,F),it.exports}F.d=(et,ot)=>{for(var it in ot)F.o(ot,it)&&!F.o(et,it)&&Object.defineProperty(et,it,{enumerable:!0,get:ot[it]})},F.o=(et,ot)=>Object.prototype.hasOwnProperty.call(et,ot),F.r=et=>{typeof Symbol<"u"&&Symbol.toStringTag&&Object.defineProperty(et,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(et,"__esModule",{value:!0})};var y={};return(()=>{/*!**********************!*\
   !*** ./src/index.ts ***!
-  \**********************/F.r(y),F.d(y,{Client:()=>et.Client,Query:()=>et.Query,AppwriteException:()=>et.AppwriteException,Account:()=>ot.Account,Avatars:()=>it.Avatars,Databases:()=>rt.Databases,Functions:()=>tt.Functions,Graphql:()=>st.Graphql,Locale:()=>gt.Locale,Messaging:()=>pt.Messaging,Storage:()=>ft.Storage,Teams:()=>dt.Teams,Permission:()=>ct.Permission,Role:()=>lt.Role,ID:()=>_t.ID,AuthenticatorType:()=>mt.AuthenticatorType,AuthenticationFactor:()=>at.AuthenticationFactor,OAuthProvider:()=>vt.OAuthProvider,Browser:()=>Mt.Browser,CreditCard:()=>ht.CreditCard,Flag:()=>Lt.Flag,ExecutionMethod:()=>Pt.ExecutionMethod,ImageGravity:()=>zt.ImageGravity,ImageFormat:()=>Ht.ImageFormat});var et=F("./src/client.ts"),ot=F("./src/services/account.ts"),it=F("./src/services/avatars.ts"),rt=F("./src/services/databases.ts"),tt=F("./src/services/functions.ts"),st=F("./src/services/graphql.ts"),gt=F("./src/services/locale.ts"),pt=F("./src/services/messaging.ts"),ft=F("./src/services/storage.ts"),dt=F("./src/services/teams.ts"),ct=F("./src/permission.ts"),lt=F("./src/role.ts"),_t=F("./src/id.ts"),mt=F("./src/enums/authenticator-type.ts"),at=F("./src/enums/authentication-factor.ts"),vt=F("./src/enums/o-auth-provider.ts"),Mt=F("./src/enums/browser.ts"),ht=F("./src/enums/credit-card.ts"),Lt=F("./src/enums/flag.ts"),Pt=F("./src/enums/execution-method.ts"),zt=F("./src/enums/image-gravity.ts"),Ht=F("./src/enums/image-format.ts")})(),y})()})},"./node_modules/@emotion/cache/dist/emotion-cache.browser.development.esm.js":(Rt,bt,nt)=>{nt.r(bt),nt.d(bt,{default:()=>Ht});var F=nt("./node_modules/@emotion/sheet/dist/emotion-sheet.development.esm.js"),y=nt("./node_modules/stylis/src/Tokenizer.js"),et=nt("./node_modules/stylis/src/Utility.js"),ot=nt("./node_modules/stylis/src/Enum.js"),it=nt("./node_modules/stylis/src/Serializer.js"),rt=nt("./node_modules/stylis/src/Middleware.js"),tt=nt("./node_modules/stylis/src/Parser.js");nt("./node_modules/@emotion/weak-memoize/dist/emotion-weak-memoize.esm.js"),nt("./node_modules/@emotion/memoize/dist/emotion-memoize.esm.js");var st=function(kt,jt,Wt){for(var mn=0,Un=0;mn=Un,Un=(0,y.peek)(),mn===38&&Un===12&&(jt[Wt]=1),!(0,y.token)(Un);)(0,y.next)();return(0,y.slice)(kt,y.position)},gt=function(kt,jt){var Wt=-1,mn=44;do switch((0,y.token)(mn)){case 0:mn===38&&(0,y.peek)()===12&&(jt[Wt]=1),kt[Wt]+=st(y.position-1,jt,Wt);break;case 2:kt[Wt]+=(0,y.delimit)(mn);break;case 4:if(mn===44){kt[++Wt]=(0,y.peek)()===58?"&\f":"",jt[Wt]=kt[Wt].length;break}default:kt[Wt]+=(0,et.from)(mn)}while(mn=(0,y.next)());return kt},pt=function(kt,jt){return(0,y.dealloc)(gt((0,y.alloc)(kt),jt))},ft=new WeakMap,dt=function(kt){if(!(kt.type!=="rule"||!kt.parent||kt.length<1)){for(var jt=kt.value,Wt=kt.parent,mn=kt.column===Wt.column&&kt.line===Wt.line;Wt.type!=="rule";)if(Wt=Wt.parent,!Wt)return;if(!(kt.props.length===1&&jt.charCodeAt(0)!==58&&!ft.get(Wt))&&!mn){ft.set(kt,!0);for(var Un=[],Yn=pt(jt,Un),Et=Wt.props,br=0,Fr=0;br<Yn.length;br++)for(var Zr=0;Zr<Et.length;Zr++,Fr++)kt.props[Fr]=Un[br]?Yn[br].replace(/&\f/g,Et[Zr]):Et[Zr]+" "+Yn[br]}}},ct=function(kt){if(kt.type==="decl"){var jt=kt.value;jt.charCodeAt(0)===108&&jt.charCodeAt(2)===98&&(kt.return="",kt.value="")}},lt="emotion-disable-server-rendering-unsafe-selector-warning-please-do-not-use-this-the-warning-exists-for-a-reason",_t=function(kt){return kt.type==="comm"&&kt.children.indexOf(lt)>-1},mt=function(kt){return function(jt,Wt,mn){if(!(jt.type!=="rule"||kt.compat)){var Un=jt.value.match(/(:first|:nth|:nth-last)-child/g);if(Un){for(var Yn=!!jt.parent,Et=Yn?jt.parent.children:mn,br=Et.length-1;br>=0;br--){var Fr=Et[br];if(Fr.line<jt.line)break;if(Fr.column<jt.column){if(_t(Fr))return;break}}Un.forEach(function(Zr){console.error('The pseudo class "'+Zr+'" is potentially unsafe when doing server-side rendering. Try changing it to "'+Zr.split("-child")[0]+'-of-type".')})}}}},at=function(kt){return kt.type.charCodeAt(1)===105&&kt.type.charCodeAt(0)===64},vt=function(kt,jt){for(var Wt=kt-1;Wt>=0;Wt--)if(!at(jt[Wt]))return!0;return!1},Mt=function(kt){kt.type="",kt.value="",kt.return="",kt.children="",kt.props=""},ht=function(kt,jt,Wt){at(kt)&&(kt.parent?(console.error("`@import` rules can't be nested inside other rules. Please move it to the top level and put it before regular rules. Keep in mind that they can only be used within global styles."),Mt(kt)):vt(jt,Wt)&&(console.error("`@import` rules can't be after other rules. Please put your `@import` rules before your other rules."),Mt(kt)))};function Lt(xt,kt){switch((0,et.hash)(xt,kt)){case 5103:return ot.WEBKIT+"print-"+xt+xt;case 5737:case 4201:case 3177:case 3433:case 1641:case 4457:case 2921:case 5572:case 6356:case 5844:case 3191:case 6645:case 3005:case 6391:case 5879:case 5623:case 6135:case 4599:case 4855:case 4215:case 6389:case 5109:case 5365:case 5621:case 3829:return ot.WEBKIT+xt+xt;case 5349:case 4246:case 4810:case 6968:case 2756:return ot.WEBKIT+xt+ot.MOZ+xt+ot.MS+xt+xt;case 6828:case 4268:return ot.WEBKIT+xt+ot.MS+xt+xt;case 6165:return ot.WEBKIT+xt+ot.MS+"flex-"+xt+xt;case 5187:return ot.WEBKIT+xt+(0,et.replace)(xt,/(\w+).+(:[^]+)/,ot.WEBKIT+"box-$1$2"+ot.MS+"flex-$1$2")+xt;case 5443:return ot.WEBKIT+xt+ot.MS+"flex-item-"+(0,et.replace)(xt,/flex-|-self/,"")+xt;case 4675:return ot.WEBKIT+xt+ot.MS+"flex-line-pack"+(0,et.replace)(xt,/align-content|flex-|-self/,"")+xt;case 5548:return ot.WEBKIT+xt+ot.MS+(0,et.replace)(xt,"shrink","negative")+xt;case 5292:return ot.WEBKIT+xt+ot.MS+(0,et.replace)(xt,"basis","preferred-size")+xt;case 6060:return ot.WEBKIT+"box-"+(0,et.replace)(xt,"-grow","")+ot.WEBKIT+xt+ot.MS+(0,et.replace)(xt,"grow","positive")+xt;case 4554:return ot.WEBKIT+(0,et.replace)(xt,/([^-])(transform)/g,"$1"+ot.WEBKIT+"$2")+xt;case 6187:return(0,et.replace)((0,et.replace)((0,et.replace)(xt,/(zoom-|grab)/,ot.WEBKIT+"$1"),/(image-set)/,ot.WEBKIT+"$1"),xt,"")+xt;case 5495:case 3959:return(0,et.replace)(xt,/(image-set\([^]*)/,ot.WEBKIT+"$1$`$1");case 4968:return(0,et.replace)((0,et.replace)(xt,/(.+:)(flex-)?(.*)/,ot.WEBKIT+"box-pack:$3"+ot.MS+"flex-pack:$3"),/s.+-b[^;]+/,"justify")+ot.WEBKIT+xt+xt;case 4095:case 3583:case 4068:case 2532:return(0,et.replace)(xt,/(.+)-inline(.+)/,ot.WEBKIT+"$1$2")+xt;case 8116:case 7059:case 5753:case 5535:case 5445:case 5701:case 4933:case 4677:case 5533:case 5789:case 5021:case 4765:if((0,et.strlen)(xt)-1-kt>6)switch((0,et.charat)(xt,kt+1)){case 109:if((0,et.charat)(xt,kt+4)!==45)break;case 102:return(0,et.replace)(xt,/(.+:)(.+)-([^]+)/,"$1"+ot.WEBKIT+"$2-$3$1"+ot.MOZ+((0,et.charat)(xt,kt+3)==108?"$3":"$2-$3"))+xt;case 115:return~(0,et.indexof)(xt,"stretch")?Lt((0,et.replace)(xt,"stretch","fill-available"),kt)+xt:xt}break;case 4949:if((0,et.charat)(xt,kt+1)!==115)break;case 6444:switch((0,et.charat)(xt,(0,et.strlen)(xt)-3-(~(0,et.indexof)(xt,"!important")&&10))){case 107:return(0,et.replace)(xt,":",":"+ot.WEBKIT)+xt;case 101:return(0,et.replace)(xt,/(.+:)([^;!]+)(;|!.+)?/,"$1"+ot.WEBKIT+((0,et.charat)(xt,14)===45?"inline-":"")+"box$3$1"+ot.WEBKIT+"$2$3$1"+ot.MS+"$2box$3")+xt}break;case 5936:switch((0,et.charat)(xt,kt+11)){case 114:return ot.WEBKIT+xt+ot.MS+(0,et.replace)(xt,/[svh]\w+-[tblr]{2}/,"tb")+xt;case 108:return ot.WEBKIT+xt+ot.MS+(0,et.replace)(xt,/[svh]\w+-[tblr]{2}/,"tb-rl")+xt;case 45:return ot.WEBKIT+xt+ot.MS+(0,et.replace)(xt,/[svh]\w+-[tblr]{2}/,"lr")+xt}return ot.WEBKIT+xt+ot.MS+xt+xt}return xt}var Pt=function(kt,jt,Wt,mn){if(kt.length>-1&&!kt.return)switch(kt.type){case ot.DECLARATION:kt.return=Lt(kt.value,kt.length);break;case ot.KEYFRAMES:return(0,it.serialize)([(0,y.copy)(kt,{value:(0,et.replace)(kt.value,"@","@"+ot.WEBKIT)})],mn);case ot.RULESET:if(kt.length)return(0,et.combine)(kt.props,function(Un){switch((0,et.match)(Un,/(::plac\w+|:read-\w+)/)){case":read-only":case":read-write":return(0,it.serialize)([(0,y.copy)(kt,{props:[(0,et.replace)(Un,/:(read-\w+)/,":"+ot.MOZ+"$1")]})],mn);case"::placeholder":return(0,it.serialize)([(0,y.copy)(kt,{props:[(0,et.replace)(Un,/:(plac\w+)/,":"+ot.WEBKIT+"input-$1")]}),(0,y.copy)(kt,{props:[(0,et.replace)(Un,/:(plac\w+)/,":"+ot.MOZ+"$1")]}),(0,y.copy)(kt,{props:[(0,et.replace)(Un,/:(plac\w+)/,ot.MS+"input-$1")]})],mn)}return""})}},zt=[Pt],Ht=function(kt){var jt=kt.key;if(!jt)throw new Error(`You have to configure \`key\` for your cache. Please make sure it's unique (and not equal to 'css') as it's used for linking styles to your cache.
+  \**********************/F.r(y),F.d(y,{Client:()=>et.Client,Query:()=>et.Query,AppcondaException:()=>et.AppcondaException,Account:()=>ot.Account,Avatars:()=>it.Avatars,Databases:()=>rt.Databases,Functions:()=>tt.Functions,Graphql:()=>st.Graphql,Locale:()=>gt.Locale,Messaging:()=>pt.Messaging,Storage:()=>ft.Storage,Teams:()=>dt.Teams,Permission:()=>ct.Permission,Role:()=>lt.Role,ID:()=>_t.ID,AuthenticatorType:()=>mt.AuthenticatorType,AuthenticationFactor:()=>at.AuthenticationFactor,OAuthProvider:()=>vt.OAuthProvider,Browser:()=>Mt.Browser,CreditCard:()=>ht.CreditCard,Flag:()=>Lt.Flag,ExecutionMethod:()=>Pt.ExecutionMethod,ImageGravity:()=>zt.ImageGravity,ImageFormat:()=>Ht.ImageFormat});var et=F("./src/client.ts"),ot=F("./src/services/account.ts"),it=F("./src/services/avatars.ts"),rt=F("./src/services/databases.ts"),tt=F("./src/services/functions.ts"),st=F("./src/services/graphql.ts"),gt=F("./src/services/locale.ts"),pt=F("./src/services/messaging.ts"),ft=F("./src/services/storage.ts"),dt=F("./src/services/teams.ts"),ct=F("./src/permission.ts"),lt=F("./src/role.ts"),_t=F("./src/id.ts"),mt=F("./src/enums/authenticator-type.ts"),at=F("./src/enums/authentication-factor.ts"),vt=F("./src/enums/o-auth-provider.ts"),Mt=F("./src/enums/browser.ts"),ht=F("./src/enums/credit-card.ts"),Lt=F("./src/enums/flag.ts"),Pt=F("./src/enums/execution-method.ts"),zt=F("./src/enums/image-gravity.ts"),Ht=F("./src/enums/image-format.ts")})(),y})()})},"./node_modules/@emotion/cache/dist/emotion-cache.browser.development.esm.js":(Rt,bt,nt)=>{nt.r(bt),nt.d(bt,{default:()=>Ht});var F=nt("./node_modules/@emotion/sheet/dist/emotion-sheet.development.esm.js"),y=nt("./node_modules/stylis/src/Tokenizer.js"),et=nt("./node_modules/stylis/src/Utility.js"),ot=nt("./node_modules/stylis/src/Enum.js"),it=nt("./node_modules/stylis/src/Serializer.js"),rt=nt("./node_modules/stylis/src/Middleware.js"),tt=nt("./node_modules/stylis/src/Parser.js");nt("./node_modules/@emotion/weak-memoize/dist/emotion-weak-memoize.esm.js"),nt("./node_modules/@emotion/memoize/dist/emotion-memoize.esm.js");var st=function(kt,jt,Wt){for(var mn=0,Un=0;mn=Un,Un=(0,y.peek)(),mn===38&&Un===12&&(jt[Wt]=1),!(0,y.token)(Un);)(0,y.next)();return(0,y.slice)(kt,y.position)},gt=function(kt,jt){var Wt=-1,mn=44;do switch((0,y.token)(mn)){case 0:mn===38&&(0,y.peek)()===12&&(jt[Wt]=1),kt[Wt]+=st(y.position-1,jt,Wt);break;case 2:kt[Wt]+=(0,y.delimit)(mn);break;case 4:if(mn===44){kt[++Wt]=(0,y.peek)()===58?"&\f":"",jt[Wt]=kt[Wt].length;break}default:kt[Wt]+=(0,et.from)(mn)}while(mn=(0,y.next)());return kt},pt=function(kt,jt){return(0,y.dealloc)(gt((0,y.alloc)(kt),jt))},ft=new WeakMap,dt=function(kt){if(!(kt.type!=="rule"||!kt.parent||kt.length<1)){for(var jt=kt.value,Wt=kt.parent,mn=kt.column===Wt.column&&kt.line===Wt.line;Wt.type!=="rule";)if(Wt=Wt.parent,!Wt)return;if(!(kt.props.length===1&&jt.charCodeAt(0)!==58&&!ft.get(Wt))&&!mn){ft.set(kt,!0);for(var Un=[],Yn=pt(jt,Un),Et=Wt.props,br=0,Fr=0;br<Yn.length;br++)for(var Zr=0;Zr<Et.length;Zr++,Fr++)kt.props[Fr]=Un[br]?Yn[br].replace(/&\f/g,Et[Zr]):Et[Zr]+" "+Yn[br]}}},ct=function(kt){if(kt.type==="decl"){var jt=kt.value;jt.charCodeAt(0)===108&&jt.charCodeAt(2)===98&&(kt.return="",kt.value="")}},lt="emotion-disable-server-rendering-unsafe-selector-warning-please-do-not-use-this-the-warning-exists-for-a-reason",_t=function(kt){return kt.type==="comm"&&kt.children.indexOf(lt)>-1},mt=function(kt){return function(jt,Wt,mn){if(!(jt.type!=="rule"||kt.compat)){var Un=jt.value.match(/(:first|:nth|:nth-last)-child/g);if(Un){for(var Yn=!!jt.parent,Et=Yn?jt.parent.children:mn,br=Et.length-1;br>=0;br--){var Fr=Et[br];if(Fr.line<jt.line)break;if(Fr.column<jt.column){if(_t(Fr))return;break}}Un.forEach(function(Zr){console.error('The pseudo class "'+Zr+'" is potentially unsafe when doing server-side rendering. Try changing it to "'+Zr.split("-child")[0]+'-of-type".')})}}}},at=function(kt){return kt.type.charCodeAt(1)===105&&kt.type.charCodeAt(0)===64},vt=function(kt,jt){for(var Wt=kt-1;Wt>=0;Wt--)if(!at(jt[Wt]))return!0;return!1},Mt=function(kt){kt.type="",kt.value="",kt.return="",kt.children="",kt.props=""},ht=function(kt,jt,Wt){at(kt)&&(kt.parent?(console.error("`@import` rules can't be nested inside other rules. Please move it to the top level and put it before regular rules. Keep in mind that they can only be used within global styles."),Mt(kt)):vt(jt,Wt)&&(console.error("`@import` rules can't be after other rules. Please put your `@import` rules before your other rules."),Mt(kt)))};function Lt(xt,kt){switch((0,et.hash)(xt,kt)){case 5103:return ot.WEBKIT+"print-"+xt+xt;case 5737:case 4201:case 3177:case 3433:case 1641:case 4457:case 2921:case 5572:case 6356:case 5844:case 3191:case 6645:case 3005:case 6391:case 5879:case 5623:case 6135:case 4599:case 4855:case 4215:case 6389:case 5109:case 5365:case 5621:case 3829:return ot.WEBKIT+xt+xt;case 5349:case 4246:case 4810:case 6968:case 2756:return ot.WEBKIT+xt+ot.MOZ+xt+ot.MS+xt+xt;case 6828:case 4268:return ot.WEBKIT+xt+ot.MS+xt+xt;case 6165:return ot.WEBKIT+xt+ot.MS+"flex-"+xt+xt;case 5187:return ot.WEBKIT+xt+(0,et.replace)(xt,/(\w+).+(:[^]+)/,ot.WEBKIT+"box-$1$2"+ot.MS+"flex-$1$2")+xt;case 5443:return ot.WEBKIT+xt+ot.MS+"flex-item-"+(0,et.replace)(xt,/flex-|-self/,"")+xt;case 4675:return ot.WEBKIT+xt+ot.MS+"flex-line-pack"+(0,et.replace)(xt,/align-content|flex-|-self/,"")+xt;case 5548:return ot.WEBKIT+xt+ot.MS+(0,et.replace)(xt,"shrink","negative")+xt;case 5292:return ot.WEBKIT+xt+ot.MS+(0,et.replace)(xt,"basis","preferred-size")+xt;case 6060:return ot.WEBKIT+"box-"+(0,et.replace)(xt,"-grow","")+ot.WEBKIT+xt+ot.MS+(0,et.replace)(xt,"grow","positive")+xt;case 4554:return ot.WEBKIT+(0,et.replace)(xt,/([^-])(transform)/g,"$1"+ot.WEBKIT+"$2")+xt;case 6187:return(0,et.replace)((0,et.replace)((0,et.replace)(xt,/(zoom-|grab)/,ot.WEBKIT+"$1"),/(image-set)/,ot.WEBKIT+"$1"),xt,"")+xt;case 5495:case 3959:return(0,et.replace)(xt,/(image-set\([^]*)/,ot.WEBKIT+"$1$`$1");case 4968:return(0,et.replace)((0,et.replace)(xt,/(.+:)(flex-)?(.*)/,ot.WEBKIT+"box-pack:$3"+ot.MS+"flex-pack:$3"),/s.+-b[^;]+/,"justify")+ot.WEBKIT+xt+xt;case 4095:case 3583:case 4068:case 2532:return(0,et.replace)(xt,/(.+)-inline(.+)/,ot.WEBKIT+"$1$2")+xt;case 8116:case 7059:case 5753:case 5535:case 5445:case 5701:case 4933:case 4677:case 5533:case 5789:case 5021:case 4765:if((0,et.strlen)(xt)-1-kt>6)switch((0,et.charat)(xt,kt+1)){case 109:if((0,et.charat)(xt,kt+4)!==45)break;case 102:return(0,et.replace)(xt,/(.+:)(.+)-([^]+)/,"$1"+ot.WEBKIT+"$2-$3$1"+ot.MOZ+((0,et.charat)(xt,kt+3)==108?"$3":"$2-$3"))+xt;case 115:return~(0,et.indexof)(xt,"stretch")?Lt((0,et.replace)(xt,"stretch","fill-available"),kt)+xt:xt}break;case 4949:if((0,et.charat)(xt,kt+1)!==115)break;case 6444:switch((0,et.charat)(xt,(0,et.strlen)(xt)-3-(~(0,et.indexof)(xt,"!important")&&10))){case 107:return(0,et.replace)(xt,":",":"+ot.WEBKIT)+xt;case 101:return(0,et.replace)(xt,/(.+:)([^;!]+)(;|!.+)?/,"$1"+ot.WEBKIT+((0,et.charat)(xt,14)===45?"inline-":"")+"box$3$1"+ot.WEBKIT+"$2$3$1"+ot.MS+"$2box$3")+xt}break;case 5936:switch((0,et.charat)(xt,kt+11)){case 114:return ot.WEBKIT+xt+ot.MS+(0,et.replace)(xt,/[svh]\w+-[tblr]{2}/,"tb")+xt;case 108:return ot.WEBKIT+xt+ot.MS+(0,et.replace)(xt,/[svh]\w+-[tblr]{2}/,"tb-rl")+xt;case 45:return ot.WEBKIT+xt+ot.MS+(0,et.replace)(xt,/[svh]\w+-[tblr]{2}/,"lr")+xt}return ot.WEBKIT+xt+ot.MS+xt+xt}return xt}var Pt=function(kt,jt,Wt,mn){if(kt.length>-1&&!kt.return)switch(kt.type){case ot.DECLARATION:kt.return=Lt(kt.value,kt.length);break;case ot.KEYFRAMES:return(0,it.serialize)([(0,y.copy)(kt,{value:(0,et.replace)(kt.value,"@","@"+ot.WEBKIT)})],mn);case ot.RULESET:if(kt.length)return(0,et.combine)(kt.props,function(Un){switch((0,et.match)(Un,/(::plac\w+|:read-\w+)/)){case":read-only":case":read-write":return(0,it.serialize)([(0,y.copy)(kt,{props:[(0,et.replace)(Un,/:(read-\w+)/,":"+ot.MOZ+"$1")]})],mn);case"::placeholder":return(0,it.serialize)([(0,y.copy)(kt,{props:[(0,et.replace)(Un,/:(plac\w+)/,":"+ot.WEBKIT+"input-$1")]}),(0,y.copy)(kt,{props:[(0,et.replace)(Un,/:(plac\w+)/,":"+ot.MOZ+"$1")]}),(0,y.copy)(kt,{props:[(0,et.replace)(Un,/:(plac\w+)/,ot.MS+"input-$1")]})],mn)}return""})}},zt=[Pt],Ht=function(kt){var jt=kt.key;if(!jt)throw new Error(`You have to configure \`key\` for your cache. Please make sure it's unique (and not equal to 'css') as it's used for linking styles to your cache.
 If multiple caches share the same key they might "fight" for each other's style elements.`);if(jt==="css"){var Wt=document.querySelectorAll("style[data-emotion]:not([data-s])");Array.prototype.forEach.call(Wt,function($n){var fo=$n.getAttribute("data-emotion");fo.indexOf(" ")!==-1&&(document.head.appendChild($n),$n.setAttribute("data-s",""))})}var mn=kt.stylisPlugins||zt;if(/[^a-z-]/.test(jt))throw new Error('Emotion key must only contain lower case alphabetical characters and - but "'+jt+'" was passed');var Un={},Yn,Et=[];Yn=kt.container||document.head,Array.prototype.forEach.call(document.querySelectorAll('style[data-emotion^="'+jt+' "]'),function($n){for(var fo=$n.getAttribute("data-emotion").split(" "),Bo=1;Bo<fo.length;Bo++)Un[fo[Bo]]=!0;Et.push($n)});var br,Fr=[dt,ct];Fr.push(mt({get compat(){return Hr.compat}}),ht);{var Zr,Po=[it.stringify,function($n){$n.root||($n.return?Zr.insert($n.return):$n.value&&$n.type!==ot.COMMENT&&Zr.insert($n.value+"{}"))}],At=(0,rt.middleware)(Fr.concat(mn,Po)),Ir=function(fo){return(0,it.serialize)((0,tt.compile)(fo),At)};br=function(fo,Bo,No,rs){Zr=No,Bo.map!==void 0&&(Zr={insert:function(ds){No.insert(ds+Bo.map)}}),Ir(fo?fo+"{"+Bo.styles+"}":Bo.styles),rs&&(Hr.inserted[Bo.name]=!0)}}var Hr={key:jt,sheet:new F.StyleSheet({key:jt,container:Yn,nonce:kt.nonce,speedy:kt.speedy,prepend:kt.prepend,insertionPoint:kt.insertionPoint}),nonce:kt.nonce,inserted:Un,registered:{},insert:br};return Hr.sheet.hydrate(Et),Hr}},"./node_modules/@emotion/css/create-instance/dist/emotion-css-create-instance.development.esm.js":(Rt,bt,nt)=>{nt.r(bt),nt.d(bt,{default:()=>rt});var F=nt("./node_modules/@emotion/cache/dist/emotion-cache.browser.development.esm.js"),y=nt("./node_modules/@emotion/serialize/dist/emotion-serialize.development.esm.js"),et=nt("./node_modules/@emotion/utils/dist/emotion-utils.browser.esm.js");function ot(st,gt){if(st.inserted[gt.name]===void 0)return st.insert("",gt,st.sheet,!0)}function it(st,gt,pt){var ft=[],dt=(0,et.getRegisteredStyles)(st,ft,pt);return ft.length<2?pt:dt+gt(ft)}var rt=function(gt){var pt=(0,F.default)(gt);pt.sheet.speedy=function(_t){if(this.ctr!==0)throw new Error("speedy must be changed before any rules are inserted");this.isSpeedy=_t},pt.compat=!0;var ft=function(){for(var mt=arguments.length,at=new Array(mt),vt=0;vt<mt;vt++)at[vt]=arguments[vt];var Mt=(0,y.serializeStyles)(at,pt.registered,void 0);return(0,et.insertStyles)(pt,Mt,!1),pt.key+"-"+Mt.name},dt=function(){for(var mt=arguments.length,at=new Array(mt),vt=0;vt<mt;vt++)at[vt]=arguments[vt];var Mt=(0,y.serializeStyles)(at,pt.registered),ht="animation-"+Mt.name;return ot(pt,{name:Mt.name,styles:"@keyframes "+ht+"{"+Mt.styles+"}"}),ht},ct=function(){for(var mt=arguments.length,at=new Array(mt),vt=0;vt<mt;vt++)at[vt]=arguments[vt];var Mt=(0,y.serializeStyles)(at,pt.registered);ot(pt,Mt)},lt=function(){for(var mt=arguments.length,at=new Array(mt),vt=0;vt<mt;vt++)at[vt]=arguments[vt];return it(pt.registered,ft,tt(at))};return{css:ft,cx:lt,injectGlobal:ct,keyframes:dt,hydrate:function(mt){mt.forEach(function(at){pt.inserted[at]=!0})},flush:function(){pt.registered={},pt.inserted={},pt.sheet.flush()},sheet:pt.sheet,cache:pt,getRegisteredStyles:et.getRegisteredStyles.bind(null,pt.registered),merge:it.bind(null,pt.registered,ft)}},tt=function st(gt){for(var pt="",ft=0;ft<gt.length;ft++){var dt=gt[ft];if(dt!=null){var ct=void 0;switch(typeof dt){case"boolean":break;case"object":{if(Array.isArray(dt))ct=st(dt);else{ct="";for(var lt in dt)dt[lt]&&lt&&(ct&&(ct+=" "),ct+=lt)}break}default:ct=dt}ct&&(pt&&(pt+=" "),pt+=ct)}}return pt}},"./node_modules/@emotion/css/dist/emotion-css.development.esm.js":(Rt,bt,nt)=>{nt.r(bt),nt.d(bt,{cache:()=>dt,css:()=>pt,cx:()=>it,flush:()=>et,getRegisteredStyles:()=>tt,hydrate:()=>ot,injectGlobal:()=>st,keyframes:()=>gt,merge:()=>rt,sheet:()=>ft});var F=nt("./node_modules/@emotion/css/create-instance/dist/emotion-css-create-instance.development.esm.js");nt("./node_modules/@emotion/cache/dist/emotion-cache.browser.development.esm.js"),nt("./node_modules/@emotion/serialize/dist/emotion-serialize.development.esm.js"),nt("./node_modules/@emotion/utils/dist/emotion-utils.browser.esm.js");var y=(0,F.default)({key:"css"}),et=y.flush,ot=y.hydrate,it=y.cx,rt=y.merge,tt=y.getRegisteredStyles,st=y.injectGlobal,gt=y.keyframes,pt=y.css,ft=y.sheet,dt=y.cache},"./node_modules/@emotion/hash/dist/emotion-hash.esm.js":(Rt,bt,nt)=>{nt.r(bt),nt.d(bt,{default:()=>F});function F(y){for(var et=0,ot,it=0,rt=y.length;rt>=4;++it,rt-=4)ot=y.charCodeAt(it)&255|(y.charCodeAt(++it)&255)<<8|(y.charCodeAt(++it)&255)<<16|(y.charCodeAt(++it)&255)<<24,ot=(ot&65535)*1540483477+((ot>>>16)*59797<<16),ot^=ot>>>24,et=(ot&65535)*1540483477+((ot>>>16)*59797<<16)^(et&65535)*1540483477+((et>>>16)*59797<<16);switch(rt){case 3:et^=(y.charCodeAt(it+2)&255)<<16;case 2:et^=(y.charCodeAt(it+1)&255)<<8;case 1:et^=y.charCodeAt(it)&255,et=(et&65535)*1540483477+((et>>>16)*59797<<16)}return et^=et>>>13,et=(et&65535)*1540483477+((et>>>16)*59797<<16),((et^et>>>15)>>>0).toString(36)}},"./node_modules/@emotion/memoize/dist/emotion-memoize.esm.js":(Rt,bt,nt)=>{nt.r(bt),nt.d(bt,{default:()=>F});function F(y){var et=Object.create(null);return function(ot){return et[ot]===void 0&&(et[ot]=y(ot)),et[ot]}}},"./node_modules/@emotion/serialize/dist/emotion-serialize.development.esm.js":(Rt,bt,nt)=>{nt.r(bt),nt.d(bt,{serializeStyles:()=>xt});var F=nt("./node_modules/@emotion/hash/dist/emotion-hash.esm.js"),y=nt("./node_modules/@emotion/unitless/dist/emotion-unitless.esm.js"),et=nt("./node_modules/@emotion/memoize/dist/emotion-memoize.esm.js"),ot=!0,it=`You have illegal escape sequence in your template literal, most likely inside content's property value.
 Because you write your CSS inside a JavaScript string you actually have to do double escaping, so for example "content: '\\00d7';" should become "content: '\\\\00d7';".
 You can read more about this here:
@@ -8251,7 +8251,7 @@ React keys must be passed directly to JSX without using spread:
   \**********************/Ct.r(Rt),Ct.d(Rt,{Alignment:()=>ot.Alignment,BodyClass:()=>at.BodyClass,Button:()=>st.Button,ButtonClass:()=>st.ButtonClass,ButtonSize:()=>st.ButtonSize,ButtonType:()=>st.ButtonType,CornerRadiusTypes:()=>ot.CornerRadiusTypes,DividerClass:()=>Lt.DividerClass,Dropdown:()=>ft.Dropdown,DropdownClass:()=>ft.DropdownClass,FontSizeTypes:()=>ot.FontSizeTypes,FontSmoothingTypes:()=>ot.FontSmoothingTypes,Fonts:()=>ot.Fonts,ForEach:()=>dt.ForEach,Fragment:()=>tt.Fragment,FragmentClass:()=>tt.FragmentClass,HDivider:()=>Lt.HDivider,HStack:()=>F.HStack,HashRouter:()=>jt.HashRouter,Icon:()=>Mt.Icon,IconClass:()=>Mt.IconClass,LENGTH:()=>xt.LENGTH,Link:()=>jt.Link,LoaderSizes:()=>Pt.LoaderSizes,MaskTypes:()=>gt.MaskTypes,PositionTypes:()=>ot.PositionTypes,ReactView:()=>ht.ReactView,Route:()=>kt.Route,Router:()=>kt.Router,Routes:()=>kt.Routes,ScrollView:()=>mt.ScrollView,SecureField:()=>pt.SecureField,SecureFieldClass:()=>pt.SecureFieldClass,ShadowTypes:()=>ot.ShadowTypes,Spacer:()=>_t.Spacer,SpacerClass:()=>_t.SpacerClass,Spinner:()=>Pt.Spinner,StartBios:()=>zt.StartBios,State:()=>it.State,TBody:()=>at.TBody,TableClass:()=>at.TableClass,TableColumn:()=>at.TableColumn,TableColumnClass:()=>at.TableColumnClass,Text:()=>et.Text,TextField:()=>gt.TextField,TextFieldClass:()=>gt.TextFieldClass,TuTextField:()=>gt.TuTextField,UIButton:()=>st.UIButton,UIController:()=>it.UIController,UIFileUpload:()=>vt.UIFileUpload,UIFileUploadClass:()=>vt.UIFileUploadClass,UIImage:()=>ct.UIImage,UIImageClass:()=>ct.UIImageClass,UINavigate:()=>rt.UINavigate,UINavigateClass:()=>rt.UINavigateClass,UIRoute:()=>rt.UIRoute,UIRouteClass:()=>rt.UIRouteClass,UIRouteLink:()=>rt.UIRouteLink,UIRouteLinkClass:()=>rt.UIRouteLinkClass,UIRouteOutlet:()=>rt.UIRouteOutlet,UIRouteOutletClass:()=>rt.UIRouteOutletClass,UIRoutes:()=>rt.UIRoutes,UIRoutesClass:()=>rt.UIRoutesClass,UISpinnerClass:()=>Pt.UISpinnerClass,UITable:()=>at.UITable,UIView:()=>nt.UIView,UIViewBuilder:()=>lt.UIViewBuilder,UIViewBuilderClass:()=>lt.UIViewBuilderClass,VDivider:()=>Lt.VDivider,VOID0:()=>xt.VOID0,VStack:()=>y.VStack,ViewProperty:()=>bt.ViewProperty,_BOOLEAN:()=>xt._BOOLEAN,_FUNCTION:()=>xt._FUNCTION,_NUMBER:()=>xt._NUMBER,_OBJECT:()=>xt._OBJECT,_STRING:()=>xt._STRING,_SYMBOL:()=>xt._SYMBOL,_UNDEFINED:()=>xt._UNDEFINED,cAll:()=>ot.cAll,cBottom:()=>ot.cBottom,cBottomLeading:()=>ot.cBottomLeading,cBottomTrailing:()=>ot.cBottomTrailing,cCenter:()=>ot.cCenter,cHorizontal:()=>ot.cHorizontal,cLeading:()=>ot.cLeading,cLeft:()=>ot.cLeft,cRight:()=>ot.cRight,cTop:()=>ot.cTop,cTopLeading:()=>ot.cTopLeading,cTopTrailing:()=>ot.cTopTrailing,cTrailing:()=>ot.cTrailing,cVertical:()=>ot.cVertical,is:()=>xt.is,urlFriendly:()=>Ht.urlFriendly,useLocation:()=>kt.useLocation,useNavigate:()=>kt.useNavigate,useParams:()=>mn});var bt=Ct("./src/views/UIView/ViewProperty.ts"),nt=Ct("./src/views/UIView/UIView.tsx"),F=Ct("./src/views/HStack/HStack.ts"),y=Ct("./src/views/VStack/VStack.ts"),et=Ct("./src/views/Text/Text.ts"),ot=Ct("./src/views/UIView/Constants.ts"),it=Ct("./src/views/Controller/UIController.tsx"),rt=Ct("./src/views/Router/index.ts"),tt=Ct("./src/views/Fragment/index.ts"),st=Ct("./src/views/Button/index.ts"),gt=Ct("./src/views/TextField/index.ts"),pt=Ct("./src/views/SecureField/index.ts"),ft=Ct("./src/views/Dropdown/index.ts"),dt=Ct("./src/ForEach.ts"),ct=Ct("./src/views/UIImage/index.ts"),lt=Ct("./src/views/UIViewBuilder/index.ts"),_t=Ct("./src/views/Spacer/Spacer.tsx"),mt=Ct("./src/views/ScrollView/ScrollView.ts"),at=Ct("./src/views/UITable/index.ts"),vt=Ct("./src/views/UIFileUpload/index.ts"),Mt=Ct("./src/views/Icon/index.ts"),ht=Ct("./src/views/ReactView/ReactView.ts"),Lt=Ct("./src/views/Divider/index.ts"),Pt=Ct("./src/views/UISpinner/index.ts"),zt=Ct("./src/StartBios.tsx"),Ht=Ct("./src/urlFriendly.ts"),xt=Ct("./src/is.ts"),kt=Ct("./node_modules/react-router/dist/index.js"),jt=Ct("./node_modules/react-router-dom/dist/index.js");function Wt(Un){var Yn=/\[(.*?)\]/,Et=Un.match(Yn);return Et&&Et[1]?Et[1]:null}function mn(){var Un,Yn=(0,kt.useParams)(),Et={};for(var br in Yn){var Fr=Yn[br].split("-");if(Fr.length>1){var Zr=(Un=Wt(Fr[Fr.length-1]))!==null&&Un!==void 0?Un:Fr[Fr.length-1];Et[br]=Zr}else Et[br]=Yn[br]}return Et}})(),Rt})())})(tuval);var tuvalExports=tuval.exports;const Route$5=createRootRoute({component:()=>{const _=useRouter();return jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment,{children:[tuvalExports.HStack(tuvalExports.ReactView(jsxRuntimeExports.jsxs("div",{className:"p-2 flex gap-2",children:[jsxRuntimeExports.jsx(Link,{to:"/",className:"[&.active]:font-bold",children:"Home"})," ",jsxRuntimeExports.jsx(Link,{to:"/projects",className:"[&.active]:font-bold",children:"Projects"}),jsxRuntimeExports.jsx(reactSdkExports.SignOutButton,{onLogOut:()=>_.navigate({to:"/login"}),onError:()=>alert("error")})]}))).height().render(),jsxRuntimeExports.jsx(Outlet,{}),jsxRuntimeExports.jsx(TanStackRouterDevtools,{})]})}}),Route$4=createFileRoute("/projects")({component:()=>jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment,{children:[jsxRuntimeExports.jsxs("div",{className:"p-2 flex gap-2",children:[jsxRuntimeExports.jsx(Link,{to:"/",className:"[&.active]:font-bold",children:"Home"})," ",jsxRuntimeExports.jsx(Link,{to:"/projects/list",className:"[&.active]:font-bold",children:"Projects"})]}),jsxRuntimeExports.jsx("hr",{}),jsxRuntimeExports.jsx(Outlet,{})]})});var consoleSdk={exports:{}};(function(module,exports){(function(b,$){module.exports=$()})(self,function(){return(()=>{var __webpack_modules__={"./src/client.ts":(__unused_webpack_module,__webpack_exports__,__webpack_require__)=>{eval(`__webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "Client": () => (/* binding */ Client),
-/* harmony export */   "AppwriteException": () => (/* binding */ AppwriteException),
+/* harmony export */   "AppcondaException": () => (/* binding */ AppcondaException),
 /* harmony export */   "Query": () => (/* reexport safe */ _query__WEBPACK_IMPORTED_MODULE_0__.Query)
 /* harmony export */ });
 /* harmony import */ var _query__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./query */ "./src/query.ts");
@@ -8267,7 +8267,7 @@ var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _argume
 /**
  * Exception thrown by the  package
  */
-class AppwriteException extends Error {
+class AppcondaException extends Error {
     /**
      * Initializes a Appconda Exception.
      *
@@ -8278,7 +8278,7 @@ class AppwriteException extends Error {
      */
     constructor(message, code = 0, type = '', response = '') {
         super(message);
-        this.name = 'AppwriteException';
+        this.name = 'AppcondaException';
         this.message = message;
         this.code = code;
         this.type = type;
@@ -8675,7 +8675,7 @@ class Client {
                 };
             }
             if (400 <= response.status) {
-                throw new AppwriteException(data === null || data === void 0 ? void 0 : data.message, response.status, data === null || data === void 0 ? void 0 : data.type, data);
+                throw new AppcondaException(data === null || data === void 0 ? void 0 : data.message, response.status, data === null || data === void 0 ? void 0 : data.type, data);
             }
             const cookieFallback = response.headers.get('X-Fallback-Cookies');
             if (typeof window !== 'undefined' && window.localStorage && cookieFallback) {
@@ -9769,7 +9769,7 @@ _a = ID, _ID_hexTimestamp = function _ID_hexTimestamp() {
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "Client": () => (/* reexport safe */ _client__WEBPACK_IMPORTED_MODULE_0__.Client),
 /* harmony export */   "Query": () => (/* reexport safe */ _client__WEBPACK_IMPORTED_MODULE_0__.Query),
-/* harmony export */   "AppwriteException": () => (/* reexport safe */ _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException),
+/* harmony export */   "AppcondaException": () => (/* reexport safe */ _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException),
 /* harmony export */   "Account": () => (/* reexport safe */ _services_account__WEBPACK_IMPORTED_MODULE_1__.Account),
 /* harmony export */   "Avatars": () => (/* reexport safe */ _services_avatars__WEBPACK_IMPORTED_MODULE_2__.Avatars),
 /* harmony export */   "Assistant": () => (/* reexport safe */ _services_assistant__WEBPACK_IMPORTED_MODULE_3__.Assistant),
@@ -10368,7 +10368,7 @@ class Account {
      *
      * Get the currently logged in user.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     get() {
@@ -10391,19 +10391,19 @@ class Account {
      * @param {string} email
      * @param {string} password
      * @param {string} name
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     create(userId, email, password, name) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "userId"');
             }
             if (typeof email === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "email"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "email"');
             }
             if (typeof password === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "password"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "password"');
             }
             const apiPath = '/account';
             const payload = {};
@@ -10431,7 +10431,7 @@ class Account {
      *
      * Delete the currently logged in user.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     delete() {
@@ -10454,16 +10454,16 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      *
      * @param {string} email
      * @param {string} password
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     updateEmail(email, password) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof email === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "email"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "email"');
             }
             if (typeof password === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "password"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "password"');
             }
             const apiPath = '/account/email';
             const payload = {};
@@ -10486,7 +10486,7 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      * Get the list of identities for the currently logged in user.
      *
      * @param {string[]} queries
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.IdentityList>}
      */
     listIdentities(queries) {
@@ -10509,13 +10509,13 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      * Delete an identity by its unique ID.
      *
      * @param {string} identityId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteIdentity(identityId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof identityId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "identityId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "identityId"');
             }
             const apiPath = '/account/identities/{identityId}'.replace('{identityId}', identityId);
             const payload = {};
@@ -10531,7 +10531,7 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      *
      * Use this endpoint to create a JSON Web Token. You can use the resulting JWT to authenticate on behalf of the current user when working with the Appconda server-side API and SDKs. The JWT secret is valid for 15 minutes from its creation and will be invalid if the user will logout in that time frame.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Jwt>}
      */
     createJWT() {
@@ -10551,7 +10551,7 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      * Get the list of latest security activity logs for the currently logged in user. Each log returns user IP address, location and date and time of log.
      *
      * @param {string[]} queries
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.LogList>}
      */
     listLogs(queries) {
@@ -10574,13 +10574,13 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      * Enable or disable MFA on an account.
      *
      * @param {boolean} mfa
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     updateMFA(mfa) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof mfa === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "mfa"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "mfa"');
             }
             const apiPath = '/account/mfa';
             const payload = {};
@@ -10600,13 +10600,13 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      * Add an authenticator app to be used as an MFA factor. Verify the authenticator using the [verify authenticator](/docs/references/cloud/client-web/account#updateMfaAuthenticator) method.
      *
      * @param {AuthenticatorType} type
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.MfaType>}
      */
     createMfaAuthenticator(type) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof type === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "type"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "type"');
             }
             const apiPath = '/account/mfa/authenticators/{type}'.replace('{type}', type);
             const payload = {};
@@ -10624,16 +10624,16 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      *
      * @param {AuthenticatorType} type
      * @param {string} otp
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     updateMfaAuthenticator(type, otp) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof type === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "type"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "type"');
             }
             if (typeof otp === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "otp"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "otp"');
             }
             const apiPath = '/account/mfa/authenticators/{type}'.replace('{type}', type);
             const payload = {};
@@ -10653,13 +10653,13 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      * Delete an authenticator for a user by ID.
      *
      * @param {AuthenticatorType} type
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteMfaAuthenticator(type) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof type === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "type"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "type"');
             }
             const apiPath = '/account/mfa/authenticators/{type}'.replace('{type}', type);
             const payload = {};
@@ -10676,13 +10676,13 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      * Begin the process of MFA verification after sign-in. Finish the flow with [updateMfaChallenge](/docs/references/cloud/client-web/account#updateMfaChallenge) method.
      *
      * @param {AuthenticationFactor} factor
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.MfaChallenge>}
      */
     createMfaChallenge(factor) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof factor === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "factor"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "factor"');
             }
             const apiPath = '/account/mfa/challenge';
             const payload = {};
@@ -10703,16 +10703,16 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      *
      * @param {string} challengeId
      * @param {string} otp
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     updateMfaChallenge(challengeId, otp) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof challengeId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "challengeId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "challengeId"');
             }
             if (typeof otp === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "otp"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "otp"');
             }
             const apiPath = '/account/mfa/challenge';
             const payload = {};
@@ -10734,7 +10734,7 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      *
      * List the factors available on the account to be used as a MFA challange.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.MfaFactors>}
      */
     listMfaFactors() {
@@ -10753,7 +10753,7 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      *
      * Get recovery codes that can be used as backup for MFA flow. Before getting codes, they must be generated using [createMfaRecoveryCodes](/docs/references/cloud/client-web/account#createMfaRecoveryCodes) method. An OTP challenge is required to read recovery codes.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.MfaRecoveryCodes>}
      */
     getMfaRecoveryCodes() {
@@ -10772,7 +10772,7 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      *
      * Generate recovery codes as backup for MFA flow. It&#039;s recommended to generate and show then immediately after user successfully adds their authehticator. Recovery codes can be used as a MFA verification type in [createMfaChallenge](/docs/references/cloud/client-web/account#createMfaChallenge) method.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.MfaRecoveryCodes>}
      */
     createMfaRecoveryCodes() {
@@ -10791,7 +10791,7 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      *
      * Regenerate recovery codes that can be used as backup for MFA flow. Before regenerating codes, they must be first generated using [createMfaRecoveryCodes](/docs/references/cloud/client-web/account#createMfaRecoveryCodes) method. An OTP challenge is required to regenreate recovery codes.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.MfaRecoveryCodes>}
      */
     updateMfaRecoveryCodes() {
@@ -10811,13 +10811,13 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      * Update currently logged in user account name.
      *
      * @param {string} name
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     updateName(name) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof name === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "name"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "name"');
             }
             const apiPath = '/account/name';
             const payload = {};
@@ -10838,13 +10838,13 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      *
      * @param {string} password
      * @param {string} oldPassword
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     updatePassword(password, oldPassword) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof password === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "password"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "password"');
             }
             const apiPath = '/account/password';
             const payload = {};
@@ -10868,16 +10868,16 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      *
      * @param {string} phone
      * @param {string} password
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     updatePhone(phone, password) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof phone === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "phone"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "phone"');
             }
             if (typeof password === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "password"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "password"');
             }
             const apiPath = '/account/phone';
             const payload = {};
@@ -10899,7 +10899,7 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      *
      * Get the preferences as a key-value object for the currently logged in user.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Preferences>}
      */
     getPrefs() {
@@ -10919,13 +10919,13 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      * Update currently logged in user account preferences. The object you pass is stored as is, and replaces any previous value. The maximum allowed prefs size is 64kB and throws error if exceeded.
      *
      * @param {Partial<Preferences>} prefs
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     updatePrefs(prefs) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof prefs === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "prefs"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "prefs"');
             }
             const apiPath = '/account/prefs';
             const payload = {};
@@ -10946,16 +10946,16 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      *
      * @param {string} email
      * @param {string} url
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Token>}
      */
     createRecovery(email, url) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof email === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "email"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "email"');
             }
             if (typeof url === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "url"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "url"');
             }
             const apiPath = '/account/recovery';
             const payload = {};
@@ -10982,19 +10982,19 @@ Please note that in order to avoid a [Redirect Attack](https://github.com/OWASP/
      * @param {string} userId
      * @param {string} secret
      * @param {string} password
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Token>}
      */
     updateRecovery(userId, secret, password) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "userId"');
             }
             if (typeof secret === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "secret"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "secret"');
             }
             if (typeof password === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "password"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "password"');
             }
             const apiPath = '/account/recovery';
             const payload = {};
@@ -11019,7 +11019,7 @@ Please note that in order to avoid a [Redirect Attack](https://github.com/OWASP/
      *
      * Get the list of active sessions across different devices for the currently logged in user.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.SessionList>}
      */
     listSessions() {
@@ -11038,7 +11038,7 @@ Please note that in order to avoid a [Redirect Attack](https://github.com/OWASP/
      *
      * Delete all sessions from the user account and remove any sessions cookies from the end client.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteSessions() {
@@ -11057,7 +11057,7 @@ Please note that in order to avoid a [Redirect Attack](https://github.com/OWASP/
      *
      * Use this endpoint to allow a new user to register an anonymous account in your project. This route will also create a new session for the user. To allow the new user to convert an anonymous account to a normal account, you need to update its [email and password](https://appconda.io/docs/references/cloud/client-web/account#updateEmail) or create an [OAuth2 session](https://appconda.io/docs/references/cloud/client-web/account#CreateOAuth2Session).
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Session>}
      */
     createAnonymousSession() {
@@ -11080,16 +11080,16 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
      *
      * @param {string} email
      * @param {string} password
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Session>}
      */
     createEmailPasswordSession(email, password) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof email === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "email"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "email"');
             }
             if (typeof password === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "password"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "password"');
             }
             const apiPath = '/account/sessions/email';
             const payload = {};
@@ -11113,16 +11113,16 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
      *
      * @param {string} userId
      * @param {string} secret
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Session>}
      */
     updateMagicURLSession(userId, secret) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "userId"');
             }
             if (typeof secret === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "secret"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "secret"');
             }
             const apiPath = '/account/sessions/magic-url';
             const payload = {};
@@ -11153,13 +11153,13 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
      * @param {string} success
      * @param {string} failure
      * @param {string[]} scopes
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<void | string>}
      */
     createOAuth2Session(provider, success, failure, scopes) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof provider === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "provider"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "provider"');
             }
             const apiPath = '/account/sessions/oauth2/{provider}'.replace('{provider}', provider);
             const payload = {};
@@ -11196,16 +11196,16 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
      *
      * @param {string} userId
      * @param {string} secret
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Session>}
      */
     updatePhoneSession(userId, secret) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "userId"');
             }
             if (typeof secret === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "secret"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "secret"');
             }
             const apiPath = '/account/sessions/phone';
             const payload = {};
@@ -11229,16 +11229,16 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
      *
      * @param {string} userId
      * @param {string} secret
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Session>}
      */
     createSession(userId, secret) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "userId"');
             }
             if (typeof secret === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "secret"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "secret"');
             }
             const apiPath = '/account/sessions/token';
             const payload = {};
@@ -11261,13 +11261,13 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
      * Use this endpoint to get a logged in user&#039;s session using a Session ID. Inputting &#039;current&#039; will return the current session being used.
      *
      * @param {string} sessionId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Session>}
      */
     getSession(sessionId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof sessionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "sessionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "sessionId"');
             }
             const apiPath = '/account/sessions/{sessionId}'.replace('{sessionId}', sessionId);
             const payload = {};
@@ -11284,13 +11284,13 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
      * Use this endpoint to extend a session&#039;s length. Extending a session is useful when session expiry is short. If the session was created using an OAuth provider, this endpoint refreshes the access token from the provider.
      *
      * @param {string} sessionId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Session>}
      */
     updateSession(sessionId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof sessionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "sessionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "sessionId"');
             }
             const apiPath = '/account/sessions/{sessionId}'.replace('{sessionId}', sessionId);
             const payload = {};
@@ -11307,13 +11307,13 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
      * Logout the user. Use &#039;current&#039; as the session ID to logout on this device, use a session ID to logout on another device. If you&#039;re looking to logout the user on all devices, use [Delete Sessions](https://appconda.io/docs/references/cloud/client-web/account#deleteSessions) instead.
      *
      * @param {string} sessionId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteSession(sessionId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof sessionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "sessionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "sessionId"');
             }
             const apiPath = '/account/sessions/{sessionId}'.replace('{sessionId}', sessionId);
             const payload = {};
@@ -11329,7 +11329,7 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
      *
      * Block the currently logged in user account. Behind the scene, the user record is not deleted but permanently blocked from any access. To completely delete a user, use the Users API instead.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     updateStatus() {
@@ -11350,16 +11350,16 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
      * @param {string} targetId
      * @param {string} identifier
      * @param {string} providerId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Target>}
      */
     createPushTarget(targetId, identifier, providerId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof targetId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "targetId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "targetId"');
             }
             if (typeof identifier === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "identifier"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "identifier"');
             }
             const apiPath = '/account/targets/push';
             const payload = {};
@@ -11385,16 +11385,16 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
      *
      * @param {string} targetId
      * @param {string} identifier
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Target>}
      */
     updatePushTarget(targetId, identifier) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof targetId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "targetId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "targetId"');
             }
             if (typeof identifier === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "identifier"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "identifier"');
             }
             const apiPath = '/account/targets/{targetId}/push'.replace('{targetId}', targetId);
             const payload = {};
@@ -11413,13 +11413,13 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
      *
      *
      * @param {string} targetId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deletePushTarget(targetId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof targetId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "targetId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "targetId"');
             }
             const apiPath = '/account/targets/{targetId}/push'.replace('{targetId}', targetId);
             const payload = {};
@@ -11440,16 +11440,16 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
      * @param {string} userId
      * @param {string} email
      * @param {boolean} phrase
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Token>}
      */
     createEmailToken(userId, email, phrase) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "userId"');
             }
             if (typeof email === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "email"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "email"');
             }
             const apiPath = '/account/tokens/email';
             const payload = {};
@@ -11481,16 +11481,16 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
      * @param {string} email
      * @param {string} url
      * @param {boolean} phrase
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Token>}
      */
     createMagicURLToken(userId, email, url, phrase) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "userId"');
             }
             if (typeof email === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "email"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "email"');
             }
             const apiPath = '/account/tokens/magic-url';
             const payload = {};
@@ -11526,13 +11526,13 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
      * @param {string} success
      * @param {string} failure
      * @param {string[]} scopes
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<void | string>}
      */
     createOAuth2Token(provider, success, failure, scopes) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof provider === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "provider"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "provider"');
             }
             const apiPath = '/account/tokens/oauth2/{provider}'.replace('{provider}', provider);
             const payload = {};
@@ -11571,16 +11571,16 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
      *
      * @param {string} userId
      * @param {string} phone
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Token>}
      */
     createPhoneToken(userId, phone) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "userId"');
             }
             if (typeof phone === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "phone"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "phone"');
             }
             const apiPath = '/account/tokens/phone';
             const payload = {};
@@ -11606,13 +11606,13 @@ Please note that in order to avoid a [Redirect Attack](https://github.com/OWASP/
 
      *
      * @param {string} url
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Token>}
      */
     createVerification(url) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof url === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "url"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "url"');
             }
             const apiPath = '/account/verification';
             const payload = {};
@@ -11633,16 +11633,16 @@ Please note that in order to avoid a [Redirect Attack](https://github.com/OWASP/
      *
      * @param {string} userId
      * @param {string} secret
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Token>}
      */
     updateVerification(userId, secret) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "userId"');
             }
             if (typeof secret === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "secret"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "secret"');
             }
             const apiPath = '/account/verification';
             const payload = {};
@@ -11664,7 +11664,7 @@ Please note that in order to avoid a [Redirect Attack](https://github.com/OWASP/
      *
      * Use this endpoint to send a verification SMS to the currently logged in user. This endpoint is meant for use after updating a user&#039;s phone number using the [accountUpdatePhone](https://appconda.io/docs/references/cloud/client-web/account#updatePhone) endpoint. Learn more about how to [complete the verification process](https://appconda.io/docs/references/cloud/client-web/account#updatePhoneVerification). The verification code sent to the user&#039;s phone number is valid for 15 minutes.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Token>}
      */
     createPhoneVerification() {
@@ -11685,16 +11685,16 @@ Please note that in order to avoid a [Redirect Attack](https://github.com/OWASP/
      *
      * @param {string} userId
      * @param {string} secret
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Token>}
      */
     updatePhoneVerification(userId, secret) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "userId"');
             }
             if (typeof secret === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "secret"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "secret"');
             }
             const apiPath = '/account/verification/phone';
             const payload = {};
@@ -11738,13 +11738,13 @@ class Assistant {
      *
      *
      * @param {string} prompt
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     chat(prompt) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof prompt === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "prompt"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "prompt"');
             }
             const apiPath = '/console/assistant';
             const payload = {};
@@ -11784,12 +11784,12 @@ When one dimension is specified and the other is 0, the image is scaled with pre
      * @param {number} width
      * @param {number} height
      * @param {number} quality
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {string}
      */
     getBrowser(code, width, height, quality) {
         if (typeof code === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "code"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "code"');
         }
         const apiPath = '/avatars/browsers/{code}'.replace('{code}', code);
         const payload = {};
@@ -11828,12 +11828,12 @@ When one dimension is specified and the other is 0, the image is scaled with pre
      * @param {number} width
      * @param {number} height
      * @param {number} quality
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {string}
      */
     getCreditCard(code, width, height, quality) {
         if (typeof code === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "code"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "code"');
         }
         const apiPath = '/avatars/credit-cards/{code}'.replace('{code}', code);
         const payload = {};
@@ -11868,12 +11868,12 @@ When one dimension is specified and the other is 0, the image is scaled with pre
 This endpoint does not follow HTTP redirects.
      *
      * @param {string} url
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {string}
      */
     getFavicon(url) {
         if (typeof url === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "url"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "url"');
         }
         const apiPath = '/avatars/favicon';
         const payload = {};
@@ -11906,12 +11906,12 @@ When one dimension is specified and the other is 0, the image is scaled with pre
      * @param {number} width
      * @param {number} height
      * @param {number} quality
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {string}
      */
     getFlag(code, width, height, quality) {
         if (typeof code === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "code"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "code"');
         }
         const apiPath = '/avatars/flags/{code}'.replace('{code}', code);
         const payload = {};
@@ -11950,12 +11950,12 @@ This endpoint does not follow HTTP redirects.
      * @param {string} url
      * @param {number} width
      * @param {number} height
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {string}
      */
     getImage(url, width, height) {
         if (typeof url === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "url"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "url"');
         }
         const apiPath = '/avatars/image';
         const payload = {};
@@ -11996,7 +11996,7 @@ When one dimension is specified and the other is 0, the image is scaled with pre
      * @param {number} width
      * @param {number} height
      * @param {string} background
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {string}
      */
     getInitials(name, width, height, background) {
@@ -12038,12 +12038,12 @@ When one dimension is specified and the other is 0, the image is scaled with pre
      * @param {number} size
      * @param {number} margin
      * @param {boolean} download
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {string}
      */
     getQR(text, size, margin, download) {
         if (typeof text === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "text"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "text"');
         }
         const apiPath = '/avatars/qr';
         const payload = {};
@@ -12098,7 +12098,7 @@ class Console {
      *
      * Get all Environment Variables that are relevant for the console.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.ConsoleVariables>}
      */
     variables() {
@@ -12141,7 +12141,7 @@ class Databases {
      *
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.DatabaseList>}
      */
     list(queries, search) {
@@ -12170,16 +12170,16 @@ class Databases {
      * @param {string} databaseId
      * @param {string} name
      * @param {boolean} enabled
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Database>}
      */
     create(databaseId, name, enabled) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof name === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "name"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "name"');
             }
             const apiPath = '/databases';
             const payload = {};
@@ -12204,7 +12204,7 @@ class Databases {
      *
      *
      * @param {DatabaseUsageRange} range
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.UsageDatabases>}
      */
     getUsage(range) {
@@ -12227,13 +12227,13 @@ class Databases {
      * Get a database by its unique ID. This endpoint response returns a JSON object with the database metadata.
      *
      * @param {string} databaseId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Database>}
      */
     get(databaseId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             const apiPath = '/databases/{databaseId}'.replace('{databaseId}', databaseId);
             const payload = {};
@@ -12252,16 +12252,16 @@ class Databases {
      * @param {string} databaseId
      * @param {string} name
      * @param {boolean} enabled
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Database>}
      */
     update(databaseId, name, enabled) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof name === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "name"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "name"');
             }
             const apiPath = '/databases/{databaseId}'.replace('{databaseId}', databaseId);
             const payload = {};
@@ -12284,13 +12284,13 @@ class Databases {
      * Delete a database by its unique ID. Only API keys with with databases.write scope can delete a database.
      *
      * @param {string} databaseId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     delete(databaseId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             const apiPath = '/databases/{databaseId}'.replace('{databaseId}', databaseId);
             const payload = {};
@@ -12309,13 +12309,13 @@ class Databases {
      * @param {string} databaseId
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.CollectionList>}
      */
     listCollections(databaseId, queries, search) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             const apiPath = '/databases/{databaseId}/collections'.replace('{databaseId}', databaseId);
             const payload = {};
@@ -12343,19 +12343,19 @@ class Databases {
      * @param {string[]} permissions
      * @param {boolean} documentSecurity
      * @param {boolean} enabled
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Collection>}
      */
     createCollection(databaseId, collectionId, name, permissions, documentSecurity, enabled) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof collectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "collectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "collectionId"');
             }
             if (typeof name === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "name"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "name"');
             }
             const apiPath = '/databases/{databaseId}/collections'.replace('{databaseId}', databaseId);
             const payload = {};
@@ -12388,16 +12388,16 @@ class Databases {
      *
      * @param {string} databaseId
      * @param {string} collectionId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Collection>}
      */
     getCollection(databaseId, collectionId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof collectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "collectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "collectionId"');
             }
             const apiPath = '/databases/{databaseId}/collections/{collectionId}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
             const payload = {};
@@ -12419,19 +12419,19 @@ class Databases {
      * @param {string[]} permissions
      * @param {boolean} documentSecurity
      * @param {boolean} enabled
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Collection>}
      */
     updateCollection(databaseId, collectionId, name, permissions, documentSecurity, enabled) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof collectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "collectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "collectionId"');
             }
             if (typeof name === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "name"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "name"');
             }
             const apiPath = '/databases/{databaseId}/collections/{collectionId}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
             const payload = {};
@@ -12461,16 +12461,16 @@ class Databases {
      *
      * @param {string} databaseId
      * @param {string} collectionId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteCollection(databaseId, collectionId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof collectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "collectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "collectionId"');
             }
             const apiPath = '/databases/{databaseId}/collections/{collectionId}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
             const payload = {};
@@ -12489,16 +12489,16 @@ class Databases {
      * @param {string} databaseId
      * @param {string} collectionId
      * @param {string[]} queries
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeList>}
      */
     listAttributes(databaseId, collectionId, queries) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof collectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "collectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "collectionId"');
             }
             const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
             const payload = {};
@@ -12524,22 +12524,22 @@ class Databases {
      * @param {boolean} required
      * @param {boolean} xdefault
      * @param {boolean} array
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeBoolean>}
      */
     createBooleanAttribute(databaseId, collectionId, key, required, xdefault, array) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof collectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "collectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "collectionId"');
             }
             if (typeof key === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "key"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "key"');
             }
             if (typeof required === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "required"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "required"');
             }
             const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/boolean'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
             const payload = {};
@@ -12572,25 +12572,25 @@ class Databases {
      * @param {string} key
      * @param {boolean} required
      * @param {boolean} xdefault
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeBoolean>}
      */
     updateBooleanAttribute(databaseId, collectionId, key, required, xdefault) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof collectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "collectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "collectionId"');
             }
             if (typeof key === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "key"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "key"');
             }
             if (typeof required === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "required"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "required"');
             }
             if (typeof xdefault === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "xdefault"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "xdefault"');
             }
             const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/boolean/{key}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{key}', key);
             const payload = {};
@@ -12618,22 +12618,22 @@ class Databases {
      * @param {boolean} required
      * @param {string} xdefault
      * @param {boolean} array
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeDatetime>}
      */
     createDatetimeAttribute(databaseId, collectionId, key, required, xdefault, array) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof collectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "collectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "collectionId"');
             }
             if (typeof key === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "key"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "key"');
             }
             if (typeof required === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "required"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "required"');
             }
             const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/datetime'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
             const payload = {};
@@ -12666,25 +12666,25 @@ class Databases {
      * @param {string} key
      * @param {boolean} required
      * @param {string} xdefault
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeDatetime>}
      */
     updateDatetimeAttribute(databaseId, collectionId, key, required, xdefault) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof collectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "collectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "collectionId"');
             }
             if (typeof key === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "key"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "key"');
             }
             if (typeof required === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "required"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "required"');
             }
             if (typeof xdefault === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "xdefault"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "xdefault"');
             }
             const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/datetime/{key}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{key}', key);
             const payload = {};
@@ -12713,22 +12713,22 @@ class Databases {
      * @param {boolean} required
      * @param {string} xdefault
      * @param {boolean} array
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeEmail>}
      */
     createEmailAttribute(databaseId, collectionId, key, required, xdefault, array) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof collectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "collectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "collectionId"');
             }
             if (typeof key === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "key"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "key"');
             }
             if (typeof required === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "required"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "required"');
             }
             const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/email'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
             const payload = {};
@@ -12762,25 +12762,25 @@ class Databases {
      * @param {string} key
      * @param {boolean} required
      * @param {string} xdefault
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeEmail>}
      */
     updateEmailAttribute(databaseId, collectionId, key, required, xdefault) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof collectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "collectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "collectionId"');
             }
             if (typeof key === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "key"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "key"');
             }
             if (typeof required === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "required"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "required"');
             }
             if (typeof xdefault === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "xdefault"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "xdefault"');
             }
             const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/email/{key}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{key}', key);
             const payload = {};
@@ -12810,25 +12810,25 @@ class Databases {
      * @param {boolean} required
      * @param {string} xdefault
      * @param {boolean} array
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeEnum>}
      */
     createEnumAttribute(databaseId, collectionId, key, elements, required, xdefault, array) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof collectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "collectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "collectionId"');
             }
             if (typeof key === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "key"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "key"');
             }
             if (typeof elements === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "elements"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "elements"');
             }
             if (typeof required === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "required"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "required"');
             }
             const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/enum'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
             const payload = {};
@@ -12866,28 +12866,28 @@ class Databases {
      * @param {string[]} elements
      * @param {boolean} required
      * @param {string} xdefault
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeEnum>}
      */
     updateEnumAttribute(databaseId, collectionId, key, elements, required, xdefault) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof collectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "collectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "collectionId"');
             }
             if (typeof key === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "key"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "key"');
             }
             if (typeof elements === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "elements"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "elements"');
             }
             if (typeof required === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "required"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "required"');
             }
             if (typeof xdefault === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "xdefault"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "xdefault"');
             }
             const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/enum/{key}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{key}', key);
             const payload = {};
@@ -12921,22 +12921,22 @@ class Databases {
      * @param {number} max
      * @param {number} xdefault
      * @param {boolean} array
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeFloat>}
      */
     createFloatAttribute(databaseId, collectionId, key, required, min, max, xdefault, array) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof collectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "collectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "collectionId"');
             }
             if (typeof key === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "key"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "key"');
             }
             if (typeof required === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "required"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "required"');
             }
             const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/float'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
             const payload = {};
@@ -12978,31 +12978,31 @@ class Databases {
      * @param {number} min
      * @param {number} max
      * @param {number} xdefault
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeFloat>}
      */
     updateFloatAttribute(databaseId, collectionId, key, required, min, max, xdefault) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof collectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "collectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "collectionId"');
             }
             if (typeof key === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "key"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "key"');
             }
             if (typeof required === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "required"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "required"');
             }
             if (typeof min === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "min"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "min"');
             }
             if (typeof max === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "max"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "max"');
             }
             if (typeof xdefault === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "xdefault"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "xdefault"');
             }
             const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/float/{key}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{key}', key);
             const payload = {};
@@ -13039,22 +13039,22 @@ class Databases {
      * @param {number} max
      * @param {number} xdefault
      * @param {boolean} array
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeInteger>}
      */
     createIntegerAttribute(databaseId, collectionId, key, required, min, max, xdefault, array) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof collectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "collectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "collectionId"');
             }
             if (typeof key === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "key"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "key"');
             }
             if (typeof required === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "required"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "required"');
             }
             const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/integer'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
             const payload = {};
@@ -13096,31 +13096,31 @@ class Databases {
      * @param {number} min
      * @param {number} max
      * @param {number} xdefault
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeInteger>}
      */
     updateIntegerAttribute(databaseId, collectionId, key, required, min, max, xdefault) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof collectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "collectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "collectionId"');
             }
             if (typeof key === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "key"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "key"');
             }
             if (typeof required === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "required"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "required"');
             }
             if (typeof min === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "min"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "min"');
             }
             if (typeof max === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "max"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "max"');
             }
             if (typeof xdefault === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "xdefault"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "xdefault"');
             }
             const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/integer/{key}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{key}', key);
             const payload = {};
@@ -13155,22 +13155,22 @@ class Databases {
      * @param {boolean} required
      * @param {string} xdefault
      * @param {boolean} array
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeIp>}
      */
     createIpAttribute(databaseId, collectionId, key, required, xdefault, array) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof collectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "collectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "collectionId"');
             }
             if (typeof key === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "key"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "key"');
             }
             if (typeof required === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "required"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "required"');
             }
             const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/ip'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
             const payload = {};
@@ -13204,25 +13204,25 @@ class Databases {
      * @param {string} key
      * @param {boolean} required
      * @param {string} xdefault
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeIp>}
      */
     updateIpAttribute(databaseId, collectionId, key, required, xdefault) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof collectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "collectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "collectionId"');
             }
             if (typeof key === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "key"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "key"');
             }
             if (typeof required === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "required"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "required"');
             }
             if (typeof xdefault === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "xdefault"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "xdefault"');
             }
             const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/ip/{key}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{key}', key);
             const payload = {};
@@ -13253,22 +13253,22 @@ class Databases {
      * @param {string} key
      * @param {string} twoWayKey
      * @param {RelationMutate} onDelete
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeRelationship>}
      */
     createRelationshipAttribute(databaseId, collectionId, relatedCollectionId, type, twoWay, key, twoWayKey, onDelete) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof collectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "collectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "collectionId"');
             }
             if (typeof relatedCollectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "relatedCollectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "relatedCollectionId"');
             }
             if (typeof type === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "type"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "type"');
             }
             const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/relationship'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
             const payload = {};
@@ -13311,25 +13311,25 @@ class Databases {
      * @param {string} xdefault
      * @param {boolean} array
      * @param {boolean} encrypt
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeString>}
      */
     createStringAttribute(databaseId, collectionId, key, size, required, xdefault, array, encrypt) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof collectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "collectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "collectionId"');
             }
             if (typeof key === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "key"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "key"');
             }
             if (typeof size === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "size"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "size"');
             }
             if (typeof required === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "required"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "required"');
             }
             const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/string'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
             const payload = {};
@@ -13369,25 +13369,25 @@ class Databases {
      * @param {string} key
      * @param {boolean} required
      * @param {string} xdefault
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeString>}
      */
     updateStringAttribute(databaseId, collectionId, key, required, xdefault) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof collectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "collectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "collectionId"');
             }
             if (typeof key === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "key"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "key"');
             }
             if (typeof required === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "required"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "required"');
             }
             if (typeof xdefault === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "xdefault"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "xdefault"');
             }
             const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/string/{key}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{key}', key);
             const payload = {};
@@ -13416,22 +13416,22 @@ class Databases {
      * @param {boolean} required
      * @param {string} xdefault
      * @param {boolean} array
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeUrl>}
      */
     createUrlAttribute(databaseId, collectionId, key, required, xdefault, array) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof collectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "collectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "collectionId"');
             }
             if (typeof key === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "key"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "key"');
             }
             if (typeof required === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "required"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "required"');
             }
             const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/url'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
             const payload = {};
@@ -13465,25 +13465,25 @@ class Databases {
      * @param {string} key
      * @param {boolean} required
      * @param {string} xdefault
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeUrl>}
      */
     updateUrlAttribute(databaseId, collectionId, key, required, xdefault) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof collectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "collectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "collectionId"');
             }
             if (typeof key === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "key"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "key"');
             }
             if (typeof required === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "required"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "required"');
             }
             if (typeof xdefault === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "xdefault"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "xdefault"');
             }
             const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/url/{key}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{key}', key);
             const payload = {};
@@ -13508,19 +13508,19 @@ class Databases {
      * @param {string} databaseId
      * @param {string} collectionId
      * @param {string} key
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     getAttribute(databaseId, collectionId, key) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof collectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "collectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "collectionId"');
             }
             if (typeof key === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "key"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "key"');
             }
             const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/{key}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{key}', key);
             const payload = {};
@@ -13539,19 +13539,19 @@ class Databases {
      * @param {string} databaseId
      * @param {string} collectionId
      * @param {string} key
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteAttribute(databaseId, collectionId, key) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof collectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "collectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "collectionId"');
             }
             if (typeof key === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "key"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "key"');
             }
             const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/{key}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{key}', key);
             const payload = {};
@@ -13572,19 +13572,19 @@ class Databases {
      * @param {string} collectionId
      * @param {string} key
      * @param {RelationMutate} onDelete
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeRelationship>}
      */
     updateRelationshipAttribute(databaseId, collectionId, key, onDelete) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof collectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "collectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "collectionId"');
             }
             if (typeof key === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "key"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "key"');
             }
             const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/{key}/relationship'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{key}', key);
             const payload = {};
@@ -13606,16 +13606,16 @@ class Databases {
      * @param {string} databaseId
      * @param {string} collectionId
      * @param {string[]} queries
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.DocumentList<Document>>}
      */
     listDocuments(databaseId, collectionId, queries) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof collectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "collectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "collectionId"');
             }
             const apiPath = '/databases/{databaseId}/collections/{collectionId}/documents'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
             const payload = {};
@@ -13639,22 +13639,22 @@ class Databases {
      * @param {string} documentId
      * @param {Omit<Document, keyof Models.Document>} data
      * @param {string[]} permissions
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Document>}
      */
     createDocument(databaseId, collectionId, documentId, data, permissions) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof collectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "collectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "collectionId"');
             }
             if (typeof documentId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "documentId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "documentId"');
             }
             if (typeof data === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "data"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "data"');
             }
             const apiPath = '/databases/{databaseId}/collections/{collectionId}/documents'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
             const payload = {};
@@ -13683,19 +13683,19 @@ class Databases {
      * @param {string} collectionId
      * @param {string} documentId
      * @param {string[]} queries
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Document>}
      */
     getDocument(databaseId, collectionId, documentId, queries) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof collectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "collectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "collectionId"');
             }
             if (typeof documentId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "documentId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "documentId"');
             }
             const apiPath = '/databases/{databaseId}/collections/{collectionId}/documents/{documentId}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{documentId}', documentId);
             const payload = {};
@@ -13719,19 +13719,19 @@ class Databases {
      * @param {string} documentId
      * @param {Partial<Omit<Document, keyof Models.Document>>} data
      * @param {string[]} permissions
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Document>}
      */
     updateDocument(databaseId, collectionId, documentId, data, permissions) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof collectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "collectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "collectionId"');
             }
             if (typeof documentId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "documentId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "documentId"');
             }
             const apiPath = '/databases/{databaseId}/collections/{collectionId}/documents/{documentId}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{documentId}', documentId);
             const payload = {};
@@ -13756,19 +13756,19 @@ class Databases {
      * @param {string} databaseId
      * @param {string} collectionId
      * @param {string} documentId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteDocument(databaseId, collectionId, documentId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof collectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "collectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "collectionId"');
             }
             if (typeof documentId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "documentId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "documentId"');
             }
             const apiPath = '/databases/{databaseId}/collections/{collectionId}/documents/{documentId}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{documentId}', documentId);
             const payload = {};
@@ -13788,19 +13788,19 @@ class Databases {
      * @param {string} collectionId
      * @param {string} documentId
      * @param {string[]} queries
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.LogList>}
      */
     listDocumentLogs(databaseId, collectionId, documentId, queries) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof collectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "collectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "collectionId"');
             }
             if (typeof documentId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "documentId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "documentId"');
             }
             const apiPath = '/databases/{databaseId}/collections/{collectionId}/documents/{documentId}/logs'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{documentId}', documentId);
             const payload = {};
@@ -13822,16 +13822,16 @@ class Databases {
      * @param {string} databaseId
      * @param {string} collectionId
      * @param {string[]} queries
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.IndexList>}
      */
     listIndexes(databaseId, collectionId, queries) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof collectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "collectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "collectionId"');
             }
             const apiPath = '/databases/{databaseId}/collections/{collectionId}/indexes'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
             const payload = {};
@@ -13857,25 +13857,25 @@ Attributes can be \`key\`, \`fulltext\`, and \`unique\`.
      * @param {IndexType} type
      * @param {string[]} attributes
      * @param {string[]} orders
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Index>}
      */
     createIndex(databaseId, collectionId, key, type, attributes, orders) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof collectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "collectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "collectionId"');
             }
             if (typeof key === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "key"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "key"');
             }
             if (typeof type === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "type"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "type"');
             }
             if (typeof attributes === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "attributes"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "attributes"');
             }
             const apiPath = '/databases/{databaseId}/collections/{collectionId}/indexes'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
             const payload = {};
@@ -13906,19 +13906,19 @@ Attributes can be \`key\`, \`fulltext\`, and \`unique\`.
      * @param {string} databaseId
      * @param {string} collectionId
      * @param {string} key
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Index>}
      */
     getIndex(databaseId, collectionId, key) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof collectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "collectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "collectionId"');
             }
             if (typeof key === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "key"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "key"');
             }
             const apiPath = '/databases/{databaseId}/collections/{collectionId}/indexes/{key}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{key}', key);
             const payload = {};
@@ -13937,19 +13937,19 @@ Attributes can be \`key\`, \`fulltext\`, and \`unique\`.
      * @param {string} databaseId
      * @param {string} collectionId
      * @param {string} key
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteIndex(databaseId, collectionId, key) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof collectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "collectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "collectionId"');
             }
             if (typeof key === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "key"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "key"');
             }
             const apiPath = '/databases/{databaseId}/collections/{collectionId}/indexes/{key}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{key}', key);
             const payload = {};
@@ -13968,16 +13968,16 @@ Attributes can be \`key\`, \`fulltext\`, and \`unique\`.
      * @param {string} databaseId
      * @param {string} collectionId
      * @param {string[]} queries
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.LogList>}
      */
     listCollectionLogs(databaseId, collectionId, queries) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof collectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "collectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "collectionId"');
             }
             const apiPath = '/databases/{databaseId}/collections/{collectionId}/logs'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
             const payload = {};
@@ -13998,16 +13998,16 @@ Attributes can be \`key\`, \`fulltext\`, and \`unique\`.
      * @param {string} databaseId
      * @param {string} collectionId
      * @param {DatabaseUsageRange} range
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.UsageCollection>}
      */
     getCollectionUsage(databaseId, collectionId, range) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             if (typeof collectionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "collectionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "collectionId"');
             }
             const apiPath = '/databases/{databaseId}/collections/{collectionId}/usage'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
             const payload = {};
@@ -14028,13 +14028,13 @@ Attributes can be \`key\`, \`fulltext\`, and \`unique\`.
      *
      * @param {string} databaseId
      * @param {string[]} queries
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.LogList>}
      */
     listLogs(databaseId, queries) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             const apiPath = '/databases/{databaseId}/logs'.replace('{databaseId}', databaseId);
             const payload = {};
@@ -14054,13 +14054,13 @@ Attributes can be \`key\`, \`fulltext\`, and \`unique\`.
      *
      * @param {string} databaseId
      * @param {DatabaseUsageRange} range
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.UsageDatabase>}
      */
     getDatabaseUsage(databaseId, range) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof databaseId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseId"');
             }
             const apiPath = '/databases/{databaseId}/usage'.replace('{databaseId}', databaseId);
             const payload = {};
@@ -14105,7 +14105,7 @@ class Functions {
      *
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.FunctionList>}
      */
     list(queries, search) {
@@ -14152,19 +14152,19 @@ class Functions {
      * @param {string} templateRootDirectory
      * @param {string} templateVersion
      * @param {string} specification
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Function>}
      */
     create(functionId, name, runtime, execute, events, schedule, timeout, enabled, logging, entrypoint, commands, scopes, installationId, providerRepositoryId, providerBranch, providerSilentMode, providerRootDirectory, templateRepository, templateOwner, templateRootDirectory, templateVersion, specification) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof functionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "functionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "functionId"');
             }
             if (typeof name === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "name"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "name"');
             }
             if (typeof runtime === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "runtime"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "runtime"');
             }
             const apiPath = '/functions';
             const payload = {};
@@ -14246,7 +14246,7 @@ class Functions {
      *
      * Get a list of all runtimes that are currently active on your instance.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.RuntimeList>}
      */
     listRuntimes() {
@@ -14266,7 +14266,7 @@ class Functions {
      * List allowed function specifications for this instance.
 
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.SpecificationList>}
      */
     listSpecifications() {
@@ -14289,7 +14289,7 @@ class Functions {
      * @param {string[]} useCases
      * @param {number} limit
      * @param {number} offset
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.TemplateFunctionList>}
      */
     listTemplates(runtimes, useCases, limit, offset) {
@@ -14321,13 +14321,13 @@ class Functions {
      * Get a function template using ID. You can use template details in [createFunction](/docs/references/cloud/server-nodejs/functions#create) method.
      *
      * @param {string} templateId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.TemplateFunction>}
      */
     getTemplate(templateId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof templateId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "templateId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "templateId"');
             }
             const apiPath = '/functions/templates/{templateId}'.replace('{templateId}', templateId);
             const payload = {};
@@ -14343,7 +14343,7 @@ class Functions {
      *
      *
      * @param {FunctionUsageRange} range
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.UsageFunctions>}
      */
     getUsage(range) {
@@ -14366,13 +14366,13 @@ class Functions {
      * Get a function by its unique ID.
      *
      * @param {string} functionId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Function>}
      */
     get(functionId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof functionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "functionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "functionId"');
             }
             const apiPath = '/functions/{functionId}'.replace('{functionId}', functionId);
             const payload = {};
@@ -14406,16 +14406,16 @@ class Functions {
      * @param {boolean} providerSilentMode
      * @param {string} providerRootDirectory
      * @param {string} specification
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Function>}
      */
     update(functionId, name, runtime, execute, events, schedule, timeout, enabled, logging, entrypoint, commands, scopes, installationId, providerRepositoryId, providerBranch, providerSilentMode, providerRootDirectory, specification) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof functionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "functionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "functionId"');
             }
             if (typeof name === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "name"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "name"');
             }
             const apiPath = '/functions/{functionId}'.replace('{functionId}', functionId);
             const payload = {};
@@ -14483,13 +14483,13 @@ class Functions {
      * Delete a function by its unique ID.
      *
      * @param {string} functionId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     delete(functionId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof functionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "functionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "functionId"');
             }
             const apiPath = '/functions/{functionId}'.replace('{functionId}', functionId);
             const payload = {};
@@ -14508,13 +14508,13 @@ class Functions {
      * @param {string} functionId
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.DeploymentList>}
      */
     listDeployments(functionId, queries, search) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof functionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "functionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "functionId"');
             }
             const apiPath = '/functions/{functionId}/deployments'.replace('{functionId}', functionId);
             const payload = {};
@@ -14545,19 +14545,19 @@ Use the &quot;command&quot; param to set the entrypoint used to execute your cod
      * @param {boolean} activate
      * @param {string} entrypoint
      * @param {string} commands
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Deployment>}
      */
     createDeployment(functionId_1, code_1, activate_1, entrypoint_1, commands_1) {
         return __awaiter(this, arguments, void 0, function* (functionId, code, activate, entrypoint, commands, onProgress = (progress) => { }) {
             if (typeof functionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "functionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "functionId"');
             }
             if (typeof code === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "code"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "code"');
             }
             if (typeof activate === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "activate"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "activate"');
             }
             const apiPath = '/functions/{functionId}/deployments'.replace('{functionId}', functionId);
             const payload = {};
@@ -14587,16 +14587,16 @@ Use the &quot;command&quot; param to set the entrypoint used to execute your cod
      *
      * @param {string} functionId
      * @param {string} deploymentId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Deployment>}
      */
     getDeployment(functionId, deploymentId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof functionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "functionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "functionId"');
             }
             if (typeof deploymentId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "deploymentId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "deploymentId"');
             }
             const apiPath = '/functions/{functionId}/deployments/{deploymentId}'.replace('{functionId}', functionId).replace('{deploymentId}', deploymentId);
             const payload = {};
@@ -14614,16 +14614,16 @@ Use the &quot;command&quot; param to set the entrypoint used to execute your cod
      *
      * @param {string} functionId
      * @param {string} deploymentId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Function>}
      */
     updateDeployment(functionId, deploymentId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof functionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "functionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "functionId"');
             }
             if (typeof deploymentId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "deploymentId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "deploymentId"');
             }
             const apiPath = '/functions/{functionId}/deployments/{deploymentId}'.replace('{functionId}', functionId).replace('{deploymentId}', deploymentId);
             const payload = {};
@@ -14641,16 +14641,16 @@ Use the &quot;command&quot; param to set the entrypoint used to execute your cod
      *
      * @param {string} functionId
      * @param {string} deploymentId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteDeployment(functionId, deploymentId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof functionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "functionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "functionId"');
             }
             if (typeof deploymentId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "deploymentId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "deploymentId"');
             }
             const apiPath = '/functions/{functionId}/deployments/{deploymentId}'.replace('{functionId}', functionId).replace('{deploymentId}', deploymentId);
             const payload = {};
@@ -14668,16 +14668,16 @@ Use the &quot;command&quot; param to set the entrypoint used to execute your cod
      * @param {string} functionId
      * @param {string} deploymentId
      * @param {string} buildId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     createBuild(functionId, deploymentId, buildId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof functionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "functionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "functionId"');
             }
             if (typeof deploymentId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "deploymentId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "deploymentId"');
             }
             const apiPath = '/functions/{functionId}/deployments/{deploymentId}/build'.replace('{functionId}', functionId).replace('{deploymentId}', deploymentId);
             const payload = {};
@@ -14697,16 +14697,16 @@ Use the &quot;command&quot; param to set the entrypoint used to execute your cod
      *
      * @param {string} functionId
      * @param {string} deploymentId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Build>}
      */
     updateDeploymentBuild(functionId, deploymentId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof functionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "functionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "functionId"');
             }
             if (typeof deploymentId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "deploymentId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "deploymentId"');
             }
             const apiPath = '/functions/{functionId}/deployments/{deploymentId}/build'.replace('{functionId}', functionId).replace('{deploymentId}', deploymentId);
             const payload = {};
@@ -14724,15 +14724,15 @@ Use the &quot;command&quot; param to set the entrypoint used to execute your cod
      *
      * @param {string} functionId
      * @param {string} deploymentId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {string}
      */
     getDeploymentDownload(functionId, deploymentId) {
         if (typeof functionId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "functionId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "functionId"');
         }
         if (typeof deploymentId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "deploymentId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "deploymentId"');
         }
         const apiPath = '/functions/{functionId}/deployments/{deploymentId}/download'.replace('{functionId}', functionId).replace('{deploymentId}', deploymentId);
         const payload = {};
@@ -14758,13 +14758,13 @@ Use the &quot;command&quot; param to set the entrypoint used to execute your cod
      * @param {string} functionId
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.ExecutionList>}
      */
     listExecutions(functionId, queries, search) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof functionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "functionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "functionId"');
             }
             const apiPath = '/functions/{functionId}/executions'.replace('{functionId}', functionId);
             const payload = {};
@@ -14793,13 +14793,13 @@ Use the &quot;command&quot; param to set the entrypoint used to execute your cod
      * @param {ExecutionMethod} method
      * @param {object} headers
      * @param {string} scheduledAt
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Execution>}
      */
     createExecution(functionId, body, async, xpath, method, headers, scheduledAt) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof functionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "functionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "functionId"');
             }
             const apiPath = '/functions/{functionId}/executions'.replace('{functionId}', functionId);
             const payload = {};
@@ -14835,16 +14835,16 @@ Use the &quot;command&quot; param to set the entrypoint used to execute your cod
      *
      * @param {string} functionId
      * @param {string} executionId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Execution>}
      */
     getExecution(functionId, executionId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof functionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "functionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "functionId"');
             }
             if (typeof executionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "executionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "executionId"');
             }
             const apiPath = '/functions/{functionId}/executions/{executionId}'.replace('{functionId}', functionId).replace('{executionId}', executionId);
             const payload = {};
@@ -14863,16 +14863,16 @@ Use the &quot;command&quot; param to set the entrypoint used to execute your cod
      *
      * @param {string} functionId
      * @param {string} executionId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteExecution(functionId, executionId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof functionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "functionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "functionId"');
             }
             if (typeof executionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "executionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "executionId"');
             }
             const apiPath = '/functions/{functionId}/executions/{executionId}'.replace('{functionId}', functionId).replace('{executionId}', executionId);
             const payload = {};
@@ -14889,13 +14889,13 @@ Use the &quot;command&quot; param to set the entrypoint used to execute your cod
      *
      * @param {string} functionId
      * @param {FunctionUsageRange} range
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.UsageFunction>}
      */
     getFunctionUsage(functionId, range) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof functionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "functionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "functionId"');
             }
             const apiPath = '/functions/{functionId}/usage'.replace('{functionId}', functionId);
             const payload = {};
@@ -14915,13 +14915,13 @@ Use the &quot;command&quot; param to set the entrypoint used to execute your cod
      * Get a list of all variables of a specific function.
      *
      * @param {string} functionId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.VariableList>}
      */
     listVariables(functionId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof functionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "functionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "functionId"');
             }
             const apiPath = '/functions/{functionId}/variables'.replace('{functionId}', functionId);
             const payload = {};
@@ -14940,19 +14940,19 @@ Use the &quot;command&quot; param to set the entrypoint used to execute your cod
      * @param {string} functionId
      * @param {string} key
      * @param {string} value
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Variable>}
      */
     createVariable(functionId, key, value) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof functionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "functionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "functionId"');
             }
             if (typeof key === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "key"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "key"');
             }
             if (typeof value === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "value"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "value"');
             }
             const apiPath = '/functions/{functionId}/variables'.replace('{functionId}', functionId);
             const payload = {};
@@ -14976,16 +14976,16 @@ Use the &quot;command&quot; param to set the entrypoint used to execute your cod
      *
      * @param {string} functionId
      * @param {string} variableId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Variable>}
      */
     getVariable(functionId, variableId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof functionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "functionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "functionId"');
             }
             if (typeof variableId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "variableId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "variableId"');
             }
             const apiPath = '/functions/{functionId}/variables/{variableId}'.replace('{functionId}', functionId).replace('{variableId}', variableId);
             const payload = {};
@@ -15005,19 +15005,19 @@ Use the &quot;command&quot; param to set the entrypoint used to execute your cod
      * @param {string} variableId
      * @param {string} key
      * @param {string} value
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Variable>}
      */
     updateVariable(functionId, variableId, key, value) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof functionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "functionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "functionId"');
             }
             if (typeof variableId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "variableId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "variableId"');
             }
             if (typeof key === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "key"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "key"');
             }
             const apiPath = '/functions/{functionId}/variables/{variableId}'.replace('{functionId}', functionId).replace('{variableId}', variableId);
             const payload = {};
@@ -15041,16 +15041,16 @@ Use the &quot;command&quot; param to set the entrypoint used to execute your cod
      *
      * @param {string} functionId
      * @param {string} variableId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteVariable(functionId, variableId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof functionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "functionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "functionId"');
             }
             if (typeof variableId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "variableId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "variableId"');
             }
             const apiPath = '/functions/{functionId}/variables/{variableId}'.replace('{functionId}', functionId).replace('{variableId}', variableId);
             const payload = {};
@@ -15089,13 +15089,13 @@ class Graphql {
      * Execute a GraphQL mutation.
      *
      * @param {object} query
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     query(query) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof query === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "query"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "query"');
             }
             const apiPath = '/graphql';
             const payload = {};
@@ -15116,13 +15116,13 @@ class Graphql {
      * Execute a GraphQL mutation.
      *
      * @param {object} query
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     mutation(query) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof query === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "query"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "query"');
             }
             const apiPath = '/graphql/mutation';
             const payload = {};
@@ -15164,7 +15164,7 @@ class Health {
      *
      * Check the Appconda HTTP server is up and responsive.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.HealthStatus>}
      */
     get() {
@@ -15183,7 +15183,7 @@ class Health {
      *
      * Check the Appconda Antivirus server is up and connection is successful.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.HealthAntivirus>}
      */
     getAntivirus() {
@@ -15202,7 +15202,7 @@ class Health {
      *
      * Check the Appconda in-memory cache servers are up and connection is successful.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.HealthStatus>}
      */
     getCache() {
@@ -15222,7 +15222,7 @@ class Health {
      * Get the SSL certificate for a domain
      *
      * @param {string} domain
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.HealthCertificate>}
      */
     getCertificate(domain) {
@@ -15244,7 +15244,7 @@ class Health {
      *
      * Check the Appconda database servers are up and connection is successful.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.HealthStatus>}
      */
     getDB() {
@@ -15263,7 +15263,7 @@ class Health {
      *
      * Check the Appconda pub-sub servers are up and connection is successful.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.HealthStatus>}
      */
     getPubSub() {
@@ -15282,7 +15282,7 @@ class Health {
      *
      * Check the Appconda queue messaging servers are up and connection is successful.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.HealthStatus>}
      */
     getQueue() {
@@ -15302,7 +15302,7 @@ class Health {
      * Get the number of builds that are waiting to be processed in the Appconda internal queue server.
      *
      * @param {number} threshold
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.HealthQueue>}
      */
     getQueueBuilds(threshold) {
@@ -15325,7 +15325,7 @@ class Health {
      * Get the number of certificates that are waiting to be issued against [Letsencrypt](https://letsencrypt.org/) in the Appconda internal queue server.
      *
      * @param {number} threshold
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.HealthQueue>}
      */
     getQueueCertificates(threshold) {
@@ -15349,7 +15349,7 @@ class Health {
      *
      * @param {string} name
      * @param {number} threshold
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.HealthQueue>}
      */
     getQueueDatabases(name, threshold) {
@@ -15375,7 +15375,7 @@ class Health {
      * Get the number of background destructive changes that are waiting to be processed in the Appconda internal queue server.
      *
      * @param {number} threshold
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.HealthQueue>}
      */
     getQueueDeletes(threshold) {
@@ -15400,13 +15400,13 @@ class Health {
      *
      * @param {Name} name
      * @param {number} threshold
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.HealthQueue>}
      */
     getFailedJobs(name, threshold) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof name === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "name"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "name"');
             }
             const apiPath = '/health/queue/failed/{name}'.replace('{name}', name);
             const payload = {};
@@ -15426,7 +15426,7 @@ class Health {
      * Get the number of function executions that are waiting to be processed in the Appconda internal queue server.
      *
      * @param {number} threshold
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.HealthQueue>}
      */
     getQueueFunctions(threshold) {
@@ -15449,7 +15449,7 @@ class Health {
      * Get the number of logs that are waiting to be processed in the Appconda internal queue server.
      *
      * @param {number} threshold
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.HealthQueue>}
      */
     getQueueLogs(threshold) {
@@ -15472,7 +15472,7 @@ class Health {
      * Get the number of mails that are waiting to be processed in the Appconda internal queue server.
      *
      * @param {number} threshold
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.HealthQueue>}
      */
     getQueueMails(threshold) {
@@ -15495,7 +15495,7 @@ class Health {
      * Get the number of messages that are waiting to be processed in the Appconda internal queue server.
      *
      * @param {number} threshold
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.HealthQueue>}
      */
     getQueueMessaging(threshold) {
@@ -15518,7 +15518,7 @@ class Health {
      * Get the number of migrations that are waiting to be processed in the Appconda internal queue server.
      *
      * @param {number} threshold
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.HealthQueue>}
      */
     getQueueMigrations(threshold) {
@@ -15541,7 +15541,7 @@ class Health {
      * Get the number of metrics that are waiting to be processed in the Appconda internal queue server.
      *
      * @param {number} threshold
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.HealthQueue>}
      */
     getQueueUsage(threshold) {
@@ -15564,7 +15564,7 @@ class Health {
      * Get the number of projects containing metrics that are waiting to be processed in the Appconda internal queue server.
      *
      * @param {number} threshold
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.HealthQueue>}
      */
     getQueueUsageDump(threshold) {
@@ -15587,7 +15587,7 @@ class Health {
      * Get the number of webhooks that are waiting to be processed in the Appconda internal queue server.
      *
      * @param {number} threshold
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.HealthQueue>}
      */
     getQueueWebhooks(threshold) {
@@ -15609,7 +15609,7 @@ class Health {
      *
      * Check the Appconda storage device is up and connection is successful.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.HealthStatus>}
      */
     getStorage() {
@@ -15628,7 +15628,7 @@ class Health {
      *
      * Check the Appconda local storage device is up and connection is successful.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.HealthStatus>}
      */
     getStorageLocal() {
@@ -15647,7 +15647,7 @@ class Health {
      *
      * Check the Appconda server time is synced with Google remote NTP server. We use this technology to smoothly handle leap seconds with no disruptive events. The [Network Time Protocol](https://en.wikipedia.org/wiki/Network_Time_Protocol) (NTP) is used by hundreds of millions of computers and devices to synchronize their clocks over the Internet. If your computer sets its own clock, it likely uses NTP.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.HealthTime>}
      */
     getTime() {
@@ -15688,7 +15688,7 @@ class Locale {
 
 ([IP Geolocation by DB-IP](https://db-ip.com))
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Locale>}
      */
     get() {
@@ -15707,7 +15707,7 @@ class Locale {
      *
      * List of all locale codes in [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes).
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.LocaleCodeList>}
      */
     listCodes() {
@@ -15726,7 +15726,7 @@ class Locale {
      *
      * List of all continents. You can use the locale header to get the data in a supported language.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.ContinentList>}
      */
     listContinents() {
@@ -15745,7 +15745,7 @@ class Locale {
      *
      * List of all countries. You can use the locale header to get the data in a supported language.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.CountryList>}
      */
     listCountries() {
@@ -15764,7 +15764,7 @@ class Locale {
      *
      * List of all countries that are currently members of the EU. You can use the locale header to get the data in a supported language.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.CountryList>}
      */
     listCountriesEU() {
@@ -15783,7 +15783,7 @@ class Locale {
      *
      * List of all countries phone codes. You can use the locale header to get the data in a supported language.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.PhoneList>}
      */
     listCountriesPhones() {
@@ -15802,7 +15802,7 @@ class Locale {
      *
      * List of all currencies, including currency symbol, name, plural, and decimal digits for all major and minor currencies. You can use the locale header to get the data in a supported language.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.CurrencyList>}
      */
     listCurrencies() {
@@ -15821,7 +15821,7 @@ class Locale {
      *
      * List of all languages classified by ISO 639-1 including 2-letter code, name in English, and name in the respective language.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.LanguageList>}
      */
     listLanguages() {
@@ -15864,7 +15864,7 @@ class Messaging {
      *
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.MessageList>}
      */
     listMessages(queries, search) {
@@ -15901,19 +15901,19 @@ class Messaging {
      * @param {boolean} draft
      * @param {boolean} html
      * @param {string} scheduledAt
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Message>}
      */
     createEmail(messageId, subject, content, topics, users, targets, cc, bcc, attachments, draft, html, scheduledAt) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof messageId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "messageId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "messageId"');
             }
             if (typeof subject === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "subject"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "subject"');
             }
             if (typeof content === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "content"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "content"');
             }
             const apiPath = '/messaging/messages/email';
             const payload = {};
@@ -15978,13 +15978,13 @@ class Messaging {
      * @param {string[]} bcc
      * @param {string} scheduledAt
      * @param {string[]} attachments
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Message>}
      */
     updateEmail(messageId, topics, users, targets, subject, content, draft, html, cc, bcc, scheduledAt, attachments) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof messageId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "messageId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "messageId"');
             }
             const apiPath = '/messaging/messages/email/{messageId}'.replace('{messageId}', messageId);
             const payload = {};
@@ -16049,19 +16049,19 @@ class Messaging {
      * @param {string} badge
      * @param {boolean} draft
      * @param {string} scheduledAt
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Message>}
      */
     createPush(messageId, title, body, topics, users, targets, data, action, image, icon, sound, color, tag, badge, draft, scheduledAt) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof messageId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "messageId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "messageId"');
             }
             if (typeof title === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "title"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "title"');
             }
             if (typeof body === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "body"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "body"');
             }
             const apiPath = '/messaging/messages/push';
             const payload = {};
@@ -16142,13 +16142,13 @@ class Messaging {
      * @param {number} badge
      * @param {boolean} draft
      * @param {string} scheduledAt
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Message>}
      */
     updatePush(messageId, topics, users, targets, title, body, data, action, image, icon, sound, color, tag, badge, draft, scheduledAt) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof messageId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "messageId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "messageId"');
             }
             const apiPath = '/messaging/messages/push/{messageId}'.replace('{messageId}', messageId);
             const payload = {};
@@ -16216,16 +16216,16 @@ class Messaging {
      * @param {string[]} targets
      * @param {boolean} draft
      * @param {string} scheduledAt
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Message>}
      */
     createSms(messageId, content, topics, users, targets, draft, scheduledAt) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof messageId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "messageId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "messageId"');
             }
             if (typeof content === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "content"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "content"');
             }
             const apiPath = '/messaging/messages/sms';
             const payload = {};
@@ -16270,13 +16270,13 @@ class Messaging {
      * @param {string} content
      * @param {boolean} draft
      * @param {string} scheduledAt
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Message>}
      */
     updateSms(messageId, topics, users, targets, content, draft, scheduledAt) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof messageId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "messageId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "messageId"');
             }
             const apiPath = '/messaging/messages/sms/{messageId}'.replace('{messageId}', messageId);
             const payload = {};
@@ -16312,13 +16312,13 @@ class Messaging {
 
      *
      * @param {string} messageId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Message>}
      */
     getMessage(messageId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof messageId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "messageId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "messageId"');
             }
             const apiPath = '/messaging/messages/{messageId}'.replace('{messageId}', messageId);
             const payload = {};
@@ -16335,13 +16335,13 @@ class Messaging {
      * Delete a message. If the message is not a draft or scheduled, but has been sent, this will not recall the message.
      *
      * @param {string} messageId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     delete(messageId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof messageId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "messageId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "messageId"');
             }
             const apiPath = '/messaging/messages/{messageId}'.replace('{messageId}', messageId);
             const payload = {};
@@ -16359,13 +16359,13 @@ class Messaging {
      *
      * @param {string} messageId
      * @param {string[]} queries
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.LogList>}
      */
     listMessageLogs(messageId, queries) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof messageId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "messageId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "messageId"');
             }
             const apiPath = '/messaging/messages/{messageId}/logs'.replace('{messageId}', messageId);
             const payload = {};
@@ -16386,13 +16386,13 @@ class Messaging {
      *
      * @param {string} messageId
      * @param {string[]} queries
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.TargetList>}
      */
     listTargets(messageId, queries) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof messageId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "messageId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "messageId"');
             }
             const apiPath = '/messaging/messages/{messageId}/targets'.replace('{messageId}', messageId);
             const payload = {};
@@ -16413,7 +16413,7 @@ class Messaging {
      *
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.ProviderList>}
      */
     listProviders(queries, search) {
@@ -16446,16 +16446,16 @@ class Messaging {
      * @param {string} bundleId
      * @param {boolean} sandbox
      * @param {boolean} enabled
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     createApnsProvider(providerId, name, authKey, authKeyId, teamId, bundleId, sandbox, enabled) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof providerId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "providerId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "providerId"');
             }
             if (typeof name === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "name"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "name"');
             }
             const apiPath = '/messaging/providers/apns';
             const payload = {};
@@ -16503,13 +16503,13 @@ class Messaging {
      * @param {string} teamId
      * @param {string} bundleId
      * @param {boolean} sandbox
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     updateApnsProvider(providerId, name, enabled, authKey, authKeyId, teamId, bundleId, sandbox) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof providerId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "providerId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "providerId"');
             }
             const apiPath = '/messaging/providers/apns/{providerId}'.replace('{providerId}', providerId);
             const payload = {};
@@ -16550,16 +16550,16 @@ class Messaging {
      * @param {string} name
      * @param {object} serviceAccountJSON
      * @param {boolean} enabled
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     createFcmProvider(providerId, name, serviceAccountJSON, enabled) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof providerId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "providerId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "providerId"');
             }
             if (typeof name === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "name"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "name"');
             }
             const apiPath = '/messaging/providers/fcm';
             const payload = {};
@@ -16591,13 +16591,13 @@ class Messaging {
      * @param {string} name
      * @param {boolean} enabled
      * @param {object} serviceAccountJSON
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     updateFcmProvider(providerId, name, enabled, serviceAccountJSON) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof providerId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "providerId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "providerId"');
             }
             const apiPath = '/messaging/providers/fcm/{providerId}'.replace('{providerId}', providerId);
             const payload = {};
@@ -16632,16 +16632,16 @@ class Messaging {
      * @param {string} replyToName
      * @param {string} replyToEmail
      * @param {boolean} enabled
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     createMailgunProvider(providerId, name, apiKey, domain, isEuRegion, fromName, fromEmail, replyToName, replyToEmail, enabled) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof providerId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "providerId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "providerId"');
             }
             if (typeof name === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "name"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "name"');
             }
             const apiPath = '/messaging/providers/mailgun';
             const payload = {};
@@ -16697,13 +16697,13 @@ class Messaging {
      * @param {string} fromEmail
      * @param {string} replyToName
      * @param {string} replyToEmail
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     updateMailgunProvider(providerId, name, apiKey, domain, isEuRegion, enabled, fromName, fromEmail, replyToName, replyToEmail) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof providerId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "providerId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "providerId"');
             }
             const apiPath = '/messaging/providers/mailgun/{providerId}'.replace('{providerId}', providerId);
             const payload = {};
@@ -16752,16 +16752,16 @@ class Messaging {
      * @param {string} senderId
      * @param {string} authKey
      * @param {boolean} enabled
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     createMsg91Provider(providerId, name, templateId, senderId, authKey, enabled) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof providerId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "providerId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "providerId"');
             }
             if (typeof name === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "name"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "name"');
             }
             const apiPath = '/messaging/providers/msg91';
             const payload = {};
@@ -16801,13 +16801,13 @@ class Messaging {
      * @param {string} templateId
      * @param {string} senderId
      * @param {string} authKey
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     updateMsg91Provider(providerId, name, enabled, templateId, senderId, authKey) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof providerId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "providerId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "providerId"');
             }
             const apiPath = '/messaging/providers/msg91/{providerId}'.replace('{providerId}', providerId);
             const payload = {};
@@ -16846,16 +16846,16 @@ class Messaging {
      * @param {string} replyToName
      * @param {string} replyToEmail
      * @param {boolean} enabled
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     createSendgridProvider(providerId, name, apiKey, fromName, fromEmail, replyToName, replyToEmail, enabled) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof providerId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "providerId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "providerId"');
             }
             if (typeof name === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "name"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "name"');
             }
             const apiPath = '/messaging/providers/sendgrid';
             const payload = {};
@@ -16903,13 +16903,13 @@ class Messaging {
      * @param {string} fromEmail
      * @param {string} replyToName
      * @param {string} replyToEmail
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     updateSendgridProvider(providerId, name, enabled, apiKey, fromName, fromEmail, replyToName, replyToEmail) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof providerId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "providerId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "providerId"');
             }
             const apiPath = '/messaging/providers/sendgrid/{providerId}'.replace('{providerId}', providerId);
             const payload = {};
@@ -16960,19 +16960,19 @@ class Messaging {
      * @param {string} replyToName
      * @param {string} replyToEmail
      * @param {boolean} enabled
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     createSmtpProvider(providerId, name, host, port, username, password, encryption, autoTLS, mailer, fromName, fromEmail, replyToName, replyToEmail, enabled) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof providerId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "providerId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "providerId"');
             }
             if (typeof name === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "name"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "name"');
             }
             if (typeof host === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "host"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "host"');
             }
             const apiPath = '/messaging/providers/smtp';
             const payload = {};
@@ -17044,13 +17044,13 @@ class Messaging {
      * @param {string} replyToName
      * @param {string} replyToEmail
      * @param {boolean} enabled
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     updateSmtpProvider(providerId, name, host, port, username, password, encryption, autoTLS, mailer, fromName, fromEmail, replyToName, replyToEmail, enabled) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof providerId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "providerId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "providerId"');
             }
             const apiPath = '/messaging/providers/smtp/{providerId}'.replace('{providerId}', providerId);
             const payload = {};
@@ -17111,16 +17111,16 @@ class Messaging {
      * @param {string} customerId
      * @param {string} apiKey
      * @param {boolean} enabled
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     createTelesignProvider(providerId, name, from, customerId, apiKey, enabled) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof providerId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "providerId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "providerId"');
             }
             if (typeof name === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "name"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "name"');
             }
             const apiPath = '/messaging/providers/telesign';
             const payload = {};
@@ -17160,13 +17160,13 @@ class Messaging {
      * @param {string} customerId
      * @param {string} apiKey
      * @param {string} from
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     updateTelesignProvider(providerId, name, enabled, customerId, apiKey, from) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof providerId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "providerId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "providerId"');
             }
             const apiPath = '/messaging/providers/telesign/{providerId}'.replace('{providerId}', providerId);
             const payload = {};
@@ -17203,16 +17203,16 @@ class Messaging {
      * @param {string} username
      * @param {string} apiKey
      * @param {boolean} enabled
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     createTextmagicProvider(providerId, name, from, username, apiKey, enabled) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof providerId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "providerId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "providerId"');
             }
             if (typeof name === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "name"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "name"');
             }
             const apiPath = '/messaging/providers/textmagic';
             const payload = {};
@@ -17252,13 +17252,13 @@ class Messaging {
      * @param {string} username
      * @param {string} apiKey
      * @param {string} from
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     updateTextmagicProvider(providerId, name, enabled, username, apiKey, from) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof providerId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "providerId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "providerId"');
             }
             const apiPath = '/messaging/providers/textmagic/{providerId}'.replace('{providerId}', providerId);
             const payload = {};
@@ -17295,16 +17295,16 @@ class Messaging {
      * @param {string} accountSid
      * @param {string} authToken
      * @param {boolean} enabled
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     createTwilioProvider(providerId, name, from, accountSid, authToken, enabled) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof providerId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "providerId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "providerId"');
             }
             if (typeof name === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "name"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "name"');
             }
             const apiPath = '/messaging/providers/twilio';
             const payload = {};
@@ -17344,13 +17344,13 @@ class Messaging {
      * @param {string} accountSid
      * @param {string} authToken
      * @param {string} from
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     updateTwilioProvider(providerId, name, enabled, accountSid, authToken, from) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof providerId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "providerId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "providerId"');
             }
             const apiPath = '/messaging/providers/twilio/{providerId}'.replace('{providerId}', providerId);
             const payload = {};
@@ -17387,16 +17387,16 @@ class Messaging {
      * @param {string} apiKey
      * @param {string} apiSecret
      * @param {boolean} enabled
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     createVonageProvider(providerId, name, from, apiKey, apiSecret, enabled) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof providerId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "providerId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "providerId"');
             }
             if (typeof name === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "name"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "name"');
             }
             const apiPath = '/messaging/providers/vonage';
             const payload = {};
@@ -17436,13 +17436,13 @@ class Messaging {
      * @param {string} apiKey
      * @param {string} apiSecret
      * @param {string} from
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     updateVonageProvider(providerId, name, enabled, apiKey, apiSecret, from) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof providerId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "providerId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "providerId"');
             }
             const apiPath = '/messaging/providers/vonage/{providerId}'.replace('{providerId}', providerId);
             const payload = {};
@@ -17475,13 +17475,13 @@ class Messaging {
 
      *
      * @param {string} providerId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     getProvider(providerId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof providerId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "providerId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "providerId"');
             }
             const apiPath = '/messaging/providers/{providerId}'.replace('{providerId}', providerId);
             const payload = {};
@@ -17498,13 +17498,13 @@ class Messaging {
      * Delete a provider by its unique ID.
      *
      * @param {string} providerId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteProvider(providerId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof providerId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "providerId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "providerId"');
             }
             const apiPath = '/messaging/providers/{providerId}'.replace('{providerId}', providerId);
             const payload = {};
@@ -17522,13 +17522,13 @@ class Messaging {
      *
      * @param {string} providerId
      * @param {string[]} queries
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.LogList>}
      */
     listProviderLogs(providerId, queries) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof providerId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "providerId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "providerId"');
             }
             const apiPath = '/messaging/providers/{providerId}/logs'.replace('{providerId}', providerId);
             const payload = {};
@@ -17549,13 +17549,13 @@ class Messaging {
      *
      * @param {string} subscriberId
      * @param {string[]} queries
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.LogList>}
      */
     listSubscriberLogs(subscriberId, queries) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof subscriberId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "subscriberId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "subscriberId"');
             }
             const apiPath = '/messaging/subscribers/{subscriberId}/logs'.replace('{subscriberId}', subscriberId);
             const payload = {};
@@ -17576,7 +17576,7 @@ class Messaging {
      *
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.TopicList>}
      */
     listTopics(queries, search) {
@@ -17604,16 +17604,16 @@ class Messaging {
      * @param {string} topicId
      * @param {string} name
      * @param {string[]} subscribe
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Topic>}
      */
     createTopic(topicId, name, subscribe) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof topicId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "topicId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "topicId"');
             }
             if (typeof name === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "name"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "name"');
             }
             const apiPath = '/messaging/topics';
             const payload = {};
@@ -17640,13 +17640,13 @@ class Messaging {
 
      *
      * @param {string} topicId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Topic>}
      */
     getTopic(topicId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof topicId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "topicId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "topicId"');
             }
             const apiPath = '/messaging/topics/{topicId}'.replace('{topicId}', topicId);
             const payload = {};
@@ -17666,13 +17666,13 @@ class Messaging {
      * @param {string} topicId
      * @param {string} name
      * @param {string[]} subscribe
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Topic>}
      */
     updateTopic(topicId, name, subscribe) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof topicId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "topicId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "topicId"');
             }
             const apiPath = '/messaging/topics/{topicId}'.replace('{topicId}', topicId);
             const payload = {};
@@ -17695,13 +17695,13 @@ class Messaging {
      * Delete a topic by its unique ID.
      *
      * @param {string} topicId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteTopic(topicId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof topicId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "topicId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "topicId"');
             }
             const apiPath = '/messaging/topics/{topicId}'.replace('{topicId}', topicId);
             const payload = {};
@@ -17719,13 +17719,13 @@ class Messaging {
      *
      * @param {string} topicId
      * @param {string[]} queries
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.LogList>}
      */
     listTopicLogs(topicId, queries) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof topicId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "topicId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "topicId"');
             }
             const apiPath = '/messaging/topics/{topicId}/logs'.replace('{topicId}', topicId);
             const payload = {};
@@ -17747,13 +17747,13 @@ class Messaging {
      * @param {string} topicId
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.SubscriberList>}
      */
     listSubscribers(topicId, queries, search) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof topicId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "topicId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "topicId"');
             }
             const apiPath = '/messaging/topics/{topicId}/subscribers'.replace('{topicId}', topicId);
             const payload = {};
@@ -17778,19 +17778,19 @@ class Messaging {
      * @param {string} topicId
      * @param {string} subscriberId
      * @param {string} targetId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Subscriber>}
      */
     createSubscriber(topicId, subscriberId, targetId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof topicId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "topicId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "topicId"');
             }
             if (typeof subscriberId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "subscriberId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "subscriberId"');
             }
             if (typeof targetId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "targetId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "targetId"');
             }
             const apiPath = '/messaging/topics/{topicId}/subscribers'.replace('{topicId}', topicId);
             const payload = {};
@@ -17815,16 +17815,16 @@ class Messaging {
      *
      * @param {string} topicId
      * @param {string} subscriberId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Subscriber>}
      */
     getSubscriber(topicId, subscriberId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof topicId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "topicId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "topicId"');
             }
             if (typeof subscriberId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "subscriberId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "subscriberId"');
             }
             const apiPath = '/messaging/topics/{topicId}/subscribers/{subscriberId}'.replace('{topicId}', topicId).replace('{subscriberId}', subscriberId);
             const payload = {};
@@ -17842,16 +17842,16 @@ class Messaging {
      *
      * @param {string} topicId
      * @param {string} subscriberId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteSubscriber(topicId, subscriberId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof topicId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "topicId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "topicId"');
             }
             if (typeof subscriberId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "subscriberId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "subscriberId"');
             }
             const apiPath = '/messaging/topics/{topicId}/subscribers/{subscriberId}'.replace('{topicId}', topicId).replace('{subscriberId}', subscriberId);
             const payload = {};
@@ -17890,7 +17890,7 @@ class Migrations {
      *
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.MigrationList>}
      */
     list(queries, search) {
@@ -17918,22 +17918,22 @@ class Migrations {
      * @param {string} endpoint
      * @param {string} projectId
      * @param {string} apiKey
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Migration>}
      */
     createAppwriteMigration(resources, endpoint, projectId, apiKey) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof resources === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "resources"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "resources"');
             }
             if (typeof endpoint === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "endpoint"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "endpoint"');
             }
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof apiKey === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "apiKey"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "apiKey"');
             }
             const apiPath = '/migrations/appconda';
             const payload = {};
@@ -17964,22 +17964,22 @@ class Migrations {
      * @param {string} endpoint
      * @param {string} projectID
      * @param {string} key
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.MigrationReport>}
      */
     getAppwriteReport(resources, endpoint, projectID, key) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof resources === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "resources"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "resources"');
             }
             if (typeof endpoint === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "endpoint"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "endpoint"');
             }
             if (typeof projectID === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectID"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectID"');
             }
             if (typeof key === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "key"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "key"');
             }
             const apiPath = '/migrations/appconda/report';
             const payload = {};
@@ -18008,16 +18008,16 @@ class Migrations {
      *
      * @param {string[]} resources
      * @param {string} serviceAccount
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Migration>}
      */
     createFirebaseMigration(resources, serviceAccount) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof resources === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "resources"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "resources"');
             }
             if (typeof serviceAccount === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "serviceAccount"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "serviceAccount"');
             }
             const apiPath = '/migrations/firebase';
             const payload = {};
@@ -18038,7 +18038,7 @@ class Migrations {
      * Revoke Appconda&#039;s authorization to access Firebase Projects
      *
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteFirebaseAuth() {
@@ -18058,16 +18058,16 @@ class Migrations {
      *
      * @param {string[]} resources
      * @param {string} projectId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Migration>}
      */
     createFirebaseOAuthMigration(resources, projectId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof resources === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "resources"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "resources"');
             }
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             const apiPath = '/migrations/firebase/oauth';
             const payload = {};
@@ -18088,7 +18088,7 @@ class Migrations {
      * List Firebase Projects
      *
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.FirebaseProjectList>}
      */
     listFirebaseProjects() {
@@ -18108,16 +18108,16 @@ class Migrations {
      *
      * @param {string[]} resources
      * @param {string} serviceAccount
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.MigrationReport>}
      */
     getFirebaseReport(resources, serviceAccount) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof resources === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "resources"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "resources"');
             }
             if (typeof serviceAccount === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "serviceAccount"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "serviceAccount"');
             }
             const apiPath = '/migrations/firebase/report';
             const payload = {};
@@ -18140,16 +18140,16 @@ class Migrations {
      *
      * @param {string[]} resources
      * @param {string} projectId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.MigrationReport>}
      */
     getFirebaseReportOAuth(resources, projectId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof resources === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "resources"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "resources"');
             }
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             const apiPath = '/migrations/firebase/report/oauth';
             const payload = {};
@@ -18178,31 +18178,31 @@ class Migrations {
      * @param {string} username
      * @param {string} password
      * @param {number} port
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Migration>}
      */
     createNHostMigration(resources, subdomain, region, adminSecret, database, username, password, port) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof resources === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "resources"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "resources"');
             }
             if (typeof subdomain === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "subdomain"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "subdomain"');
             }
             if (typeof region === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "region"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "region"');
             }
             if (typeof adminSecret === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "adminSecret"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "adminSecret"');
             }
             if (typeof database === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "database"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "database"');
             }
             if (typeof username === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "username"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "username"');
             }
             if (typeof password === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "password"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "password"');
             }
             const apiPath = '/migrations/nhost';
             const payload = {};
@@ -18249,31 +18249,31 @@ class Migrations {
      * @param {string} username
      * @param {string} password
      * @param {number} port
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.MigrationReport>}
      */
     getNHostReport(resources, subdomain, region, adminSecret, database, username, password, port) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof resources === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "resources"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "resources"');
             }
             if (typeof subdomain === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "subdomain"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "subdomain"');
             }
             if (typeof region === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "region"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "region"');
             }
             if (typeof adminSecret === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "adminSecret"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "adminSecret"');
             }
             if (typeof database === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "database"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "database"');
             }
             if (typeof username === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "username"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "username"');
             }
             if (typeof password === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "password"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "password"');
             }
             const apiPath = '/migrations/nhost/report';
             const payload = {};
@@ -18319,28 +18319,28 @@ class Migrations {
      * @param {string} username
      * @param {string} password
      * @param {number} port
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Migration>}
      */
     createSupabaseMigration(resources, endpoint, apiKey, databaseHost, username, password, port) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof resources === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "resources"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "resources"');
             }
             if (typeof endpoint === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "endpoint"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "endpoint"');
             }
             if (typeof apiKey === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "apiKey"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "apiKey"');
             }
             if (typeof databaseHost === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseHost"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseHost"');
             }
             if (typeof username === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "username"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "username"');
             }
             if (typeof password === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "password"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "password"');
             }
             const apiPath = '/migrations/supabase';
             const payload = {};
@@ -18383,28 +18383,28 @@ class Migrations {
      * @param {string} username
      * @param {string} password
      * @param {number} port
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.MigrationReport>}
      */
     getSupabaseReport(resources, endpoint, apiKey, databaseHost, username, password, port) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof resources === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "resources"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "resources"');
             }
             if (typeof endpoint === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "endpoint"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "endpoint"');
             }
             if (typeof apiKey === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "apiKey"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "apiKey"');
             }
             if (typeof databaseHost === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "databaseHost"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "databaseHost"');
             }
             if (typeof username === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "username"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "username"');
             }
             if (typeof password === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "password"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "password"');
             }
             const apiPath = '/migrations/supabase/report';
             const payload = {};
@@ -18441,13 +18441,13 @@ class Migrations {
      *
      *
      * @param {string} migrationId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Migration>}
      */
     get(migrationId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof migrationId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "migrationId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "migrationId"');
             }
             const apiPath = '/migrations/{migrationId}'.replace('{migrationId}', migrationId);
             const payload = {};
@@ -18463,13 +18463,13 @@ class Migrations {
      *
      *
      * @param {string} migrationId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Migration>}
      */
     retry(migrationId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof migrationId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "migrationId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "migrationId"');
             }
             const apiPath = '/migrations/{migrationId}'.replace('{migrationId}', migrationId);
             const payload = {};
@@ -18485,13 +18485,13 @@ class Migrations {
      *
      *
      * @param {string} migrationId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     delete(migrationId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof migrationId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "migrationId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "migrationId"');
             }
             const apiPath = '/migrations/{migrationId}'.replace('{migrationId}', migrationId);
             const payload = {};
@@ -18531,16 +18531,16 @@ class Project {
      * @param {string} startDate
      * @param {string} endDate
      * @param {ProjectUsageRange} period
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.UsageProject>}
      */
     getUsage(startDate, endDate, period) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof startDate === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "startDate"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "startDate"');
             }
             if (typeof endDate === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "endDate"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "endDate"');
             }
             const apiPath = '/project/usage';
             const payload = {};
@@ -18565,7 +18565,7 @@ class Project {
      *
      * Get a list of all project variables. These variables will be accessible in all Appconda Functions at runtime.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.VariableList>}
      */
     listVariables() {
@@ -18586,16 +18586,16 @@ class Project {
      *
      * @param {string} key
      * @param {string} value
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Variable>}
      */
     createVariable(key, value) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof key === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "key"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "key"');
             }
             if (typeof value === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "value"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "value"');
             }
             const apiPath = '/project/variables';
             const payload = {};
@@ -18618,13 +18618,13 @@ class Project {
      * Get a project variable by its unique ID.
      *
      * @param {string} variableId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Variable>}
      */
     getVariable(variableId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof variableId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "variableId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "variableId"');
             }
             const apiPath = '/project/variables/{variableId}'.replace('{variableId}', variableId);
             const payload = {};
@@ -18643,16 +18643,16 @@ class Project {
      * @param {string} variableId
      * @param {string} key
      * @param {string} value
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Variable>}
      */
     updateVariable(variableId, key, value) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof variableId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "variableId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "variableId"');
             }
             if (typeof key === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "key"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "key"');
             }
             const apiPath = '/project/variables/{variableId}'.replace('{variableId}', variableId);
             const payload = {};
@@ -18675,13 +18675,13 @@ class Project {
      * Delete a project variable by its unique ID.
      *
      * @param {string} variableId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteVariable(variableId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof variableId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "variableId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "variableId"');
             }
             const apiPath = '/project/variables/{variableId}'.replace('{variableId}', variableId);
             const payload = {};
@@ -18720,7 +18720,7 @@ class Projects {
      *
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.ProjectList>}
      */
     list(queries, search) {
@@ -18757,19 +18757,19 @@ class Projects {
      * @param {string} legalCity
      * @param {string} legalAddress
      * @param {string} legalTaxId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     create(projectId, name, teamId, region, description, logo, url, legalName, legalCountry, legalState, legalCity, legalAddress, legalTaxId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof name === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "name"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "name"');
             }
             if (typeof teamId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "teamId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "teamId"');
             }
             const apiPath = '/projects';
             const payload = {};
@@ -18824,13 +18824,13 @@ class Projects {
      *
      *
      * @param {string} projectId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     get(projectId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             const apiPath = '/projects/{projectId}'.replace('{projectId}', projectId);
             const payload = {};
@@ -18856,16 +18856,16 @@ class Projects {
      * @param {string} legalCity
      * @param {string} legalAddress
      * @param {string} legalTaxId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     update(projectId, name, description, logo, url, legalName, legalCountry, legalState, legalCity, legalAddress, legalTaxId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof name === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "name"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "name"');
             }
             const apiPath = '/projects/{projectId}'.replace('{projectId}', projectId);
             const payload = {};
@@ -18911,13 +18911,13 @@ class Projects {
      *
      *
      * @param {string} projectId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     delete(projectId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             const apiPath = '/projects/{projectId}'.replace('{projectId}', projectId);
             const payload = {};
@@ -18935,19 +18935,19 @@ class Projects {
      * @param {string} projectId
      * @param {Api} api
      * @param {boolean} status
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     updateApiStatus(projectId, api, status) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof api === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "api"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "api"');
             }
             if (typeof status === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "status"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "status"');
             }
             const apiPath = '/projects/{projectId}/api'.replace('{projectId}', projectId);
             const payload = {};
@@ -18970,16 +18970,16 @@ class Projects {
      *
      * @param {string} projectId
      * @param {boolean} status
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     updateApiStatusAll(projectId, status) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof status === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "status"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "status"');
             }
             const apiPath = '/projects/{projectId}/api/all'.replace('{projectId}', projectId);
             const payload = {};
@@ -18999,16 +18999,16 @@ class Projects {
      *
      * @param {string} projectId
      * @param {number} duration
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     updateAuthDuration(projectId, duration) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof duration === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "duration"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "duration"');
             }
             const apiPath = '/projects/{projectId}/auth/duration'.replace('{projectId}', projectId);
             const payload = {};
@@ -19028,16 +19028,16 @@ class Projects {
      *
      * @param {string} projectId
      * @param {number} limit
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     updateAuthLimit(projectId, limit) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof limit === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "limit"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "limit"');
             }
             const apiPath = '/projects/{projectId}/auth/limit'.replace('{projectId}', projectId);
             const payload = {};
@@ -19057,16 +19057,16 @@ class Projects {
      *
      * @param {string} projectId
      * @param {number} limit
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     updateAuthSessionsLimit(projectId, limit) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof limit === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "limit"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "limit"');
             }
             const apiPath = '/projects/{projectId}/auth/max-sessions'.replace('{projectId}', projectId);
             const payload = {};
@@ -19086,16 +19086,16 @@ class Projects {
      *
      * @param {string} projectId
      * @param {object[]} numbers
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     updateMockNumbers(projectId, numbers) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof numbers === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "numbers"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "numbers"');
             }
             const apiPath = '/projects/{projectId}/auth/mock-numbers'.replace('{projectId}', projectId);
             const payload = {};
@@ -19115,16 +19115,16 @@ class Projects {
      *
      * @param {string} projectId
      * @param {boolean} enabled
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     updateAuthPasswordDictionary(projectId, enabled) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof enabled === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "enabled"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "enabled"');
             }
             const apiPath = '/projects/{projectId}/auth/password-dictionary'.replace('{projectId}', projectId);
             const payload = {};
@@ -19144,16 +19144,16 @@ class Projects {
      *
      * @param {string} projectId
      * @param {number} limit
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     updateAuthPasswordHistory(projectId, limit) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof limit === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "limit"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "limit"');
             }
             const apiPath = '/projects/{projectId}/auth/password-history'.replace('{projectId}', projectId);
             const payload = {};
@@ -19173,16 +19173,16 @@ class Projects {
      *
      * @param {string} projectId
      * @param {boolean} enabled
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     updatePersonalDataCheck(projectId, enabled) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof enabled === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "enabled"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "enabled"');
             }
             const apiPath = '/projects/{projectId}/auth/personal-data'.replace('{projectId}', projectId);
             const payload = {};
@@ -19202,16 +19202,16 @@ class Projects {
      *
      * @param {string} projectId
      * @param {boolean} alerts
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     updateSessionAlerts(projectId, alerts) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof alerts === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "alerts"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "alerts"');
             }
             const apiPath = '/projects/{projectId}/auth/session-alerts'.replace('{projectId}', projectId);
             const payload = {};
@@ -19232,19 +19232,19 @@ class Projects {
      * @param {string} projectId
      * @param {AuthMethod} method
      * @param {boolean} status
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     updateAuthStatus(projectId, method, status) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof method === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "method"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "method"');
             }
             if (typeof status === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "status"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "status"');
             }
             const apiPath = '/projects/{projectId}/auth/{method}'.replace('{projectId}', projectId).replace('{method}', method);
             const payload = {};
@@ -19265,16 +19265,16 @@ class Projects {
      * @param {string} projectId
      * @param {string[]} scopes
      * @param {number} duration
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Jwt>}
      */
     createJWT(projectId, scopes, duration) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof scopes === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "scopes"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "scopes"');
             }
             const apiPath = '/projects/{projectId}/jwts'.replace('{projectId}', projectId);
             const payload = {};
@@ -19296,13 +19296,13 @@ class Projects {
      *
      *
      * @param {string} projectId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.KeyList>}
      */
     listKeys(projectId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             const apiPath = '/projects/{projectId}/keys'.replace('{projectId}', projectId);
             const payload = {};
@@ -19321,19 +19321,19 @@ class Projects {
      * @param {string} name
      * @param {string[]} scopes
      * @param {string} expire
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Key>}
      */
     createKey(projectId, name, scopes, expire) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof name === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "name"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "name"');
             }
             if (typeof scopes === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "scopes"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "scopes"');
             }
             const apiPath = '/projects/{projectId}/keys'.replace('{projectId}', projectId);
             const payload = {};
@@ -19359,16 +19359,16 @@ class Projects {
      *
      * @param {string} projectId
      * @param {string} keyId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Key>}
      */
     getKey(projectId, keyId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof keyId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "keyId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "keyId"');
             }
             const apiPath = '/projects/{projectId}/keys/{keyId}'.replace('{projectId}', projectId).replace('{keyId}', keyId);
             const payload = {};
@@ -19388,22 +19388,22 @@ class Projects {
      * @param {string} name
      * @param {string[]} scopes
      * @param {string} expire
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Key>}
      */
     updateKey(projectId, keyId, name, scopes, expire) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof keyId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "keyId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "keyId"');
             }
             if (typeof name === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "name"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "name"');
             }
             if (typeof scopes === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "scopes"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "scopes"');
             }
             const apiPath = '/projects/{projectId}/keys/{keyId}'.replace('{projectId}', projectId).replace('{keyId}', keyId);
             const payload = {};
@@ -19429,16 +19429,16 @@ class Projects {
      *
      * @param {string} projectId
      * @param {string} keyId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteKey(projectId, keyId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof keyId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "keyId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "keyId"');
             }
             const apiPath = '/projects/{projectId}/keys/{keyId}'.replace('{projectId}', projectId).replace('{keyId}', keyId);
             const payload = {};
@@ -19458,16 +19458,16 @@ class Projects {
      * @param {string} appId
      * @param {string} secret
      * @param {boolean} enabled
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     updateOAuth2(projectId, provider, appId, secret, enabled) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof provider === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "provider"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "provider"');
             }
             const apiPath = '/projects/{projectId}/oauth2'.replace('{projectId}', projectId);
             const payload = {};
@@ -19495,13 +19495,13 @@ class Projects {
      *
      *
      * @param {string} projectId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.PlatformList>}
      */
     listPlatforms(projectId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             const apiPath = '/projects/{projectId}/platforms'.replace('{projectId}', projectId);
             const payload = {};
@@ -19522,19 +19522,19 @@ class Projects {
      * @param {string} key
      * @param {string} store
      * @param {string} hostname
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Platform>}
      */
     createPlatform(projectId, type, name, key, store, hostname) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof type === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "type"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "type"');
             }
             if (typeof name === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "name"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "name"');
             }
             const apiPath = '/projects/{projectId}/platforms'.replace('{projectId}', projectId);
             const payload = {};
@@ -19566,16 +19566,16 @@ class Projects {
      *
      * @param {string} projectId
      * @param {string} platformId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Platform>}
      */
     getPlatform(projectId, platformId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof platformId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "platformId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "platformId"');
             }
             const apiPath = '/projects/{projectId}/platforms/{platformId}'.replace('{projectId}', projectId).replace('{platformId}', platformId);
             const payload = {};
@@ -19596,19 +19596,19 @@ class Projects {
      * @param {string} key
      * @param {string} store
      * @param {string} hostname
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Platform>}
      */
     updatePlatform(projectId, platformId, name, key, store, hostname) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof platformId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "platformId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "platformId"');
             }
             if (typeof name === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "name"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "name"');
             }
             const apiPath = '/projects/{projectId}/platforms/{platformId}'.replace('{projectId}', projectId).replace('{platformId}', platformId);
             const payload = {};
@@ -19637,16 +19637,16 @@ class Projects {
      *
      * @param {string} projectId
      * @param {string} platformId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deletePlatform(projectId, platformId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof platformId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "platformId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "platformId"');
             }
             const apiPath = '/projects/{projectId}/platforms/{platformId}'.replace('{projectId}', projectId).replace('{platformId}', platformId);
             const payload = {};
@@ -19664,19 +19664,19 @@ class Projects {
      * @param {string} projectId
      * @param {ApiService} service
      * @param {boolean} status
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     updateServiceStatus(projectId, service, status) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof service === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "service"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "service"');
             }
             if (typeof status === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "status"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "status"');
             }
             const apiPath = '/projects/{projectId}/service'.replace('{projectId}', projectId);
             const payload = {};
@@ -19699,16 +19699,16 @@ class Projects {
      *
      * @param {string} projectId
      * @param {boolean} status
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     updateServiceStatusAll(projectId, status) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof status === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "status"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "status"');
             }
             const apiPath = '/projects/{projectId}/service/all'.replace('{projectId}', projectId);
             const payload = {};
@@ -19736,16 +19736,16 @@ class Projects {
      * @param {string} username
      * @param {string} password
      * @param {SMTPSecure} secure
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     updateSmtp(projectId, enabled, senderName, senderEmail, replyTo, host, port, username, password, secure) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof enabled === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "enabled"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "enabled"');
             }
             const apiPath = '/projects/{projectId}/smtp'.replace('{projectId}', projectId);
             const payload = {};
@@ -19797,25 +19797,25 @@ class Projects {
      * @param {string} username
      * @param {string} password
      * @param {SMTPSecure} secure
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     createSmtpTest(projectId, emails, senderName, senderEmail, host, replyTo, port, username, password, secure) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof emails === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "emails"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "emails"');
             }
             if (typeof senderName === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "senderName"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "senderName"');
             }
             if (typeof senderEmail === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "senderEmail"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "senderEmail"');
             }
             if (typeof host === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "host"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "host"');
             }
             const apiPath = '/projects/{projectId}/smtp/tests'.replace('{projectId}', projectId);
             const payload = {};
@@ -19859,16 +19859,16 @@ class Projects {
      *
      * @param {string} projectId
      * @param {string} teamId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     updateTeam(projectId, teamId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof teamId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "teamId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "teamId"');
             }
             const apiPath = '/projects/{projectId}/team'.replace('{projectId}', projectId);
             const payload = {};
@@ -19889,19 +19889,19 @@ class Projects {
      * @param {string} projectId
      * @param {EmailTemplateType} type
      * @param {EmailTemplateLocale} locale
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.EmailTemplate>}
      */
     getEmailTemplate(projectId, type, locale) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof type === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "type"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "type"');
             }
             if (typeof locale === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "locale"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "locale"');
             }
             const apiPath = '/projects/{projectId}/templates/email/{type}/{locale}'.replace('{projectId}', projectId).replace('{type}', type).replace('{locale}', locale);
             const payload = {};
@@ -19924,25 +19924,25 @@ class Projects {
      * @param {string} senderName
      * @param {string} senderEmail
      * @param {string} replyTo
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     updateEmailTemplate(projectId, type, locale, subject, message, senderName, senderEmail, replyTo) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof type === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "type"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "type"');
             }
             if (typeof locale === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "locale"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "locale"');
             }
             if (typeof subject === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "subject"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "subject"');
             }
             if (typeof message === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "message"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "message"');
             }
             const apiPath = '/projects/{projectId}/templates/email/{type}/{locale}'.replace('{projectId}', projectId).replace('{type}', type).replace('{locale}', locale);
             const payload = {};
@@ -19975,19 +19975,19 @@ class Projects {
      * @param {string} projectId
      * @param {EmailTemplateType} type
      * @param {EmailTemplateLocale} locale
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.EmailTemplate>}
      */
     deleteEmailTemplate(projectId, type, locale) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof type === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "type"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "type"');
             }
             if (typeof locale === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "locale"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "locale"');
             }
             const apiPath = '/projects/{projectId}/templates/email/{type}/{locale}'.replace('{projectId}', projectId).replace('{type}', type).replace('{locale}', locale);
             const payload = {};
@@ -20005,19 +20005,19 @@ class Projects {
      * @param {string} projectId
      * @param {SmsTemplateType} type
      * @param {SmsTemplateLocale} locale
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.SmsTemplate>}
      */
     getSmsTemplate(projectId, type, locale) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof type === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "type"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "type"');
             }
             if (typeof locale === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "locale"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "locale"');
             }
             const apiPath = '/projects/{projectId}/templates/sms/{type}/{locale}'.replace('{projectId}', projectId).replace('{type}', type).replace('{locale}', locale);
             const payload = {};
@@ -20036,22 +20036,22 @@ class Projects {
      * @param {SmsTemplateType} type
      * @param {SmsTemplateLocale} locale
      * @param {string} message
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.SmsTemplate>}
      */
     updateSmsTemplate(projectId, type, locale, message) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof type === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "type"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "type"');
             }
             if (typeof locale === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "locale"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "locale"');
             }
             if (typeof message === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "message"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "message"');
             }
             const apiPath = '/projects/{projectId}/templates/sms/{type}/{locale}'.replace('{projectId}', projectId).replace('{type}', type).replace('{locale}', locale);
             const payload = {};
@@ -20072,19 +20072,19 @@ class Projects {
      * @param {string} projectId
      * @param {SmsTemplateType} type
      * @param {SmsTemplateLocale} locale
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.SmsTemplate>}
      */
     deleteSmsTemplate(projectId, type, locale) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof type === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "type"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "type"');
             }
             if (typeof locale === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "locale"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "locale"');
             }
             const apiPath = '/projects/{projectId}/templates/sms/{type}/{locale}'.replace('{projectId}', projectId).replace('{type}', type).replace('{locale}', locale);
             const payload = {};
@@ -20100,13 +20100,13 @@ class Projects {
      *
      *
      * @param {string} projectId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.WebhookList>}
      */
     listWebhooks(projectId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             const apiPath = '/projects/{projectId}/webhooks'.replace('{projectId}', projectId);
             const payload = {};
@@ -20129,25 +20129,25 @@ class Projects {
      * @param {boolean} enabled
      * @param {string} httpUser
      * @param {string} httpPass
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Webhook>}
      */
     createWebhook(projectId, name, events, url, security, enabled, httpUser, httpPass) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof name === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "name"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "name"');
             }
             if (typeof events === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "events"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "events"');
             }
             if (typeof url === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "url"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "url"');
             }
             if (typeof security === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "security"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "security"');
             }
             const apiPath = '/projects/{projectId}/webhooks'.replace('{projectId}', projectId);
             const payload = {};
@@ -20185,16 +20185,16 @@ class Projects {
      *
      * @param {string} projectId
      * @param {string} webhookId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Webhook>}
      */
     getWebhook(projectId, webhookId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof webhookId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "webhookId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "webhookId"');
             }
             const apiPath = '/projects/{projectId}/webhooks/{webhookId}'.replace('{projectId}', projectId).replace('{webhookId}', webhookId);
             const payload = {};
@@ -20218,28 +20218,28 @@ class Projects {
      * @param {boolean} enabled
      * @param {string} httpUser
      * @param {string} httpPass
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Webhook>}
      */
     updateWebhook(projectId, webhookId, name, events, url, security, enabled, httpUser, httpPass) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof webhookId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "webhookId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "webhookId"');
             }
             if (typeof name === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "name"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "name"');
             }
             if (typeof events === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "events"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "events"');
             }
             if (typeof url === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "url"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "url"');
             }
             if (typeof security === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "security"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "security"');
             }
             const apiPath = '/projects/{projectId}/webhooks/{webhookId}'.replace('{projectId}', projectId).replace('{webhookId}', webhookId);
             const payload = {};
@@ -20277,16 +20277,16 @@ class Projects {
      *
      * @param {string} projectId
      * @param {string} webhookId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteWebhook(projectId, webhookId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof webhookId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "webhookId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "webhookId"');
             }
             const apiPath = '/projects/{projectId}/webhooks/{webhookId}'.replace('{projectId}', projectId).replace('{webhookId}', webhookId);
             const payload = {};
@@ -20303,16 +20303,16 @@ class Projects {
      *
      * @param {string} projectId
      * @param {string} webhookId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Webhook>}
      */
     updateWebhookSignature(projectId, webhookId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof projectId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "projectId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "projectId"');
             }
             if (typeof webhookId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "webhookId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "webhookId"');
             }
             const apiPath = '/projects/{projectId}/webhooks/{webhookId}/signature'.replace('{projectId}', projectId).replace('{webhookId}', webhookId);
             const payload = {};
@@ -20352,7 +20352,7 @@ class Proxy {
      *
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.ProxyRuleList>}
      */
     listRules(queries, search) {
@@ -20380,16 +20380,16 @@ class Proxy {
      * @param {string} domain
      * @param {ResourceType} resourceType
      * @param {string} resourceId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.ProxyRule>}
      */
     createRule(domain, resourceType, resourceId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof domain === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "domain"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "domain"');
             }
             if (typeof resourceType === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "resourceType"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "resourceType"');
             }
             const apiPath = '/proxy/rules';
             const payload = {};
@@ -20415,13 +20415,13 @@ class Proxy {
      * Get a proxy rule by its unique ID.
      *
      * @param {string} ruleId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.ProxyRule>}
      */
     getRule(ruleId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof ruleId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "ruleId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "ruleId"');
             }
             const apiPath = '/proxy/rules/{ruleId}'.replace('{ruleId}', ruleId);
             const payload = {};
@@ -20438,13 +20438,13 @@ class Proxy {
      * Delete a proxy rule by its unique ID.
      *
      * @param {string} ruleId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteRule(ruleId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof ruleId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "ruleId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "ruleId"');
             }
             const apiPath = '/proxy/rules/{ruleId}'.replace('{ruleId}', ruleId);
             const payload = {};
@@ -20460,13 +20460,13 @@ class Proxy {
      *
      *
      * @param {string} ruleId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.ProxyRule>}
      */
     updateRuleVerification(ruleId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof ruleId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "ruleId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "ruleId"');
             }
             const apiPath = '/proxy/rules/{ruleId}/verification'.replace('{ruleId}', ruleId);
             const payload = {};
@@ -20508,7 +20508,7 @@ class Storage {
      *
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.BucketList>}
      */
     listBuckets(queries, search) {
@@ -20543,16 +20543,16 @@ class Storage {
      * @param {Compression} compression
      * @param {boolean} encryption
      * @param {boolean} antivirus
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Bucket>}
      */
     createBucket(bucketId, name, permissions, fileSecurity, enabled, maximumFileSize, allowedFileExtensions, compression, encryption, antivirus) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof bucketId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "bucketId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "bucketId"');
             }
             if (typeof name === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "name"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "name"');
             }
             const apiPath = '/storage/buckets';
             const payload = {};
@@ -20599,13 +20599,13 @@ class Storage {
      * Get a storage bucket by its unique ID. This endpoint response returns a JSON object with the storage bucket metadata.
      *
      * @param {string} bucketId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Bucket>}
      */
     getBucket(bucketId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof bucketId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "bucketId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "bucketId"');
             }
             const apiPath = '/storage/buckets/{bucketId}'.replace('{bucketId}', bucketId);
             const payload = {};
@@ -20631,16 +20631,16 @@ class Storage {
      * @param {Compression} compression
      * @param {boolean} encryption
      * @param {boolean} antivirus
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Bucket>}
      */
     updateBucket(bucketId, name, permissions, fileSecurity, enabled, maximumFileSize, allowedFileExtensions, compression, encryption, antivirus) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof bucketId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "bucketId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "bucketId"');
             }
             if (typeof name === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "name"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "name"');
             }
             const apiPath = '/storage/buckets/{bucketId}'.replace('{bucketId}', bucketId);
             const payload = {};
@@ -20684,13 +20684,13 @@ class Storage {
      * Delete a storage bucket by its unique ID.
      *
      * @param {string} bucketId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteBucket(bucketId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof bucketId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "bucketId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "bucketId"');
             }
             const apiPath = '/storage/buckets/{bucketId}'.replace('{bucketId}', bucketId);
             const payload = {};
@@ -20709,13 +20709,13 @@ class Storage {
      * @param {string} bucketId
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.FileList>}
      */
     listFiles(bucketId, queries, search) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof bucketId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "bucketId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "bucketId"');
             }
             const apiPath = '/storage/buckets/{bucketId}/files'.replace('{bucketId}', bucketId);
             const payload = {};
@@ -20748,19 +20748,19 @@ If you&#039;re creating a new file using one of the Appconda SDKs, all the chunk
      * @param {string} fileId
      * @param {File} file
      * @param {string[]} permissions
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.File>}
      */
     createFile(bucketId_1, fileId_1, file_1, permissions_1) {
         return __awaiter(this, arguments, void 0, function* (bucketId, fileId, file, permissions, onProgress = (progress) => { }) {
             if (typeof bucketId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "bucketId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "bucketId"');
             }
             if (typeof fileId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "fileId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "fileId"');
             }
             if (typeof file === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "file"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "file"');
             }
             const apiPath = '/storage/buckets/{bucketId}/files'.replace('{bucketId}', bucketId);
             const payload = {};
@@ -20787,16 +20787,16 @@ If you&#039;re creating a new file using one of the Appconda SDKs, all the chunk
      *
      * @param {string} bucketId
      * @param {string} fileId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.File>}
      */
     getFile(bucketId, fileId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof bucketId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "bucketId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "bucketId"');
             }
             if (typeof fileId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "fileId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "fileId"');
             }
             const apiPath = '/storage/buckets/{bucketId}/files/{fileId}'.replace('{bucketId}', bucketId).replace('{fileId}', fileId);
             const payload = {};
@@ -20816,16 +20816,16 @@ If you&#039;re creating a new file using one of the Appconda SDKs, all the chunk
      * @param {string} fileId
      * @param {string} name
      * @param {string[]} permissions
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.File>}
      */
     updateFile(bucketId, fileId, name, permissions) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof bucketId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "bucketId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "bucketId"');
             }
             if (typeof fileId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "fileId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "fileId"');
             }
             const apiPath = '/storage/buckets/{bucketId}/files/{fileId}'.replace('{bucketId}', bucketId).replace('{fileId}', fileId);
             const payload = {};
@@ -20849,16 +20849,16 @@ If you&#039;re creating a new file using one of the Appconda SDKs, all the chunk
      *
      * @param {string} bucketId
      * @param {string} fileId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteFile(bucketId, fileId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof bucketId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "bucketId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "bucketId"');
             }
             if (typeof fileId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "fileId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "fileId"');
             }
             const apiPath = '/storage/buckets/{bucketId}/files/{fileId}'.replace('{bucketId}', bucketId).replace('{fileId}', fileId);
             const payload = {};
@@ -20876,15 +20876,15 @@ If you&#039;re creating a new file using one of the Appconda SDKs, all the chunk
      *
      * @param {string} bucketId
      * @param {string} fileId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {string}
      */
     getFileDownload(bucketId, fileId) {
         if (typeof bucketId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "bucketId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "bucketId"');
         }
         if (typeof fileId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "fileId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "fileId"');
         }
         const apiPath = '/storage/buckets/{bucketId}/files/{fileId}/download'.replace('{bucketId}', bucketId).replace('{fileId}', fileId);
         const payload = {};
@@ -20920,15 +20920,15 @@ If you&#039;re creating a new file using one of the Appconda SDKs, all the chunk
      * @param {number} rotation
      * @param {string} background
      * @param {ImageFormat} output
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {string}
      */
     getFilePreview(bucketId, fileId, width, height, gravity, quality, borderWidth, borderColor, borderRadius, opacity, rotation, background, output) {
         if (typeof bucketId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "bucketId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "bucketId"');
         }
         if (typeof fileId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "fileId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "fileId"');
         }
         const apiPath = '/storage/buckets/{bucketId}/files/{fileId}/preview'.replace('{bucketId}', bucketId).replace('{fileId}', fileId);
         const payload = {};
@@ -20986,15 +20986,15 @@ If you&#039;re creating a new file using one of the Appconda SDKs, all the chunk
      *
      * @param {string} bucketId
      * @param {string} fileId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {string}
      */
     getFileView(bucketId, fileId) {
         if (typeof bucketId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "bucketId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "bucketId"');
         }
         if (typeof fileId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "fileId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "fileId"');
         }
         const apiPath = '/storage/buckets/{bucketId}/files/{fileId}/view'.replace('{bucketId}', bucketId).replace('{fileId}', fileId);
         const payload = {};
@@ -21017,7 +21017,7 @@ If you&#039;re creating a new file using one of the Appconda SDKs, all the chunk
      *
      *
      * @param {StorageUsageRange} range
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.UsageStorage>}
      */
     getUsage(range) {
@@ -21040,13 +21040,13 @@ If you&#039;re creating a new file using one of the Appconda SDKs, all the chunk
      *
      * @param {string} bucketId
      * @param {StorageUsageRange} range
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.UsageBuckets>}
      */
     getBucketUsage(bucketId, range) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof bucketId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "bucketId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "bucketId"');
             }
             const apiPath = '/storage/{bucketId}/usage'.replace('{bucketId}', bucketId);
             const payload = {};
@@ -21089,7 +21089,7 @@ class Teams {
      *
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.TeamList<Preferences>>}
      */
     list(queries, search) {
@@ -21117,16 +21117,16 @@ class Teams {
      * @param {string} teamId
      * @param {string} name
      * @param {string[]} roles
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Team<Preferences>>}
      */
     create(teamId, name, roles) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof teamId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "teamId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "teamId"');
             }
             if (typeof name === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "name"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "name"');
             }
             const apiPath = '/teams';
             const payload = {};
@@ -21152,13 +21152,13 @@ class Teams {
      * Get a team by its ID. All team members have read access for this resource.
      *
      * @param {string} teamId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Team<Preferences>>}
      */
     get(teamId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof teamId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "teamId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "teamId"');
             }
             const apiPath = '/teams/{teamId}'.replace('{teamId}', teamId);
             const payload = {};
@@ -21176,16 +21176,16 @@ class Teams {
      *
      * @param {string} teamId
      * @param {string} name
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Team<Preferences>>}
      */
     updateName(teamId, name) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof teamId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "teamId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "teamId"');
             }
             if (typeof name === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "name"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "name"');
             }
             const apiPath = '/teams/{teamId}'.replace('{teamId}', teamId);
             const payload = {};
@@ -21205,13 +21205,13 @@ class Teams {
      * Delete a team using its ID. Only team members with the owner role can delete the team.
      *
      * @param {string} teamId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     delete(teamId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof teamId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "teamId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "teamId"');
             }
             const apiPath = '/teams/{teamId}'.replace('{teamId}', teamId);
             const payload = {};
@@ -21229,13 +21229,13 @@ class Teams {
      *
      * @param {string} teamId
      * @param {string[]} queries
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.LogList>}
      */
     listLogs(teamId, queries) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof teamId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "teamId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "teamId"');
             }
             const apiPath = '/teams/{teamId}/logs'.replace('{teamId}', teamId);
             const payload = {};
@@ -21257,13 +21257,13 @@ class Teams {
      * @param {string} teamId
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.MembershipList>}
      */
     listMemberships(teamId, queries, search) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof teamId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "teamId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "teamId"');
             }
             const apiPath = '/teams/{teamId}/memberships'.replace('{teamId}', teamId);
             const payload = {};
@@ -21299,16 +21299,16 @@ Please note that to avoid a [Redirect Attack](https://github.com/OWASP/CheatShee
      * @param {string} phone
      * @param {string} url
      * @param {string} name
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Membership>}
      */
     createMembership(teamId, roles, email, userId, phone, url, name) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof teamId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "teamId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "teamId"');
             }
             if (typeof roles === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "roles"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "roles"');
             }
             const apiPath = '/teams/{teamId}/memberships'.replace('{teamId}', teamId);
             const payload = {};
@@ -21344,16 +21344,16 @@ Please note that to avoid a [Redirect Attack](https://github.com/OWASP/CheatShee
      *
      * @param {string} teamId
      * @param {string} membershipId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Membership>}
      */
     getMembership(teamId, membershipId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof teamId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "teamId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "teamId"');
             }
             if (typeof membershipId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "membershipId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "membershipId"');
             }
             const apiPath = '/teams/{teamId}/memberships/{membershipId}'.replace('{teamId}', teamId).replace('{membershipId}', membershipId);
             const payload = {};
@@ -21373,19 +21373,19 @@ Please note that to avoid a [Redirect Attack](https://github.com/OWASP/CheatShee
      * @param {string} teamId
      * @param {string} membershipId
      * @param {string[]} roles
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Membership>}
      */
     updateMembership(teamId, membershipId, roles) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof teamId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "teamId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "teamId"');
             }
             if (typeof membershipId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "membershipId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "membershipId"');
             }
             if (typeof roles === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "roles"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "roles"');
             }
             const apiPath = '/teams/{teamId}/memberships/{membershipId}'.replace('{teamId}', teamId).replace('{membershipId}', membershipId);
             const payload = {};
@@ -21406,16 +21406,16 @@ Please note that to avoid a [Redirect Attack](https://github.com/OWASP/CheatShee
      *
      * @param {string} teamId
      * @param {string} membershipId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteMembership(teamId, membershipId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof teamId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "teamId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "teamId"');
             }
             if (typeof membershipId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "membershipId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "membershipId"');
             }
             const apiPath = '/teams/{teamId}/memberships/{membershipId}'.replace('{teamId}', teamId).replace('{membershipId}', membershipId);
             const payload = {};
@@ -21438,22 +21438,22 @@ If the request is successful, a session for the user is automatically created.
      * @param {string} membershipId
      * @param {string} userId
      * @param {string} secret
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Membership>}
      */
     updateMembershipStatus(teamId, membershipId, userId, secret) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof teamId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "teamId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "teamId"');
             }
             if (typeof membershipId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "membershipId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "membershipId"');
             }
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             if (typeof secret === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "secret"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "secret"');
             }
             const apiPath = '/teams/{teamId}/memberships/{membershipId}/status'.replace('{teamId}', teamId).replace('{membershipId}', membershipId);
             const payload = {};
@@ -21476,13 +21476,13 @@ If the request is successful, a session for the user is automatically created.
      * Get the team&#039;s shared preferences by its unique ID. If a preference doesn&#039;t need to be shared by all team members, prefer storing them in [user preferences](https://appconda.io/docs/references/cloud/client-web/account#getPrefs).
      *
      * @param {string} teamId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Preferences>}
      */
     getPrefs(teamId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof teamId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "teamId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "teamId"');
             }
             const apiPath = '/teams/{teamId}/prefs'.replace('{teamId}', teamId);
             const payload = {};
@@ -21500,16 +21500,16 @@ If the request is successful, a session for the user is automatically created.
      *
      * @param {string} teamId
      * @param {object} prefs
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Preferences>}
      */
     updatePrefs(teamId, prefs) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof teamId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "teamId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "teamId"');
             }
             if (typeof prefs === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "prefs"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "prefs"');
             }
             const apiPath = '/teams/{teamId}/prefs'.replace('{teamId}', teamId);
             const payload = {};
@@ -21552,7 +21552,7 @@ class Users {
      *
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.UserList<Preferences>>}
      */
     list(queries, search) {
@@ -21582,13 +21582,13 @@ class Users {
      * @param {string} phone
      * @param {string} password
      * @param {string} name
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     create(userId, email, phone, password, name) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             const apiPath = '/users';
             const payload = {};
@@ -21623,19 +21623,19 @@ class Users {
      * @param {string} email
      * @param {string} password
      * @param {string} name
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     createArgon2User(userId, email, password, name) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             if (typeof email === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "email"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "email"');
             }
             if (typeof password === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "password"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "password"');
             }
             const apiPath = '/users/argon2';
             const payload = {};
@@ -21667,19 +21667,19 @@ class Users {
      * @param {string} email
      * @param {string} password
      * @param {string} name
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     createBcryptUser(userId, email, password, name) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             if (typeof email === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "email"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "email"');
             }
             if (typeof password === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "password"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "password"');
             }
             const apiPath = '/users/bcrypt';
             const payload = {};
@@ -21709,7 +21709,7 @@ class Users {
      *
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.IdentityList>}
      */
     listIdentities(queries, search) {
@@ -21735,13 +21735,13 @@ class Users {
      * Delete an identity by its unique ID.
      *
      * @param {string} identityId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteIdentity(identityId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof identityId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "identityId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "identityId"');
             }
             const apiPath = '/users/identities/{identityId}'.replace('{identityId}', identityId);
             const payload = {};
@@ -21761,19 +21761,19 @@ class Users {
      * @param {string} email
      * @param {string} password
      * @param {string} name
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     createMD5User(userId, email, password, name) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             if (typeof email === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "email"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "email"');
             }
             if (typeof password === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "password"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "password"');
             }
             const apiPath = '/users/md5';
             const payload = {};
@@ -21805,19 +21805,19 @@ class Users {
      * @param {string} email
      * @param {string} password
      * @param {string} name
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     createPHPassUser(userId, email, password, name) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             if (typeof email === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "email"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "email"');
             }
             if (typeof password === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "password"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "password"');
             }
             const apiPath = '/users/phpass';
             const payload = {};
@@ -21854,34 +21854,34 @@ class Users {
      * @param {number} passwordParallel
      * @param {number} passwordLength
      * @param {string} name
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     createScryptUser(userId, email, password, passwordSalt, passwordCpu, passwordMemory, passwordParallel, passwordLength, name) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             if (typeof email === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "email"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "email"');
             }
             if (typeof password === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "password"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "password"');
             }
             if (typeof passwordSalt === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "passwordSalt"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "passwordSalt"');
             }
             if (typeof passwordCpu === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "passwordCpu"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "passwordCpu"');
             }
             if (typeof passwordMemory === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "passwordMemory"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "passwordMemory"');
             }
             if (typeof passwordParallel === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "passwordParallel"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "passwordParallel"');
             }
             if (typeof passwordLength === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "passwordLength"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "passwordLength"');
             }
             const apiPath = '/users/scrypt';
             const payload = {};
@@ -21931,28 +21931,28 @@ class Users {
      * @param {string} passwordSaltSeparator
      * @param {string} passwordSignerKey
      * @param {string} name
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     createScryptModifiedUser(userId, email, password, passwordSalt, passwordSaltSeparator, passwordSignerKey, name) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             if (typeof email === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "email"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "email"');
             }
             if (typeof password === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "password"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "password"');
             }
             if (typeof passwordSalt === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "passwordSalt"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "passwordSalt"');
             }
             if (typeof passwordSaltSeparator === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "passwordSaltSeparator"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "passwordSaltSeparator"');
             }
             if (typeof passwordSignerKey === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "passwordSignerKey"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "passwordSignerKey"');
             }
             const apiPath = '/users/scrypt-modified';
             const payload = {};
@@ -21994,19 +21994,19 @@ class Users {
      * @param {string} password
      * @param {PasswordHash} passwordVersion
      * @param {string} name
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     createSHAUser(userId, email, password, passwordVersion, name) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             if (typeof email === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "email"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "email"');
             }
             if (typeof password === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "password"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "password"');
             }
             const apiPath = '/users/sha';
             const payload = {};
@@ -22037,7 +22037,7 @@ class Users {
      *
      *
      * @param {UserUsageRange} range
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.UsageUsers>}
      */
     getUsage(range) {
@@ -22060,13 +22060,13 @@ class Users {
      * Get a user by its unique ID.
      *
      * @param {string} userId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     get(userId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             const apiPath = '/users/{userId}'.replace('{userId}', userId);
             const payload = {};
@@ -22083,13 +22083,13 @@ class Users {
      * Delete a user by its unique ID, thereby releasing it&#039;s ID. Since ID is released and can be reused, all user-related resources like documents or storage files should be deleted before user deletion. If you want to keep ID reserved, use the [updateStatus](https://appconda.io/docs/server/users#usersUpdateStatus) endpoint instead.
      *
      * @param {string} userId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     delete(userId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             const apiPath = '/users/{userId}'.replace('{userId}', userId);
             const payload = {};
@@ -22107,16 +22107,16 @@ class Users {
      *
      * @param {string} userId
      * @param {string} email
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     updateEmail(userId, email) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             if (typeof email === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "email"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "email"');
             }
             const apiPath = '/users/{userId}/email'.replace('{userId}', userId);
             const payload = {};
@@ -22138,13 +22138,13 @@ class Users {
      * @param {string} userId
      * @param {string} sessionId
      * @param {number} duration
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Jwt>}
      */
     createJWT(userId, sessionId, duration) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             const apiPath = '/users/{userId}/jwts'.replace('{userId}', userId);
             const payload = {};
@@ -22170,16 +22170,16 @@ Labels can be used to grant access to resources. While teams are a way for user&
      *
      * @param {string} userId
      * @param {string[]} labels
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     updateLabels(userId, labels) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             if (typeof labels === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "labels"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "labels"');
             }
             const apiPath = '/users/{userId}/labels'.replace('{userId}', userId);
             const payload = {};
@@ -22200,13 +22200,13 @@ Labels can be used to grant access to resources. While teams are a way for user&
      *
      * @param {string} userId
      * @param {string[]} queries
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.LogList>}
      */
     listLogs(userId, queries) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             const apiPath = '/users/{userId}/logs'.replace('{userId}', userId);
             const payload = {};
@@ -22226,13 +22226,13 @@ Labels can be used to grant access to resources. While teams are a way for user&
      * Get the user membership list by its unique ID.
      *
      * @param {string} userId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.MembershipList>}
      */
     listMemberships(userId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             const apiPath = '/users/{userId}/memberships'.replace('{userId}', userId);
             const payload = {};
@@ -22250,16 +22250,16 @@ Labels can be used to grant access to resources. While teams are a way for user&
      *
      * @param {string} userId
      * @param {boolean} mfa
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     updateMfa(userId, mfa) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             if (typeof mfa === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "mfa"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "mfa"');
             }
             const apiPath = '/users/{userId}/mfa'.replace('{userId}', userId);
             const payload = {};
@@ -22280,16 +22280,16 @@ Labels can be used to grant access to resources. While teams are a way for user&
      *
      * @param {string} userId
      * @param {AuthenticatorType} type
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     deleteMfaAuthenticator(userId, type) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             if (typeof type === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "type"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "type"');
             }
             const apiPath = '/users/{userId}/mfa/authenticators/{type}'.replace('{userId}', userId).replace('{type}', type);
             const payload = {};
@@ -22306,13 +22306,13 @@ Labels can be used to grant access to resources. While teams are a way for user&
      * List the factors available on the account to be used as a MFA challange.
      *
      * @param {string} userId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.MfaFactors>}
      */
     listMfaFactors(userId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             const apiPath = '/users/{userId}/mfa/factors'.replace('{userId}', userId);
             const payload = {};
@@ -22329,13 +22329,13 @@ Labels can be used to grant access to resources. While teams are a way for user&
      * Get recovery codes that can be used as backup for MFA flow by User ID. Before getting codes, they must be generated using [createMfaRecoveryCodes](/docs/references/cloud/client-web/account#createMfaRecoveryCodes) method.
      *
      * @param {string} userId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.MfaRecoveryCodes>}
      */
     getMfaRecoveryCodes(userId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             const apiPath = '/users/{userId}/mfa/recovery-codes'.replace('{userId}', userId);
             const payload = {};
@@ -22352,13 +22352,13 @@ Labels can be used to grant access to resources. While teams are a way for user&
      * Regenerate recovery codes that can be used as backup for MFA flow by User ID. Before regenerating codes, they must be first generated using [createMfaRecoveryCodes](/docs/references/cloud/client-web/account#createMfaRecoveryCodes) method.
      *
      * @param {string} userId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.MfaRecoveryCodes>}
      */
     updateMfaRecoveryCodes(userId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             const apiPath = '/users/{userId}/mfa/recovery-codes'.replace('{userId}', userId);
             const payload = {};
@@ -22375,13 +22375,13 @@ Labels can be used to grant access to resources. While teams are a way for user&
      * Generate recovery codes used as backup for MFA flow for User ID. Recovery codes can be used as a MFA verification type in [createMfaChallenge](/docs/references/cloud/client-web/account#createMfaChallenge) method by client SDK.
      *
      * @param {string} userId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.MfaRecoveryCodes>}
      */
     createMfaRecoveryCodes(userId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             const apiPath = '/users/{userId}/mfa/recovery-codes'.replace('{userId}', userId);
             const payload = {};
@@ -22399,16 +22399,16 @@ Labels can be used to grant access to resources. While teams are a way for user&
      *
      * @param {string} userId
      * @param {string} name
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     updateName(userId, name) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             if (typeof name === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "name"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "name"');
             }
             const apiPath = '/users/{userId}/name'.replace('{userId}', userId);
             const payload = {};
@@ -22429,16 +22429,16 @@ Labels can be used to grant access to resources. While teams are a way for user&
      *
      * @param {string} userId
      * @param {string} password
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     updatePassword(userId, password) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             if (typeof password === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "password"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "password"');
             }
             const apiPath = '/users/{userId}/password'.replace('{userId}', userId);
             const payload = {};
@@ -22459,16 +22459,16 @@ Labels can be used to grant access to resources. While teams are a way for user&
      *
      * @param {string} userId
      * @param {string} number
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     updatePhone(userId, number) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             if (typeof number === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "number"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "number"');
             }
             const apiPath = '/users/{userId}/phone'.replace('{userId}', userId);
             const payload = {};
@@ -22488,13 +22488,13 @@ Labels can be used to grant access to resources. While teams are a way for user&
      * Get the user preferences by its unique ID.
      *
      * @param {string} userId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Preferences>}
      */
     getPrefs(userId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             const apiPath = '/users/{userId}/prefs'.replace('{userId}', userId);
             const payload = {};
@@ -22512,16 +22512,16 @@ Labels can be used to grant access to resources. While teams are a way for user&
      *
      * @param {string} userId
      * @param {object} prefs
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Preferences>}
      */
     updatePrefs(userId, prefs) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             if (typeof prefs === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "prefs"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "prefs"');
             }
             const apiPath = '/users/{userId}/prefs'.replace('{userId}', userId);
             const payload = {};
@@ -22541,13 +22541,13 @@ Labels can be used to grant access to resources. While teams are a way for user&
      * Get the user sessions list by its unique ID.
      *
      * @param {string} userId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.SessionList>}
      */
     listSessions(userId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             const apiPath = '/users/{userId}/sessions'.replace('{userId}', userId);
             const payload = {};
@@ -22566,13 +22566,13 @@ Labels can be used to grant access to resources. While teams are a way for user&
 If you want to generate a token for a custom authentication flow, use the [POST /users/{userId}/tokens](https://appconda.io/docs/server/users#createToken) endpoint.
      *
      * @param {string} userId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Session>}
      */
     createSession(userId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             const apiPath = '/users/{userId}/sessions'.replace('{userId}', userId);
             const payload = {};
@@ -22589,13 +22589,13 @@ If you want to generate a token for a custom authentication flow, use the [POST 
      * Delete all user&#039;s sessions by using the user&#039;s unique ID.
      *
      * @param {string} userId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteSessions(userId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             const apiPath = '/users/{userId}/sessions'.replace('{userId}', userId);
             const payload = {};
@@ -22613,16 +22613,16 @@ If you want to generate a token for a custom authentication flow, use the [POST 
      *
      * @param {string} userId
      * @param {string} sessionId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteSession(userId, sessionId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             if (typeof sessionId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "sessionId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "sessionId"');
             }
             const apiPath = '/users/{userId}/sessions/{sessionId}'.replace('{userId}', userId).replace('{sessionId}', sessionId);
             const payload = {};
@@ -22640,16 +22640,16 @@ If you want to generate a token for a custom authentication flow, use the [POST 
      *
      * @param {string} userId
      * @param {boolean} status
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     updateStatus(userId, status) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             if (typeof status === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "status"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "status"');
             }
             const apiPath = '/users/{userId}/status'.replace('{userId}', userId);
             const payload = {};
@@ -22670,13 +22670,13 @@ If you want to generate a token for a custom authentication flow, use the [POST 
      *
      * @param {string} userId
      * @param {string[]} queries
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.TargetList>}
      */
     listTargets(userId, queries) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             const apiPath = '/users/{userId}/targets'.replace('{userId}', userId);
             const payload = {};
@@ -22701,22 +22701,22 @@ If you want to generate a token for a custom authentication flow, use the [POST 
      * @param {string} identifier
      * @param {string} providerId
      * @param {string} name
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Target>}
      */
     createTarget(userId, targetId, providerType, identifier, providerId, name) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             if (typeof targetId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "targetId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "targetId"');
             }
             if (typeof providerType === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "providerType"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "providerType"');
             }
             if (typeof identifier === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "identifier"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "identifier"');
             }
             const apiPath = '/users/{userId}/targets'.replace('{userId}', userId);
             const payload = {};
@@ -22749,16 +22749,16 @@ If you want to generate a token for a custom authentication flow, use the [POST 
      *
      * @param {string} userId
      * @param {string} targetId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Target>}
      */
     getTarget(userId, targetId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             if (typeof targetId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "targetId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "targetId"');
             }
             const apiPath = '/users/{userId}/targets/{targetId}'.replace('{userId}', userId).replace('{targetId}', targetId);
             const payload = {};
@@ -22779,16 +22779,16 @@ If you want to generate a token for a custom authentication flow, use the [POST 
      * @param {string} identifier
      * @param {string} providerId
      * @param {string} name
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Target>}
      */
     updateTarget(userId, targetId, identifier, providerId, name) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             if (typeof targetId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "targetId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "targetId"');
             }
             const apiPath = '/users/{userId}/targets/{targetId}'.replace('{userId}', userId).replace('{targetId}', targetId);
             const payload = {};
@@ -22815,16 +22815,16 @@ If you want to generate a token for a custom authentication flow, use the [POST 
      *
      * @param {string} userId
      * @param {string} targetId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteTarget(userId, targetId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             if (typeof targetId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "targetId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "targetId"');
             }
             const apiPath = '/users/{userId}/targets/{targetId}'.replace('{userId}', userId).replace('{targetId}', targetId);
             const payload = {};
@@ -22844,13 +22844,13 @@ If you want to generate a token for a custom authentication flow, use the [POST 
      * @param {string} userId
      * @param {number} length
      * @param {number} expire
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Token>}
      */
     createToken(userId, length, expire) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             const apiPath = '/users/{userId}/tokens'.replace('{userId}', userId);
             const payload = {};
@@ -22874,16 +22874,16 @@ If you want to generate a token for a custom authentication flow, use the [POST 
      *
      * @param {string} userId
      * @param {boolean} emailVerification
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     updateEmailVerification(userId, emailVerification) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             if (typeof emailVerification === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "emailVerification"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "emailVerification"');
             }
             const apiPath = '/users/{userId}/verification'.replace('{userId}', userId);
             const payload = {};
@@ -22904,16 +22904,16 @@ If you want to generate a token for a custom authentication flow, use the [POST 
      *
      * @param {string} userId
      * @param {boolean} phoneVerification
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     updatePhoneVerification(userId, phoneVerification) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof userId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "userId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "userId"');
             }
             if (typeof phoneVerification === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "phoneVerification"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "phoneVerification"');
             }
             const apiPath = '/users/{userId}/verification/phone'.replace('{userId}', userId);
             const payload = {};
@@ -22955,13 +22955,13 @@ class Vcs {
      *
      * @param {string} installationId
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.ProviderRepositoryList>}
      */
     listRepositories(installationId, search) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof installationId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "installationId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "installationId"');
             }
             const apiPath = '/vcs/github/installations/{installationId}/providerRepositories'.replace('{installationId}', installationId);
             const payload = {};
@@ -22982,19 +22982,19 @@ class Vcs {
      * @param {string} installationId
      * @param {string} name
      * @param {boolean} xprivate
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.ProviderRepository>}
      */
     createRepository(installationId, name, xprivate) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof installationId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "installationId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "installationId"');
             }
             if (typeof name === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "name"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "name"');
             }
             if (typeof xprivate === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "xprivate"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "xprivate"');
             }
             const apiPath = '/vcs/github/installations/{installationId}/providerRepositories'.replace('{installationId}', installationId);
             const payload = {};
@@ -23017,16 +23017,16 @@ class Vcs {
      *
      * @param {string} installationId
      * @param {string} providerRepositoryId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.ProviderRepository>}
      */
     getRepository(installationId, providerRepositoryId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof installationId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "installationId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "installationId"');
             }
             if (typeof providerRepositoryId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "providerRepositoryId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "providerRepositoryId"');
             }
             const apiPath = '/vcs/github/installations/{installationId}/providerRepositories/{providerRepositoryId}'.replace('{installationId}', installationId).replace('{providerRepositoryId}', providerRepositoryId);
             const payload = {};
@@ -23043,16 +23043,16 @@ class Vcs {
      *
      * @param {string} installationId
      * @param {string} providerRepositoryId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.BranchList>}
      */
     listRepositoryBranches(installationId, providerRepositoryId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof installationId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "installationId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "installationId"');
             }
             if (typeof providerRepositoryId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "providerRepositoryId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "providerRepositoryId"');
             }
             const apiPath = '/vcs/github/installations/{installationId}/providerRepositories/{providerRepositoryId}/branches'.replace('{installationId}', installationId).replace('{providerRepositoryId}', providerRepositoryId);
             const payload = {};
@@ -23070,16 +23070,16 @@ class Vcs {
      * @param {string} installationId
      * @param {string} providerRepositoryId
      * @param {string} providerRootDirectory
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.VcsContentList>}
      */
     getRepositoryContents(installationId, providerRepositoryId, providerRootDirectory) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof installationId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "installationId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "installationId"');
             }
             if (typeof providerRepositoryId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "providerRepositoryId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "providerRepositoryId"');
             }
             const apiPath = '/vcs/github/installations/{installationId}/providerRepositories/{providerRepositoryId}/contents'.replace('{installationId}', installationId).replace('{providerRepositoryId}', providerRepositoryId);
             const payload = {};
@@ -23100,16 +23100,16 @@ class Vcs {
      * @param {string} installationId
      * @param {string} providerRepositoryId
      * @param {string} providerRootDirectory
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Detection>}
      */
     createRepositoryDetection(installationId, providerRepositoryId, providerRootDirectory) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof installationId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "installationId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "installationId"');
             }
             if (typeof providerRepositoryId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "providerRepositoryId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "providerRepositoryId"');
             }
             const apiPath = '/vcs/github/installations/{installationId}/providerRepositories/{providerRepositoryId}/detection'.replace('{installationId}', installationId).replace('{providerRepositoryId}', providerRepositoryId);
             const payload = {};
@@ -23130,19 +23130,19 @@ class Vcs {
      * @param {string} installationId
      * @param {string} repositoryId
      * @param {string} providerPullRequestId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     updateExternalDeployments(installationId, repositoryId, providerPullRequestId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof installationId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "installationId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "installationId"');
             }
             if (typeof repositoryId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "repositoryId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "repositoryId"');
             }
             if (typeof providerPullRequestId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "providerPullRequestId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "providerPullRequestId"');
             }
             const apiPath = '/vcs/github/installations/{installationId}/repositories/{repositoryId}'.replace('{installationId}', installationId).replace('{repositoryId}', repositoryId);
             const payload = {};
@@ -23162,7 +23162,7 @@ class Vcs {
      *
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.InstallationList>}
      */
     listInstallations(queries, search) {
@@ -23187,13 +23187,13 @@ class Vcs {
      *
      *
      * @param {string} installationId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Installation>}
      */
     getInstallation(installationId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof installationId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "installationId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "installationId"');
             }
             const apiPath = '/vcs/installations/{installationId}'.replace('{installationId}', installationId);
             const payload = {};
@@ -23209,13 +23209,13 @@ class Vcs {
      *
      *
      * @param {string} installationId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteInstallation(installationId) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof installationId === 'undefined') {
-                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException('Missing required parameter: "installationId"');
+                throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "installationId"');
             }
             const apiPath = '/vcs/installations/{installationId}'.replace('{installationId}', installationId);
             const payload = {};

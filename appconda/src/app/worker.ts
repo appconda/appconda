@@ -231,12 +231,12 @@ async function start() {
             const version = process.env._APP_VERSION || 'UNKNOWN';
 
             if (logger) {
-                log.setNamespace('appwrite-worker');
+                log.setNamespace('appconda-worker');
                 log.setServer(require('os').hostname());
                 log.setVersion(version);
                 log.setType(Log.TYPE_ERROR);
                 log.setMessage(error.message);
-                log.setAction(`appwrite-queue-${queueName}`);
+                log.setAction(`appconda-queue-${queueName}`);
                 log.addTag('verboseType', error.constructor.name);
                 log.addTag('code', error.code);
                 log.addTag('projectId', project.getId() ?? 'n/a');
