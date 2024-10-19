@@ -12,6 +12,7 @@ import { Path } from '../../Tuval/Workflow/Path';
 import { workflows } from 'googleapis/build/src/apis/workflows';
 import { WorkflowStep } from '../../Tuval/Workflow/Step';
 import { nanoid } from '../Services/id-service/nanoid/nanoid';
+import { ProcessStep } from '../../Tuval/Workflow/Steps/ProcessStep';
 
 
 
@@ -37,33 +38,52 @@ export class WorkflowEngine extends Action {
 
 
         const stepMap = {};
-        stepMap['start'] = StartEvent;
-        stepMap['console'] = ConsoleStep;
+        stepMap['startEvent'] = StartEvent;
+        stepMap['task'] = ConsoleStep;
+        stepMap['sequenceFlow'] = ConsoleStep;
+        stepMap['exclusiveGateway'] = ConsoleStep;
+        stepMap['endEvent'] = ConsoleStep;
+
+
         //section.addStep(new CounterStep(5))
-        function JSONToFlow(flow: any[]): Path {
+        function JSONToFlow(flow: {process: {id: string, steps:any[]}}): Path {
             const section = new Path();
 
-            for (let i = 0; i < flow.length; i++) {
-                const stepType = stepMap[flow[i].type];
+            const process = flow.process;
+            const steps = process.steps; 
+
+            for (let i = 0; i < steps.length; i++) {
+                const stepType = stepMap[steps[i].type];
                 const step: WorkflowStep = new stepType();
-                step.setId(flow[i].id);
-                if (flow[i].payload) {
-                    step.setPayload(flow[i].payload);
+                step.setId(steps[i].id);
+                if (steps[i].payload) {
+                    step.setPayload(steps[i].payload);
                 }
                 section.addStep(step);
             }
 
             // outgoings
-            for (let i = 0; i < flow.length; i++) {
-                const step = section.getStepById(flow[i].id);
-                const outgouings = flow[i].outgoings;
+            for (let i = 0; i < steps.length; i++) {
+                const step = section.getStepById(steps[i].id);
+                const outgouings = steps[i].outgoings;
                 if (Array.isArray(outgouings)) {
                     for (let j = 0; j < outgouings.length; j++) {
                         const outgoingStep = section.getStepById(outgouings[j]);
                         step.outgoing(outgoingStep);
                     }
                 }
+            }
 
+             // incomings
+             for (let i = 0; i < steps.length; i++) {
+                const step: WorkflowStep = section.getStepById(steps[i].id);
+                const outgouings = steps[i].outgoings;
+                if (Array.isArray(outgouings)) {
+                    for (let j = 0; j < outgouings.length; j++) {
+                        const outgoingStep = section.getStepById(outgouings[j]);
+                        step.outgoing(outgoingStep);
+                    }
+                }
             }
 
             return section;
@@ -82,8 +102,110 @@ export class WorkflowEngine extends Action {
                     text: 'test'
                 }
             }
-
         ]
+
+        const workflow = {
+            'process': {
+                id: 'process 1',
+                steps: [
+                    {
+                        id: 'StartEvent_1y45yut',
+                        type: 'startEvent',
+                        name: 'hunger noticed',
+                        outgoings: ['SequenceFlow_0h21x7r', 'Flow_1fkevat']
+                    },
+                    {
+                        type: 'task',
+                        id: 'Task_1hcentk',
+                        incomings: ['SequenceFlow_0h21x7r'],
+                        outgoing: ['SequenceFlow_0wnb4ke'],
+                    },
+                    {
+                        type: 'sequenceFlow',
+                        id: 'SequenceFlow_0h21x7r',
+                        sourceRef: 'StartEvent_1y45yut',
+                        targetRef: 'Task_1hcentk'
+                    },
+                    {
+                        type: 'exclusiveGateway',
+                        id: 'ExclusiveGateway_15hu1pt',
+                        name: 'desired dish?',
+                        incomings: ['SequenceFlow_0wnb4ke'],
+                        outgoing: ['Flow_0twy8xl', 'Flow_0ukn85c'],
+                    },
+                    {
+                        type: 'sequenceFlow',
+                        id: 'SequenceFlow_0wnb4ke',
+                        sourceRef: 'Task_1hcentk',
+                        targetRef: 'ExclusiveGateway_15hu1pt'
+                    },
+                    {
+                        type: 'task',
+                        id: 'Activity_10m283f',
+                        name: 'A 1',
+                        incomings: ['Flow_0twy8xl'],
+                        outgoing: ['Flow_16zwoy4'],
+                    },
+                    {
+                        type: 'sequenceFlow',
+                        id: 'Flow_0twy8xl',
+                        name: 'A=== 1',
+                        sourceRef: 'ExclusiveGateway_15hu1pt',
+                        targetRef: 'Activity_10m283f'
+                    },
+                    {
+                        type: 'task',
+                        id: 'Activity_1g3yx1s',
+                        name: 'A 2',
+                        incomings: ['Flow_0ukn85c'],
+                        outgoing: ['Flow_0nwtwc3'],
+                    },
+                    {
+                        type: 'sequenceFlow',
+                        id: 'Flow_0ukn85c',
+                        name: ' A=== 2',
+                        sourceRef: 'ExclusiveGateway_15hu1pt',
+                        targetRef: 'Activity_1g3yx1s'
+                    },
+                    {
+                        type: 'endEvent',
+                        id: 'Event_0cgfduj',
+                        name: ' A=== 2',
+                        incomings: ['Flow_0nwtwc3', 'Flow_16zwoy4', 'Flow_0mj44yo'],
+                    },
+                    {
+                        type: 'sequenceFlow',
+                        id: 'Flow_0nwtwc3',
+                        sourceRef: 'Activity_1g3yx1s',
+                        targetRef: 'Event_0cgfduj'
+                    },
+                    {
+                        type: 'sequenceFlow',
+                        id: 'Flow_16zwoy4',
+                        sourceRef: 'Activity_10m283f',
+                        targetRef: 'Event_0cgfduj'
+                    },
+                    {
+                        type: 'task',
+                        id: 'Activity_0fx6yep',
+                        incomings: ['Flow_1fkevat'],
+                        outgoing: ['Flow_0mj44yo'],
+                    },
+                    {
+                        type: 'sequenceFlow',
+                        id: 'Flow_16zwoy4',
+                        sourceRef: 'StartEvent_1y45yut',
+                        targetRef: 'Activity_0fx6yep'
+                    },
+                    {
+                        type: 'sequenceFlow',
+                        id: 'Flow_0mj44yo',
+                        sourceRef: 'Activity_0fx6yep',
+                        targetRef: 'Event_0cgfduj'
+                    },
+                ]
+            }
+        }
 
         function orderedToJSONFlow(flow: any[]) {
             const jsonFlow = [];
@@ -133,10 +255,10 @@ export class WorkflowEngine extends Action {
                 text: 'test2'
             },
         ]
-        const section = JSONToFlow(orderedToJSONFlow(orderedFlow));
+        const section = JSONToFlow(workflow);
         woc.runStepByStep(section);
 
-        setInterval(()=> {
+        setInterval(() => {
             woc.next()
         }, 1000)
 

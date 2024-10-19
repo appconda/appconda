@@ -296,6 +296,14 @@ export abstract class WorkflowStep {
        return  this.outgoings;
     }
 
+    public incoming(step: WorkflowStep) {
+        this.incomings.push(step);
+    }
+
+    public getOIncomings(): WorkflowStep[] {
+       return  this.incomings;
+    }
+
     /**
      * Get the value of injections
      *
