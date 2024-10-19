@@ -79,6 +79,19 @@
         "internalConsoleOptions": "openOnSessionStart",
         "skipFiles": ["<node_internals>/**", "node_modules/**"]
       },
+      {
+        "name": "Workflow Engine",
+        "type": "node",
+        "request": "launch",
+        "runtimeExecutable": "node",
+        "runtimeArgs": ["--nolazy", "-r", "ts-node/register/transpile-only"],
+  
+        "args": ["debug/cli.ts", "workflow"],
+        
+        "cwd": "${workspaceRoot}",
+        "internalConsoleOptions": "openOnSessionStart",
+        "skipFiles": ["<node_internals>/**", "node_modules/**"]
+      },
     ]
   } 
 

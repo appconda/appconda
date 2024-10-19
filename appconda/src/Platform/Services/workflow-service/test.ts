@@ -14,7 +14,6 @@ import MailService from "../mail-service/MailService";
 //
 
 
-
 function delay(time: number) {
     return new Promise(resolve => setTimeout(resolve, time));
 }

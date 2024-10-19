@@ -1,0 +1,5 @@
+#!/bin/sh
+
+cd  /usr/app
+echo "Starting Workflow Engine"
+npm run pm2:workflow

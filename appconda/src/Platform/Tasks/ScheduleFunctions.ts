@@ -16,7 +16,7 @@ export class ScheduleFunctions extends ScheduleBase {
         return 'schedule-functions';
     }
 
-    public static getSupportedResource(): string {
+    public  getSupportedResource(): string {
         return 'function';
     }
 

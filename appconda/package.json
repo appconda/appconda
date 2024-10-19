@@ -20,6 +20,7 @@
     "pm2:worker-usage": "pm2-runtime --interpreter ./node_modules/.bin/ts-node-transpile-only  start ./src/app/worker.ts -- usage",
     "pm2:worker-usage-dump": "pm2-runtime --interpreter ./node_modules/.bin/ts-node-transpile-only  start ./src/app/worker.ts -- usage-dump",
     "pm2:worker-webhooks": "pm2-runtime --interpreter ./node_modules/.bin/ts-node-transpile-only  start ./src/app/worker.ts -- webhooks",
+    "pm2:workflow": "pm2-runtime --interpreter ./node_modules/.bin/ts-node-transpile-only  start ./src/app/cli.ts -- workflow",
     "debug:http": "ts-node --transpile-only  ./debug/index.ts",
     "debug:tcli:est": "ts-node --transpile-only  ./debug/cli.ts test",
     "kill": "pm2 kill",

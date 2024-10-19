@@ -120,7 +120,7 @@ export class Workflow {
         var quit = false;
 
         this.initPath([path]);
-      
+
 
         do {
             do {
@@ -161,26 +161,17 @@ export class Workflow {
         let ret;
         this.state.push(path);
 
-        var quit = false;
+        let quit = false;
 
-        if (!path.initialized)
-            path = this.initPath(path);
+        this.initPath([path]);
 
-        if (typeof path.startStep != 'undefined') {
-            path.position = path.startStep;
-            path.startBlock = undefined;
-        }
 
         this.next = async () => {
             //  do {
             if (this.state.currentPath && !quit && !this.break) {
                 do {
                     //console.log( "Block " + section.position + " - Sourcepos: " + this.sourcePos );
-                    if (path.steps[path.position] instanceof ProcessStep) {
-                        ret = await path.steps[path.position].run(path.self, this, path.vars);
-                    } else {
-                        ret = await path.steps[path.position].call(path.self, this, path.vars);
-                    }
+                    ret = await path.stepExecuters[path.position].run();
                 } while (!ret);
 
                 if (ret) {
@@ -211,7 +202,7 @@ export class Workflow {
             }
         }
 
-        //this.next();
+        this.next.bind(this);
     }
 
     /**
@@ -270,7 +261,7 @@ export class Workflow {
                 /*   if (action.getType() === Action.TYPE_DEFAULT && !key.toLowerCase().includes(workerName.toLowerCase())) {
                       continue;
                   } */
-                const stepExecuter = new StepExecuter(this,step);
+                const stepExecuter = new StepExecuter(this, step);
                 path.stepExecuters[step.getId()] = stepExecuter;
                 let hook;
 

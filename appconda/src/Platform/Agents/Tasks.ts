@@ -14,6 +14,7 @@ import { Test } from "../Tasks/Test";
 import { Upgrade } from "../Tasks/Upgrade";
 import { Vars } from "../Tasks/Vars";
 import { Version } from "../Tasks/Version";
+import { WorkflowEngine } from "../Tasks/WorkflowEngine";
 
 
 export class Tasks extends Agent {
@@ -35,7 +36,8 @@ export class Tasks extends Agent {
             .addAction(Specs.getName(), new Specs())
             .addAction(Upgrade.getName(), new Upgrade())
             .addAction(Vars.getName(), new Vars())
-            .addAction(Version.getName(), new Version());
-        this.addAction(Test.getName(), new Test());
+            .addAction(Version.getName(), new Version())
+            .addAction(Test.getName(), new Test())
+            .addAction(WorkflowEngine.getName(), new WorkflowEngine())
     }
 }

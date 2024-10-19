@@ -6,62 +6,58 @@ import { Group } from "../../Tuval/Pools";
 
 
 export abstract class ScheduleBase extends Action {
-    protected static  UPDATE_TIMER = 10; // seconds
-    protected static  ENQUEUE_TIMER = 60; // seconds
+    protected static readonly UPDATE_TIMER = 10; // seconds
+    protected static readonly ENQUEUE_TIMER = 60; // seconds
+
+   
 
     protected schedules: Record<string, any> = {};
 
-     public static  getName(): string { return ''}
-     public static  getSupportedResource(): string { return ''}
+    protected  getSupportedResource(): string {
+        return ''
+    }
 
-    protected abstract  enqueueResources(
+    protected abstract enqueueResources(
         pools: Group,
-        dbForConsole: Database
+        dbForConsole: Database,
+        getProjectDB: (project: Document) => Database
     ): void;
 
     constructor() {
         super();
-        const type = (this.constructor as typeof ScheduleBase).getSupportedResource();
+        const type = this.getSupportedResource();
 
         this.desc(`Execute ${type}s scheduled in Appconda`)
             .inject('pools')
             .inject('dbForConsole')
             .inject('getProjectDB')
-            .callback((pools: Group, dbForConsole: Database, getProjectDB: Function) => this.action(pools, dbForConsole, getProjectDB));
+            .callback((pools: Group, dbForConsole: Database, getProjectDB: (project: Document) => Database) =>
+                this.action(pools, dbForConsole, getProjectDB)
+            );
     }
 
-    /**
-     * 1. Load all documents from 'schedules' collection to create local copy
-     * 2. Create timer that sync all changes from 'schedules' collection to local copy. Only reading changes thanks to 'resourceUpdatedAt' attribute
-     * 3. Create timer that prepares coroutines for soon-to-execute schedules. When it's ready, coroutine sleeps until exact time before sending request to worker.
-     */
-    public async action(pools: Group, dbForConsole: Database, getProjectDB: Function): Promise<void> {
-        Console.title(`${(this.constructor as any).getSupportedResource()} scheduler V1`);
-        Console.success(`${process.env.APP_NAME} ${(this.constructor as any).getSupportedResource()} scheduler v1 has started`);
+    public async action(pools: Group, dbForConsole: Database, getProjectDB: (project: Document) => Database): Promise<void> {
+        Console.title(`${this.getSupportedResource()} scheduler V1`);
+        Console.success(`${process.env.APP_NAME} ${this.getSupportedResource()} scheduler v1 has started`);
 
-        const getSchedule = async (schedule: Document): Promise<any> => {
+        const getSchedule = async (schedule: Document): Promise<Record<string, any>> => {
             const project = await dbForConsole.getDocument('projects', schedule.getAttribute('projectId'));
 
             const collectionId = (() => {
                 switch (schedule.getAttribute('resourceType')) {
-                    case 'function':
-                        return 'functions';
-                    case 'message':
-                        return 'messages';
-                    case 'execution':
-                        return 'executions';
-                    default:
-                        throw new Error('Unsupported resource type');
+                    case 'function': return 'functions';
+                    case 'message': return 'messages';
+                    case 'backup-policy': return 'backupsPolicy';
+                    default: throw new Error('Unknown resource type');
                 }
             })();
 
-            const resource = await getProjectDB(project).getDocument(
+            const resource = getProjectDB(project).getDocument(
                 collectionId,
                 schedule.getAttribute('resourceId')
             );
 
             return {
-                $internalId: schedule.getInternalId(),
                 $id: schedule.getId(),
                 resourceId: schedule.getAttribute('resourceId'),
                 schedule: schedule.getAttribute('schedule'),
@@ -90,7 +86,7 @@ export abstract class ScheduleBase extends Action {
             const results = await dbForConsole.find('schedules', [
                 ...paginationQueries,
                 Query.equal('region', [process.env._APP_REGION || 'default']),
-                Query.equal('resourceType', [(this.constructor as any).getSupportedResource()]),
+                Query.equal('resourceType', [this.getSupportedResource()]),
                 Query.equal('active', [true]),
             ]);
 
@@ -99,18 +95,15 @@ export abstract class ScheduleBase extends Action {
 
             for (const document of results) {
                 try {
-                    this.schedules[document.getInternalId()] = await getSchedule(document);
+                    this.schedules[document.getAttribute('resourceId')] = getSchedule(document);
                 } catch (error) {
                     const collectionId = (() => {
                         switch (document.getAttribute('resourceType')) {
-                            case 'function':
-                                return 'functions';
-                            case 'message':
-                                return 'messages';
-                            case 'execution':
-                                return 'executions';
-                            default:
-                                throw new Error('Unsupported resource type');
+                            case 'function': return 'functions';
+                            case 'message': return 'messages';
+                            case 'backup-project':
+                            case 'backup-database': return 'backupsPolicy';
+                            default: throw new Error('Unknown resource type');
                         }
                     })();
 
@@ -127,67 +120,66 @@ export abstract class ScheduleBase extends Action {
         Console.success(`${total} resources were loaded in ${(Date.now() - loadStart) / 1000} seconds`);
         Console.success(`Starting timers at ${DateTime.now()}`);
 
-        run(() => {
-            Timer.tick(ScheduleBase.UPDATE_TIMER * 1000, async () => {
-                const time = DateTime.now();
-                const timerStart = Date.now();
 
-                const limit = 1000;
-                let sum = limit;
-                let total = 0;
-                let latestDocument: Document | null = null;
 
-                Console.log(`Sync tick: Running at ${time}`);
+        setInterval(async () => {
+            const time = DateTime.now();
+            const timerStart = Date.now();
 
-                while (sum === limit) {
-                    const paginationQueries = [Query.limit(limit)];
+            let sum = limit;
+            let total = 0;
+            let latestDocument: Document | null = null;
 
-                    if (latestDocument) {
-                        paginationQueries.push(Query.cursorAfter(latestDocument));
-                    }
+            Console.log(`Sync tick: Running at ${time}`);
 
-                    const results = await dbForConsole.find('schedules', [
-                        ...paginationQueries,
-                        Query.equal('region', [process.env._APP_REGION || 'default']),
-                        Query.equal('resourceType', [(this.constructor as any).getSupportedResource()]),
-                        Query.greaterThanEqual('resourceUpdatedAt', lastSyncUpdate),
-                    ]);
+            while (sum === limit) {
+                const paginationQueries = [Query.limit(limit)];
 
-                    sum = results.length;
-                    total += sum;
-
-                    for (const document of results) {
-                        const localDocument = this.schedules[document.getAttribute('resourceId')] ?? null;
-
-                        const org = localDocument !== null ? new Date(localDocument.resourceUpdatedAt).getTime() : null;
-                        const newTime = new Date(document.getAttribute('resourceUpdatedAt')).getTime();
-
-                        if (!document.getAttribute('active')) {
-                            Console.info(`Removing: ${document.getAttribute('resourceId')}`);
-                            delete this.schedules[document.getInternalId()];
-                        } else if (newTime !== org) {
-                            Console.info(`Updating: ${document.getAttribute('resourceId')}`);
-                            this.schedules[document.getInternalId()] = await getSchedule(document);
-                        }
-                    }
-
-                    latestDocument = results[results.length - 1];
+                if (latestDocument) {
+                    paginationQueries.push(Query.cursorAfter(latestDocument));
                 }
 
-                lastSyncUpdate = time;
-                const timerEnd = Date.now();
+                const results = await dbForConsole.find('schedules', [
+                    ...paginationQueries,
+                    Query.equal('region', [process.env._APP_REGION || 'default']),
+                    Query.equal('resourceType', [this.getSupportedResource()]),
+                    Query.greaterThanEqual('resourceUpdatedAt', lastSyncUpdate),
+                ]);
 
-                pools.reclaim();
+                sum = results.length;
+                total += sum;
 
-                Console.log(`Sync tick: ${total} schedules were updated in ${(timerEnd - timerStart) / 1000} seconds`);
-            });
+                for (const document of results) {
+                    const localDocument = this.schedules[document.getAttribute('resourceId')] || null;
 
-            Timer.tick(
-                ScheduleBase.ENQUEUE_TIMER * 1000,
-                () => this.enqueueResources(pools, dbForConsole)
-            );
+                    const org = localDocument ? new Date(localDocument.resourceUpdatedAt).getTime() : null;
+                    const newTime = new Date(document.getAttribute('resourceUpdatedAt')).getTime();
 
-            this.enqueueResources(pools, dbForConsole);
-        });
+                    if (!document.getAttribute('active')) {
+                        Console.info(`Removing: ${document.getAttribute('resourceId')}`);
+                        delete this.schedules[document.getAttribute('resourceId')];
+                    } else if (newTime !== org) {
+                        Console.info(`Updating: ${document.getAttribute('resourceId')}`);
+                        this.schedules[document.getAttribute('resourceId')] = getSchedule(document);
+                    }
+                }
+
+                latestDocument = results[results.length - 1];
+            }
+
+            lastSyncUpdate = time;
+            const timerEnd = Date.now();
+
+            pools.reclaim();
+
+            Console.log(`Sync tick: ${total} schedules were updated in ${(timerEnd - timerStart) / 1000} seconds`);
+
+        }, ScheduleBase.UPDATE_TIMER * 1000)
+
+        setInterval(() => {
+            this.enqueueResources(pools, dbForConsole, getProjectDB)
+        }, ScheduleBase.ENQUEUE_TIMER * 1000)
+
+
     }
 }
