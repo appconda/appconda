@@ -826,7 +826,7 @@ export const SignIn = ({ title, onSuccess }: { title: string, onSuccess: Functio
     return (
         <div className={pageContainer}>
             <div className={devBanner}>
-                <p>Clerk is in development mode. Sign up or sign in to continue.</p>
+                <p>Appwrite is in development mode. Sign up or sign in to continue.</p>
             </div>
             <div className={componentContainer}>
                 <div className={rootBox}>
@@ -936,7 +936,7 @@ export const SignIn = ({ title, onSuccess }: { title: string, onSuccess: Functio
                                     <div className="cl-internal-y44tp9">
                                         <div className="cl-internal-16mc20d">
                                             <p className="cl-internal-wf8x4b">Secured by</p>
-                                            <a aria-label="Clerk logo" className="cl-internal-1fcj7sw" href="https://www.clerk.com?utm_source=clerk&amp;utm_medium=components" target="_blank" rel="noopener">
+                                            <a aria-label="Appwrite logo" className="cl-internal-1fcj7sw" href="https://www.appwrite.com?utm_source=appwrite&amp;utm_medium=components" target="_blank" rel="noopener">
                                                 <svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 14" className="cl-internal-5ghyhf">
                                                     <ellipse cx="7.889" cy="7" rx="2.187" ry="2.188" fill="currentColor"></ellipse>
                                                     <path d="M11.83 12.18a.415.415 0 0 1-.05.64A6.967 6.967 0 0 1 7.888 14a6.967 6.967 0 0 1-3.891-1.18.415.415 0 0 1-.051-.64l1.598-1.6a.473.473 0 0 1 .55-.074 3.92 3.92 0 0 0 1.794.431 3.92 3.92 0 0 0 1.792-.43.473.473 0 0 1 .551.074l1.599 1.598Z" fill="currentColor"></path>

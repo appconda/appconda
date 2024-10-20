@@ -7823,7 +7823,7 @@ const SignIn = ({ title, onSuccess }) => {
     //mert@example.com
     return (react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: pageContainer },
         react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: devBanner },
-            react__WEBPACK_IMPORTED_MODULE_1___default().createElement("p", null, "Clerk is in development mode. Sign up or sign in to continue.")),
+            react__WEBPACK_IMPORTED_MODULE_1___default().createElement("p", null, "Appwrite is in development mode. Sign up or sign in to continue.")),
         react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: componentContainer },
             react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: rootBox },
                 react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: cardBox },
@@ -7890,7 +7890,7 @@ const SignIn = ({ title, onSuccess }) => {
                                 react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: "cl-internal-y44tp9" },
                                     react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: "cl-internal-16mc20d" },
                                         react__WEBPACK_IMPORTED_MODULE_1___default().createElement("p", { className: "cl-internal-wf8x4b" }, "Secured by"),
-                                        react__WEBPACK_IMPORTED_MODULE_1___default().createElement("a", { "aria-label": "Clerk logo", className: "cl-internal-1fcj7sw", href: "https://www.clerk.com?utm_source=clerk&utm_medium=components", target: "_blank", rel: "noopener" },
+                                        react__WEBPACK_IMPORTED_MODULE_1___default().createElement("a", { "aria-label": "Appwrite logo", className: "cl-internal-1fcj7sw", href: "https://www.appwrite.com?utm_source=appwrite&utm_medium=components", target: "_blank", rel: "noopener" },
                                             react__WEBPACK_IMPORTED_MODULE_1___default().createElement("svg", { fill: "none", xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 50 14", className: "cl-internal-5ghyhf" },
                                                 react__WEBPACK_IMPORTED_MODULE_1___default().createElement("ellipse", { cx: "7.889", cy: "7", rx: "2.187", ry: "2.188", fill: "currentColor" }),
                                                 react__WEBPACK_IMPORTED_MODULE_1___default().createElement("path", { d: "M11.83 12.18a.415.415 0 0 1-.05.64A6.967 6.967 0 0 1 7.888 14a6.967 6.967 0 0 1-3.891-1.18.415.415 0 0 1-.051-.64l1.598-1.6a.473.473 0 0 1 .55-.074 3.92 3.92 0 0 0 1.794.431 3.92 3.92 0 0 0 1.792-.43.473.473 0 0 1 .551.074l1.599 1.598Z", fill: "currentColor" }),
