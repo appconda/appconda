@@ -1,5 +1,4 @@
-import e from "express";
-import { Version3Client } from './jira';
+import { Version3Client } from 'jira.js';
 
 const axios = require('axios');
 

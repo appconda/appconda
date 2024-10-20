@@ -67,6 +67,7 @@
     "install": "^0.13.0",
     "ioredis": "^5.4.1",
     "is-number": "^7.0.0",
+    "jira.js": "^4.0.2",
     "jsdom": "^24.0.0",
     "jsonwebtoken": "^9.0.2",
     "langchain": "^0.1.34",
