@@ -9726,7 +9726,7 @@ class Migrations {
      * @throws {AppcondaException}
      * @returns {Promise<Models.Migration>}
      */
-    createAppwriteMigration(resources, endpoint, projectId, apiKey) {
+    createAppcondaMigration(resources, endpoint, projectId, apiKey) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof resources === 'undefined') {
                 throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "resources"');
@@ -9772,7 +9772,7 @@ class Migrations {
      * @throws {AppcondaException}
      * @returns {Promise<Models.MigrationReport>}
      */
-    getAppwriteReport(resources, endpoint, projectID, key) {
+    getAppcondaReport(resources, endpoint, projectID, key) {
         return __awaiter(this, void 0, void 0, function* () {
             if (typeof resources === 'undefined') {
                 throw new _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException('Missing required parameter: "resources"');

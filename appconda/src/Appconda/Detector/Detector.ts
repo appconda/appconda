@@ -63,7 +63,7 @@ export class Detector {
     public getClient(): ClientInfo {
         let client: UAParser.IResult['browser'];
 
-        if (this.userAgent.includes('AppwriteCLI')) {
+        if (this.userAgent.includes('AppcondaCLI')) {
             const version = this.userAgent.split(' ')[0].split('/')[1];
             client = {
                 name: 'Appconda CLI',
