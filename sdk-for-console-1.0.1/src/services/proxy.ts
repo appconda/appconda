@@ -1,5 +1,5 @@
 import { Service } from '../service';
-import { AppwriteException, Client, type Payload, UploadProgress } from '../client';
+import { AppcondaException, Client, type Payload, UploadProgress } from '../client';
 import type { Models } from '../models';
 import { ResourceType } from '../enums/resource-type';
 
@@ -17,7 +17,7 @@ export class Proxy {
      *
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.ProxyRuleList>}
      */
     async listRules(queries?: string[], search?: string): Promise<Models.ProxyRuleList> {
@@ -51,15 +51,15 @@ export class Proxy {
      * @param {string} domain
      * @param {ResourceType} resourceType
      * @param {string} resourceId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.ProxyRule>}
      */
     async createRule(domain: string, resourceType: ResourceType, resourceId?: string): Promise<Models.ProxyRule> {
         if (typeof domain === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "domain"');
+            throw new AppcondaException('Missing required parameter: "domain"');
         }
         if (typeof resourceType === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "resourceType"');
+            throw new AppcondaException('Missing required parameter: "resourceType"');
         }
         const apiPath = '/proxy/rules';
         const payload: Payload = {};
@@ -92,12 +92,12 @@ export class Proxy {
      * Get a proxy rule by its unique ID.
      *
      * @param {string} ruleId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.ProxyRule>}
      */
     async getRule(ruleId: string): Promise<Models.ProxyRule> {
         if (typeof ruleId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "ruleId"');
+            throw new AppcondaException('Missing required parameter: "ruleId"');
         }
         const apiPath = '/proxy/rules/{ruleId}'.replace('{ruleId}', ruleId);
         const payload: Payload = {};
@@ -121,12 +121,12 @@ export class Proxy {
      * Delete a proxy rule by its unique ID.
      *
      * @param {string} ruleId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     async deleteRule(ruleId: string): Promise<{}> {
         if (typeof ruleId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "ruleId"');
+            throw new AppcondaException('Missing required parameter: "ruleId"');
         }
         const apiPath = '/proxy/rules/{ruleId}'.replace('{ruleId}', ruleId);
         const payload: Payload = {};
@@ -149,12 +149,12 @@ export class Proxy {
      *
      *
      * @param {string} ruleId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.ProxyRule>}
      */
     async updateRuleVerification(ruleId: string): Promise<Models.ProxyRule> {
         if (typeof ruleId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "ruleId"');
+            throw new AppcondaException('Missing required parameter: "ruleId"');
         }
         const apiPath = '/proxy/rules/{ruleId}/verification'.replace('{ruleId}', ruleId);
         const payload: Payload = {};

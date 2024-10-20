@@ -1,5 +1,5 @@
 import { Service } from '../service';
-import { AppwriteException, Client, type Payload, UploadProgress } from '../client';
+import { AppcondaException, Client, type Payload, UploadProgress } from '../client';
 import type { Models } from '../models';
 import { Compression } from '../enums/compression';
 import { ImageGravity } from '../enums/image-gravity';
@@ -20,7 +20,7 @@ export class Storage {
      *
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.BucketList>}
      */
     async listBuckets(queries?: string[], search?: string): Promise<Models.BucketList> {
@@ -61,15 +61,15 @@ export class Storage {
      * @param {Compression} compression
      * @param {boolean} encryption
      * @param {boolean} antivirus
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Bucket>}
      */
     async createBucket(bucketId: string, name: string, permissions?: string[], fileSecurity?: boolean, enabled?: boolean, maximumFileSize?: number, allowedFileExtensions?: string[], compression?: Compression, encryption?: boolean, antivirus?: boolean): Promise<Models.Bucket> {
         if (typeof bucketId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "bucketId"');
+            throw new AppcondaException('Missing required parameter: "bucketId"');
         }
         if (typeof name === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "name"');
+            throw new AppcondaException('Missing required parameter: "name"');
         }
         const apiPath = '/storage/buckets';
         const payload: Payload = {};
@@ -123,12 +123,12 @@ export class Storage {
      * Get a storage bucket by its unique ID. This endpoint response returns a JSON object with the storage bucket metadata.
      *
      * @param {string} bucketId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Bucket>}
      */
     async getBucket(bucketId: string): Promise<Models.Bucket> {
         if (typeof bucketId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "bucketId"');
+            throw new AppcondaException('Missing required parameter: "bucketId"');
         }
         const apiPath = '/storage/buckets/{bucketId}'.replace('{bucketId}', bucketId);
         const payload: Payload = {};
@@ -161,15 +161,15 @@ export class Storage {
      * @param {Compression} compression
      * @param {boolean} encryption
      * @param {boolean} antivirus
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Bucket>}
      */
     async updateBucket(bucketId: string, name: string, permissions?: string[], fileSecurity?: boolean, enabled?: boolean, maximumFileSize?: number, allowedFileExtensions?: string[], compression?: Compression, encryption?: boolean, antivirus?: boolean): Promise<Models.Bucket> {
         if (typeof bucketId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "bucketId"');
+            throw new AppcondaException('Missing required parameter: "bucketId"');
         }
         if (typeof name === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "name"');
+            throw new AppcondaException('Missing required parameter: "name"');
         }
         const apiPath = '/storage/buckets/{bucketId}'.replace('{bucketId}', bucketId);
         const payload: Payload = {};
@@ -220,12 +220,12 @@ export class Storage {
      * Delete a storage bucket by its unique ID.
      *
      * @param {string} bucketId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     async deleteBucket(bucketId: string): Promise<{}> {
         if (typeof bucketId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "bucketId"');
+            throw new AppcondaException('Missing required parameter: "bucketId"');
         }
         const apiPath = '/storage/buckets/{bucketId}'.replace('{bucketId}', bucketId);
         const payload: Payload = {};
@@ -251,12 +251,12 @@ export class Storage {
      * @param {string} bucketId
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.FileList>}
      */
     async listFiles(bucketId: string, queries?: string[], search?: string): Promise<Models.FileList> {
         if (typeof bucketId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "bucketId"');
+            throw new AppcondaException('Missing required parameter: "bucketId"');
         }
         const apiPath = '/storage/buckets/{bucketId}/files'.replace('{bucketId}', bucketId);
         const payload: Payload = {};
@@ -296,18 +296,18 @@ If you&#039;re creating a new file using one of the Appconda SDKs, all the chunk
      * @param {string} fileId
      * @param {File} file
      * @param {string[]} permissions
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.File>}
      */
     async createFile(bucketId: string, fileId: string, file: File, permissions?: string[], onProgress = (progress: UploadProgress) => {}): Promise<Models.File> {
         if (typeof bucketId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "bucketId"');
+            throw new AppcondaException('Missing required parameter: "bucketId"');
         }
         if (typeof fileId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "fileId"');
+            throw new AppcondaException('Missing required parameter: "fileId"');
         }
         if (typeof file === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "file"');
+            throw new AppcondaException('Missing required parameter: "file"');
         }
         const apiPath = '/storage/buckets/{bucketId}/files'.replace('{bucketId}', bucketId);
         const payload: Payload = {};
@@ -342,15 +342,15 @@ If you&#039;re creating a new file using one of the Appconda SDKs, all the chunk
      *
      * @param {string} bucketId
      * @param {string} fileId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.File>}
      */
     async getFile(bucketId: string, fileId: string): Promise<Models.File> {
         if (typeof bucketId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "bucketId"');
+            throw new AppcondaException('Missing required parameter: "bucketId"');
         }
         if (typeof fileId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "fileId"');
+            throw new AppcondaException('Missing required parameter: "fileId"');
         }
         const apiPath = '/storage/buckets/{bucketId}/files/{fileId}'.replace('{bucketId}', bucketId).replace('{fileId}', fileId);
         const payload: Payload = {};
@@ -377,15 +377,15 @@ If you&#039;re creating a new file using one of the Appconda SDKs, all the chunk
      * @param {string} fileId
      * @param {string} name
      * @param {string[]} permissions
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.File>}
      */
     async updateFile(bucketId: string, fileId: string, name?: string, permissions?: string[]): Promise<Models.File> {
         if (typeof bucketId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "bucketId"');
+            throw new AppcondaException('Missing required parameter: "bucketId"');
         }
         if (typeof fileId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "fileId"');
+            throw new AppcondaException('Missing required parameter: "fileId"');
         }
         const apiPath = '/storage/buckets/{bucketId}/files/{fileId}'.replace('{bucketId}', bucketId).replace('{fileId}', fileId);
         const payload: Payload = {};
@@ -416,15 +416,15 @@ If you&#039;re creating a new file using one of the Appconda SDKs, all the chunk
      *
      * @param {string} bucketId
      * @param {string} fileId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     async deleteFile(bucketId: string, fileId: string): Promise<{}> {
         if (typeof bucketId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "bucketId"');
+            throw new AppcondaException('Missing required parameter: "bucketId"');
         }
         if (typeof fileId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "fileId"');
+            throw new AppcondaException('Missing required parameter: "fileId"');
         }
         const apiPath = '/storage/buckets/{bucketId}/files/{fileId}'.replace('{bucketId}', bucketId).replace('{fileId}', fileId);
         const payload: Payload = {};
@@ -449,15 +449,15 @@ If you&#039;re creating a new file using one of the Appconda SDKs, all the chunk
      *
      * @param {string} bucketId
      * @param {string} fileId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {string}
      */
     getFileDownload(bucketId: string, fileId: string): string {
         if (typeof bucketId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "bucketId"');
+            throw new AppcondaException('Missing required parameter: "bucketId"');
         }
         if (typeof fileId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "fileId"');
+            throw new AppcondaException('Missing required parameter: "fileId"');
         }
         const apiPath = '/storage/buckets/{bucketId}/files/{fileId}/download'.replace('{bucketId}', bucketId).replace('{fileId}', fileId);
         const payload: Payload = {};
@@ -498,15 +498,15 @@ If you&#039;re creating a new file using one of the Appconda SDKs, all the chunk
      * @param {number} rotation
      * @param {string} background
      * @param {ImageFormat} output
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {string}
      */
     getFilePreview(bucketId: string, fileId: string, width?: number, height?: number, gravity?: ImageGravity, quality?: number, borderWidth?: number, borderColor?: string, borderRadius?: number, opacity?: number, rotation?: number, background?: string, output?: ImageFormat): string {
         if (typeof bucketId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "bucketId"');
+            throw new AppcondaException('Missing required parameter: "bucketId"');
         }
         if (typeof fileId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "fileId"');
+            throw new AppcondaException('Missing required parameter: "fileId"');
         }
         const apiPath = '/storage/buckets/{bucketId}/files/{fileId}/preview'.replace('{bucketId}', bucketId).replace('{fileId}', fileId);
         const payload: Payload = {};
@@ -569,15 +569,15 @@ If you&#039;re creating a new file using one of the Appconda SDKs, all the chunk
      *
      * @param {string} bucketId
      * @param {string} fileId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {string}
      */
     getFileView(bucketId: string, fileId: string): string {
         if (typeof bucketId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "bucketId"');
+            throw new AppcondaException('Missing required parameter: "bucketId"');
         }
         if (typeof fileId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "fileId"');
+            throw new AppcondaException('Missing required parameter: "fileId"');
         }
         const apiPath = '/storage/buckets/{bucketId}/files/{fileId}/view'.replace('{bucketId}', bucketId).replace('{fileId}', fileId);
         const payload: Payload = {};
@@ -605,7 +605,7 @@ If you&#039;re creating a new file using one of the Appconda SDKs, all the chunk
      *
      *
      * @param {StorageUsageRange} range
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.UsageStorage>}
      */
     async getUsage(range?: StorageUsageRange): Promise<Models.UsageStorage> {
@@ -634,12 +634,12 @@ If you&#039;re creating a new file using one of the Appconda SDKs, all the chunk
      *
      * @param {string} bucketId
      * @param {StorageUsageRange} range
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.UsageBuckets>}
      */
     async getBucketUsage(bucketId: string, range?: StorageUsageRange): Promise<Models.UsageBuckets> {
         if (typeof bucketId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "bucketId"');
+            throw new AppcondaException('Missing required parameter: "bucketId"');
         }
         const apiPath = '/storage/{bucketId}/usage'.replace('{bucketId}', bucketId);
         const payload: Payload = {};

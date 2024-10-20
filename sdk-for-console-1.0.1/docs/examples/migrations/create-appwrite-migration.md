@@ -6,7 +6,7 @@ const client = new Client()
 
 const migrations = new Migrations(client);
 
-const result = await migrations.createAppwriteMigration(
+const result = await migrations.createAppcondaMigration(
     [], // resources
     'https://example.com', // endpoint
     '<PROJECT_ID>', // projectId

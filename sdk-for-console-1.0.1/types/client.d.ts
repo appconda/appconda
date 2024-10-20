@@ -60,7 +60,7 @@ declare type UploadProgress = {
 /**
  * Exception thrown by the  package
  */
-declare class AppwriteException extends Error {
+declare class AppcondaException extends Error {
     /**
      * The error code associated with the exception.
      */
@@ -204,7 +204,7 @@ declare class Client {
     call(method: string, url: URL, headers?: Headers, params?: Payload, responseType?: string): Promise<any>;
     static flatten(data: Payload, prefix?: string): Payload;
 }
-export { Client, AppwriteException };
+export { Client, AppcondaException };
 export { Query } from './query';
 export type { Models, Payload, UploadProgress };
 export type { RealtimeResponseEvent };

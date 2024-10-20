@@ -14,7 +14,7 @@ export declare class Storage {
      *
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.BucketList>}
      */
     listBuckets(queries?: string[], search?: string): Promise<Models.BucketList>;
@@ -33,7 +33,7 @@ export declare class Storage {
      * @param {Compression} compression
      * @param {boolean} encryption
      * @param {boolean} antivirus
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Bucket>}
      */
     createBucket(bucketId: string, name: string, permissions?: string[], fileSecurity?: boolean, enabled?: boolean, maximumFileSize?: number, allowedFileExtensions?: string[], compression?: Compression, encryption?: boolean, antivirus?: boolean): Promise<Models.Bucket>;
@@ -43,7 +43,7 @@ export declare class Storage {
      * Get a storage bucket by its unique ID. This endpoint response returns a JSON object with the storage bucket metadata.
      *
      * @param {string} bucketId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Bucket>}
      */
     getBucket(bucketId: string): Promise<Models.Bucket>;
@@ -62,7 +62,7 @@ export declare class Storage {
      * @param {Compression} compression
      * @param {boolean} encryption
      * @param {boolean} antivirus
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Bucket>}
      */
     updateBucket(bucketId: string, name: string, permissions?: string[], fileSecurity?: boolean, enabled?: boolean, maximumFileSize?: number, allowedFileExtensions?: string[], compression?: Compression, encryption?: boolean, antivirus?: boolean): Promise<Models.Bucket>;
@@ -72,7 +72,7 @@ export declare class Storage {
      * Delete a storage bucket by its unique ID.
      *
      * @param {string} bucketId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteBucket(bucketId: string): Promise<{}>;
@@ -84,7 +84,7 @@ export declare class Storage {
      * @param {string} bucketId
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.FileList>}
      */
     listFiles(bucketId: string, queries?: string[], search?: string): Promise<Models.FileList>;
@@ -104,7 +104,7 @@ If you&#039;re creating a new file using one of the Appconda SDKs, all the chunk
      * @param {string} fileId
      * @param {File} file
      * @param {string[]} permissions
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.File>}
      */
     createFile(bucketId: string, fileId: string, file: File, permissions?: string[], onProgress?: (progress: UploadProgress) => void): Promise<Models.File>;
@@ -115,7 +115,7 @@ If you&#039;re creating a new file using one of the Appconda SDKs, all the chunk
      *
      * @param {string} bucketId
      * @param {string} fileId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.File>}
      */
     getFile(bucketId: string, fileId: string): Promise<Models.File>;
@@ -128,7 +128,7 @@ If you&#039;re creating a new file using one of the Appconda SDKs, all the chunk
      * @param {string} fileId
      * @param {string} name
      * @param {string[]} permissions
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.File>}
      */
     updateFile(bucketId: string, fileId: string, name?: string, permissions?: string[]): Promise<Models.File>;
@@ -139,7 +139,7 @@ If you&#039;re creating a new file using one of the Appconda SDKs, all the chunk
      *
      * @param {string} bucketId
      * @param {string} fileId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteFile(bucketId: string, fileId: string): Promise<{}>;
@@ -150,7 +150,7 @@ If you&#039;re creating a new file using one of the Appconda SDKs, all the chunk
      *
      * @param {string} bucketId
      * @param {string} fileId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {string}
      */
     getFileDownload(bucketId: string, fileId: string): string;
@@ -172,7 +172,7 @@ If you&#039;re creating a new file using one of the Appconda SDKs, all the chunk
      * @param {number} rotation
      * @param {string} background
      * @param {ImageFormat} output
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {string}
      */
     getFilePreview(bucketId: string, fileId: string, width?: number, height?: number, gravity?: ImageGravity, quality?: number, borderWidth?: number, borderColor?: string, borderRadius?: number, opacity?: number, rotation?: number, background?: string, output?: ImageFormat): string;
@@ -183,7 +183,7 @@ If you&#039;re creating a new file using one of the Appconda SDKs, all the chunk
      *
      * @param {string} bucketId
      * @param {string} fileId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {string}
      */
     getFileView(bucketId: string, fileId: string): string;
@@ -192,7 +192,7 @@ If you&#039;re creating a new file using one of the Appconda SDKs, all the chunk
      *
      *
      * @param {StorageUsageRange} range
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.UsageStorage>}
      */
     getUsage(range?: StorageUsageRange): Promise<Models.UsageStorage>;
@@ -202,7 +202,7 @@ If you&#039;re creating a new file using one of the Appconda SDKs, all the chunk
      *
      * @param {string} bucketId
      * @param {StorageUsageRange} range
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.UsageBuckets>}
      */
     getBucketUsage(bucketId: string, range?: StorageUsageRange): Promise<Models.UsageBuckets>;

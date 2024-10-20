@@ -8,7 +8,7 @@ export declare class Console {
      *
      * Get all Environment Variables that are relevant for the console.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.ConsoleVariables>}
      */
     variables(): Promise<Models.ConsoleVariables>;

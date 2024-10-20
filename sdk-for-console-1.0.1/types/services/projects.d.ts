@@ -20,7 +20,7 @@ export declare class Projects {
      *
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.ProjectList>}
      */
     list(queries?: string[], search?: string): Promise<Models.ProjectList>;
@@ -41,7 +41,7 @@ export declare class Projects {
      * @param {string} legalCity
      * @param {string} legalAddress
      * @param {string} legalTaxId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     create(projectId: string, name: string, teamId: string, region?: Region, description?: string, logo?: string, url?: string, legalName?: string, legalCountry?: string, legalState?: string, legalCity?: string, legalAddress?: string, legalTaxId?: string): Promise<Models.Project>;
@@ -50,7 +50,7 @@ export declare class Projects {
      *
      *
      * @param {string} projectId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     get(projectId: string): Promise<Models.Project>;
@@ -69,7 +69,7 @@ export declare class Projects {
      * @param {string} legalCity
      * @param {string} legalAddress
      * @param {string} legalTaxId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     update(projectId: string, name: string, description?: string, logo?: string, url?: string, legalName?: string, legalCountry?: string, legalState?: string, legalCity?: string, legalAddress?: string, legalTaxId?: string): Promise<Models.Project>;
@@ -78,7 +78,7 @@ export declare class Projects {
      *
      *
      * @param {string} projectId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     delete(projectId: string): Promise<{}>;
@@ -89,7 +89,7 @@ export declare class Projects {
      * @param {string} projectId
      * @param {Api} api
      * @param {boolean} status
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     updateApiStatus(projectId: string, api: Api, status: boolean): Promise<Models.Project>;
@@ -99,7 +99,7 @@ export declare class Projects {
      *
      * @param {string} projectId
      * @param {boolean} status
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     updateApiStatusAll(projectId: string, status: boolean): Promise<Models.Project>;
@@ -109,7 +109,7 @@ export declare class Projects {
      *
      * @param {string} projectId
      * @param {number} duration
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     updateAuthDuration(projectId: string, duration: number): Promise<Models.Project>;
@@ -119,7 +119,7 @@ export declare class Projects {
      *
      * @param {string} projectId
      * @param {number} limit
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     updateAuthLimit(projectId: string, limit: number): Promise<Models.Project>;
@@ -129,7 +129,7 @@ export declare class Projects {
      *
      * @param {string} projectId
      * @param {number} limit
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     updateAuthSessionsLimit(projectId: string, limit: number): Promise<Models.Project>;
@@ -139,7 +139,7 @@ export declare class Projects {
      *
      * @param {string} projectId
      * @param {object[]} numbers
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     updateMockNumbers(projectId: string, numbers: object[]): Promise<Models.Project>;
@@ -149,7 +149,7 @@ export declare class Projects {
      *
      * @param {string} projectId
      * @param {boolean} enabled
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     updateAuthPasswordDictionary(projectId: string, enabled: boolean): Promise<Models.Project>;
@@ -159,7 +159,7 @@ export declare class Projects {
      *
      * @param {string} projectId
      * @param {number} limit
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     updateAuthPasswordHistory(projectId: string, limit: number): Promise<Models.Project>;
@@ -169,7 +169,7 @@ export declare class Projects {
      *
      * @param {string} projectId
      * @param {boolean} enabled
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     updatePersonalDataCheck(projectId: string, enabled: boolean): Promise<Models.Project>;
@@ -179,7 +179,7 @@ export declare class Projects {
      *
      * @param {string} projectId
      * @param {boolean} alerts
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     updateSessionAlerts(projectId: string, alerts: boolean): Promise<Models.Project>;
@@ -190,7 +190,7 @@ export declare class Projects {
      * @param {string} projectId
      * @param {AuthMethod} method
      * @param {boolean} status
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     updateAuthStatus(projectId: string, method: AuthMethod, status: boolean): Promise<Models.Project>;
@@ -201,7 +201,7 @@ export declare class Projects {
      * @param {string} projectId
      * @param {string[]} scopes
      * @param {number} duration
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Jwt>}
      */
     createJWT(projectId: string, scopes: string[], duration?: number): Promise<Models.Jwt>;
@@ -210,7 +210,7 @@ export declare class Projects {
      *
      *
      * @param {string} projectId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.KeyList>}
      */
     listKeys(projectId: string): Promise<Models.KeyList>;
@@ -222,7 +222,7 @@ export declare class Projects {
      * @param {string} name
      * @param {string[]} scopes
      * @param {string} expire
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Key>}
      */
     createKey(projectId: string, name: string, scopes: string[], expire?: string): Promise<Models.Key>;
@@ -232,7 +232,7 @@ export declare class Projects {
      *
      * @param {string} projectId
      * @param {string} keyId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Key>}
      */
     getKey(projectId: string, keyId: string): Promise<Models.Key>;
@@ -245,7 +245,7 @@ export declare class Projects {
      * @param {string} name
      * @param {string[]} scopes
      * @param {string} expire
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Key>}
      */
     updateKey(projectId: string, keyId: string, name: string, scopes: string[], expire?: string): Promise<Models.Key>;
@@ -255,7 +255,7 @@ export declare class Projects {
      *
      * @param {string} projectId
      * @param {string} keyId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteKey(projectId: string, keyId: string): Promise<{}>;
@@ -268,7 +268,7 @@ export declare class Projects {
      * @param {string} appId
      * @param {string} secret
      * @param {boolean} enabled
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     updateOAuth2(projectId: string, provider: OAuthProvider, appId?: string, secret?: string, enabled?: boolean): Promise<Models.Project>;
@@ -277,7 +277,7 @@ export declare class Projects {
      *
      *
      * @param {string} projectId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.PlatformList>}
      */
     listPlatforms(projectId: string): Promise<Models.PlatformList>;
@@ -291,7 +291,7 @@ export declare class Projects {
      * @param {string} key
      * @param {string} store
      * @param {string} hostname
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Platform>}
      */
     createPlatform(projectId: string, type: PlatformType, name: string, key?: string, store?: string, hostname?: string): Promise<Models.Platform>;
@@ -301,7 +301,7 @@ export declare class Projects {
      *
      * @param {string} projectId
      * @param {string} platformId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Platform>}
      */
     getPlatform(projectId: string, platformId: string): Promise<Models.Platform>;
@@ -315,7 +315,7 @@ export declare class Projects {
      * @param {string} key
      * @param {string} store
      * @param {string} hostname
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Platform>}
      */
     updatePlatform(projectId: string, platformId: string, name: string, key?: string, store?: string, hostname?: string): Promise<Models.Platform>;
@@ -325,7 +325,7 @@ export declare class Projects {
      *
      * @param {string} projectId
      * @param {string} platformId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deletePlatform(projectId: string, platformId: string): Promise<{}>;
@@ -336,7 +336,7 @@ export declare class Projects {
      * @param {string} projectId
      * @param {ApiService} service
      * @param {boolean} status
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     updateServiceStatus(projectId: string, service: ApiService, status: boolean): Promise<Models.Project>;
@@ -346,7 +346,7 @@ export declare class Projects {
      *
      * @param {string} projectId
      * @param {boolean} status
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     updateServiceStatusAll(projectId: string, status: boolean): Promise<Models.Project>;
@@ -364,7 +364,7 @@ export declare class Projects {
      * @param {string} username
      * @param {string} password
      * @param {SMTPSecure} secure
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     updateSmtp(projectId: string, enabled: boolean, senderName?: string, senderEmail?: string, replyTo?: string, host?: string, port?: number, username?: string, password?: string, secure?: SMTPSecure): Promise<Models.Project>;
@@ -382,7 +382,7 @@ export declare class Projects {
      * @param {string} username
      * @param {string} password
      * @param {SMTPSecure} secure
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     createSmtpTest(projectId: string, emails: string[], senderName: string, senderEmail: string, host: string, replyTo?: string, port?: number, username?: string, password?: string, secure?: SMTPSecure): Promise<{}>;
@@ -392,7 +392,7 @@ export declare class Projects {
      *
      * @param {string} projectId
      * @param {string} teamId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     updateTeam(projectId: string, teamId: string): Promise<Models.Project>;
@@ -403,7 +403,7 @@ export declare class Projects {
      * @param {string} projectId
      * @param {EmailTemplateType} type
      * @param {EmailTemplateLocale} locale
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.EmailTemplate>}
      */
     getEmailTemplate(projectId: string, type: EmailTemplateType, locale: EmailTemplateLocale): Promise<Models.EmailTemplate>;
@@ -419,7 +419,7 @@ export declare class Projects {
      * @param {string} senderName
      * @param {string} senderEmail
      * @param {string} replyTo
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     updateEmailTemplate(projectId: string, type: EmailTemplateType, locale: EmailTemplateLocale, subject: string, message: string, senderName?: string, senderEmail?: string, replyTo?: string): Promise<Models.Project>;
@@ -430,7 +430,7 @@ export declare class Projects {
      * @param {string} projectId
      * @param {EmailTemplateType} type
      * @param {EmailTemplateLocale} locale
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.EmailTemplate>}
      */
     deleteEmailTemplate(projectId: string, type: EmailTemplateType, locale: EmailTemplateLocale): Promise<Models.EmailTemplate>;
@@ -441,7 +441,7 @@ export declare class Projects {
      * @param {string} projectId
      * @param {SmsTemplateType} type
      * @param {SmsTemplateLocale} locale
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.SmsTemplate>}
      */
     getSmsTemplate(projectId: string, type: SmsTemplateType, locale: SmsTemplateLocale): Promise<Models.SmsTemplate>;
@@ -453,7 +453,7 @@ export declare class Projects {
      * @param {SmsTemplateType} type
      * @param {SmsTemplateLocale} locale
      * @param {string} message
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.SmsTemplate>}
      */
     updateSmsTemplate(projectId: string, type: SmsTemplateType, locale: SmsTemplateLocale, message: string): Promise<Models.SmsTemplate>;
@@ -464,7 +464,7 @@ export declare class Projects {
      * @param {string} projectId
      * @param {SmsTemplateType} type
      * @param {SmsTemplateLocale} locale
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.SmsTemplate>}
      */
     deleteSmsTemplate(projectId: string, type: SmsTemplateType, locale: SmsTemplateLocale): Promise<Models.SmsTemplate>;
@@ -473,7 +473,7 @@ export declare class Projects {
      *
      *
      * @param {string} projectId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.WebhookList>}
      */
     listWebhooks(projectId: string): Promise<Models.WebhookList>;
@@ -489,7 +489,7 @@ export declare class Projects {
      * @param {boolean} enabled
      * @param {string} httpUser
      * @param {string} httpPass
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Webhook>}
      */
     createWebhook(projectId: string, name: string, events: string[], url: string, security: boolean, enabled?: boolean, httpUser?: string, httpPass?: string): Promise<Models.Webhook>;
@@ -499,7 +499,7 @@ export declare class Projects {
      *
      * @param {string} projectId
      * @param {string} webhookId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Webhook>}
      */
     getWebhook(projectId: string, webhookId: string): Promise<Models.Webhook>;
@@ -516,7 +516,7 @@ export declare class Projects {
      * @param {boolean} enabled
      * @param {string} httpUser
      * @param {string} httpPass
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Webhook>}
      */
     updateWebhook(projectId: string, webhookId: string, name: string, events: string[], url: string, security: boolean, enabled?: boolean, httpUser?: string, httpPass?: string): Promise<Models.Webhook>;
@@ -526,7 +526,7 @@ export declare class Projects {
      *
      * @param {string} projectId
      * @param {string} webhookId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteWebhook(projectId: string, webhookId: string): Promise<{}>;
@@ -536,7 +536,7 @@ export declare class Projects {
      *
      * @param {string} projectId
      * @param {string} webhookId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Webhook>}
      */
     updateWebhookSignature(projectId: string, webhookId: string): Promise<Models.Webhook>;

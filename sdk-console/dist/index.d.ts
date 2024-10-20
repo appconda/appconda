@@ -2944,7 +2944,7 @@ export class Migrations {
             * @throws {AppcondaException}
             * @returns {Promise<Models.Migration>}
             */
-        createAppwriteMigration(resources: string[], endpoint: string, projectId: string, apiKey: string): Promise<Models.Migration>;
+        createAppcondaMigration(resources: string[], endpoint: string, projectId: string, apiKey: string): Promise<Models.Migration>;
         /**
             * Generate a report on Appconda Data
             *
@@ -2956,7 +2956,7 @@ export class Migrations {
             * @throws {AppcondaException}
             * @returns {Promise<Models.MigrationReport>}
             */
-        getAppwriteReport(resources: string[], endpoint: string, projectID: string, key: string): Promise<Models.MigrationReport>;
+        getAppcondaReport(resources: string[], endpoint: string, projectID: string, key: string): Promise<Models.MigrationReport>;
         /**
             * Migrate Firebase Data (Service Account)
             *

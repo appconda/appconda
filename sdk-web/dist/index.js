@@ -21,16 +21,16 @@ return /******/ (() => { // webpackBootstrap
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "Client": () => (/* binding */ Client),
-/* harmony export */   "AppwriteException": () => (/* binding */ AppwriteException),
+/* harmony export */   "AppcondaException": () => (/* binding */ AppcondaException),
 /* harmony export */   "Query": () => (/* reexport safe */ _query__WEBPACK_IMPORTED_MODULE_1__.Query)
 /* harmony export */ });
 /* harmony import */ var _service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./service */ "./src/service.ts");
 /* harmony import */ var _query__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./query */ "./src/query.ts");
 
-class AppwriteException extends Error {
+class AppcondaException extends Error {
     constructor(message, code = 0, type = '', response = '') {
         super(message);
-        this.name = 'AppwriteException';
+        this.name = 'AppcondaException';
         this.message = message;
         this.code = code;
         this.type = type;
@@ -354,7 +354,7 @@ class Client {
                 };
             }
             if (400 <= response.status) {
-                throw new AppwriteException(data?.message, response.status, data?.type, data);
+                throw new AppcondaException(data?.message, response.status, data?.type, data);
             }
             const cookieFallback = response.headers.get('X-Fallback-Cookies');
             if (typeof window !== 'undefined' && window.localStorage && cookieFallback) {
@@ -364,10 +364,10 @@ class Client {
             return data;
         }
         catch (e) {
-            if (e instanceof AppwriteException) {
+            if (e instanceof AppcondaException) {
                 throw e;
             }
-            throw new AppwriteException(e.message);
+            throw new AppcondaException(e.message);
         }
     }
 }
@@ -1113,7 +1113,7 @@ class Account extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      *
      * Get the currently logged in user.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async get() {
@@ -1139,18 +1139,18 @@ class Account extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      * @param {string} email
      * @param {string} password
      * @param {string} name
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async create(userId, email, password, name) {
         if (typeof userId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "userId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "userId"');
         }
         if (typeof email === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "email"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "email"');
         }
         if (typeof password === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "password"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "password"');
         }
         const apiPath = '/account';
         const payload = {};
@@ -1185,15 +1185,15 @@ class Account extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      *
      * @param {string} email
      * @param {string} password
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async updateEmail(email, password) {
         if (typeof email === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "email"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "email"');
         }
         if (typeof password === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "password"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "password"');
         }
         const apiPath = '/account/email';
         const payload = {};
@@ -1214,7 +1214,7 @@ class Account extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      * Get the list of identities for the currently logged in user.
      *
      * @param {string[]} queries
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async listIdentities(queries) {
@@ -1234,12 +1234,12 @@ class Account extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      * Delete an identity by its unique ID.
      *
      * @param {string} identityId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async deleteIdentity(identityId) {
         if (typeof identityId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "identityId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "identityId"');
         }
         const apiPath = '/account/identities/{identityId}'.replace('{identityId}', identityId);
         const payload = {};
@@ -1257,7 +1257,7 @@ class Account extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      * from its creation and will be invalid if the user will logout in that time
      * frame.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async createJWT() {
@@ -1275,7 +1275,7 @@ class Account extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      * user. Each log returns user IP address, location and date and time of log.
      *
      * @param {string[]} queries
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async listLogs(queries) {
@@ -1295,12 +1295,12 @@ class Account extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      * Enable or disable MFA on an account.
      *
      * @param {boolean} mfa
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async updateMFA(mfa) {
         if (typeof mfa === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "mfa"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "mfa"');
         }
         const apiPath = '/account/mfa';
         const payload = {};
@@ -1321,12 +1321,12 @@ class Account extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      * method.
      *
      * @param {AuthenticatorType} type
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async createMfaAuthenticator(type) {
         if (typeof type === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "type"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "type"');
         }
         const apiPath = '/account/mfa/authenticators/{type}'.replace('{type}', type);
         const payload = {};
@@ -1344,15 +1344,15 @@ class Account extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      *
      * @param {AuthenticatorType} type
      * @param {string} otp
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async updateMfaAuthenticator(type, otp) {
         if (typeof type === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "type"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "type"');
         }
         if (typeof otp === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "otp"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "otp"');
         }
         const apiPath = '/account/mfa/authenticators/{type}'.replace('{type}', type);
         const payload = {};
@@ -1371,15 +1371,15 @@ class Account extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      *
      * @param {AuthenticatorType} type
      * @param {string} otp
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async deleteMfaAuthenticator(type, otp) {
         if (typeof type === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "type"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "type"');
         }
         if (typeof otp === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "otp"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "otp"');
         }
         const apiPath = '/account/mfa/authenticators/{type}'.replace('{type}', type);
         const payload = {};
@@ -1399,12 +1399,12 @@ class Account extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      * method.
      *
      * @param {AuthenticationFactor} factor
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async createMfaChallenge(factor) {
         if (typeof factor === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "factor"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "factor"');
         }
         const apiPath = '/account/mfa/challenge';
         const payload = {};
@@ -1427,15 +1427,15 @@ class Account extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      *
      * @param {string} challengeId
      * @param {string} otp
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async updateMfaChallenge(challengeId, otp) {
         if (typeof challengeId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "challengeId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "challengeId"');
         }
         if (typeof otp === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "otp"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "otp"');
         }
         const apiPath = '/account/mfa/challenge';
         const payload = {};
@@ -1455,7 +1455,7 @@ class Account extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      *
      * List the factors available on the account to be used as a MFA challange.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async listMfaFactors() {
@@ -1474,7 +1474,7 @@ class Account extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      * [createMfaRecoveryCodes](/docs/references/cloud/client-web/account#createMfaRecoveryCodes)
      * method. An OTP challenge is required to read recovery codes.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async getMfaRecoveryCodes() {
@@ -1494,7 +1494,7 @@ class Account extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      * [createMfaChallenge](/docs/references/cloud/client-web/account#createMfaChallenge)
      * method.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async createMfaRecoveryCodes() {
@@ -1513,7 +1513,7 @@ class Account extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      * [createMfaRecoveryCodes](/docs/references/cloud/client-web/account#createMfaRecoveryCodes)
      * method. An OTP challenge is required to regenreate recovery codes.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async updateMfaRecoveryCodes() {
@@ -1530,12 +1530,12 @@ class Account extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      * Update currently logged in user account name.
      *
      * @param {string} name
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async updateName(name) {
         if (typeof name === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "name"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "name"');
         }
         const apiPath = '/account/name';
         const payload = {};
@@ -1556,12 +1556,12 @@ class Account extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      *
      * @param {string} password
      * @param {string} oldPassword
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async updatePassword(password, oldPassword) {
         if (typeof password === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "password"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "password"');
         }
         const apiPath = '/account/password';
         const payload = {};
@@ -1587,15 +1587,15 @@ class Account extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      *
      * @param {string} phone
      * @param {string} password
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async updatePhone(phone, password) {
         if (typeof phone === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "phone"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "phone"');
         }
         if (typeof password === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "password"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "password"');
         }
         const apiPath = '/account/phone';
         const payload = {};
@@ -1615,7 +1615,7 @@ class Account extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      *
      * Get the preferences as a key-value object for the currently logged in user.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async getPrefs() {
@@ -1634,12 +1634,12 @@ class Account extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      * size is 64kB and throws error if exceeded.
      *
      * @param {Partial<Preferences>} prefs
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async updatePrefs(prefs) {
         if (typeof prefs === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "prefs"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "prefs"');
         }
         const apiPath = '/account/prefs';
         const payload = {};
@@ -1665,15 +1665,15 @@ class Account extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      *
      * @param {string} email
      * @param {string} url
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async createRecovery(email, url) {
         if (typeof email === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "email"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "email"');
         }
         if (typeof url === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "url"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "url"');
         }
         const apiPath = '/account/recovery';
         const payload = {};
@@ -1705,18 +1705,18 @@ class Account extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      * @param {string} userId
      * @param {string} secret
      * @param {string} password
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async updateRecovery(userId, secret, password) {
         if (typeof userId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "userId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "userId"');
         }
         if (typeof secret === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "secret"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "secret"');
         }
         if (typeof password === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "password"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "password"');
         }
         const apiPath = '/account/recovery';
         const payload = {};
@@ -1740,7 +1740,7 @@ class Account extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      * Get the list of active sessions across different devices for the currently
      * logged in user.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async listSessions() {
@@ -1757,7 +1757,7 @@ class Account extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      * Delete all sessions from the user account and remove any sessions cookies
      * from the end client.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async deleteSessions() {
@@ -1779,7 +1779,7 @@ class Account extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      * or create an [OAuth2
      * session](https://appconda.io/docs/references/cloud/client-web/account#CreateOAuth2Session).
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async createAnonymousSession() {
@@ -1802,15 +1802,15 @@ class Account extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      *
      * @param {string} email
      * @param {string} password
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async createEmailPasswordSession(email, password) {
         if (typeof email === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "email"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "email"');
         }
         if (typeof password === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "password"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "password"');
         }
         const apiPath = '/account/sessions/email';
         const payload = {};
@@ -1834,15 +1834,15 @@ class Account extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      *
      * @param {string} userId
      * @param {string} secret
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async updateMagicURLSession(userId, secret) {
         if (typeof userId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "userId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "userId"');
         }
         if (typeof secret === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "secret"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "secret"');
         }
         const apiPath = '/account/sessions/magic-url';
         const payload = {};
@@ -1881,12 +1881,12 @@ class Account extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      * @param {string} success
      * @param {string} failure
      * @param {string[]} scopes
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {void|string}
     */
     createOAuth2Session(provider, success, failure, scopes) {
         if (typeof provider === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "provider"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "provider"');
         }
         const apiPath = '/account/sessions/oauth2/{provider}'.replace('{provider}', provider);
         const payload = {};
@@ -1920,15 +1920,15 @@ class Account extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      *
      * @param {string} userId
      * @param {string} secret
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async updatePhoneSession(userId, secret) {
         if (typeof userId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "userId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "userId"');
         }
         if (typeof secret === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "secret"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "secret"');
         }
         const apiPath = '/account/sessions/phone';
         const payload = {};
@@ -1952,15 +1952,15 @@ class Account extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      *
      * @param {string} userId
      * @param {string} secret
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async createSession(userId, secret) {
         if (typeof userId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "userId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "userId"');
         }
         if (typeof secret === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "secret"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "secret"');
         }
         const apiPath = '/account/sessions/token';
         const payload = {};
@@ -1982,12 +1982,12 @@ class Account extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      * Inputting 'current' will return the current session being used.
      *
      * @param {string} sessionId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async getSession(sessionId) {
         if (typeof sessionId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "sessionId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "sessionId"');
         }
         const apiPath = '/account/sessions/{sessionId}'.replace('{sessionId}', sessionId);
         const payload = {};
@@ -2004,12 +2004,12 @@ class Account extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      * OAuth provider, this endpoint refreshes the access token from the provider.
      *
      * @param {string} sessionId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async updateSession(sessionId) {
         if (typeof sessionId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "sessionId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "sessionId"');
         }
         const apiPath = '/account/sessions/{sessionId}'.replace('{sessionId}', sessionId);
         const payload = {};
@@ -2028,12 +2028,12 @@ class Account extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      * instead.
      *
      * @param {string} sessionId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async deleteSession(sessionId) {
         if (typeof sessionId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "sessionId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "sessionId"');
         }
         const apiPath = '/account/sessions/{sessionId}'.replace('{sessionId}', sessionId);
         const payload = {};
@@ -2049,7 +2049,7 @@ class Account extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      * record is not deleted but permanently blocked from any access. To
      * completely delete a user, use the Users API instead.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async updateStatus() {
@@ -2067,15 +2067,15 @@ class Account extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      * @param {string} targetId
      * @param {string} identifier
      * @param {string} providerId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async createPushTarget(targetId, identifier, providerId) {
         if (typeof targetId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "targetId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "targetId"');
         }
         if (typeof identifier === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "identifier"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "identifier"');
         }
         const apiPath = '/account/targets/push';
         const payload = {};
@@ -2099,15 +2099,15 @@ class Account extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      *
      * @param {string} targetId
      * @param {string} identifier
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async updatePushTarget(targetId, identifier) {
         if (typeof targetId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "targetId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "targetId"');
         }
         if (typeof identifier === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "identifier"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "identifier"');
         }
         const apiPath = '/account/targets/{targetId}/push'.replace('{targetId}', targetId);
         const payload = {};
@@ -2124,12 +2124,12 @@ class Account extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      *
      *
      * @param {string} targetId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async deletePushTarget(targetId) {
         if (typeof targetId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "targetId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "targetId"');
         }
         const apiPath = '/account/targets/{targetId}/push'.replace('{targetId}', targetId);
         const payload = {};
@@ -2155,15 +2155,15 @@ class Account extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      * @param {string} userId
      * @param {string} email
      * @param {boolean} phrase
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async createEmailToken(userId, email, phrase) {
         if (typeof userId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "userId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "userId"');
         }
         if (typeof email === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "email"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "email"');
         }
         const apiPath = '/account/tokens/email';
         const payload = {};
@@ -2205,15 +2205,15 @@ class Account extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      * @param {string} email
      * @param {string} url
      * @param {boolean} phrase
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async createMagicURLToken(userId, email, url, phrase) {
         if (typeof userId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "userId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "userId"');
         }
         if (typeof email === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "email"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "email"');
         }
         const apiPath = '/account/tokens/magic-url';
         const payload = {};
@@ -2256,12 +2256,12 @@ class Account extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      * @param {string} success
      * @param {string} failure
      * @param {string[]} scopes
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {void|string}
     */
     createOAuth2Token(provider, success, failure, scopes) {
         if (typeof provider === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "provider"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "provider"');
         }
         const apiPath = '/account/tokens/oauth2/{provider}'.replace('{provider}', provider);
         const payload = {};
@@ -2302,15 +2302,15 @@ class Account extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      *
      * @param {string} userId
      * @param {string} phone
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async createPhoneToken(userId, phone) {
         if (typeof userId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "userId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "userId"');
         }
         if (typeof phone === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "phone"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "phone"');
         }
         const apiPath = '/account/tokens/phone';
         const payload = {};
@@ -2345,12 +2345,12 @@ class Account extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      *
      *
      * @param {string} url
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async createVerification(url) {
         if (typeof url === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "url"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "url"');
         }
         const apiPath = '/account/verification';
         const payload = {};
@@ -2372,15 +2372,15 @@ class Account extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      *
      * @param {string} userId
      * @param {string} secret
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async updateVerification(userId, secret) {
         if (typeof userId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "userId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "userId"');
         }
         if (typeof secret === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "secret"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "secret"');
         }
         const apiPath = '/account/verification';
         const payload = {};
@@ -2407,7 +2407,7 @@ class Account extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      * The verification code sent to the user's phone number is valid for 15
      * minutes.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async createPhoneVerification() {
@@ -2428,15 +2428,15 @@ class Account extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      *
      * @param {string} userId
      * @param {string} secret
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async updatePhoneVerification(userId, secret) {
         if (typeof userId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "userId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "userId"');
         }
         if (typeof secret === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "secret"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "secret"');
         }
         const apiPath = '/account/verification/phone';
         const payload = {};
@@ -2493,12 +2493,12 @@ class Avatars extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      * @param {number} width
      * @param {number} height
      * @param {number} quality
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {URL}
     */
     getBrowser(code, width, height, quality) {
         if (typeof code === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "code"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "code"');
         }
         const apiPath = '/avatars/browsers/{code}'.replace('{code}', code);
         const payload = {};
@@ -2535,12 +2535,12 @@ class Avatars extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      * @param {number} width
      * @param {number} height
      * @param {number} quality
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {URL}
     */
     getCreditCard(code, width, height, quality) {
         if (typeof code === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "code"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "code"');
         }
         const apiPath = '/avatars/credit-cards/{code}'.replace('{code}', code);
         const payload = {};
@@ -2568,12 +2568,12 @@ class Avatars extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      *
      *
      * @param {string} url
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {URL}
     */
     getFavicon(url) {
         if (typeof url === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "url"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "url"');
         }
         const apiPath = '/avatars/favicon';
         const payload = {};
@@ -2605,12 +2605,12 @@ class Avatars extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      * @param {number} width
      * @param {number} height
      * @param {number} quality
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {URL}
     */
     getFlag(code, width, height, quality) {
         if (typeof code === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "code"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "code"');
         }
         const apiPath = '/avatars/flags/{code}'.replace('{code}', code);
         const payload = {};
@@ -2647,12 +2647,12 @@ class Avatars extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      * @param {string} url
      * @param {number} width
      * @param {number} height
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {URL}
     */
     getImage(url, width, height) {
         if (typeof url === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "url"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "url"');
         }
         const apiPath = '/avatars/image';
         const payload = {};
@@ -2696,7 +2696,7 @@ class Avatars extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      * @param {number} width
      * @param {number} height
      * @param {string} background
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {URL}
     */
     getInitials(name, width, height, background) {
@@ -2732,12 +2732,12 @@ class Avatars extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      * @param {number} size
      * @param {number} margin
      * @param {boolean} download
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {URL}
     */
     getQR(text, size, margin, download) {
         if (typeof text === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "text"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "text"');
         }
         const apiPath = '/avatars/qr';
         const payload = {};
@@ -2793,15 +2793,15 @@ class Databases extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      * @param {string} databaseId
      * @param {string} collectionId
      * @param {string[]} queries
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async listDocuments(databaseId, collectionId, queries) {
         if (typeof databaseId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "databaseId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "databaseId"');
         }
         if (typeof collectionId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "collectionId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "collectionId"');
         }
         const apiPath = '/databases/{databaseId}/collections/{collectionId}/documents'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
         const payload = {};
@@ -2826,21 +2826,21 @@ class Databases extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      * @param {string} documentId
      * @param {Omit<Document, keyof Models.Document>} data
      * @param {string[]} permissions
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async createDocument(databaseId, collectionId, documentId, data, permissions) {
         if (typeof databaseId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "databaseId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "databaseId"');
         }
         if (typeof collectionId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "collectionId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "collectionId"');
         }
         if (typeof documentId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "documentId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "documentId"');
         }
         if (typeof data === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "data"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "data"');
         }
         const apiPath = '/databases/{databaseId}/collections/{collectionId}/documents'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
         const payload = {};
@@ -2868,18 +2868,18 @@ class Databases extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      * @param {string} collectionId
      * @param {string} documentId
      * @param {string[]} queries
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async getDocument(databaseId, collectionId, documentId, queries) {
         if (typeof databaseId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "databaseId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "databaseId"');
         }
         if (typeof collectionId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "collectionId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "collectionId"');
         }
         if (typeof documentId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "documentId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "documentId"');
         }
         const apiPath = '/databases/{databaseId}/collections/{collectionId}/documents/{documentId}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{documentId}', documentId);
         const payload = {};
@@ -2902,18 +2902,18 @@ class Databases extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      * @param {string} documentId
      * @param {Partial<Omit<Document, keyof Models.Document>>} data
      * @param {string[]} permissions
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async updateDocument(databaseId, collectionId, documentId, data, permissions) {
         if (typeof databaseId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "databaseId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "databaseId"');
         }
         if (typeof collectionId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "collectionId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "collectionId"');
         }
         if (typeof documentId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "documentId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "documentId"');
         }
         const apiPath = '/databases/{databaseId}/collections/{collectionId}/documents/{documentId}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{documentId}', documentId);
         const payload = {};
@@ -2936,18 +2936,18 @@ class Databases extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      * @param {string} databaseId
      * @param {string} collectionId
      * @param {string} documentId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async deleteDocument(databaseId, collectionId, documentId) {
         if (typeof databaseId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "databaseId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "databaseId"');
         }
         if (typeof collectionId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "collectionId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "collectionId"');
         }
         if (typeof documentId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "documentId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "documentId"');
         }
         const apiPath = '/databases/{databaseId}/collections/{collectionId}/documents/{documentId}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{documentId}', documentId);
         const payload = {};
@@ -2989,12 +2989,12 @@ class Functions extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      * @param {string} functionId
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async listExecutions(functionId, queries, search) {
         if (typeof functionId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "functionId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "functionId"');
         }
         const apiPath = '/functions/{functionId}/executions'.replace('{functionId}', functionId);
         const payload = {};
@@ -3023,12 +3023,12 @@ class Functions extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      * @param {string} xpath
      * @param {ExecutionMethod} method
      * @param {object} headers
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async createExecution(functionId, body, async, xpath, method, headers) {
         if (typeof functionId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "functionId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "functionId"');
         }
         const apiPath = '/functions/{functionId}/executions'.replace('{functionId}', functionId);
         const payload = {};
@@ -3059,15 +3059,15 @@ class Functions extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      *
      * @param {string} functionId
      * @param {string} executionId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async getExecution(functionId, executionId) {
         if (typeof functionId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "functionId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "functionId"');
         }
         if (typeof executionId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "executionId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "executionId"');
         }
         const apiPath = '/functions/{functionId}/executions/{executionId}'.replace('{functionId}', functionId).replace('{executionId}', executionId);
         const payload = {};
@@ -3106,12 +3106,12 @@ class Graphql extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      * Execute a GraphQL mutation.
      *
      * @param {object} query
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async query(query) {
         if (typeof query === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "query"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "query"');
         }
         const apiPath = '/graphql';
         const payload = {};
@@ -3130,12 +3130,12 @@ class Graphql extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      * Execute a GraphQL mutation.
      *
      * @param {object} query
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async mutation(query) {
         if (typeof query === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "query"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "query"');
         }
         const apiPath = '/graphql/mutation';
         const payload = {};
@@ -3180,7 +3180,7 @@ class Locale extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      *
      * ([IP Geolocation by DB-IP](https://db-ip.com))
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async get() {
@@ -3197,7 +3197,7 @@ class Locale extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      * List of all locale codes in [ISO
      * 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes).
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async listCodes() {
@@ -3214,7 +3214,7 @@ class Locale extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      * List of all continents. You can use the locale header to get the data in a
      * supported language.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async listContinents() {
@@ -3231,7 +3231,7 @@ class Locale extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      * List of all countries. You can use the locale header to get the data in a
      * supported language.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async listCountries() {
@@ -3248,7 +3248,7 @@ class Locale extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      * List of all countries that are currently members of the EU. You can use the
      * locale header to get the data in a supported language.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async listCountriesEU() {
@@ -3265,7 +3265,7 @@ class Locale extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      * List of all countries phone codes. You can use the locale header to get the
      * data in a supported language.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async listCountriesPhones() {
@@ -3283,7 +3283,7 @@ class Locale extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      * decimal digits for all major and minor currencies. You can use the locale
      * header to get the data in a supported language.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async listCurrencies() {
@@ -3300,7 +3300,7 @@ class Locale extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      * List of all languages classified by ISO 639-1 including 2-letter code, name
      * in English, and name in the respective language.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async listLanguages() {
@@ -3343,18 +3343,18 @@ class Messaging extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      * @param {string} topicId
      * @param {string} subscriberId
      * @param {string} targetId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async createSubscriber(topicId, subscriberId, targetId) {
         if (typeof topicId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "topicId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "topicId"');
         }
         if (typeof subscriberId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "subscriberId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "subscriberId"');
         }
         if (typeof targetId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "targetId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "targetId"');
         }
         const apiPath = '/messaging/topics/{topicId}/subscribers'.replace('{topicId}', topicId);
         const payload = {};
@@ -3376,15 +3376,15 @@ class Messaging extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      *
      * @param {string} topicId
      * @param {string} subscriberId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async deleteSubscriber(topicId, subscriberId) {
         if (typeof topicId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "topicId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "topicId"');
         }
         if (typeof subscriberId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "subscriberId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "subscriberId"');
         }
         const apiPath = '/messaging/topics/{topicId}/subscribers/{subscriberId}'.replace('{topicId}', topicId).replace('{subscriberId}', subscriberId);
         const payload = {};
@@ -3426,12 +3426,12 @@ class Storage extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      * @param {string} bucketId
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async listFiles(bucketId, queries, search) {
         if (typeof bucketId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "bucketId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "bucketId"');
         }
         const apiPath = '/storage/buckets/{bucketId}/files'.replace('{bucketId}', bucketId);
         const payload = {};
@@ -3472,18 +3472,18 @@ class Storage extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      * @param {string} fileId
      * @param {File} file
      * @param {string[]} permissions
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async createFile(bucketId, fileId, file, permissions, onProgress = (progress) => { }) {
         if (typeof bucketId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "bucketId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "bucketId"');
         }
         if (typeof fileId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "fileId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "fileId"');
         }
         if (typeof file === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "file"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "file"');
         }
         const apiPath = '/storage/buckets/{bucketId}/files'.replace('{bucketId}', bucketId);
         const payload = {};
@@ -3498,7 +3498,7 @@ class Storage extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
         }
         const uri = new URL(this.client.config.endpoint + apiPath);
         if (!(file instanceof File)) {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Parameter "file" has to be a File.');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Parameter "file" has to be a File.');
         }
         const size = file.size;
         if (size <= _service__WEBPACK_IMPORTED_MODULE_0__.Service.CHUNK_SIZE) {
@@ -3549,15 +3549,15 @@ class Storage extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      *
      * @param {string} bucketId
      * @param {string} fileId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async getFile(bucketId, fileId) {
         if (typeof bucketId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "bucketId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "bucketId"');
         }
         if (typeof fileId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "fileId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "fileId"');
         }
         const apiPath = '/storage/buckets/{bucketId}/files/{fileId}'.replace('{bucketId}', bucketId).replace('{fileId}', fileId);
         const payload = {};
@@ -3576,15 +3576,15 @@ class Storage extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      * @param {string} fileId
      * @param {string} name
      * @param {string[]} permissions
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async updateFile(bucketId, fileId, name, permissions) {
         if (typeof bucketId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "bucketId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "bucketId"');
         }
         if (typeof fileId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "fileId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "fileId"');
         }
         const apiPath = '/storage/buckets/{bucketId}/files/{fileId}'.replace('{bucketId}', bucketId).replace('{fileId}', fileId);
         const payload = {};
@@ -3607,15 +3607,15 @@ class Storage extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      *
      * @param {string} bucketId
      * @param {string} fileId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async deleteFile(bucketId, fileId) {
         if (typeof bucketId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "bucketId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "bucketId"');
         }
         if (typeof fileId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "fileId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "fileId"');
         }
         const apiPath = '/storage/buckets/{bucketId}/files/{fileId}'.replace('{bucketId}', bucketId).replace('{fileId}', fileId);
         const payload = {};
@@ -3633,15 +3633,15 @@ class Storage extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      *
      * @param {string} bucketId
      * @param {string} fileId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {URL}
     */
     getFileDownload(bucketId, fileId) {
         if (typeof bucketId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "bucketId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "bucketId"');
         }
         if (typeof fileId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "fileId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "fileId"');
         }
         const apiPath = '/storage/buckets/{bucketId}/files/{fileId}/download'.replace('{bucketId}', bucketId).replace('{fileId}', fileId);
         const payload = {};
@@ -3674,15 +3674,15 @@ class Storage extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      * @param {number} rotation
      * @param {string} background
      * @param {ImageFormat} output
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {URL}
     */
     getFilePreview(bucketId, fileId, width, height, gravity, quality, borderWidth, borderColor, borderRadius, opacity, rotation, background, output) {
         if (typeof bucketId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "bucketId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "bucketId"');
         }
         if (typeof fileId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "fileId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "fileId"');
         }
         const apiPath = '/storage/buckets/{bucketId}/files/{fileId}/preview'.replace('{bucketId}', bucketId).replace('{fileId}', fileId);
         const payload = {};
@@ -3735,15 +3735,15 @@ class Storage extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      *
      * @param {string} bucketId
      * @param {string} fileId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {URL}
     */
     getFileView(bucketId, fileId) {
         if (typeof bucketId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "bucketId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "bucketId"');
         }
         if (typeof fileId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "fileId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "fileId"');
         }
         const apiPath = '/storage/buckets/{bucketId}/files/{fileId}/view'.replace('{bucketId}', bucketId).replace('{fileId}', fileId);
         const payload = {};
@@ -3786,7 +3786,7 @@ class Teams extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      *
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async list(queries, search) {
@@ -3813,15 +3813,15 @@ class Teams extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      * @param {string} teamId
      * @param {string} name
      * @param {string[]} roles
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async create(teamId, name, roles) {
         if (typeof teamId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "teamId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "teamId"');
         }
         if (typeof name === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "name"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "name"');
         }
         const apiPath = '/teams';
         const payload = {};
@@ -3845,12 +3845,12 @@ class Teams extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      * Get a team by its ID. All team members have read access for this resource.
      *
      * @param {string} teamId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async get(teamId) {
         if (typeof teamId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "teamId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "teamId"');
         }
         const apiPath = '/teams/{teamId}'.replace('{teamId}', teamId);
         const payload = {};
@@ -3866,15 +3866,15 @@ class Teams extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      *
      * @param {string} teamId
      * @param {string} name
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async updateName(teamId, name) {
         if (typeof teamId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "teamId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "teamId"');
         }
         if (typeof name === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "name"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "name"');
         }
         const apiPath = '/teams/{teamId}'.replace('{teamId}', teamId);
         const payload = {};
@@ -3893,12 +3893,12 @@ class Teams extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      * delete the team.
      *
      * @param {string} teamId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async delete(teamId) {
         if (typeof teamId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "teamId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "teamId"');
         }
         const apiPath = '/teams/{teamId}'.replace('{teamId}', teamId);
         const payload = {};
@@ -3916,12 +3916,12 @@ class Teams extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      * @param {string} teamId
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async listMemberships(teamId, queries, search) {
         if (typeof teamId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "teamId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "teamId"');
         }
         const apiPath = '/teams/{teamId}/memberships'.replace('{teamId}', teamId);
         const payload = {};
@@ -3968,15 +3968,15 @@ class Teams extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      * @param {string} phone
      * @param {string} url
      * @param {string} name
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async createMembership(teamId, roles, email, userId, phone, url, name) {
         if (typeof teamId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "teamId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "teamId"');
         }
         if (typeof roles === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "roles"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "roles"');
         }
         const apiPath = '/teams/{teamId}/memberships'.replace('{teamId}', teamId);
         const payload = {};
@@ -4011,15 +4011,15 @@ class Teams extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      *
      * @param {string} teamId
      * @param {string} membershipId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async getMembership(teamId, membershipId) {
         if (typeof teamId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "teamId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "teamId"');
         }
         if (typeof membershipId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "membershipId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "membershipId"');
         }
         const apiPath = '/teams/{teamId}/memberships/{membershipId}'.replace('{teamId}', teamId).replace('{membershipId}', membershipId);
         const payload = {};
@@ -4039,18 +4039,18 @@ class Teams extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      * @param {string} teamId
      * @param {string} membershipId
      * @param {string[]} roles
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async updateMembership(teamId, membershipId, roles) {
         if (typeof teamId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "teamId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "teamId"');
         }
         if (typeof membershipId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "membershipId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "membershipId"');
         }
         if (typeof roles === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "roles"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "roles"');
         }
         const apiPath = '/teams/{teamId}/memberships/{membershipId}'.replace('{teamId}', teamId).replace('{membershipId}', membershipId);
         const payload = {};
@@ -4071,15 +4071,15 @@ class Teams extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      *
      * @param {string} teamId
      * @param {string} membershipId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async deleteMembership(teamId, membershipId) {
         if (typeof teamId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "teamId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "teamId"');
         }
         if (typeof membershipId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "membershipId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "membershipId"');
         }
         const apiPath = '/teams/{teamId}/memberships/{membershipId}'.replace('{teamId}', teamId).replace('{membershipId}', membershipId);
         const payload = {};
@@ -4103,21 +4103,21 @@ class Teams extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      * @param {string} membershipId
      * @param {string} userId
      * @param {string} secret
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async updateMembershipStatus(teamId, membershipId, userId, secret) {
         if (typeof teamId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "teamId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "teamId"');
         }
         if (typeof membershipId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "membershipId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "membershipId"');
         }
         if (typeof userId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "userId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "userId"');
         }
         if (typeof secret === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "secret"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "secret"');
         }
         const apiPath = '/teams/{teamId}/memberships/{membershipId}/status'.replace('{teamId}', teamId).replace('{membershipId}', membershipId);
         const payload = {};
@@ -4140,12 +4140,12 @@ class Teams extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      * preferences](https://appconda.io/docs/references/cloud/client-web/account#getPrefs).
      *
      * @param {string} teamId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async getPrefs(teamId) {
         if (typeof teamId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "teamId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "teamId"');
         }
         const apiPath = '/teams/{teamId}/prefs'.replace('{teamId}', teamId);
         const payload = {};
@@ -4163,15 +4163,15 @@ class Teams extends _service__WEBPACK_IMPORTED_MODULE_0__.Service {
      *
      * @param {string} teamId
      * @param {object} prefs
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async updatePrefs(teamId, prefs) {
         if (typeof teamId === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "teamId"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "teamId"');
         }
         if (typeof prefs === 'undefined') {
-            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppwriteException('Missing required parameter: "prefs"');
+            throw new _client__WEBPACK_IMPORTED_MODULE_1__.AppcondaException('Missing required parameter: "prefs"');
         }
         const apiPath = '/teams/{teamId}/prefs'.replace('{teamId}', teamId);
         const payload = {};
@@ -4255,7 +4255,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "Client": () => (/* reexport safe */ _client__WEBPACK_IMPORTED_MODULE_0__.Client),
 /* harmony export */   "Query": () => (/* reexport safe */ _client__WEBPACK_IMPORTED_MODULE_0__.Query),
-/* harmony export */   "AppwriteException": () => (/* reexport safe */ _client__WEBPACK_IMPORTED_MODULE_0__.AppwriteException),
+/* harmony export */   "AppcondaException": () => (/* reexport safe */ _client__WEBPACK_IMPORTED_MODULE_0__.AppcondaException),
 /* harmony export */   "Account": () => (/* reexport safe */ _services_account__WEBPACK_IMPORTED_MODULE_1__.Account),
 /* harmony export */   "Avatars": () => (/* reexport safe */ _services_avatars__WEBPACK_IMPORTED_MODULE_2__.Avatars),
 /* harmony export */   "Databases": () => (/* reexport safe */ _services_databases__WEBPACK_IMPORTED_MODULE_3__.Databases),

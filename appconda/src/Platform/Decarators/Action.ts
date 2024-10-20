@@ -1,3 +1,11 @@
+
+
+/**
+ * Action decorator that modifies the method to call an action based on the provided action type.
+ * 
+ * @param actionType - The type of action to be executed.
+ * @returns A decorator function that wraps the original method.
+ */
 export function Action(actionType: any) {
     return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {
       const originalMethod = descriptor.value;
@@ -7,4 +15,3 @@ export function Action(actionType: any) {
       };
     };
   }
-  

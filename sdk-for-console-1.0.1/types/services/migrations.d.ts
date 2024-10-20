@@ -9,7 +9,7 @@ export declare class Migrations {
      *
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.MigrationList>}
      */
     list(queries?: string[], search?: string): Promise<Models.MigrationList>;
@@ -21,10 +21,10 @@ export declare class Migrations {
      * @param {string} endpoint
      * @param {string} projectId
      * @param {string} apiKey
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Migration>}
      */
-    createAppwriteMigration(resources: string[], endpoint: string, projectId: string, apiKey: string): Promise<Models.Migration>;
+    createAppcondaMigration(resources: string[], endpoint: string, projectId: string, apiKey: string): Promise<Models.Migration>;
     /**
      * Generate a report on Appconda Data
      *
@@ -33,17 +33,17 @@ export declare class Migrations {
      * @param {string} endpoint
      * @param {string} projectID
      * @param {string} key
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.MigrationReport>}
      */
-    getAppwriteReport(resources: string[], endpoint: string, projectID: string, key: string): Promise<Models.MigrationReport>;
+    getAppcondaReport(resources: string[], endpoint: string, projectID: string, key: string): Promise<Models.MigrationReport>;
     /**
      * Migrate Firebase Data (Service Account)
      *
      *
      * @param {string[]} resources
      * @param {string} serviceAccount
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Migration>}
      */
     createFirebaseMigration(resources: string[], serviceAccount: string): Promise<Models.Migration>;
@@ -51,7 +51,7 @@ export declare class Migrations {
      * Revoke Appconda&#039;s authorization to access Firebase Projects
      *
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteFirebaseAuth(): Promise<{}>;
@@ -61,7 +61,7 @@ export declare class Migrations {
      *
      * @param {string[]} resources
      * @param {string} projectId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Migration>}
      */
     createFirebaseOAuthMigration(resources: string[], projectId: string): Promise<Models.Migration>;
@@ -69,7 +69,7 @@ export declare class Migrations {
      * List Firebase Projects
      *
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.FirebaseProjectList>}
      */
     listFirebaseProjects(): Promise<Models.FirebaseProjectList>;
@@ -79,7 +79,7 @@ export declare class Migrations {
      *
      * @param {string[]} resources
      * @param {string} serviceAccount
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.MigrationReport>}
      */
     getFirebaseReport(resources: string[], serviceAccount: string): Promise<Models.MigrationReport>;
@@ -89,7 +89,7 @@ export declare class Migrations {
      *
      * @param {string[]} resources
      * @param {string} projectId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.MigrationReport>}
      */
     getFirebaseReportOAuth(resources: string[], projectId: string): Promise<Models.MigrationReport>;
@@ -105,7 +105,7 @@ export declare class Migrations {
      * @param {string} username
      * @param {string} password
      * @param {number} port
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Migration>}
      */
     createNHostMigration(resources: string[], subdomain: string, region: string, adminSecret: string, database: string, username: string, password: string, port?: number): Promise<Models.Migration>;
@@ -121,7 +121,7 @@ export declare class Migrations {
      * @param {string} username
      * @param {string} password
      * @param {number} port
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.MigrationReport>}
      */
     getNHostReport(resources: string[], subdomain: string, region: string, adminSecret: string, database: string, username: string, password: string, port?: number): Promise<Models.MigrationReport>;
@@ -136,7 +136,7 @@ export declare class Migrations {
      * @param {string} username
      * @param {string} password
      * @param {number} port
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Migration>}
      */
     createSupabaseMigration(resources: string[], endpoint: string, apiKey: string, databaseHost: string, username: string, password: string, port?: number): Promise<Models.Migration>;
@@ -151,7 +151,7 @@ export declare class Migrations {
      * @param {string} username
      * @param {string} password
      * @param {number} port
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.MigrationReport>}
      */
     getSupabaseReport(resources: string[], endpoint: string, apiKey: string, databaseHost: string, username: string, password: string, port?: number): Promise<Models.MigrationReport>;
@@ -160,7 +160,7 @@ export declare class Migrations {
      *
      *
      * @param {string} migrationId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Migration>}
      */
     get(migrationId: string): Promise<Models.Migration>;
@@ -169,7 +169,7 @@ export declare class Migrations {
      *
      *
      * @param {string} migrationId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Migration>}
      */
     retry(migrationId: string): Promise<Models.Migration>;
@@ -178,7 +178,7 @@ export declare class Migrations {
      *
      *
      * @param {string} migrationId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     delete(migrationId: string): Promise<{}>;

@@ -1,5 +1,5 @@
 import { Service } from '../service';
-import { AppwriteException, Client } from '../client';
+import { AppcondaException, Client } from '../client';
 import type { Models } from '../models';
 import type { UploadProgress, Payload } from '../client';
 
@@ -19,16 +19,16 @@ export class Databases extends Service {
      * @param {string} databaseId
      * @param {string} collectionId
      * @param {string[]} queries
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async listDocuments<Document extends Models.Document>(databaseId: string, collectionId: string, queries?: string[]): Promise<Models.DocumentList<Document>> {
         if (typeof databaseId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "databaseId"');
+            throw new AppcondaException('Missing required parameter: "databaseId"');
         }
 
         if (typeof collectionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "collectionId"');
+            throw new AppcondaException('Missing required parameter: "collectionId"');
         }
 
         const apiPath = '/databases/{databaseId}/collections/{collectionId}/documents'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
@@ -57,24 +57,24 @@ export class Databases extends Service {
      * @param {string} documentId
      * @param {Omit<Document, keyof Models.Document>} data
      * @param {string[]} permissions
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async createDocument<Document extends Models.Document>(databaseId: string, collectionId: string, documentId: string, data: Omit<Document, keyof Models.Document>, permissions?: string[]): Promise<Document> {
         if (typeof databaseId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "databaseId"');
+            throw new AppcondaException('Missing required parameter: "databaseId"');
         }
 
         if (typeof collectionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "collectionId"');
+            throw new AppcondaException('Missing required parameter: "collectionId"');
         }
 
         if (typeof documentId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "documentId"');
+            throw new AppcondaException('Missing required parameter: "documentId"');
         }
 
         if (typeof data === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "data"');
+            throw new AppcondaException('Missing required parameter: "data"');
         }
 
         const apiPath = '/databases/{databaseId}/collections/{collectionId}/documents'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
@@ -108,20 +108,20 @@ export class Databases extends Service {
      * @param {string} collectionId
      * @param {string} documentId
      * @param {string[]} queries
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async getDocument<Document extends Models.Document>(databaseId: string, collectionId: string, documentId: string, queries?: string[]): Promise<Document> {
         if (typeof databaseId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "databaseId"');
+            throw new AppcondaException('Missing required parameter: "databaseId"');
         }
 
         if (typeof collectionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "collectionId"');
+            throw new AppcondaException('Missing required parameter: "collectionId"');
         }
 
         if (typeof documentId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "documentId"');
+            throw new AppcondaException('Missing required parameter: "documentId"');
         }
 
         const apiPath = '/databases/{databaseId}/collections/{collectionId}/documents/{documentId}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{documentId}', documentId);
@@ -148,20 +148,20 @@ export class Databases extends Service {
      * @param {string} documentId
      * @param {Partial<Omit<Document, keyof Models.Document>>} data
      * @param {string[]} permissions
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async updateDocument<Document extends Models.Document>(databaseId: string, collectionId: string, documentId: string, data?: Partial<Omit<Document, keyof Models.Document>>, permissions?: string[]): Promise<Document> {
         if (typeof databaseId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "databaseId"');
+            throw new AppcondaException('Missing required parameter: "databaseId"');
         }
 
         if (typeof collectionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "collectionId"');
+            throw new AppcondaException('Missing required parameter: "collectionId"');
         }
 
         if (typeof documentId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "documentId"');
+            throw new AppcondaException('Missing required parameter: "documentId"');
         }
 
         const apiPath = '/databases/{databaseId}/collections/{collectionId}/documents/{documentId}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{documentId}', documentId);
@@ -189,20 +189,20 @@ export class Databases extends Service {
      * @param {string} databaseId
      * @param {string} collectionId
      * @param {string} documentId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async deleteDocument(databaseId: string, collectionId: string, documentId: string): Promise<{}> {
         if (typeof databaseId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "databaseId"');
+            throw new AppcondaException('Missing required parameter: "databaseId"');
         }
 
         if (typeof collectionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "collectionId"');
+            throw new AppcondaException('Missing required parameter: "collectionId"');
         }
 
         if (typeof documentId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "documentId"');
+            throw new AppcondaException('Missing required parameter: "documentId"');
         }
 
         const apiPath = '/databases/{databaseId}/collections/{collectionId}/documents/{documentId}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{documentId}', documentId);

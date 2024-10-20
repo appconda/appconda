@@ -244,7 +244,7 @@ type UploadProgress = {
 /**
  * Exception thrown by the  package
  */
-class AppwriteException extends Error {
+class AppcondaException extends Error {
     /**
      * The error code associated with the exception.
      */
@@ -271,7 +271,7 @@ class AppwriteException extends Error {
      */
     constructor(message: string, code: number = 0, type: string = '', response: string = '') {
         super(message);
-        this.name = 'AppwriteException';
+        this.name = 'AppcondaException';
         this.message = message;
         this.code = code;
         this.type = type;
@@ -704,7 +704,7 @@ class Client {
         }
 
         if (400 <= response.status) {
-            throw new AppwriteException(data?.message, response.status, data?.type, data);
+            throw new AppcondaException(data?.message, response.status, data?.type, data);
         }
 
         const cookieFallback = response.headers.get('X-Fallback-Cookies');
@@ -733,7 +733,7 @@ class Client {
     }
 }
 
-export { Client, AppwriteException };
+export { Client, AppcondaException };
 export { Query } from './query';
 export type { Models, Payload, UploadProgress };
 export type { RealtimeResponseEvent };

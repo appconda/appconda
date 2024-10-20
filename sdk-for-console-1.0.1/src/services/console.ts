@@ -1,5 +1,5 @@
 import { Service } from '../service';
-import { AppwriteException, Client, type Payload, UploadProgress } from '../client';
+import { AppcondaException, Client, type Payload, UploadProgress } from '../client';
 import type { Models } from '../models';
 
 export class Console {
@@ -14,7 +14,7 @@ export class Console {
      *
      * Get all Environment Variables that are relevant for the console.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.ConsoleVariables>}
      */
     async variables(): Promise<Models.ConsoleVariables> {

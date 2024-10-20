@@ -14,7 +14,7 @@ export declare class Users {
      *
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.UserList<Preferences>>}
      */
     list<Preferences extends Models.Preferences>(queries?: string[], search?: string): Promise<Models.UserList<Preferences>>;
@@ -28,7 +28,7 @@ export declare class Users {
      * @param {string} phone
      * @param {string} password
      * @param {string} name
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     create<Preferences extends Models.Preferences>(userId: string, email?: string, phone?: string, password?: string, name?: string): Promise<Models.User<Preferences>>;
@@ -41,7 +41,7 @@ export declare class Users {
      * @param {string} email
      * @param {string} password
      * @param {string} name
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     createArgon2User<Preferences extends Models.Preferences>(userId: string, email: string, password: string, name?: string): Promise<Models.User<Preferences>>;
@@ -54,7 +54,7 @@ export declare class Users {
      * @param {string} email
      * @param {string} password
      * @param {string} name
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     createBcryptUser<Preferences extends Models.Preferences>(userId: string, email: string, password: string, name?: string): Promise<Models.User<Preferences>>;
@@ -65,7 +65,7 @@ export declare class Users {
      *
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.IdentityList>}
      */
     listIdentities(queries?: string[], search?: string): Promise<Models.IdentityList>;
@@ -75,7 +75,7 @@ export declare class Users {
      * Delete an identity by its unique ID.
      *
      * @param {string} identityId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteIdentity(identityId: string): Promise<{}>;
@@ -88,7 +88,7 @@ export declare class Users {
      * @param {string} email
      * @param {string} password
      * @param {string} name
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     createMD5User<Preferences extends Models.Preferences>(userId: string, email: string, password: string, name?: string): Promise<Models.User<Preferences>>;
@@ -101,7 +101,7 @@ export declare class Users {
      * @param {string} email
      * @param {string} password
      * @param {string} name
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     createPHPassUser<Preferences extends Models.Preferences>(userId: string, email: string, password: string, name?: string): Promise<Models.User<Preferences>>;
@@ -119,7 +119,7 @@ export declare class Users {
      * @param {number} passwordParallel
      * @param {number} passwordLength
      * @param {string} name
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     createScryptUser<Preferences extends Models.Preferences>(userId: string, email: string, password: string, passwordSalt: string, passwordCpu: number, passwordMemory: number, passwordParallel: number, passwordLength: number, name?: string): Promise<Models.User<Preferences>>;
@@ -135,7 +135,7 @@ export declare class Users {
      * @param {string} passwordSaltSeparator
      * @param {string} passwordSignerKey
      * @param {string} name
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     createScryptModifiedUser<Preferences extends Models.Preferences>(userId: string, email: string, password: string, passwordSalt: string, passwordSaltSeparator: string, passwordSignerKey: string, name?: string): Promise<Models.User<Preferences>>;
@@ -149,7 +149,7 @@ export declare class Users {
      * @param {string} password
      * @param {PasswordHash} passwordVersion
      * @param {string} name
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     createSHAUser<Preferences extends Models.Preferences>(userId: string, email: string, password: string, passwordVersion?: PasswordHash, name?: string): Promise<Models.User<Preferences>>;
@@ -158,7 +158,7 @@ export declare class Users {
      *
      *
      * @param {UserUsageRange} range
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.UsageUsers>}
      */
     getUsage(range?: UserUsageRange): Promise<Models.UsageUsers>;
@@ -168,7 +168,7 @@ export declare class Users {
      * Get a user by its unique ID.
      *
      * @param {string} userId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     get<Preferences extends Models.Preferences>(userId: string): Promise<Models.User<Preferences>>;
@@ -178,7 +178,7 @@ export declare class Users {
      * Delete a user by its unique ID, thereby releasing it&#039;s ID. Since ID is released and can be reused, all user-related resources like documents or storage files should be deleted before user deletion. If you want to keep ID reserved, use the [updateStatus](https://appconda.io/docs/server/users#usersUpdateStatus) endpoint instead.
      *
      * @param {string} userId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     delete(userId: string): Promise<{}>;
@@ -189,7 +189,7 @@ export declare class Users {
      *
      * @param {string} userId
      * @param {string} email
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     updateEmail<Preferences extends Models.Preferences>(userId: string, email: string): Promise<Models.User<Preferences>>;
@@ -201,7 +201,7 @@ export declare class Users {
      * @param {string} userId
      * @param {string} sessionId
      * @param {number} duration
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Jwt>}
      */
     createJWT(userId: string, sessionId?: string, duration?: number): Promise<Models.Jwt>;
@@ -214,7 +214,7 @@ Labels can be used to grant access to resources. While teams are a way for user&
      *
      * @param {string} userId
      * @param {string[]} labels
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     updateLabels<Preferences extends Models.Preferences>(userId: string, labels: string[]): Promise<Models.User<Preferences>>;
@@ -225,7 +225,7 @@ Labels can be used to grant access to resources. While teams are a way for user&
      *
      * @param {string} userId
      * @param {string[]} queries
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.LogList>}
      */
     listLogs(userId: string, queries?: string[]): Promise<Models.LogList>;
@@ -235,7 +235,7 @@ Labels can be used to grant access to resources. While teams are a way for user&
      * Get the user membership list by its unique ID.
      *
      * @param {string} userId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.MembershipList>}
      */
     listMemberships(userId: string): Promise<Models.MembershipList>;
@@ -246,7 +246,7 @@ Labels can be used to grant access to resources. While teams are a way for user&
      *
      * @param {string} userId
      * @param {boolean} mfa
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     updateMfa<Preferences extends Models.Preferences>(userId: string, mfa: boolean): Promise<Models.User<Preferences>>;
@@ -257,7 +257,7 @@ Labels can be used to grant access to resources. While teams are a way for user&
      *
      * @param {string} userId
      * @param {AuthenticatorType} type
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     deleteMfaAuthenticator<Preferences extends Models.Preferences>(userId: string, type: AuthenticatorType): Promise<Models.User<Preferences>>;
@@ -267,7 +267,7 @@ Labels can be used to grant access to resources. While teams are a way for user&
      * List the factors available on the account to be used as a MFA challange.
      *
      * @param {string} userId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.MfaFactors>}
      */
     listMfaFactors(userId: string): Promise<Models.MfaFactors>;
@@ -277,7 +277,7 @@ Labels can be used to grant access to resources. While teams are a way for user&
      * Get recovery codes that can be used as backup for MFA flow by User ID. Before getting codes, they must be generated using [createMfaRecoveryCodes](/docs/references/cloud/client-web/account#createMfaRecoveryCodes) method.
      *
      * @param {string} userId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.MfaRecoveryCodes>}
      */
     getMfaRecoveryCodes(userId: string): Promise<Models.MfaRecoveryCodes>;
@@ -287,7 +287,7 @@ Labels can be used to grant access to resources. While teams are a way for user&
      * Regenerate recovery codes that can be used as backup for MFA flow by User ID. Before regenerating codes, they must be first generated using [createMfaRecoveryCodes](/docs/references/cloud/client-web/account#createMfaRecoveryCodes) method.
      *
      * @param {string} userId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.MfaRecoveryCodes>}
      */
     updateMfaRecoveryCodes(userId: string): Promise<Models.MfaRecoveryCodes>;
@@ -297,7 +297,7 @@ Labels can be used to grant access to resources. While teams are a way for user&
      * Generate recovery codes used as backup for MFA flow for User ID. Recovery codes can be used as a MFA verification type in [createMfaChallenge](/docs/references/cloud/client-web/account#createMfaChallenge) method by client SDK.
      *
      * @param {string} userId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.MfaRecoveryCodes>}
      */
     createMfaRecoveryCodes(userId: string): Promise<Models.MfaRecoveryCodes>;
@@ -308,7 +308,7 @@ Labels can be used to grant access to resources. While teams are a way for user&
      *
      * @param {string} userId
      * @param {string} name
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     updateName<Preferences extends Models.Preferences>(userId: string, name: string): Promise<Models.User<Preferences>>;
@@ -319,7 +319,7 @@ Labels can be used to grant access to resources. While teams are a way for user&
      *
      * @param {string} userId
      * @param {string} password
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     updatePassword<Preferences extends Models.Preferences>(userId: string, password: string): Promise<Models.User<Preferences>>;
@@ -330,7 +330,7 @@ Labels can be used to grant access to resources. While teams are a way for user&
      *
      * @param {string} userId
      * @param {string} number
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     updatePhone<Preferences extends Models.Preferences>(userId: string, number: string): Promise<Models.User<Preferences>>;
@@ -340,7 +340,7 @@ Labels can be used to grant access to resources. While teams are a way for user&
      * Get the user preferences by its unique ID.
      *
      * @param {string} userId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Preferences>}
      */
     getPrefs<Preferences extends Models.Preferences>(userId: string): Promise<Preferences>;
@@ -351,7 +351,7 @@ Labels can be used to grant access to resources. While teams are a way for user&
      *
      * @param {string} userId
      * @param {object} prefs
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Preferences>}
      */
     updatePrefs<Preferences extends Models.Preferences>(userId: string, prefs: object): Promise<Preferences>;
@@ -361,7 +361,7 @@ Labels can be used to grant access to resources. While teams are a way for user&
      * Get the user sessions list by its unique ID.
      *
      * @param {string} userId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.SessionList>}
      */
     listSessions(userId: string): Promise<Models.SessionList>;
@@ -373,7 +373,7 @@ Labels can be used to grant access to resources. While teams are a way for user&
 If you want to generate a token for a custom authentication flow, use the [POST /users/{userId}/tokens](https://appconda.io/docs/server/users#createToken) endpoint.
      *
      * @param {string} userId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Session>}
      */
     createSession(userId: string): Promise<Models.Session>;
@@ -383,7 +383,7 @@ If you want to generate a token for a custom authentication flow, use the [POST 
      * Delete all user&#039;s sessions by using the user&#039;s unique ID.
      *
      * @param {string} userId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteSessions(userId: string): Promise<{}>;
@@ -394,7 +394,7 @@ If you want to generate a token for a custom authentication flow, use the [POST 
      *
      * @param {string} userId
      * @param {string} sessionId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteSession(userId: string, sessionId: string): Promise<{}>;
@@ -405,7 +405,7 @@ If you want to generate a token for a custom authentication flow, use the [POST 
      *
      * @param {string} userId
      * @param {boolean} status
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     updateStatus<Preferences extends Models.Preferences>(userId: string, status: boolean): Promise<Models.User<Preferences>>;
@@ -416,7 +416,7 @@ If you want to generate a token for a custom authentication flow, use the [POST 
      *
      * @param {string} userId
      * @param {string[]} queries
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.TargetList>}
      */
     listTargets(userId: string, queries?: string[]): Promise<Models.TargetList>;
@@ -431,7 +431,7 @@ If you want to generate a token for a custom authentication flow, use the [POST 
      * @param {string} identifier
      * @param {string} providerId
      * @param {string} name
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Target>}
      */
     createTarget(userId: string, targetId: string, providerType: MessagingProviderType, identifier: string, providerId?: string, name?: string): Promise<Models.Target>;
@@ -442,7 +442,7 @@ If you want to generate a token for a custom authentication flow, use the [POST 
      *
      * @param {string} userId
      * @param {string} targetId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Target>}
      */
     getTarget(userId: string, targetId: string): Promise<Models.Target>;
@@ -456,7 +456,7 @@ If you want to generate a token for a custom authentication flow, use the [POST 
      * @param {string} identifier
      * @param {string} providerId
      * @param {string} name
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Target>}
      */
     updateTarget(userId: string, targetId: string, identifier?: string, providerId?: string, name?: string): Promise<Models.Target>;
@@ -467,7 +467,7 @@ If you want to generate a token for a custom authentication flow, use the [POST 
      *
      * @param {string} userId
      * @param {string} targetId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteTarget(userId: string, targetId: string): Promise<{}>;
@@ -480,7 +480,7 @@ If you want to generate a token for a custom authentication flow, use the [POST 
      * @param {string} userId
      * @param {number} length
      * @param {number} expire
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Token>}
      */
     createToken(userId: string, length?: number, expire?: number): Promise<Models.Token>;
@@ -491,7 +491,7 @@ If you want to generate a token for a custom authentication flow, use the [POST 
      *
      * @param {string} userId
      * @param {boolean} emailVerification
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     updateEmailVerification<Preferences extends Models.Preferences>(userId: string, emailVerification: boolean): Promise<Models.User<Preferences>>;
@@ -502,7 +502,7 @@ If you want to generate a token for a custom authentication flow, use the [POST 
      *
      * @param {string} userId
      * @param {boolean} phoneVerification
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     updatePhoneVerification<Preferences extends Models.Preferences>(userId: string, phoneVerification: boolean): Promise<Models.User<Preferences>>;

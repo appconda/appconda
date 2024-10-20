@@ -16,7 +16,7 @@ When one dimension is specified and the other is 0, the image is scaled with pre
      * @param {number} width
      * @param {number} height
      * @param {number} quality
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {string}
      */
     getBrowser(code: Browser, width?: number, height?: number, quality?: number): string;
@@ -32,7 +32,7 @@ When one dimension is specified and the other is 0, the image is scaled with pre
      * @param {number} width
      * @param {number} height
      * @param {number} quality
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {string}
      */
     getCreditCard(code: CreditCard, width?: number, height?: number, quality?: number): string;
@@ -44,7 +44,7 @@ When one dimension is specified and the other is 0, the image is scaled with pre
 This endpoint does not follow HTTP redirects.
      *
      * @param {string} url
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {string}
      */
     getFavicon(url: string): string;
@@ -60,7 +60,7 @@ When one dimension is specified and the other is 0, the image is scaled with pre
      * @param {number} width
      * @param {number} height
      * @param {number} quality
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {string}
      */
     getFlag(code: Flag, width?: number, height?: number, quality?: number): string;
@@ -76,7 +76,7 @@ This endpoint does not follow HTTP redirects.
      * @param {string} url
      * @param {number} width
      * @param {number} height
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {string}
      */
     getImage(url: string, width?: number, height?: number): string;
@@ -94,7 +94,7 @@ When one dimension is specified and the other is 0, the image is scaled with pre
      * @param {number} width
      * @param {number} height
      * @param {string} background
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {string}
      */
     getInitials(name?: string, width?: number, height?: number, background?: string): string;
@@ -108,7 +108,7 @@ When one dimension is specified and the other is 0, the image is scaled with pre
      * @param {number} size
      * @param {number} margin
      * @param {boolean} download
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {string}
      */
     getQR(text: string, size?: number, margin?: number, download?: boolean): string;

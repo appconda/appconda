@@ -1,5 +1,5 @@
 import { Service } from '../service';
-import { AppwriteException, Client } from '../client';
+import { AppcondaException, Client } from '../client';
 import type { Models } from '../models';
 import type { UploadProgress, Payload } from '../client';
 
@@ -18,20 +18,20 @@ export class Messaging extends Service {
      * @param {string} topicId
      * @param {string} subscriberId
      * @param {string} targetId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async createSubscriber(topicId: string, subscriberId: string, targetId: string): Promise<Models.Subscriber> {
         if (typeof topicId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "topicId"');
+            throw new AppcondaException('Missing required parameter: "topicId"');
         }
 
         if (typeof subscriberId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "subscriberId"');
+            throw new AppcondaException('Missing required parameter: "subscriberId"');
         }
 
         if (typeof targetId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "targetId"');
+            throw new AppcondaException('Missing required parameter: "targetId"');
         }
 
         const apiPath = '/messaging/topics/{topicId}/subscribers'.replace('{topicId}', topicId);
@@ -58,16 +58,16 @@ export class Messaging extends Service {
      *
      * @param {string} topicId
      * @param {string} subscriberId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async deleteSubscriber(topicId: string, subscriberId: string): Promise<{}> {
         if (typeof topicId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "topicId"');
+            throw new AppcondaException('Missing required parameter: "topicId"');
         }
 
         if (typeof subscriberId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "subscriberId"');
+            throw new AppcondaException('Missing required parameter: "subscriberId"');
         }
 
         const apiPath = '/messaging/topics/{topicId}/subscribers/{subscriberId}'.replace('{topicId}', topicId).replace('{subscriberId}', subscriberId);

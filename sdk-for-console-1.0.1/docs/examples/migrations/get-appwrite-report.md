@@ -6,7 +6,7 @@ const client = new Client()
 
 const migrations = new Migrations(client);
 
-const result = await migrations.getAppwriteReport(
+const result = await migrations.getAppcondaReport(
     [], // resources
     'https://example.com', // endpoint
     '<PROJECT_ID>', // projectID

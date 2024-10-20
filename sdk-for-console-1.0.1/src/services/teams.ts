@@ -1,5 +1,5 @@
 import { Service } from '../service';
-import { AppwriteException, Client, type Payload, UploadProgress } from '../client';
+import { AppcondaException, Client, type Payload, UploadProgress } from '../client';
 import type { Models } from '../models';
 
 export class Teams {
@@ -16,7 +16,7 @@ export class Teams {
      *
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.TeamList<Preferences>>}
      */
     async list<Preferences extends Models.Preferences>(queries?: string[], search?: string): Promise<Models.TeamList<Preferences>> {
@@ -50,15 +50,15 @@ export class Teams {
      * @param {string} teamId
      * @param {string} name
      * @param {string[]} roles
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Team<Preferences>>}
      */
     async create<Preferences extends Models.Preferences>(teamId: string, name: string, roles?: string[]): Promise<Models.Team<Preferences>> {
         if (typeof teamId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "teamId"');
+            throw new AppcondaException('Missing required parameter: "teamId"');
         }
         if (typeof name === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "name"');
+            throw new AppcondaException('Missing required parameter: "name"');
         }
         const apiPath = '/teams';
         const payload: Payload = {};
@@ -91,12 +91,12 @@ export class Teams {
      * Get a team by its ID. All team members have read access for this resource.
      *
      * @param {string} teamId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Team<Preferences>>}
      */
     async get<Preferences extends Models.Preferences>(teamId: string): Promise<Models.Team<Preferences>> {
         if (typeof teamId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "teamId"');
+            throw new AppcondaException('Missing required parameter: "teamId"');
         }
         const apiPath = '/teams/{teamId}'.replace('{teamId}', teamId);
         const payload: Payload = {};
@@ -121,15 +121,15 @@ export class Teams {
      *
      * @param {string} teamId
      * @param {string} name
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Team<Preferences>>}
      */
     async updateName<Preferences extends Models.Preferences>(teamId: string, name: string): Promise<Models.Team<Preferences>> {
         if (typeof teamId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "teamId"');
+            throw new AppcondaException('Missing required parameter: "teamId"');
         }
         if (typeof name === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "name"');
+            throw new AppcondaException('Missing required parameter: "name"');
         }
         const apiPath = '/teams/{teamId}'.replace('{teamId}', teamId);
         const payload: Payload = {};
@@ -156,12 +156,12 @@ export class Teams {
      * Delete a team using its ID. Only team members with the owner role can delete the team.
      *
      * @param {string} teamId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     async delete(teamId: string): Promise<{}> {
         if (typeof teamId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "teamId"');
+            throw new AppcondaException('Missing required parameter: "teamId"');
         }
         const apiPath = '/teams/{teamId}'.replace('{teamId}', teamId);
         const payload: Payload = {};
@@ -186,12 +186,12 @@ export class Teams {
      *
      * @param {string} teamId
      * @param {string[]} queries
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.LogList>}
      */
     async listLogs(teamId: string, queries?: string[]): Promise<Models.LogList> {
         if (typeof teamId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "teamId"');
+            throw new AppcondaException('Missing required parameter: "teamId"');
         }
         const apiPath = '/teams/{teamId}/logs'.replace('{teamId}', teamId);
         const payload: Payload = {};
@@ -220,12 +220,12 @@ export class Teams {
      * @param {string} teamId
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.MembershipList>}
      */
     async listMemberships(teamId: string, queries?: string[], search?: string): Promise<Models.MembershipList> {
         if (typeof teamId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "teamId"');
+            throw new AppcondaException('Missing required parameter: "teamId"');
         }
         const apiPath = '/teams/{teamId}/memberships'.replace('{teamId}', teamId);
         const payload: Payload = {};
@@ -268,15 +268,15 @@ Please note that to avoid a [Redirect Attack](https://github.com/OWASP/CheatShee
      * @param {string} phone
      * @param {string} url
      * @param {string} name
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Membership>}
      */
     async createMembership(teamId: string, roles: string[], email?: string, userId?: string, phone?: string, url?: string, name?: string): Promise<Models.Membership> {
         if (typeof teamId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "teamId"');
+            throw new AppcondaException('Missing required parameter: "teamId"');
         }
         if (typeof roles === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "roles"');
+            throw new AppcondaException('Missing required parameter: "roles"');
         }
         const apiPath = '/teams/{teamId}/memberships'.replace('{teamId}', teamId);
         const payload: Payload = {};
@@ -319,15 +319,15 @@ Please note that to avoid a [Redirect Attack](https://github.com/OWASP/CheatShee
      *
      * @param {string} teamId
      * @param {string} membershipId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Membership>}
      */
     async getMembership(teamId: string, membershipId: string): Promise<Models.Membership> {
         if (typeof teamId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "teamId"');
+            throw new AppcondaException('Missing required parameter: "teamId"');
         }
         if (typeof membershipId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "membershipId"');
+            throw new AppcondaException('Missing required parameter: "membershipId"');
         }
         const apiPath = '/teams/{teamId}/memberships/{membershipId}'.replace('{teamId}', teamId).replace('{membershipId}', membershipId);
         const payload: Payload = {};
@@ -354,18 +354,18 @@ Please note that to avoid a [Redirect Attack](https://github.com/OWASP/CheatShee
      * @param {string} teamId
      * @param {string} membershipId
      * @param {string[]} roles
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Membership>}
      */
     async updateMembership(teamId: string, membershipId: string, roles: string[]): Promise<Models.Membership> {
         if (typeof teamId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "teamId"');
+            throw new AppcondaException('Missing required parameter: "teamId"');
         }
         if (typeof membershipId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "membershipId"');
+            throw new AppcondaException('Missing required parameter: "membershipId"');
         }
         if (typeof roles === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "roles"');
+            throw new AppcondaException('Missing required parameter: "roles"');
         }
         const apiPath = '/teams/{teamId}/memberships/{membershipId}'.replace('{teamId}', teamId).replace('{membershipId}', membershipId);
         const payload: Payload = {};
@@ -393,15 +393,15 @@ Please note that to avoid a [Redirect Attack](https://github.com/OWASP/CheatShee
      *
      * @param {string} teamId
      * @param {string} membershipId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     async deleteMembership(teamId: string, membershipId: string): Promise<{}> {
         if (typeof teamId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "teamId"');
+            throw new AppcondaException('Missing required parameter: "teamId"');
         }
         if (typeof membershipId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "membershipId"');
+            throw new AppcondaException('Missing required parameter: "membershipId"');
         }
         const apiPath = '/teams/{teamId}/memberships/{membershipId}'.replace('{teamId}', teamId).replace('{membershipId}', membershipId);
         const payload: Payload = {};
@@ -431,21 +431,21 @@ If the request is successful, a session for the user is automatically created.
      * @param {string} membershipId
      * @param {string} userId
      * @param {string} secret
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Membership>}
      */
     async updateMembershipStatus(teamId: string, membershipId: string, userId: string, secret: string): Promise<Models.Membership> {
         if (typeof teamId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "teamId"');
+            throw new AppcondaException('Missing required parameter: "teamId"');
         }
         if (typeof membershipId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "membershipId"');
+            throw new AppcondaException('Missing required parameter: "membershipId"');
         }
         if (typeof userId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "userId"');
+            throw new AppcondaException('Missing required parameter: "userId"');
         }
         if (typeof secret === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "secret"');
+            throw new AppcondaException('Missing required parameter: "secret"');
         }
         const apiPath = '/teams/{teamId}/memberships/{membershipId}/status'.replace('{teamId}', teamId).replace('{membershipId}', membershipId);
         const payload: Payload = {};
@@ -475,12 +475,12 @@ If the request is successful, a session for the user is automatically created.
      * Get the team&#039;s shared preferences by its unique ID. If a preference doesn&#039;t need to be shared by all team members, prefer storing them in [user preferences](https://appconda.io/docs/references/cloud/client-web/account#getPrefs).
      *
      * @param {string} teamId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Preferences>}
      */
     async getPrefs<Preferences extends Models.Preferences>(teamId: string): Promise<Preferences> {
         if (typeof teamId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "teamId"');
+            throw new AppcondaException('Missing required parameter: "teamId"');
         }
         const apiPath = '/teams/{teamId}/prefs'.replace('{teamId}', teamId);
         const payload: Payload = {};
@@ -505,15 +505,15 @@ If the request is successful, a session for the user is automatically created.
      *
      * @param {string} teamId
      * @param {object} prefs
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Preferences>}
      */
     async updatePrefs<Preferences extends Models.Preferences>(teamId: string, prefs: object): Promise<Preferences> {
         if (typeof teamId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "teamId"');
+            throw new AppcondaException('Missing required parameter: "teamId"');
         }
         if (typeof prefs === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "prefs"');
+            throw new AppcondaException('Missing required parameter: "prefs"');
         }
         const apiPath = '/teams/{teamId}/prefs'.replace('{teamId}', teamId);
         const payload: Payload = {};

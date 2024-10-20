@@ -1,5 +1,5 @@
 import { Service } from '../service';
-import { AppwriteException, Client, type Payload, UploadProgress } from '../client';
+import { AppcondaException, Client, type Payload, UploadProgress } from '../client';
 import type { Models } from '../models';
 
 export class Graphql {
@@ -15,12 +15,12 @@ export class Graphql {
      * Execute a GraphQL mutation.
      *
      * @param {object} query
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     async query(query: object): Promise<{}> {
         if (typeof query === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "query"');
+            throw new AppcondaException('Missing required parameter: "query"');
         }
         const apiPath = '/graphql';
         const payload: Payload = {};
@@ -48,12 +48,12 @@ export class Graphql {
      * Execute a GraphQL mutation.
      *
      * @param {object} query
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     async mutation(query: object): Promise<{}> {
         if (typeof query === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "query"');
+            throw new AppcondaException('Missing required parameter: "query"');
         }
         const apiPath = '/graphql/mutation';
         const payload: Payload = {};

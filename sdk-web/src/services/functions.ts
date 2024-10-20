@@ -1,5 +1,5 @@
 import { Service } from '../service';
-import { AppwriteException, Client } from '../client';
+import { AppcondaException, Client } from '../client';
 import type { Models } from '../models';
 import type { UploadProgress, Payload } from '../client';
 import { ExecutionMethod } from '../enums/execution-method';
@@ -20,12 +20,12 @@ export class Functions extends Service {
      * @param {string} functionId
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async listExecutions(functionId: string, queries?: string[], search?: string): Promise<Models.ExecutionList> {
         if (typeof functionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "functionId"');
+            throw new AppcondaException('Missing required parameter: "functionId"');
         }
 
         const apiPath = '/functions/{functionId}/executions'.replace('{functionId}', functionId);
@@ -59,12 +59,12 @@ export class Functions extends Service {
      * @param {string} xpath
      * @param {ExecutionMethod} method
      * @param {object} headers
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async createExecution(functionId: string, body?: string, async?: boolean, xpath?: string, method?: ExecutionMethod, headers?: object): Promise<Models.Execution> {
         if (typeof functionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "functionId"');
+            throw new AppcondaException('Missing required parameter: "functionId"');
         }
 
         const apiPath = '/functions/{functionId}/executions'.replace('{functionId}', functionId);
@@ -103,16 +103,16 @@ export class Functions extends Service {
      *
      * @param {string} functionId
      * @param {string} executionId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async getExecution(functionId: string, executionId: string): Promise<Models.Execution> {
         if (typeof functionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "functionId"');
+            throw new AppcondaException('Missing required parameter: "functionId"');
         }
 
         if (typeof executionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "executionId"');
+            throw new AppcondaException('Missing required parameter: "executionId"');
         }
 
         const apiPath = '/functions/{functionId}/executions/{executionId}'.replace('{functionId}', functionId).replace('{executionId}', executionId);

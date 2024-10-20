@@ -1,5 +1,5 @@
 import { Service } from '../service';
-import { AppwriteException, Client, type Payload, UploadProgress } from '../client';
+import { AppcondaException, Client, type Payload, UploadProgress } from '../client';
 import type { Models } from '../models';
 import { Runtime } from '../enums/runtime';
 import { FunctionUsageRange } from '../enums/function-usage-range';
@@ -19,7 +19,7 @@ export class Functions {
      *
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.FunctionList>}
      */
     async list(queries?: string[], search?: string): Promise<Models.FunctionList> {
@@ -72,18 +72,18 @@ export class Functions {
      * @param {string} templateRootDirectory
      * @param {string} templateVersion
      * @param {string} specification
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Function>}
      */
     async create(functionId: string, name: string, runtime: Runtime, execute?: string[], events?: string[], schedule?: string, timeout?: number, enabled?: boolean, logging?: boolean, entrypoint?: string, commands?: string, scopes?: string[], installationId?: string, providerRepositoryId?: string, providerBranch?: string, providerSilentMode?: boolean, providerRootDirectory?: string, templateRepository?: string, templateOwner?: string, templateRootDirectory?: string, templateVersion?: string, specification?: string): Promise<Models.Function> {
         if (typeof functionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "functionId"');
+            throw new AppcondaException('Missing required parameter: "functionId"');
         }
         if (typeof name === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "name"');
+            throw new AppcondaException('Missing required parameter: "name"');
         }
         if (typeof runtime === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "runtime"');
+            throw new AppcondaException('Missing required parameter: "runtime"');
         }
         const apiPath = '/functions';
         const payload: Payload = {};
@@ -172,7 +172,7 @@ export class Functions {
      *
      * Get a list of all runtimes that are currently active on your instance.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.RuntimeList>}
      */
     async listRuntimes(): Promise<Models.RuntimeList> {
@@ -198,7 +198,7 @@ export class Functions {
      * List allowed function specifications for this instance.
 
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.SpecificationList>}
      */
     async listSpecifications(): Promise<Models.SpecificationList> {
@@ -227,7 +227,7 @@ export class Functions {
      * @param {string[]} useCases
      * @param {number} limit
      * @param {number} offset
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.TemplateFunctionList>}
      */
     async listTemplates(runtimes?: string[], useCases?: string[], limit?: number, offset?: number): Promise<Models.TemplateFunctionList> {
@@ -265,12 +265,12 @@ export class Functions {
      * Get a function template using ID. You can use template details in [createFunction](/docs/references/cloud/server-nodejs/functions#create) method.
      *
      * @param {string} templateId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.TemplateFunction>}
      */
     async getTemplate(templateId: string): Promise<Models.TemplateFunction> {
         if (typeof templateId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "templateId"');
+            throw new AppcondaException('Missing required parameter: "templateId"');
         }
         const apiPath = '/functions/templates/{templateId}'.replace('{templateId}', templateId);
         const payload: Payload = {};
@@ -293,7 +293,7 @@ export class Functions {
      *
      *
      * @param {FunctionUsageRange} range
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.UsageFunctions>}
      */
     async getUsage(range?: FunctionUsageRange): Promise<Models.UsageFunctions> {
@@ -322,12 +322,12 @@ export class Functions {
      * Get a function by its unique ID.
      *
      * @param {string} functionId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Function>}
      */
     async get(functionId: string): Promise<Models.Function> {
         if (typeof functionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "functionId"');
+            throw new AppcondaException('Missing required parameter: "functionId"');
         }
         const apiPath = '/functions/{functionId}'.replace('{functionId}', functionId);
         const payload: Payload = {};
@@ -368,15 +368,15 @@ export class Functions {
      * @param {boolean} providerSilentMode
      * @param {string} providerRootDirectory
      * @param {string} specification
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Function>}
      */
     async update(functionId: string, name: string, runtime?: Runtime, execute?: string[], events?: string[], schedule?: string, timeout?: number, enabled?: boolean, logging?: boolean, entrypoint?: string, commands?: string, scopes?: string[], installationId?: string, providerRepositoryId?: string, providerBranch?: string, providerSilentMode?: boolean, providerRootDirectory?: string, specification?: string): Promise<Models.Function> {
         if (typeof functionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "functionId"');
+            throw new AppcondaException('Missing required parameter: "functionId"');
         }
         if (typeof name === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "name"');
+            throw new AppcondaException('Missing required parameter: "name"');
         }
         const apiPath = '/functions/{functionId}'.replace('{functionId}', functionId);
         const payload: Payload = {};
@@ -451,12 +451,12 @@ export class Functions {
      * Delete a function by its unique ID.
      *
      * @param {string} functionId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     async delete(functionId: string): Promise<{}> {
         if (typeof functionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "functionId"');
+            throw new AppcondaException('Missing required parameter: "functionId"');
         }
         const apiPath = '/functions/{functionId}'.replace('{functionId}', functionId);
         const payload: Payload = {};
@@ -482,12 +482,12 @@ export class Functions {
      * @param {string} functionId
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.DeploymentList>}
      */
     async listDeployments(functionId: string, queries?: string[], search?: string): Promise<Models.DeploymentList> {
         if (typeof functionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "functionId"');
+            throw new AppcondaException('Missing required parameter: "functionId"');
         }
         const apiPath = '/functions/{functionId}/deployments'.replace('{functionId}', functionId);
         const payload: Payload = {};
@@ -525,18 +525,18 @@ Use the &quot;command&quot; param to set the entrypoint used to execute your cod
      * @param {boolean} activate
      * @param {string} entrypoint
      * @param {string} commands
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Deployment>}
      */
     async createDeployment(functionId: string, code: File, activate: boolean, entrypoint?: string, commands?: string, onProgress = (progress: UploadProgress) => {}): Promise<Models.Deployment> {
         if (typeof functionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "functionId"');
+            throw new AppcondaException('Missing required parameter: "functionId"');
         }
         if (typeof code === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "code"');
+            throw new AppcondaException('Missing required parameter: "code"');
         }
         if (typeof activate === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "activate"');
+            throw new AppcondaException('Missing required parameter: "activate"');
         }
         const apiPath = '/functions/{functionId}/deployments'.replace('{functionId}', functionId);
         const payload: Payload = {};
@@ -574,15 +574,15 @@ Use the &quot;command&quot; param to set the entrypoint used to execute your cod
      *
      * @param {string} functionId
      * @param {string} deploymentId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Deployment>}
      */
     async getDeployment(functionId: string, deploymentId: string): Promise<Models.Deployment> {
         if (typeof functionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "functionId"');
+            throw new AppcondaException('Missing required parameter: "functionId"');
         }
         if (typeof deploymentId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "deploymentId"');
+            throw new AppcondaException('Missing required parameter: "deploymentId"');
         }
         const apiPath = '/functions/{functionId}/deployments/{deploymentId}'.replace('{functionId}', functionId).replace('{deploymentId}', deploymentId);
         const payload: Payload = {};
@@ -607,15 +607,15 @@ Use the &quot;command&quot; param to set the entrypoint used to execute your cod
      *
      * @param {string} functionId
      * @param {string} deploymentId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Function>}
      */
     async updateDeployment(functionId: string, deploymentId: string): Promise<Models.Function> {
         if (typeof functionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "functionId"');
+            throw new AppcondaException('Missing required parameter: "functionId"');
         }
         if (typeof deploymentId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "deploymentId"');
+            throw new AppcondaException('Missing required parameter: "deploymentId"');
         }
         const apiPath = '/functions/{functionId}/deployments/{deploymentId}'.replace('{functionId}', functionId).replace('{deploymentId}', deploymentId);
         const payload: Payload = {};
@@ -640,15 +640,15 @@ Use the &quot;command&quot; param to set the entrypoint used to execute your cod
      *
      * @param {string} functionId
      * @param {string} deploymentId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     async deleteDeployment(functionId: string, deploymentId: string): Promise<{}> {
         if (typeof functionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "functionId"');
+            throw new AppcondaException('Missing required parameter: "functionId"');
         }
         if (typeof deploymentId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "deploymentId"');
+            throw new AppcondaException('Missing required parameter: "deploymentId"');
         }
         const apiPath = '/functions/{functionId}/deployments/{deploymentId}'.replace('{functionId}', functionId).replace('{deploymentId}', deploymentId);
         const payload: Payload = {};
@@ -673,15 +673,15 @@ Use the &quot;command&quot; param to set the entrypoint used to execute your cod
      * @param {string} functionId
      * @param {string} deploymentId
      * @param {string} buildId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     async createBuild(functionId: string, deploymentId: string, buildId?: string): Promise<{}> {
         if (typeof functionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "functionId"');
+            throw new AppcondaException('Missing required parameter: "functionId"');
         }
         if (typeof deploymentId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "deploymentId"');
+            throw new AppcondaException('Missing required parameter: "deploymentId"');
         }
         const apiPath = '/functions/{functionId}/deployments/{deploymentId}/build'.replace('{functionId}', functionId).replace('{deploymentId}', deploymentId);
         const payload: Payload = {};
@@ -708,15 +708,15 @@ Use the &quot;command&quot; param to set the entrypoint used to execute your cod
      *
      * @param {string} functionId
      * @param {string} deploymentId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Build>}
      */
     async updateDeploymentBuild(functionId: string, deploymentId: string): Promise<Models.Build> {
         if (typeof functionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "functionId"');
+            throw new AppcondaException('Missing required parameter: "functionId"');
         }
         if (typeof deploymentId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "deploymentId"');
+            throw new AppcondaException('Missing required parameter: "deploymentId"');
         }
         const apiPath = '/functions/{functionId}/deployments/{deploymentId}/build'.replace('{functionId}', functionId).replace('{deploymentId}', deploymentId);
         const payload: Payload = {};
@@ -741,15 +741,15 @@ Use the &quot;command&quot; param to set the entrypoint used to execute your cod
      *
      * @param {string} functionId
      * @param {string} deploymentId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {string}
      */
     getDeploymentDownload(functionId: string, deploymentId: string): string {
         if (typeof functionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "functionId"');
+            throw new AppcondaException('Missing required parameter: "functionId"');
         }
         if (typeof deploymentId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "deploymentId"');
+            throw new AppcondaException('Missing required parameter: "deploymentId"');
         }
         const apiPath = '/functions/{functionId}/deployments/{deploymentId}/download'.replace('{functionId}', functionId).replace('{deploymentId}', deploymentId);
         const payload: Payload = {};
@@ -780,12 +780,12 @@ Use the &quot;command&quot; param to set the entrypoint used to execute your cod
      * @param {string} functionId
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.ExecutionList>}
      */
     async listExecutions(functionId: string, queries?: string[], search?: string): Promise<Models.ExecutionList> {
         if (typeof functionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "functionId"');
+            throw new AppcondaException('Missing required parameter: "functionId"');
         }
         const apiPath = '/functions/{functionId}/executions'.replace('{functionId}', functionId);
         const payload: Payload = {};
@@ -821,12 +821,12 @@ Use the &quot;command&quot; param to set the entrypoint used to execute your cod
      * @param {ExecutionMethod} method
      * @param {object} headers
      * @param {string} scheduledAt
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Execution>}
      */
     async createExecution(functionId: string, body?: string, async?: boolean, xpath?: string, method?: ExecutionMethod, headers?: object, scheduledAt?: string): Promise<Models.Execution> {
         if (typeof functionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "functionId"');
+            throw new AppcondaException('Missing required parameter: "functionId"');
         }
         const apiPath = '/functions/{functionId}/executions'.replace('{functionId}', functionId);
         const payload: Payload = {};
@@ -869,15 +869,15 @@ Use the &quot;command&quot; param to set the entrypoint used to execute your cod
      *
      * @param {string} functionId
      * @param {string} executionId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Execution>}
      */
     async getExecution(functionId: string, executionId: string): Promise<Models.Execution> {
         if (typeof functionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "functionId"');
+            throw new AppcondaException('Missing required parameter: "functionId"');
         }
         if (typeof executionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "executionId"');
+            throw new AppcondaException('Missing required parameter: "executionId"');
         }
         const apiPath = '/functions/{functionId}/executions/{executionId}'.replace('{functionId}', functionId).replace('{executionId}', executionId);
         const payload: Payload = {};
@@ -903,15 +903,15 @@ Use the &quot;command&quot; param to set the entrypoint used to execute your cod
      *
      * @param {string} functionId
      * @param {string} executionId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     async deleteExecution(functionId: string, executionId: string): Promise<{}> {
         if (typeof functionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "functionId"');
+            throw new AppcondaException('Missing required parameter: "functionId"');
         }
         if (typeof executionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "executionId"');
+            throw new AppcondaException('Missing required parameter: "executionId"');
         }
         const apiPath = '/functions/{functionId}/executions/{executionId}'.replace('{functionId}', functionId).replace('{executionId}', executionId);
         const payload: Payload = {};
@@ -935,12 +935,12 @@ Use the &quot;command&quot; param to set the entrypoint used to execute your cod
      *
      * @param {string} functionId
      * @param {FunctionUsageRange} range
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.UsageFunction>}
      */
     async getFunctionUsage(functionId: string, range?: FunctionUsageRange): Promise<Models.UsageFunction> {
         if (typeof functionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "functionId"');
+            throw new AppcondaException('Missing required parameter: "functionId"');
         }
         const apiPath = '/functions/{functionId}/usage'.replace('{functionId}', functionId);
         const payload: Payload = {};
@@ -967,12 +967,12 @@ Use the &quot;command&quot; param to set the entrypoint used to execute your cod
      * Get a list of all variables of a specific function.
      *
      * @param {string} functionId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.VariableList>}
      */
     async listVariables(functionId: string): Promise<Models.VariableList> {
         if (typeof functionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "functionId"');
+            throw new AppcondaException('Missing required parameter: "functionId"');
         }
         const apiPath = '/functions/{functionId}/variables'.replace('{functionId}', functionId);
         const payload: Payload = {};
@@ -998,18 +998,18 @@ Use the &quot;command&quot; param to set the entrypoint used to execute your cod
      * @param {string} functionId
      * @param {string} key
      * @param {string} value
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Variable>}
      */
     async createVariable(functionId: string, key: string, value: string): Promise<Models.Variable> {
         if (typeof functionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "functionId"');
+            throw new AppcondaException('Missing required parameter: "functionId"');
         }
         if (typeof key === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "key"');
+            throw new AppcondaException('Missing required parameter: "key"');
         }
         if (typeof value === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "value"');
+            throw new AppcondaException('Missing required parameter: "value"');
         }
         const apiPath = '/functions/{functionId}/variables'.replace('{functionId}', functionId);
         const payload: Payload = {};
@@ -1040,15 +1040,15 @@ Use the &quot;command&quot; param to set the entrypoint used to execute your cod
      *
      * @param {string} functionId
      * @param {string} variableId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Variable>}
      */
     async getVariable(functionId: string, variableId: string): Promise<Models.Variable> {
         if (typeof functionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "functionId"');
+            throw new AppcondaException('Missing required parameter: "functionId"');
         }
         if (typeof variableId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "variableId"');
+            throw new AppcondaException('Missing required parameter: "variableId"');
         }
         const apiPath = '/functions/{functionId}/variables/{variableId}'.replace('{functionId}', functionId).replace('{variableId}', variableId);
         const payload: Payload = {};
@@ -1075,18 +1075,18 @@ Use the &quot;command&quot; param to set the entrypoint used to execute your cod
      * @param {string} variableId
      * @param {string} key
      * @param {string} value
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Variable>}
      */
     async updateVariable(functionId: string, variableId: string, key: string, value?: string): Promise<Models.Variable> {
         if (typeof functionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "functionId"');
+            throw new AppcondaException('Missing required parameter: "functionId"');
         }
         if (typeof variableId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "variableId"');
+            throw new AppcondaException('Missing required parameter: "variableId"');
         }
         if (typeof key === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "key"');
+            throw new AppcondaException('Missing required parameter: "key"');
         }
         const apiPath = '/functions/{functionId}/variables/{variableId}'.replace('{functionId}', functionId).replace('{variableId}', variableId);
         const payload: Payload = {};
@@ -1117,15 +1117,15 @@ Use the &quot;command&quot; param to set the entrypoint used to execute your cod
      *
      * @param {string} functionId
      * @param {string} variableId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     async deleteVariable(functionId: string, variableId: string): Promise<{}> {
         if (typeof functionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "functionId"');
+            throw new AppcondaException('Missing required parameter: "functionId"');
         }
         if (typeof variableId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "variableId"');
+            throw new AppcondaException('Missing required parameter: "variableId"');
         }
         const apiPath = '/functions/{functionId}/variables/{variableId}'.replace('{functionId}', functionId).replace('{variableId}', variableId);
         const payload: Payload = {};

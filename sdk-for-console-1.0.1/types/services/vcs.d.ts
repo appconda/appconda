@@ -9,7 +9,7 @@ export declare class Vcs {
      *
      * @param {string} installationId
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.ProviderRepositoryList>}
      */
     listRepositories(installationId: string, search?: string): Promise<Models.ProviderRepositoryList>;
@@ -20,7 +20,7 @@ export declare class Vcs {
      * @param {string} installationId
      * @param {string} name
      * @param {boolean} xprivate
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.ProviderRepository>}
      */
     createRepository(installationId: string, name: string, xprivate: boolean): Promise<Models.ProviderRepository>;
@@ -30,7 +30,7 @@ export declare class Vcs {
      *
      * @param {string} installationId
      * @param {string} providerRepositoryId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.ProviderRepository>}
      */
     getRepository(installationId: string, providerRepositoryId: string): Promise<Models.ProviderRepository>;
@@ -40,7 +40,7 @@ export declare class Vcs {
      *
      * @param {string} installationId
      * @param {string} providerRepositoryId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.BranchList>}
      */
     listRepositoryBranches(installationId: string, providerRepositoryId: string): Promise<Models.BranchList>;
@@ -51,7 +51,7 @@ export declare class Vcs {
      * @param {string} installationId
      * @param {string} providerRepositoryId
      * @param {string} providerRootDirectory
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.VcsContentList>}
      */
     getRepositoryContents(installationId: string, providerRepositoryId: string, providerRootDirectory?: string): Promise<Models.VcsContentList>;
@@ -62,7 +62,7 @@ export declare class Vcs {
      * @param {string} installationId
      * @param {string} providerRepositoryId
      * @param {string} providerRootDirectory
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Detection>}
      */
     createRepositoryDetection(installationId: string, providerRepositoryId: string, providerRootDirectory?: string): Promise<Models.Detection>;
@@ -73,7 +73,7 @@ export declare class Vcs {
      * @param {string} installationId
      * @param {string} repositoryId
      * @param {string} providerPullRequestId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     updateExternalDeployments(installationId: string, repositoryId: string, providerPullRequestId: string): Promise<{}>;
@@ -83,7 +83,7 @@ export declare class Vcs {
      *
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.InstallationList>}
      */
     listInstallations(queries?: string[], search?: string): Promise<Models.InstallationList>;
@@ -92,7 +92,7 @@ export declare class Vcs {
      *
      *
      * @param {string} installationId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Installation>}
      */
     getInstallation(installationId: string): Promise<Models.Installation>;
@@ -101,7 +101,7 @@ export declare class Vcs {
      *
      *
      * @param {string} installationId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteInstallation(installationId: string): Promise<{}>;

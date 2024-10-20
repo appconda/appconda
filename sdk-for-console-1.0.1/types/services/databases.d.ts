@@ -14,7 +14,7 @@ export declare class Databases {
      *
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.DatabaseList>}
      */
     list(queries?: string[], search?: string): Promise<Models.DatabaseList>;
@@ -27,7 +27,7 @@ export declare class Databases {
      * @param {string} databaseId
      * @param {string} name
      * @param {boolean} enabled
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Database>}
      */
     create(databaseId: string, name: string, enabled?: boolean): Promise<Models.Database>;
@@ -36,7 +36,7 @@ export declare class Databases {
      *
      *
      * @param {DatabaseUsageRange} range
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.UsageDatabases>}
      */
     getUsage(range?: DatabaseUsageRange): Promise<Models.UsageDatabases>;
@@ -46,7 +46,7 @@ export declare class Databases {
      * Get a database by its unique ID. This endpoint response returns a JSON object with the database metadata.
      *
      * @param {string} databaseId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Database>}
      */
     get(databaseId: string): Promise<Models.Database>;
@@ -58,7 +58,7 @@ export declare class Databases {
      * @param {string} databaseId
      * @param {string} name
      * @param {boolean} enabled
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Database>}
      */
     update(databaseId: string, name: string, enabled?: boolean): Promise<Models.Database>;
@@ -68,7 +68,7 @@ export declare class Databases {
      * Delete a database by its unique ID. Only API keys with with databases.write scope can delete a database.
      *
      * @param {string} databaseId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     delete(databaseId: string): Promise<{}>;
@@ -80,7 +80,7 @@ export declare class Databases {
      * @param {string} databaseId
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.CollectionList>}
      */
     listCollections(databaseId: string, queries?: string[], search?: string): Promise<Models.CollectionList>;
@@ -95,7 +95,7 @@ export declare class Databases {
      * @param {string[]} permissions
      * @param {boolean} documentSecurity
      * @param {boolean} enabled
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Collection>}
      */
     createCollection(databaseId: string, collectionId: string, name: string, permissions?: string[], documentSecurity?: boolean, enabled?: boolean): Promise<Models.Collection>;
@@ -106,7 +106,7 @@ export declare class Databases {
      *
      * @param {string} databaseId
      * @param {string} collectionId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Collection>}
      */
     getCollection(databaseId: string, collectionId: string): Promise<Models.Collection>;
@@ -121,7 +121,7 @@ export declare class Databases {
      * @param {string[]} permissions
      * @param {boolean} documentSecurity
      * @param {boolean} enabled
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Collection>}
      */
     updateCollection(databaseId: string, collectionId: string, name: string, permissions?: string[], documentSecurity?: boolean, enabled?: boolean): Promise<Models.Collection>;
@@ -132,7 +132,7 @@ export declare class Databases {
      *
      * @param {string} databaseId
      * @param {string} collectionId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteCollection(databaseId: string, collectionId: string): Promise<{}>;
@@ -144,7 +144,7 @@ export declare class Databases {
      * @param {string} databaseId
      * @param {string} collectionId
      * @param {string[]} queries
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeList>}
      */
     listAttributes(databaseId: string, collectionId: string, queries?: string[]): Promise<Models.AttributeList>;
@@ -160,7 +160,7 @@ export declare class Databases {
      * @param {boolean} required
      * @param {boolean} xdefault
      * @param {boolean} array
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeBoolean>}
      */
     createBooleanAttribute(databaseId: string, collectionId: string, key: string, required: boolean, xdefault?: boolean, array?: boolean): Promise<Models.AttributeBoolean>;
@@ -174,7 +174,7 @@ export declare class Databases {
      * @param {string} key
      * @param {boolean} required
      * @param {boolean} xdefault
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeBoolean>}
      */
     updateBooleanAttribute(databaseId: string, collectionId: string, key: string, required: boolean, xdefault?: boolean): Promise<Models.AttributeBoolean>;
@@ -189,7 +189,7 @@ export declare class Databases {
      * @param {boolean} required
      * @param {string} xdefault
      * @param {boolean} array
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeDatetime>}
      */
     createDatetimeAttribute(databaseId: string, collectionId: string, key: string, required: boolean, xdefault?: string, array?: boolean): Promise<Models.AttributeDatetime>;
@@ -203,7 +203,7 @@ export declare class Databases {
      * @param {string} key
      * @param {boolean} required
      * @param {string} xdefault
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeDatetime>}
      */
     updateDatetimeAttribute(databaseId: string, collectionId: string, key: string, required: boolean, xdefault?: string): Promise<Models.AttributeDatetime>;
@@ -219,7 +219,7 @@ export declare class Databases {
      * @param {boolean} required
      * @param {string} xdefault
      * @param {boolean} array
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeEmail>}
      */
     createEmailAttribute(databaseId: string, collectionId: string, key: string, required: boolean, xdefault?: string, array?: boolean): Promise<Models.AttributeEmail>;
@@ -234,7 +234,7 @@ export declare class Databases {
      * @param {string} key
      * @param {boolean} required
      * @param {string} xdefault
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeEmail>}
      */
     updateEmailAttribute(databaseId: string, collectionId: string, key: string, required: boolean, xdefault?: string): Promise<Models.AttributeEmail>;
@@ -251,7 +251,7 @@ export declare class Databases {
      * @param {boolean} required
      * @param {string} xdefault
      * @param {boolean} array
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeEnum>}
      */
     createEnumAttribute(databaseId: string, collectionId: string, key: string, elements: string[], required: boolean, xdefault?: string, array?: boolean): Promise<Models.AttributeEnum>;
@@ -267,7 +267,7 @@ export declare class Databases {
      * @param {string[]} elements
      * @param {boolean} required
      * @param {string} xdefault
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeEnum>}
      */
     updateEnumAttribute(databaseId: string, collectionId: string, key: string, elements: string[], required: boolean, xdefault?: string): Promise<Models.AttributeEnum>;
@@ -285,7 +285,7 @@ export declare class Databases {
      * @param {number} max
      * @param {number} xdefault
      * @param {boolean} array
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeFloat>}
      */
     createFloatAttribute(databaseId: string, collectionId: string, key: string, required: boolean, min?: number, max?: number, xdefault?: number, array?: boolean): Promise<Models.AttributeFloat>;
@@ -302,7 +302,7 @@ export declare class Databases {
      * @param {number} min
      * @param {number} max
      * @param {number} xdefault
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeFloat>}
      */
     updateFloatAttribute(databaseId: string, collectionId: string, key: string, required: boolean, min: number, max: number, xdefault?: number): Promise<Models.AttributeFloat>;
@@ -320,7 +320,7 @@ export declare class Databases {
      * @param {number} max
      * @param {number} xdefault
      * @param {boolean} array
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeInteger>}
      */
     createIntegerAttribute(databaseId: string, collectionId: string, key: string, required: boolean, min?: number, max?: number, xdefault?: number, array?: boolean): Promise<Models.AttributeInteger>;
@@ -337,7 +337,7 @@ export declare class Databases {
      * @param {number} min
      * @param {number} max
      * @param {number} xdefault
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeInteger>}
      */
     updateIntegerAttribute(databaseId: string, collectionId: string, key: string, required: boolean, min: number, max: number, xdefault?: number): Promise<Models.AttributeInteger>;
@@ -353,7 +353,7 @@ export declare class Databases {
      * @param {boolean} required
      * @param {string} xdefault
      * @param {boolean} array
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeIp>}
      */
     createIpAttribute(databaseId: string, collectionId: string, key: string, required: boolean, xdefault?: string, array?: boolean): Promise<Models.AttributeIp>;
@@ -368,7 +368,7 @@ export declare class Databases {
      * @param {string} key
      * @param {boolean} required
      * @param {string} xdefault
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeIp>}
      */
     updateIpAttribute(databaseId: string, collectionId: string, key: string, required: boolean, xdefault?: string): Promise<Models.AttributeIp>;
@@ -386,7 +386,7 @@ export declare class Databases {
      * @param {string} key
      * @param {string} twoWayKey
      * @param {RelationMutate} onDelete
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeRelationship>}
      */
     createRelationshipAttribute(databaseId: string, collectionId: string, relatedCollectionId: string, type: RelationshipType, twoWay?: boolean, key?: string, twoWayKey?: string, onDelete?: RelationMutate): Promise<Models.AttributeRelationship>;
@@ -404,7 +404,7 @@ export declare class Databases {
      * @param {string} xdefault
      * @param {boolean} array
      * @param {boolean} encrypt
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeString>}
      */
     createStringAttribute(databaseId: string, collectionId: string, key: string, size: number, required: boolean, xdefault?: string, array?: boolean, encrypt?: boolean): Promise<Models.AttributeString>;
@@ -419,7 +419,7 @@ export declare class Databases {
      * @param {string} key
      * @param {boolean} required
      * @param {string} xdefault
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeString>}
      */
     updateStringAttribute(databaseId: string, collectionId: string, key: string, required: boolean, xdefault?: string): Promise<Models.AttributeString>;
@@ -435,7 +435,7 @@ export declare class Databases {
      * @param {boolean} required
      * @param {string} xdefault
      * @param {boolean} array
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeUrl>}
      */
     createUrlAttribute(databaseId: string, collectionId: string, key: string, required: boolean, xdefault?: string, array?: boolean): Promise<Models.AttributeUrl>;
@@ -450,7 +450,7 @@ export declare class Databases {
      * @param {string} key
      * @param {boolean} required
      * @param {string} xdefault
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeUrl>}
      */
     updateUrlAttribute(databaseId: string, collectionId: string, key: string, required: boolean, xdefault?: string): Promise<Models.AttributeUrl>;
@@ -462,7 +462,7 @@ export declare class Databases {
      * @param {string} databaseId
      * @param {string} collectionId
      * @param {string} key
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     getAttribute(databaseId: string, collectionId: string, key: string): Promise<{}>;
@@ -474,7 +474,7 @@ export declare class Databases {
      * @param {string} databaseId
      * @param {string} collectionId
      * @param {string} key
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteAttribute(databaseId: string, collectionId: string, key: string): Promise<{}>;
@@ -488,7 +488,7 @@ export declare class Databases {
      * @param {string} collectionId
      * @param {string} key
      * @param {RelationMutate} onDelete
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeRelationship>}
      */
     updateRelationshipAttribute(databaseId: string, collectionId: string, key: string, onDelete?: RelationMutate): Promise<Models.AttributeRelationship>;
@@ -500,7 +500,7 @@ export declare class Databases {
      * @param {string} databaseId
      * @param {string} collectionId
      * @param {string[]} queries
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.DocumentList<Document>>}
      */
     listDocuments<Document extends Models.Document>(databaseId: string, collectionId: string, queries?: string[]): Promise<Models.DocumentList<Document>>;
@@ -514,7 +514,7 @@ export declare class Databases {
      * @param {string} documentId
      * @param {Omit<Document, keyof Models.Document>} data
      * @param {string[]} permissions
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Document>}
      */
     createDocument<Document extends Models.Document>(databaseId: string, collectionId: string, documentId: string, data: Omit<Document, keyof Models.Document>, permissions?: string[]): Promise<Document>;
@@ -527,7 +527,7 @@ export declare class Databases {
      * @param {string} collectionId
      * @param {string} documentId
      * @param {string[]} queries
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Document>}
      */
     getDocument<Document extends Models.Document>(databaseId: string, collectionId: string, documentId: string, queries?: string[]): Promise<Document>;
@@ -541,7 +541,7 @@ export declare class Databases {
      * @param {string} documentId
      * @param {Partial<Omit<Document, keyof Models.Document>>} data
      * @param {string[]} permissions
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Document>}
      */
     updateDocument<Document extends Models.Document>(databaseId: string, collectionId: string, documentId: string, data?: Partial<Omit<Document, keyof Models.Document>>, permissions?: string[]): Promise<Document>;
@@ -553,7 +553,7 @@ export declare class Databases {
      * @param {string} databaseId
      * @param {string} collectionId
      * @param {string} documentId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteDocument(databaseId: string, collectionId: string, documentId: string): Promise<{}>;
@@ -566,7 +566,7 @@ export declare class Databases {
      * @param {string} collectionId
      * @param {string} documentId
      * @param {string[]} queries
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.LogList>}
      */
     listDocumentLogs(databaseId: string, collectionId: string, documentId: string, queries?: string[]): Promise<Models.LogList>;
@@ -578,7 +578,7 @@ export declare class Databases {
      * @param {string} databaseId
      * @param {string} collectionId
      * @param {string[]} queries
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.IndexList>}
      */
     listIndexes(databaseId: string, collectionId: string, queries?: string[]): Promise<Models.IndexList>;
@@ -594,7 +594,7 @@ Attributes can be `key`, `fulltext`, and `unique`.
      * @param {IndexType} type
      * @param {string[]} attributes
      * @param {string[]} orders
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Index>}
      */
     createIndex(databaseId: string, collectionId: string, key: string, type: IndexType, attributes: string[], orders?: string[]): Promise<Models.Index>;
@@ -606,7 +606,7 @@ Attributes can be `key`, `fulltext`, and `unique`.
      * @param {string} databaseId
      * @param {string} collectionId
      * @param {string} key
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Index>}
      */
     getIndex(databaseId: string, collectionId: string, key: string): Promise<Models.Index>;
@@ -618,7 +618,7 @@ Attributes can be `key`, `fulltext`, and `unique`.
      * @param {string} databaseId
      * @param {string} collectionId
      * @param {string} key
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteIndex(databaseId: string, collectionId: string, key: string): Promise<{}>;
@@ -630,7 +630,7 @@ Attributes can be `key`, `fulltext`, and `unique`.
      * @param {string} databaseId
      * @param {string} collectionId
      * @param {string[]} queries
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.LogList>}
      */
     listCollectionLogs(databaseId: string, collectionId: string, queries?: string[]): Promise<Models.LogList>;
@@ -641,7 +641,7 @@ Attributes can be `key`, `fulltext`, and `unique`.
      * @param {string} databaseId
      * @param {string} collectionId
      * @param {DatabaseUsageRange} range
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.UsageCollection>}
      */
     getCollectionUsage(databaseId: string, collectionId: string, range?: DatabaseUsageRange): Promise<Models.UsageCollection>;
@@ -652,7 +652,7 @@ Attributes can be `key`, `fulltext`, and `unique`.
      *
      * @param {string} databaseId
      * @param {string[]} queries
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.LogList>}
      */
     listLogs(databaseId: string, queries?: string[]): Promise<Models.LogList>;
@@ -662,7 +662,7 @@ Attributes can be `key`, `fulltext`, and `unique`.
      *
      * @param {string} databaseId
      * @param {DatabaseUsageRange} range
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.UsageDatabase>}
      */
     getDatabaseUsage(databaseId: string, range?: DatabaseUsageRange): Promise<Models.UsageDatabase>;

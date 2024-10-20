@@ -8,7 +8,7 @@ export declare class Graphql {
      * Execute a GraphQL mutation.
      *
      * @param {object} query
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     query(query: object): Promise<{}>;
@@ -18,7 +18,7 @@ export declare class Graphql {
      * Execute a GraphQL mutation.
      *
      * @param {object} query
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     mutation(query: object): Promise<{}>;

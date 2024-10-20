@@ -52,7 +52,7 @@ export class Migrations {
      * @throws {AppcondaException}
      * @returns {Promise<Models.Migration>}
      */
-    async createAppwriteMigration(resources: string[], endpoint: string, projectId: string, apiKey: string): Promise<Models.Migration> {
+    async createAppcondaMigration(resources: string[], endpoint: string, projectId: string, apiKey: string): Promise<Models.Migration> {
         if (typeof resources === 'undefined') {
             throw new AppcondaException('Missing required parameter: "resources"');
         }
@@ -104,7 +104,7 @@ export class Migrations {
      * @throws {AppcondaException}
      * @returns {Promise<Models.MigrationReport>}
      */
-    async getAppwriteReport(resources: string[], endpoint: string, projectID: string, key: string): Promise<Models.MigrationReport> {
+    async getAppcondaReport(resources: string[], endpoint: string, projectID: string, key: string): Promise<Models.MigrationReport> {
         if (typeof resources === 'undefined') {
             throw new AppcondaException('Missing required parameter: "resources"');
         }

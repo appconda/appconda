@@ -1,5 +1,5 @@
 import { Service } from '../service';
-import { AppwriteException, Client } from '../client';
+import { AppcondaException, Client } from '../client';
 import type { Models } from '../models';
 import type { UploadProgress, Payload } from '../client';
 import { Browser } from '../enums/browser';
@@ -31,12 +31,12 @@ export class Avatars extends Service {
      * @param {number} width
      * @param {number} height
      * @param {number} quality
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {URL}
     */
     getBrowser(code: Browser, width?: number, height?: number, quality?: number): URL {
         if (typeof code === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "code"');
+            throw new AppcondaException('Missing required parameter: "code"');
         }
 
         const apiPath = '/avatars/browsers/{code}'.replace('{code}', code);
@@ -81,12 +81,12 @@ export class Avatars extends Service {
      * @param {number} width
      * @param {number} height
      * @param {number} quality
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {URL}
     */
     getCreditCard(code: CreditCard, width?: number, height?: number, quality?: number): URL {
         if (typeof code === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "code"');
+            throw new AppcondaException('Missing required parameter: "code"');
         }
 
         const apiPath = '/avatars/credit-cards/{code}'.replace('{code}', code);
@@ -122,12 +122,12 @@ export class Avatars extends Service {
      * 
      *
      * @param {string} url
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {URL}
     */
     getFavicon(url: string): URL {
         if (typeof url === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "url"');
+            throw new AppcondaException('Missing required parameter: "url"');
         }
 
         const apiPath = '/avatars/favicon';
@@ -165,12 +165,12 @@ export class Avatars extends Service {
      * @param {number} width
      * @param {number} height
      * @param {number} quality
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {URL}
     */
     getFlag(code: Flag, width?: number, height?: number, quality?: number): URL {
         if (typeof code === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "code"');
+            throw new AppcondaException('Missing required parameter: "code"');
         }
 
         const apiPath = '/avatars/flags/{code}'.replace('{code}', code);
@@ -215,12 +215,12 @@ export class Avatars extends Service {
      * @param {string} url
      * @param {number} width
      * @param {number} height
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {URL}
     */
     getImage(url: string, width?: number, height?: number): URL {
         if (typeof url === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "url"');
+            throw new AppcondaException('Missing required parameter: "url"');
         }
 
         const apiPath = '/avatars/image';
@@ -272,7 +272,7 @@ export class Avatars extends Service {
      * @param {number} width
      * @param {number} height
      * @param {string} background
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {URL}
     */
     getInitials(name?: string, width?: number, height?: number, background?: string): URL {
@@ -316,12 +316,12 @@ export class Avatars extends Service {
      * @param {number} size
      * @param {number} margin
      * @param {boolean} download
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {URL}
     */
     getQR(text: string, size?: number, margin?: number, download?: boolean): URL {
         if (typeof text === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "text"');
+            throw new AppcondaException('Missing required parameter: "text"');
         }
 
         const apiPath = '/avatars/qr';

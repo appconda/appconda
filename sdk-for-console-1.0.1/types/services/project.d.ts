@@ -11,7 +11,7 @@ export declare class Project {
      * @param {string} startDate
      * @param {string} endDate
      * @param {ProjectUsageRange} period
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.UsageProject>}
      */
     getUsage(startDate: string, endDate: string, period?: ProjectUsageRange): Promise<Models.UsageProject>;
@@ -20,7 +20,7 @@ export declare class Project {
      *
      * Get a list of all project variables. These variables will be accessible in all Appconda Functions at runtime.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.VariableList>}
      */
     listVariables(): Promise<Models.VariableList>;
@@ -31,7 +31,7 @@ export declare class Project {
      *
      * @param {string} key
      * @param {string} value
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Variable>}
      */
     createVariable(key: string, value: string): Promise<Models.Variable>;
@@ -41,7 +41,7 @@ export declare class Project {
      * Get a project variable by its unique ID.
      *
      * @param {string} variableId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Variable>}
      */
     getVariable(variableId: string): Promise<Models.Variable>;
@@ -53,7 +53,7 @@ export declare class Project {
      * @param {string} variableId
      * @param {string} key
      * @param {string} value
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Variable>}
      */
     updateVariable(variableId: string, key: string, value?: string): Promise<Models.Variable>;
@@ -63,7 +63,7 @@ export declare class Project {
      * Delete a project variable by its unique ID.
      *
      * @param {string} variableId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteVariable(variableId: string): Promise<{}>;

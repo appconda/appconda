@@ -1,5 +1,4 @@
 import e from "express";
-import { Service } from "../../Platform/Services/Service";
 import { Version3Client } from './jira';
 
 const axios = require('axios');

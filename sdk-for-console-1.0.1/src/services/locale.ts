@@ -1,5 +1,5 @@
 import { Service } from '../service';
-import { AppwriteException, Client, type Payload, UploadProgress } from '../client';
+import { AppcondaException, Client, type Payload, UploadProgress } from '../client';
 import type { Models } from '../models';
 
 export class Locale {
@@ -16,7 +16,7 @@ export class Locale {
 
 ([IP Geolocation by DB-IP](https://db-ip.com))
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Locale>}
      */
     async get(): Promise<Models.Locale> {
@@ -41,7 +41,7 @@ export class Locale {
      *
      * List of all locale codes in [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes).
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.LocaleCodeList>}
      */
     async listCodes(): Promise<Models.LocaleCodeList> {
@@ -66,7 +66,7 @@ export class Locale {
      *
      * List of all continents. You can use the locale header to get the data in a supported language.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.ContinentList>}
      */
     async listContinents(): Promise<Models.ContinentList> {
@@ -91,7 +91,7 @@ export class Locale {
      *
      * List of all countries. You can use the locale header to get the data in a supported language.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.CountryList>}
      */
     async listCountries(): Promise<Models.CountryList> {
@@ -116,7 +116,7 @@ export class Locale {
      *
      * List of all countries that are currently members of the EU. You can use the locale header to get the data in a supported language.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.CountryList>}
      */
     async listCountriesEU(): Promise<Models.CountryList> {
@@ -141,7 +141,7 @@ export class Locale {
      *
      * List of all countries phone codes. You can use the locale header to get the data in a supported language.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.PhoneList>}
      */
     async listCountriesPhones(): Promise<Models.PhoneList> {
@@ -166,7 +166,7 @@ export class Locale {
      *
      * List of all currencies, including currency symbol, name, plural, and decimal digits for all major and minor currencies. You can use the locale header to get the data in a supported language.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.CurrencyList>}
      */
     async listCurrencies(): Promise<Models.CurrencyList> {
@@ -191,7 +191,7 @@ export class Locale {
      *
      * List of all languages classified by ISO 639-1 including 2-letter code, name in English, and name in the respective language.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.LanguageList>}
      */
     async listLanguages(): Promise<Models.LanguageList> {

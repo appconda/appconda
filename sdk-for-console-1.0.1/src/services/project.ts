@@ -1,5 +1,5 @@
 import { Service } from '../service';
-import { AppwriteException, Client, type Payload, UploadProgress } from '../client';
+import { AppcondaException, Client, type Payload, UploadProgress } from '../client';
 import type { Models } from '../models';
 import { ProjectUsageRange } from '../enums/project-usage-range';
 
@@ -17,15 +17,15 @@ export class Project {
      * @param {string} startDate
      * @param {string} endDate
      * @param {ProjectUsageRange} period
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.UsageProject>}
      */
     async getUsage(startDate: string, endDate: string, period?: ProjectUsageRange): Promise<Models.UsageProject> {
         if (typeof startDate === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "startDate"');
+            throw new AppcondaException('Missing required parameter: "startDate"');
         }
         if (typeof endDate === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "endDate"');
+            throw new AppcondaException('Missing required parameter: "endDate"');
         }
         const apiPath = '/project/usage';
         const payload: Payload = {};
@@ -57,7 +57,7 @@ export class Project {
      *
      * Get a list of all project variables. These variables will be accessible in all Appconda Functions at runtime.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.VariableList>}
      */
     async listVariables(): Promise<Models.VariableList> {
@@ -84,15 +84,15 @@ export class Project {
      *
      * @param {string} key
      * @param {string} value
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Variable>}
      */
     async createVariable(key: string, value: string): Promise<Models.Variable> {
         if (typeof key === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "key"');
+            throw new AppcondaException('Missing required parameter: "key"');
         }
         if (typeof value === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "value"');
+            throw new AppcondaException('Missing required parameter: "value"');
         }
         const apiPath = '/project/variables';
         const payload: Payload = {};
@@ -122,12 +122,12 @@ export class Project {
      * Get a project variable by its unique ID.
      *
      * @param {string} variableId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Variable>}
      */
     async getVariable(variableId: string): Promise<Models.Variable> {
         if (typeof variableId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "variableId"');
+            throw new AppcondaException('Missing required parameter: "variableId"');
         }
         const apiPath = '/project/variables/{variableId}'.replace('{variableId}', variableId);
         const payload: Payload = {};
@@ -153,15 +153,15 @@ export class Project {
      * @param {string} variableId
      * @param {string} key
      * @param {string} value
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Variable>}
      */
     async updateVariable(variableId: string, key: string, value?: string): Promise<Models.Variable> {
         if (typeof variableId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "variableId"');
+            throw new AppcondaException('Missing required parameter: "variableId"');
         }
         if (typeof key === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "key"');
+            throw new AppcondaException('Missing required parameter: "key"');
         }
         const apiPath = '/project/variables/{variableId}'.replace('{variableId}', variableId);
         const payload: Payload = {};
@@ -191,12 +191,12 @@ export class Project {
      * Delete a project variable by its unique ID. 
      *
      * @param {string} variableId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     async deleteVariable(variableId: string): Promise<{}> {
         if (typeof variableId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "variableId"');
+            throw new AppcondaException('Missing required parameter: "variableId"');
         }
         const apiPath = '/project/variables/{variableId}'.replace('{variableId}', variableId);
         const payload: Payload = {};

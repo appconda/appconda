@@ -1,5 +1,5 @@
 import { Service } from '../service';
-import { AppwriteException, Client, type Payload, UploadProgress } from '../client';
+import { AppcondaException, Client, type Payload, UploadProgress } from '../client';
 import type { Models } from '../models';
 import { DatabaseUsageRange } from '../enums/database-usage-range';
 import { RelationshipType } from '../enums/relationship-type';
@@ -20,7 +20,7 @@ export class Databases {
      *
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.DatabaseList>}
      */
     async list(queries?: string[], search?: string): Promise<Models.DatabaseList> {
@@ -55,15 +55,15 @@ export class Databases {
      * @param {string} databaseId
      * @param {string} name
      * @param {boolean} enabled
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Database>}
      */
     async create(databaseId: string, name: string, enabled?: boolean): Promise<Models.Database> {
         if (typeof databaseId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "databaseId"');
+            throw new AppcondaException('Missing required parameter: "databaseId"');
         }
         if (typeof name === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "name"');
+            throw new AppcondaException('Missing required parameter: "name"');
         }
         const apiPath = '/databases';
         const payload: Payload = {};
@@ -95,7 +95,7 @@ export class Databases {
      *
      *
      * @param {DatabaseUsageRange} range
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.UsageDatabases>}
      */
     async getUsage(range?: DatabaseUsageRange): Promise<Models.UsageDatabases> {
@@ -124,12 +124,12 @@ export class Databases {
      * Get a database by its unique ID. This endpoint response returns a JSON object with the database metadata.
      *
      * @param {string} databaseId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Database>}
      */
     async get(databaseId: string): Promise<Models.Database> {
         if (typeof databaseId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "databaseId"');
+            throw new AppcondaException('Missing required parameter: "databaseId"');
         }
         const apiPath = '/databases/{databaseId}'.replace('{databaseId}', databaseId);
         const payload: Payload = {};
@@ -155,15 +155,15 @@ export class Databases {
      * @param {string} databaseId
      * @param {string} name
      * @param {boolean} enabled
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Database>}
      */
     async update(databaseId: string, name: string, enabled?: boolean): Promise<Models.Database> {
         if (typeof databaseId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "databaseId"');
+            throw new AppcondaException('Missing required parameter: "databaseId"');
         }
         if (typeof name === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "name"');
+            throw new AppcondaException('Missing required parameter: "name"');
         }
         const apiPath = '/databases/{databaseId}'.replace('{databaseId}', databaseId);
         const payload: Payload = {};
@@ -193,12 +193,12 @@ export class Databases {
      * Delete a database by its unique ID. Only API keys with with databases.write scope can delete a database.
      *
      * @param {string} databaseId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     async delete(databaseId: string): Promise<{}> {
         if (typeof databaseId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "databaseId"');
+            throw new AppcondaException('Missing required parameter: "databaseId"');
         }
         const apiPath = '/databases/{databaseId}'.replace('{databaseId}', databaseId);
         const payload: Payload = {};
@@ -224,12 +224,12 @@ export class Databases {
      * @param {string} databaseId
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.CollectionList>}
      */
     async listCollections(databaseId: string, queries?: string[], search?: string): Promise<Models.CollectionList> {
         if (typeof databaseId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "databaseId"');
+            throw new AppcondaException('Missing required parameter: "databaseId"');
         }
         const apiPath = '/databases/{databaseId}/collections'.replace('{databaseId}', databaseId);
         const payload: Payload = {};
@@ -264,18 +264,18 @@ export class Databases {
      * @param {string[]} permissions
      * @param {boolean} documentSecurity
      * @param {boolean} enabled
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Collection>}
      */
     async createCollection(databaseId: string, collectionId: string, name: string, permissions?: string[], documentSecurity?: boolean, enabled?: boolean): Promise<Models.Collection> {
         if (typeof databaseId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "databaseId"');
+            throw new AppcondaException('Missing required parameter: "databaseId"');
         }
         if (typeof collectionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "collectionId"');
+            throw new AppcondaException('Missing required parameter: "collectionId"');
         }
         if (typeof name === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "name"');
+            throw new AppcondaException('Missing required parameter: "name"');
         }
         const apiPath = '/databases/{databaseId}/collections'.replace('{databaseId}', databaseId);
         const payload: Payload = {};
@@ -315,15 +315,15 @@ export class Databases {
      *
      * @param {string} databaseId
      * @param {string} collectionId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Collection>}
      */
     async getCollection(databaseId: string, collectionId: string): Promise<Models.Collection> {
         if (typeof databaseId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "databaseId"');
+            throw new AppcondaException('Missing required parameter: "databaseId"');
         }
         if (typeof collectionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "collectionId"');
+            throw new AppcondaException('Missing required parameter: "collectionId"');
         }
         const apiPath = '/databases/{databaseId}/collections/{collectionId}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
         const payload: Payload = {};
@@ -352,18 +352,18 @@ export class Databases {
      * @param {string[]} permissions
      * @param {boolean} documentSecurity
      * @param {boolean} enabled
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Collection>}
      */
     async updateCollection(databaseId: string, collectionId: string, name: string, permissions?: string[], documentSecurity?: boolean, enabled?: boolean): Promise<Models.Collection> {
         if (typeof databaseId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "databaseId"');
+            throw new AppcondaException('Missing required parameter: "databaseId"');
         }
         if (typeof collectionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "collectionId"');
+            throw new AppcondaException('Missing required parameter: "collectionId"');
         }
         if (typeof name === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "name"');
+            throw new AppcondaException('Missing required parameter: "name"');
         }
         const apiPath = '/databases/{databaseId}/collections/{collectionId}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
         const payload: Payload = {};
@@ -400,15 +400,15 @@ export class Databases {
      *
      * @param {string} databaseId
      * @param {string} collectionId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     async deleteCollection(databaseId: string, collectionId: string): Promise<{}> {
         if (typeof databaseId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "databaseId"');
+            throw new AppcondaException('Missing required parameter: "databaseId"');
         }
         if (typeof collectionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "collectionId"');
+            throw new AppcondaException('Missing required parameter: "collectionId"');
         }
         const apiPath = '/databases/{databaseId}/collections/{collectionId}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
         const payload: Payload = {};
@@ -434,15 +434,15 @@ export class Databases {
      * @param {string} databaseId
      * @param {string} collectionId
      * @param {string[]} queries
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeList>}
      */
     async listAttributes(databaseId: string, collectionId: string, queries?: string[]): Promise<Models.AttributeList> {
         if (typeof databaseId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "databaseId"');
+            throw new AppcondaException('Missing required parameter: "databaseId"');
         }
         if (typeof collectionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "collectionId"');
+            throw new AppcondaException('Missing required parameter: "collectionId"');
         }
         const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
         const payload: Payload = {};
@@ -475,21 +475,21 @@ export class Databases {
      * @param {boolean} required
      * @param {boolean} xdefault
      * @param {boolean} array
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeBoolean>}
      */
     async createBooleanAttribute(databaseId: string, collectionId: string, key: string, required: boolean, xdefault?: boolean, array?: boolean): Promise<Models.AttributeBoolean> {
         if (typeof databaseId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "databaseId"');
+            throw new AppcondaException('Missing required parameter: "databaseId"');
         }
         if (typeof collectionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "collectionId"');
+            throw new AppcondaException('Missing required parameter: "collectionId"');
         }
         if (typeof key === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "key"');
+            throw new AppcondaException('Missing required parameter: "key"');
         }
         if (typeof required === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "required"');
+            throw new AppcondaException('Missing required parameter: "required"');
         }
         const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/boolean'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
         const payload: Payload = {};
@@ -529,24 +529,24 @@ export class Databases {
      * @param {string} key
      * @param {boolean} required
      * @param {boolean} xdefault
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeBoolean>}
      */
     async updateBooleanAttribute(databaseId: string, collectionId: string, key: string, required: boolean, xdefault?: boolean): Promise<Models.AttributeBoolean> {
         if (typeof databaseId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "databaseId"');
+            throw new AppcondaException('Missing required parameter: "databaseId"');
         }
         if (typeof collectionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "collectionId"');
+            throw new AppcondaException('Missing required parameter: "collectionId"');
         }
         if (typeof key === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "key"');
+            throw new AppcondaException('Missing required parameter: "key"');
         }
         if (typeof required === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "required"');
+            throw new AppcondaException('Missing required parameter: "required"');
         }
         if (typeof xdefault === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "xdefault"');
+            throw new AppcondaException('Missing required parameter: "xdefault"');
         }
         const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/boolean/{key}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{key}', key);
         const payload: Payload = {};
@@ -581,21 +581,21 @@ export class Databases {
      * @param {boolean} required
      * @param {string} xdefault
      * @param {boolean} array
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeDatetime>}
      */
     async createDatetimeAttribute(databaseId: string, collectionId: string, key: string, required: boolean, xdefault?: string, array?: boolean): Promise<Models.AttributeDatetime> {
         if (typeof databaseId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "databaseId"');
+            throw new AppcondaException('Missing required parameter: "databaseId"');
         }
         if (typeof collectionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "collectionId"');
+            throw new AppcondaException('Missing required parameter: "collectionId"');
         }
         if (typeof key === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "key"');
+            throw new AppcondaException('Missing required parameter: "key"');
         }
         if (typeof required === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "required"');
+            throw new AppcondaException('Missing required parameter: "required"');
         }
         const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/datetime'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
         const payload: Payload = {};
@@ -635,24 +635,24 @@ export class Databases {
      * @param {string} key
      * @param {boolean} required
      * @param {string} xdefault
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeDatetime>}
      */
     async updateDatetimeAttribute(databaseId: string, collectionId: string, key: string, required: boolean, xdefault?: string): Promise<Models.AttributeDatetime> {
         if (typeof databaseId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "databaseId"');
+            throw new AppcondaException('Missing required parameter: "databaseId"');
         }
         if (typeof collectionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "collectionId"');
+            throw new AppcondaException('Missing required parameter: "collectionId"');
         }
         if (typeof key === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "key"');
+            throw new AppcondaException('Missing required parameter: "key"');
         }
         if (typeof required === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "required"');
+            throw new AppcondaException('Missing required parameter: "required"');
         }
         if (typeof xdefault === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "xdefault"');
+            throw new AppcondaException('Missing required parameter: "xdefault"');
         }
         const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/datetime/{key}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{key}', key);
         const payload: Payload = {};
@@ -688,21 +688,21 @@ export class Databases {
      * @param {boolean} required
      * @param {string} xdefault
      * @param {boolean} array
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeEmail>}
      */
     async createEmailAttribute(databaseId: string, collectionId: string, key: string, required: boolean, xdefault?: string, array?: boolean): Promise<Models.AttributeEmail> {
         if (typeof databaseId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "databaseId"');
+            throw new AppcondaException('Missing required parameter: "databaseId"');
         }
         if (typeof collectionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "collectionId"');
+            throw new AppcondaException('Missing required parameter: "collectionId"');
         }
         if (typeof key === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "key"');
+            throw new AppcondaException('Missing required parameter: "key"');
         }
         if (typeof required === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "required"');
+            throw new AppcondaException('Missing required parameter: "required"');
         }
         const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/email'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
         const payload: Payload = {};
@@ -743,24 +743,24 @@ export class Databases {
      * @param {string} key
      * @param {boolean} required
      * @param {string} xdefault
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeEmail>}
      */
     async updateEmailAttribute(databaseId: string, collectionId: string, key: string, required: boolean, xdefault?: string): Promise<Models.AttributeEmail> {
         if (typeof databaseId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "databaseId"');
+            throw new AppcondaException('Missing required parameter: "databaseId"');
         }
         if (typeof collectionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "collectionId"');
+            throw new AppcondaException('Missing required parameter: "collectionId"');
         }
         if (typeof key === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "key"');
+            throw new AppcondaException('Missing required parameter: "key"');
         }
         if (typeof required === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "required"');
+            throw new AppcondaException('Missing required parameter: "required"');
         }
         if (typeof xdefault === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "xdefault"');
+            throw new AppcondaException('Missing required parameter: "xdefault"');
         }
         const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/email/{key}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{key}', key);
         const payload: Payload = {};
@@ -797,24 +797,24 @@ export class Databases {
      * @param {boolean} required
      * @param {string} xdefault
      * @param {boolean} array
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeEnum>}
      */
     async createEnumAttribute(databaseId: string, collectionId: string, key: string, elements: string[], required: boolean, xdefault?: string, array?: boolean): Promise<Models.AttributeEnum> {
         if (typeof databaseId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "databaseId"');
+            throw new AppcondaException('Missing required parameter: "databaseId"');
         }
         if (typeof collectionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "collectionId"');
+            throw new AppcondaException('Missing required parameter: "collectionId"');
         }
         if (typeof key === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "key"');
+            throw new AppcondaException('Missing required parameter: "key"');
         }
         if (typeof elements === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "elements"');
+            throw new AppcondaException('Missing required parameter: "elements"');
         }
         if (typeof required === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "required"');
+            throw new AppcondaException('Missing required parameter: "required"');
         }
         const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/enum'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
         const payload: Payload = {};
@@ -859,27 +859,27 @@ export class Databases {
      * @param {string[]} elements
      * @param {boolean} required
      * @param {string} xdefault
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeEnum>}
      */
     async updateEnumAttribute(databaseId: string, collectionId: string, key: string, elements: string[], required: boolean, xdefault?: string): Promise<Models.AttributeEnum> {
         if (typeof databaseId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "databaseId"');
+            throw new AppcondaException('Missing required parameter: "databaseId"');
         }
         if (typeof collectionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "collectionId"');
+            throw new AppcondaException('Missing required parameter: "collectionId"');
         }
         if (typeof key === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "key"');
+            throw new AppcondaException('Missing required parameter: "key"');
         }
         if (typeof elements === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "elements"');
+            throw new AppcondaException('Missing required parameter: "elements"');
         }
         if (typeof required === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "required"');
+            throw new AppcondaException('Missing required parameter: "required"');
         }
         if (typeof xdefault === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "xdefault"');
+            throw new AppcondaException('Missing required parameter: "xdefault"');
         }
         const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/enum/{key}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{key}', key);
         const payload: Payload = {};
@@ -920,21 +920,21 @@ export class Databases {
      * @param {number} max
      * @param {number} xdefault
      * @param {boolean} array
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeFloat>}
      */
     async createFloatAttribute(databaseId: string, collectionId: string, key: string, required: boolean, min?: number, max?: number, xdefault?: number, array?: boolean): Promise<Models.AttributeFloat> {
         if (typeof databaseId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "databaseId"');
+            throw new AppcondaException('Missing required parameter: "databaseId"');
         }
         if (typeof collectionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "collectionId"');
+            throw new AppcondaException('Missing required parameter: "collectionId"');
         }
         if (typeof key === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "key"');
+            throw new AppcondaException('Missing required parameter: "key"');
         }
         if (typeof required === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "required"');
+            throw new AppcondaException('Missing required parameter: "required"');
         }
         const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/float'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
         const payload: Payload = {};
@@ -983,30 +983,30 @@ export class Databases {
      * @param {number} min
      * @param {number} max
      * @param {number} xdefault
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeFloat>}
      */
     async updateFloatAttribute(databaseId: string, collectionId: string, key: string, required: boolean, min: number, max: number, xdefault?: number): Promise<Models.AttributeFloat> {
         if (typeof databaseId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "databaseId"');
+            throw new AppcondaException('Missing required parameter: "databaseId"');
         }
         if (typeof collectionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "collectionId"');
+            throw new AppcondaException('Missing required parameter: "collectionId"');
         }
         if (typeof key === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "key"');
+            throw new AppcondaException('Missing required parameter: "key"');
         }
         if (typeof required === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "required"');
+            throw new AppcondaException('Missing required parameter: "required"');
         }
         if (typeof min === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "min"');
+            throw new AppcondaException('Missing required parameter: "min"');
         }
         if (typeof max === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "max"');
+            throw new AppcondaException('Missing required parameter: "max"');
         }
         if (typeof xdefault === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "xdefault"');
+            throw new AppcondaException('Missing required parameter: "xdefault"');
         }
         const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/float/{key}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{key}', key);
         const payload: Payload = {};
@@ -1050,21 +1050,21 @@ export class Databases {
      * @param {number} max
      * @param {number} xdefault
      * @param {boolean} array
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeInteger>}
      */
     async createIntegerAttribute(databaseId: string, collectionId: string, key: string, required: boolean, min?: number, max?: number, xdefault?: number, array?: boolean): Promise<Models.AttributeInteger> {
         if (typeof databaseId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "databaseId"');
+            throw new AppcondaException('Missing required parameter: "databaseId"');
         }
         if (typeof collectionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "collectionId"');
+            throw new AppcondaException('Missing required parameter: "collectionId"');
         }
         if (typeof key === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "key"');
+            throw new AppcondaException('Missing required parameter: "key"');
         }
         if (typeof required === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "required"');
+            throw new AppcondaException('Missing required parameter: "required"');
         }
         const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/integer'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
         const payload: Payload = {};
@@ -1113,30 +1113,30 @@ export class Databases {
      * @param {number} min
      * @param {number} max
      * @param {number} xdefault
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeInteger>}
      */
     async updateIntegerAttribute(databaseId: string, collectionId: string, key: string, required: boolean, min: number, max: number, xdefault?: number): Promise<Models.AttributeInteger> {
         if (typeof databaseId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "databaseId"');
+            throw new AppcondaException('Missing required parameter: "databaseId"');
         }
         if (typeof collectionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "collectionId"');
+            throw new AppcondaException('Missing required parameter: "collectionId"');
         }
         if (typeof key === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "key"');
+            throw new AppcondaException('Missing required parameter: "key"');
         }
         if (typeof required === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "required"');
+            throw new AppcondaException('Missing required parameter: "required"');
         }
         if (typeof min === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "min"');
+            throw new AppcondaException('Missing required parameter: "min"');
         }
         if (typeof max === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "max"');
+            throw new AppcondaException('Missing required parameter: "max"');
         }
         if (typeof xdefault === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "xdefault"');
+            throw new AppcondaException('Missing required parameter: "xdefault"');
         }
         const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/integer/{key}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{key}', key);
         const payload: Payload = {};
@@ -1178,21 +1178,21 @@ export class Databases {
      * @param {boolean} required
      * @param {string} xdefault
      * @param {boolean} array
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeIp>}
      */
     async createIpAttribute(databaseId: string, collectionId: string, key: string, required: boolean, xdefault?: string, array?: boolean): Promise<Models.AttributeIp> {
         if (typeof databaseId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "databaseId"');
+            throw new AppcondaException('Missing required parameter: "databaseId"');
         }
         if (typeof collectionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "collectionId"');
+            throw new AppcondaException('Missing required parameter: "collectionId"');
         }
         if (typeof key === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "key"');
+            throw new AppcondaException('Missing required parameter: "key"');
         }
         if (typeof required === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "required"');
+            throw new AppcondaException('Missing required parameter: "required"');
         }
         const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/ip'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
         const payload: Payload = {};
@@ -1233,24 +1233,24 @@ export class Databases {
      * @param {string} key
      * @param {boolean} required
      * @param {string} xdefault
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeIp>}
      */
     async updateIpAttribute(databaseId: string, collectionId: string, key: string, required: boolean, xdefault?: string): Promise<Models.AttributeIp> {
         if (typeof databaseId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "databaseId"');
+            throw new AppcondaException('Missing required parameter: "databaseId"');
         }
         if (typeof collectionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "collectionId"');
+            throw new AppcondaException('Missing required parameter: "collectionId"');
         }
         if (typeof key === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "key"');
+            throw new AppcondaException('Missing required parameter: "key"');
         }
         if (typeof required === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "required"');
+            throw new AppcondaException('Missing required parameter: "required"');
         }
         if (typeof xdefault === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "xdefault"');
+            throw new AppcondaException('Missing required parameter: "xdefault"');
         }
         const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/ip/{key}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{key}', key);
         const payload: Payload = {};
@@ -1288,21 +1288,21 @@ export class Databases {
      * @param {string} key
      * @param {string} twoWayKey
      * @param {RelationMutate} onDelete
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeRelationship>}
      */
     async createRelationshipAttribute(databaseId: string, collectionId: string, relatedCollectionId: string, type: RelationshipType, twoWay?: boolean, key?: string, twoWayKey?: string, onDelete?: RelationMutate): Promise<Models.AttributeRelationship> {
         if (typeof databaseId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "databaseId"');
+            throw new AppcondaException('Missing required parameter: "databaseId"');
         }
         if (typeof collectionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "collectionId"');
+            throw new AppcondaException('Missing required parameter: "collectionId"');
         }
         if (typeof relatedCollectionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "relatedCollectionId"');
+            throw new AppcondaException('Missing required parameter: "relatedCollectionId"');
         }
         if (typeof type === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "type"');
+            throw new AppcondaException('Missing required parameter: "type"');
         }
         const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/relationship'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
         const payload: Payload = {};
@@ -1352,24 +1352,24 @@ export class Databases {
      * @param {string} xdefault
      * @param {boolean} array
      * @param {boolean} encrypt
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeString>}
      */
     async createStringAttribute(databaseId: string, collectionId: string, key: string, size: number, required: boolean, xdefault?: string, array?: boolean, encrypt?: boolean): Promise<Models.AttributeString> {
         if (typeof databaseId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "databaseId"');
+            throw new AppcondaException('Missing required parameter: "databaseId"');
         }
         if (typeof collectionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "collectionId"');
+            throw new AppcondaException('Missing required parameter: "collectionId"');
         }
         if (typeof key === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "key"');
+            throw new AppcondaException('Missing required parameter: "key"');
         }
         if (typeof size === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "size"');
+            throw new AppcondaException('Missing required parameter: "size"');
         }
         if (typeof required === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "required"');
+            throw new AppcondaException('Missing required parameter: "required"');
         }
         const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/string'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
         const payload: Payload = {};
@@ -1416,24 +1416,24 @@ export class Databases {
      * @param {string} key
      * @param {boolean} required
      * @param {string} xdefault
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeString>}
      */
     async updateStringAttribute(databaseId: string, collectionId: string, key: string, required: boolean, xdefault?: string): Promise<Models.AttributeString> {
         if (typeof databaseId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "databaseId"');
+            throw new AppcondaException('Missing required parameter: "databaseId"');
         }
         if (typeof collectionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "collectionId"');
+            throw new AppcondaException('Missing required parameter: "collectionId"');
         }
         if (typeof key === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "key"');
+            throw new AppcondaException('Missing required parameter: "key"');
         }
         if (typeof required === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "required"');
+            throw new AppcondaException('Missing required parameter: "required"');
         }
         if (typeof xdefault === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "xdefault"');
+            throw new AppcondaException('Missing required parameter: "xdefault"');
         }
         const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/string/{key}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{key}', key);
         const payload: Payload = {};
@@ -1469,21 +1469,21 @@ export class Databases {
      * @param {boolean} required
      * @param {string} xdefault
      * @param {boolean} array
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeUrl>}
      */
     async createUrlAttribute(databaseId: string, collectionId: string, key: string, required: boolean, xdefault?: string, array?: boolean): Promise<Models.AttributeUrl> {
         if (typeof databaseId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "databaseId"');
+            throw new AppcondaException('Missing required parameter: "databaseId"');
         }
         if (typeof collectionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "collectionId"');
+            throw new AppcondaException('Missing required parameter: "collectionId"');
         }
         if (typeof key === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "key"');
+            throw new AppcondaException('Missing required parameter: "key"');
         }
         if (typeof required === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "required"');
+            throw new AppcondaException('Missing required parameter: "required"');
         }
         const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/url'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
         const payload: Payload = {};
@@ -1524,24 +1524,24 @@ export class Databases {
      * @param {string} key
      * @param {boolean} required
      * @param {string} xdefault
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeUrl>}
      */
     async updateUrlAttribute(databaseId: string, collectionId: string, key: string, required: boolean, xdefault?: string): Promise<Models.AttributeUrl> {
         if (typeof databaseId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "databaseId"');
+            throw new AppcondaException('Missing required parameter: "databaseId"');
         }
         if (typeof collectionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "collectionId"');
+            throw new AppcondaException('Missing required parameter: "collectionId"');
         }
         if (typeof key === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "key"');
+            throw new AppcondaException('Missing required parameter: "key"');
         }
         if (typeof required === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "required"');
+            throw new AppcondaException('Missing required parameter: "required"');
         }
         if (typeof xdefault === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "xdefault"');
+            throw new AppcondaException('Missing required parameter: "xdefault"');
         }
         const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/url/{key}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{key}', key);
         const payload: Payload = {};
@@ -1573,18 +1573,18 @@ export class Databases {
      * @param {string} databaseId
      * @param {string} collectionId
      * @param {string} key
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     async getAttribute(databaseId: string, collectionId: string, key: string): Promise<{}> {
         if (typeof databaseId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "databaseId"');
+            throw new AppcondaException('Missing required parameter: "databaseId"');
         }
         if (typeof collectionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "collectionId"');
+            throw new AppcondaException('Missing required parameter: "collectionId"');
         }
         if (typeof key === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "key"');
+            throw new AppcondaException('Missing required parameter: "key"');
         }
         const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/{key}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{key}', key);
         const payload: Payload = {};
@@ -1610,18 +1610,18 @@ export class Databases {
      * @param {string} databaseId
      * @param {string} collectionId
      * @param {string} key
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     async deleteAttribute(databaseId: string, collectionId: string, key: string): Promise<{}> {
         if (typeof databaseId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "databaseId"');
+            throw new AppcondaException('Missing required parameter: "databaseId"');
         }
         if (typeof collectionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "collectionId"');
+            throw new AppcondaException('Missing required parameter: "collectionId"');
         }
         if (typeof key === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "key"');
+            throw new AppcondaException('Missing required parameter: "key"');
         }
         const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/{key}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{key}', key);
         const payload: Payload = {};
@@ -1649,18 +1649,18 @@ export class Databases {
      * @param {string} collectionId
      * @param {string} key
      * @param {RelationMutate} onDelete
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.AttributeRelationship>}
      */
     async updateRelationshipAttribute(databaseId: string, collectionId: string, key: string, onDelete?: RelationMutate): Promise<Models.AttributeRelationship> {
         if (typeof databaseId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "databaseId"');
+            throw new AppcondaException('Missing required parameter: "databaseId"');
         }
         if (typeof collectionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "collectionId"');
+            throw new AppcondaException('Missing required parameter: "collectionId"');
         }
         if (typeof key === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "key"');
+            throw new AppcondaException('Missing required parameter: "key"');
         }
         const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/{key}/relationship'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{key}', key);
         const payload: Payload = {};
@@ -1689,15 +1689,15 @@ export class Databases {
      * @param {string} databaseId
      * @param {string} collectionId
      * @param {string[]} queries
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.DocumentList<Document>>}
      */
     async listDocuments<Document extends Models.Document>(databaseId: string, collectionId: string, queries?: string[]): Promise<Models.DocumentList<Document>> {
         if (typeof databaseId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "databaseId"');
+            throw new AppcondaException('Missing required parameter: "databaseId"');
         }
         if (typeof collectionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "collectionId"');
+            throw new AppcondaException('Missing required parameter: "collectionId"');
         }
         const apiPath = '/databases/{databaseId}/collections/{collectionId}/documents'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
         const payload: Payload = {};
@@ -1728,21 +1728,21 @@ export class Databases {
      * @param {string} documentId
      * @param {Omit<Document, keyof Models.Document>} data
      * @param {string[]} permissions
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Document>}
      */
     async createDocument<Document extends Models.Document>(databaseId: string, collectionId: string, documentId: string, data: Omit<Document, keyof Models.Document>, permissions?: string[]): Promise<Document> {
         if (typeof databaseId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "databaseId"');
+            throw new AppcondaException('Missing required parameter: "databaseId"');
         }
         if (typeof collectionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "collectionId"');
+            throw new AppcondaException('Missing required parameter: "collectionId"');
         }
         if (typeof documentId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "documentId"');
+            throw new AppcondaException('Missing required parameter: "documentId"');
         }
         if (typeof data === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "data"');
+            throw new AppcondaException('Missing required parameter: "data"');
         }
         const apiPath = '/databases/{databaseId}/collections/{collectionId}/documents'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
         const payload: Payload = {};
@@ -1778,18 +1778,18 @@ export class Databases {
      * @param {string} collectionId
      * @param {string} documentId
      * @param {string[]} queries
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Document>}
      */
     async getDocument<Document extends Models.Document>(databaseId: string, collectionId: string, documentId: string, queries?: string[]): Promise<Document> {
         if (typeof databaseId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "databaseId"');
+            throw new AppcondaException('Missing required parameter: "databaseId"');
         }
         if (typeof collectionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "collectionId"');
+            throw new AppcondaException('Missing required parameter: "collectionId"');
         }
         if (typeof documentId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "documentId"');
+            throw new AppcondaException('Missing required parameter: "documentId"');
         }
         const apiPath = '/databases/{databaseId}/collections/{collectionId}/documents/{documentId}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{documentId}', documentId);
         const payload: Payload = {};
@@ -1820,18 +1820,18 @@ export class Databases {
      * @param {string} documentId
      * @param {Partial<Omit<Document, keyof Models.Document>>} data
      * @param {string[]} permissions
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Document>}
      */
     async updateDocument<Document extends Models.Document>(databaseId: string, collectionId: string, documentId: string, data?: Partial<Omit<Document, keyof Models.Document>>, permissions?: string[]): Promise<Document> {
         if (typeof databaseId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "databaseId"');
+            throw new AppcondaException('Missing required parameter: "databaseId"');
         }
         if (typeof collectionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "collectionId"');
+            throw new AppcondaException('Missing required parameter: "collectionId"');
         }
         if (typeof documentId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "documentId"');
+            throw new AppcondaException('Missing required parameter: "documentId"');
         }
         const apiPath = '/databases/{databaseId}/collections/{collectionId}/documents/{documentId}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{documentId}', documentId);
         const payload: Payload = {};
@@ -1863,18 +1863,18 @@ export class Databases {
      * @param {string} databaseId
      * @param {string} collectionId
      * @param {string} documentId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     async deleteDocument(databaseId: string, collectionId: string, documentId: string): Promise<{}> {
         if (typeof databaseId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "databaseId"');
+            throw new AppcondaException('Missing required parameter: "databaseId"');
         }
         if (typeof collectionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "collectionId"');
+            throw new AppcondaException('Missing required parameter: "collectionId"');
         }
         if (typeof documentId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "documentId"');
+            throw new AppcondaException('Missing required parameter: "documentId"');
         }
         const apiPath = '/databases/{databaseId}/collections/{collectionId}/documents/{documentId}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{documentId}', documentId);
         const payload: Payload = {};
@@ -1901,18 +1901,18 @@ export class Databases {
      * @param {string} collectionId
      * @param {string} documentId
      * @param {string[]} queries
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.LogList>}
      */
     async listDocumentLogs(databaseId: string, collectionId: string, documentId: string, queries?: string[]): Promise<Models.LogList> {
         if (typeof databaseId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "databaseId"');
+            throw new AppcondaException('Missing required parameter: "databaseId"');
         }
         if (typeof collectionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "collectionId"');
+            throw new AppcondaException('Missing required parameter: "collectionId"');
         }
         if (typeof documentId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "documentId"');
+            throw new AppcondaException('Missing required parameter: "documentId"');
         }
         const apiPath = '/databases/{databaseId}/collections/{collectionId}/documents/{documentId}/logs'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{documentId}', documentId);
         const payload: Payload = {};
@@ -1941,15 +1941,15 @@ export class Databases {
      * @param {string} databaseId
      * @param {string} collectionId
      * @param {string[]} queries
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.IndexList>}
      */
     async listIndexes(databaseId: string, collectionId: string, queries?: string[]): Promise<Models.IndexList> {
         if (typeof databaseId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "databaseId"');
+            throw new AppcondaException('Missing required parameter: "databaseId"');
         }
         if (typeof collectionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "collectionId"');
+            throw new AppcondaException('Missing required parameter: "collectionId"');
         }
         const apiPath = '/databases/{databaseId}/collections/{collectionId}/indexes'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
         const payload: Payload = {};
@@ -1982,24 +1982,24 @@ Attributes can be `key`, `fulltext`, and `unique`.
      * @param {IndexType} type
      * @param {string[]} attributes
      * @param {string[]} orders
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Index>}
      */
     async createIndex(databaseId: string, collectionId: string, key: string, type: IndexType, attributes: string[], orders?: string[]): Promise<Models.Index> {
         if (typeof databaseId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "databaseId"');
+            throw new AppcondaException('Missing required parameter: "databaseId"');
         }
         if (typeof collectionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "collectionId"');
+            throw new AppcondaException('Missing required parameter: "collectionId"');
         }
         if (typeof key === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "key"');
+            throw new AppcondaException('Missing required parameter: "key"');
         }
         if (typeof type === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "type"');
+            throw new AppcondaException('Missing required parameter: "type"');
         }
         if (typeof attributes === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "attributes"');
+            throw new AppcondaException('Missing required parameter: "attributes"');
         }
         const apiPath = '/databases/{databaseId}/collections/{collectionId}/indexes'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
         const payload: Payload = {};
@@ -2037,18 +2037,18 @@ Attributes can be `key`, `fulltext`, and `unique`.
      * @param {string} databaseId
      * @param {string} collectionId
      * @param {string} key
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Index>}
      */
     async getIndex(databaseId: string, collectionId: string, key: string): Promise<Models.Index> {
         if (typeof databaseId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "databaseId"');
+            throw new AppcondaException('Missing required parameter: "databaseId"');
         }
         if (typeof collectionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "collectionId"');
+            throw new AppcondaException('Missing required parameter: "collectionId"');
         }
         if (typeof key === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "key"');
+            throw new AppcondaException('Missing required parameter: "key"');
         }
         const apiPath = '/databases/{databaseId}/collections/{collectionId}/indexes/{key}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{key}', key);
         const payload: Payload = {};
@@ -2074,18 +2074,18 @@ Attributes can be `key`, `fulltext`, and `unique`.
      * @param {string} databaseId
      * @param {string} collectionId
      * @param {string} key
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     async deleteIndex(databaseId: string, collectionId: string, key: string): Promise<{}> {
         if (typeof databaseId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "databaseId"');
+            throw new AppcondaException('Missing required parameter: "databaseId"');
         }
         if (typeof collectionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "collectionId"');
+            throw new AppcondaException('Missing required parameter: "collectionId"');
         }
         if (typeof key === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "key"');
+            throw new AppcondaException('Missing required parameter: "key"');
         }
         const apiPath = '/databases/{databaseId}/collections/{collectionId}/indexes/{key}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{key}', key);
         const payload: Payload = {};
@@ -2111,15 +2111,15 @@ Attributes can be `key`, `fulltext`, and `unique`.
      * @param {string} databaseId
      * @param {string} collectionId
      * @param {string[]} queries
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.LogList>}
      */
     async listCollectionLogs(databaseId: string, collectionId: string, queries?: string[]): Promise<Models.LogList> {
         if (typeof databaseId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "databaseId"');
+            throw new AppcondaException('Missing required parameter: "databaseId"');
         }
         if (typeof collectionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "collectionId"');
+            throw new AppcondaException('Missing required parameter: "collectionId"');
         }
         const apiPath = '/databases/{databaseId}/collections/{collectionId}/logs'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
         const payload: Payload = {};
@@ -2147,15 +2147,15 @@ Attributes can be `key`, `fulltext`, and `unique`.
      * @param {string} databaseId
      * @param {string} collectionId
      * @param {DatabaseUsageRange} range
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.UsageCollection>}
      */
     async getCollectionUsage(databaseId: string, collectionId: string, range?: DatabaseUsageRange): Promise<Models.UsageCollection> {
         if (typeof databaseId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "databaseId"');
+            throw new AppcondaException('Missing required parameter: "databaseId"');
         }
         if (typeof collectionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "collectionId"');
+            throw new AppcondaException('Missing required parameter: "collectionId"');
         }
         const apiPath = '/databases/{databaseId}/collections/{collectionId}/usage'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
         const payload: Payload = {};
@@ -2183,12 +2183,12 @@ Attributes can be `key`, `fulltext`, and `unique`.
      *
      * @param {string} databaseId
      * @param {string[]} queries
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.LogList>}
      */
     async listLogs(databaseId: string, queries?: string[]): Promise<Models.LogList> {
         if (typeof databaseId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "databaseId"');
+            throw new AppcondaException('Missing required parameter: "databaseId"');
         }
         const apiPath = '/databases/{databaseId}/logs'.replace('{databaseId}', databaseId);
         const payload: Payload = {};
@@ -2215,12 +2215,12 @@ Attributes can be `key`, `fulltext`, and `unique`.
      *
      * @param {string} databaseId
      * @param {DatabaseUsageRange} range
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.UsageDatabase>}
      */
     async getDatabaseUsage(databaseId: string, range?: DatabaseUsageRange): Promise<Models.UsageDatabase> {
         if (typeof databaseId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "databaseId"');
+            throw new AppcondaException('Missing required parameter: "databaseId"');
         }
         const apiPath = '/databases/{databaseId}/usage'.replace('{databaseId}', databaseId);
         const payload: Payload = {};

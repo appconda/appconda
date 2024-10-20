@@ -11,7 +11,7 @@ export declare class Proxy {
      *
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.ProxyRuleList>}
      */
     listRules(queries?: string[], search?: string): Promise<Models.ProxyRuleList>;
@@ -23,7 +23,7 @@ export declare class Proxy {
      * @param {string} domain
      * @param {ResourceType} resourceType
      * @param {string} resourceId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.ProxyRule>}
      */
     createRule(domain: string, resourceType: ResourceType, resourceId?: string): Promise<Models.ProxyRule>;
@@ -33,7 +33,7 @@ export declare class Proxy {
      * Get a proxy rule by its unique ID.
      *
      * @param {string} ruleId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.ProxyRule>}
      */
     getRule(ruleId: string): Promise<Models.ProxyRule>;
@@ -43,7 +43,7 @@ export declare class Proxy {
      * Delete a proxy rule by its unique ID.
      *
      * @param {string} ruleId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteRule(ruleId: string): Promise<{}>;
@@ -52,7 +52,7 @@ export declare class Proxy {
      *
      *
      * @param {string} ruleId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.ProxyRule>}
      */
     updateRuleVerification(ruleId: string): Promise<Models.ProxyRule>;

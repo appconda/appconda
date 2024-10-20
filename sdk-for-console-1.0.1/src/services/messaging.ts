@@ -1,5 +1,5 @@
 import { Service } from '../service';
-import { AppwriteException, Client, type Payload, UploadProgress } from '../client';
+import { AppcondaException, Client, type Payload, UploadProgress } from '../client';
 import type { Models } from '../models';
 import { SmtpEncryption } from '../enums/smtp-encryption';
 
@@ -17,7 +17,7 @@ export class Messaging {
      *
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.MessageList>}
      */
     async listMessages(queries?: string[], search?: string): Promise<Models.MessageList> {
@@ -60,18 +60,18 @@ export class Messaging {
      * @param {boolean} draft
      * @param {boolean} html
      * @param {string} scheduledAt
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Message>}
      */
     async createEmail(messageId: string, subject: string, content: string, topics?: string[], users?: string[], targets?: string[], cc?: string[], bcc?: string[], attachments?: string[], draft?: boolean, html?: boolean, scheduledAt?: string): Promise<Models.Message> {
         if (typeof messageId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "messageId"');
+            throw new AppcondaException('Missing required parameter: "messageId"');
         }
         if (typeof subject === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "subject"');
+            throw new AppcondaException('Missing required parameter: "subject"');
         }
         if (typeof content === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "content"');
+            throw new AppcondaException('Missing required parameter: "content"');
         }
         const apiPath = '/messaging/messages/email';
         const payload: Payload = {};
@@ -143,12 +143,12 @@ export class Messaging {
      * @param {string[]} bcc
      * @param {string} scheduledAt
      * @param {string[]} attachments
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Message>}
      */
     async updateEmail(messageId: string, topics?: string[], users?: string[], targets?: string[], subject?: string, content?: string, draft?: boolean, html?: boolean, cc?: string[], bcc?: string[], scheduledAt?: string, attachments?: string[]): Promise<Models.Message> {
         if (typeof messageId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "messageId"');
+            throw new AppcondaException('Missing required parameter: "messageId"');
         }
         const apiPath = '/messaging/messages/email/{messageId}'.replace('{messageId}', messageId);
         const payload: Payload = {};
@@ -220,18 +220,18 @@ export class Messaging {
      * @param {string} badge
      * @param {boolean} draft
      * @param {string} scheduledAt
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Message>}
      */
     async createPush(messageId: string, title: string, body: string, topics?: string[], users?: string[], targets?: string[], data?: object, action?: string, image?: string, icon?: string, sound?: string, color?: string, tag?: string, badge?: string, draft?: boolean, scheduledAt?: string): Promise<Models.Message> {
         if (typeof messageId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "messageId"');
+            throw new AppcondaException('Missing required parameter: "messageId"');
         }
         if (typeof title === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "title"');
+            throw new AppcondaException('Missing required parameter: "title"');
         }
         if (typeof body === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "body"');
+            throw new AppcondaException('Missing required parameter: "body"');
         }
         const apiPath = '/messaging/messages/push';
         const payload: Payload = {};
@@ -319,12 +319,12 @@ export class Messaging {
      * @param {number} badge
      * @param {boolean} draft
      * @param {string} scheduledAt
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Message>}
      */
     async updatePush(messageId: string, topics?: string[], users?: string[], targets?: string[], title?: string, body?: string, data?: object, action?: string, image?: string, icon?: string, sound?: string, color?: string, tag?: string, badge?: number, draft?: boolean, scheduledAt?: string): Promise<Models.Message> {
         if (typeof messageId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "messageId"');
+            throw new AppcondaException('Missing required parameter: "messageId"');
         }
         const apiPath = '/messaging/messages/push/{messageId}'.replace('{messageId}', messageId);
         const payload: Payload = {};
@@ -399,15 +399,15 @@ export class Messaging {
      * @param {string[]} targets
      * @param {boolean} draft
      * @param {string} scheduledAt
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Message>}
      */
     async createSms(messageId: string, content: string, topics?: string[], users?: string[], targets?: string[], draft?: boolean, scheduledAt?: string): Promise<Models.Message> {
         if (typeof messageId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "messageId"');
+            throw new AppcondaException('Missing required parameter: "messageId"');
         }
         if (typeof content === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "content"');
+            throw new AppcondaException('Missing required parameter: "content"');
         }
         const apiPath = '/messaging/messages/sms';
         const payload: Payload = {};
@@ -459,12 +459,12 @@ export class Messaging {
      * @param {string} content
      * @param {boolean} draft
      * @param {string} scheduledAt
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Message>}
      */
     async updateSms(messageId: string, topics?: string[], users?: string[], targets?: string[], content?: string, draft?: boolean, scheduledAt?: string): Promise<Models.Message> {
         if (typeof messageId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "messageId"');
+            throw new AppcondaException('Missing required parameter: "messageId"');
         }
         const apiPath = '/messaging/messages/sms/{messageId}'.replace('{messageId}', messageId);
         const payload: Payload = {};
@@ -507,12 +507,12 @@ export class Messaging {
 
      *
      * @param {string} messageId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Message>}
      */
     async getMessage(messageId: string): Promise<Models.Message> {
         if (typeof messageId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "messageId"');
+            throw new AppcondaException('Missing required parameter: "messageId"');
         }
         const apiPath = '/messaging/messages/{messageId}'.replace('{messageId}', messageId);
         const payload: Payload = {};
@@ -536,12 +536,12 @@ export class Messaging {
      * Delete a message. If the message is not a draft or scheduled, but has been sent, this will not recall the message.
      *
      * @param {string} messageId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     async delete(messageId: string): Promise<{}> {
         if (typeof messageId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "messageId"');
+            throw new AppcondaException('Missing required parameter: "messageId"');
         }
         const apiPath = '/messaging/messages/{messageId}'.replace('{messageId}', messageId);
         const payload: Payload = {};
@@ -566,12 +566,12 @@ export class Messaging {
      *
      * @param {string} messageId
      * @param {string[]} queries
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.LogList>}
      */
     async listMessageLogs(messageId: string, queries?: string[]): Promise<Models.LogList> {
         if (typeof messageId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "messageId"');
+            throw new AppcondaException('Missing required parameter: "messageId"');
         }
         const apiPath = '/messaging/messages/{messageId}/logs'.replace('{messageId}', messageId);
         const payload: Payload = {};
@@ -599,12 +599,12 @@ export class Messaging {
      *
      * @param {string} messageId
      * @param {string[]} queries
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.TargetList>}
      */
     async listTargets(messageId: string, queries?: string[]): Promise<Models.TargetList> {
         if (typeof messageId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "messageId"');
+            throw new AppcondaException('Missing required parameter: "messageId"');
         }
         const apiPath = '/messaging/messages/{messageId}/targets'.replace('{messageId}', messageId);
         const payload: Payload = {};
@@ -632,7 +632,7 @@ export class Messaging {
      *
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.ProviderList>}
      */
     async listProviders(queries?: string[], search?: string): Promise<Models.ProviderList> {
@@ -671,15 +671,15 @@ export class Messaging {
      * @param {string} bundleId
      * @param {boolean} sandbox
      * @param {boolean} enabled
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     async createApnsProvider(providerId: string, name: string, authKey?: string, authKeyId?: string, teamId?: string, bundleId?: string, sandbox?: boolean, enabled?: boolean): Promise<Models.Provider> {
         if (typeof providerId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "providerId"');
+            throw new AppcondaException('Missing required parameter: "providerId"');
         }
         if (typeof name === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "name"');
+            throw new AppcondaException('Missing required parameter: "name"');
         }
         const apiPath = '/messaging/providers/apns';
         const payload: Payload = {};
@@ -734,12 +734,12 @@ export class Messaging {
      * @param {string} teamId
      * @param {string} bundleId
      * @param {boolean} sandbox
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     async updateApnsProvider(providerId: string, name?: string, enabled?: boolean, authKey?: string, authKeyId?: string, teamId?: string, bundleId?: string, sandbox?: boolean): Promise<Models.Provider> {
         if (typeof providerId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "providerId"');
+            throw new AppcondaException('Missing required parameter: "providerId"');
         }
         const apiPath = '/messaging/providers/apns/{providerId}'.replace('{providerId}', providerId);
         const payload: Payload = {};
@@ -787,15 +787,15 @@ export class Messaging {
      * @param {string} name
      * @param {object} serviceAccountJSON
      * @param {boolean} enabled
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     async createFcmProvider(providerId: string, name: string, serviceAccountJSON?: object, enabled?: boolean): Promise<Models.Provider> {
         if (typeof providerId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "providerId"');
+            throw new AppcondaException('Missing required parameter: "providerId"');
         }
         if (typeof name === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "name"');
+            throw new AppcondaException('Missing required parameter: "name"');
         }
         const apiPath = '/messaging/providers/fcm';
         const payload: Payload = {};
@@ -834,12 +834,12 @@ export class Messaging {
      * @param {string} name
      * @param {boolean} enabled
      * @param {object} serviceAccountJSON
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     async updateFcmProvider(providerId: string, name?: string, enabled?: boolean, serviceAccountJSON?: object): Promise<Models.Provider> {
         if (typeof providerId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "providerId"');
+            throw new AppcondaException('Missing required parameter: "providerId"');
         }
         const apiPath = '/messaging/providers/fcm/{providerId}'.replace('{providerId}', providerId);
         const payload: Payload = {};
@@ -881,15 +881,15 @@ export class Messaging {
      * @param {string} replyToName
      * @param {string} replyToEmail
      * @param {boolean} enabled
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     async createMailgunProvider(providerId: string, name: string, apiKey?: string, domain?: string, isEuRegion?: boolean, fromName?: string, fromEmail?: string, replyToName?: string, replyToEmail?: string, enabled?: boolean): Promise<Models.Provider> {
         if (typeof providerId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "providerId"');
+            throw new AppcondaException('Missing required parameter: "providerId"');
         }
         if (typeof name === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "name"');
+            throw new AppcondaException('Missing required parameter: "name"');
         }
         const apiPath = '/messaging/providers/mailgun';
         const payload: Payload = {};
@@ -952,12 +952,12 @@ export class Messaging {
      * @param {string} fromEmail
      * @param {string} replyToName
      * @param {string} replyToEmail
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     async updateMailgunProvider(providerId: string, name?: string, apiKey?: string, domain?: string, isEuRegion?: boolean, enabled?: boolean, fromName?: string, fromEmail?: string, replyToName?: string, replyToEmail?: string): Promise<Models.Provider> {
         if (typeof providerId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "providerId"');
+            throw new AppcondaException('Missing required parameter: "providerId"');
         }
         const apiPath = '/messaging/providers/mailgun/{providerId}'.replace('{providerId}', providerId);
         const payload: Payload = {};
@@ -1013,15 +1013,15 @@ export class Messaging {
      * @param {string} senderId
      * @param {string} authKey
      * @param {boolean} enabled
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     async createMsg91Provider(providerId: string, name: string, templateId?: string, senderId?: string, authKey?: string, enabled?: boolean): Promise<Models.Provider> {
         if (typeof providerId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "providerId"');
+            throw new AppcondaException('Missing required parameter: "providerId"');
         }
         if (typeof name === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "name"');
+            throw new AppcondaException('Missing required parameter: "name"');
         }
         const apiPath = '/messaging/providers/msg91';
         const payload: Payload = {};
@@ -1068,12 +1068,12 @@ export class Messaging {
      * @param {string} templateId
      * @param {string} senderId
      * @param {string} authKey
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     async updateMsg91Provider(providerId: string, name?: string, enabled?: boolean, templateId?: string, senderId?: string, authKey?: string): Promise<Models.Provider> {
         if (typeof providerId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "providerId"');
+            throw new AppcondaException('Missing required parameter: "providerId"');
         }
         const apiPath = '/messaging/providers/msg91/{providerId}'.replace('{providerId}', providerId);
         const payload: Payload = {};
@@ -1119,15 +1119,15 @@ export class Messaging {
      * @param {string} replyToName
      * @param {string} replyToEmail
      * @param {boolean} enabled
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     async createSendgridProvider(providerId: string, name: string, apiKey?: string, fromName?: string, fromEmail?: string, replyToName?: string, replyToEmail?: string, enabled?: boolean): Promise<Models.Provider> {
         if (typeof providerId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "providerId"');
+            throw new AppcondaException('Missing required parameter: "providerId"');
         }
         if (typeof name === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "name"');
+            throw new AppcondaException('Missing required parameter: "name"');
         }
         const apiPath = '/messaging/providers/sendgrid';
         const payload: Payload = {};
@@ -1182,12 +1182,12 @@ export class Messaging {
      * @param {string} fromEmail
      * @param {string} replyToName
      * @param {string} replyToEmail
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     async updateSendgridProvider(providerId: string, name?: string, enabled?: boolean, apiKey?: string, fromName?: string, fromEmail?: string, replyToName?: string, replyToEmail?: string): Promise<Models.Provider> {
         if (typeof providerId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "providerId"');
+            throw new AppcondaException('Missing required parameter: "providerId"');
         }
         const apiPath = '/messaging/providers/sendgrid/{providerId}'.replace('{providerId}', providerId);
         const payload: Payload = {};
@@ -1245,18 +1245,18 @@ export class Messaging {
      * @param {string} replyToName
      * @param {string} replyToEmail
      * @param {boolean} enabled
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     async createSmtpProvider(providerId: string, name: string, host: string, port?: number, username?: string, password?: string, encryption?: SmtpEncryption, autoTLS?: boolean, mailer?: string, fromName?: string, fromEmail?: string, replyToName?: string, replyToEmail?: string, enabled?: boolean): Promise<Models.Provider> {
         if (typeof providerId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "providerId"');
+            throw new AppcondaException('Missing required parameter: "providerId"');
         }
         if (typeof name === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "name"');
+            throw new AppcondaException('Missing required parameter: "name"');
         }
         if (typeof host === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "host"');
+            throw new AppcondaException('Missing required parameter: "host"');
         }
         const apiPath = '/messaging/providers/smtp';
         const payload: Payload = {};
@@ -1335,12 +1335,12 @@ export class Messaging {
      * @param {string} replyToName
      * @param {string} replyToEmail
      * @param {boolean} enabled
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     async updateSmtpProvider(providerId: string, name?: string, host?: string, port?: number, username?: string, password?: string, encryption?: SmtpEncryption, autoTLS?: boolean, mailer?: string, fromName?: string, fromEmail?: string, replyToName?: string, replyToEmail?: string, enabled?: boolean): Promise<Models.Provider> {
         if (typeof providerId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "providerId"');
+            throw new AppcondaException('Missing required parameter: "providerId"');
         }
         const apiPath = '/messaging/providers/smtp/{providerId}'.replace('{providerId}', providerId);
         const payload: Payload = {};
@@ -1408,15 +1408,15 @@ export class Messaging {
      * @param {string} customerId
      * @param {string} apiKey
      * @param {boolean} enabled
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     async createTelesignProvider(providerId: string, name: string, from?: string, customerId?: string, apiKey?: string, enabled?: boolean): Promise<Models.Provider> {
         if (typeof providerId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "providerId"');
+            throw new AppcondaException('Missing required parameter: "providerId"');
         }
         if (typeof name === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "name"');
+            throw new AppcondaException('Missing required parameter: "name"');
         }
         const apiPath = '/messaging/providers/telesign';
         const payload: Payload = {};
@@ -1463,12 +1463,12 @@ export class Messaging {
      * @param {string} customerId
      * @param {string} apiKey
      * @param {string} from
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     async updateTelesignProvider(providerId: string, name?: string, enabled?: boolean, customerId?: string, apiKey?: string, from?: string): Promise<Models.Provider> {
         if (typeof providerId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "providerId"');
+            throw new AppcondaException('Missing required parameter: "providerId"');
         }
         const apiPath = '/messaging/providers/telesign/{providerId}'.replace('{providerId}', providerId);
         const payload: Payload = {};
@@ -1512,15 +1512,15 @@ export class Messaging {
      * @param {string} username
      * @param {string} apiKey
      * @param {boolean} enabled
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     async createTextmagicProvider(providerId: string, name: string, from?: string, username?: string, apiKey?: string, enabled?: boolean): Promise<Models.Provider> {
         if (typeof providerId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "providerId"');
+            throw new AppcondaException('Missing required parameter: "providerId"');
         }
         if (typeof name === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "name"');
+            throw new AppcondaException('Missing required parameter: "name"');
         }
         const apiPath = '/messaging/providers/textmagic';
         const payload: Payload = {};
@@ -1567,12 +1567,12 @@ export class Messaging {
      * @param {string} username
      * @param {string} apiKey
      * @param {string} from
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     async updateTextmagicProvider(providerId: string, name?: string, enabled?: boolean, username?: string, apiKey?: string, from?: string): Promise<Models.Provider> {
         if (typeof providerId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "providerId"');
+            throw new AppcondaException('Missing required parameter: "providerId"');
         }
         const apiPath = '/messaging/providers/textmagic/{providerId}'.replace('{providerId}', providerId);
         const payload: Payload = {};
@@ -1616,15 +1616,15 @@ export class Messaging {
      * @param {string} accountSid
      * @param {string} authToken
      * @param {boolean} enabled
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     async createTwilioProvider(providerId: string, name: string, from?: string, accountSid?: string, authToken?: string, enabled?: boolean): Promise<Models.Provider> {
         if (typeof providerId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "providerId"');
+            throw new AppcondaException('Missing required parameter: "providerId"');
         }
         if (typeof name === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "name"');
+            throw new AppcondaException('Missing required parameter: "name"');
         }
         const apiPath = '/messaging/providers/twilio';
         const payload: Payload = {};
@@ -1671,12 +1671,12 @@ export class Messaging {
      * @param {string} accountSid
      * @param {string} authToken
      * @param {string} from
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     async updateTwilioProvider(providerId: string, name?: string, enabled?: boolean, accountSid?: string, authToken?: string, from?: string): Promise<Models.Provider> {
         if (typeof providerId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "providerId"');
+            throw new AppcondaException('Missing required parameter: "providerId"');
         }
         const apiPath = '/messaging/providers/twilio/{providerId}'.replace('{providerId}', providerId);
         const payload: Payload = {};
@@ -1720,15 +1720,15 @@ export class Messaging {
      * @param {string} apiKey
      * @param {string} apiSecret
      * @param {boolean} enabled
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     async createVonageProvider(providerId: string, name: string, from?: string, apiKey?: string, apiSecret?: string, enabled?: boolean): Promise<Models.Provider> {
         if (typeof providerId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "providerId"');
+            throw new AppcondaException('Missing required parameter: "providerId"');
         }
         if (typeof name === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "name"');
+            throw new AppcondaException('Missing required parameter: "name"');
         }
         const apiPath = '/messaging/providers/vonage';
         const payload: Payload = {};
@@ -1775,12 +1775,12 @@ export class Messaging {
      * @param {string} apiKey
      * @param {string} apiSecret
      * @param {string} from
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     async updateVonageProvider(providerId: string, name?: string, enabled?: boolean, apiKey?: string, apiSecret?: string, from?: string): Promise<Models.Provider> {
         if (typeof providerId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "providerId"');
+            throw new AppcondaException('Missing required parameter: "providerId"');
         }
         const apiPath = '/messaging/providers/vonage/{providerId}'.replace('{providerId}', providerId);
         const payload: Payload = {};
@@ -1820,12 +1820,12 @@ export class Messaging {
 
      *
      * @param {string} providerId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     async getProvider(providerId: string): Promise<Models.Provider> {
         if (typeof providerId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "providerId"');
+            throw new AppcondaException('Missing required parameter: "providerId"');
         }
         const apiPath = '/messaging/providers/{providerId}'.replace('{providerId}', providerId);
         const payload: Payload = {};
@@ -1849,12 +1849,12 @@ export class Messaging {
      * Delete a provider by its unique ID.
      *
      * @param {string} providerId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     async deleteProvider(providerId: string): Promise<{}> {
         if (typeof providerId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "providerId"');
+            throw new AppcondaException('Missing required parameter: "providerId"');
         }
         const apiPath = '/messaging/providers/{providerId}'.replace('{providerId}', providerId);
         const payload: Payload = {};
@@ -1879,12 +1879,12 @@ export class Messaging {
      *
      * @param {string} providerId
      * @param {string[]} queries
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.LogList>}
      */
     async listProviderLogs(providerId: string, queries?: string[]): Promise<Models.LogList> {
         if (typeof providerId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "providerId"');
+            throw new AppcondaException('Missing required parameter: "providerId"');
         }
         const apiPath = '/messaging/providers/{providerId}/logs'.replace('{providerId}', providerId);
         const payload: Payload = {};
@@ -1912,12 +1912,12 @@ export class Messaging {
      *
      * @param {string} subscriberId
      * @param {string[]} queries
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.LogList>}
      */
     async listSubscriberLogs(subscriberId: string, queries?: string[]): Promise<Models.LogList> {
         if (typeof subscriberId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "subscriberId"');
+            throw new AppcondaException('Missing required parameter: "subscriberId"');
         }
         const apiPath = '/messaging/subscribers/{subscriberId}/logs'.replace('{subscriberId}', subscriberId);
         const payload: Payload = {};
@@ -1945,7 +1945,7 @@ export class Messaging {
      *
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.TopicList>}
      */
     async listTopics(queries?: string[], search?: string): Promise<Models.TopicList> {
@@ -1979,15 +1979,15 @@ export class Messaging {
      * @param {string} topicId
      * @param {string} name
      * @param {string[]} subscribe
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Topic>}
      */
     async createTopic(topicId: string, name: string, subscribe?: string[]): Promise<Models.Topic> {
         if (typeof topicId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "topicId"');
+            throw new AppcondaException('Missing required parameter: "topicId"');
         }
         if (typeof name === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "name"');
+            throw new AppcondaException('Missing required parameter: "name"');
         }
         const apiPath = '/messaging/topics';
         const payload: Payload = {};
@@ -2021,12 +2021,12 @@ export class Messaging {
 
      *
      * @param {string} topicId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Topic>}
      */
     async getTopic(topicId: string): Promise<Models.Topic> {
         if (typeof topicId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "topicId"');
+            throw new AppcondaException('Missing required parameter: "topicId"');
         }
         const apiPath = '/messaging/topics/{topicId}'.replace('{topicId}', topicId);
         const payload: Payload = {};
@@ -2053,12 +2053,12 @@ export class Messaging {
      * @param {string} topicId
      * @param {string} name
      * @param {string[]} subscribe
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Topic>}
      */
     async updateTopic(topicId: string, name?: string, subscribe?: string[]): Promise<Models.Topic> {
         if (typeof topicId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "topicId"');
+            throw new AppcondaException('Missing required parameter: "topicId"');
         }
         const apiPath = '/messaging/topics/{topicId}'.replace('{topicId}', topicId);
         const payload: Payload = {};
@@ -2088,12 +2088,12 @@ export class Messaging {
      * Delete a topic by its unique ID.
      *
      * @param {string} topicId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     async deleteTopic(topicId: string): Promise<{}> {
         if (typeof topicId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "topicId"');
+            throw new AppcondaException('Missing required parameter: "topicId"');
         }
         const apiPath = '/messaging/topics/{topicId}'.replace('{topicId}', topicId);
         const payload: Payload = {};
@@ -2118,12 +2118,12 @@ export class Messaging {
      *
      * @param {string} topicId
      * @param {string[]} queries
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.LogList>}
      */
     async listTopicLogs(topicId: string, queries?: string[]): Promise<Models.LogList> {
         if (typeof topicId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "topicId"');
+            throw new AppcondaException('Missing required parameter: "topicId"');
         }
         const apiPath = '/messaging/topics/{topicId}/logs'.replace('{topicId}', topicId);
         const payload: Payload = {};
@@ -2152,12 +2152,12 @@ export class Messaging {
      * @param {string} topicId
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.SubscriberList>}
      */
     async listSubscribers(topicId: string, queries?: string[], search?: string): Promise<Models.SubscriberList> {
         if (typeof topicId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "topicId"');
+            throw new AppcondaException('Missing required parameter: "topicId"');
         }
         const apiPath = '/messaging/topics/{topicId}/subscribers'.replace('{topicId}', topicId);
         const payload: Payload = {};
@@ -2189,18 +2189,18 @@ export class Messaging {
      * @param {string} topicId
      * @param {string} subscriberId
      * @param {string} targetId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Subscriber>}
      */
     async createSubscriber(topicId: string, subscriberId: string, targetId: string): Promise<Models.Subscriber> {
         if (typeof topicId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "topicId"');
+            throw new AppcondaException('Missing required parameter: "topicId"');
         }
         if (typeof subscriberId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "subscriberId"');
+            throw new AppcondaException('Missing required parameter: "subscriberId"');
         }
         if (typeof targetId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "targetId"');
+            throw new AppcondaException('Missing required parameter: "targetId"');
         }
         const apiPath = '/messaging/topics/{topicId}/subscribers'.replace('{topicId}', topicId);
         const payload: Payload = {};
@@ -2232,15 +2232,15 @@ export class Messaging {
      *
      * @param {string} topicId
      * @param {string} subscriberId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Subscriber>}
      */
     async getSubscriber(topicId: string, subscriberId: string): Promise<Models.Subscriber> {
         if (typeof topicId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "topicId"');
+            throw new AppcondaException('Missing required parameter: "topicId"');
         }
         if (typeof subscriberId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "subscriberId"');
+            throw new AppcondaException('Missing required parameter: "subscriberId"');
         }
         const apiPath = '/messaging/topics/{topicId}/subscribers/{subscriberId}'.replace('{topicId}', topicId).replace('{subscriberId}', subscriberId);
         const payload: Payload = {};
@@ -2265,15 +2265,15 @@ export class Messaging {
      *
      * @param {string} topicId
      * @param {string} subscriberId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     async deleteSubscriber(topicId: string, subscriberId: string): Promise<{}> {
         if (typeof topicId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "topicId"');
+            throw new AppcondaException('Missing required parameter: "topicId"');
         }
         if (typeof subscriberId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "subscriberId"');
+            throw new AppcondaException('Missing required parameter: "subscriberId"');
         }
         const apiPath = '/messaging/topics/{topicId}/subscribers/{subscriberId}'.replace('{topicId}', topicId).replace('{subscriberId}', subscriberId);
         const payload: Payload = {};

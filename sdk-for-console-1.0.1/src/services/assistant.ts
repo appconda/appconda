@@ -1,5 +1,5 @@
 import { Service } from '../service';
-import { AppwriteException, Client, type Payload, UploadProgress } from '../client';
+import { AppcondaException, Client, type Payload, UploadProgress } from '../client';
 import type { Models } from '../models';
 
 export class Assistant {
@@ -14,12 +14,12 @@ export class Assistant {
      *
      *
      * @param {string} prompt
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     async chat(prompt: string): Promise<{}> {
         if (typeof prompt === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "prompt"');
+            throw new AppcondaException('Missing required parameter: "prompt"');
         }
         const apiPath = '/console/assistant';
         const payload: Payload = {};

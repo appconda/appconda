@@ -11,7 +11,7 @@ export declare class Account {
      *
      * Get the currently logged in user.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     get<Preferences extends Models.Preferences>(): Promise<Models.User<Preferences>>;
@@ -24,7 +24,7 @@ export declare class Account {
      * @param {string} email
      * @param {string} password
      * @param {string} name
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     create<Preferences extends Models.Preferences>(userId: string, email: string, password: string, name?: string): Promise<Models.User<Preferences>>;
@@ -33,7 +33,7 @@ export declare class Account {
      *
      * Delete the currently logged in user.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     delete(): Promise<{}>;
@@ -46,7 +46,7 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      *
      * @param {string} email
      * @param {string} password
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     updateEmail<Preferences extends Models.Preferences>(email: string, password: string): Promise<Models.User<Preferences>>;
@@ -56,7 +56,7 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      * Get the list of identities for the currently logged in user.
      *
      * @param {string[]} queries
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.IdentityList>}
      */
     listIdentities(queries?: string[]): Promise<Models.IdentityList>;
@@ -66,7 +66,7 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      * Delete an identity by its unique ID.
      *
      * @param {string} identityId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteIdentity(identityId: string): Promise<{}>;
@@ -75,7 +75,7 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      *
      * Use this endpoint to create a JSON Web Token. You can use the resulting JWT to authenticate on behalf of the current user when working with the Appconda server-side API and SDKs. The JWT secret is valid for 15 minutes from its creation and will be invalid if the user will logout in that time frame.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Jwt>}
      */
     createJWT(): Promise<Models.Jwt>;
@@ -85,7 +85,7 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      * Get the list of latest security activity logs for the currently logged in user. Each log returns user IP address, location and date and time of log.
      *
      * @param {string[]} queries
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.LogList>}
      */
     listLogs(queries?: string[]): Promise<Models.LogList>;
@@ -95,7 +95,7 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      * Enable or disable MFA on an account.
      *
      * @param {boolean} mfa
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     updateMFA<Preferences extends Models.Preferences>(mfa: boolean): Promise<Models.User<Preferences>>;
@@ -105,7 +105,7 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      * Add an authenticator app to be used as an MFA factor. Verify the authenticator using the [verify authenticator](/docs/references/cloud/client-web/account#updateMfaAuthenticator) method.
      *
      * @param {AuthenticatorType} type
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.MfaType>}
      */
     createMfaAuthenticator(type: AuthenticatorType): Promise<Models.MfaType>;
@@ -116,7 +116,7 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      *
      * @param {AuthenticatorType} type
      * @param {string} otp
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     updateMfaAuthenticator<Preferences extends Models.Preferences>(type: AuthenticatorType, otp: string): Promise<Models.User<Preferences>>;
@@ -126,7 +126,7 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      * Delete an authenticator for a user by ID.
      *
      * @param {AuthenticatorType} type
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteMfaAuthenticator(type: AuthenticatorType): Promise<{}>;
@@ -136,7 +136,7 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      * Begin the process of MFA verification after sign-in. Finish the flow with [updateMfaChallenge](/docs/references/cloud/client-web/account#updateMfaChallenge) method.
      *
      * @param {AuthenticationFactor} factor
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.MfaChallenge>}
      */
     createMfaChallenge(factor: AuthenticationFactor): Promise<Models.MfaChallenge>;
@@ -147,7 +147,7 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      *
      * @param {string} challengeId
      * @param {string} otp
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     updateMfaChallenge(challengeId: string, otp: string): Promise<{}>;
@@ -156,7 +156,7 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      *
      * List the factors available on the account to be used as a MFA challange.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.MfaFactors>}
      */
     listMfaFactors(): Promise<Models.MfaFactors>;
@@ -165,7 +165,7 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      *
      * Get recovery codes that can be used as backup for MFA flow. Before getting codes, they must be generated using [createMfaRecoveryCodes](/docs/references/cloud/client-web/account#createMfaRecoveryCodes) method. An OTP challenge is required to read recovery codes.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.MfaRecoveryCodes>}
      */
     getMfaRecoveryCodes(): Promise<Models.MfaRecoveryCodes>;
@@ -174,7 +174,7 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      *
      * Generate recovery codes as backup for MFA flow. It&#039;s recommended to generate and show then immediately after user successfully adds their authehticator. Recovery codes can be used as a MFA verification type in [createMfaChallenge](/docs/references/cloud/client-web/account#createMfaChallenge) method.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.MfaRecoveryCodes>}
      */
     createMfaRecoveryCodes(): Promise<Models.MfaRecoveryCodes>;
@@ -183,7 +183,7 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      *
      * Regenerate recovery codes that can be used as backup for MFA flow. Before regenerating codes, they must be first generated using [createMfaRecoveryCodes](/docs/references/cloud/client-web/account#createMfaRecoveryCodes) method. An OTP challenge is required to regenreate recovery codes.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.MfaRecoveryCodes>}
      */
     updateMfaRecoveryCodes(): Promise<Models.MfaRecoveryCodes>;
@@ -193,7 +193,7 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      * Update currently logged in user account name.
      *
      * @param {string} name
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     updateName<Preferences extends Models.Preferences>(name: string): Promise<Models.User<Preferences>>;
@@ -204,7 +204,7 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      *
      * @param {string} password
      * @param {string} oldPassword
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     updatePassword<Preferences extends Models.Preferences>(password: string, oldPassword?: string): Promise<Models.User<Preferences>>;
@@ -215,7 +215,7 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      *
      * @param {string} phone
      * @param {string} password
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     updatePhone<Preferences extends Models.Preferences>(phone: string, password: string): Promise<Models.User<Preferences>>;
@@ -224,7 +224,7 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      *
      * Get the preferences as a key-value object for the currently logged in user.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Preferences>}
      */
     getPrefs<Preferences extends Models.Preferences>(): Promise<Preferences>;
@@ -234,7 +234,7 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      * Update currently logged in user account preferences. The object you pass is stored as is, and replaces any previous value. The maximum allowed prefs size is 64kB and throws error if exceeded.
      *
      * @param {Partial<Preferences>} prefs
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     updatePrefs<Preferences extends Models.Preferences>(prefs: Partial<Preferences>): Promise<Models.User<Preferences>>;
@@ -245,7 +245,7 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      *
      * @param {string} email
      * @param {string} url
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Token>}
      */
     createRecovery(email: string, url: string): Promise<Models.Token>;
@@ -259,7 +259,7 @@ Please note that in order to avoid a [Redirect Attack](https://github.com/OWASP/
      * @param {string} userId
      * @param {string} secret
      * @param {string} password
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Token>}
      */
     updateRecovery(userId: string, secret: string, password: string): Promise<Models.Token>;
@@ -268,7 +268,7 @@ Please note that in order to avoid a [Redirect Attack](https://github.com/OWASP/
      *
      * Get the list of active sessions across different devices for the currently logged in user.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.SessionList>}
      */
     listSessions(): Promise<Models.SessionList>;
@@ -277,7 +277,7 @@ Please note that in order to avoid a [Redirect Attack](https://github.com/OWASP/
      *
      * Delete all sessions from the user account and remove any sessions cookies from the end client.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteSessions(): Promise<{}>;
@@ -286,7 +286,7 @@ Please note that in order to avoid a [Redirect Attack](https://github.com/OWASP/
      *
      * Use this endpoint to allow a new user to register an anonymous account in your project. This route will also create a new session for the user. To allow the new user to convert an anonymous account to a normal account, you need to update its [email and password](https://appconda.io/docs/references/cloud/client-web/account#updateEmail) or create an [OAuth2 session](https://appconda.io/docs/references/cloud/client-web/account#CreateOAuth2Session).
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Session>}
      */
     createAnonymousSession(): Promise<Models.Session>;
@@ -299,7 +299,7 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
      *
      * @param {string} email
      * @param {string} password
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Session>}
      */
     createEmailPasswordSession(email: string, password: string): Promise<Models.Session>;
@@ -310,7 +310,7 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
      *
      * @param {string} userId
      * @param {string} secret
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Session>}
      */
     updateMagicURLSession(userId: string, secret: string): Promise<Models.Session>;
@@ -328,7 +328,7 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
      * @param {string} success
      * @param {string} failure
      * @param {string[]} scopes
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<void | string>}
      */
     createOAuth2Session(provider: OAuthProvider, success?: string, failure?: string, scopes?: string[]): Promise<void | string>;
@@ -339,7 +339,7 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
      *
      * @param {string} userId
      * @param {string} secret
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Session>}
      */
     updatePhoneSession(userId: string, secret: string): Promise<Models.Session>;
@@ -350,7 +350,7 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
      *
      * @param {string} userId
      * @param {string} secret
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Session>}
      */
     createSession(userId: string, secret: string): Promise<Models.Session>;
@@ -360,7 +360,7 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
      * Use this endpoint to get a logged in user&#039;s session using a Session ID. Inputting &#039;current&#039; will return the current session being used.
      *
      * @param {string} sessionId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Session>}
      */
     getSession(sessionId: string): Promise<Models.Session>;
@@ -370,7 +370,7 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
      * Use this endpoint to extend a session&#039;s length. Extending a session is useful when session expiry is short. If the session was created using an OAuth provider, this endpoint refreshes the access token from the provider.
      *
      * @param {string} sessionId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Session>}
      */
     updateSession(sessionId: string): Promise<Models.Session>;
@@ -380,7 +380,7 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
      * Logout the user. Use &#039;current&#039; as the session ID to logout on this device, use a session ID to logout on another device. If you&#039;re looking to logout the user on all devices, use [Delete Sessions](https://appconda.io/docs/references/cloud/client-web/account#deleteSessions) instead.
      *
      * @param {string} sessionId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteSession(sessionId: string): Promise<{}>;
@@ -389,7 +389,7 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
      *
      * Block the currently logged in user account. Behind the scene, the user record is not deleted but permanently blocked from any access. To completely delete a user, use the Users API instead.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     updateStatus<Preferences extends Models.Preferences>(): Promise<Models.User<Preferences>>;
@@ -400,7 +400,7 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
      * @param {string} targetId
      * @param {string} identifier
      * @param {string} providerId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Target>}
      */
     createPushTarget(targetId: string, identifier: string, providerId?: string): Promise<Models.Target>;
@@ -410,7 +410,7 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
      *
      * @param {string} targetId
      * @param {string} identifier
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Target>}
      */
     updatePushTarget(targetId: string, identifier: string): Promise<Models.Target>;
@@ -419,7 +419,7 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
      *
      *
      * @param {string} targetId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deletePushTarget(targetId: string): Promise<{}>;
@@ -433,7 +433,7 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
      * @param {string} userId
      * @param {string} email
      * @param {boolean} phrase
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Token>}
      */
     createEmailToken(userId: string, email: string, phrase?: boolean): Promise<Models.Token>;
@@ -449,7 +449,7 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
      * @param {string} email
      * @param {string} url
      * @param {boolean} phrase
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Token>}
      */
     createMagicURLToken(userId: string, email: string, url?: string, phrase?: boolean): Promise<Models.Token>;
@@ -466,7 +466,7 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
      * @param {string} success
      * @param {string} failure
      * @param {string[]} scopes
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<void | string>}
      */
     createOAuth2Token(provider: OAuthProvider, success?: string, failure?: string, scopes?: string[]): Promise<void | string>;
@@ -479,7 +479,7 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
      *
      * @param {string} userId
      * @param {string} phone
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Token>}
      */
     createPhoneToken(userId: string, phone: string): Promise<Models.Token>;
@@ -492,7 +492,7 @@ Please note that in order to avoid a [Redirect Attack](https://github.com/OWASP/
 
      *
      * @param {string} url
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Token>}
      */
     createVerification(url: string): Promise<Models.Token>;
@@ -503,7 +503,7 @@ Please note that in order to avoid a [Redirect Attack](https://github.com/OWASP/
      *
      * @param {string} userId
      * @param {string} secret
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Token>}
      */
     updateVerification(userId: string, secret: string): Promise<Models.Token>;
@@ -512,7 +512,7 @@ Please note that in order to avoid a [Redirect Attack](https://github.com/OWASP/
      *
      * Use this endpoint to send a verification SMS to the currently logged in user. This endpoint is meant for use after updating a user&#039;s phone number using the [accountUpdatePhone](https://appconda.io/docs/references/cloud/client-web/account#updatePhone) endpoint. Learn more about how to [complete the verification process](https://appconda.io/docs/references/cloud/client-web/account#updatePhoneVerification). The verification code sent to the user&#039;s phone number is valid for 15 minutes.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Token>}
      */
     createPhoneVerification(): Promise<Models.Token>;
@@ -523,7 +523,7 @@ Please note that in order to avoid a [Redirect Attack](https://github.com/OWASP/
      *
      * @param {string} userId
      * @param {string} secret
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Token>}
      */
     updatePhoneVerification(userId: string, secret: string): Promise<Models.Token>;

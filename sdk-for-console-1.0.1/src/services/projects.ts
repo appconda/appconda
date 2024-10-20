@@ -1,5 +1,5 @@
 import { Service } from '../service';
-import { AppwriteException, Client, type Payload, UploadProgress } from '../client';
+import { AppcondaException, Client, type Payload, UploadProgress } from '../client';
 import type { Models } from '../models';
 import { Region } from '../enums/region';
 import { Api } from '../enums/api';
@@ -26,7 +26,7 @@ export class Projects {
      *
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.ProjectList>}
      */
     async list(queries?: string[], search?: string): Promise<Models.ProjectList> {
@@ -69,18 +69,18 @@ export class Projects {
      * @param {string} legalCity
      * @param {string} legalAddress
      * @param {string} legalTaxId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     async create(projectId: string, name: string, teamId: string, region?: Region, description?: string, logo?: string, url?: string, legalName?: string, legalCountry?: string, legalState?: string, legalCity?: string, legalAddress?: string, legalTaxId?: string): Promise<Models.Project> {
         if (typeof projectId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "projectId"');
+            throw new AppcondaException('Missing required parameter: "projectId"');
         }
         if (typeof name === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "name"');
+            throw new AppcondaException('Missing required parameter: "name"');
         }
         if (typeof teamId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "teamId"');
+            throw new AppcondaException('Missing required parameter: "teamId"');
         }
         const apiPath = '/projects';
         const payload: Payload = {};
@@ -142,12 +142,12 @@ export class Projects {
      *
      *
      * @param {string} projectId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     async get(projectId: string): Promise<Models.Project> {
         if (typeof projectId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "projectId"');
+            throw new AppcondaException('Missing required parameter: "projectId"');
         }
         const apiPath = '/projects/{projectId}'.replace('{projectId}', projectId);
         const payload: Payload = {};
@@ -180,15 +180,15 @@ export class Projects {
      * @param {string} legalCity
      * @param {string} legalAddress
      * @param {string} legalTaxId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     async update(projectId: string, name: string, description?: string, logo?: string, url?: string, legalName?: string, legalCountry?: string, legalState?: string, legalCity?: string, legalAddress?: string, legalTaxId?: string): Promise<Models.Project> {
         if (typeof projectId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "projectId"');
+            throw new AppcondaException('Missing required parameter: "projectId"');
         }
         if (typeof name === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "name"');
+            throw new AppcondaException('Missing required parameter: "name"');
         }
         const apiPath = '/projects/{projectId}'.replace('{projectId}', projectId);
         const payload: Payload = {};
@@ -241,12 +241,12 @@ export class Projects {
      *
      *
      * @param {string} projectId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     async delete(projectId: string): Promise<{}> {
         if (typeof projectId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "projectId"');
+            throw new AppcondaException('Missing required parameter: "projectId"');
         }
         const apiPath = '/projects/{projectId}'.replace('{projectId}', projectId);
         const payload: Payload = {};
@@ -271,18 +271,18 @@ export class Projects {
      * @param {string} projectId
      * @param {Api} api
      * @param {boolean} status
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     async updateApiStatus(projectId: string, api: Api, status: boolean): Promise<Models.Project> {
         if (typeof projectId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "projectId"');
+            throw new AppcondaException('Missing required parameter: "projectId"');
         }
         if (typeof api === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "api"');
+            throw new AppcondaException('Missing required parameter: "api"');
         }
         if (typeof status === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "status"');
+            throw new AppcondaException('Missing required parameter: "status"');
         }
         const apiPath = '/projects/{projectId}/api'.replace('{projectId}', projectId);
         const payload: Payload = {};
@@ -312,15 +312,15 @@ export class Projects {
      *
      * @param {string} projectId
      * @param {boolean} status
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     async updateApiStatusAll(projectId: string, status: boolean): Promise<Models.Project> {
         if (typeof projectId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "projectId"');
+            throw new AppcondaException('Missing required parameter: "projectId"');
         }
         if (typeof status === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "status"');
+            throw new AppcondaException('Missing required parameter: "status"');
         }
         const apiPath = '/projects/{projectId}/api/all'.replace('{projectId}', projectId);
         const payload: Payload = {};
@@ -347,15 +347,15 @@ export class Projects {
      *
      * @param {string} projectId
      * @param {number} duration
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     async updateAuthDuration(projectId: string, duration: number): Promise<Models.Project> {
         if (typeof projectId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "projectId"');
+            throw new AppcondaException('Missing required parameter: "projectId"');
         }
         if (typeof duration === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "duration"');
+            throw new AppcondaException('Missing required parameter: "duration"');
         }
         const apiPath = '/projects/{projectId}/auth/duration'.replace('{projectId}', projectId);
         const payload: Payload = {};
@@ -382,15 +382,15 @@ export class Projects {
      *
      * @param {string} projectId
      * @param {number} limit
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     async updateAuthLimit(projectId: string, limit: number): Promise<Models.Project> {
         if (typeof projectId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "projectId"');
+            throw new AppcondaException('Missing required parameter: "projectId"');
         }
         if (typeof limit === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "limit"');
+            throw new AppcondaException('Missing required parameter: "limit"');
         }
         const apiPath = '/projects/{projectId}/auth/limit'.replace('{projectId}', projectId);
         const payload: Payload = {};
@@ -417,15 +417,15 @@ export class Projects {
      *
      * @param {string} projectId
      * @param {number} limit
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     async updateAuthSessionsLimit(projectId: string, limit: number): Promise<Models.Project> {
         if (typeof projectId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "projectId"');
+            throw new AppcondaException('Missing required parameter: "projectId"');
         }
         if (typeof limit === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "limit"');
+            throw new AppcondaException('Missing required parameter: "limit"');
         }
         const apiPath = '/projects/{projectId}/auth/max-sessions'.replace('{projectId}', projectId);
         const payload: Payload = {};
@@ -452,15 +452,15 @@ export class Projects {
      *
      * @param {string} projectId
      * @param {object[]} numbers
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     async updateMockNumbers(projectId: string, numbers: object[]): Promise<Models.Project> {
         if (typeof projectId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "projectId"');
+            throw new AppcondaException('Missing required parameter: "projectId"');
         }
         if (typeof numbers === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "numbers"');
+            throw new AppcondaException('Missing required parameter: "numbers"');
         }
         const apiPath = '/projects/{projectId}/auth/mock-numbers'.replace('{projectId}', projectId);
         const payload: Payload = {};
@@ -487,15 +487,15 @@ export class Projects {
      *
      * @param {string} projectId
      * @param {boolean} enabled
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     async updateAuthPasswordDictionary(projectId: string, enabled: boolean): Promise<Models.Project> {
         if (typeof projectId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "projectId"');
+            throw new AppcondaException('Missing required parameter: "projectId"');
         }
         if (typeof enabled === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "enabled"');
+            throw new AppcondaException('Missing required parameter: "enabled"');
         }
         const apiPath = '/projects/{projectId}/auth/password-dictionary'.replace('{projectId}', projectId);
         const payload: Payload = {};
@@ -522,15 +522,15 @@ export class Projects {
      *
      * @param {string} projectId
      * @param {number} limit
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     async updateAuthPasswordHistory(projectId: string, limit: number): Promise<Models.Project> {
         if (typeof projectId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "projectId"');
+            throw new AppcondaException('Missing required parameter: "projectId"');
         }
         if (typeof limit === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "limit"');
+            throw new AppcondaException('Missing required parameter: "limit"');
         }
         const apiPath = '/projects/{projectId}/auth/password-history'.replace('{projectId}', projectId);
         const payload: Payload = {};
@@ -557,15 +557,15 @@ export class Projects {
      *
      * @param {string} projectId
      * @param {boolean} enabled
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     async updatePersonalDataCheck(projectId: string, enabled: boolean): Promise<Models.Project> {
         if (typeof projectId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "projectId"');
+            throw new AppcondaException('Missing required parameter: "projectId"');
         }
         if (typeof enabled === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "enabled"');
+            throw new AppcondaException('Missing required parameter: "enabled"');
         }
         const apiPath = '/projects/{projectId}/auth/personal-data'.replace('{projectId}', projectId);
         const payload: Payload = {};
@@ -592,15 +592,15 @@ export class Projects {
      *
      * @param {string} projectId
      * @param {boolean} alerts
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     async updateSessionAlerts(projectId: string, alerts: boolean): Promise<Models.Project> {
         if (typeof projectId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "projectId"');
+            throw new AppcondaException('Missing required parameter: "projectId"');
         }
         if (typeof alerts === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "alerts"');
+            throw new AppcondaException('Missing required parameter: "alerts"');
         }
         const apiPath = '/projects/{projectId}/auth/session-alerts'.replace('{projectId}', projectId);
         const payload: Payload = {};
@@ -628,18 +628,18 @@ export class Projects {
      * @param {string} projectId
      * @param {AuthMethod} method
      * @param {boolean} status
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     async updateAuthStatus(projectId: string, method: AuthMethod, status: boolean): Promise<Models.Project> {
         if (typeof projectId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "projectId"');
+            throw new AppcondaException('Missing required parameter: "projectId"');
         }
         if (typeof method === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "method"');
+            throw new AppcondaException('Missing required parameter: "method"');
         }
         if (typeof status === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "status"');
+            throw new AppcondaException('Missing required parameter: "status"');
         }
         const apiPath = '/projects/{projectId}/auth/{method}'.replace('{projectId}', projectId).replace('{method}', method);
         const payload: Payload = {};
@@ -667,15 +667,15 @@ export class Projects {
      * @param {string} projectId
      * @param {string[]} scopes
      * @param {number} duration
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Jwt>}
      */
     async createJWT(projectId: string, scopes: string[], duration?: number): Promise<Models.Jwt> {
         if (typeof projectId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "projectId"');
+            throw new AppcondaException('Missing required parameter: "projectId"');
         }
         if (typeof scopes === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "scopes"');
+            throw new AppcondaException('Missing required parameter: "scopes"');
         }
         const apiPath = '/projects/{projectId}/jwts'.replace('{projectId}', projectId);
         const payload: Payload = {};
@@ -704,12 +704,12 @@ export class Projects {
      *
      *
      * @param {string} projectId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.KeyList>}
      */
     async listKeys(projectId: string): Promise<Models.KeyList> {
         if (typeof projectId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "projectId"');
+            throw new AppcondaException('Missing required parameter: "projectId"');
         }
         const apiPath = '/projects/{projectId}/keys'.replace('{projectId}', projectId);
         const payload: Payload = {};
@@ -735,18 +735,18 @@ export class Projects {
      * @param {string} name
      * @param {string[]} scopes
      * @param {string} expire
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Key>}
      */
     async createKey(projectId: string, name: string, scopes: string[], expire?: string): Promise<Models.Key> {
         if (typeof projectId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "projectId"');
+            throw new AppcondaException('Missing required parameter: "projectId"');
         }
         if (typeof name === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "name"');
+            throw new AppcondaException('Missing required parameter: "name"');
         }
         if (typeof scopes === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "scopes"');
+            throw new AppcondaException('Missing required parameter: "scopes"');
         }
         const apiPath = '/projects/{projectId}/keys'.replace('{projectId}', projectId);
         const payload: Payload = {};
@@ -779,15 +779,15 @@ export class Projects {
      *
      * @param {string} projectId
      * @param {string} keyId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Key>}
      */
     async getKey(projectId: string, keyId: string): Promise<Models.Key> {
         if (typeof projectId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "projectId"');
+            throw new AppcondaException('Missing required parameter: "projectId"');
         }
         if (typeof keyId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "keyId"');
+            throw new AppcondaException('Missing required parameter: "keyId"');
         }
         const apiPath = '/projects/{projectId}/keys/{keyId}'.replace('{projectId}', projectId).replace('{keyId}', keyId);
         const payload: Payload = {};
@@ -814,21 +814,21 @@ export class Projects {
      * @param {string} name
      * @param {string[]} scopes
      * @param {string} expire
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Key>}
      */
     async updateKey(projectId: string, keyId: string, name: string, scopes: string[], expire?: string): Promise<Models.Key> {
         if (typeof projectId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "projectId"');
+            throw new AppcondaException('Missing required parameter: "projectId"');
         }
         if (typeof keyId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "keyId"');
+            throw new AppcondaException('Missing required parameter: "keyId"');
         }
         if (typeof name === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "name"');
+            throw new AppcondaException('Missing required parameter: "name"');
         }
         if (typeof scopes === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "scopes"');
+            throw new AppcondaException('Missing required parameter: "scopes"');
         }
         const apiPath = '/projects/{projectId}/keys/{keyId}'.replace('{projectId}', projectId).replace('{keyId}', keyId);
         const payload: Payload = {};
@@ -861,15 +861,15 @@ export class Projects {
      *
      * @param {string} projectId
      * @param {string} keyId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     async deleteKey(projectId: string, keyId: string): Promise<{}> {
         if (typeof projectId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "projectId"');
+            throw new AppcondaException('Missing required parameter: "projectId"');
         }
         if (typeof keyId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "keyId"');
+            throw new AppcondaException('Missing required parameter: "keyId"');
         }
         const apiPath = '/projects/{projectId}/keys/{keyId}'.replace('{projectId}', projectId).replace('{keyId}', keyId);
         const payload: Payload = {};
@@ -896,15 +896,15 @@ export class Projects {
      * @param {string} appId
      * @param {string} secret
      * @param {boolean} enabled
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     async updateOAuth2(projectId: string, provider: OAuthProvider, appId?: string, secret?: string, enabled?: boolean): Promise<Models.Project> {
         if (typeof projectId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "projectId"');
+            throw new AppcondaException('Missing required parameter: "projectId"');
         }
         if (typeof provider === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "provider"');
+            throw new AppcondaException('Missing required parameter: "provider"');
         }
         const apiPath = '/projects/{projectId}/oauth2'.replace('{projectId}', projectId);
         const payload: Payload = {};
@@ -939,12 +939,12 @@ export class Projects {
      *
      *
      * @param {string} projectId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.PlatformList>}
      */
     async listPlatforms(projectId: string): Promise<Models.PlatformList> {
         if (typeof projectId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "projectId"');
+            throw new AppcondaException('Missing required parameter: "projectId"');
         }
         const apiPath = '/projects/{projectId}/platforms'.replace('{projectId}', projectId);
         const payload: Payload = {};
@@ -972,18 +972,18 @@ export class Projects {
      * @param {string} key
      * @param {string} store
      * @param {string} hostname
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Platform>}
      */
     async createPlatform(projectId: string, type: PlatformType, name: string, key?: string, store?: string, hostname?: string): Promise<Models.Platform> {
         if (typeof projectId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "projectId"');
+            throw new AppcondaException('Missing required parameter: "projectId"');
         }
         if (typeof type === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "type"');
+            throw new AppcondaException('Missing required parameter: "type"');
         }
         if (typeof name === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "name"');
+            throw new AppcondaException('Missing required parameter: "name"');
         }
         const apiPath = '/projects/{projectId}/platforms'.replace('{projectId}', projectId);
         const payload: Payload = {};
@@ -1022,15 +1022,15 @@ export class Projects {
      *
      * @param {string} projectId
      * @param {string} platformId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Platform>}
      */
     async getPlatform(projectId: string, platformId: string): Promise<Models.Platform> {
         if (typeof projectId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "projectId"');
+            throw new AppcondaException('Missing required parameter: "projectId"');
         }
         if (typeof platformId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "platformId"');
+            throw new AppcondaException('Missing required parameter: "platformId"');
         }
         const apiPath = '/projects/{projectId}/platforms/{platformId}'.replace('{projectId}', projectId).replace('{platformId}', platformId);
         const payload: Payload = {};
@@ -1058,18 +1058,18 @@ export class Projects {
      * @param {string} key
      * @param {string} store
      * @param {string} hostname
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Platform>}
      */
     async updatePlatform(projectId: string, platformId: string, name: string, key?: string, store?: string, hostname?: string): Promise<Models.Platform> {
         if (typeof projectId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "projectId"');
+            throw new AppcondaException('Missing required parameter: "projectId"');
         }
         if (typeof platformId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "platformId"');
+            throw new AppcondaException('Missing required parameter: "platformId"');
         }
         if (typeof name === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "name"');
+            throw new AppcondaException('Missing required parameter: "name"');
         }
         const apiPath = '/projects/{projectId}/platforms/{platformId}'.replace('{projectId}', projectId).replace('{platformId}', platformId);
         const payload: Payload = {};
@@ -1105,15 +1105,15 @@ export class Projects {
      *
      * @param {string} projectId
      * @param {string} platformId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     async deletePlatform(projectId: string, platformId: string): Promise<{}> {
         if (typeof projectId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "projectId"');
+            throw new AppcondaException('Missing required parameter: "projectId"');
         }
         if (typeof platformId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "platformId"');
+            throw new AppcondaException('Missing required parameter: "platformId"');
         }
         const apiPath = '/projects/{projectId}/platforms/{platformId}'.replace('{projectId}', projectId).replace('{platformId}', platformId);
         const payload: Payload = {};
@@ -1138,18 +1138,18 @@ export class Projects {
      * @param {string} projectId
      * @param {ApiService} service
      * @param {boolean} status
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     async updateServiceStatus(projectId: string, service: ApiService, status: boolean): Promise<Models.Project> {
         if (typeof projectId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "projectId"');
+            throw new AppcondaException('Missing required parameter: "projectId"');
         }
         if (typeof service === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "service"');
+            throw new AppcondaException('Missing required parameter: "service"');
         }
         if (typeof status === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "status"');
+            throw new AppcondaException('Missing required parameter: "status"');
         }
         const apiPath = '/projects/{projectId}/service'.replace('{projectId}', projectId);
         const payload: Payload = {};
@@ -1179,15 +1179,15 @@ export class Projects {
      *
      * @param {string} projectId
      * @param {boolean} status
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     async updateServiceStatusAll(projectId: string, status: boolean): Promise<Models.Project> {
         if (typeof projectId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "projectId"');
+            throw new AppcondaException('Missing required parameter: "projectId"');
         }
         if (typeof status === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "status"');
+            throw new AppcondaException('Missing required parameter: "status"');
         }
         const apiPath = '/projects/{projectId}/service/all'.replace('{projectId}', projectId);
         const payload: Payload = {};
@@ -1222,15 +1222,15 @@ export class Projects {
      * @param {string} username
      * @param {string} password
      * @param {SMTPSecure} secure
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     async updateSmtp(projectId: string, enabled: boolean, senderName?: string, senderEmail?: string, replyTo?: string, host?: string, port?: number, username?: string, password?: string, secure?: SMTPSecure): Promise<Models.Project> {
         if (typeof projectId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "projectId"');
+            throw new AppcondaException('Missing required parameter: "projectId"');
         }
         if (typeof enabled === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "enabled"');
+            throw new AppcondaException('Missing required parameter: "enabled"');
         }
         const apiPath = '/projects/{projectId}/smtp'.replace('{projectId}', projectId);
         const payload: Payload = {};
@@ -1289,24 +1289,24 @@ export class Projects {
      * @param {string} username
      * @param {string} password
      * @param {SMTPSecure} secure
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     async createSmtpTest(projectId: string, emails: string[], senderName: string, senderEmail: string, host: string, replyTo?: string, port?: number, username?: string, password?: string, secure?: SMTPSecure): Promise<{}> {
         if (typeof projectId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "projectId"');
+            throw new AppcondaException('Missing required parameter: "projectId"');
         }
         if (typeof emails === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "emails"');
+            throw new AppcondaException('Missing required parameter: "emails"');
         }
         if (typeof senderName === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "senderName"');
+            throw new AppcondaException('Missing required parameter: "senderName"');
         }
         if (typeof senderEmail === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "senderEmail"');
+            throw new AppcondaException('Missing required parameter: "senderEmail"');
         }
         if (typeof host === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "host"');
+            throw new AppcondaException('Missing required parameter: "host"');
         }
         const apiPath = '/projects/{projectId}/smtp/tests'.replace('{projectId}', projectId);
         const payload: Payload = {};
@@ -1357,15 +1357,15 @@ export class Projects {
      *
      * @param {string} projectId
      * @param {string} teamId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     async updateTeam(projectId: string, teamId: string): Promise<Models.Project> {
         if (typeof projectId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "projectId"');
+            throw new AppcondaException('Missing required parameter: "projectId"');
         }
         if (typeof teamId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "teamId"');
+            throw new AppcondaException('Missing required parameter: "teamId"');
         }
         const apiPath = '/projects/{projectId}/team'.replace('{projectId}', projectId);
         const payload: Payload = {};
@@ -1393,18 +1393,18 @@ export class Projects {
      * @param {string} projectId
      * @param {EmailTemplateType} type
      * @param {EmailTemplateLocale} locale
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.EmailTemplate>}
      */
     async getEmailTemplate(projectId: string, type: EmailTemplateType, locale: EmailTemplateLocale): Promise<Models.EmailTemplate> {
         if (typeof projectId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "projectId"');
+            throw new AppcondaException('Missing required parameter: "projectId"');
         }
         if (typeof type === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "type"');
+            throw new AppcondaException('Missing required parameter: "type"');
         }
         if (typeof locale === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "locale"');
+            throw new AppcondaException('Missing required parameter: "locale"');
         }
         const apiPath = '/projects/{projectId}/templates/email/{type}/{locale}'.replace('{projectId}', projectId).replace('{type}', type).replace('{locale}', locale);
         const payload: Payload = {};
@@ -1434,24 +1434,24 @@ export class Projects {
      * @param {string} senderName
      * @param {string} senderEmail
      * @param {string} replyTo
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Project>}
      */
     async updateEmailTemplate(projectId: string, type: EmailTemplateType, locale: EmailTemplateLocale, subject: string, message: string, senderName?: string, senderEmail?: string, replyTo?: string): Promise<Models.Project> {
         if (typeof projectId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "projectId"');
+            throw new AppcondaException('Missing required parameter: "projectId"');
         }
         if (typeof type === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "type"');
+            throw new AppcondaException('Missing required parameter: "type"');
         }
         if (typeof locale === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "locale"');
+            throw new AppcondaException('Missing required parameter: "locale"');
         }
         if (typeof subject === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "subject"');
+            throw new AppcondaException('Missing required parameter: "subject"');
         }
         if (typeof message === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "message"');
+            throw new AppcondaException('Missing required parameter: "message"');
         }
         const apiPath = '/projects/{projectId}/templates/email/{type}/{locale}'.replace('{projectId}', projectId).replace('{type}', type).replace('{locale}', locale);
         const payload: Payload = {};
@@ -1491,18 +1491,18 @@ export class Projects {
      * @param {string} projectId
      * @param {EmailTemplateType} type
      * @param {EmailTemplateLocale} locale
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.EmailTemplate>}
      */
     async deleteEmailTemplate(projectId: string, type: EmailTemplateType, locale: EmailTemplateLocale): Promise<Models.EmailTemplate> {
         if (typeof projectId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "projectId"');
+            throw new AppcondaException('Missing required parameter: "projectId"');
         }
         if (typeof type === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "type"');
+            throw new AppcondaException('Missing required parameter: "type"');
         }
         if (typeof locale === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "locale"');
+            throw new AppcondaException('Missing required parameter: "locale"');
         }
         const apiPath = '/projects/{projectId}/templates/email/{type}/{locale}'.replace('{projectId}', projectId).replace('{type}', type).replace('{locale}', locale);
         const payload: Payload = {};
@@ -1527,18 +1527,18 @@ export class Projects {
      * @param {string} projectId
      * @param {SmsTemplateType} type
      * @param {SmsTemplateLocale} locale
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.SmsTemplate>}
      */
     async getSmsTemplate(projectId: string, type: SmsTemplateType, locale: SmsTemplateLocale): Promise<Models.SmsTemplate> {
         if (typeof projectId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "projectId"');
+            throw new AppcondaException('Missing required parameter: "projectId"');
         }
         if (typeof type === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "type"');
+            throw new AppcondaException('Missing required parameter: "type"');
         }
         if (typeof locale === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "locale"');
+            throw new AppcondaException('Missing required parameter: "locale"');
         }
         const apiPath = '/projects/{projectId}/templates/sms/{type}/{locale}'.replace('{projectId}', projectId).replace('{type}', type).replace('{locale}', locale);
         const payload: Payload = {};
@@ -1564,21 +1564,21 @@ export class Projects {
      * @param {SmsTemplateType} type
      * @param {SmsTemplateLocale} locale
      * @param {string} message
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.SmsTemplate>}
      */
     async updateSmsTemplate(projectId: string, type: SmsTemplateType, locale: SmsTemplateLocale, message: string): Promise<Models.SmsTemplate> {
         if (typeof projectId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "projectId"');
+            throw new AppcondaException('Missing required parameter: "projectId"');
         }
         if (typeof type === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "type"');
+            throw new AppcondaException('Missing required parameter: "type"');
         }
         if (typeof locale === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "locale"');
+            throw new AppcondaException('Missing required parameter: "locale"');
         }
         if (typeof message === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "message"');
+            throw new AppcondaException('Missing required parameter: "message"');
         }
         const apiPath = '/projects/{projectId}/templates/sms/{type}/{locale}'.replace('{projectId}', projectId).replace('{type}', type).replace('{locale}', locale);
         const payload: Payload = {};
@@ -1606,18 +1606,18 @@ export class Projects {
      * @param {string} projectId
      * @param {SmsTemplateType} type
      * @param {SmsTemplateLocale} locale
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.SmsTemplate>}
      */
     async deleteSmsTemplate(projectId: string, type: SmsTemplateType, locale: SmsTemplateLocale): Promise<Models.SmsTemplate> {
         if (typeof projectId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "projectId"');
+            throw new AppcondaException('Missing required parameter: "projectId"');
         }
         if (typeof type === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "type"');
+            throw new AppcondaException('Missing required parameter: "type"');
         }
         if (typeof locale === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "locale"');
+            throw new AppcondaException('Missing required parameter: "locale"');
         }
         const apiPath = '/projects/{projectId}/templates/sms/{type}/{locale}'.replace('{projectId}', projectId).replace('{type}', type).replace('{locale}', locale);
         const payload: Payload = {};
@@ -1640,12 +1640,12 @@ export class Projects {
      *
      *
      * @param {string} projectId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.WebhookList>}
      */
     async listWebhooks(projectId: string): Promise<Models.WebhookList> {
         if (typeof projectId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "projectId"');
+            throw new AppcondaException('Missing required parameter: "projectId"');
         }
         const apiPath = '/projects/{projectId}/webhooks'.replace('{projectId}', projectId);
         const payload: Payload = {};
@@ -1675,24 +1675,24 @@ export class Projects {
      * @param {boolean} enabled
      * @param {string} httpUser
      * @param {string} httpPass
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Webhook>}
      */
     async createWebhook(projectId: string, name: string, events: string[], url: string, security: boolean, enabled?: boolean, httpUser?: string, httpPass?: string): Promise<Models.Webhook> {
         if (typeof projectId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "projectId"');
+            throw new AppcondaException('Missing required parameter: "projectId"');
         }
         if (typeof name === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "name"');
+            throw new AppcondaException('Missing required parameter: "name"');
         }
         if (typeof events === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "events"');
+            throw new AppcondaException('Missing required parameter: "events"');
         }
         if (typeof url === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "url"');
+            throw new AppcondaException('Missing required parameter: "url"');
         }
         if (typeof security === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "security"');
+            throw new AppcondaException('Missing required parameter: "security"');
         }
         const apiPath = '/projects/{projectId}/webhooks'.replace('{projectId}', projectId);
         const payload: Payload = {};
@@ -1737,15 +1737,15 @@ export class Projects {
      *
      * @param {string} projectId
      * @param {string} webhookId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Webhook>}
      */
     async getWebhook(projectId: string, webhookId: string): Promise<Models.Webhook> {
         if (typeof projectId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "projectId"');
+            throw new AppcondaException('Missing required parameter: "projectId"');
         }
         if (typeof webhookId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "webhookId"');
+            throw new AppcondaException('Missing required parameter: "webhookId"');
         }
         const apiPath = '/projects/{projectId}/webhooks/{webhookId}'.replace('{projectId}', projectId).replace('{webhookId}', webhookId);
         const payload: Payload = {};
@@ -1776,27 +1776,27 @@ export class Projects {
      * @param {boolean} enabled
      * @param {string} httpUser
      * @param {string} httpPass
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Webhook>}
      */
     async updateWebhook(projectId: string, webhookId: string, name: string, events: string[], url: string, security: boolean, enabled?: boolean, httpUser?: string, httpPass?: string): Promise<Models.Webhook> {
         if (typeof projectId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "projectId"');
+            throw new AppcondaException('Missing required parameter: "projectId"');
         }
         if (typeof webhookId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "webhookId"');
+            throw new AppcondaException('Missing required parameter: "webhookId"');
         }
         if (typeof name === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "name"');
+            throw new AppcondaException('Missing required parameter: "name"');
         }
         if (typeof events === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "events"');
+            throw new AppcondaException('Missing required parameter: "events"');
         }
         if (typeof url === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "url"');
+            throw new AppcondaException('Missing required parameter: "url"');
         }
         if (typeof security === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "security"');
+            throw new AppcondaException('Missing required parameter: "security"');
         }
         const apiPath = '/projects/{projectId}/webhooks/{webhookId}'.replace('{projectId}', projectId).replace('{webhookId}', webhookId);
         const payload: Payload = {};
@@ -1841,15 +1841,15 @@ export class Projects {
      *
      * @param {string} projectId
      * @param {string} webhookId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     async deleteWebhook(projectId: string, webhookId: string): Promise<{}> {
         if (typeof projectId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "projectId"');
+            throw new AppcondaException('Missing required parameter: "projectId"');
         }
         if (typeof webhookId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "webhookId"');
+            throw new AppcondaException('Missing required parameter: "webhookId"');
         }
         const apiPath = '/projects/{projectId}/webhooks/{webhookId}'.replace('{projectId}', projectId).replace('{webhookId}', webhookId);
         const payload: Payload = {};
@@ -1873,15 +1873,15 @@ export class Projects {
      *
      * @param {string} projectId
      * @param {string} webhookId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Webhook>}
      */
     async updateWebhookSignature(projectId: string, webhookId: string): Promise<Models.Webhook> {
         if (typeof projectId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "projectId"');
+            throw new AppcondaException('Missing required parameter: "projectId"');
         }
         if (typeof webhookId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "webhookId"');
+            throw new AppcondaException('Missing required parameter: "webhookId"');
         }
         const apiPath = '/projects/{projectId}/webhooks/{webhookId}/signature'.replace('{projectId}', projectId).replace('{webhookId}', webhookId);
         const payload: Payload = {};

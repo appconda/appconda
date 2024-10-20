@@ -11,7 +11,7 @@ export declare class Messaging {
      *
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.MessageList>}
      */
     listMessages(queries?: string[], search?: string): Promise<Models.MessageList>;
@@ -32,7 +32,7 @@ export declare class Messaging {
      * @param {boolean} draft
      * @param {boolean} html
      * @param {string} scheduledAt
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Message>}
      */
     createEmail(messageId: string, subject: string, content: string, topics?: string[], users?: string[], targets?: string[], cc?: string[], bcc?: string[], attachments?: string[], draft?: boolean, html?: boolean, scheduledAt?: string): Promise<Models.Message>;
@@ -54,7 +54,7 @@ export declare class Messaging {
      * @param {string[]} bcc
      * @param {string} scheduledAt
      * @param {string[]} attachments
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Message>}
      */
     updateEmail(messageId: string, topics?: string[], users?: string[], targets?: string[], subject?: string, content?: string, draft?: boolean, html?: boolean, cc?: string[], bcc?: string[], scheduledAt?: string, attachments?: string[]): Promise<Models.Message>;
@@ -79,7 +79,7 @@ export declare class Messaging {
      * @param {string} badge
      * @param {boolean} draft
      * @param {string} scheduledAt
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Message>}
      */
     createPush(messageId: string, title: string, body: string, topics?: string[], users?: string[], targets?: string[], data?: object, action?: string, image?: string, icon?: string, sound?: string, color?: string, tag?: string, badge?: string, draft?: boolean, scheduledAt?: string): Promise<Models.Message>;
@@ -105,7 +105,7 @@ export declare class Messaging {
      * @param {number} badge
      * @param {boolean} draft
      * @param {string} scheduledAt
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Message>}
      */
     updatePush(messageId: string, topics?: string[], users?: string[], targets?: string[], title?: string, body?: string, data?: object, action?: string, image?: string, icon?: string, sound?: string, color?: string, tag?: string, badge?: number, draft?: boolean, scheduledAt?: string): Promise<Models.Message>;
@@ -121,7 +121,7 @@ export declare class Messaging {
      * @param {string[]} targets
      * @param {boolean} draft
      * @param {string} scheduledAt
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Message>}
      */
     createSms(messageId: string, content: string, topics?: string[], users?: string[], targets?: string[], draft?: boolean, scheduledAt?: string): Promise<Models.Message>;
@@ -138,7 +138,7 @@ export declare class Messaging {
      * @param {string} content
      * @param {boolean} draft
      * @param {string} scheduledAt
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Message>}
      */
     updateSms(messageId: string, topics?: string[], users?: string[], targets?: string[], content?: string, draft?: boolean, scheduledAt?: string): Promise<Models.Message>;
@@ -149,7 +149,7 @@ export declare class Messaging {
 
      *
      * @param {string} messageId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Message>}
      */
     getMessage(messageId: string): Promise<Models.Message>;
@@ -159,7 +159,7 @@ export declare class Messaging {
      * Delete a message. If the message is not a draft or scheduled, but has been sent, this will not recall the message.
      *
      * @param {string} messageId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     delete(messageId: string): Promise<{}>;
@@ -170,7 +170,7 @@ export declare class Messaging {
      *
      * @param {string} messageId
      * @param {string[]} queries
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.LogList>}
      */
     listMessageLogs(messageId: string, queries?: string[]): Promise<Models.LogList>;
@@ -181,7 +181,7 @@ export declare class Messaging {
      *
      * @param {string} messageId
      * @param {string[]} queries
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.TargetList>}
      */
     listTargets(messageId: string, queries?: string[]): Promise<Models.TargetList>;
@@ -192,7 +192,7 @@ export declare class Messaging {
      *
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.ProviderList>}
      */
     listProviders(queries?: string[], search?: string): Promise<Models.ProviderList>;
@@ -209,7 +209,7 @@ export declare class Messaging {
      * @param {string} bundleId
      * @param {boolean} sandbox
      * @param {boolean} enabled
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     createApnsProvider(providerId: string, name: string, authKey?: string, authKeyId?: string, teamId?: string, bundleId?: string, sandbox?: boolean, enabled?: boolean): Promise<Models.Provider>;
@@ -226,7 +226,7 @@ export declare class Messaging {
      * @param {string} teamId
      * @param {string} bundleId
      * @param {boolean} sandbox
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     updateApnsProvider(providerId: string, name?: string, enabled?: boolean, authKey?: string, authKeyId?: string, teamId?: string, bundleId?: string, sandbox?: boolean): Promise<Models.Provider>;
@@ -239,7 +239,7 @@ export declare class Messaging {
      * @param {string} name
      * @param {object} serviceAccountJSON
      * @param {boolean} enabled
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     createFcmProvider(providerId: string, name: string, serviceAccountJSON?: object, enabled?: boolean): Promise<Models.Provider>;
@@ -252,7 +252,7 @@ export declare class Messaging {
      * @param {string} name
      * @param {boolean} enabled
      * @param {object} serviceAccountJSON
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     updateFcmProvider(providerId: string, name?: string, enabled?: boolean, serviceAccountJSON?: object): Promise<Models.Provider>;
@@ -271,7 +271,7 @@ export declare class Messaging {
      * @param {string} replyToName
      * @param {string} replyToEmail
      * @param {boolean} enabled
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     createMailgunProvider(providerId: string, name: string, apiKey?: string, domain?: string, isEuRegion?: boolean, fromName?: string, fromEmail?: string, replyToName?: string, replyToEmail?: string, enabled?: boolean): Promise<Models.Provider>;
@@ -290,7 +290,7 @@ export declare class Messaging {
      * @param {string} fromEmail
      * @param {string} replyToName
      * @param {string} replyToEmail
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     updateMailgunProvider(providerId: string, name?: string, apiKey?: string, domain?: string, isEuRegion?: boolean, enabled?: boolean, fromName?: string, fromEmail?: string, replyToName?: string, replyToEmail?: string): Promise<Models.Provider>;
@@ -305,7 +305,7 @@ export declare class Messaging {
      * @param {string} senderId
      * @param {string} authKey
      * @param {boolean} enabled
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     createMsg91Provider(providerId: string, name: string, templateId?: string, senderId?: string, authKey?: string, enabled?: boolean): Promise<Models.Provider>;
@@ -320,7 +320,7 @@ export declare class Messaging {
      * @param {string} templateId
      * @param {string} senderId
      * @param {string} authKey
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     updateMsg91Provider(providerId: string, name?: string, enabled?: boolean, templateId?: string, senderId?: string, authKey?: string): Promise<Models.Provider>;
@@ -337,7 +337,7 @@ export declare class Messaging {
      * @param {string} replyToName
      * @param {string} replyToEmail
      * @param {boolean} enabled
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     createSendgridProvider(providerId: string, name: string, apiKey?: string, fromName?: string, fromEmail?: string, replyToName?: string, replyToEmail?: string, enabled?: boolean): Promise<Models.Provider>;
@@ -354,7 +354,7 @@ export declare class Messaging {
      * @param {string} fromEmail
      * @param {string} replyToName
      * @param {string} replyToEmail
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     updateSendgridProvider(providerId: string, name?: string, enabled?: boolean, apiKey?: string, fromName?: string, fromEmail?: string, replyToName?: string, replyToEmail?: string): Promise<Models.Provider>;
@@ -377,7 +377,7 @@ export declare class Messaging {
      * @param {string} replyToName
      * @param {string} replyToEmail
      * @param {boolean} enabled
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     createSmtpProvider(providerId: string, name: string, host: string, port?: number, username?: string, password?: string, encryption?: SmtpEncryption, autoTLS?: boolean, mailer?: string, fromName?: string, fromEmail?: string, replyToName?: string, replyToEmail?: string, enabled?: boolean): Promise<Models.Provider>;
@@ -400,7 +400,7 @@ export declare class Messaging {
      * @param {string} replyToName
      * @param {string} replyToEmail
      * @param {boolean} enabled
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     updateSmtpProvider(providerId: string, name?: string, host?: string, port?: number, username?: string, password?: string, encryption?: SmtpEncryption, autoTLS?: boolean, mailer?: string, fromName?: string, fromEmail?: string, replyToName?: string, replyToEmail?: string, enabled?: boolean): Promise<Models.Provider>;
@@ -415,7 +415,7 @@ export declare class Messaging {
      * @param {string} customerId
      * @param {string} apiKey
      * @param {boolean} enabled
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     createTelesignProvider(providerId: string, name: string, from?: string, customerId?: string, apiKey?: string, enabled?: boolean): Promise<Models.Provider>;
@@ -430,7 +430,7 @@ export declare class Messaging {
      * @param {string} customerId
      * @param {string} apiKey
      * @param {string} from
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     updateTelesignProvider(providerId: string, name?: string, enabled?: boolean, customerId?: string, apiKey?: string, from?: string): Promise<Models.Provider>;
@@ -445,7 +445,7 @@ export declare class Messaging {
      * @param {string} username
      * @param {string} apiKey
      * @param {boolean} enabled
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     createTextmagicProvider(providerId: string, name: string, from?: string, username?: string, apiKey?: string, enabled?: boolean): Promise<Models.Provider>;
@@ -460,7 +460,7 @@ export declare class Messaging {
      * @param {string} username
      * @param {string} apiKey
      * @param {string} from
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     updateTextmagicProvider(providerId: string, name?: string, enabled?: boolean, username?: string, apiKey?: string, from?: string): Promise<Models.Provider>;
@@ -475,7 +475,7 @@ export declare class Messaging {
      * @param {string} accountSid
      * @param {string} authToken
      * @param {boolean} enabled
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     createTwilioProvider(providerId: string, name: string, from?: string, accountSid?: string, authToken?: string, enabled?: boolean): Promise<Models.Provider>;
@@ -490,7 +490,7 @@ export declare class Messaging {
      * @param {string} accountSid
      * @param {string} authToken
      * @param {string} from
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     updateTwilioProvider(providerId: string, name?: string, enabled?: boolean, accountSid?: string, authToken?: string, from?: string): Promise<Models.Provider>;
@@ -505,7 +505,7 @@ export declare class Messaging {
      * @param {string} apiKey
      * @param {string} apiSecret
      * @param {boolean} enabled
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     createVonageProvider(providerId: string, name: string, from?: string, apiKey?: string, apiSecret?: string, enabled?: boolean): Promise<Models.Provider>;
@@ -520,7 +520,7 @@ export declare class Messaging {
      * @param {string} apiKey
      * @param {string} apiSecret
      * @param {string} from
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     updateVonageProvider(providerId: string, name?: string, enabled?: boolean, apiKey?: string, apiSecret?: string, from?: string): Promise<Models.Provider>;
@@ -531,7 +531,7 @@ export declare class Messaging {
 
      *
      * @param {string} providerId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Provider>}
      */
     getProvider(providerId: string): Promise<Models.Provider>;
@@ -541,7 +541,7 @@ export declare class Messaging {
      * Delete a provider by its unique ID.
      *
      * @param {string} providerId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteProvider(providerId: string): Promise<{}>;
@@ -552,7 +552,7 @@ export declare class Messaging {
      *
      * @param {string} providerId
      * @param {string[]} queries
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.LogList>}
      */
     listProviderLogs(providerId: string, queries?: string[]): Promise<Models.LogList>;
@@ -563,7 +563,7 @@ export declare class Messaging {
      *
      * @param {string} subscriberId
      * @param {string[]} queries
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.LogList>}
      */
     listSubscriberLogs(subscriberId: string, queries?: string[]): Promise<Models.LogList>;
@@ -574,7 +574,7 @@ export declare class Messaging {
      *
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.TopicList>}
      */
     listTopics(queries?: string[], search?: string): Promise<Models.TopicList>;
@@ -586,7 +586,7 @@ export declare class Messaging {
      * @param {string} topicId
      * @param {string} name
      * @param {string[]} subscribe
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Topic>}
      */
     createTopic(topicId: string, name: string, subscribe?: string[]): Promise<Models.Topic>;
@@ -597,7 +597,7 @@ export declare class Messaging {
 
      *
      * @param {string} topicId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Topic>}
      */
     getTopic(topicId: string): Promise<Models.Topic>;
@@ -610,7 +610,7 @@ export declare class Messaging {
      * @param {string} topicId
      * @param {string} name
      * @param {string[]} subscribe
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Topic>}
      */
     updateTopic(topicId: string, name?: string, subscribe?: string[]): Promise<Models.Topic>;
@@ -620,7 +620,7 @@ export declare class Messaging {
      * Delete a topic by its unique ID.
      *
      * @param {string} topicId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteTopic(topicId: string): Promise<{}>;
@@ -631,7 +631,7 @@ export declare class Messaging {
      *
      * @param {string} topicId
      * @param {string[]} queries
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.LogList>}
      */
     listTopicLogs(topicId: string, queries?: string[]): Promise<Models.LogList>;
@@ -643,7 +643,7 @@ export declare class Messaging {
      * @param {string} topicId
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.SubscriberList>}
      */
     listSubscribers(topicId: string, queries?: string[], search?: string): Promise<Models.SubscriberList>;
@@ -655,7 +655,7 @@ export declare class Messaging {
      * @param {string} topicId
      * @param {string} subscriberId
      * @param {string} targetId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Subscriber>}
      */
     createSubscriber(topicId: string, subscriberId: string, targetId: string): Promise<Models.Subscriber>;
@@ -667,7 +667,7 @@ export declare class Messaging {
      *
      * @param {string} topicId
      * @param {string} subscriberId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Subscriber>}
      */
     getSubscriber(topicId: string, subscriberId: string): Promise<Models.Subscriber>;
@@ -678,7 +678,7 @@ export declare class Messaging {
      *
      * @param {string} topicId
      * @param {string} subscriberId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteSubscriber(topicId: string, subscriberId: string): Promise<{}>;

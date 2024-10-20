@@ -1,5 +1,5 @@
 import { Service } from '../service';
-import { AppwriteException, Client, type Payload, UploadProgress } from '../client';
+import { AppcondaException, Client, type Payload, UploadProgress } from '../client';
 import type { Models } from '../models';
 
 export class Vcs {
@@ -15,12 +15,12 @@ export class Vcs {
      *
      * @param {string} installationId
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.ProviderRepositoryList>}
      */
     async listRepositories(installationId: string, search?: string): Promise<Models.ProviderRepositoryList> {
         if (typeof installationId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "installationId"');
+            throw new AppcondaException('Missing required parameter: "installationId"');
         }
         const apiPath = '/vcs/github/installations/{installationId}/providerRepositories'.replace('{installationId}', installationId);
         const payload: Payload = {};
@@ -48,18 +48,18 @@ export class Vcs {
      * @param {string} installationId
      * @param {string} name
      * @param {boolean} xprivate
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.ProviderRepository>}
      */
     async createRepository(installationId: string, name: string, xprivate: boolean): Promise<Models.ProviderRepository> {
         if (typeof installationId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "installationId"');
+            throw new AppcondaException('Missing required parameter: "installationId"');
         }
         if (typeof name === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "name"');
+            throw new AppcondaException('Missing required parameter: "name"');
         }
         if (typeof xprivate === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "xprivate"');
+            throw new AppcondaException('Missing required parameter: "xprivate"');
         }
         const apiPath = '/vcs/github/installations/{installationId}/providerRepositories'.replace('{installationId}', installationId);
         const payload: Payload = {};
@@ -89,15 +89,15 @@ export class Vcs {
      *
      * @param {string} installationId
      * @param {string} providerRepositoryId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.ProviderRepository>}
      */
     async getRepository(installationId: string, providerRepositoryId: string): Promise<Models.ProviderRepository> {
         if (typeof installationId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "installationId"');
+            throw new AppcondaException('Missing required parameter: "installationId"');
         }
         if (typeof providerRepositoryId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "providerRepositoryId"');
+            throw new AppcondaException('Missing required parameter: "providerRepositoryId"');
         }
         const apiPath = '/vcs/github/installations/{installationId}/providerRepositories/{providerRepositoryId}'.replace('{installationId}', installationId).replace('{providerRepositoryId}', providerRepositoryId);
         const payload: Payload = {};
@@ -121,15 +121,15 @@ export class Vcs {
      *
      * @param {string} installationId
      * @param {string} providerRepositoryId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.BranchList>}
      */
     async listRepositoryBranches(installationId: string, providerRepositoryId: string): Promise<Models.BranchList> {
         if (typeof installationId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "installationId"');
+            throw new AppcondaException('Missing required parameter: "installationId"');
         }
         if (typeof providerRepositoryId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "providerRepositoryId"');
+            throw new AppcondaException('Missing required parameter: "providerRepositoryId"');
         }
         const apiPath = '/vcs/github/installations/{installationId}/providerRepositories/{providerRepositoryId}/branches'.replace('{installationId}', installationId).replace('{providerRepositoryId}', providerRepositoryId);
         const payload: Payload = {};
@@ -154,15 +154,15 @@ export class Vcs {
      * @param {string} installationId
      * @param {string} providerRepositoryId
      * @param {string} providerRootDirectory
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.VcsContentList>}
      */
     async getRepositoryContents(installationId: string, providerRepositoryId: string, providerRootDirectory?: string): Promise<Models.VcsContentList> {
         if (typeof installationId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "installationId"');
+            throw new AppcondaException('Missing required parameter: "installationId"');
         }
         if (typeof providerRepositoryId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "providerRepositoryId"');
+            throw new AppcondaException('Missing required parameter: "providerRepositoryId"');
         }
         const apiPath = '/vcs/github/installations/{installationId}/providerRepositories/{providerRepositoryId}/contents'.replace('{installationId}', installationId).replace('{providerRepositoryId}', providerRepositoryId);
         const payload: Payload = {};
@@ -190,15 +190,15 @@ export class Vcs {
      * @param {string} installationId
      * @param {string} providerRepositoryId
      * @param {string} providerRootDirectory
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Detection>}
      */
     async createRepositoryDetection(installationId: string, providerRepositoryId: string, providerRootDirectory?: string): Promise<Models.Detection> {
         if (typeof installationId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "installationId"');
+            throw new AppcondaException('Missing required parameter: "installationId"');
         }
         if (typeof providerRepositoryId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "providerRepositoryId"');
+            throw new AppcondaException('Missing required parameter: "providerRepositoryId"');
         }
         const apiPath = '/vcs/github/installations/{installationId}/providerRepositories/{providerRepositoryId}/detection'.replace('{installationId}', installationId).replace('{providerRepositoryId}', providerRepositoryId);
         const payload: Payload = {};
@@ -226,18 +226,18 @@ export class Vcs {
      * @param {string} installationId
      * @param {string} repositoryId
      * @param {string} providerPullRequestId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     async updateExternalDeployments(installationId: string, repositoryId: string, providerPullRequestId: string): Promise<{}> {
         if (typeof installationId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "installationId"');
+            throw new AppcondaException('Missing required parameter: "installationId"');
         }
         if (typeof repositoryId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "repositoryId"');
+            throw new AppcondaException('Missing required parameter: "repositoryId"');
         }
         if (typeof providerPullRequestId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "providerPullRequestId"');
+            throw new AppcondaException('Missing required parameter: "providerPullRequestId"');
         }
         const apiPath = '/vcs/github/installations/{installationId}/repositories/{repositoryId}'.replace('{installationId}', installationId).replace('{repositoryId}', repositoryId);
         const payload: Payload = {};
@@ -264,7 +264,7 @@ export class Vcs {
      *
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.InstallationList>}
      */
     async listInstallations(queries?: string[], search?: string): Promise<Models.InstallationList> {
@@ -295,12 +295,12 @@ export class Vcs {
      *
      *
      * @param {string} installationId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Installation>}
      */
     async getInstallation(installationId: string): Promise<Models.Installation> {
         if (typeof installationId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "installationId"');
+            throw new AppcondaException('Missing required parameter: "installationId"');
         }
         const apiPath = '/vcs/installations/{installationId}'.replace('{installationId}', installationId);
         const payload: Payload = {};
@@ -323,12 +323,12 @@ export class Vcs {
      *
      *
      * @param {string} installationId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     async deleteInstallation(installationId: string): Promise<{}> {
         if (typeof installationId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "installationId"');
+            throw new AppcondaException('Missing required parameter: "installationId"');
         }
         const apiPath = '/vcs/installations/{installationId}'.replace('{installationId}', installationId);
         const payload: Payload = {};

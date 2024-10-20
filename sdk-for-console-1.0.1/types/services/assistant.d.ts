@@ -7,7 +7,7 @@ export declare class Assistant {
      *
      *
      * @param {string} prompt
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     chat(prompt: string): Promise<{}>;

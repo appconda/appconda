@@ -1,5 +1,5 @@
 import { Service } from '../service';
-import { AppwriteException, Client } from '../client';
+import { AppcondaException, Client } from '../client';
 import type { Models } from '../models';
 import type { UploadProgress, Payload } from '../client';
 import { AuthenticatorType } from '../enums/authenticator-type';
@@ -18,7 +18,7 @@ export class Account extends Service {
      *
      * Get the currently logged in user.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async get<Preferences extends Models.Preferences>(): Promise<Models.User<Preferences>> {
@@ -48,20 +48,20 @@ export class Account extends Service {
      * @param {string} email
      * @param {string} password
      * @param {string} name
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async create<Preferences extends Models.Preferences>(userId: string, email: string, password: string, name?: string): Promise<Models.User<Preferences>> {
         if (typeof userId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "userId"');
+            throw new AppcondaException('Missing required parameter: "userId"');
         }
 
         if (typeof email === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "email"');
+            throw new AppcondaException('Missing required parameter: "email"');
         }
 
         if (typeof password === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "password"');
+            throw new AppcondaException('Missing required parameter: "password"');
         }
 
         const apiPath = '/account';
@@ -103,16 +103,16 @@ export class Account extends Service {
      *
      * @param {string} email
      * @param {string} password
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async updateEmail<Preferences extends Models.Preferences>(email: string, password: string): Promise<Models.User<Preferences>> {
         if (typeof email === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "email"');
+            throw new AppcondaException('Missing required parameter: "email"');
         }
 
         if (typeof password === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "password"');
+            throw new AppcondaException('Missing required parameter: "password"');
         }
 
         const apiPath = '/account/email';
@@ -138,7 +138,7 @@ export class Account extends Service {
      * Get the list of identities for the currently logged in user.
      *
      * @param {string[]} queries
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async listIdentities(queries?: string[]): Promise<Models.IdentityList> {
@@ -161,12 +161,12 @@ export class Account extends Service {
      * Delete an identity by its unique ID.
      *
      * @param {string} identityId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async deleteIdentity(identityId: string): Promise<{}> {
         if (typeof identityId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "identityId"');
+            throw new AppcondaException('Missing required parameter: "identityId"');
         }
 
         const apiPath = '/account/identities/{identityId}'.replace('{identityId}', identityId);
@@ -187,7 +187,7 @@ export class Account extends Service {
      * from its creation and will be invalid if the user will logout in that time
      * frame.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async createJWT(): Promise<Models.Jwt> {
@@ -207,7 +207,7 @@ export class Account extends Service {
      * user. Each log returns user IP address, location and date and time of log.
      *
      * @param {string[]} queries
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async listLogs(queries?: string[]): Promise<Models.LogList> {
@@ -230,12 +230,12 @@ export class Account extends Service {
      * Enable or disable MFA on an account.
      *
      * @param {boolean} mfa
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async updateMFA<Preferences extends Models.Preferences>(mfa: boolean): Promise<Models.User<Preferences>> {
         if (typeof mfa === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "mfa"');
+            throw new AppcondaException('Missing required parameter: "mfa"');
         }
 
         const apiPath = '/account/mfa';
@@ -260,12 +260,12 @@ export class Account extends Service {
      * method.
      *
      * @param {AuthenticatorType} type
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async createMfaAuthenticator(type: AuthenticatorType): Promise<Models.MfaType> {
         if (typeof type === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "type"');
+            throw new AppcondaException('Missing required parameter: "type"');
         }
 
         const apiPath = '/account/mfa/authenticators/{type}'.replace('{type}', type);
@@ -286,16 +286,16 @@ export class Account extends Service {
      *
      * @param {AuthenticatorType} type
      * @param {string} otp
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async updateMfaAuthenticator<Preferences extends Models.Preferences>(type: AuthenticatorType, otp: string): Promise<Models.User<Preferences>> {
         if (typeof type === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "type"');
+            throw new AppcondaException('Missing required parameter: "type"');
         }
 
         if (typeof otp === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "otp"');
+            throw new AppcondaException('Missing required parameter: "otp"');
         }
 
         const apiPath = '/account/mfa/authenticators/{type}'.replace('{type}', type);
@@ -318,16 +318,16 @@ export class Account extends Service {
      *
      * @param {AuthenticatorType} type
      * @param {string} otp
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async deleteMfaAuthenticator(type: AuthenticatorType, otp: string): Promise<{}> {
         if (typeof type === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "type"');
+            throw new AppcondaException('Missing required parameter: "type"');
         }
 
         if (typeof otp === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "otp"');
+            throw new AppcondaException('Missing required parameter: "otp"');
         }
 
         const apiPath = '/account/mfa/authenticators/{type}'.replace('{type}', type);
@@ -351,12 +351,12 @@ export class Account extends Service {
      * method.
      *
      * @param {AuthenticationFactor} factor
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async createMfaChallenge(factor: AuthenticationFactor): Promise<Models.MfaChallenge> {
         if (typeof factor === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "factor"');
+            throw new AppcondaException('Missing required parameter: "factor"');
         }
 
         const apiPath = '/account/mfa/challenge';
@@ -383,16 +383,16 @@ export class Account extends Service {
      *
      * @param {string} challengeId
      * @param {string} otp
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async updateMfaChallenge(challengeId: string, otp: string): Promise<{}> {
         if (typeof challengeId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "challengeId"');
+            throw new AppcondaException('Missing required parameter: "challengeId"');
         }
 
         if (typeof otp === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "otp"');
+            throw new AppcondaException('Missing required parameter: "otp"');
         }
 
         const apiPath = '/account/mfa/challenge';
@@ -417,7 +417,7 @@ export class Account extends Service {
      *
      * List the factors available on the account to be used as a MFA challange.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async listMfaFactors(): Promise<Models.MfaFactors> {
@@ -438,7 +438,7 @@ export class Account extends Service {
      * [createMfaRecoveryCodes](/docs/references/cloud/client-web/account#createMfaRecoveryCodes)
      * method. An OTP challenge is required to read recovery codes.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async getMfaRecoveryCodes(): Promise<Models.MfaRecoveryCodes> {
@@ -460,7 +460,7 @@ export class Account extends Service {
      * [createMfaChallenge](/docs/references/cloud/client-web/account#createMfaChallenge)
      * method.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async createMfaRecoveryCodes(): Promise<Models.MfaRecoveryCodes> {
@@ -481,7 +481,7 @@ export class Account extends Service {
      * [createMfaRecoveryCodes](/docs/references/cloud/client-web/account#createMfaRecoveryCodes)
      * method. An OTP challenge is required to regenreate recovery codes.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async updateMfaRecoveryCodes(): Promise<Models.MfaRecoveryCodes> {
@@ -500,12 +500,12 @@ export class Account extends Service {
      * Update currently logged in user account name.
      *
      * @param {string} name
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async updateName<Preferences extends Models.Preferences>(name: string): Promise<Models.User<Preferences>> {
         if (typeof name === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "name"');
+            throw new AppcondaException('Missing required parameter: "name"');
         }
 
         const apiPath = '/account/name';
@@ -530,12 +530,12 @@ export class Account extends Service {
      *
      * @param {string} password
      * @param {string} oldPassword
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async updatePassword<Preferences extends Models.Preferences>(password: string, oldPassword?: string): Promise<Models.User<Preferences>> {
         if (typeof password === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "password"');
+            throw new AppcondaException('Missing required parameter: "password"');
         }
 
         const apiPath = '/account/password';
@@ -566,16 +566,16 @@ export class Account extends Service {
      *
      * @param {string} phone
      * @param {string} password
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async updatePhone<Preferences extends Models.Preferences>(phone: string, password: string): Promise<Models.User<Preferences>> {
         if (typeof phone === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "phone"');
+            throw new AppcondaException('Missing required parameter: "phone"');
         }
 
         if (typeof password === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "password"');
+            throw new AppcondaException('Missing required parameter: "password"');
         }
 
         const apiPath = '/account/phone';
@@ -600,7 +600,7 @@ export class Account extends Service {
      *
      * Get the preferences as a key-value object for the currently logged in user.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async getPrefs<Preferences extends Models.Preferences>(): Promise<Preferences> {
@@ -621,12 +621,12 @@ export class Account extends Service {
      * size is 64kB and throws error if exceeded.
      *
      * @param {Partial<Preferences>} prefs
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async updatePrefs<Preferences extends Models.Preferences>(prefs: Partial<Preferences>): Promise<Models.User<Preferences>> {
         if (typeof prefs === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "prefs"');
+            throw new AppcondaException('Missing required parameter: "prefs"');
         }
 
         const apiPath = '/account/prefs';
@@ -656,16 +656,16 @@ export class Account extends Service {
      *
      * @param {string} email
      * @param {string} url
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async createRecovery(email: string, url: string): Promise<Models.Token> {
         if (typeof email === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "email"');
+            throw new AppcondaException('Missing required parameter: "email"');
         }
 
         if (typeof url === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "url"');
+            throw new AppcondaException('Missing required parameter: "url"');
         }
 
         const apiPath = '/account/recovery';
@@ -702,20 +702,20 @@ export class Account extends Service {
      * @param {string} userId
      * @param {string} secret
      * @param {string} password
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async updateRecovery(userId: string, secret: string, password: string): Promise<Models.Token> {
         if (typeof userId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "userId"');
+            throw new AppcondaException('Missing required parameter: "userId"');
         }
 
         if (typeof secret === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "secret"');
+            throw new AppcondaException('Missing required parameter: "secret"');
         }
 
         if (typeof password === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "password"');
+            throw new AppcondaException('Missing required parameter: "password"');
         }
 
         const apiPath = '/account/recovery';
@@ -745,7 +745,7 @@ export class Account extends Service {
      * Get the list of active sessions across different devices for the currently
      * logged in user.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async listSessions(): Promise<Models.SessionList> {
@@ -764,7 +764,7 @@ export class Account extends Service {
      * Delete all sessions from the user account and remove any sessions cookies
      * from the end client.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async deleteSessions(): Promise<{}> {
@@ -788,7 +788,7 @@ export class Account extends Service {
      * or create an [OAuth2
      * session](https://appconda.io/docs/references/cloud/client-web/account#CreateOAuth2Session).
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async createAnonymousSession(): Promise<Models.Session> {
@@ -813,16 +813,16 @@ export class Account extends Service {
      *
      * @param {string} email
      * @param {string} password
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async createEmailPasswordSession(email: string, password: string): Promise<Models.Session> {
         if (typeof email === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "email"');
+            throw new AppcondaException('Missing required parameter: "email"');
         }
 
         if (typeof password === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "password"');
+            throw new AppcondaException('Missing required parameter: "password"');
         }
 
         const apiPath = '/account/sessions/email';
@@ -844,7 +844,7 @@ export class Account extends Service {
 
     async check(email: string): Promise<any> {
         if (typeof email === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "email"');
+            throw new AppcondaException('Missing required parameter: "email"');
         }
 
         const apiPath = '/account/check';
@@ -871,16 +871,16 @@ export class Account extends Service {
      *
      * @param {string} userId
      * @param {string} secret
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async updateMagicURLSession(userId: string, secret: string): Promise<Models.Session> {
         if (typeof userId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "userId"');
+            throw new AppcondaException('Missing required parameter: "userId"');
         }
 
         if (typeof secret === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "secret"');
+            throw new AppcondaException('Missing required parameter: "secret"');
         }
 
         const apiPath = '/account/sessions/magic-url';
@@ -924,12 +924,12 @@ export class Account extends Service {
      * @param {string} success
      * @param {string} failure
      * @param {string[]} scopes
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {void|string}
     */
     createOAuth2Session(provider: OAuthProvider, success?: string, failure?: string, scopes?: string[]): void | URL {
         if (typeof provider === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "provider"');
+            throw new AppcondaException('Missing required parameter: "provider"');
         }
 
         const apiPath = '/account/sessions/oauth2/{provider}'.replace('{provider}', provider);
@@ -970,16 +970,16 @@ export class Account extends Service {
      *
      * @param {string} userId
      * @param {string} secret
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async updatePhoneSession(userId: string, secret: string): Promise<Models.Session> {
         if (typeof userId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "userId"');
+            throw new AppcondaException('Missing required parameter: "userId"');
         }
 
         if (typeof secret === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "secret"');
+            throw new AppcondaException('Missing required parameter: "secret"');
         }
 
         const apiPath = '/account/sessions/phone';
@@ -1008,16 +1008,16 @@ export class Account extends Service {
      *
      * @param {string} userId
      * @param {string} secret
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async createSession(userId: string, secret: string): Promise<Models.Session> {
         if (typeof userId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "userId"');
+            throw new AppcondaException('Missing required parameter: "userId"');
         }
 
         if (typeof secret === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "secret"');
+            throw new AppcondaException('Missing required parameter: "secret"');
         }
 
         const apiPath = '/account/sessions/token';
@@ -1044,12 +1044,12 @@ export class Account extends Service {
      * Inputting 'current' will return the current session being used.
      *
      * @param {string} sessionId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async getSession(sessionId: string): Promise<Models.Session> {
         if (typeof sessionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "sessionId"');
+            throw new AppcondaException('Missing required parameter: "sessionId"');
         }
 
         const apiPath = '/account/sessions/{sessionId}'.replace('{sessionId}', sessionId);
@@ -1069,12 +1069,12 @@ export class Account extends Service {
      * OAuth provider, this endpoint refreshes the access token from the provider.
      *
      * @param {string} sessionId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async updateSession(sessionId: string): Promise<Models.Session> {
         if (typeof sessionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "sessionId"');
+            throw new AppcondaException('Missing required parameter: "sessionId"');
         }
 
         const apiPath = '/account/sessions/{sessionId}'.replace('{sessionId}', sessionId);
@@ -1096,12 +1096,12 @@ export class Account extends Service {
      * instead.
      *
      * @param {string} sessionId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async deleteSession(sessionId: string): Promise<{}> {
         if (typeof sessionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "sessionId"');
+            throw new AppcondaException('Missing required parameter: "sessionId"');
         }
 
         const apiPath = '/account/sessions/{sessionId}'.replace('{sessionId}', sessionId);
@@ -1120,7 +1120,7 @@ export class Account extends Service {
      * record is not deleted but permanently blocked from any access. To
      * completely delete a user, use the Users API instead.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async updateStatus<Preferences extends Models.Preferences>(): Promise<Models.User<Preferences>> {
@@ -1140,16 +1140,16 @@ export class Account extends Service {
      * @param {string} targetId
      * @param {string} identifier
      * @param {string} providerId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async createPushTarget(targetId: string, identifier: string, providerId?: string): Promise<Models.Target> {
         if (typeof targetId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "targetId"');
+            throw new AppcondaException('Missing required parameter: "targetId"');
         }
 
         if (typeof identifier === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "identifier"');
+            throw new AppcondaException('Missing required parameter: "identifier"');
         }
 
         const apiPath = '/account/targets/push';
@@ -1179,16 +1179,16 @@ export class Account extends Service {
      *
      * @param {string} targetId
      * @param {string} identifier
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async updatePushTarget(targetId: string, identifier: string): Promise<Models.Target> {
         if (typeof targetId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "targetId"');
+            throw new AppcondaException('Missing required parameter: "targetId"');
         }
 
         if (typeof identifier === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "identifier"');
+            throw new AppcondaException('Missing required parameter: "identifier"');
         }
 
         const apiPath = '/account/targets/{targetId}/push'.replace('{targetId}', targetId);
@@ -1209,12 +1209,12 @@ export class Account extends Service {
      *
      *
      * @param {string} targetId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async deletePushTarget(targetId: string): Promise<{}> {
         if (typeof targetId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "targetId"');
+            throw new AppcondaException('Missing required parameter: "targetId"');
         }
 
         const apiPath = '/account/targets/{targetId}/push'.replace('{targetId}', targetId);
@@ -1243,16 +1243,16 @@ export class Account extends Service {
      * @param {string} userId
      * @param {string} email
      * @param {boolean} phrase
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async createEmailToken(userId: string, email: string, phrase?: boolean): Promise<Models.Token> {
         if (typeof userId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "userId"');
+            throw new AppcondaException('Missing required parameter: "userId"');
         }
 
         if (typeof email === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "email"');
+            throw new AppcondaException('Missing required parameter: "email"');
         }
 
         const apiPath = '/account/tokens/email';
@@ -1300,16 +1300,16 @@ export class Account extends Service {
      * @param {string} email
      * @param {string} url
      * @param {boolean} phrase
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async createMagicURLToken(userId: string, email: string, url?: string, phrase?: boolean): Promise<Models.Token> {
         if (typeof userId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "userId"');
+            throw new AppcondaException('Missing required parameter: "userId"');
         }
 
         if (typeof email === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "email"');
+            throw new AppcondaException('Missing required parameter: "email"');
         }
 
         const apiPath = '/account/tokens/magic-url';
@@ -1359,12 +1359,12 @@ export class Account extends Service {
      * @param {string} success
      * @param {string} failure
      * @param {string[]} scopes
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {void|string}
     */
     createOAuth2Token(provider: OAuthProvider, success?: string, failure?: string, scopes?: string[]): void | URL {
         if (typeof provider === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "provider"');
+            throw new AppcondaException('Missing required parameter: "provider"');
         }
 
         const apiPath = '/account/tokens/oauth2/{provider}'.replace('{provider}', provider);
@@ -1412,16 +1412,16 @@ export class Account extends Service {
      *
      * @param {string} userId
      * @param {string} phone
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async createPhoneToken(userId: string, phone: string): Promise<Models.Token> {
         if (typeof userId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "userId"');
+            throw new AppcondaException('Missing required parameter: "userId"');
         }
 
         if (typeof phone === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "phone"');
+            throw new AppcondaException('Missing required parameter: "phone"');
         }
 
         const apiPath = '/account/tokens/phone';
@@ -1461,12 +1461,12 @@ export class Account extends Service {
      * 
      *
      * @param {string} url
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async createVerification(url: string): Promise<Models.Token> {
         if (typeof url === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "url"');
+            throw new AppcondaException('Missing required parameter: "url"');
         }
 
         const apiPath = '/account/verification';
@@ -1492,16 +1492,16 @@ export class Account extends Service {
      *
      * @param {string} userId
      * @param {string} secret
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async updateVerification(userId: string, secret: string): Promise<Models.Token> {
         if (typeof userId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "userId"');
+            throw new AppcondaException('Missing required parameter: "userId"');
         }
 
         if (typeof secret === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "secret"');
+            throw new AppcondaException('Missing required parameter: "secret"');
         }
 
         const apiPath = '/account/verification';
@@ -1533,7 +1533,7 @@ export class Account extends Service {
      * The verification code sent to the user's phone number is valid for 15
      * minutes.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async createPhoneVerification(): Promise<Models.Token> {
@@ -1556,16 +1556,16 @@ export class Account extends Service {
      *
      * @param {string} userId
      * @param {string} secret
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise}
     */
     async updatePhoneVerification(userId: string, secret: string): Promise<Models.Token> {
         if (typeof userId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "userId"');
+            throw new AppcondaException('Missing required parameter: "userId"');
         }
 
         if (typeof secret === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "secret"');
+            throw new AppcondaException('Missing required parameter: "secret"');
         }
 
         const apiPath = '/account/verification/phone';

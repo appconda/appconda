@@ -1,5 +1,5 @@
 import { Service } from '../service';
-import { AppwriteException, Client, type Payload, UploadProgress } from '../client';
+import { AppcondaException, Client, type Payload, UploadProgress } from '../client';
 import type { Models } from '../models';
 import { PasswordHash } from '../enums/password-hash';
 import { UserUsageRange } from '../enums/user-usage-range';
@@ -20,7 +20,7 @@ export class Users {
      *
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.UserList<Preferences>>}
      */
     async list<Preferences extends Models.Preferences>(queries?: string[], search?: string): Promise<Models.UserList<Preferences>> {
@@ -56,12 +56,12 @@ export class Users {
      * @param {string} phone
      * @param {string} password
      * @param {string} name
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     async create<Preferences extends Models.Preferences>(userId: string, email?: string, phone?: string, password?: string, name?: string): Promise<Models.User<Preferences>> {
         if (typeof userId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "userId"');
+            throw new AppcondaException('Missing required parameter: "userId"');
         }
         const apiPath = '/users';
         const payload: Payload = {};
@@ -103,18 +103,18 @@ export class Users {
      * @param {string} email
      * @param {string} password
      * @param {string} name
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     async createArgon2User<Preferences extends Models.Preferences>(userId: string, email: string, password: string, name?: string): Promise<Models.User<Preferences>> {
         if (typeof userId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "userId"');
+            throw new AppcondaException('Missing required parameter: "userId"');
         }
         if (typeof email === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "email"');
+            throw new AppcondaException('Missing required parameter: "email"');
         }
         if (typeof password === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "password"');
+            throw new AppcondaException('Missing required parameter: "password"');
         }
         const apiPath = '/users/argon2';
         const payload: Payload = {};
@@ -153,18 +153,18 @@ export class Users {
      * @param {string} email
      * @param {string} password
      * @param {string} name
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     async createBcryptUser<Preferences extends Models.Preferences>(userId: string, email: string, password: string, name?: string): Promise<Models.User<Preferences>> {
         if (typeof userId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "userId"');
+            throw new AppcondaException('Missing required parameter: "userId"');
         }
         if (typeof email === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "email"');
+            throw new AppcondaException('Missing required parameter: "email"');
         }
         if (typeof password === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "password"');
+            throw new AppcondaException('Missing required parameter: "password"');
         }
         const apiPath = '/users/bcrypt';
         const payload: Payload = {};
@@ -201,7 +201,7 @@ export class Users {
      *
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.IdentityList>}
      */
     async listIdentities(queries?: string[], search?: string): Promise<Models.IdentityList> {
@@ -233,12 +233,12 @@ export class Users {
      * Delete an identity by its unique ID.
      *
      * @param {string} identityId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     async deleteIdentity(identityId: string): Promise<{}> {
         if (typeof identityId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "identityId"');
+            throw new AppcondaException('Missing required parameter: "identityId"');
         }
         const apiPath = '/users/identities/{identityId}'.replace('{identityId}', identityId);
         const payload: Payload = {};
@@ -265,18 +265,18 @@ export class Users {
      * @param {string} email
      * @param {string} password
      * @param {string} name
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     async createMD5User<Preferences extends Models.Preferences>(userId: string, email: string, password: string, name?: string): Promise<Models.User<Preferences>> {
         if (typeof userId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "userId"');
+            throw new AppcondaException('Missing required parameter: "userId"');
         }
         if (typeof email === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "email"');
+            throw new AppcondaException('Missing required parameter: "email"');
         }
         if (typeof password === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "password"');
+            throw new AppcondaException('Missing required parameter: "password"');
         }
         const apiPath = '/users/md5';
         const payload: Payload = {};
@@ -315,18 +315,18 @@ export class Users {
      * @param {string} email
      * @param {string} password
      * @param {string} name
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     async createPHPassUser<Preferences extends Models.Preferences>(userId: string, email: string, password: string, name?: string): Promise<Models.User<Preferences>> {
         if (typeof userId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "userId"');
+            throw new AppcondaException('Missing required parameter: "userId"');
         }
         if (typeof email === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "email"');
+            throw new AppcondaException('Missing required parameter: "email"');
         }
         if (typeof password === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "password"');
+            throw new AppcondaException('Missing required parameter: "password"');
         }
         const apiPath = '/users/phpass';
         const payload: Payload = {};
@@ -370,33 +370,33 @@ export class Users {
      * @param {number} passwordParallel
      * @param {number} passwordLength
      * @param {string} name
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     async createScryptUser<Preferences extends Models.Preferences>(userId: string, email: string, password: string, passwordSalt: string, passwordCpu: number, passwordMemory: number, passwordParallel: number, passwordLength: number, name?: string): Promise<Models.User<Preferences>> {
         if (typeof userId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "userId"');
+            throw new AppcondaException('Missing required parameter: "userId"');
         }
         if (typeof email === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "email"');
+            throw new AppcondaException('Missing required parameter: "email"');
         }
         if (typeof password === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "password"');
+            throw new AppcondaException('Missing required parameter: "password"');
         }
         if (typeof passwordSalt === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "passwordSalt"');
+            throw new AppcondaException('Missing required parameter: "passwordSalt"');
         }
         if (typeof passwordCpu === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "passwordCpu"');
+            throw new AppcondaException('Missing required parameter: "passwordCpu"');
         }
         if (typeof passwordMemory === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "passwordMemory"');
+            throw new AppcondaException('Missing required parameter: "passwordMemory"');
         }
         if (typeof passwordParallel === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "passwordParallel"');
+            throw new AppcondaException('Missing required parameter: "passwordParallel"');
         }
         if (typeof passwordLength === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "passwordLength"');
+            throw new AppcondaException('Missing required parameter: "passwordLength"');
         }
         const apiPath = '/users/scrypt';
         const payload: Payload = {};
@@ -453,27 +453,27 @@ export class Users {
      * @param {string} passwordSaltSeparator
      * @param {string} passwordSignerKey
      * @param {string} name
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     async createScryptModifiedUser<Preferences extends Models.Preferences>(userId: string, email: string, password: string, passwordSalt: string, passwordSaltSeparator: string, passwordSignerKey: string, name?: string): Promise<Models.User<Preferences>> {
         if (typeof userId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "userId"');
+            throw new AppcondaException('Missing required parameter: "userId"');
         }
         if (typeof email === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "email"');
+            throw new AppcondaException('Missing required parameter: "email"');
         }
         if (typeof password === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "password"');
+            throw new AppcondaException('Missing required parameter: "password"');
         }
         if (typeof passwordSalt === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "passwordSalt"');
+            throw new AppcondaException('Missing required parameter: "passwordSalt"');
         }
         if (typeof passwordSaltSeparator === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "passwordSaltSeparator"');
+            throw new AppcondaException('Missing required parameter: "passwordSaltSeparator"');
         }
         if (typeof passwordSignerKey === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "passwordSignerKey"');
+            throw new AppcondaException('Missing required parameter: "passwordSignerKey"');
         }
         const apiPath = '/users/scrypt-modified';
         const payload: Payload = {};
@@ -522,18 +522,18 @@ export class Users {
      * @param {string} password
      * @param {PasswordHash} passwordVersion
      * @param {string} name
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     async createSHAUser<Preferences extends Models.Preferences>(userId: string, email: string, password: string, passwordVersion?: PasswordHash, name?: string): Promise<Models.User<Preferences>> {
         if (typeof userId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "userId"');
+            throw new AppcondaException('Missing required parameter: "userId"');
         }
         if (typeof email === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "email"');
+            throw new AppcondaException('Missing required parameter: "email"');
         }
         if (typeof password === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "password"');
+            throw new AppcondaException('Missing required parameter: "password"');
         }
         const apiPath = '/users/sha';
         const payload: Payload = {};
@@ -571,7 +571,7 @@ export class Users {
      *
      *
      * @param {UserUsageRange} range
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.UsageUsers>}
      */
     async getUsage(range?: UserUsageRange): Promise<Models.UsageUsers> {
@@ -600,12 +600,12 @@ export class Users {
      * Get a user by its unique ID.
      *
      * @param {string} userId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     async get<Preferences extends Models.Preferences>(userId: string): Promise<Models.User<Preferences>> {
         if (typeof userId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "userId"');
+            throw new AppcondaException('Missing required parameter: "userId"');
         }
         const apiPath = '/users/{userId}'.replace('{userId}', userId);
         const payload: Payload = {};
@@ -629,12 +629,12 @@ export class Users {
      * Delete a user by its unique ID, thereby releasing it&#039;s ID. Since ID is released and can be reused, all user-related resources like documents or storage files should be deleted before user deletion. If you want to keep ID reserved, use the [updateStatus](https://appconda.io/docs/server/users#usersUpdateStatus) endpoint instead.
      *
      * @param {string} userId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     async delete(userId: string): Promise<{}> {
         if (typeof userId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "userId"');
+            throw new AppcondaException('Missing required parameter: "userId"');
         }
         const apiPath = '/users/{userId}'.replace('{userId}', userId);
         const payload: Payload = {};
@@ -659,15 +659,15 @@ export class Users {
      *
      * @param {string} userId
      * @param {string} email
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     async updateEmail<Preferences extends Models.Preferences>(userId: string, email: string): Promise<Models.User<Preferences>> {
         if (typeof userId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "userId"');
+            throw new AppcondaException('Missing required parameter: "userId"');
         }
         if (typeof email === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "email"');
+            throw new AppcondaException('Missing required parameter: "email"');
         }
         const apiPath = '/users/{userId}/email'.replace('{userId}', userId);
         const payload: Payload = {};
@@ -696,12 +696,12 @@ export class Users {
      * @param {string} userId
      * @param {string} sessionId
      * @param {number} duration
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Jwt>}
      */
     async createJWT(userId: string, sessionId?: string, duration?: number): Promise<Models.Jwt> {
         if (typeof userId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "userId"');
+            throw new AppcondaException('Missing required parameter: "userId"');
         }
         const apiPath = '/users/{userId}/jwts'.replace('{userId}', userId);
         const payload: Payload = {};
@@ -734,15 +734,15 @@ Labels can be used to grant access to resources. While teams are a way for user&
      *
      * @param {string} userId
      * @param {string[]} labels
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     async updateLabels<Preferences extends Models.Preferences>(userId: string, labels: string[]): Promise<Models.User<Preferences>> {
         if (typeof userId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "userId"');
+            throw new AppcondaException('Missing required parameter: "userId"');
         }
         if (typeof labels === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "labels"');
+            throw new AppcondaException('Missing required parameter: "labels"');
         }
         const apiPath = '/users/{userId}/labels'.replace('{userId}', userId);
         const payload: Payload = {};
@@ -770,12 +770,12 @@ Labels can be used to grant access to resources. While teams are a way for user&
      *
      * @param {string} userId
      * @param {string[]} queries
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.LogList>}
      */
     async listLogs(userId: string, queries?: string[]): Promise<Models.LogList> {
         if (typeof userId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "userId"');
+            throw new AppcondaException('Missing required parameter: "userId"');
         }
         const apiPath = '/users/{userId}/logs'.replace('{userId}', userId);
         const payload: Payload = {};
@@ -802,12 +802,12 @@ Labels can be used to grant access to resources. While teams are a way for user&
      * Get the user membership list by its unique ID.
      *
      * @param {string} userId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.MembershipList>}
      */
     async listMemberships(userId: string): Promise<Models.MembershipList> {
         if (typeof userId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "userId"');
+            throw new AppcondaException('Missing required parameter: "userId"');
         }
         const apiPath = '/users/{userId}/memberships'.replace('{userId}', userId);
         const payload: Payload = {};
@@ -832,15 +832,15 @@ Labels can be used to grant access to resources. While teams are a way for user&
      *
      * @param {string} userId
      * @param {boolean} mfa
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     async updateMfa<Preferences extends Models.Preferences>(userId: string, mfa: boolean): Promise<Models.User<Preferences>> {
         if (typeof userId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "userId"');
+            throw new AppcondaException('Missing required parameter: "userId"');
         }
         if (typeof mfa === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "mfa"');
+            throw new AppcondaException('Missing required parameter: "mfa"');
         }
         const apiPath = '/users/{userId}/mfa'.replace('{userId}', userId);
         const payload: Payload = {};
@@ -868,15 +868,15 @@ Labels can be used to grant access to resources. While teams are a way for user&
      *
      * @param {string} userId
      * @param {AuthenticatorType} type
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     async deleteMfaAuthenticator<Preferences extends Models.Preferences>(userId: string, type: AuthenticatorType): Promise<Models.User<Preferences>> {
         if (typeof userId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "userId"');
+            throw new AppcondaException('Missing required parameter: "userId"');
         }
         if (typeof type === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "type"');
+            throw new AppcondaException('Missing required parameter: "type"');
         }
         const apiPath = '/users/{userId}/mfa/authenticators/{type}'.replace('{userId}', userId).replace('{type}', type);
         const payload: Payload = {};
@@ -900,12 +900,12 @@ Labels can be used to grant access to resources. While teams are a way for user&
      * List the factors available on the account to be used as a MFA challange.
      *
      * @param {string} userId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.MfaFactors>}
      */
     async listMfaFactors(userId: string): Promise<Models.MfaFactors> {
         if (typeof userId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "userId"');
+            throw new AppcondaException('Missing required parameter: "userId"');
         }
         const apiPath = '/users/{userId}/mfa/factors'.replace('{userId}', userId);
         const payload: Payload = {};
@@ -929,12 +929,12 @@ Labels can be used to grant access to resources. While teams are a way for user&
      * Get recovery codes that can be used as backup for MFA flow by User ID. Before getting codes, they must be generated using [createMfaRecoveryCodes](/docs/references/cloud/client-web/account#createMfaRecoveryCodes) method.
      *
      * @param {string} userId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.MfaRecoveryCodes>}
      */
     async getMfaRecoveryCodes(userId: string): Promise<Models.MfaRecoveryCodes> {
         if (typeof userId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "userId"');
+            throw new AppcondaException('Missing required parameter: "userId"');
         }
         const apiPath = '/users/{userId}/mfa/recovery-codes'.replace('{userId}', userId);
         const payload: Payload = {};
@@ -958,12 +958,12 @@ Labels can be used to grant access to resources. While teams are a way for user&
      * Regenerate recovery codes that can be used as backup for MFA flow by User ID. Before regenerating codes, they must be first generated using [createMfaRecoveryCodes](/docs/references/cloud/client-web/account#createMfaRecoveryCodes) method.
      *
      * @param {string} userId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.MfaRecoveryCodes>}
      */
     async updateMfaRecoveryCodes(userId: string): Promise<Models.MfaRecoveryCodes> {
         if (typeof userId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "userId"');
+            throw new AppcondaException('Missing required parameter: "userId"');
         }
         const apiPath = '/users/{userId}/mfa/recovery-codes'.replace('{userId}', userId);
         const payload: Payload = {};
@@ -987,12 +987,12 @@ Labels can be used to grant access to resources. While teams are a way for user&
      * Generate recovery codes used as backup for MFA flow for User ID. Recovery codes can be used as a MFA verification type in [createMfaChallenge](/docs/references/cloud/client-web/account#createMfaChallenge) method by client SDK.
      *
      * @param {string} userId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.MfaRecoveryCodes>}
      */
     async createMfaRecoveryCodes(userId: string): Promise<Models.MfaRecoveryCodes> {
         if (typeof userId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "userId"');
+            throw new AppcondaException('Missing required parameter: "userId"');
         }
         const apiPath = '/users/{userId}/mfa/recovery-codes'.replace('{userId}', userId);
         const payload: Payload = {};
@@ -1017,15 +1017,15 @@ Labels can be used to grant access to resources. While teams are a way for user&
      *
      * @param {string} userId
      * @param {string} name
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     async updateName<Preferences extends Models.Preferences>(userId: string, name: string): Promise<Models.User<Preferences>> {
         if (typeof userId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "userId"');
+            throw new AppcondaException('Missing required parameter: "userId"');
         }
         if (typeof name === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "name"');
+            throw new AppcondaException('Missing required parameter: "name"');
         }
         const apiPath = '/users/{userId}/name'.replace('{userId}', userId);
         const payload: Payload = {};
@@ -1053,15 +1053,15 @@ Labels can be used to grant access to resources. While teams are a way for user&
      *
      * @param {string} userId
      * @param {string} password
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     async updatePassword<Preferences extends Models.Preferences>(userId: string, password: string): Promise<Models.User<Preferences>> {
         if (typeof userId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "userId"');
+            throw new AppcondaException('Missing required parameter: "userId"');
         }
         if (typeof password === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "password"');
+            throw new AppcondaException('Missing required parameter: "password"');
         }
         const apiPath = '/users/{userId}/password'.replace('{userId}', userId);
         const payload: Payload = {};
@@ -1089,15 +1089,15 @@ Labels can be used to grant access to resources. While teams are a way for user&
      *
      * @param {string} userId
      * @param {string} number
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     async updatePhone<Preferences extends Models.Preferences>(userId: string, number: string): Promise<Models.User<Preferences>> {
         if (typeof userId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "userId"');
+            throw new AppcondaException('Missing required parameter: "userId"');
         }
         if (typeof number === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "number"');
+            throw new AppcondaException('Missing required parameter: "number"');
         }
         const apiPath = '/users/{userId}/phone'.replace('{userId}', userId);
         const payload: Payload = {};
@@ -1124,12 +1124,12 @@ Labels can be used to grant access to resources. While teams are a way for user&
      * Get the user preferences by its unique ID.
      *
      * @param {string} userId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Preferences>}
      */
     async getPrefs<Preferences extends Models.Preferences>(userId: string): Promise<Preferences> {
         if (typeof userId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "userId"');
+            throw new AppcondaException('Missing required parameter: "userId"');
         }
         const apiPath = '/users/{userId}/prefs'.replace('{userId}', userId);
         const payload: Payload = {};
@@ -1154,15 +1154,15 @@ Labels can be used to grant access to resources. While teams are a way for user&
      *
      * @param {string} userId
      * @param {object} prefs
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Preferences>}
      */
     async updatePrefs<Preferences extends Models.Preferences>(userId: string, prefs: object): Promise<Preferences> {
         if (typeof userId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "userId"');
+            throw new AppcondaException('Missing required parameter: "userId"');
         }
         if (typeof prefs === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "prefs"');
+            throw new AppcondaException('Missing required parameter: "prefs"');
         }
         const apiPath = '/users/{userId}/prefs'.replace('{userId}', userId);
         const payload: Payload = {};
@@ -1189,12 +1189,12 @@ Labels can be used to grant access to resources. While teams are a way for user&
      * Get the user sessions list by its unique ID.
      *
      * @param {string} userId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.SessionList>}
      */
     async listSessions(userId: string): Promise<Models.SessionList> {
         if (typeof userId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "userId"');
+            throw new AppcondaException('Missing required parameter: "userId"');
         }
         const apiPath = '/users/{userId}/sessions'.replace('{userId}', userId);
         const payload: Payload = {};
@@ -1220,12 +1220,12 @@ Labels can be used to grant access to resources. While teams are a way for user&
 If you want to generate a token for a custom authentication flow, use the [POST /users/{userId}/tokens](https://appconda.io/docs/server/users#createToken) endpoint.
      *
      * @param {string} userId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Session>}
      */
     async createSession(userId: string): Promise<Models.Session> {
         if (typeof userId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "userId"');
+            throw new AppcondaException('Missing required parameter: "userId"');
         }
         const apiPath = '/users/{userId}/sessions'.replace('{userId}', userId);
         const payload: Payload = {};
@@ -1249,12 +1249,12 @@ If you want to generate a token for a custom authentication flow, use the [POST 
      * Delete all user&#039;s sessions by using the user&#039;s unique ID.
      *
      * @param {string} userId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     async deleteSessions(userId: string): Promise<{}> {
         if (typeof userId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "userId"');
+            throw new AppcondaException('Missing required parameter: "userId"');
         }
         const apiPath = '/users/{userId}/sessions'.replace('{userId}', userId);
         const payload: Payload = {};
@@ -1279,15 +1279,15 @@ If you want to generate a token for a custom authentication flow, use the [POST 
      *
      * @param {string} userId
      * @param {string} sessionId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     async deleteSession(userId: string, sessionId: string): Promise<{}> {
         if (typeof userId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "userId"');
+            throw new AppcondaException('Missing required parameter: "userId"');
         }
         if (typeof sessionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "sessionId"');
+            throw new AppcondaException('Missing required parameter: "sessionId"');
         }
         const apiPath = '/users/{userId}/sessions/{sessionId}'.replace('{userId}', userId).replace('{sessionId}', sessionId);
         const payload: Payload = {};
@@ -1312,15 +1312,15 @@ If you want to generate a token for a custom authentication flow, use the [POST 
      *
      * @param {string} userId
      * @param {boolean} status
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     async updateStatus<Preferences extends Models.Preferences>(userId: string, status: boolean): Promise<Models.User<Preferences>> {
         if (typeof userId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "userId"');
+            throw new AppcondaException('Missing required parameter: "userId"');
         }
         if (typeof status === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "status"');
+            throw new AppcondaException('Missing required parameter: "status"');
         }
         const apiPath = '/users/{userId}/status'.replace('{userId}', userId);
         const payload: Payload = {};
@@ -1348,12 +1348,12 @@ If you want to generate a token for a custom authentication flow, use the [POST 
      *
      * @param {string} userId
      * @param {string[]} queries
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.TargetList>}
      */
     async listTargets(userId: string, queries?: string[]): Promise<Models.TargetList> {
         if (typeof userId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "userId"');
+            throw new AppcondaException('Missing required parameter: "userId"');
         }
         const apiPath = '/users/{userId}/targets'.replace('{userId}', userId);
         const payload: Payload = {};
@@ -1385,21 +1385,21 @@ If you want to generate a token for a custom authentication flow, use the [POST 
      * @param {string} identifier
      * @param {string} providerId
      * @param {string} name
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Target>}
      */
     async createTarget(userId: string, targetId: string, providerType: MessagingProviderType, identifier: string, providerId?: string, name?: string): Promise<Models.Target> {
         if (typeof userId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "userId"');
+            throw new AppcondaException('Missing required parameter: "userId"');
         }
         if (typeof targetId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "targetId"');
+            throw new AppcondaException('Missing required parameter: "targetId"');
         }
         if (typeof providerType === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "providerType"');
+            throw new AppcondaException('Missing required parameter: "providerType"');
         }
         if (typeof identifier === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "identifier"');
+            throw new AppcondaException('Missing required parameter: "identifier"');
         }
         const apiPath = '/users/{userId}/targets'.replace('{userId}', userId);
         const payload: Payload = {};
@@ -1439,15 +1439,15 @@ If you want to generate a token for a custom authentication flow, use the [POST 
      *
      * @param {string} userId
      * @param {string} targetId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Target>}
      */
     async getTarget(userId: string, targetId: string): Promise<Models.Target> {
         if (typeof userId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "userId"');
+            throw new AppcondaException('Missing required parameter: "userId"');
         }
         if (typeof targetId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "targetId"');
+            throw new AppcondaException('Missing required parameter: "targetId"');
         }
         const apiPath = '/users/{userId}/targets/{targetId}'.replace('{userId}', userId).replace('{targetId}', targetId);
         const payload: Payload = {};
@@ -1475,15 +1475,15 @@ If you want to generate a token for a custom authentication flow, use the [POST 
      * @param {string} identifier
      * @param {string} providerId
      * @param {string} name
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Target>}
      */
     async updateTarget(userId: string, targetId: string, identifier?: string, providerId?: string, name?: string): Promise<Models.Target> {
         if (typeof userId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "userId"');
+            throw new AppcondaException('Missing required parameter: "userId"');
         }
         if (typeof targetId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "targetId"');
+            throw new AppcondaException('Missing required parameter: "targetId"');
         }
         const apiPath = '/users/{userId}/targets/{targetId}'.replace('{userId}', userId).replace('{targetId}', targetId);
         const payload: Payload = {};
@@ -1517,15 +1517,15 @@ If you want to generate a token for a custom authentication flow, use the [POST 
      *
      * @param {string} userId
      * @param {string} targetId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     async deleteTarget(userId: string, targetId: string): Promise<{}> {
         if (typeof userId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "userId"');
+            throw new AppcondaException('Missing required parameter: "userId"');
         }
         if (typeof targetId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "targetId"');
+            throw new AppcondaException('Missing required parameter: "targetId"');
         }
         const apiPath = '/users/{userId}/targets/{targetId}'.replace('{userId}', userId).replace('{targetId}', targetId);
         const payload: Payload = {};
@@ -1552,12 +1552,12 @@ If you want to generate a token for a custom authentication flow, use the [POST 
      * @param {string} userId
      * @param {number} length
      * @param {number} expire
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Token>}
      */
     async createToken(userId: string, length?: number, expire?: number): Promise<Models.Token> {
         if (typeof userId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "userId"');
+            throw new AppcondaException('Missing required parameter: "userId"');
         }
         const apiPath = '/users/{userId}/tokens'.replace('{userId}', userId);
         const payload: Payload = {};
@@ -1588,15 +1588,15 @@ If you want to generate a token for a custom authentication flow, use the [POST 
      *
      * @param {string} userId
      * @param {boolean} emailVerification
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     async updateEmailVerification<Preferences extends Models.Preferences>(userId: string, emailVerification: boolean): Promise<Models.User<Preferences>> {
         if (typeof userId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "userId"');
+            throw new AppcondaException('Missing required parameter: "userId"');
         }
         if (typeof emailVerification === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "emailVerification"');
+            throw new AppcondaException('Missing required parameter: "emailVerification"');
         }
         const apiPath = '/users/{userId}/verification'.replace('{userId}', userId);
         const payload: Payload = {};
@@ -1624,15 +1624,15 @@ If you want to generate a token for a custom authentication flow, use the [POST 
      *
      * @param {string} userId
      * @param {boolean} phoneVerification
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     async updatePhoneVerification<Preferences extends Models.Preferences>(userId: string, phoneVerification: boolean): Promise<Models.User<Preferences>> {
         if (typeof userId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "userId"');
+            throw new AppcondaException('Missing required parameter: "userId"');
         }
         if (typeof phoneVerification === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "phoneVerification"');
+            throw new AppcondaException('Missing required parameter: "phoneVerification"');
         }
         const apiPath = '/users/{userId}/verification/phone'.replace('{userId}', userId);
         const payload: Payload = {};

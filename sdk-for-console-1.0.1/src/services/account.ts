@@ -1,5 +1,5 @@
 import { Service } from '../service';
-import { AppwriteException, Client, type Payload, UploadProgress } from '../client';
+import { AppcondaException, Client, type Payload, UploadProgress } from '../client';
 import type { Models } from '../models';
 import { AuthenticatorType } from '../enums/authenticator-type';
 import { AuthenticationFactor } from '../enums/authentication-factor';
@@ -17,7 +17,7 @@ export class Account {
      *
      * Get the currently logged in user.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     async get<Preferences extends Models.Preferences>(): Promise<Models.User<Preferences>> {
@@ -46,18 +46,18 @@ export class Account {
      * @param {string} email
      * @param {string} password
      * @param {string} name
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     async create<Preferences extends Models.Preferences>(userId: string, email: string, password: string, name?: string): Promise<Models.User<Preferences>> {
         if (typeof userId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "userId"');
+            throw new AppcondaException('Missing required parameter: "userId"');
         }
         if (typeof email === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "email"');
+            throw new AppcondaException('Missing required parameter: "email"');
         }
         if (typeof password === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "password"');
+            throw new AppcondaException('Missing required parameter: "password"');
         }
         const apiPath = '/account';
         const payload: Payload = {};
@@ -92,7 +92,7 @@ export class Account {
      *
      * Delete the currently logged in user.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     async delete(): Promise<{}> {
@@ -121,15 +121,15 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      *
      * @param {string} email
      * @param {string} password
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     async updateEmail<Preferences extends Models.Preferences>(email: string, password: string): Promise<Models.User<Preferences>> {
         if (typeof email === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "email"');
+            throw new AppcondaException('Missing required parameter: "email"');
         }
         if (typeof password === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "password"');
+            throw new AppcondaException('Missing required parameter: "password"');
         }
         const apiPath = '/account/email';
         const payload: Payload = {};
@@ -159,7 +159,7 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      * Get the list of identities for the currently logged in user.
      *
      * @param {string[]} queries
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.IdentityList>}
      */
     async listIdentities(queries?: string[]): Promise<Models.IdentityList> {
@@ -188,12 +188,12 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      * Delete an identity by its unique ID.
      *
      * @param {string} identityId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     async deleteIdentity(identityId: string): Promise<{}> {
         if (typeof identityId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "identityId"');
+            throw new AppcondaException('Missing required parameter: "identityId"');
         }
         const apiPath = '/account/identities/{identityId}'.replace('{identityId}', identityId);
         const payload: Payload = {};
@@ -216,7 +216,7 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      *
      * Use this endpoint to create a JSON Web Token. You can use the resulting JWT to authenticate on behalf of the current user when working with the Appconda server-side API and SDKs. The JWT secret is valid for 15 minutes from its creation and will be invalid if the user will logout in that time frame.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Jwt>}
      */
     async createJWT(): Promise<Models.Jwt> {
@@ -242,7 +242,7 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      * Get the list of latest security activity logs for the currently logged in user. Each log returns user IP address, location and date and time of log.
      *
      * @param {string[]} queries
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.LogList>}
      */
     async listLogs(queries?: string[]): Promise<Models.LogList> {
@@ -271,12 +271,12 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      * Enable or disable MFA on an account.
      *
      * @param {boolean} mfa
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     async updateMFA<Preferences extends Models.Preferences>(mfa: boolean): Promise<Models.User<Preferences>> {
         if (typeof mfa === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "mfa"');
+            throw new AppcondaException('Missing required parameter: "mfa"');
         }
         const apiPath = '/account/mfa';
         const payload: Payload = {};
@@ -303,12 +303,12 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      * Add an authenticator app to be used as an MFA factor. Verify the authenticator using the [verify authenticator](/docs/references/cloud/client-web/account#updateMfaAuthenticator) method.
      *
      * @param {AuthenticatorType} type
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.MfaType>}
      */
     async createMfaAuthenticator(type: AuthenticatorType): Promise<Models.MfaType> {
         if (typeof type === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "type"');
+            throw new AppcondaException('Missing required parameter: "type"');
         }
         const apiPath = '/account/mfa/authenticators/{type}'.replace('{type}', type);
         const payload: Payload = {};
@@ -333,15 +333,15 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      *
      * @param {AuthenticatorType} type
      * @param {string} otp
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     async updateMfaAuthenticator<Preferences extends Models.Preferences>(type: AuthenticatorType, otp: string): Promise<Models.User<Preferences>> {
         if (typeof type === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "type"');
+            throw new AppcondaException('Missing required parameter: "type"');
         }
         if (typeof otp === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "otp"');
+            throw new AppcondaException('Missing required parameter: "otp"');
         }
         const apiPath = '/account/mfa/authenticators/{type}'.replace('{type}', type);
         const payload: Payload = {};
@@ -368,12 +368,12 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      * Delete an authenticator for a user by ID.
      *
      * @param {AuthenticatorType} type
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     async deleteMfaAuthenticator(type: AuthenticatorType): Promise<{}> {
         if (typeof type === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "type"');
+            throw new AppcondaException('Missing required parameter: "type"');
         }
         const apiPath = '/account/mfa/authenticators/{type}'.replace('{type}', type);
         const payload: Payload = {};
@@ -397,12 +397,12 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      * Begin the process of MFA verification after sign-in. Finish the flow with [updateMfaChallenge](/docs/references/cloud/client-web/account#updateMfaChallenge) method.
      *
      * @param {AuthenticationFactor} factor
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.MfaChallenge>}
      */
     async createMfaChallenge(factor: AuthenticationFactor): Promise<Models.MfaChallenge> {
         if (typeof factor === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "factor"');
+            throw new AppcondaException('Missing required parameter: "factor"');
         }
         const apiPath = '/account/mfa/challenge';
         const payload: Payload = {};
@@ -430,15 +430,15 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      *
      * @param {string} challengeId
      * @param {string} otp
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     async updateMfaChallenge(challengeId: string, otp: string): Promise<{}> {
         if (typeof challengeId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "challengeId"');
+            throw new AppcondaException('Missing required parameter: "challengeId"');
         }
         if (typeof otp === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "otp"');
+            throw new AppcondaException('Missing required parameter: "otp"');
         }
         const apiPath = '/account/mfa/challenge';
         const payload: Payload = {};
@@ -467,7 +467,7 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      *
      * List the factors available on the account to be used as a MFA challange.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.MfaFactors>}
      */
     async listMfaFactors(): Promise<Models.MfaFactors> {
@@ -492,7 +492,7 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      *
      * Get recovery codes that can be used as backup for MFA flow. Before getting codes, they must be generated using [createMfaRecoveryCodes](/docs/references/cloud/client-web/account#createMfaRecoveryCodes) method. An OTP challenge is required to read recovery codes.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.MfaRecoveryCodes>}
      */
     async getMfaRecoveryCodes(): Promise<Models.MfaRecoveryCodes> {
@@ -517,7 +517,7 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      *
      * Generate recovery codes as backup for MFA flow. It&#039;s recommended to generate and show then immediately after user successfully adds their authehticator. Recovery codes can be used as a MFA verification type in [createMfaChallenge](/docs/references/cloud/client-web/account#createMfaChallenge) method.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.MfaRecoveryCodes>}
      */
     async createMfaRecoveryCodes(): Promise<Models.MfaRecoveryCodes> {
@@ -542,7 +542,7 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      *
      * Regenerate recovery codes that can be used as backup for MFA flow. Before regenerating codes, they must be first generated using [createMfaRecoveryCodes](/docs/references/cloud/client-web/account#createMfaRecoveryCodes) method. An OTP challenge is required to regenreate recovery codes.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.MfaRecoveryCodes>}
      */
     async updateMfaRecoveryCodes(): Promise<Models.MfaRecoveryCodes> {
@@ -568,12 +568,12 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      * Update currently logged in user account name.
      *
      * @param {string} name
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     async updateName<Preferences extends Models.Preferences>(name: string): Promise<Models.User<Preferences>> {
         if (typeof name === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "name"');
+            throw new AppcondaException('Missing required parameter: "name"');
         }
         const apiPath = '/account/name';
         const payload: Payload = {};
@@ -601,12 +601,12 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      *
      * @param {string} password
      * @param {string} oldPassword
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     async updatePassword<Preferences extends Models.Preferences>(password: string, oldPassword?: string): Promise<Models.User<Preferences>> {
         if (typeof password === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "password"');
+            throw new AppcondaException('Missing required parameter: "password"');
         }
         const apiPath = '/account/password';
         const payload: Payload = {};
@@ -637,15 +637,15 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      *
      * @param {string} phone
      * @param {string} password
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     async updatePhone<Preferences extends Models.Preferences>(phone: string, password: string): Promise<Models.User<Preferences>> {
         if (typeof phone === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "phone"');
+            throw new AppcondaException('Missing required parameter: "phone"');
         }
         if (typeof password === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "password"');
+            throw new AppcondaException('Missing required parameter: "password"');
         }
         const apiPath = '/account/phone';
         const payload: Payload = {};
@@ -674,7 +674,7 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      *
      * Get the preferences as a key-value object for the currently logged in user.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Preferences>}
      */
     async getPrefs<Preferences extends Models.Preferences>(): Promise<Preferences> {
@@ -700,12 +700,12 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      * Update currently logged in user account preferences. The object you pass is stored as is, and replaces any previous value. The maximum allowed prefs size is 64kB and throws error if exceeded.
      *
      * @param {Partial<Preferences>} prefs
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     async updatePrefs<Preferences extends Models.Preferences>(prefs: Partial<Preferences>): Promise<Models.User<Preferences>> {
         if (typeof prefs === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "prefs"');
+            throw new AppcondaException('Missing required parameter: "prefs"');
         }
         const apiPath = '/account/prefs';
         const payload: Payload = {};
@@ -733,15 +733,15 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
      *
      * @param {string} email
      * @param {string} url
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Token>}
      */
     async createRecovery(email: string, url: string): Promise<Models.Token> {
         if (typeof email === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "email"');
+            throw new AppcondaException('Missing required parameter: "email"');
         }
         if (typeof url === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "url"');
+            throw new AppcondaException('Missing required parameter: "url"');
         }
         const apiPath = '/account/recovery';
         const payload: Payload = {};
@@ -775,18 +775,18 @@ Please note that in order to avoid a [Redirect Attack](https://github.com/OWASP/
      * @param {string} userId
      * @param {string} secret
      * @param {string} password
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Token>}
      */
     async updateRecovery(userId: string, secret: string, password: string): Promise<Models.Token> {
         if (typeof userId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "userId"');
+            throw new AppcondaException('Missing required parameter: "userId"');
         }
         if (typeof secret === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "secret"');
+            throw new AppcondaException('Missing required parameter: "secret"');
         }
         if (typeof password === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "password"');
+            throw new AppcondaException('Missing required parameter: "password"');
         }
         const apiPath = '/account/recovery';
         const payload: Payload = {};
@@ -818,7 +818,7 @@ Please note that in order to avoid a [Redirect Attack](https://github.com/OWASP/
      *
      * Get the list of active sessions across different devices for the currently logged in user.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.SessionList>}
      */
     async listSessions(): Promise<Models.SessionList> {
@@ -843,7 +843,7 @@ Please note that in order to avoid a [Redirect Attack](https://github.com/OWASP/
      *
      * Delete all sessions from the user account and remove any sessions cookies from the end client.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     async deleteSessions(): Promise<{}> {
@@ -868,7 +868,7 @@ Please note that in order to avoid a [Redirect Attack](https://github.com/OWASP/
      *
      * Use this endpoint to allow a new user to register an anonymous account in your project. This route will also create a new session for the user. To allow the new user to convert an anonymous account to a normal account, you need to update its [email and password](https://appconda.io/docs/references/cloud/client-web/account#updateEmail) or create an [OAuth2 session](https://appconda.io/docs/references/cloud/client-web/account#CreateOAuth2Session).
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Session>}
      */
     async createAnonymousSession(): Promise<Models.Session> {
@@ -897,15 +897,15 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
      *
      * @param {string} email
      * @param {string} password
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Session>}
      */
     async createEmailPasswordSession(email: string, password: string): Promise<Models.Session> {
         if (typeof email === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "email"');
+            throw new AppcondaException('Missing required parameter: "email"');
         }
         if (typeof password === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "password"');
+            throw new AppcondaException('Missing required parameter: "password"');
         }
         const apiPath = '/account/sessions/email';
         const payload: Payload = {};
@@ -936,15 +936,15 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
      *
      * @param {string} userId
      * @param {string} secret
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Session>}
      */
     async updateMagicURLSession(userId: string, secret: string): Promise<Models.Session> {
         if (typeof userId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "userId"');
+            throw new AppcondaException('Missing required parameter: "userId"');
         }
         if (typeof secret === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "secret"');
+            throw new AppcondaException('Missing required parameter: "secret"');
         }
         const apiPath = '/account/sessions/magic-url';
         const payload: Payload = {};
@@ -982,12 +982,12 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
      * @param {string} success
      * @param {string} failure
      * @param {string[]} scopes
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<void | string>}
      */
     async createOAuth2Session(provider: OAuthProvider, success?: string, failure?: string, scopes?: string[]): Promise<void | string> {
         if (typeof provider === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "provider"');
+            throw new AppcondaException('Missing required parameter: "provider"');
         }
         const apiPath = '/account/sessions/oauth2/{provider}'.replace('{provider}', provider);
         const payload: Payload = {};
@@ -1025,15 +1025,15 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
      *
      * @param {string} userId
      * @param {string} secret
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Session>}
      */
     async updatePhoneSession(userId: string, secret: string): Promise<Models.Session> {
         if (typeof userId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "userId"');
+            throw new AppcondaException('Missing required parameter: "userId"');
         }
         if (typeof secret === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "secret"');
+            throw new AppcondaException('Missing required parameter: "secret"');
         }
         const apiPath = '/account/sessions/phone';
         const payload: Payload = {};
@@ -1064,15 +1064,15 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
      *
      * @param {string} userId
      * @param {string} secret
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Session>}
      */
     async createSession(userId: string, secret: string): Promise<Models.Session> {
         if (typeof userId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "userId"');
+            throw new AppcondaException('Missing required parameter: "userId"');
         }
         if (typeof secret === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "secret"');
+            throw new AppcondaException('Missing required parameter: "secret"');
         }
         const apiPath = '/account/sessions/token';
         const payload: Payload = {};
@@ -1102,12 +1102,12 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
      * Use this endpoint to get a logged in user&#039;s session using a Session ID. Inputting &#039;current&#039; will return the current session being used.
      *
      * @param {string} sessionId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Session>}
      */
     async getSession(sessionId: string): Promise<Models.Session> {
         if (typeof sessionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "sessionId"');
+            throw new AppcondaException('Missing required parameter: "sessionId"');
         }
         const apiPath = '/account/sessions/{sessionId}'.replace('{sessionId}', sessionId);
         const payload: Payload = {};
@@ -1131,12 +1131,12 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
      * Use this endpoint to extend a session&#039;s length. Extending a session is useful when session expiry is short. If the session was created using an OAuth provider, this endpoint refreshes the access token from the provider.
      *
      * @param {string} sessionId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Session>}
      */
     async updateSession(sessionId: string): Promise<Models.Session> {
         if (typeof sessionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "sessionId"');
+            throw new AppcondaException('Missing required parameter: "sessionId"');
         }
         const apiPath = '/account/sessions/{sessionId}'.replace('{sessionId}', sessionId);
         const payload: Payload = {};
@@ -1160,12 +1160,12 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
      * Logout the user. Use &#039;current&#039; as the session ID to logout on this device, use a session ID to logout on another device. If you&#039;re looking to logout the user on all devices, use [Delete Sessions](https://appconda.io/docs/references/cloud/client-web/account#deleteSessions) instead.
      *
      * @param {string} sessionId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     async deleteSession(sessionId: string): Promise<{}> {
         if (typeof sessionId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "sessionId"');
+            throw new AppcondaException('Missing required parameter: "sessionId"');
         }
         const apiPath = '/account/sessions/{sessionId}'.replace('{sessionId}', sessionId);
         const payload: Payload = {};
@@ -1188,7 +1188,7 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
      *
      * Block the currently logged in user account. Behind the scene, the user record is not deleted but permanently blocked from any access. To completely delete a user, use the Users API instead.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.User<Preferences>>}
      */
     async updateStatus<Preferences extends Models.Preferences>(): Promise<Models.User<Preferences>> {
@@ -1215,15 +1215,15 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
      * @param {string} targetId
      * @param {string} identifier
      * @param {string} providerId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Target>}
      */
     async createPushTarget(targetId: string, identifier: string, providerId?: string): Promise<Models.Target> {
         if (typeof targetId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "targetId"');
+            throw new AppcondaException('Missing required parameter: "targetId"');
         }
         if (typeof identifier === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "identifier"');
+            throw new AppcondaException('Missing required parameter: "identifier"');
         }
         const apiPath = '/account/targets/push';
         const payload: Payload = {};
@@ -1256,15 +1256,15 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
      *
      * @param {string} targetId
      * @param {string} identifier
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Target>}
      */
     async updatePushTarget(targetId: string, identifier: string): Promise<Models.Target> {
         if (typeof targetId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "targetId"');
+            throw new AppcondaException('Missing required parameter: "targetId"');
         }
         if (typeof identifier === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "identifier"');
+            throw new AppcondaException('Missing required parameter: "identifier"');
         }
         const apiPath = '/account/targets/{targetId}/push'.replace('{targetId}', targetId);
         const payload: Payload = {};
@@ -1290,12 +1290,12 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
      *
      *
      * @param {string} targetId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     async deletePushTarget(targetId: string): Promise<{}> {
         if (typeof targetId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "targetId"');
+            throw new AppcondaException('Missing required parameter: "targetId"');
         }
         const apiPath = '/account/targets/{targetId}/push'.replace('{targetId}', targetId);
         const payload: Payload = {};
@@ -1323,15 +1323,15 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
      * @param {string} userId
      * @param {string} email
      * @param {boolean} phrase
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Token>}
      */
     async createEmailToken(userId: string, email: string, phrase?: boolean): Promise<Models.Token> {
         if (typeof userId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "userId"');
+            throw new AppcondaException('Missing required parameter: "userId"');
         }
         if (typeof email === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "email"');
+            throw new AppcondaException('Missing required parameter: "email"');
         }
         const apiPath = '/account/tokens/email';
         const payload: Payload = {};
@@ -1370,15 +1370,15 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
      * @param {string} email
      * @param {string} url
      * @param {boolean} phrase
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Token>}
      */
     async createMagicURLToken(userId: string, email: string, url?: string, phrase?: boolean): Promise<Models.Token> {
         if (typeof userId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "userId"');
+            throw new AppcondaException('Missing required parameter: "userId"');
         }
         if (typeof email === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "email"');
+            throw new AppcondaException('Missing required parameter: "email"');
         }
         const apiPath = '/account/tokens/magic-url';
         const payload: Payload = {};
@@ -1421,12 +1421,12 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
      * @param {string} success
      * @param {string} failure
      * @param {string[]} scopes
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<void | string>}
      */
     async createOAuth2Token(provider: OAuthProvider, success?: string, failure?: string, scopes?: string[]): Promise<void | string> {
         if (typeof provider === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "provider"');
+            throw new AppcondaException('Missing required parameter: "provider"');
         }
         const apiPath = '/account/tokens/oauth2/{provider}'.replace('{provider}', provider);
         const payload: Payload = {};
@@ -1466,15 +1466,15 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
      *
      * @param {string} userId
      * @param {string} phone
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Token>}
      */
     async createPhoneToken(userId: string, phone: string): Promise<Models.Token> {
         if (typeof userId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "userId"');
+            throw new AppcondaException('Missing required parameter: "userId"');
         }
         if (typeof phone === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "phone"');
+            throw new AppcondaException('Missing required parameter: "phone"');
         }
         const apiPath = '/account/tokens/phone';
         const payload: Payload = {};
@@ -1507,12 +1507,12 @@ Please note that in order to avoid a [Redirect Attack](https://github.com/OWASP/
 
      *
      * @param {string} url
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Token>}
      */
     async createVerification(url: string): Promise<Models.Token> {
         if (typeof url === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "url"');
+            throw new AppcondaException('Missing required parameter: "url"');
         }
         const apiPath = '/account/verification';
         const payload: Payload = {};
@@ -1540,15 +1540,15 @@ Please note that in order to avoid a [Redirect Attack](https://github.com/OWASP/
      *
      * @param {string} userId
      * @param {string} secret
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Token>}
      */
     async updateVerification(userId: string, secret: string): Promise<Models.Token> {
         if (typeof userId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "userId"');
+            throw new AppcondaException('Missing required parameter: "userId"');
         }
         if (typeof secret === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "secret"');
+            throw new AppcondaException('Missing required parameter: "secret"');
         }
         const apiPath = '/account/verification';
         const payload: Payload = {};
@@ -1577,7 +1577,7 @@ Please note that in order to avoid a [Redirect Attack](https://github.com/OWASP/
      *
      * Use this endpoint to send a verification SMS to the currently logged in user. This endpoint is meant for use after updating a user&#039;s phone number using the [accountUpdatePhone](https://appconda.io/docs/references/cloud/client-web/account#updatePhone) endpoint. Learn more about how to [complete the verification process](https://appconda.io/docs/references/cloud/client-web/account#updatePhoneVerification). The verification code sent to the user&#039;s phone number is valid for 15 minutes.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Token>}
      */
     async createPhoneVerification(): Promise<Models.Token> {
@@ -1604,15 +1604,15 @@ Please note that in order to avoid a [Redirect Attack](https://github.com/OWASP/
      *
      * @param {string} userId
      * @param {string} secret
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Token>}
      */
     async updatePhoneVerification(userId: string, secret: string): Promise<Models.Token> {
         if (typeof userId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "userId"');
+            throw new AppcondaException('Missing required parameter: "userId"');
         }
         if (typeof secret === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "secret"');
+            throw new AppcondaException('Missing required parameter: "secret"');
         }
         const apiPath = '/account/verification/phone';
         const payload: Payload = {};

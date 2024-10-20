@@ -1,5 +1,5 @@
 import { Service } from '../service';
-import { AppwriteException, Client, type Payload, UploadProgress } from '../client';
+import { AppcondaException, Client, type Payload, UploadProgress } from '../client';
 import type { Models } from '../models';
 import { Name } from '../enums/name';
 
@@ -15,7 +15,7 @@ export class Health {
      *
      * Check the Appconda HTTP server is up and responsive.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.HealthStatus>}
      */
     async get(): Promise<Models.HealthStatus> {
@@ -40,7 +40,7 @@ export class Health {
      *
      * Check the Appconda Antivirus server is up and connection is successful.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.HealthAntivirus>}
      */
     async getAntivirus(): Promise<Models.HealthAntivirus> {
@@ -65,7 +65,7 @@ export class Health {
      *
      * Check the Appconda in-memory cache servers are up and connection is successful.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.HealthStatus>}
      */
     async getCache(): Promise<Models.HealthStatus> {
@@ -91,7 +91,7 @@ export class Health {
      * Get the SSL certificate for a domain
      *
      * @param {string} domain
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.HealthCertificate>}
      */
     async getCertificate(domain?: string): Promise<Models.HealthCertificate> {
@@ -119,7 +119,7 @@ export class Health {
      *
      * Check the Appconda database servers are up and connection is successful.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.HealthStatus>}
      */
     async getDB(): Promise<Models.HealthStatus> {
@@ -144,7 +144,7 @@ export class Health {
      *
      * Check the Appconda pub-sub servers are up and connection is successful.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.HealthStatus>}
      */
     async getPubSub(): Promise<Models.HealthStatus> {
@@ -169,7 +169,7 @@ export class Health {
      *
      * Check the Appconda queue messaging servers are up and connection is successful.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.HealthStatus>}
      */
     async getQueue(): Promise<Models.HealthStatus> {
@@ -195,7 +195,7 @@ export class Health {
      * Get the number of builds that are waiting to be processed in the Appconda internal queue server.
      *
      * @param {number} threshold
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.HealthQueue>}
      */
     async getQueueBuilds(threshold?: number): Promise<Models.HealthQueue> {
@@ -224,7 +224,7 @@ export class Health {
      * Get the number of certificates that are waiting to be issued against [Letsencrypt](https://letsencrypt.org/) in the Appconda internal queue server.
      *
      * @param {number} threshold
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.HealthQueue>}
      */
     async getQueueCertificates(threshold?: number): Promise<Models.HealthQueue> {
@@ -254,7 +254,7 @@ export class Health {
      *
      * @param {string} name
      * @param {number} threshold
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.HealthQueue>}
      */
     async getQueueDatabases(name?: string, threshold?: number): Promise<Models.HealthQueue> {
@@ -286,7 +286,7 @@ export class Health {
      * Get the number of background destructive changes that are waiting to be processed in the Appconda internal queue server.
      *
      * @param {number} threshold
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.HealthQueue>}
      */
     async getQueueDeletes(threshold?: number): Promise<Models.HealthQueue> {
@@ -317,12 +317,12 @@ export class Health {
      *
      * @param {Name} name
      * @param {number} threshold
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.HealthQueue>}
      */
     async getFailedJobs(name: Name, threshold?: number): Promise<Models.HealthQueue> {
         if (typeof name === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "name"');
+            throw new AppcondaException('Missing required parameter: "name"');
         }
         const apiPath = '/health/queue/failed/{name}'.replace('{name}', name);
         const payload: Payload = {};
@@ -349,7 +349,7 @@ export class Health {
      * Get the number of function executions that are waiting to be processed in the Appconda internal queue server.
      *
      * @param {number} threshold
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.HealthQueue>}
      */
     async getQueueFunctions(threshold?: number): Promise<Models.HealthQueue> {
@@ -378,7 +378,7 @@ export class Health {
      * Get the number of logs that are waiting to be processed in the Appconda internal queue server.
      *
      * @param {number} threshold
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.HealthQueue>}
      */
     async getQueueLogs(threshold?: number): Promise<Models.HealthQueue> {
@@ -407,7 +407,7 @@ export class Health {
      * Get the number of mails that are waiting to be processed in the Appconda internal queue server.
      *
      * @param {number} threshold
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.HealthQueue>}
      */
     async getQueueMails(threshold?: number): Promise<Models.HealthQueue> {
@@ -436,7 +436,7 @@ export class Health {
      * Get the number of messages that are waiting to be processed in the Appconda internal queue server.
      *
      * @param {number} threshold
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.HealthQueue>}
      */
     async getQueueMessaging(threshold?: number): Promise<Models.HealthQueue> {
@@ -465,7 +465,7 @@ export class Health {
      * Get the number of migrations that are waiting to be processed in the Appconda internal queue server.
      *
      * @param {number} threshold
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.HealthQueue>}
      */
     async getQueueMigrations(threshold?: number): Promise<Models.HealthQueue> {
@@ -494,7 +494,7 @@ export class Health {
      * Get the number of metrics that are waiting to be processed in the Appconda internal queue server.
      *
      * @param {number} threshold
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.HealthQueue>}
      */
     async getQueueUsage(threshold?: number): Promise<Models.HealthQueue> {
@@ -523,7 +523,7 @@ export class Health {
      * Get the number of projects containing metrics that are waiting to be processed in the Appconda internal queue server.
      *
      * @param {number} threshold
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.HealthQueue>}
      */
     async getQueueUsageDump(threshold?: number): Promise<Models.HealthQueue> {
@@ -552,7 +552,7 @@ export class Health {
      * Get the number of webhooks that are waiting to be processed in the Appconda internal queue server.
      *
      * @param {number} threshold
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.HealthQueue>}
      */
     async getQueueWebhooks(threshold?: number): Promise<Models.HealthQueue> {
@@ -580,7 +580,7 @@ export class Health {
      *
      * Check the Appconda storage device is up and connection is successful.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.HealthStatus>}
      */
     async getStorage(): Promise<Models.HealthStatus> {
@@ -605,7 +605,7 @@ export class Health {
      *
      * Check the Appconda local storage device is up and connection is successful.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.HealthStatus>}
      */
     async getStorageLocal(): Promise<Models.HealthStatus> {
@@ -630,7 +630,7 @@ export class Health {
      *
      * Check the Appconda server time is synced with Google remote NTP server. We use this technology to smoothly handle leap seconds with no disruptive events. The [Network Time Protocol](https://en.wikipedia.org/wiki/Network_Time_Protocol) (NTP) is used by hundreds of millions of computers and devices to synchronize their clocks over the Internet. If your computer sets its own clock, it likely uses NTP.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.HealthTime>}
      */
     async getTime(): Promise<Models.HealthTime> {

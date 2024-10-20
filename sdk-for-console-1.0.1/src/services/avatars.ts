@@ -1,5 +1,5 @@
 import { Service } from '../service';
-import { AppwriteException, Client, type Payload, UploadProgress } from '../client';
+import { AppcondaException, Client, type Payload, UploadProgress } from '../client';
 import type { Models } from '../models';
 import { Browser } from '../enums/browser';
 import { CreditCard } from '../enums/credit-card';
@@ -23,12 +23,12 @@ When one dimension is specified and the other is 0, the image is scaled with pre
      * @param {number} width
      * @param {number} height
      * @param {number} quality
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {string}
      */
     getBrowser(code: Browser, width?: number, height?: number, quality?: number): string {
         if (typeof code === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "code"');
+            throw new AppcondaException('Missing required parameter: "code"');
         }
         const apiPath = '/avatars/browsers/{code}'.replace('{code}', code);
         const payload: Payload = {};
@@ -72,12 +72,12 @@ When one dimension is specified and the other is 0, the image is scaled with pre
      * @param {number} width
      * @param {number} height
      * @param {number} quality
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {string}
      */
     getCreditCard(code: CreditCard, width?: number, height?: number, quality?: number): string {
         if (typeof code === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "code"');
+            throw new AppcondaException('Missing required parameter: "code"');
         }
         const apiPath = '/avatars/credit-cards/{code}'.replace('{code}', code);
         const payload: Payload = {};
@@ -117,12 +117,12 @@ When one dimension is specified and the other is 0, the image is scaled with pre
 This endpoint does not follow HTTP redirects.
      *
      * @param {string} url
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {string}
      */
     getFavicon(url: string): string {
         if (typeof url === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "url"');
+            throw new AppcondaException('Missing required parameter: "url"');
         }
         const apiPath = '/avatars/favicon';
         const payload: Payload = {};
@@ -160,12 +160,12 @@ When one dimension is specified and the other is 0, the image is scaled with pre
      * @param {number} width
      * @param {number} height
      * @param {number} quality
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {string}
      */
     getFlag(code: Flag, width?: number, height?: number, quality?: number): string {
         if (typeof code === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "code"');
+            throw new AppcondaException('Missing required parameter: "code"');
         }
         const apiPath = '/avatars/flags/{code}'.replace('{code}', code);
         const payload: Payload = {};
@@ -209,12 +209,12 @@ This endpoint does not follow HTTP redirects.
      * @param {string} url
      * @param {number} width
      * @param {number} height
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {string}
      */
     getImage(url: string, width?: number, height?: number): string {
         if (typeof url === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "url"');
+            throw new AppcondaException('Missing required parameter: "url"');
         }
         const apiPath = '/avatars/image';
         const payload: Payload = {};
@@ -260,7 +260,7 @@ When one dimension is specified and the other is 0, the image is scaled with pre
      * @param {number} width
      * @param {number} height
      * @param {string} background
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {string}
      */
     getInitials(name?: string, width?: number, height?: number, background?: string): string {
@@ -307,12 +307,12 @@ When one dimension is specified and the other is 0, the image is scaled with pre
      * @param {number} size
      * @param {number} margin
      * @param {boolean} download
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {string}
      */
     getQR(text: string, size?: number, margin?: number, download?: boolean): string {
         if (typeof text === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "text"');
+            throw new AppcondaException('Missing required parameter: "text"');
         }
         const apiPath = '/avatars/qr';
         const payload: Payload = {};

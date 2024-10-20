@@ -13,7 +13,7 @@ export declare class Functions {
      *
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.FunctionList>}
      */
     list(queries?: string[], search?: string): Promise<Models.FunctionList>;
@@ -44,7 +44,7 @@ export declare class Functions {
      * @param {string} templateRootDirectory
      * @param {string} templateVersion
      * @param {string} specification
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Function>}
      */
     create(functionId: string, name: string, runtime: Runtime, execute?: string[], events?: string[], schedule?: string, timeout?: number, enabled?: boolean, logging?: boolean, entrypoint?: string, commands?: string, scopes?: string[], installationId?: string, providerRepositoryId?: string, providerBranch?: string, providerSilentMode?: boolean, providerRootDirectory?: string, templateRepository?: string, templateOwner?: string, templateRootDirectory?: string, templateVersion?: string, specification?: string): Promise<Models.Function>;
@@ -53,7 +53,7 @@ export declare class Functions {
      *
      * Get a list of all runtimes that are currently active on your instance.
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.RuntimeList>}
      */
     listRuntimes(): Promise<Models.RuntimeList>;
@@ -63,7 +63,7 @@ export declare class Functions {
      * List allowed function specifications for this instance.
 
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.SpecificationList>}
      */
     listSpecifications(): Promise<Models.SpecificationList>;
@@ -76,7 +76,7 @@ export declare class Functions {
      * @param {string[]} useCases
      * @param {number} limit
      * @param {number} offset
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.TemplateFunctionList>}
      */
     listTemplates(runtimes?: string[], useCases?: string[], limit?: number, offset?: number): Promise<Models.TemplateFunctionList>;
@@ -86,7 +86,7 @@ export declare class Functions {
      * Get a function template using ID. You can use template details in [createFunction](/docs/references/cloud/server-nodejs/functions#create) method.
      *
      * @param {string} templateId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.TemplateFunction>}
      */
     getTemplate(templateId: string): Promise<Models.TemplateFunction>;
@@ -95,7 +95,7 @@ export declare class Functions {
      *
      *
      * @param {FunctionUsageRange} range
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.UsageFunctions>}
      */
     getUsage(range?: FunctionUsageRange): Promise<Models.UsageFunctions>;
@@ -105,7 +105,7 @@ export declare class Functions {
      * Get a function by its unique ID.
      *
      * @param {string} functionId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Function>}
      */
     get(functionId: string): Promise<Models.Function>;
@@ -132,7 +132,7 @@ export declare class Functions {
      * @param {boolean} providerSilentMode
      * @param {string} providerRootDirectory
      * @param {string} specification
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Function>}
      */
     update(functionId: string, name: string, runtime?: Runtime, execute?: string[], events?: string[], schedule?: string, timeout?: number, enabled?: boolean, logging?: boolean, entrypoint?: string, commands?: string, scopes?: string[], installationId?: string, providerRepositoryId?: string, providerBranch?: string, providerSilentMode?: boolean, providerRootDirectory?: string, specification?: string): Promise<Models.Function>;
@@ -142,7 +142,7 @@ export declare class Functions {
      * Delete a function by its unique ID.
      *
      * @param {string} functionId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     delete(functionId: string): Promise<{}>;
@@ -154,7 +154,7 @@ export declare class Functions {
      * @param {string} functionId
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.DeploymentList>}
      */
     listDeployments(functionId: string, queries?: string[], search?: string): Promise<Models.DeploymentList>;
@@ -172,7 +172,7 @@ Use the &quot;command&quot; param to set the entrypoint used to execute your cod
      * @param {boolean} activate
      * @param {string} entrypoint
      * @param {string} commands
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Deployment>}
      */
     createDeployment(functionId: string, code: File, activate: boolean, entrypoint?: string, commands?: string, onProgress?: (progress: UploadProgress) => void): Promise<Models.Deployment>;
@@ -183,7 +183,7 @@ Use the &quot;command&quot; param to set the entrypoint used to execute your cod
      *
      * @param {string} functionId
      * @param {string} deploymentId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Deployment>}
      */
     getDeployment(functionId: string, deploymentId: string): Promise<Models.Deployment>;
@@ -194,7 +194,7 @@ Use the &quot;command&quot; param to set the entrypoint used to execute your cod
      *
      * @param {string} functionId
      * @param {string} deploymentId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Function>}
      */
     updateDeployment(functionId: string, deploymentId: string): Promise<Models.Function>;
@@ -205,7 +205,7 @@ Use the &quot;command&quot; param to set the entrypoint used to execute your cod
      *
      * @param {string} functionId
      * @param {string} deploymentId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteDeployment(functionId: string, deploymentId: string): Promise<{}>;
@@ -216,7 +216,7 @@ Use the &quot;command&quot; param to set the entrypoint used to execute your cod
      * @param {string} functionId
      * @param {string} deploymentId
      * @param {string} buildId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     createBuild(functionId: string, deploymentId: string, buildId?: string): Promise<{}>;
@@ -226,7 +226,7 @@ Use the &quot;command&quot; param to set the entrypoint used to execute your cod
      *
      * @param {string} functionId
      * @param {string} deploymentId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Build>}
      */
     updateDeploymentBuild(functionId: string, deploymentId: string): Promise<Models.Build>;
@@ -237,7 +237,7 @@ Use the &quot;command&quot; param to set the entrypoint used to execute your cod
      *
      * @param {string} functionId
      * @param {string} deploymentId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {string}
      */
     getDeploymentDownload(functionId: string, deploymentId: string): string;
@@ -249,7 +249,7 @@ Use the &quot;command&quot; param to set the entrypoint used to execute your cod
      * @param {string} functionId
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.ExecutionList>}
      */
     listExecutions(functionId: string, queries?: string[], search?: string): Promise<Models.ExecutionList>;
@@ -265,7 +265,7 @@ Use the &quot;command&quot; param to set the entrypoint used to execute your cod
      * @param {ExecutionMethod} method
      * @param {object} headers
      * @param {string} scheduledAt
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Execution>}
      */
     createExecution(functionId: string, body?: string, async?: boolean, xpath?: string, method?: ExecutionMethod, headers?: object, scheduledAt?: string): Promise<Models.Execution>;
@@ -276,7 +276,7 @@ Use the &quot;command&quot; param to set the entrypoint used to execute your cod
      *
      * @param {string} functionId
      * @param {string} executionId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Execution>}
      */
     getExecution(functionId: string, executionId: string): Promise<Models.Execution>;
@@ -288,7 +288,7 @@ Use the &quot;command&quot; param to set the entrypoint used to execute your cod
      *
      * @param {string} functionId
      * @param {string} executionId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteExecution(functionId: string, executionId: string): Promise<{}>;
@@ -298,7 +298,7 @@ Use the &quot;command&quot; param to set the entrypoint used to execute your cod
      *
      * @param {string} functionId
      * @param {FunctionUsageRange} range
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.UsageFunction>}
      */
     getFunctionUsage(functionId: string, range?: FunctionUsageRange): Promise<Models.UsageFunction>;
@@ -308,7 +308,7 @@ Use the &quot;command&quot; param to set the entrypoint used to execute your cod
      * Get a list of all variables of a specific function.
      *
      * @param {string} functionId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.VariableList>}
      */
     listVariables(functionId: string): Promise<Models.VariableList>;
@@ -320,7 +320,7 @@ Use the &quot;command&quot; param to set the entrypoint used to execute your cod
      * @param {string} functionId
      * @param {string} key
      * @param {string} value
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Variable>}
      */
     createVariable(functionId: string, key: string, value: string): Promise<Models.Variable>;
@@ -331,7 +331,7 @@ Use the &quot;command&quot; param to set the entrypoint used to execute your cod
      *
      * @param {string} functionId
      * @param {string} variableId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Variable>}
      */
     getVariable(functionId: string, variableId: string): Promise<Models.Variable>;
@@ -344,7 +344,7 @@ Use the &quot;command&quot; param to set the entrypoint used to execute your cod
      * @param {string} variableId
      * @param {string} key
      * @param {string} value
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Variable>}
      */
     updateVariable(functionId: string, variableId: string, key: string, value?: string): Promise<Models.Variable>;
@@ -355,7 +355,7 @@ Use the &quot;command&quot; param to set the entrypoint used to execute your cod
      *
      * @param {string} functionId
      * @param {string} variableId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     deleteVariable(functionId: string, variableId: string): Promise<{}>;

@@ -1,5 +1,5 @@
 import { Service } from '../service';
-import { AppwriteException, Client, type Payload, UploadProgress } from '../client';
+import { AppcondaException, Client, type Payload, UploadProgress } from '../client';
 import type { Models } from '../models';
 
 export class Migrations {
@@ -15,7 +15,7 @@ export class Migrations {
      *
      * @param {string[]} queries
      * @param {string} search
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.MigrationList>}
      */
     async list(queries?: string[], search?: string): Promise<Models.MigrationList> {
@@ -49,21 +49,21 @@ export class Migrations {
      * @param {string} endpoint
      * @param {string} projectId
      * @param {string} apiKey
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Migration>}
      */
-    async createAppwriteMigration(resources: string[], endpoint: string, projectId: string, apiKey: string): Promise<Models.Migration> {
+    async createAppcondaMigration(resources: string[], endpoint: string, projectId: string, apiKey: string): Promise<Models.Migration> {
         if (typeof resources === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "resources"');
+            throw new AppcondaException('Missing required parameter: "resources"');
         }
         if (typeof endpoint === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "endpoint"');
+            throw new AppcondaException('Missing required parameter: "endpoint"');
         }
         if (typeof projectId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "projectId"');
+            throw new AppcondaException('Missing required parameter: "projectId"');
         }
         if (typeof apiKey === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "apiKey"');
+            throw new AppcondaException('Missing required parameter: "apiKey"');
         }
         const apiPath = '/migrations/appconda';
         const payload: Payload = {};
@@ -101,21 +101,21 @@ export class Migrations {
      * @param {string} endpoint
      * @param {string} projectID
      * @param {string} key
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.MigrationReport>}
      */
-    async getAppwriteReport(resources: string[], endpoint: string, projectID: string, key: string): Promise<Models.MigrationReport> {
+    async getAppcondaReport(resources: string[], endpoint: string, projectID: string, key: string): Promise<Models.MigrationReport> {
         if (typeof resources === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "resources"');
+            throw new AppcondaException('Missing required parameter: "resources"');
         }
         if (typeof endpoint === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "endpoint"');
+            throw new AppcondaException('Missing required parameter: "endpoint"');
         }
         if (typeof projectID === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "projectID"');
+            throw new AppcondaException('Missing required parameter: "projectID"');
         }
         if (typeof key === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "key"');
+            throw new AppcondaException('Missing required parameter: "key"');
         }
         const apiPath = '/migrations/appconda/report';
         const payload: Payload = {};
@@ -151,15 +151,15 @@ export class Migrations {
      *
      * @param {string[]} resources
      * @param {string} serviceAccount
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Migration>}
      */
     async createFirebaseMigration(resources: string[], serviceAccount: string): Promise<Models.Migration> {
         if (typeof resources === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "resources"');
+            throw new AppcondaException('Missing required parameter: "resources"');
         }
         if (typeof serviceAccount === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "serviceAccount"');
+            throw new AppcondaException('Missing required parameter: "serviceAccount"');
         }
         const apiPath = '/migrations/firebase';
         const payload: Payload = {};
@@ -187,7 +187,7 @@ export class Migrations {
      * Revoke Appconda&#039;s authorization to access Firebase Projects
      *
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     async deleteFirebaseAuth(): Promise<{}> {
@@ -213,15 +213,15 @@ export class Migrations {
      *
      * @param {string[]} resources
      * @param {string} projectId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Migration>}
      */
     async createFirebaseOAuthMigration(resources: string[], projectId: string): Promise<Models.Migration> {
         if (typeof resources === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "resources"');
+            throw new AppcondaException('Missing required parameter: "resources"');
         }
         if (typeof projectId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "projectId"');
+            throw new AppcondaException('Missing required parameter: "projectId"');
         }
         const apiPath = '/migrations/firebase/oauth';
         const payload: Payload = {};
@@ -249,7 +249,7 @@ export class Migrations {
      * List Firebase Projects
      *
      *
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.FirebaseProjectList>}
      */
     async listFirebaseProjects(): Promise<Models.FirebaseProjectList> {
@@ -275,15 +275,15 @@ export class Migrations {
      *
      * @param {string[]} resources
      * @param {string} serviceAccount
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.MigrationReport>}
      */
     async getFirebaseReport(resources: string[], serviceAccount: string): Promise<Models.MigrationReport> {
         if (typeof resources === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "resources"');
+            throw new AppcondaException('Missing required parameter: "resources"');
         }
         if (typeof serviceAccount === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "serviceAccount"');
+            throw new AppcondaException('Missing required parameter: "serviceAccount"');
         }
         const apiPath = '/migrations/firebase/report';
         const payload: Payload = {};
@@ -313,15 +313,15 @@ export class Migrations {
      *
      * @param {string[]} resources
      * @param {string} projectId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.MigrationReport>}
      */
     async getFirebaseReportOAuth(resources: string[], projectId: string): Promise<Models.MigrationReport> {
         if (typeof resources === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "resources"');
+            throw new AppcondaException('Missing required parameter: "resources"');
         }
         if (typeof projectId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "projectId"');
+            throw new AppcondaException('Missing required parameter: "projectId"');
         }
         const apiPath = '/migrations/firebase/report/oauth';
         const payload: Payload = {};
@@ -357,30 +357,30 @@ export class Migrations {
      * @param {string} username
      * @param {string} password
      * @param {number} port
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Migration>}
      */
     async createNHostMigration(resources: string[], subdomain: string, region: string, adminSecret: string, database: string, username: string, password: string, port?: number): Promise<Models.Migration> {
         if (typeof resources === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "resources"');
+            throw new AppcondaException('Missing required parameter: "resources"');
         }
         if (typeof subdomain === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "subdomain"');
+            throw new AppcondaException('Missing required parameter: "subdomain"');
         }
         if (typeof region === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "region"');
+            throw new AppcondaException('Missing required parameter: "region"');
         }
         if (typeof adminSecret === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "adminSecret"');
+            throw new AppcondaException('Missing required parameter: "adminSecret"');
         }
         if (typeof database === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "database"');
+            throw new AppcondaException('Missing required parameter: "database"');
         }
         if (typeof username === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "username"');
+            throw new AppcondaException('Missing required parameter: "username"');
         }
         if (typeof password === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "password"');
+            throw new AppcondaException('Missing required parameter: "password"');
         }
         const apiPath = '/migrations/nhost';
         const payload: Payload = {};
@@ -434,30 +434,30 @@ export class Migrations {
      * @param {string} username
      * @param {string} password
      * @param {number} port
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.MigrationReport>}
      */
     async getNHostReport(resources: string[], subdomain: string, region: string, adminSecret: string, database: string, username: string, password: string, port?: number): Promise<Models.MigrationReport> {
         if (typeof resources === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "resources"');
+            throw new AppcondaException('Missing required parameter: "resources"');
         }
         if (typeof subdomain === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "subdomain"');
+            throw new AppcondaException('Missing required parameter: "subdomain"');
         }
         if (typeof region === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "region"');
+            throw new AppcondaException('Missing required parameter: "region"');
         }
         if (typeof adminSecret === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "adminSecret"');
+            throw new AppcondaException('Missing required parameter: "adminSecret"');
         }
         if (typeof database === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "database"');
+            throw new AppcondaException('Missing required parameter: "database"');
         }
         if (typeof username === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "username"');
+            throw new AppcondaException('Missing required parameter: "username"');
         }
         if (typeof password === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "password"');
+            throw new AppcondaException('Missing required parameter: "password"');
         }
         const apiPath = '/migrations/nhost/report';
         const payload: Payload = {};
@@ -510,27 +510,27 @@ export class Migrations {
      * @param {string} username
      * @param {string} password
      * @param {number} port
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Migration>}
      */
     async createSupabaseMigration(resources: string[], endpoint: string, apiKey: string, databaseHost: string, username: string, password: string, port?: number): Promise<Models.Migration> {
         if (typeof resources === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "resources"');
+            throw new AppcondaException('Missing required parameter: "resources"');
         }
         if (typeof endpoint === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "endpoint"');
+            throw new AppcondaException('Missing required parameter: "endpoint"');
         }
         if (typeof apiKey === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "apiKey"');
+            throw new AppcondaException('Missing required parameter: "apiKey"');
         }
         if (typeof databaseHost === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "databaseHost"');
+            throw new AppcondaException('Missing required parameter: "databaseHost"');
         }
         if (typeof username === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "username"');
+            throw new AppcondaException('Missing required parameter: "username"');
         }
         if (typeof password === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "password"');
+            throw new AppcondaException('Missing required parameter: "password"');
         }
         const apiPath = '/migrations/supabase';
         const payload: Payload = {};
@@ -580,27 +580,27 @@ export class Migrations {
      * @param {string} username
      * @param {string} password
      * @param {number} port
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.MigrationReport>}
      */
     async getSupabaseReport(resources: string[], endpoint: string, apiKey: string, databaseHost: string, username: string, password: string, port?: number): Promise<Models.MigrationReport> {
         if (typeof resources === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "resources"');
+            throw new AppcondaException('Missing required parameter: "resources"');
         }
         if (typeof endpoint === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "endpoint"');
+            throw new AppcondaException('Missing required parameter: "endpoint"');
         }
         if (typeof apiKey === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "apiKey"');
+            throw new AppcondaException('Missing required parameter: "apiKey"');
         }
         if (typeof databaseHost === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "databaseHost"');
+            throw new AppcondaException('Missing required parameter: "databaseHost"');
         }
         if (typeof username === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "username"');
+            throw new AppcondaException('Missing required parameter: "username"');
         }
         if (typeof password === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "password"');
+            throw new AppcondaException('Missing required parameter: "password"');
         }
         const apiPath = '/migrations/supabase/report';
         const payload: Payload = {};
@@ -644,12 +644,12 @@ export class Migrations {
      *
      *
      * @param {string} migrationId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Migration>}
      */
     async get(migrationId: string): Promise<Models.Migration> {
         if (typeof migrationId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "migrationId"');
+            throw new AppcondaException('Missing required parameter: "migrationId"');
         }
         const apiPath = '/migrations/{migrationId}'.replace('{migrationId}', migrationId);
         const payload: Payload = {};
@@ -672,12 +672,12 @@ export class Migrations {
      *
      *
      * @param {string} migrationId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<Models.Migration>}
      */
     async retry(migrationId: string): Promise<Models.Migration> {
         if (typeof migrationId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "migrationId"');
+            throw new AppcondaException('Missing required parameter: "migrationId"');
         }
         const apiPath = '/migrations/{migrationId}'.replace('{migrationId}', migrationId);
         const payload: Payload = {};
@@ -700,12 +700,12 @@ export class Migrations {
      *
      *
      * @param {string} migrationId
-     * @throws {AppwriteException}
+     * @throws {AppcondaException}
      * @returns {Promise<{}>}
      */
     async delete(migrationId: string): Promise<{}> {
         if (typeof migrationId === 'undefined') {
-            throw new AppwriteException('Missing required parameter: "migrationId"');
+            throw new AppcondaException('Missing required parameter: "migrationId"');
         }
         const apiPath = '/migrations/{migrationId}'.replace('{migrationId}', migrationId);
         const payload: Payload = {};

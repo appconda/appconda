@@ -1,4 +1,4 @@
-export { Client, Query, AppwriteException } from './client';
+export { Client, Query, AppcondaException } from './client';
 export { Account } from './services/account';
 export { Avatars } from './services/avatars';
 export { Databases } from './services/databases';
