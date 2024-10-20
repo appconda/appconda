@@ -105,8 +105,12 @@ export class Token implements TokenInterface {
    * @returns The status of the state.
    */
   get status() {
-    if (!this.state) return Status.Ready;
-    else return this.state.status;
+    if (!this.state) {
+      return Status.Ready;
+    }
+    else {
+      return this.state.status;
+    }
   }
 
   /**

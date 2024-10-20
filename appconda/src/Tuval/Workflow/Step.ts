@@ -13,12 +13,7 @@ export interface GoOutInterface {
     pause?: boolean | string;
 }
 
-export const takeOutgoing = (outgoing: SequenceFlow[], id?: string) => {
-    if (id) {
-        return outgoing?.filter((o) => o.getTargetRef() === id).map((o) => o.getTargetRef());
 
-    } else return outgoing?.map((o) => o.getTargetRef()!);
-};
 
 export abstract class WorkflowStep {
     public static readonly HTTP_REQUEST_METHOD_GET = 'GET';
@@ -61,7 +56,7 @@ export abstract class WorkflowStep {
 
     protected incomings: WorkflowStep[] = [];
     protected outgoings: SequenceFlow[] = [];
-    path: any;
+    path: Path;
 
     /**
      * Set Http path
@@ -243,7 +238,7 @@ export abstract class WorkflowStep {
     * @param description string
     * @returns this
     */
-    public name(name: string): this {
+    public setName(name: string): this {
         this._name = name;
         return this;
     }
@@ -414,15 +409,21 @@ export abstract class WorkflowStep {
     public takeOutgoing(id?: string, options?: { pause: boolean | string }) {
         if (!this.outgoing || !this.outgoing?.length) return;
 
-        const outgoing: string[] = takeOutgoing(this.getOutgoings(), id);
+        const outgoing: WorkflowStep[] = this.takeOutgoingSteps(this.getOutgoings(), id);
 
         if (!outgoing) return;
 
-        this.goOut(outgoing.map((out) => ({ activity: this.getPath().getStepById(out), pause: options?.pause })));
+        this.goOut(outgoing.map((out) => ({ activity: out, pause: options?.pause })));
     }
 
 
 
+    protected takeOutgoingSteps(outgoing: SequenceFlow[], id?: string): WorkflowStep[] {
+        if (id) {
+            return outgoing?.filter((o) => o.getTargetRef() === id).map((o) =>this.path.getStepById(o.getTargetRef()));
+
+        } else return outgoing?.map((o) => this.path.getStepById(o.getTargetRef()!));
+    };
 
     protected goOut(outgoing: GoOutInterface[]) {
         const pause = (out: GoOutInterface) =>
@@ -455,7 +456,7 @@ export abstract class WorkflowStep {
 
                     token.push(
                         State.build(out.activity.id, {
-                            name: out.activity.getId(),
+                            name: out.activity.getName(),
                             status: pause(out) ? Status.Paused : Status.Ready,
                         }),
                     );

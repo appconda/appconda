@@ -225,23 +225,24 @@ export class Workflow {
                     //console.log( "Block " + section.position + " - Sourcepos: " + this.sourcePos );
 
                 } while (!ret);
-
-                activity.takeOutgoing();
-
-                const next = context.next();
-
-                token = context.getTokens(next.ref)?.find((t) => t.status === Status.Ready);
-
-                if (!token) throw new Error('Çalışma aşamasında token bulunamadı');
-
-                activity = path.getStepById(next.ref);
-
-
                 if (ret) {
                     switch (ret.type) {
                         // End
                         case 'CONTINUE':
-                            path.position = ret.label;
+                            activity.takeOutgoing();
+                            const next = context.next();
+                            const tokens = context.getTokens(next.ref);
+                            let foundToken;
+                            if (tokens) {
+                                for (let i = 0; i < tokens.length; i++) {
+                                    const token = tokens[i];
+                                    if (token.status === Status.Ready) {
+                                        foundToken = token;
+                                    }
+                                }
+                            }
+                            if (!foundToken) throw new Error('Çalışma aşamasında token bulunamadı');
+                            activity = path.getStepById(next.ref);
                             break;
                         case 'NOOP':
                             break;

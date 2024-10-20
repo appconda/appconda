@@ -61,7 +61,15 @@ export class Context<D = any> implements ContextInterface<D> {
      * @returns An array of tokens that match the identity.
      */
     getTokens(id: string) {
-        return this.tokens.filter((token) => token.state.ref === id);
+        const tokens = [];
+        for (let i = 0; i < this.tokens.length; i++) {
+            const token = this.tokens[i];
+            if (token.state.ref === id) {
+                tokens.push(token);
+            }
+        }
+        return tokens;
+        //return this.tokens.filter((token) => token.state.ref === id);
         //if ('name' in identity) return this.tokens.filter((token) => token.state.name === identity.name);
     }
 
@@ -147,7 +155,13 @@ export class Context<D = any> implements ContextInterface<D> {
      * @returns The state of the first token that has a status of Ready.
      */
     next() {
-        return this.tokens.find((t) => t.status === Status.Ready)?.state;
+        for (let i =0;i< this.tokens.length;i++) {
+            const token = this.tokens[i];
+            if (token.status === Status.Ready) {
+                return token.state;
+            }
+        }
+        return undefined; // Explicitly return undefined if no token is ready
     }
 
     /**

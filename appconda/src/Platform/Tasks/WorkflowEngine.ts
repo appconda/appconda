@@ -13,7 +13,33 @@ import { workflows } from 'googleapis/build/src/apis/workflows';
 import { WorkflowStep } from '../../Tuval/Workflow/Step';
 import { nanoid } from '../Services/id-service/nanoid/nanoid';
 import { ProcessStep } from '../../Tuval/Workflow/Steps/ProcessStep';
+import { ExclusiveGateway } from '../../Tuval/Workflow/Steps/BPMN20/ExclusiveGateway';
+import { parseString } from 'xml2js';
+import path from 'path';
+const fs = require('fs');
 
+export const readFile = (path: string): string => fs.readFileSync(path, 'utf8');
+
+/**
+ * It takes an XML string and returns a BPMN schema
+ *
+ * @param {string} xml - string - the XML string to parse
+ *
+ * @returns A BPMNSchema object
+ */
+export const parse = (xml: string) => {
+  xml = xml.replace(/bpmn\d?:/g, 'bpmn:');
+
+  let parse;
+  parseString(xml, { async: false }, (err, result) => {
+    if (err) throw err;
+    parse = result;
+  });
+
+  if (!parse) throw new Error('Input string is not parsable');
+
+  return parse;
+};
 
 
 export class WorkflowEngine extends Action {
@@ -41,7 +67,7 @@ export class WorkflowEngine extends Action {
         stepMap['startEvent'] = StartEvent;
         stepMap['task'] = Task;
         stepMap['sequenceFlow'] = SequenceFlow;
-        stepMap['exclusiveGateway'] = Task;
+        stepMap['exclusiveGateway'] = ExclusiveGateway;
         stepMap['endEvent'] = Task;
 
 
@@ -55,6 +81,7 @@ export class WorkflowEngine extends Action {
             for (let i = 0; i < steps.length; i++) {
                 const stepType = stepMap[steps[i].type];
                 const step: WorkflowStep = new stepType();
+                step.setName(steps[i].name);
                 step.setPath(section);
                 step.setId(steps[i].id);
                 if (steps[i].payload) {
@@ -123,6 +150,7 @@ export class WorkflowEngine extends Action {
                     {
                         type: 'task',
                         id: 'Task_1hcentk',
+                        name:'choose recipe',
                         incomings: ['SequenceFlow_0h21x7r'],
                         outgoings: ['SequenceFlow_0wnb4ke'],
                     },
@@ -267,6 +295,8 @@ export class WorkflowEngine extends Action {
                 text: 'test2'
             },
         ]
+
+        const xml = parse(readFile(path.resolve(__dirname, '../../test/workflow/example/a.bpmn')))
         const section = JSONToFlow(workflow);
         woc.runStepByStep({path:section});
 
