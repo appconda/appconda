@@ -4,7 +4,6 @@
 export class ID {
     /**
      * Generate an hex ID based on timestamp.
-     * Recreated from https://www.php.net/manual/en/function.uniqid.php
      *
      * @returns {string}
      */

@@ -12,7 +12,7 @@ export class ErrorDev extends ErrorModel {
                 type: ErrorModel.TYPE_STRING,
                 description: 'File path.',
                 default: '',
-                example: '/usr/code/vendor/tuval/framework/src/App.php',
+                example: '/usr/code/vendor/tuval/framework/src/App.ts',
             })
             .addRule('line', {
                 type: ErrorModel.TYPE_INTEGER,

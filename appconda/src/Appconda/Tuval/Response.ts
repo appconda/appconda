@@ -621,7 +621,7 @@ export class Response extends TuvalResponse {
      */
     public yaml(data: Record<string, any>): void {
         if (!this.isYamlExtensionLoaded()) {
-            throw new Error('Missing yaml extension. Learn more at: https://www.php.net/manual/en/book.yaml.php');
+            throw new Error('Missing yaml extension.');
         }
 
         this

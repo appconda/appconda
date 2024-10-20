@@ -52,7 +52,7 @@ export class Files {
                 continue;
             }
 
-            if (['php', 'phtml'].includes(extension)) {
+            if (['ts', 'html'].includes(extension)) {
                 continue;
             }
 

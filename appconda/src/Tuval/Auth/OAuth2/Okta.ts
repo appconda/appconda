@@ -1,7 +1,5 @@
 import { OAuth2 } from '../OAuth2';
 
-// Reference Material
-// https://developer.okta.com/docs/guides/sign-into-web-app-redirect/php/main/
 
 export class Okta extends OAuth2 {
     protected scopes: string[] = [
