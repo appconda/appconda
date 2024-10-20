@@ -1,5 +1,5 @@
 import { Workflow } from "../Workflow";
-import { Path } from "../Path";
+import { Process } from "../Path";
 
 export abstract class ProcessStep {
     stepId: string;
@@ -11,5 +11,5 @@ export abstract class ProcessStep {
         this.nextStep = nextStep;
         this.params = params;
     }
-    abstract run(path: Path, flow: Workflow): any;
+    abstract run(path: Process, flow: Workflow): any;
 }

@@ -1,14 +1,14 @@
-import { Path } from "./Path";
+import { Process } from "./Path";
 
 export class State {
-    public paths: Path[] = [];
+    public paths: Process[] = [];
     public currentPath: any = {}
     public vars: any = {};
 
     public pop() {
         this.currentPath = this.paths.pop();
     }
-    public push(path: Path) {
+    public push(path: Process) {
         this.paths.push(path);
         this.currentPath = path;
     }

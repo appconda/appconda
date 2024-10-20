@@ -1,5 +1,5 @@
 import { Context } from "./Context/Context";
-import { Path } from "./Path";
+import { Process } from "./Path";
 
 export interface IExecution {
     id?: string;
@@ -10,7 +10,7 @@ export interface IExecution {
     value?: any;
     node?: any;
     xml?: string;
-    path?: Path;
+    path?: Process;
     schema?: any;
     exec?: any;
   }

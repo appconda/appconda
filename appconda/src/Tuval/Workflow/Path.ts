@@ -1,10 +1,18 @@
 import { State } from "./State";
 import { WorkflowStep } from "./Step";
 import { StepExecuter } from "./StepExecuter";
-import { StartEvent } from "./Steps/BPMN20/Task";
+import { ExclusiveGateway } from "./Steps/BPMN20/ExclusiveGateway";
+import { SequenceFlow, StartEvent, Task } from "./Steps/BPMN20/Task";
 import { ProcessStep } from "./Steps/ProcessStep";
 
-export class Path {
+const stepMap = {};
+stepMap['bpmn:startEvent'] = StartEvent;
+stepMap['bpmn:task'] = Task;
+stepMap['bpmn:sequenceFlow'] = SequenceFlow;
+stepMap['exclusiveGateway'] = ExclusiveGateway;
+stepMap['bpmn:endEvent'] = Task;
+
+export class Process {
 
     public position;
     public stepExecuters: StepExecuter[] = [];
@@ -37,6 +45,89 @@ export class Path {
         this.state = state;
     } */
 
+    constructor(public bpmnProcess: any) {
+
+        for (const key of Object.keys(bpmnProcess)) {
+            if (key === '$') continue;
+
+            const items = bpmnProcess[key];
+            for (const item of items) {
+                const stepType = stepMap[key];
+                const step: WorkflowStep = new stepType();
+                step.setName(item.$.name);
+                step.setPath(this);
+                step.setId(item.$.id);
+                /*   if (steps[i].payload) {
+                      step.setPayload(steps[i].payload);
+                  } */
+                if (step instanceof SequenceFlow) {
+                    step.setTargetRef(item.$.targetRef);
+                    step.setSourceRef(item.$.sourceRef);
+                }
+
+
+                this.addStep(step);
+            }
+
+        }
+
+        for (const key of Object.keys(bpmnProcess)) {
+            if (key === '$') continue;
+            const items = bpmnProcess[key];
+            for (let item of items) {
+                const step = this.getStepById(item.$.id);
+
+                const outgoings = item['bpmn:outgoing'];
+                if (Array.isArray(outgoings)) {
+                    for (let outgoing of outgoings) {
+                        const outgoingFlow = this.getStepById(outgoing);
+                        step.outgoing(outgoingFlow);
+                    }
+                }
+            }
+        }
+
+        for (const key of Object.keys(bpmnProcess)) {
+            if (key === '$') continue;
+            const items = bpmnProcess[key];
+            for (let item of items) {
+                const step: WorkflowStep = this.getStepById(item.$.id);
+
+                const incomings = item['bpmn:incoming'];
+                if (Array.isArray(incomings)) {
+                    for (let incoming of incomings) {
+                        const incomingFlow = this.getStepById(incoming);
+                        step.incoming(incomingFlow);
+                    }
+                }
+            }
+        }
+
+        // outgoings
+        /*  for (let i = 0; i < steps.length; i++) {
+             const step = process.getStepById(steps[i].id);
+             const outgouings = steps[i].outgoings;
+             if (Array.isArray(outgouings)) {
+                 for (let j = 0; j < outgouings.length; j++) {
+                     const outgoingStep = process.getStepById(outgouings[j]);
+                     step.outgoing(outgoingStep);
+                 }
+             }
+         } */
+
+        // incomings
+        /*  for (let i = 0; i < steps.length; i++) {
+             const step: WorkflowStep = process.getStepById(steps[i].id);
+             const incomings = steps[i].incomings;
+             if (Array.isArray(incomings)) {
+                 for (let j = 0; j < incomings.length; j++) {
+                     const outgoingStep = process.getStepById(incomings[j]);
+                     step.incoming(outgoingStep);
+                 }
+             }
+         } */
+
+    }
     public getSteps(): WorkflowStep[] {
         return this.steps;
     }
@@ -46,15 +137,15 @@ export class Path {
     public addStep(...args: any[]): this {
         if (args.length === 1) {
             const step: WorkflowStep = args[0];
-            if (step instanceof StartEvent){
+            if (step instanceof StartEvent) {
                 this.position = step.getId();
             }
-            const key =step.getId();
+            const key = step.getId();
             this.steps[key] = step;
         } else if (args.length === 2) {
             const key = args[0];
             const step = args[1];
-            if (step instanceof StartEvent){
+            if (step instanceof StartEvent) {
                 this.position = step.getId();
             }
             this.steps[key] = step;
@@ -66,10 +157,10 @@ export class Path {
         return this.steps[id];
     }
 
-    public getStartStep() : WorkflowStep {
-        for(let key in this.steps) {
-            if (this.steps[key] instanceof StartEvent){
-                return this.steps[key] ;
+    public getStartStep(): WorkflowStep {
+        for (let key in this.steps) {
+            if (this.steps[key] instanceof StartEvent) {
+                return this.steps[key];
             }
         }
         return null;

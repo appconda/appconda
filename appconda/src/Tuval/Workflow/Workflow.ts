@@ -4,7 +4,7 @@ import { State } from "./Context/State";
 import { Status } from "./Context/Status";
 import { Token } from "./Context/Token";
 import { IExecution } from "./IExecution";
-import { Path } from "./Path";
+import { Process } from "./Path";
 import { WorkflowStep } from "./Step";
 import { StepExecuter } from "./StepExecuter";
 import { EndStep } from "./Steps/EndStep";
@@ -73,8 +73,29 @@ export class Workflow {
     break: boolean = false;
     next: () => Promise<void>;
 
-    public constructor() {
+    processes: Process[] = [];
+
+    public constructor(bpmnObject: any) {
         //this.state = state;
+
+        const bpmnDefinitions = bpmnObject['bpmn:definitions'];
+
+        if (bpmnDefinitions == null) {
+            throw new Exception(' bpmn definitions not found.')
+        }
+
+        const processes = bpmnDefinitions['bpmn:process'];
+
+        if (processes == null || processes.length === 0) {
+            throw new Exception(' bpmn process definition not found.')
+        }
+
+        for(const process of processes) {
+            this.processes.push(new Process(process));
+        }
+
+        
+
         this.next = () => {
             return new Promise((resolve) => {
                 resolve()
@@ -82,7 +103,7 @@ export class Workflow {
         }
     }
 
-    private _initPath(path: Path, ret?) {
+    private _initPath(path: Process, ret?) {
         if (ret) {
             (path as any).currentResult = ret.result;
         }
@@ -119,7 +140,7 @@ export class Workflow {
         }
         return path;
     }
-    public async run(path: Path) {
+    public async run(path: Process) {
 
         let ret;
         // this.state.push(path);
@@ -165,6 +186,9 @@ export class Workflow {
     }
     public runStepByStep({ path, context, data, node }: IExecution): void {
 
+        if (path == null) {
+            path = this.processes[0];
+        }
         context = (this.context ?? context ?? Context.build({ data })).resume();
 
         if (!context.isReady()) throw new Exception('Context is not ready to consume');
@@ -319,7 +343,7 @@ export class Workflow {
         Workflow.resourcesCallbacks[name] = { callback, injections, reset: true };
     }
 
-    protected initPath(paths: Path[]): void {
+    protected initPath(paths: Process[]): void {
         for (const path of paths) {
             for (const [key, step] of Object.entries(path.getActions())) {
                 /*   if (action.getType() === Action.TYPE_DEFAULT && !key.toLowerCase().includes(workerName.toLowerCase())) {

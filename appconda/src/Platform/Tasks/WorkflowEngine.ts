@@ -1,5 +1,5 @@
 import * as parser from 'cron-parser';
-import { DateTime, Document } from '../../Tuval/Core';
+import { DateTime, Document, Exception } from '../../Tuval/Core';
 import { Console } from '../../Tuval/CLI';
 import { ScheduleBase } from './ScheduleBase';
 import { Group } from '../../Tuval/Pools';
@@ -8,7 +8,7 @@ import { Action } from '../../Tuval/Platform/Action';
 import { Workflow } from '../../Tuval/Workflow/Workflow';
 import { State } from '../../Tuval/Workflow/State';
 import { ConsoleStep, SequenceFlow, StartEvent, Task } from '../../Tuval/Workflow/Steps/BPMN20/Task';
-import { Path } from '../../Tuval/Workflow/Path';
+import { Process } from '../../Tuval/Workflow/Path';
 import { workflows } from 'googleapis/build/src/apis/workflows';
 import { WorkflowStep } from '../../Tuval/Workflow/Step';
 import { nanoid } from '../Services/id-service/nanoid/nanoid';
@@ -28,17 +28,17 @@ export const readFile = (path: string): string => fs.readFileSync(path, 'utf8');
  * @returns A BPMNSchema object
  */
 export const parse = (xml: string) => {
-  xml = xml.replace(/bpmn\d?:/g, 'bpmn:');
+    xml = xml.replace(/bpmn\d?:/g, 'bpmn:');
 
-  let parse;
-  parseString(xml, { async: false }, (err, result) => {
-    if (err) throw err;
-    parse = result;
-  });
+    let parse;
+    parseString(xml, { async: false }, (err, result) => {
+        if (err) throw err;
+        parse = result;
+    });
 
-  if (!parse) throw new Error('Input string is not parsable');
+    if (!parse) throw new Error('Input string is not parsable');
 
-  return parse;
+    return parse;
 };
 
 
@@ -59,8 +59,7 @@ export class WorkflowEngine extends Action {
         const workflows: Workflow[] = []
 
         const state = new State();
-        const woc = new Workflow();
-        workflows.push(woc);
+      
 
 
         const stepMap = {};
@@ -71,12 +70,14 @@ export class WorkflowEngine extends Action {
         stepMap['endEvent'] = Task;
 
 
-        //section.addStep(new CounterStep(5))
-        function JSONToFlow(flow: {process: {id: string, steps:any[]}}): Path {
-            const section = new Path();
+      
+
+
+        function JSONToFlow(flow: { process: { id: string, steps: any[] } }): Process {
+            const section = new Process(null);
 
             const process = flow.process;
-            const steps = process.steps; 
+            const steps = process.steps;
 
             for (let i = 0; i < steps.length; i++) {
                 const stepType = stepMap[steps[i].type];
@@ -107,8 +108,8 @@ export class WorkflowEngine extends Action {
                 }
             }
 
-             // incomings
-             for (let i = 0; i < steps.length; i++) {
+            // incomings
+            for (let i = 0; i < steps.length; i++) {
                 const step: WorkflowStep = section.getStepById(steps[i].id);
                 const incomings = steps[i].incomings;
                 if (Array.isArray(incomings)) {
@@ -150,7 +151,7 @@ export class WorkflowEngine extends Action {
                     {
                         type: 'task',
                         id: 'Task_1hcentk',
-                        name:'choose recipe',
+                        name: 'choose recipe',
                         incomings: ['SequenceFlow_0h21x7r'],
                         outgoings: ['SequenceFlow_0wnb4ke'],
                     },
@@ -296,9 +297,11 @@ export class WorkflowEngine extends Action {
             },
         ]
 
-        const xml = parse(readFile(path.resolve(__dirname, '../../test/workflow/example/a.bpmn')))
-        const section = JSONToFlow(workflow);
-        woc.runStepByStep({path:section});
+        const xml = parse(readFile(path.resolve(__dirname, './a.bpmn')));
+ 
+
+        const woc = new Workflow(xml);
+        woc.runStepByStep({});
 
         setInterval(() => {
             woc.next()

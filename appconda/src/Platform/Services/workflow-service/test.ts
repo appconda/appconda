@@ -1,5 +1,5 @@
 
-import { Path } from "../../../Tuval/Workflow/Path";
+import { Process } from "../../../Tuval/Workflow/Path";
 import { State } from "../../../Tuval/Workflow/State";
 import { WorkflowStep } from "../../../Tuval/Workflow/Step";
 import { StartEvent, ServiceTask, UserTask, ExculusiveGateway, ConsoleStep } from "../../../Tuval/Workflow/Steps/BPMN20/Task";
@@ -64,7 +64,7 @@ class LogStep extends ProcessStep {
         super(stepId, nextStepId, {});
         this.logMessage = logMessage;
     }
-    async run(path: Path, flow: Workflow) {
+    async run(path: Process, flow: Workflow) {
         console.log(this.logMessage);
         return Execution.$continue(this.nextStep);
     }
@@ -83,8 +83,8 @@ const stepMap = {};
 stepMap['start'] = StartEvent;
 stepMap['console'] = ConsoleStep;
 //section.addStep(new CounterStep(5))
-function JSONToFlow(flow: any[]): Path {
-    const section = new Path();
+function JSONToFlow(flow: any[]): Process {
+    const section = new Process();
 
     for (let i = 0; i < flow.length; i++) {
         const stepType = stepMap[flow[i].type];

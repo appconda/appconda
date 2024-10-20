@@ -1,5 +1,5 @@
 import { Execution, Workflow } from "../../Workflow";
-import { Path } from "../../Path";
+import { Process } from "../../Path";
 import { ProcessStep } from "../ProcessStep";
 import { WorkflowStep } from "../../Step";
 import { Text } from "../../../Core";
@@ -17,7 +17,7 @@ export class Task extends WorkflowStep {
     }
 
     private action() {
-        console.log('Task ' + this.getId() + ' executed.')
+        console.log('Task ' + this.getName() + ' executed.')
         if (this.outgoings.length > 0) {
             return Execution.$continue(this.outgoings[0].getId());
         }
@@ -78,6 +78,45 @@ export class StartEvent extends WorkflowStep {
      } */
 
 }
+
+export class EndEvent extends WorkflowStep {
+
+    constructor() {
+        super()
+        this
+            .desc('End event for process')
+            .inject('workflow')
+            .inject('mail-service')
+            .callback(this.action.bind(this))
+    }
+
+    private action(workflow: Workflow, mailService: MailService) {
+        mailService.send({
+            smtp: 'sdf'
+        });
+        
+        console.log(workflow);
+        console.log('End event executed.')
+        if (this.outgoings.length > 0) {
+            return Execution.$continue(this.outgoings[0].getId());
+        }
+    }
+
+    /*  async run(path: Path, flow: Workflow) {
+ 
+         await fetch('https://dummyjson.com/products')
+             .then(res => res.json())
+             .then(data => {
+                 const { products } = data;
+                 flow.state.vars.products = products;
+             });
+ 
+         console.log('Start Event executed.')
+         return Execution.$continue(this.nextStep);
+     } */
+
+}
+
 
 export class SequenceFlow extends WorkflowStep {
 
@@ -161,7 +200,7 @@ export class ConsoleStep extends WorkflowStep {
 
 export class UserTask extends ProcessStep {
 
-    async run(path: Path, flow: Workflow) {
+    async run(path: Process, flow: Workflow) {
         console.log('User Task ' + this.stepId + ' executed.');
         const { YIKAMA_SAYI = 0, ARAC_TEMIZ_MI = false } = flow.state.vars;
         if (flow.state.vars.YIKAMA_SAYI > 3) {
@@ -176,7 +215,7 @@ export class UserTask extends ProcessStep {
 
 export class ServiceTask extends ProcessStep {
 
-    run(path: Path, flow: Workflow) {
+    run(path: Process, flow: Workflow) {
         console.log(this.params.SERVICE.NAME);
         console.log(this.params.ACTION.NAME);
         console.log('Service Task ' + this.stepId + ' executed.')
@@ -193,7 +232,7 @@ export class ExculusiveGateway extends ProcessStep {
         })
         return this;
     }
-    run(path: Path, flow: Workflow) {
+    run(path: Process, flow: Workflow) {
 
         console.log(this.stepId)
 

@@ -4,7 +4,7 @@ import { Context } from "./Context/Context";
 import { State } from "./Context/State";
 import { Status } from "./Context/Status";
 import { Token } from "./Context/Token";
-import { Path } from "./Path";
+import { Process } from "./Path";
 import { SequenceFlow } from "./Steps/BPMN20/Task";
 import { Execution } from "./Workflow";
 
@@ -56,7 +56,7 @@ export abstract class WorkflowStep {
 
     protected incomings: WorkflowStep[] = [];
     protected outgoings: SequenceFlow[] = [];
-    path: Path;
+    path: Process;
 
     /**
      * Set Http path
@@ -132,7 +132,7 @@ export abstract class WorkflowStep {
     //====================================
 
 
-    public setPath(path: Path): this {
+    public setPath(path: Process): this {
         this.path = path;
         return this;
     }
@@ -142,7 +142,7 @@ export abstract class WorkflowStep {
      *
      * @returns string
      */
-    public getPath(): Path {
+    public getPath(): Process {
         return this.path;
     }
 
@@ -439,8 +439,9 @@ export abstract class WorkflowStep {
 
                 this.token.push(
                     State.build(out!.activity!.getId(), {
-                        name: out!.activity!.getId(),
+                        name: out!.activity!.getName(),
                         status: pause(out!) ? Status.Paused : Status.Ready,
+                        step: out!.activity!
                     }),
                 );
             }
@@ -458,6 +459,7 @@ export abstract class WorkflowStep {
                         State.build(out.activity.id, {
                             name: out.activity.getName(),
                             status: pause(out) ? Status.Paused : Status.Ready,
+                            step: out!.activity
                         }),
                     );
 
