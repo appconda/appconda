@@ -20,7 +20,7 @@ export class Upload extends Validator {
             return false;
         }
 
-        // In Node.js, there is no direct equivalent to PHP's is_uploaded_file.
+        // In Node.js, there is no direct equivalent to  is_uploaded_file.
         // You would typically check if the file exists and is accessible.
         const fs = require('fs');
         try {

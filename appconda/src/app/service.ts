@@ -119,7 +119,7 @@ ServiceActionExecuter.setResource('dbForProject', async (cache: Cache, register:
 
 
 ServiceActionExecuter.setResource('getProjectDB', async (pools: Group, dbForConsole: Database, cache: any) => {
-    const databases: Record<string, Database> = {}; // TODO: @Meldiron This should probably be responsibility of utopia-php/pools
+    const databases: Record<string, Database> = {}; // TODO: @Meldiron This should probably be responsibility of appconda-php/pools
 
     return async (project: Document): Promise<Database> => {
         if (project.isEmpty() || project.getId() === 'console') {

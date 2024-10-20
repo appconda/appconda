@@ -1,5 +1,5 @@
 export abstract class Adapter {
-    protected userAgent: string = 'Utopia PHP Framework';
+    protected userAgent: string = 'Tuval Nodejs Framework';
     protected endpoint: string;
     protected apiKey: string;
     protected apiSecret: string;
@@ -86,7 +86,7 @@ export abstract class Adapter {
     }
 
     /**
-     * Flatten params array to PHP multiple format
+     * Flatten params array to  multiple format
      */
     protected flatten(data: Record<string, any>, prefix: string = ''): Record<string, any> {
         const output: Record<string, any> = {};

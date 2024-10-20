@@ -1,6 +1,5 @@
 export class ID {
     // Generate an hex ID based on timestamp
-    // Recreated from https://www.php.net/manual/en/function.uniqid.php
     static #hexTimestamp(): string {
         const now = new Date();
         const sec = Math.floor(now.getTime() / 1000);

@@ -51,7 +51,7 @@ export class AppSignal extends Adapter {
             }
         }
 
-        tags['sdk'] = `utopia-logger/${Logger.LIBRARY_VERSION}`;
+        tags['sdk'] = `appconda-logger/${Logger.LIBRARY_VERSION}`;
 
         const requestBody = {
             timestamp: Math.floor(log.getTimestamp()),

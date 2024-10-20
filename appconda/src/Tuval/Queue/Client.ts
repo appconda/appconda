@@ -104,7 +104,7 @@ export class Client {
     }
 
     private generateUniqueId(): string {
-        // Generates a unique identifier similar to PHP's uniqid with more entropy
+        // Generates a unique identifier similar to uniqid with more entropy
         return `${Date.now().toString(16)}-${Math.random().toString(16).substr(2)}`;
     }
 }

@@ -692,7 +692,7 @@ App.error()
         }
 
         switch (className) {
-            case 'UtopiaException':
+            case 'AppcondaException':
                 error = new AppcondaException(AppcondaException.GENERAL_UNKNOWN, message, code, error);
                 if (code === 400) error.setType(AppcondaException.GENERAL_ARGUMENT_INVALID);
                 if (code === 404) error.setType(AppcondaException.GENERAL_ROUTE_NOT_FOUND);

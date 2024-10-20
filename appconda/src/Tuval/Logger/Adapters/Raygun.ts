@@ -33,7 +33,7 @@ class Raygun extends Adapter {
 
         tagsArray.push(`type: ${log.getType()}`);
         tagsArray.push(`environment: ${log.getEnvironment()}`);
-        tagsArray.push(`sdk: utopia-logger/${Logger.LIBRARY_VERSION}`);
+        tagsArray.push(`sdk: appconda-logger/${Logger.LIBRARY_VERSION}`);
 
         const requestBody = {
             occurredOn: Math.floor(log.getTimestamp()),

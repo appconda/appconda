@@ -81,7 +81,7 @@ export class Filter extends Base {
         // isset check if for special symbols "." in the attribute name
         if (attribute.includes('.') && !this.schema.hasOwnProperty(attribute)) {
             // For relationships, just validate the top level.
-            // Utopia will validate each nested level during the recursive calls.
+            // Appconda will validate each nested level during the recursive calls.
             attribute = attribute.split('.')[0];
         }
 

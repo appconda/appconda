@@ -5,7 +5,7 @@ import { Validator } from '../../../Tuval/Core';
  *
  * Validate that a variable is a valid email address
  *
- * @package Utopia\Validator
+ * @package Appconda\Validator
  */
 export class Email extends Validator {
     protected allowEmpty: boolean;

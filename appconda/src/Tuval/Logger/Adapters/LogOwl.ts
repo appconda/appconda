@@ -24,7 +24,7 @@ export class LogOwl extends Adapter {
     }
 
     static getAdapterType(): string {
-        return 'utopia-logger';
+        return 'appconda-logger';
     }
 
     static getAdapterVersion(): string {

@@ -171,7 +171,7 @@ export class Phpass extends Hash {
             throw new Error('Salt is required for crypt function');
         }
 
-        // Using Node.js crypto module to mimic the behavior of PHP's crypt function
+        // Using Node.js crypto module to mimic the behavior of crypt function
         const hash = crypto.createHash('md5').update(salt + string).digest('hex');
         return hash.length >= 13 ? hash : '*';
     }

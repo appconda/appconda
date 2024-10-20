@@ -78,7 +78,7 @@ export class Template extends View {
     }
 
     /**
-     * Convert PHP array to query string
+     * Convert  array to query string
      */
     public static unParseURL(url: ReturnType<typeof parseUrl>): string {
         return formatUrl(url);

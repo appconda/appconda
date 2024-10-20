@@ -761,7 +761,7 @@ register.set('logger', () => {
         providerConfig = `https://${sentryKey}@sentry.io/${projectId}`;
     }
 
-    const classname = `\\Utopia\\Logger\\Adapter\\${providerName.charAt(0).toUpperCase() + providerName.slice(1)}`;
+    const classname = `\\Appconda\\Logger\\Adapter\\${providerName.charAt(0).toUpperCase() + providerName.slice(1)}`;
     const AdapterClass = require(classname).default;
     const adapter = new AdapterClass(providerConfig);
     return new Logger(adapter);
@@ -1554,7 +1554,7 @@ App.setResource('schema', async ({ appconda, dbForProject }: { appconda: any, db
 
     return {};
     /* Schema.build(
-        utopia,
+        appconda,
         complexity,
         attributes,
         urls,

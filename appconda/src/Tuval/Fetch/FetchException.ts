@@ -1,4 +1,4 @@
-// src/utopia/fetch/FetchException.ts
+// src/appconda/fetch/FetchException.ts
 
 export class FetchException extends Error {
     constructor(message: string) {

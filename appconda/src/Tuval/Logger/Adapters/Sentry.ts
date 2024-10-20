@@ -118,7 +118,7 @@ export class Sentry extends Adapter {
                 {
                     headers: {
                         'Content-Type': 'application/json',
-                        'X-Sentry-Auth': `Sentry sentry_version=7, sentry_key=${this.sentryKey}, sentry_client=utopia-logger/${Logger.LIBRARY_VERSION}`,
+                        'X-Sentry-Auth': `Sentry sentry_version=7, sentry_key=${this.sentryKey}, sentry_client=appconda-logger/${Logger.LIBRARY_VERSION}`,
                     },
                 }
             );

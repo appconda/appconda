@@ -6,7 +6,7 @@ export abstract class Adapter {
     public namespace: string;
     public connection: Connection = null as any;
 
-    constructor(workerNum: number, queue: string, namespace: string = 'utopia-queue') {
+    constructor(workerNum: number, queue: string, namespace: string = 'appconda-queue') {
         this.workerNum = workerNum;
         this.queue = queue;
         this.namespace = namespace;

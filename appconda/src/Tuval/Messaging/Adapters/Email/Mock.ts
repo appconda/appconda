@@ -24,7 +24,7 @@ export class Mock extends EmailAdapter {
         // Simulate sending email using a mock SMTP server
         const mail = {
             isSMTP: true,
-            XMailer: 'Utopia Mailer',
+            XMailer: 'Appconda Mailer',
             Host: 'maildev',
             Port: 1025,
             SMTPAuth: false,

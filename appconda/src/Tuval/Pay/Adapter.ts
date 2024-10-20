@@ -202,7 +202,7 @@ export abstract class Adapter {
     }
 
     /**
-     * Flatten params array to PHP multiple format
+     * Flatten params array to multiple format
      */
     protected flatten(data: any[], prefix: string = ''): any[] {
         const output: any[] = [];
