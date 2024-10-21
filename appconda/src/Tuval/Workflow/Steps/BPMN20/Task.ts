@@ -1,5 +1,5 @@
 import { Execution, Workflow } from "../../Workflow";
-import { Process } from "../../Path";
+import { Process } from "../../Process";
 import { ProcessStep } from "../ProcessStep";
 import { WorkflowStep } from "../../Step";
 import { Text } from "../../../Core";

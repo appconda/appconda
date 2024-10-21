@@ -1,5 +1,5 @@
 import { Context } from "./Context/Context";
-import { Process } from "./Path";
+import { Process } from "./Process";
 
 export interface IExecution {
     id?: string;

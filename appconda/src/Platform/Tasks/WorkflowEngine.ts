@@ -8,7 +8,7 @@ import { Action } from '../../Tuval/Platform/Action';
 import { Workflow } from '../../Tuval/Workflow/Workflow';
 import { State } from '../../Tuval/Workflow/State';
 import { ConsoleStep, SequenceFlow, StartEvent, Task } from '../../Tuval/Workflow/Steps/BPMN20/Task';
-import { Process } from '../../Tuval/Workflow/Path';
+import { Process } from '../../Tuval/Workflow/Process';
 import { workflows } from 'googleapis/build/src/apis/workflows';
 import { WorkflowStep } from '../../Tuval/Workflow/Step';
 import { nanoid } from '../Services/id-service/nanoid/nanoid';

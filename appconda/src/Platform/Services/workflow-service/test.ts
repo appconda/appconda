@@ -1,5 +1,5 @@
 
-import { Process } from "../../../Tuval/Workflow/Path";
+import { Process } from "../../../Tuval/Workflow/Process";
 import { State } from "../../../Tuval/Workflow/State";
 import { WorkflowStep } from "../../../Tuval/Workflow/Step";
 import { StartEvent, ServiceTask, UserTask, ExculusiveGateway, ConsoleStep } from "../../../Tuval/Workflow/Steps/BPMN20/Task";

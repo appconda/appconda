@@ -4,7 +4,8 @@ import { Context } from "./Context/Context";
 import { State } from "./Context/State";
 import { Status } from "./Context/Status";
 import { Token } from "./Context/Token";
-import { Process } from "./Path";
+import { Process } from "./Process";
+import { StepExecuter } from "./StepExecuter";
 import { SequenceFlow } from "./Steps/BPMN20/Task";
 import { Execution } from "./Workflow";
 
@@ -46,6 +47,8 @@ export abstract class WorkflowStep {
 
     public token?: Token;
     public context?: Context;
+
+    public stepExecuter : StepExecuter;
 
 
     //==============HTTP Scope============

@@ -1,4 +1,4 @@
-import { Process } from "./Path";
+import { Process } from "./Process";
 
 export class State {
     public paths: Process[] = [];

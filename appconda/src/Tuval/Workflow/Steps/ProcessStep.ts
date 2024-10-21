@@ -1,5 +1,5 @@
 import { Workflow } from "../Workflow";
-import { Process } from "../Path";
+import { Process } from "../Process";
 
 export abstract class ProcessStep {
     stepId: string;

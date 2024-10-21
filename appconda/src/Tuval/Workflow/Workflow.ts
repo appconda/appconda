@@ -4,7 +4,7 @@ import { State } from "./Context/State";
 import { Status } from "./Context/Status";
 import { Token } from "./Context/Token";
 import { IExecution } from "./IExecution";
-import { Process } from "./Path";
+import { Process } from "./Process";
 import { WorkflowStep } from "./Step";
 import { StepExecuter } from "./StepExecuter";
 import { EndStep } from "./Steps/EndStep";
@@ -103,43 +103,6 @@ export class Workflow {
         }
     }
 
-    private _initPath(path: Process, ret?) {
-        if (ret) {
-            (path as any).currentResult = ret.result;
-        }
-        if (!(path as any).self)
-            (path as any).self = path;
-        (path as any).results = [];
-        (path as any).returns = [];
-        (path as any).onError = false;
-        (path as any).isErrorProc = false;
-        (path as any).lastError = 0;
-        (path as any).lastErrorMessage = '';
-        (path as any).position = 'START';
-        (path as any).initialized = true;
-        (path as any).nextError = null;
-        (path as any).trappedErrorNumber = 0;
-        (path as any).objects = {};
-
-        //path.state = this.state;
-
-        // Find a sub-object
-        (path as any).getObject = function (index) {
-            var thisArray = this.parent[this.className];
-            if (!thisArray)
-                thisArray = this.parent[this.objectName];
-            if (!thisArray)
-                throw 'object_not_found';
-            if (!thisArray[index])
-                throw 'object_not_found';
-            return thisArray[index];
-        };
-
-        if (path.steps['END'] === undefined) {
-            // path.addStep(new EndStep());
-        }
-        return path;
-    }
     public async run(path: Process) {
 
         let ret;
@@ -293,13 +256,7 @@ export class Workflow {
         this.next.bind(this);
     }
 
-    /**
-    * If a resource has been created, return it; otherwise, create it and then return it
-    * @param name - The name of the resource
-    * @param fresh - Whether to fetch a fresh instance
-    * @returns The requested resource
-    * @throws Error if the resource callback is not found
-    */
+
     public async getResource(name: string, fresh: boolean = false): Promise<any> {
         if (!(name in this.resources) || fresh || (Workflow.resourcesCallbacks[name] && Workflow.resourcesCallbacks[name].reset)) {
             if (!(name in Workflow.resourcesCallbacks)) {
@@ -316,11 +273,7 @@ export class Workflow {
         return this.resources[name];
     }
 
-    /**
-   * Get multiple resources by their names
-   * @param list - List of resource names
-   * @returns An array of resources
-   */
+
     public async getResources(list: string[]): Promise<any[]> {
         return Promise.all(
             list.map(name => this.getResource(name))
@@ -328,13 +281,7 @@ export class Workflow {
 
     }
 
-    /**
-    * Set a new resource callback
-    * @param name - The name of the resource
-    * @param callback - The callback function to create the resource
-    * @param injections - Dependencies to inject into the callback
-    * @throws Error if inputs are invalid
-    */
+
     public static setResource(name: string, callback: (...args: any[]) => any, injections: string[] = []): void {
         if (typeof callback !== "function") {
             throw new Error("Callback must be a function");
