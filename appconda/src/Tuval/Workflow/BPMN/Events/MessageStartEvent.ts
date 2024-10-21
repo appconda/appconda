@@ -43,26 +43,7 @@ export class MessageStartEvent extends ProcessItem {
 
     private execute(workflow: Workflow, mailService: MailService, eventBus: EventBus) {
       Console.log('Message event waiting for message');
-      
-
-      
-    /*   eventBus.publish('user_registered', 'User 123 has registered.')
-    .then(() => console.log('Event published to Redis!'))
-    .catch((err) => console.error('Error publishing event:', err));
-*/
     } 
 
-    /*  async run(path: Path, flow: Workflow) {
- 
-         await fetch('https://dummyjson.com/products')
-             .then(res => res.json())
-             .then(data => {
-                 const { products } = data;
-                 flow.state.vars.products = products;
-             });
- 
-         console.log('Start Event executed.')
-         return Execution.$continue(this.nextStep);
-     } */
 
 }

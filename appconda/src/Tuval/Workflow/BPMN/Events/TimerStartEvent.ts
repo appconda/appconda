@@ -13,9 +13,19 @@ export class TimerStartEvent extends ProcessItem {
         this.desc('Start event for workflow');
 
         this.init()
-        .action(()=> {
+        .inject('eventBus')
+        .action((eventBus: EventBus)=> {
             Console.info('Timer start init.');
             this.execution = Execution.NOOP;
+
+            setTimeout(()=> {
+                this.execution = Execution.Contionue;
+        
+                eventBus.publish('user_registered', 'User 123 has registered.')
+                .then(() => console.log('Event published to Redis!'))
+                .catch((err) => console.error('Error publishing event:', err));
+        
+              }, 5000)
         })
 
         this.shutdown()
@@ -39,14 +49,7 @@ export class TimerStartEvent extends ProcessItem {
     private execute(workflow: Workflow, mailService: MailService, eventBus: EventBus) {
       Console.log('Timer waitin for timeout.');
 
-      setTimeout(()=> {
-        this.execution = Execution.Contionue;
-
-        eventBus.publish('user_registered', 'User 123 has registered.')
-        .then(() => console.log('Event published to Redis!'))
-        .catch((err) => console.error('Error publishing event:', err));
-
-      }, 5000)
+     
       
 
     }
