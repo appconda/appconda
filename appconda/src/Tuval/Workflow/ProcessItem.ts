@@ -16,7 +16,8 @@ export interface GoOutInterface {
 
 export enum Execution {
     Contionue = 'CONTINUE',
-    NOOP = 'NOOP'
+    NOOP = 'NOOP',
+    End = 'END'
 }
 
 export abstract class ProcessItem {
@@ -490,38 +491,56 @@ export abstract class ProcessItem {
                 : out!.pause;
 
         if (outgoing?.length && this.token) {
-            if (outgoing.length === 1) {
+            if (this.execution === Execution.End) {
                 this.token.status = Status.Completed;
 
-                const out = outgoing.pop();
-
                 this.token.push(
-                    State.build(out!.activity!.getId(), {
-                        name: out!.activity!.getName(),
-                        status: pause(out!) ? Status.Paused : Status.Ready,
-                        step: out!.activity!
+                    State.build(this.getId(), {
+                        name: this.getName(),
+                        status: Status.Completed,
+                        step: this!
                     }),
                 );
-            }
+                
+            } else if (outgoing.length === 1) {
+                if (this.execution === Execution.NOOP) {
+                    this.token.status = Status.Waiting;
+                    
+                } else {
+                    this.token.status = Status.Completed;
 
-            if (outgoing.length > 1 && this.context) {
-                this.token.locked = true;
-                this.token.status = Status.Terminated;
+                    const out = outgoing.pop();
 
-                for (const out of outgoing) {
-                    const token = Token.build({
-                        parent: this.token.id,
-                    });
-
-                    token.push(
-                        State.build(out.activity.id, {
-                            name: out.activity.getName(),
-                            status: pause(out) ? Status.Paused : Status.Ready,
-                            step: out!.activity
+                    this.token.push(
+                        State.build(out!.activity!.getId(), {
+                            name: out!.activity!.getName(),
+                            status: pause(out!) ? Status.Paused : Status.Ready,
+                            step: out!.activity!
                         }),
                     );
+                }
+            } else if (outgoing.length > 1 && this.context) {
+                if (this.execution === Execution.NOOP) {
+                    this.token.status = Status.Waiting;
+                } else {
+                    this.token.locked = true;
+                    this.token.status = Status.Terminated;
 
-                    this.context.addToken(token);
+                    for (const out of outgoing) {
+                        const token = Token.build({
+                            parent: this.token.id,
+                        });
+
+                        token.push(
+                            State.build(out.activity.id, {
+                                name: out.activity.getName(),
+                                status: pause(out) ? Status.Paused : Status.Ready,
+                                step: out!.activity
+                            }),
+                        );
+
+                        this.context.addToken(token);
+                    }
                 }
             }
         }

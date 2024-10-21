@@ -6,6 +6,9 @@ import { StartEvent } from "./BPMN/Events/StartEvent";
 import { ExclusiveGateway } from "./BPMN/Gateways/ExclusiveGateway";
 import { Task } from "./BPMN/Tasks/Task";
 import { UserTask } from "./BPMN/Tasks/UserTask";
+import { EndEvent } from "./BPMN/Events/EndEvent";
+import { MessageStartEvent } from "./BPMN/Events/MessageStartEvent";
+import { TimerStartEvent } from "./BPMN/Events/TimerStartEvent";
 
 const stepMap = {};
 stepMap['bpmn:startEvent'] = StartEvent;
@@ -50,6 +53,40 @@ export class Process {
         this.state = state;
     } */
 
+    private isMessageEvent(bpmnItem: any) {
+        if (bpmnItem['bpmn:messageEventDefinition'] != null) {
+            return true;
+        }
+    }
+
+    private isTimerEvent(bpmnItem: any) {
+        if (bpmnItem['bpmn:timerEventDefinition'] != null) {
+            return true;
+        }
+    }
+
+    private getElementType(key: string, bpmnItem: any) {
+
+        switch (key) {
+            case 'bpmn:startEvent':
+                if (this.isMessageEvent(bpmnItem)) {
+                    return MessageStartEvent;
+                }
+                if (this.isTimerEvent(bpmnItem)) {
+                    return TimerStartEvent;
+                }
+                return StartEvent;
+            case 'bpmn:task':
+                return Task;
+            case 'bpmn:sequenceFlow':
+                return SequenceFlow;
+            case 'bpmn:endEvent':
+                return EndEvent;
+            case 'bpmn:userTask':
+                return UserTask;
+        }
+    }
+
     constructor(public bpmnProcess: any) {
 
         for (const key of Object.keys(bpmnProcess)) {
@@ -57,7 +94,7 @@ export class Process {
 
             const items = bpmnProcess[key];
             for (const item of items) {
-                const stepType = stepMap[key];
+                const stepType = this.getElementType(key, item);
                 const step: ProcessItem = new stepType();
                 step.setName(item.$.name);
                 step.setPath(this);
@@ -66,16 +103,16 @@ export class Process {
                 const extentions = item['bpmn:extensionElements'];
                 const payload = {};
                 if (Array.isArray(extentions)) {
-                    for(let extention of extentions) {
-                        if (Array.isArray(extention['appconda:payload'])){
+                    for (let extention of extentions) {
+                        if (Array.isArray(extention['appconda:payload'])) {
                             const appcondaPayload = extention['appconda:payload'][0];
                             const payloadItems = appcondaPayload['payload:item'];
-                            for(const payloadItem of payloadItems){
+                            for (const payloadItem of payloadItems) {
                                 payload[payloadItem.$.name] = payloadItem.$.value;
                             }
-                            
+
                         }
-                        
+
 
                     }
                 }
@@ -176,13 +213,17 @@ export class Process {
         return this.steps[id];
     }
 
-    public getStartStep(): ProcessItem {
+    public getStartEvents(): ProcessItem[] {
+        const startEvents = [];
         for (let key in this.steps) {
-            if (this.steps[key] instanceof StartEvent) {
-                return this.steps[key];
+            if (this.steps[key] instanceof StartEvent ||
+                this.steps[key] instanceof MessageStartEvent ||
+                this.steps[key] instanceof TimerStartEvent
+            ) {
+                startEvents.push(this.steps[key]);
             }
         }
-        return null;
+        return startEvents;
     }
 
     /**

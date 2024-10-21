@@ -155,13 +155,14 @@ export class Context<D = any> implements ContextInterface<D> {
      * @returns The state of the first token that has a status of Ready.
      */
     next() {
-        for (let i =0;i< this.tokens.length;i++) {
+        const states = [];
+        for (let i = 0; i < this.tokens.length; i++) {
             const token = this.tokens[i];
             if (token.status === Status.Ready) {
-                return token.state;
+                 states.push(token.state);
             }
         }
-        return undefined; // Explicitly return undefined if no token is ready
+        return states; // Explicitly return undefined if no token is ready
     }
 
     /**

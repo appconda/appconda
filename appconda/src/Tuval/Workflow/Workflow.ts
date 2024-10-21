@@ -9,35 +9,6 @@ import { ProcessItem } from "./ProcessItem";
 import { StepExecuter } from "./StepExecuter";
 
 
-class Return {
-    public type: string = '';
-    public constructor(type: string) {
-        this.type = type;
-    }
-}
-
-export class Continue extends Return {
-    public label: string | number = '';
-    public constructor(label: string | number) {
-        super('CONTINUE');
-        this.label = label;
-    }
-}
-export class NoOp extends Return {
-    public constructor() {
-        super('NOOP');
-    }
-}
-
-/* export namespace Execution {
-    export function $continue(label: string | number) {
-        return new Continue(label);
-    }
-
-    export function $noop() {
-        return new NoOp();
-    }
-} */
 
 type ResourceCallback = {
     callback: (...args: any[]) => any;
@@ -88,11 +59,11 @@ export class Workflow {
             throw new Exception(' bpmn process definition not found.')
         }
 
-        for(const process of processes) {
+        for (const process of processes) {
             this.processes.push(new Process(process));
         }
 
-        
+
 
         this.next = () => {
             return new Promise((resolve) => {
@@ -128,7 +99,7 @@ export class Workflow {
 
         do {
             do {
-                ret = await path.stepExecuters[path.position].run();
+                ret = await path.stepExecuters[path.position].run(true);
             } while (!ret);
 
             if (ret) {
@@ -162,6 +133,7 @@ export class Workflow {
     }
     public runStepByStep({ path, context, data, node }: IExecution): void {
 
+
         if (path == null) {
             path = this.processes[0];
         }
@@ -169,33 +141,43 @@ export class Workflow {
 
         if (!context.isReady()) throw new Exception('Context is not ready to consume');
 
-        let activity: ProcessItem | undefined;
+        let activities: ProcessItem[] = [];
         if (node && context.tokens.length) {
-            activity = path.getStepById(node);
+            activities = [path.getStepById(node)];
         } else if (!context.tokens.length && !node) {
-            activity = path.getStartStep();
+            activities = [...path.getStartEvents()];
 
         }
 
-        if (!activity) throw new Error('Düğüm aktivitesi bulunamadı veya geçerli değil');
+        if (!activities.length) throw new Error('Düğüm aktivitesi bulunamadı veya geçerli değil');
 
 
         let token: Token | undefined;
         if (context.tokens.length == 0) {
-            const state = State.build(activity.getId(), { name: activity.getId(), value: {} });
+            for (const activity of activities) {
+                const state = State.build(activity.getId(), { name: activity.getId(), value: {} });
 
-            token = Token.build({ history: [state] });
+                token = Token.build({ history: [state] });
+                activity.token = token;
+                activity.context = Context.build({ data }).resume();
+                activity.context.addToken(token);
+            }
 
-            context.addToken(token);
         } else {
-            token = context.getTokens(activity.getId())?.pop()?.resume();
 
-            if (!token?.isReady()) throw new Error('Token, tüketmeye hazır değil');
+            for (const activity of activities) {
+                token = context.getTokens(activity.getId())?.pop()?.resume();
+                activity.token = token;
+                activity.context = Context.build({ data }).resume();
+                if (!token?.isReady()) throw new Error('Token, tüketmeye hazır değil');
+            }
+
+
         }
 
         if (!token) throw new Error('Token bulunamadı');
 
-        path.position = activity.getId();
+
 
         let ret;
 
@@ -206,64 +188,73 @@ export class Workflow {
         this.initProcess([path]);
 
         context.status = Status.Running;
+
+        const starts = [];
+        for (const activity of activities) {
+            const func = this.runActivityFunc(path, activity);
+            starts.push(func);
+        }
+
         this.next = async () => {
             //  do {
-
-            activity.token = token;
-            activity.context = context;
-
             if (!quit && !this.break) {
-           
-
-                    //  if (context.status === Status.Running) {
-
-
-                   await activity.stepExecuter.run();
-
-
-                    //}
-                    //console.log( "Block " + section.position + " - Sourcepos: " + this.sourcePos );
-
-                
-                    switch (activity.execution) {
-                        // End
-                        case 'CONTINUE':
-                            activity.takeOutgoing();
-                            const next = context.next();
-                            const tokens = context.getTokens(next.ref);
-                            let foundToken;
-                            if (tokens) {
-                                for (let i = 0; i < tokens.length; i++) {
-                                    const token = tokens[i];
-                                    if (token.status === Status.Ready) {
-                                        foundToken = token;
-                                    }
-                                }
-                            }
-                            if (!foundToken) throw new Error('Çalışma aşamasında token bulunamadı');
-                            activity = path.getStepById(next.ref);
-                            break;
-                        case 'NOOP':
-                            break;
-                        // Quit the loop
-                        case 'END':
-                            quit = true;
-                            break;
-                        case 'SUB_PATH_END':
-                            //this.state.pop();
-                            // this.state.currentPath.position = ret.label;
-                            quit = true;
-                            break;
-
-                        default:
-                            break;
-                    }
-                
-               
+                for (const func of starts) {
+                    await func();
+                }
             }
+
         }
 
         this.next.bind(this);
+    }
+
+    private runActivityFunc(process: Process, activity: ProcessItem) {
+
+        let isEnded: boolean = false;
+        const lastExecution = { activity: null };
+        return async () => {
+
+            if (!isEnded) {
+
+                await activity.stepExecuter.run(lastExecution.activity?.getId() !== activity.getId());
+
+                switch (activity.execution) {
+                    // End
+                    case 'CONTINUE':
+                        activity.takeOutgoing();
+                        const next = activity.context.next();
+                        const tokens = activity.context.getTokens(next[0].ref);
+                        let foundToken;
+                        if (tokens) {
+                            for (let i = 0; i < tokens.length; i++) {
+                                const token = tokens[i];
+                                if (token.status === Status.Ready) {
+                                    foundToken = token;
+                                }
+                            }
+                        }
+                        if (!foundToken) throw new Error('Çalışma aşamasında token bulunamadı');
+                        const nextActivity: ProcessItem = process.getStepById(next[0].ref);
+                        nextActivity.context = activity.context;
+                        nextActivity.token = activity.token;
+                        activity = nextActivity;
+                        break;
+                    case 'NOOP':
+                        activity.takeOutgoing(); // For update tokens
+                        break;
+                    // Quit the loop
+                    case 'END':
+                        activity.takeOutgoing(); // For update tokens
+                        isEnded = true;
+                        break;
+                    default:
+                        break;
+                }
+
+                lastExecution.activity = activity;
+            }
+
+        }
     }
 
 
@@ -300,5 +291,5 @@ export class Workflow {
         Workflow.resourcesCallbacks[name] = { callback, injections, reset: true };
     }
 
-   
+
 }

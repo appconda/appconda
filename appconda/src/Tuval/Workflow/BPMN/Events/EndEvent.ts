@@ -1,6 +1,7 @@
 import MailService from "../../../../Platform/Services/mail-service/MailService";
-import { ProcessItem } from "../../ProcessItem";
-import { Workflow, Execution } from "../../Workflow";
+import { Console } from "../../../CLI";
+import { Execution, ProcessItem } from "../../ProcessItem";
+import { Workflow } from "../../Workflow";
 
 
 export class EndEvent extends ProcessItem {
@@ -16,15 +17,11 @@ export class EndEvent extends ProcessItem {
     }
 
     private execute(workflow: Workflow, mailService: MailService) {
-        mailService.send({
-            smtp: 'sdf'
-        });
+        Console.success(`${this.getName()} tamamlandi.`)
 
-        console.log(workflow);
-        console.log('End event executed.')
-        if (this.outgoings.length > 0) {
-            return Execution.$continue(this.outgoings[0].getId());
-        }
+        this.execution = Execution.End;
+
+
     }
 
     /*  async run(path: Path, flow: Workflow) {

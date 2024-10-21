@@ -2,7 +2,7 @@ import { Container } from "../../Container";
 import { Console } from "../../Tuval/CLI";
 import { Hook, Validator } from "../../Tuval/Core";
 import { Job } from "../../Tuval/Queue";
-import { ProcessItem } from "./ProcessItem";
+import { Execution, ProcessItem } from "./ProcessItem";
 import { Workflow } from "./Workflow";
 var fs = require('fs');
 var path = require('path');
@@ -162,7 +162,7 @@ export class StepExecuter {
         return hook;
     }
 
-    public async run(): Promise<any> {
+    public async run(runInits: boolean): Promise<any> {
         const payload: any = this.step.getPayload();
         let ret = {
             type: 'END'
@@ -171,7 +171,7 @@ export class StepExecuter {
         try {
             this.setResource('payload', () => payload);
 
-            if (this._job.getHook()) {
+            if (this._job.getHook() && runInits) {
                 for (const hook of this.initHooks) { // Global init hooks
                     if (hook.getGroups().includes("*")) {
                         const args = await this.getArguments(hook, payload);
@@ -180,11 +180,13 @@ export class StepExecuter {
                 }
             }
 
-            for (const group of this._job.getGroups()) {
-                for (const hook of this.initHooks) { // Group init hooks
-                    if (hook.getGroups().includes(group)) {
-                        const args = await this.getArguments(hook, payload);
-                        hook.getAction()(...args);
+            if (runInits) {
+                for (const group of this._job.getGroups()) {
+                    for (const hook of this.initHooks) { // Group init hooks
+                        if (hook.getGroups().includes(group)) {
+                            const args = await this.getArguments(hook, payload);
+                            hook.getAction()(...args);
+                        }
                     }
                 }
             }
@@ -197,21 +199,22 @@ export class StepExecuter {
             }
 
 
-
-            if (this._job.getHook()) {
-                for (const hook of this.shutdownHooks) { // Global shutdown hooks
-                    if (hook.getGroups().includes("*")) {
-                        const args = await this.getArguments(hook, payload);
-                        hook.getAction()(...args);
+            if (this.step.execution === Execution.Contionue) {
+                if (this._job.getHook()) {
+                    for (const hook of this.shutdownHooks) { // Global shutdown hooks
+                        if (hook.getGroups().includes("*")) {
+                            const args = await this.getArguments(hook, payload);
+                            hook.getAction()(...args);
+                        }
                     }
                 }
-            }
 
-            for (const group of this._job.getGroups()) {
-                for (const hook of this.shutdownHooks) { // Group shutdown hooks
-                    if (hook.getGroups().includes(group)) {
-                        const args = await this.getArguments(hook, payload);
-                        hook.getAction()(...args);
+                for (const group of this._job.getGroups()) {
+                    for (const hook of this.shutdownHooks) { // Group shutdown hooks
+                        if (hook.getGroups().includes(group)) {
+                            const args = await this.getArguments(hook, payload);
+                            hook.getAction()(...args);
+                        }
                     }
                 }
             }

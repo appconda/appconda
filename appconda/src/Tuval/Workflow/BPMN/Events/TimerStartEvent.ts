@@ -5,7 +5,7 @@ import { Execution, ProcessItem } from "../../ProcessItem";
 import { Workflow } from "../../Workflow";
 
 
-export class StartEvent extends ProcessItem {
+export class TimerStartEvent extends ProcessItem {
 
     constructor() {
         super()
@@ -13,12 +13,13 @@ export class StartEvent extends ProcessItem {
 
         this.init()
         .action(()=> {
-           // Console.info('Start event going to execute.')
+            Console.info('Timer start init.');
+            this.execution = Execution.NOOP;
         })
 
         this.shutdown()
         .action(()=> {
-           // Console.success('Start event executed.')
+            Console.success('Start event executed.')
         })
 
         this.error()
@@ -34,12 +35,12 @@ export class StartEvent extends ProcessItem {
     }
 
     private execute(workflow: Workflow, mailService: MailService) {
-    
-        console.log(`Start event ${this.getName()} executed.`)
+      Console.log('Timer waitin for timeout.');
 
+      setTimeout(()=> {
+        this.execution = Execution.Contionue;
+      }, 5000)
       
-            return Execution.Contionue;
-       
 
     }
 

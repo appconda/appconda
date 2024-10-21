@@ -5,7 +5,7 @@ import { Execution, ProcessItem } from "../../ProcessItem";
 import { Workflow } from "../../Workflow";
 
 
-export class StartEvent extends ProcessItem {
+export class MessageStartEvent extends ProcessItem {
 
     constructor() {
         super()
@@ -13,12 +13,12 @@ export class StartEvent extends ProcessItem {
 
         this.init()
         .action(()=> {
-           // Console.info('Start event going to execute.')
+            Console.info('Start event going to execute.')
         })
 
         this.shutdown()
         .action(()=> {
-           // Console.success('Start event executed.')
+            Console.success('Start event executed.')
         })
 
         this.error()
@@ -34,12 +34,8 @@ export class StartEvent extends ProcessItem {
     }
 
     private execute(workflow: Workflow, mailService: MailService) {
-    
-        console.log(`Start event ${this.getName()} executed.`)
-
-      
-            return Execution.Contionue;
-       
+      Console.log('Message event waiting for message');
+      this.execution = Execution.NOOP;
 
     }
 
