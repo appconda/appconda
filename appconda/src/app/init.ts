@@ -43,6 +43,7 @@ import { APP_PLATFORM_SERVER } from "./config/platforms";
 import { App } from "../Tuval/Http";
 import { Group, Pool } from "../Tuval/Pools";
 import { getDevice } from "./utils/getDevice";
+import { RedisEventBus } from "../Tuval/EventBus/Adapters/Redis";
 
 let geoReader: maxmind.Reader<maxmind.CityResponse> | null = null;
 
@@ -810,7 +811,7 @@ register.set('pools', () => {
             type: 'pubsub',
             dsns: process.env._APP_CONNECTIONS_PUBSUB || fallbackForRedis,
             multiple: false,
-            schemes: ['redis'],
+            schemes: ['redis']
         },
         cache: {
             type: 'cache',
@@ -908,8 +909,9 @@ register.set('pools', () => {
                         }
                         break;
                     case 'pubsub':
-                        adapter = resource();
+                        adapter = new RedisEventBus(resource() as RedisClientType, resource() as RedisClientType);
                         break;
+                        
                     case 'queue':
                         adapter = (() => {
                             switch (dsnScheme) {

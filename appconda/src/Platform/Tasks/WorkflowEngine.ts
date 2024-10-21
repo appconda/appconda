@@ -6,6 +6,10 @@ import { ProcessItem } from '../../Tuval/Workflow/ProcessItem';
 import { State } from '../../Tuval/Workflow/State';
 import { Workflow } from '../../Tuval/Workflow/Workflow';
 import { nanoid } from '../Services/id-service/nanoid/nanoid';
+import { register } from '../../app/init';
+import { Group } from '../../Tuval/Pools';
+import { EventBus } from '../../Tuval/EventBus/EventBus';
+import { Registry } from '../../Tuval/Registry';
 const fs = require('fs');
 
 export const readFile = (path: string): string => fs.readFileSync(path, 'utf8');
@@ -31,6 +35,15 @@ export const parse = (xml: string) => {
     return parse;
 };
 
+
+Workflow.setResource('register', async () => register);
+Workflow.setResource('pools', async(register: Registry) => register.get('pools'), ['register']);
+Workflow.setResource('eventBus', async (pools: Group) => {
+    const connection = await pools.get('pubsub').pop();
+    const adapter = connection.getResource();
+    return  new EventBus(adapter);
+    
+}, ['pools']);
 
 export class WorkflowEngine extends Action {
     public static getName(): string {

@@ -1,6 +1,7 @@
 
 import MailService from "../../../../Platform/Services/mail-service/MailService";
 import { Console } from "../../../CLI";
+import { EventBus } from "../../../EventBus/EventBus";
 import { Execution, ProcessItem } from "../../ProcessItem";
 import { Workflow } from "../../Workflow";
 
@@ -12,8 +13,14 @@ export class MessageStartEvent extends ProcessItem {
         this.desc('Start event for workflow');
 
         this.init()
-        .action(()=> {
-            Console.info('Start event going to execute.')
+        .inject('eventBus')
+        .action((eventBus: EventBus)=> {
+            Console.info('Message Start event going to execute.');
+            this.execution = Execution.NOOP;
+            eventBus.subscribe('user_registered', (message) => {
+                console.log(`Received message: ${message}`);
+                this.execution = Execution.Contionue;
+            });
         })
 
         this.shutdown()
@@ -30,14 +37,20 @@ export class MessageStartEvent extends ProcessItem {
         this.action()
             .inject('workflow')
             .inject('mail-service')
+            .inject('eventBus')
             .action(this.execute.bind(this))
     }
 
-    private execute(workflow: Workflow, mailService: MailService) {
+    private execute(workflow: Workflow, mailService: MailService, eventBus: EventBus) {
       Console.log('Message event waiting for message');
-      this.execution = Execution.NOOP;
+      
 
-    }
+      
+    /*   eventBus.publish('user_registered', 'User 123 has registered.')
+    .then(() => console.log('Event published to Redis!'))
+    .catch((err) => console.error('Error publishing event:', err));
+*/
+    } 
 
     /*  async run(path: Path, flow: Workflow) {
  
