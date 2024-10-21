@@ -2,7 +2,7 @@
 
 <br />
 <p align="center">
-    <a href="https://appconda.io" target="_blank"><img src="./public/images/banner.png" alt="Appconda Logo"></a>
+    <a href="https://appconda.io" target="_blank"><img src="./appconda-logo.png" alt="Appconda Logo"></a>
     <br />
     <br />
     <b>Appconda, Web, Mobil ve Flutter uygulamaları geliştirmek için bir backend platformudur. Secdiginiz programlama dillerinde en iyi geliştirici deneyimi sunacak şekilde optimize edilmiştir.</b>
