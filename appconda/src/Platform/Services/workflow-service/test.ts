@@ -1,8 +1,8 @@
 
 import { Process } from "../../../Tuval/Workflow/Process";
 import { State } from "../../../Tuval/Workflow/State";
-import { WorkflowStep } from "../../../Tuval/Workflow/Step";
-import { StartEvent, ServiceTask, UserTask, ExculusiveGateway, ConsoleStep } from "../../../Tuval/Workflow/Steps/BPMN20/Task";
+import { ProcessItem } from "../../../Tuval/Workflow/ProcessItem";
+import { StartEvent, ServiceTask, UserTask, ExculusiveGateway, ConsoleStep } from "../../../Tuval/Workflow/Steps/BPMN/Task";
 import { ProcessStep } from "../../../Tuval/Workflow/Steps/ProcessStep";
 import { Execution, Workflow } from "../../../Tuval/Workflow/Workflow";
 import { nanoid } from "../id-service/nanoid/nanoid";
@@ -88,7 +88,7 @@ function JSONToFlow(flow: any[]): Process {
 
     for (let i = 0; i < flow.length; i++) {
         const stepType = stepMap[flow[i].type];
-        const step: WorkflowStep = new stepType();
+        const step: ProcessItem = new stepType();
         step.setId(flow[i].id);
         if (flow[i].payload) {
             step.setPayload(flow[i].payload);

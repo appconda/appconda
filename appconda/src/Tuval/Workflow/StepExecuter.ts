@@ -2,7 +2,7 @@ import { Container } from "../../Container";
 import { Console } from "../../Tuval/CLI";
 import { Hook, Validator } from "../../Tuval/Core";
 import { Job } from "../../Tuval/Queue";
-import { WorkflowStep } from "./Step";
+import { ProcessItem } from "./ProcessItem";
 import { Workflow } from "./Workflow";
 var fs = require('fs');
 var path = require('path');
@@ -58,12 +58,12 @@ export class StepExecuter {
     * Initialize and return a Job instance
     * @returns Job instance
     */
-    public job(): Job {
-        this._job = new Job();
+    public job(job: Job): Job {
+        this._job = job;
         return this._job;
     }
 
-    constructor(public workflow: Workflow, public step: WorkflowStep) {
+    constructor(public workflow: Workflow, public step: ProcessItem) {
 
     }
 
@@ -130,8 +130,7 @@ export class StepExecuter {
      * Register a shutdown hook
      * @returns The created Hook instance
      */
-    public shutdown(): Hook {
-        const hook = new Hook();
+    public shutdown(hook: Hook): Hook {
         hook.groups(["*"]);
         this.shutdownHooks.push(hook);
         return hook;
@@ -157,8 +156,7 @@ export class StepExecuter {
      * Register an initialization hook
      * @returns The created Hook instance
      */
-    public init(): Hook {
-        const hook = new Hook();
+    public init(hook: Hook): Hook {
         hook.groups(["*"]);
         this.initHooks.push(hook);
         return hook;
@@ -343,8 +341,7 @@ export class StepExecuter {
      * Register an error hook. Will be executed when an error occurs.
      * @returns The created Hook instance
      */
-    public error(): Hook {
-        const hook = new Hook();
+    public error(hook: Hook): Hook {
         hook.groups(["*"]);
         this.errorHooks.push(hook);
         return hook;

@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { WorkflowStep } from '../Step';
+import { ProcessItem } from '../ProcessItem';
 import { Status } from './Status';
 
 export interface StateInterface<V = any> {
@@ -68,7 +68,7 @@ export class State<V = any> {
      *
      * @returns A new instance of the State class.
      */
-    static build<V = any>(ref: string, options: { step?: WorkflowStep, name?: string; value?: V; status?: Status }) {
+    static build<V = any>(ref: string, options: { step?: ProcessItem, name?: string; value?: V; status?: Status }) {
         return new State<V>({ ref, ...options });
     }
 }

@@ -1,9 +1,11 @@
 import { State } from "./State";
-import { WorkflowStep } from "./Step";
+import { ProcessItem } from "./ProcessItem";
 import { StepExecuter } from "./StepExecuter";
-import { ExclusiveGateway } from "./Steps/BPMN20/ExclusiveGateway";
-import { SequenceFlow, StartEvent, Task } from "./Steps/BPMN20/Task";
-import { ProcessStep } from "./Steps/ProcessStep";
+import { SequenceFlow } from "./BPMN/Flows/SequenceFlow";
+import { StartEvent } from "./BPMN/Events/StartEvent";
+import { ExclusiveGateway } from "./BPMN/Gateways/ExclusiveGateway";
+import { Task } from "./BPMN/Tasks/Task";
+import { UserTask } from "./BPMN/Tasks/UserTask";
 
 const stepMap = {};
 stepMap['bpmn:startEvent'] = StartEvent;
@@ -11,6 +13,9 @@ stepMap['bpmn:task'] = Task;
 stepMap['bpmn:sequenceFlow'] = SequenceFlow;
 stepMap['exclusiveGateway'] = ExclusiveGateway;
 stepMap['bpmn:endEvent'] = Task;
+stepMap['bpmn:userTask'] = UserTask;
+
+
 
 export class Process {
 
@@ -18,7 +23,7 @@ export class Process {
     public stepExecuters: StepExecuter[] = [];
     public state: State = null as any;
     private counter = -1;
-    public steps: WorkflowStep[] = [] /* = {
+    public steps: ProcessItem[] = [] /* = {
         'START':  () => {
             return new Promise((resolve, reject)=> {
                 console.log('START EXECUTED');
@@ -53,10 +58,27 @@ export class Process {
             const items = bpmnProcess[key];
             for (const item of items) {
                 const stepType = stepMap[key];
-                const step: WorkflowStep = new stepType();
+                const step: ProcessItem = new stepType();
                 step.setName(item.$.name);
                 step.setPath(this);
                 step.setId(item.$.id);
+
+                const extentions = item['bpmn:extensionElements'];
+                const payload = {};
+                if (Array.isArray(extentions)) {
+                    for(let extention of extentions) {
+                        if (Array.isArray(extention['appconda:payload'])){
+                            const appcondaPayload = extention['appconda:payload'][0];
+                            const payloadItems = appcondaPayload['payload:item'];
+                            for(const payloadItem of payloadItems){
+                                payload[payloadItem.$.name] = payloadItem.$.value;
+                            }
+                            
+                        }
+                        
+
+                    }
+                }
                 /*   if (steps[i].payload) {
                       step.setPayload(steps[i].payload);
                   } */
@@ -64,11 +86,8 @@ export class Process {
                     step.setTargetRef(item.$.targetRef);
                     step.setSourceRef(item.$.sourceRef);
                 }
-
-
                 this.addStep(step);
             }
-
         }
 
         for (const key of Object.keys(bpmnProcess)) {
@@ -91,7 +110,7 @@ export class Process {
             if (key === '$') continue;
             const items = bpmnProcess[key];
             for (let item of items) {
-                const step: WorkflowStep = this.getStepById(item.$.id);
+                const step: ProcessItem = this.getStepById(item.$.id);
 
                 const incomings = item['bpmn:incoming'];
                 if (Array.isArray(incomings)) {
@@ -128,15 +147,15 @@ export class Process {
          } */
 
     }
-    public getSteps(): WorkflowStep[] {
+    public getSteps(): ProcessItem[] {
         return this.steps;
     }
 
-    public addStep(key: string, step: WorkflowStep): this;
-    public addStep(step: WorkflowStep): this;
+    public addStep(key: string, step: ProcessItem): this;
+    public addStep(step: ProcessItem): this;
     public addStep(...args: any[]): this {
         if (args.length === 1) {
-            const step: WorkflowStep = args[0];
+            const step: ProcessItem = args[0];
             if (step instanceof StartEvent) {
                 this.position = step.getId();
             }
@@ -157,7 +176,7 @@ export class Process {
         return this.steps[id];
     }
 
-    public getStartStep(): WorkflowStep {
+    public getStartStep(): ProcessItem {
         for (let key in this.steps) {
             if (this.steps[key] instanceof StartEvent) {
                 return this.steps[key];
@@ -172,7 +191,7 @@ export class Process {
 * @param key string
 * @returns Action | null
 */
-    public getAction(key: string): WorkflowStep | null {
+    public getAction(key: string): ProcessItem | null {
         return this.steps[key] || null;
     }
 
@@ -181,7 +200,7 @@ export class Process {
      *
      * @returns { [key: string]: Action }
      */
-    public getActions(): WorkflowStep[] {
+    public getActions(): ProcessItem[] {
         return this.steps;
     }
 

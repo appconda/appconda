@@ -1,22 +1,25 @@
 import { nanoid } from "../../Platform/Services/id-service/nanoid/nanoid";
-import { Validator } from "../Core";
+import { Hook, Validator } from "../Core";
+import { Job } from "../Queue";
+import { SequenceFlow } from "./BPMN/Flows/SequenceFlow";
 import { Context } from "./Context/Context";
 import { State } from "./Context/State";
 import { Status } from "./Context/Status";
 import { Token } from "./Context/Token";
 import { Process } from "./Process";
 import { StepExecuter } from "./StepExecuter";
-import { SequenceFlow } from "./Steps/BPMN20/Task";
-import { Execution } from "./Workflow";
 
 export interface GoOutInterface {
-    activity: WorkflowStep;
+    activity: ProcessItem;
     pause?: boolean | string;
 }
 
+export enum Execution {
+    Contionue = 'CONTINUE',
+    NOOP = 'NOOP'
+}
 
-
-export abstract class WorkflowStep {
+export abstract class ProcessItem {
     public static readonly HTTP_REQUEST_METHOD_GET = 'GET';
     public static readonly HTTP_REQUEST_METHOD_POST = 'POST';
     public static readonly HTTP_REQUEST_METHOD_PUT = 'PUT';
@@ -40,7 +43,7 @@ export abstract class WorkflowStep {
     protected params: { [key: string]: any } = {};
     protected injections: string[] = [];
     protected labels: { [key: string]: any } = {};
-    protected type: string = WorkflowStep.TYPE_DEFAULT;
+    protected type: string = ProcessItem.TYPE_DEFAULT;
 
     protected id: string = nanoid();
     protected payload: any = {};
@@ -48,7 +51,57 @@ export abstract class WorkflowStep {
     public token?: Token;
     public context?: Context;
 
-    public stepExecuter : StepExecuter;
+    public stepExecuter: StepExecuter;
+    public _initHook: Hook;
+    public _errorHook: Hook = new Hook();
+    public _shutdownHook: Hook = new Hook();
+    private _actionHook: Job;
+
+    public setStepExecuter(stepExecuter: StepExecuter) {
+        this.stepExecuter = stepExecuter;
+
+        if (this._initHook) {
+            this.stepExecuter.init(this._initHook);
+        }
+        if (this._actionHook) {
+            this.stepExecuter.job(this._actionHook);
+        }
+
+        if (this._shutdownHook) {
+            this.stepExecuter.shutdown(this._shutdownHook);
+        }
+
+        if (this._errorHook) {
+            this.stepExecuter.error(this._errorHook);
+        }
+    }
+
+
+    public init() {
+        const hook = new Hook();
+        this._initHook = hook;
+        return hook;
+    }
+
+    public action() {
+        const hook = new Job();
+        this._actionHook = hook;
+        return hook;
+
+
+    }
+
+    public shutdown() {
+        const hook = new Hook();
+        this._shutdownHook = hook;
+        return hook;
+    }
+
+    public error() {
+        const hook = new Hook();
+        this._errorHook = hook;
+        return hook;
+    }
 
 
     //==============HTTP Scope============
@@ -57,9 +110,11 @@ export abstract class WorkflowStep {
     protected httpAliasPath: string | null = null;
     protected httpAliasParams: { [key: string]: any } = {};
 
-    protected incomings: WorkflowStep[] = [];
+    protected incomings: ProcessItem[] = [];
     protected outgoings: SequenceFlow[] = [];
     path: Process;
+
+    public execution: Execution = Execution.Contionue;
 
     /**
      * Set Http path
@@ -333,11 +388,11 @@ export abstract class WorkflowStep {
         return this.outgoings;
     }
 
-    public incoming(step: WorkflowStep) {
+    public incoming(step: ProcessItem) {
         this.incomings.push(step);
     }
 
-    public getOIncomings(): WorkflowStep[] {
+    public getOIncomings(): ProcessItem[] {
         return this.incomings;
     }
 
@@ -403,16 +458,16 @@ export abstract class WorkflowStep {
         return this.options;
     }
 
-    public next() {
+    /* public next() {
         if (this.outgoings.length > 0) {
             return Execution.$continue(this.outgoings[0].getId());
         }
-    }
+    } */
 
     public takeOutgoing(id?: string, options?: { pause: boolean | string }) {
         if (!this.outgoing || !this.outgoing?.length) return;
 
-        const outgoing: WorkflowStep[] = this.takeOutgoingSteps(this.getOutgoings(), id);
+        const outgoing: ProcessItem[] = this.takeOutgoingSteps(this.getOutgoings(), id);
 
         if (!outgoing) return;
 
@@ -421,9 +476,9 @@ export abstract class WorkflowStep {
 
 
 
-    protected takeOutgoingSteps(outgoing: SequenceFlow[], id?: string): WorkflowStep[] {
+    protected takeOutgoingSteps(outgoing: SequenceFlow[], id?: string): ProcessItem[] {
         if (id) {
-            return outgoing?.filter((o) => o.getTargetRef() === id).map((o) =>this.path.getStepById(o.getTargetRef()));
+            return outgoing?.filter((o) => o.getTargetRef() === id).map((o) => this.path.getStepById(o.getTargetRef()));
 
         } else return outgoing?.map((o) => this.path.getStepById(o.getTargetRef()!));
     };

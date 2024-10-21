@@ -5,10 +5,8 @@ import { Status } from "./Context/Status";
 import { Token } from "./Context/Token";
 import { IExecution } from "./IExecution";
 import { Process } from "./Process";
-import { WorkflowStep } from "./Step";
+import { ProcessItem } from "./ProcessItem";
 import { StepExecuter } from "./StepExecuter";
-import { EndStep } from "./Steps/EndStep";
-import { ProcessStep } from "./Steps/ProcessStep";
 
 
 class Return {
@@ -31,7 +29,7 @@ export class NoOp extends Return {
     }
 }
 
-export namespace Execution {
+/* export namespace Execution {
     export function $continue(label: string | number) {
         return new Continue(label);
     }
@@ -39,7 +37,7 @@ export namespace Execution {
     export function $noop() {
         return new NoOp();
     }
-}
+} */
 
 type ResourceCallback = {
     callback: (...args: any[]) => any;
@@ -103,6 +101,21 @@ export class Workflow {
         }
     }
 
+    protected initProcess(processes: Process[]): void {
+        for (const path of processes) {
+            for (const [key, step] of Object.entries(path.getActions())) {
+                /*   if (action.getType() === Action.TYPE_DEFAULT && !key.toLowerCase().includes(workerName.toLowerCase())) {
+                      continue;
+                  } */
+                const stepExecuter = new StepExecuter(this, step);
+
+                stepExecuter.setResource('workflow', () => this);
+
+                step.setStepExecuter(stepExecuter);
+            }
+        }
+    }
+
     public async run(path: Process) {
 
         let ret;
@@ -110,7 +123,7 @@ export class Workflow {
 
         var quit = false;
 
-        this.initPath([path]);
+        this.initProcess([path]);
 
 
         do {
@@ -156,7 +169,7 @@ export class Workflow {
 
         if (!context.isReady()) throw new Exception('Context is not ready to consume');
 
-        let activity: WorkflowStep | undefined;
+        let activity: ProcessItem | undefined;
         if (node && context.tokens.length) {
             activity = path.getStepById(node);
         } else if (!context.tokens.length && !node) {
@@ -190,7 +203,7 @@ export class Workflow {
 
         let quit = false;
 
-        this.initPath([path]);
+        this.initProcess([path]);
 
         context.status = Status.Running;
         this.next = async () => {
@@ -200,20 +213,19 @@ export class Workflow {
             activity.context = context;
 
             if (!quit && !this.break) {
-                do {
+           
 
                     //  if (context.status === Status.Running) {
 
 
-                    ret = await path.stepExecuters[activity.getId()].run();
+                   await activity.stepExecuter.run();
 
 
                     //}
                     //console.log( "Block " + section.position + " - Sourcepos: " + this.sourcePos );
 
-                } while (!ret);
-                if (ret) {
-                    switch (ret.type) {
+                
+                    switch (activity.execution) {
                         // End
                         case 'CONTINUE':
                             activity.takeOutgoing();
@@ -246,10 +258,8 @@ export class Workflow {
                         default:
                             break;
                     }
-                }
-                ret = null;
-                /*  if (allowWaiting && (performance.now() - this.startTime >= this.timestep))
-                     break; */
+                
+               
             }
         }
 
@@ -290,57 +300,5 @@ export class Workflow {
         Workflow.resourcesCallbacks[name] = { callback, injections, reset: true };
     }
 
-    protected initPath(paths: Process[]): void {
-        for (const path of paths) {
-            for (const [key, step] of Object.entries(path.getActions())) {
-                /*   if (action.getType() === Action.TYPE_DEFAULT && !key.toLowerCase().includes(workerName.toLowerCase())) {
-                      continue;
-                  } */
-                const stepExecuter = new StepExecuter(this, step);
-
-                stepExecuter.setResource('workflow', () => this);
-
-                path.stepExecuters[step.getId()] = stepExecuter;
-                let hook;
-
-                switch (step.getType()) {
-                    case WorkflowStep.TYPE_INIT:
-                        hook = stepExecuter.init();
-                        break;
-                    case WorkflowStep.TYPE_ERROR:
-                        hook = stepExecuter.error();
-                        break;
-                    case WorkflowStep.TYPE_SHUTDOWN:
-                        hook = stepExecuter.shutdown();
-                        break;
-                    case WorkflowStep.TYPE_WORKER_START:
-                        hook = stepExecuter.workerStart();
-                        break;
-                    case WorkflowStep.TYPE_DEFAULT:
-                    default:
-                        hook = stepExecuter.job();
-                        break;
-                }
-                hook.groups(step.getGroups()).desc(step.getDesc() ?? '');
-
-                for (const [key, option] of Object.entries(step.getOptions())) {
-                    switch (option.type) {
-                        case 'param':
-                            const paramKey = key.substring(key.indexOf(':') + 1);
-                            hook.param(paramKey, option.default, option.validator, option.description, option.optional, option.injections);
-                            break;
-                        case 'injection':
-                            hook.inject(option.name);
-                            break;
-                    }
-                }
-
-                for (const [key, label] of Object.entries(step.getLabels())) {
-                    hook.label(key, label);
-                }
-
-                hook.action(step.getCallback());
-            }
-        }
-    }
+   
 }

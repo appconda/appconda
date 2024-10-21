@@ -1,4 +1,5 @@
-import { GoOutInterface, WorkflowStep } from "../../Step";
+import { ProcessItem, GoOutInterface } from "../../ProcessItem";
+
 
 
 export interface TakeOutgoingInterface {
@@ -6,14 +7,9 @@ export interface TakeOutgoingInterface {
     pause?: boolean | string;
 }
 
-export class Gateway extends WorkflowStep {
+export class Gateway extends ProcessItem {
 
-    constructor() {
-        super()
-    }
-
-
-
+ 
 
     protected takeGatewayOutgoing(identity?: string) {
         let outgoing = this.takeOutgoingSteps(this.getOutgoings(), identity);

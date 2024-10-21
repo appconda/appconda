@@ -1,5 +1,6 @@
 
-import { Execution } from "../../Workflow";
+
+import { Execution } from "../../ProcessItem";
 import { Gateway } from "./Gateway";
 
 
@@ -9,13 +10,14 @@ export class ExclusiveGateway extends Gateway {
         super()
         this
             .desc('Start event for workflow')
+            .action()
             .inject('workflow')
             .inject('mail-service')
-            .callback(this.action.bind(this))
+            .action(this.execute.bind(this))
     }
 
-    private action() {
-        return Execution.$continue('');
+    private execute() {
+        return Execution.Contionue;
 
     }
 
