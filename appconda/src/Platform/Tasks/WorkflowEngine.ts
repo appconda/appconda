@@ -61,14 +61,19 @@ export class WorkflowEngine extends Action {
     public action() {
     
 
-        const xml = parse(readFile(path.resolve(__dirname, './b.bpmn')));
+        const xmlb = parse(readFile(path.resolve(__dirname, './b.bpmn')));
+        const xmlc = parse(readFile(path.resolve(__dirname, './c.bpmn')));
  
 
-        const woc = new Workflow(xml);
-        woc.runStepByStep({});
+        const w1 = new Workflow(xmlb);
+        w1.runStepByStep({});
+
+         const w2 = new Workflow(xmlc);
+        w2.runStepByStep({}); 
 
         setInterval(() => {
-            woc.next()
+            w1.next();
+            w2.next();
         }, 1000)
 
     }

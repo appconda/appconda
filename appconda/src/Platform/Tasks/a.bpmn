@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn">
+<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:appconda="http://example.com/appconda" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn">
   <bpmn:process id="Process_1" isExecutable="false">
     <bpmn:startEvent id="Event_11s0cmj" name="Test e basla">
       <bpmn:outgoing>Flow_1afxlii</bpmn:outgoing>
@@ -55,18 +55,13 @@
       <bpmn:outgoing>Flow_0f614i5</bpmn:outgoing>
       <bpmn:messageEventDefinition id="MessageEventDefinition_030f14z" />
     </bpmn:startEvent>
-    <bpmn:startEvent id="Event_0itbket" name="Veri var mi">
-      <bpmn:extensionElements>
-        <metadata timeout="5000" />
-        <test name="ggg" />
-      </bpmn:extensionElements>
+    <bpmn:startEvent id="Event_0itbket" name="Veri var mi" appconda:timeout="5000">
+      
       <bpmn:outgoing>Flow_0uj2z3b</bpmn:outgoing>
       <bpmn:timerEventDefinition id="TimerEventDefinition_19u886w" />
     </bpmn:startEvent>
-    <bpmn:endEvent id="Event_1t5pjnu" name="Mesaj Gonderildi">
-      <bpmn:extensionElements>
-        <metadata messageName="user_registered" />
-      </bpmn:extensionElements>
+    <bpmn:endEvent id="Event_1t5pjnu" name="Mesaj Gonderildi" appconda:messageName="user_registered">
+    
       <bpmn:incoming>Flow_0xfcsfl</bpmn:incoming>
       <bpmn:messageEventDefinition id="MessageEventDefinition_1l8m1mk" />
     </bpmn:endEvent>

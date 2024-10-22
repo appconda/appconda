@@ -35,16 +35,16 @@ export class TimerStartEvent extends ProcessItem {
                 setTimeout(() => {
                     this.execution = Execution.Contionue;
 
-                    eventBus.publish('user_registered', 'User 123 has registered.')
+                   /*  eventBus.publish('user_registered', 'User 123 has registered.')
                         .then(() => console.log('Event published to Redis!'))
-                        .catch((err) => console.error('Error publishing event:', err));
+                        .catch((err) => console.error('Error publishing event:', err)); */
 
                 }, this.getTimeout())
             })
 
         this.shutdown()
             .action(() => {
-                Console.success('Start event executed.')
+                //Console.success('Start event executed.')
             })
 
         this.error()
@@ -68,12 +68,12 @@ export class TimerStartEvent extends ProcessItem {
         const timerStartEvent = new TimerStartEvent();
         const id = ProcessItem.buildId(bpmnItem);
         const name = ProcessItem.buildName(bpmnItem);
-        const metadata = ProcessItem.buildMetadata(bpmnItem);
+        const timeout = bpmnItem.$['appconda:timeout'];
 
         timerStartEvent
             .setId(id)
             .setName(name)
-            .setTimeout((metadata as any).timeout ?? 1000)
+            .setTimeout(timeout ?? 1000)
 
             timerStartEvent.validateMetadata();
 

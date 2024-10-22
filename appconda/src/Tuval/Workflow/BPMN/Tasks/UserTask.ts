@@ -9,62 +9,77 @@ export class UserTask extends ProcessItem {
         return this.userId;
     }
 
-    public setUserId(value: string ){
+    public setUserId(value: string) {
         this.userId = value;
     }
 
     constructor() {
-        super()
+        super();
+
         this
             .desc(`
                 - User Tasks are tasks that users perform manually. 
                 - For example, tasks such as approving customer orders or filling out forms can be modeled as user tasks. 
                 - They are generally used for processes that require human interaction.
                 `)
-                .init()
-                .inject('task-applet')
-                .action( (taskApplet: TaskApplet) => {
 
-                    console.log(taskApplet)
-
-                    taskApplet.create({
-                        name:'sdf',
-                        projectId: 'sdfsd',
-                        appletId:'sdf'
-                    });
-                })
-
-            this.action()
+        // Init hook setup
+        this.init()
             .inject('task-applet')
-            .action(this.execute.bind(this))
+            .action(this.initAction.bind(this))
+
+        // Action hook setup
+        this.action()
+            .inject('task-applet')
+            .action(this.executeAction.bind(this))
     }
 
-    private execute(taskApplet: TaskApplet) {
+    private initAction(taskApplet: TaskApplet) {
+        console.log(taskApplet)
+
+        taskApplet.create({
+            name: 'sdf',
+            projectId: 'sdfsd',
+            appletId: 'sdf'
+        });
+    }
+
+    private executeAction(taskApplet: TaskApplet) {
         console.log('Kullanicidan onay bekliyor.')
 
         taskApplet.getTaskStatus({
             appletId: 'asdfa',
             projectId: 'sde',
-            taskId:'sad'
-        })  
-        
+            taskId: 'sad'
+        })
+
         this.execution = Execution.NOOP;
     }
 
+    /**
+     * Build the item from bpmn json
+     * @param bpmnItem 
+     * @returns 
+     */
     public static build(bpmnItem: any) {
         const processItem = new UserTask();
         const id = ProcessItem.buildId(bpmnItem);
         const name = ProcessItem.buildName(bpmnItem);
-       // const metadata = ProcessItem.buildMetadata(bpmnItem);
+        // const metadata = ProcessItem.buildMetadata(bpmnItem);
         const userId = bpmnItem.$['appconda:userId'];
         processItem
             .setId(id)
             .setName(name)
-            .setUserId(userId)
+            .setUserId(userId);
 
-            return processItem;
+        processItem.validateMetadata();
+
+        return processItem;
     }
 
+    /**
+     * Validate item metadata
+     */
     public validateMetadata(): void {
         const textValidator: Text = new Text(255);
         if (!textValidator.isValid(this.userId)) {

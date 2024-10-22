@@ -35,7 +35,7 @@ export class MessageEndEvent extends ProcessItem {
 
         this.shutdown()
             .action(() => {
-                Console.success('Start event executed.')
+               // Console.success('Start event executed.')
             })
 
         this.error()
@@ -64,12 +64,12 @@ export class MessageEndEvent extends ProcessItem {
         const processItem = new MessageEndEvent();
         const id = ProcessItem.buildId(bpmnItem);
         const name = ProcessItem.buildName(bpmnItem);
-        const metadata: MessageEndEventMetadataType = ProcessItem.buildMetadata(bpmnItem);
+        const messageName = bpmnItem.$['appconda:messageName'];
 
         processItem
             .setId(id)
             .setName(name)
-            .setMessageName(metadata.messageName)
+            .setMessageName(messageName)
 
         processItem.validateMetadata();
 

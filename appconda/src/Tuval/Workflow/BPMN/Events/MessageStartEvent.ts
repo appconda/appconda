@@ -29,18 +29,10 @@ export class MessageStartEvent extends ProcessItem {
 
         this.init()
             .inject('eventBus')
-            .action((eventBus: EventBus) => {
-                Console.info('Message Start event going to execute.');
-                this.execution = Execution.NOOP;
-                eventBus.subscribe(this.getMessageName(), (message) => {
-                  //  console.log(`Received message: ${message}`);
-                    this.execution = Execution.Contionue;
-                });
-            })
+            .action(this.initAction.bind(this))
 
         this.shutdown()
             .action(() => {
-                Console.success('Start event executed.')
             })
 
         this.error()
@@ -53,29 +45,49 @@ export class MessageStartEvent extends ProcessItem {
             .inject('workflow')
             .inject('mail-service')
             .inject('eventBus')
-            .action(this.execute.bind(this))
+            .action(this.executeAction.bind(this))
     }
 
-    private execute(workflow: Workflow, mailService: MailService, eventBus: EventBus) {
-        Console.info(`${this.getName()} executed`);
+    /**
+     * Init hook action. Only call one time 
+     * @param eventBus 
+     */
+    private async initAction(eventBus: EventBus) {
+        this.execution = Execution.NOOP;
+
+        // We subscribe to registed message 
+        eventBus.subscribe(this.getMessageName(), (message) => {
+            this.execution = Execution.Contionue;
+        });
     }
 
+    private async executeAction(workflow: Workflow, mailService: MailService, eventBus: EventBus) {
+    }
+
+    /**
+     * Build MessageStartEvent object from bpmn json object
+     * @param bpmnItem 
+     * @returns 
+     */
     public static build(bpmnItem: any) {
         const processItem = new MessageStartEvent();
         const id = ProcessItem.buildId(bpmnItem);
         const name = ProcessItem.buildName(bpmnItem);
-        const metadata: MessageStartEventMetadataType = ProcessItem.buildMetadata(bpmnItem);
+        const messageName = bpmnItem.$['appconda:messageName'];
 
         processItem
             .setId(id)
             .setName(name)
-            .setMessageName(metadata.messageName)
+            .setMessageName(messageName)
 
         processItem.validateMetadata();
 
         return processItem;
     }
 
+    /**
+     * validate object
+     */
     public validateMetadata(): void {
         const textValidator: Text = new Text(255);
         if (!textValidator.isValid(this.messageName)) {
