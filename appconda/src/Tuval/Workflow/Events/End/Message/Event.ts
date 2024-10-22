@@ -1,14 +1,10 @@
 
-import MailService from "../../../Platform/Services/mail-service/MailService";
-import { Console } from "../../CLI";
-import { Exception, Text } from "../../Core";
-import { EventBus } from "../../EventBus/EventBus";
-import { Execution, ProcessItem } from "../ProcessItem";
-import { Workflow } from "../Workflow";
+import MailService from "../../../../../Platform/Services/mail-service/MailService";
+import { Console } from "../../../../CLI";
+import { EventBus } from "../../../../EventBus/EventBus";
+import { ProcessItem, Execution } from "../../../ProcessItem";
+import { Workflow } from "../../../Workflow";
 
-export interface MessageEndEventMetadataType {
-    messageName: string;
-}
 
 export class MessageEndEvent extends ProcessItem {
 
@@ -60,28 +56,5 @@ export class MessageEndEvent extends ProcessItem {
 
     }
 
-    public static build(bpmnItem: any) {
-        const processItem = new MessageEndEvent();
-        const id = ProcessItem.buildId(bpmnItem);
-        const name = ProcessItem.buildName(bpmnItem);
-        const messageName = bpmnItem.$['appconda:message'];
-
-        processItem
-            .setId(id)
-            .setName(name)
-            .setMessageName(messageName)
-
-        processItem.validateMetadata();
-
-        return processItem;
-    }
-
-    public validateMetadata(): void {
-        const textValidator: Text = new Text(255);
-        if (!textValidator.isValid(this.messageName)) {
-            // Console.error(`messageName not found for ${this.getName()}`);
-            throw new Exception(`messageName not found for ${this.getName()}`)
-        }
-    }
 
 }

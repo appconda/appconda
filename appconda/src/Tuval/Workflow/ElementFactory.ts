@@ -1,3 +1,5 @@
+import { Builder as MessageEndEventBuilder} from "./Events/End/Message/Builder";
+import { Builder as StartEventBuilder} from "./Events/Start/$/Builder";
 import { Builder as MessageStartEventBuilder } from "./Events/Start/Message/Builder";
 import { Builder as TimerStartEventBuilder} from "./Events/Start/Timer/Builder";
 
@@ -25,14 +27,14 @@ export class ElementFactory {
                 if (this.isTimerEvent(bpmnItem)) {
                     return TimerStartEventBuilder.build(bpmnItem);
                 }
-                return StartEvent.build(bpmnItem);
+                return StartEventBuilder.build(bpmnItem);
             case 'bpmn:task':
                 return Task.build(bpmnItem);
             case 'bpmn:sequenceFlow':
                 return SequenceFlow.build(bpmnItem);
             case 'bpmn:endEvent':
                 if (this.isMessageEvent(bpmnItem)) {
-                    return MessageEndEvent.build(bpmnItem);
+                    return MessageEndEventBuilder.build(bpmnItem);
                 }
 
                 return EndEvent.build(bpmnItem);
