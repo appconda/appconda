@@ -175,7 +175,8 @@ export class StepExecuter {
                 for (const hook of this.initHooks) { // Global init hooks
                     if (hook.getGroups().includes("*")) {
                         const args = await this.getArguments(hook, payload);
-                        hook.getAction()(...args);
+                        const action = hook.getAction();
+                        await action(...args);
                     }
                 }
             }
@@ -185,7 +186,8 @@ export class StepExecuter {
                     for (const hook of this.initHooks) { // Group init hooks
                         if (hook.getGroups().includes(group)) {
                             const args = await this.getArguments(hook, payload);
-                            hook.getAction()(...args);
+                            const action = hook.getAction();
+                            await action(...args);
                         }
                     }
                 }
@@ -204,7 +206,8 @@ export class StepExecuter {
                     for (const hook of this.shutdownHooks) { // Global shutdown hooks
                         if (hook.getGroups().includes("*")) {
                             const args = await this.getArguments(hook, payload);
-                            hook.getAction()(...args);
+                            const action = hook.getAction();
+                            await action(...args);
                         }
                     }
                 }
@@ -213,7 +216,8 @@ export class StepExecuter {
                     for (const hook of this.shutdownHooks) { // Group shutdown hooks
                         if (hook.getGroups().includes(group)) {
                             const args = await this.getArguments(hook, payload);
-                            hook.getAction()(...args);
+                            const action = hook.getAction();
+                            await action(...args);
                         }
                     }
                 }

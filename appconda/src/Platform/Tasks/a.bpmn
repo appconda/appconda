@@ -47,11 +47,11 @@
       <bpmn:outgoing>Flow_0xfcsfl</bpmn:outgoing>
     </bpmn:task>
     <bpmn:sequenceFlow id="Flow_0x1s3rs" sourceRef="Activity_02498dl" targetRef="Activity_130kn5n" />
-    <bpmn:endEvent id="Event_1t5pjnu" name="Veri kontrol tamamlandi">
-      <bpmn:incoming>Flow_0xfcsfl</bpmn:incoming>
-    </bpmn:endEvent>
     <bpmn:sequenceFlow id="Flow_0xfcsfl" sourceRef="Activity_130kn5n" targetRef="Event_1t5pjnu" />
     <bpmn:startEvent id="StartEvent_1" name="Baslangic">
+      <bpmn:extensionElements>
+        <metadata messageName="user_registered" />
+      </bpmn:extensionElements>
       <bpmn:outgoing>Flow_0f614i5</bpmn:outgoing>
       <bpmn:messageEventDefinition id="MessageEventDefinition_030f14z" />
     </bpmn:startEvent>
@@ -63,6 +63,13 @@
       <bpmn:outgoing>Flow_0uj2z3b</bpmn:outgoing>
       <bpmn:timerEventDefinition id="TimerEventDefinition_19u886w" />
     </bpmn:startEvent>
+    <bpmn:endEvent id="Event_1t5pjnu" name="Veri kontrol tamamlandi">
+      <bpmn:extensionElements>
+        <metadata messageName="user_registered" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0xfcsfl</bpmn:incoming>
+      <bpmn:messageEventDefinition id="MessageEventDefinition_1l8m1mk" />
+    </bpmn:endEvent>
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1">
@@ -111,12 +118,6 @@
         <dc:Bounds x="500" y="520" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Event_1t5pjnu_di" bpmnElement="Event_1t5pjnu">
-        <dc:Bounds x="692" y="542" width="36" height="36" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="682" y="585" width="57" height="27" />
-        </bpmndi:BPMNLabel>
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_1e5r028_di" bpmnElement="StartEvent_1">
         <dc:Bounds x="173" y="102" width="36" height="36" />
         <bpmndi:BPMNLabel>
@@ -127,6 +128,12 @@
         <dc:Bounds x="173" y="542" width="36" height="36" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="165" y="585" width="52" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0wpp537_di" bpmnElement="Event_1t5pjnu">
+        <dc:Bounds x="692" y="542" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="682" y="585" width="57" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_1afxlii_di" bpmnElement="Flow_1afxlii">

@@ -6,11 +6,11 @@ import { EventBus } from "../../../EventBus/EventBus";
 import { Execution, ProcessItem } from "../../ProcessItem";
 import { Workflow } from "../../Workflow";
 
-export interface MessageStartEventMetadataType {
+export interface MessageEndEventMetadataType {
     messageName: string;
 }
 
-export class MessageStartEvent extends ProcessItem {
+export class MessageEndEvent extends ProcessItem {
 
     private messageName: string;
 
@@ -30,12 +30,7 @@ export class MessageStartEvent extends ProcessItem {
         this.init()
             .inject('eventBus')
             .action((eventBus: EventBus) => {
-                Console.info('Message Start event going to execute.');
-                this.execution = Execution.NOOP;
-                eventBus.subscribe(this.getMessageName(), (message) => {
-                    console.log(`Received message: ${message}`);
-                    this.execution = Execution.Contionue;
-                });
+
             })
 
         this.shutdown()
@@ -56,15 +51,19 @@ export class MessageStartEvent extends ProcessItem {
             .action(this.execute.bind(this))
     }
 
-    private execute(workflow: Workflow, mailService: MailService, eventBus: EventBus) {
-        Console.log('Message event waiting for message');
+    private async execute(workflow: Workflow, mailService: MailService, eventBus: EventBus) {
+
+        await eventBus.publish(this.getMessageName(), 'User 123 has registered.');
+        this.execution = Execution.Contionue;
+
+
     }
 
     public static build(bpmnItem: any) {
-        const processItem = new MessageStartEvent();
+        const processItem = new MessageEndEvent();
         const id = ProcessItem.buildId(bpmnItem);
         const name = ProcessItem.buildName(bpmnItem);
-        const metadata: MessageStartEventMetadataType = ProcessItem.buildMetadata(bpmnItem);
+        const metadata: MessageEndEventMetadataType = ProcessItem.buildMetadata(bpmnItem);
 
         processItem
             .setId(id)

@@ -24,6 +24,21 @@ export class EndEvent extends ProcessItem {
 
     }
 
+    public static build(bpmnItem: any) {
+        const processItem = new EndEvent();
+        const id = ProcessItem.buildId(bpmnItem);
+        const name = ProcessItem.buildName(bpmnItem);
+        const metadata = ProcessItem.buildMetadata(bpmnItem);
+
+        processItem
+            .setId(id)
+            .setName(name)
+
+            return processItem;
+    }
+
+    
+
     /*  async run(path: Path, flow: Workflow) {
  
          await fetch('https://dummyjson.com/products')

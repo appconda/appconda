@@ -1,3 +1,4 @@
+import { Text } from "../../../Core";
 import { Execution, ProcessItem } from "../../ProcessItem";
 
 
@@ -18,4 +19,19 @@ export class Task extends ProcessItem {
         }
 
     }
+
+    public static build(bpmnItem: any) {
+        const processItem = new Task();
+        const id = ProcessItem.buildId(bpmnItem);
+        const name = ProcessItem.buildName(bpmnItem);
+        const metadata = ProcessItem.buildMetadata(bpmnItem);
+
+        processItem
+            .setId(id)
+            .setName(name)
+
+            return processItem;
+    }
+
+   
 }

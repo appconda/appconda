@@ -1,5 +1,4 @@
-import { ProcessItem } from "../../ProcessItem";
-import { Execution } from "../../Workflow";
+import { Execution, ProcessItem } from "../../ProcessItem";
 
 
 export class SequenceFlow extends ProcessItem {
@@ -32,8 +31,21 @@ export class SequenceFlow extends ProcessItem {
     private execute() {
         console.log('SequenceFlow ' + this.getId() + ' executed.')
         if (this.targetRef != null) {
-            return Execution.$continue(this.targetRef);
+            return Execution.Contionue;
         }
+    }
+
+    public static build(bpmnItem: any) {
+        const processItem = new SequenceFlow();
+        const id = ProcessItem.buildId(bpmnItem);
+        const name = ProcessItem.buildName(bpmnItem);
+        const metadata = ProcessItem.buildMetadata(bpmnItem);
+
+        processItem
+            .setId(id)
+            .setName(name)
+
+            return processItem;
     }
 
     /*  async run(path: Path, flow: Workflow) {

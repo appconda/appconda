@@ -49,6 +49,7 @@ export abstract class ProcessItem {
     protected id: string = nanoid();
     protected payload: any = {};
 
+
     public token?: Token;
     public context?: Context;
 
@@ -397,14 +398,7 @@ export abstract class ProcessItem {
         return this.incomings;
     }
 
-    /**
-     * Get the value of injections
-     *
-     * @returns string[]
-     */
-    public getInjections(): string[] {
-        return this.injections;
-    }
+    
 
     /**
      * Inject
@@ -501,11 +495,11 @@ export abstract class ProcessItem {
                         step: this!
                     }),
                 );
-                
+
             } else if (outgoing.length === 1) {
                 if (this.execution === Execution.NOOP) {
                     this.token.status = Status.Waiting;
-                    
+
                 } else {
                     this.token.status = Status.Completed;
 
@@ -545,5 +539,35 @@ export abstract class ProcessItem {
             }
         }
     }
+
+    public static buildId(bpmnItem: any) {
+        const attributes = bpmnItem.$;
+        return attributes.id;
+    }
+
+    public static buildName(bpmnItem: any) {
+        const attributes = bpmnItem.$;
+        return attributes.name;
+    }
+
+    public static buildMetadata<T>(bpmnItem: any): T {
+
+        const extensionElements = bpmnItem['bpmn:extensionElements'];
+        if (Array.isArray(extensionElements)) {
+            const metadata = extensionElements[0].metadata;
+            if (Array.isArray(metadata)) {
+                return metadata[0].$;
+            }
+
+        }
+
+        return null;
+    }
+
+    public validateMetadata(): void {
+        
+    }
+
+
 
 }

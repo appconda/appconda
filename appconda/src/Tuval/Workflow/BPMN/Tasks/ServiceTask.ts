@@ -19,4 +19,17 @@ export class ServiceTask extends ProcessItem {
         console.log('Waiting for user response')
         return Execution.NOOP;
     }
+
+    public static build(bpmnItem: any) {
+        const processItem = new ServiceTask();
+        const id = ProcessItem.buildId(bpmnItem);
+        const name = ProcessItem.buildName(bpmnItem);
+        const metadata = ProcessItem.buildMetadata(bpmnItem);
+
+        processItem
+            .setId(id)
+            .setName(name)
+
+            return processItem;
+    }
 }

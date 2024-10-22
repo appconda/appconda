@@ -9,6 +9,7 @@ import { UserTask } from "./BPMN/Tasks/UserTask";
 import { EndEvent } from "./BPMN/Events/EndEvent";
 import { MessageStartEvent } from "./BPMN/Events/MessageStartEvent";
 import { TimerStartEvent } from "./BPMN/Events/TimerStartEvent";
+import { MessageEndEvent } from "./BPMN/Events/MessageEndEvent";
 
 const stepMap = {};
 stepMap['bpmn:startEvent'] = StartEvent;
@@ -65,25 +66,29 @@ export class Process {
         }
     }
 
-    private getElementType(key: string, bpmnItem: any) {
+    private getProcessItem(key: string, bpmnItem: any) {
 
         switch (key) {
             case 'bpmn:startEvent':
                 if (this.isMessageEvent(bpmnItem)) {
-                    return MessageStartEvent;
+                    return MessageStartEvent.build(bpmnItem);
                 }
                 if (this.isTimerEvent(bpmnItem)) {
-                    return TimerStartEvent;
+                    return TimerStartEvent.build(bpmnItem);
                 }
-                return StartEvent;
+                return StartEvent.build(bpmnItem);
             case 'bpmn:task':
-                return Task;
+                return Task.build(bpmnItem);
             case 'bpmn:sequenceFlow':
-                return SequenceFlow;
+                return SequenceFlow.build(bpmnItem);
             case 'bpmn:endEvent':
-                return EndEvent;
+                if (this.isMessageEvent(bpmnItem)) {
+                    return MessageEndEvent.build(bpmnItem);
+                }
+                
+                return EndEvent.build(bpmnItem);
             case 'bpmn:userTask':
-                return UserTask;
+                return UserTask.build(bpmnItem);
         }
     }
 
@@ -94,8 +99,7 @@ export class Process {
 
             const items = bpmnProcess[key];
             for (const item of items) {
-                const stepType = this.getElementType(key, item);
-                const step: ProcessItem = new stepType();
+                const step: ProcessItem = this.getProcessItem(key, item);
                 step.setName(item.$.name);
                 step.setPath(this);
                 step.setId(item.$.id);

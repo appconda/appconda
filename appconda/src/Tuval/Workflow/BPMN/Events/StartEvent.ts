@@ -12,19 +12,19 @@ export class StartEvent extends ProcessItem {
         this.desc('Start event for workflow');
 
         this.init()
-        .action(()=> {
-           // Console.info('Start event going to execute.')
-        })
+            .action(() => {
+                // Console.info('Start event going to execute.')
+            })
 
         this.shutdown()
-        .action(()=> {
-           // Console.success('Start event executed.')
-        })
+            .action(() => {
+                // Console.success('Start event executed.')
+            })
 
         this.error()
-        .action(()=> {
-            Console.error('Start event on error.')
-        })
+            .action(() => {
+                Console.error('Start event on error.')
+            })
 
 
         this.action()
@@ -34,14 +34,28 @@ export class StartEvent extends ProcessItem {
     }
 
     private execute(workflow: Workflow, mailService: MailService) {
-    
+
         console.log(`Start event ${this.getName()} executed.`)
 
-      
-            return Execution.Contionue;
-       
+
+        return Execution.Contionue;
 
     }
+
+    public static build(bpmnItem: any) {
+        const processItem = new StartEvent();
+        const id = ProcessItem.buildId(bpmnItem);
+        const name = ProcessItem.buildName(bpmnItem);
+        const metadata = ProcessItem.buildMetadata(bpmnItem);
+
+        processItem
+            .setId(id)
+            .setName(name)
+
+            return processItem;
+    }
+
+    
 
     /*  async run(path: Path, flow: Workflow) {
  

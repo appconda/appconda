@@ -1,6 +1,6 @@
 
 
-import { Execution } from "../../ProcessItem";
+import { Execution, ProcessItem } from "../../ProcessItem";
 import { Gateway } from "./Gateway";
 
 
@@ -28,6 +28,19 @@ export class ExclusiveGateway extends Gateway {
     
         return outgoing;
       }
+
+      public static build(bpmnItem: any) {
+        const processItem = new ExclusiveGateway();
+        const id = ProcessItem.buildId(bpmnItem);
+        const name = ProcessItem.buildName(bpmnItem);
+        const metadata = ProcessItem.buildMetadata(bpmnItem);
+
+        processItem
+            .setId(id)
+            .setName(name)
+
+            return processItem;
+    }
 
 
 

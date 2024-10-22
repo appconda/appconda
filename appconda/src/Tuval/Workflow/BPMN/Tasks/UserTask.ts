@@ -19,4 +19,17 @@ export class UserTask extends ProcessItem {
         
         this.execution = Execution.NOOP;
     }
+
+    public static build(bpmnItem: any) {
+        const processItem = new UserTask();
+        const id = ProcessItem.buildId(bpmnItem);
+        const name = ProcessItem.buildName(bpmnItem);
+        const metadata = ProcessItem.buildMetadata(bpmnItem);
+
+        processItem
+            .setId(id)
+            .setName(name)
+
+            return processItem;
+    }
 }
