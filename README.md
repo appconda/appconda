@@ -44,10 +44,18 @@ Daha fazla bilgi için: [https://appconda.io](https://appconda.io)
 - [Chat]()
 - [Comments]()
 - [Community]()
-- [OKR]
+- [OKR]()
 
 ### Ready to use Entegration Brokers
 - [Jira]()
+
+### Features
+- [Caching]()
+- [Multitenancy]()
+- [Audit Logs]()
+- [Distrubited Event Bus]()
+- [Background Jobs]()
+- [Extendabilty]()
 
 ### APIs
 - [Realtime]()
