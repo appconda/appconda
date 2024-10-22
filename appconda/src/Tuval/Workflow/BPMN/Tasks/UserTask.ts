@@ -1,4 +1,5 @@
 import TaskApplet from "../../../../Platform/Applets/task-applet/TaskApplet";
+import { Exception, Text } from "../../../Core";
 import { Execution, ProcessItem } from "../../ProcessItem";
 
 export class UserTask extends ProcessItem {
@@ -8,7 +9,10 @@ export class UserTask extends ProcessItem {
         return this.userId;
     }
 
-    
+    public setUserId(value: string ){
+        this.userId = value;
+    }
+
     constructor() {
         super()
         this
@@ -56,7 +60,16 @@ export class UserTask extends ProcessItem {
         processItem
             .setId(id)
             .setName(name)
+            .setUserId(userId)
 
             return processItem;
+    }
+
+    public validateMetadata(): void {
+        const textValidator: Text = new Text(255);
+        if (!textValidator.isValid(this.userId)) {
+            // Console.error(`messageName not found for ${this.getName()}`);
+            throw new Exception(`User Id not found for ${this.getName()}`)
+        }
     }
 }
