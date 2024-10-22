@@ -1,10 +1,10 @@
 
-import MailService from "../../../../Platform/Services/mail-service/MailService";
-import { Console } from "../../../CLI";
-import { Exception, Text } from "../../../Core";
-import { EventBus } from "../../../EventBus/EventBus";
-import { Execution, ProcessItem } from "../../ProcessItem";
-import { Workflow } from "../../Workflow";
+import MailService from "../../../Platform/Services/mail-service/MailService";
+import { Console } from "../../CLI";
+import { Exception, Text } from "../../Core";
+import { EventBus } from "../../EventBus/EventBus";
+import { Execution, ProcessItem } from "../ProcessItem";
+import { Workflow } from "../Workflow";
 
 export interface MessageEndEventMetadataType {
     messageName: string;
@@ -64,7 +64,7 @@ export class MessageEndEvent extends ProcessItem {
         const processItem = new MessageEndEvent();
         const id = ProcessItem.buildId(bpmnItem);
         const name = ProcessItem.buildName(bpmnItem);
-        const messageName = bpmnItem.$['appconda:messageName'];
+        const messageName = bpmnItem.$['appconda:message'];
 
         processItem
             .setId(id)

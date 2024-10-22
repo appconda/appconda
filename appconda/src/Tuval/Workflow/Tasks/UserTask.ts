@@ -1,6 +1,6 @@
-import TaskApplet from "../../../../Platform/Applets/task-applet/TaskApplet";
-import { Exception, Text } from "../../../Core";
-import { Execution, ProcessItem } from "../../ProcessItem";
+import TaskApplet from "../../../Platform/Applets/task-applet/TaskApplet";
+import { Exception, Text } from "../../Core";
+import { Execution, ProcessItem } from "../ProcessItem";
 
 export class UserTask extends ProcessItem {
 

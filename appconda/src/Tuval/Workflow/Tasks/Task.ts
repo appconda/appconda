@@ -1,5 +1,5 @@
-import { Text } from "../../../Core";
-import { Execution, ProcessItem } from "../../ProcessItem";
+import { Text } from "../../Core";
+import { Execution, ProcessItem } from "../ProcessItem";
 
 
 export class Task extends ProcessItem {

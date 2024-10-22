@@ -1,7 +1,7 @@
 import { nanoid } from "../../Platform/Services/id-service/nanoid/nanoid";
 import { Hook, Validator } from "../Core";
 import { Job } from "../Queue";
-import { SequenceFlow } from "./BPMN/Flows/SequenceFlow";
+import { SequenceFlow } from "./Flows/SequenceFlow";
 import { Context } from "./Context/Context";
 import { State } from "./Context/State";
 import { Status } from "./Context/Status";

@@ -1,15 +1,15 @@
 import { State } from "./State";
 import { ProcessItem } from "./ProcessItem";
 import { StepExecuter } from "./StepExecuter";
-import { SequenceFlow } from "./BPMN/Flows/SequenceFlow";
-import { StartEvent } from "./BPMN/Events/StartEvent";
-import { ExclusiveGateway } from "./BPMN/Gateways/ExclusiveGateway";
-import { Task } from "./BPMN/Tasks/Task";
-import { UserTask } from "./BPMN/Tasks/UserTask";
-import { EndEvent } from "./BPMN/Events/EndEvent";
-import { MessageStartEvent } from "./BPMN/Events/MessageStartEvent";
-import { TimerStartEvent } from "./BPMN/Events/TimerStartEvent";
-import { MessageEndEvent } from "./BPMN/Events/MessageEndEvent";
+import { SequenceFlow } from "./Flows/SequenceFlow";
+import { StartEvent } from "./Events/StartEvent";
+import { ExclusiveGateway } from "./Gateways/ExclusiveGateway";
+import { Task } from "./Tasks/Task";
+import { UserTask } from "./Tasks/UserTask";
+import { EndEvent } from "./Events/EndEvent";
+import { MessageStartEvent } from "./Events/MessageStartEvent";
+import { TimerStartEvent } from "./Events/TimerStartEvent";
+import { MessageEndEvent } from "./Events/MessageEndEvent";
 
 const stepMap = {};
 stepMap['bpmn:startEvent'] = StartEvent;
@@ -65,6 +65,7 @@ export class Process {
             return true;
         }
     }
+
 
     private getProcessItem(key: string, bpmnItem: any) {
 

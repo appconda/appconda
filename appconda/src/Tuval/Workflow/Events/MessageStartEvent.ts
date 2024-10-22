@@ -1,10 +1,11 @@
 
-import MailService from "../../../../Platform/Services/mail-service/MailService";
-import { Console } from "../../../CLI";
-import { Exception, Text } from "../../../Core";
-import { EventBus } from "../../../EventBus/EventBus";
-import { Execution, ProcessItem } from "../../ProcessItem";
-import { Workflow } from "../../Workflow";
+import MailService from "../../../Platform/Services/mail-service/MailService";
+import { Console } from "../../CLI";
+import { Exception, Text } from "../../Core";
+import { EventBus } from "../../EventBus/EventBus";
+import { EventRegistry } from "../Extensions/Events/EventRegistry";
+import { Execution, ProcessItem } from "../ProcessItem";
+import { Workflow } from "../Workflow";
 
 export interface MessageStartEventMetadataType {
     messageName: string;
@@ -70,15 +71,17 @@ export class MessageStartEvent extends ProcessItem {
      * @returns 
      */
     public static build(bpmnItem: any) {
-        const processItem = new MessageStartEvent();
+        
         const id = ProcessItem.buildId(bpmnItem);
         const name = ProcessItem.buildName(bpmnItem);
-        const messageName = bpmnItem.$['appconda:messageName'];
+        const message = bpmnItem.$['appconda:message'];
+        const eventType = EventRegistry[message] ?? MessageStartEvent;
+        const processItem: MessageStartEvent = new eventType();
 
         processItem
             .setId(id)
             .setName(name)
-            .setMessageName(messageName)
+            .setMessageName(message)
 
         processItem.validateMetadata();
 

@@ -1,4 +1,4 @@
-import { ProcessItem, GoOutInterface } from "../../ProcessItem";
+import { ProcessItem, GoOutInterface } from "../ProcessItem";
 
 
 

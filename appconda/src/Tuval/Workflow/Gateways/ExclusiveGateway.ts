@@ -1,6 +1,6 @@
 
 
-import { Execution, ProcessItem } from "../../ProcessItem";
+import { Execution, ProcessItem } from "../ProcessItem";
 import { Gateway } from "./Gateway";
 
 

@@ -1,4 +1,4 @@
-import { Execution, ProcessItem } from "../../ProcessItem";
+import { Execution, ProcessItem } from "../ProcessItem";
 
 
 export class SequenceFlow extends ProcessItem {

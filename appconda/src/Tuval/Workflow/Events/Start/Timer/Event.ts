@@ -1,10 +1,10 @@
 
-import MailService from "../../../../Platform/Services/mail-service/MailService";
-import { Console } from "../../../CLI";
-import { Exception, Integer } from "../../../Core";
-import { EventBus } from "../../../EventBus/EventBus";
-import { Execution, ProcessItem } from "../../ProcessItem";
-import { Workflow } from "../../Workflow";
+import MailService from "../../../../../Platform/Services/mail-service/MailService";
+import { Console } from "../../../../CLI";
+import { EventBus } from "../../../../EventBus/EventBus";
+import { ProcessItem, Execution } from "../../../ProcessItem";
+import { Workflow } from "../../../Workflow";
+
 
 
 export class TimerStartEvent extends ProcessItem {
@@ -64,32 +64,6 @@ export class TimerStartEvent extends ProcessItem {
         Console.info(`${this.getName()} executed`);
     }
 
-    public static build(bpmnItem: any) {
-        const timerStartEvent = new TimerStartEvent();
-        const id = ProcessItem.buildId(bpmnItem);
-        const name = ProcessItem.buildName(bpmnItem);
-        const timeout = bpmnItem.$['appconda:timeout'];
-
-        timerStartEvent
-            .setId(id)
-            .setName(name)
-            .setTimeout(timeout ?? 1000)
-
-            timerStartEvent.validateMetadata();
-
-            return timerStartEvent;
-    }
-
-    public validateMetadata(): void {
-        if (this.timeout == null) {
-            throw new Exception(`timeout not found for ${this.getName()}`);
-        }
-
-        const textValidator: Integer = new Integer();
-        if (!textValidator.isValid(this.timeout)) {
-            // Console.error(`messageName not found for ${this.getName()}`);
-            throw new Exception(`timeout not valid format in ${this.getName()}`)
-        }
-    }
+   
 
 }

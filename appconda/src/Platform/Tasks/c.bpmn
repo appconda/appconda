@@ -10,7 +10,7 @@
       <bpmn:incoming>Flow_1g5kp64</bpmn:incoming>
     </bpmn:endEvent>
     <bpmn:sequenceFlow id="Flow_1g5kp64" sourceRef="Activity_01o6ac0" targetRef="Event_1p38reo" />
-    <bpmn:startEvent id="StartEvent_1" name="Task onayi geldi" appconda:messageName="CreateTask">
+    <bpmn:startEvent id="StartEvent_1" name="Task onayi geldi" appconda:message="com.appconda.message.taskCreated">
       <bpmn:outgoing>Flow_1lzif81</bpmn:outgoing>
       <bpmn:messageEventDefinition id="MessageEventDefinition_12680fe" />
     </bpmn:startEvent>
