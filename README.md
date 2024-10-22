@@ -30,6 +30,8 @@ Daha fazla bilgi için: [https://appconda.io](https://appconda.io)
 - [**Localization Module**]()
 - [**Realtime Module**]()
 - [**License Module**]()
+- [**Spider**]()
+- [**Tracer**]()
 
 ### Pre Build & Reusable Applets
 - [Document Management]()
@@ -42,6 +44,10 @@ Daha fazla bilgi için: [https://appconda.io](https://appconda.io)
 - [Chat]()
 - [Comments]()
 - [Community]()
+- [OKR]
+
+### Ready to use Entegration Brokers
+- [Jira]()
 
 ### APIs
 - [Realtime]()
