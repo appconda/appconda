@@ -78,6 +78,10 @@ export class ServiceActionExecuter {
      * @throws Error if the resource callback is not found
      */
     public async getResource(name: string, fresh: boolean = false): Promise<any> {
+
+        if (!fresh) {
+            fresh = name === 'payload';
+        }
         if (!(name in this.resources) || fresh || (ServiceActionExecuter.resourcesCallbacks[name] && ServiceActionExecuter.resourcesCallbacks[name].reset)) {
             if (!(name in ServiceActionExecuter.resourcesCallbacks)) {
                 throw new Error(`Failed to find resource: "${name}"`);

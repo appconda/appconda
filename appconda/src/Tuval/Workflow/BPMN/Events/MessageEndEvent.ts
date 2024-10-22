@@ -53,8 +53,9 @@ export class MessageEndEvent extends ProcessItem {
 
     private async execute(workflow: Workflow, mailService: MailService, eventBus: EventBus) {
 
+        Console.success(`${this.getName()} executed`);
         await eventBus.publish(this.getMessageName(), 'User 123 has registered.');
-        this.execution = Execution.Contionue;
+        this.execution = Execution.End;
 
 
     }

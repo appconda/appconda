@@ -237,21 +237,24 @@ export class Workflow {
                         const nextActivity: ProcessItem = process.getStepById(next[0].ref);
                         nextActivity.context = activity.context;
                         nextActivity.token = activity.token;
+                        lastExecution.activity = activity;
                         activity = nextActivity;
                         break;
                     case 'NOOP':
                         activity.takeOutgoing(); // For update tokens
+                        lastExecution.activity = activity;
                         break;
                     // Quit the loop
                     case 'END':
                         activity.takeOutgoing(); // For update tokens
+                        lastExecution.activity = activity;
                         isEnded = true;
                         break;
                     default:
                         break;
                 }
 
-                lastExecution.activity = activity;
+                
             }
 
         }

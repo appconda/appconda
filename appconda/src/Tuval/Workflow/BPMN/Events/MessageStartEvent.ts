@@ -33,7 +33,7 @@ export class MessageStartEvent extends ProcessItem {
                 Console.info('Message Start event going to execute.');
                 this.execution = Execution.NOOP;
                 eventBus.subscribe(this.getMessageName(), (message) => {
-                    console.log(`Received message: ${message}`);
+                  //  console.log(`Received message: ${message}`);
                     this.execution = Execution.Contionue;
                 });
             })
@@ -57,7 +57,7 @@ export class MessageStartEvent extends ProcessItem {
     }
 
     private execute(workflow: Workflow, mailService: MailService, eventBus: EventBus) {
-        Console.log('Message event waiting for message');
+        Console.info(`${this.getName()} executed`);
     }
 
     public static build(bpmnItem: any) {

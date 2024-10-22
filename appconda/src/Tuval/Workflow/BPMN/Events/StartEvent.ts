@@ -35,7 +35,7 @@ export class StartEvent extends ProcessItem {
 
     private execute(workflow: Workflow, mailService: MailService) {
 
-        console.log(`Start event ${this.getName()} executed.`)
+        console.info(`${this.getName()} executed.`)
 
 
         return Execution.Contionue;

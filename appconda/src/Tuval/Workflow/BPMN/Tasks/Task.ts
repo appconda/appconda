@@ -13,7 +13,7 @@ export class Task extends ProcessItem {
     }
 
     private execute() {
-        console.log('Task ' + this.getName() + ' executed.')
+        console.log(this.getName() + ' executed.')
         if (this.outgoings.length > 0) {
             return Execution.NOOP;
         }

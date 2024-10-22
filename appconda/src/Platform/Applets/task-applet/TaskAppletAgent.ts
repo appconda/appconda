@@ -1,5 +1,6 @@
 import { Agent } from "../../../Tuval/Platform/Agent";
 import { CreateTask } from "./Actions/CreateTask";
+import { GetTaskStatus } from "./Actions/GetTaskStatus";
 
 
 
@@ -12,6 +13,7 @@ export class TaskAppletAgent extends Agent {
         this.type = Agent.TYPE_SERVICE;
         this
             .addAction( new CreateTask())
+            .addAction( new GetTaskStatus())
     }
 
     public getName() : string {

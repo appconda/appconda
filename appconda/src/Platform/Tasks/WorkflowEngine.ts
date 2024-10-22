@@ -61,7 +61,7 @@ export class WorkflowEngine extends Action {
     public action() {
     
 
-        const xml = parse(readFile(path.resolve(__dirname, './a.bpmn')));
+        const xml = parse(readFile(path.resolve(__dirname, './b.bpmn')));
  
 
         const woc = new Workflow(xml);

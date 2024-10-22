@@ -28,6 +28,8 @@ export class TimerStartEvent extends ProcessItem {
             .inject('eventBus')
             .action((eventBus: EventBus) => {
                 Console.info('Timer start init.');
+
+                //Waiting Timeout for continue
                 this.execution = Execution.NOOP;
 
                 setTimeout(() => {
@@ -59,7 +61,7 @@ export class TimerStartEvent extends ProcessItem {
     }
 
     private execute(workflow: Workflow, mailService: MailService, eventBus: EventBus) {
-        Console.log('Timer waitin for timeout.');
+        Console.info(`${this.getName()} executed`);
     }
 
     public static build(bpmnItem: any) {
