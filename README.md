@@ -17,6 +17,28 @@ Appconda, kullanıcı kimlik doğrulaması ve çeşitli giriş yöntemleri, kull
 
 Daha fazla bilgi için: [https://appconda.io](https://appconda.io)
 
+# Appconda Backend OS
+
+## Pre Build & Reusable Modules
+- [Auth Module (Identity Management)](#account)
+- [Identity Module]()
+- [Managed Database Module]()
+- [Storage Module]()
+- [Configuration Module]()
+- [Payment Module]()
+- [Messaging Module]()
+- [Localization Module]()
+- [Realtime Module]()
+- [License Module]()
+
+## Enterprise Application Building Applets
+- [Task Managment]()
+- [Workflow]()
+- [Forms]()
+- [Log Management]()
+- [Meeting Managment]()
+
+
 İçerik Tablosu:
 
 - [Kurulum](#installation)
