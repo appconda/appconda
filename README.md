@@ -19,25 +19,53 @@ Daha fazla bilgi için: [https://appconda.io](https://appconda.io)
 
 ## Appconda Backend OS
 
-### Pre Build & Reusable Modules
-- [Auth Module (Identity Management)](#account)
-- [Identity Module]()
-- [Managed Database Module]()
-- [Storage Module]()
-- [Configuration Module]()
-- [Payment Module]()
-- [Messaging Module]()
-- [Localization Module]()
-- [Realtime Module]()
-- [License Module]()
+### Modules
+- [**Auth Module**](#account)
+- [**Identity Module**]()
+- [**Managed Database Module**]()
+- [**Storage Module**]()
+- [**Configuration Module**]()
+- [**Payment Module**]()
+- [**Messaging Module**]()
+- [**Localization Module**]()
+- [**Realtime Module**]()
+- [**License Module**]()
 
-### Enterprise Application Building Applets
+### Pre Build & Reusable Applets
+- [Document Management]()
 - [Task Managment]()
 - [Workflow]()
 - [Forms]()
 - [Log Management]()
 - [Meeting Managment]()
 
+### APIs
+- [Realtime]()
+- [Rest]()
+- [GraphQL]()
+
+### SDKs
+Below is a list of currently supported platforms and languages.
+
+#### Client
+
+- ✅ &nbsp; [Web](https://github.com/appconda/sdk-for-web)
+- ✅ &nbsp; [Flutter](https://github.com/appconda/sdk-for-flutter)
+- ✅ &nbsp; [Apple](https://github.com/appconda/sdk-for-apple)
+- ✅ &nbsp; [Android](https://github.com/appconda/sdk-for-android)
+- ✅ &nbsp; [React Native](https://github.com/appconda/sdk-for-react-native)
+
+#### Server
+
+- ✅ &nbsp; [NodeJS](https://github.com/appconda/sdk-for-node)
+- ✅ &nbsp; [PHP](https://github.com/appconda/sdk-for-php)
+- ✅ &nbsp; [Dart](https://github.com/appconda/sdk-for-dart)
+- ✅ &nbsp; [Deno](https://github.com/appconda/sdk-for-deno)
+- ✅ &nbsp; [Ruby](https://github.com/appconda/sdk-for-ruby)
+- ✅ &nbsp; [Python](https://github.com/appconda/sdk-for-python)
+- ✅ &nbsp; [Kotlin](https://github.com/appconda/sdk-for-kotlin)
+- ✅ &nbsp; [Swift](https://github.com/appconda/sdk-for-swift)
+- ✅ &nbsp; [.NET](https://github.com/appconda/sdk-for-dotnet)
 
 İçerik Tablosu:
 
