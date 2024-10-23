@@ -47,7 +47,13 @@ Daha fazla bilgi için: [https://appconda.io](https://appconda.io)
 - [OKR]()
 - [CMS Kit]()
 - [Bloging]()
-- ![Alt](./images/doc-management-30.png) [Feature Management]()
+- [Feature Management]()
+
+|  | Module Name | |
+| -------- | ------- | ---|
+| ![Alt](./images/doc-management.gif) | Document Management | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
+| February | $80 ||
+| March | $420 ||
 
 
 ### Ready to use Entegration Brokers
