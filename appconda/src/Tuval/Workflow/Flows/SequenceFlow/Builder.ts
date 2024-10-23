@@ -1,27 +1,27 @@
-import { EventRegistry } from "../../../Extensions/Events/EventRegistry";
-import { MessageEndEvent } from "./Event";
-import { Validator } from "./Validator";
 
+
+import { SequenceFlow } from "./Flow";
+import { Validator } from "./Validator";
 
 
 export class Builder {
 
     /**
-     * Build MessageStartEvent object from bpmn json object
+     * Build SequenceFlow object from bpmn json object
      * @param bpmnItem 
      * @returns 
      */
     public static build(bpmnItem: any) {
 
+        const processItem = new SequenceFlow();
         const id = bpmnItem.$.id;
         const name = bpmnItem.$.name;
-        const message = bpmnItem.$['appconda:message'];
-        const processItem: any = new MessageEndEvent();
+        const expression = bpmnItem.$['appconda:expression'];
 
         processItem
             .setId(id)
             .setName(name)
-            .setMessageName(message)
+            .setExpression(expression);
 
         const validator = new Validator();
         validator.isValid(processItem);

@@ -1,11 +1,11 @@
 import { nanoid } from "../../Platform/Services/id-service/nanoid/nanoid";
 import { Hook, Validator } from "../Core";
 import { Job } from "../Queue";
-import { SequenceFlow } from "./Flows/SequenceFlow";
 import { Context } from "./Context/Context";
 import { State } from "./Context/State";
 import { Status } from "./Context/Status";
 import { Token } from "./Context/Token";
+import { SequenceFlow } from "./Flows/SequenceFlow/Flow";
 import { Process } from "./Process";
 import { StepExecuter } from "./StepExecuter";
 
@@ -52,6 +52,8 @@ export abstract class ProcessItem {
 
     public token?: Token;
     public context?: Context;
+
+    private _process: Process;
 
     public stepExecuter: StepExecuter;
     public _initHook: Hook;
@@ -114,9 +116,18 @@ export abstract class ProcessItem {
 
     protected incomings: ProcessItem[] = [];
     protected outgoings: SequenceFlow[] = [];
-    path: Process;
 
     public execution: Execution = Execution.Contionue;
+
+
+    public setProcess(process: Process): this {
+        this._process = process;
+        return this;
+    }
+
+    public getProcess(): Process {
+        return this._process;
+    }
 
     /**
      * Set Http path
@@ -187,23 +198,6 @@ export abstract class ProcessItem {
         this.httpAliasPath = path;
         this.httpAliasParams = params;
         return this;
-    }
-
-    //====================================
-
-
-    public setPath(path: Process): this {
-        this.path = path;
-        return this;
-    }
-
-    /**
-     * Get Type
-     *
-     * @returns string
-     */
-    public getPath(): Process {
-        return this.path;
     }
 
 
@@ -398,7 +392,7 @@ export abstract class ProcessItem {
         return this.incomings;
     }
 
-    
+
 
     /**
      * Inject
@@ -473,9 +467,9 @@ export abstract class ProcessItem {
 
     protected takeOutgoingSteps(outgoing: SequenceFlow[], id?: string): ProcessItem[] {
         if (id) {
-            return outgoing?.filter((o) => o.getTargetRef() === id).map((o) => this.path.getStepById(o.getTargetRef()));
+            return outgoing?.filter((o) => o.getTargetRef() === id).map((o) => this.getProcess().getStepById(o.getTargetRef()));
 
-        } else return outgoing?.map((o) => this.path.getStepById(o.getTargetRef()!));
+        } else return outgoing?.map((o) => this.getProcess().getStepById(o.getTargetRef()!));
     };
 
     protected goOut(outgoing: GoOutInterface[]) {
@@ -565,7 +559,7 @@ export abstract class ProcessItem {
     }
 
     public validateMetadata(): void {
-        
+
     }
 
 

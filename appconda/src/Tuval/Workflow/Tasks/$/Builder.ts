@@ -1,18 +1,20 @@
-import { EventRegistry } from "../../../Extensions/Events/EventRegistry";
-import { EndEvent } from "./Event";
+
+
+
+import { Task } from "./Task";
 import { Validator } from "./Validator";
 
 
 export class Builder {
 
     /**
-     * Build MessageStartEvent object from bpmn json object
+     * Build Task object from bpmn json object
      * @param bpmnItem 
      * @returns 
      */
     public static build(bpmnItem: any) {
 
-        const processItem = new EndEvent();
+        const processItem = new Task();
         const id = bpmnItem.$.id;
         const name = bpmnItem.$.name;
 

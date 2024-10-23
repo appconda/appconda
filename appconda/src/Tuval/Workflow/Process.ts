@@ -1,23 +1,13 @@
-import { State } from "./State";
 import { ProcessItem } from "./ProcessItem";
+import { State } from "./State";
 import { StepExecuter } from "./StepExecuter";
-import { SequenceFlow } from "./Flows/SequenceFlow";
-import { StartEvent } from "./Events/StartEvent";
-import { ExclusiveGateway } from "./Gateways/ExclusiveGateway";
-import { Task } from "./Tasks/Task";
-import { UserTask } from "./Tasks/UserTask";
-import { EndEvent } from "./Events/EndEvent";
-import { MessageStartEvent } from "./Events/MessageStartEvent";
-import { TimerStartEvent } from "./Events/TimerStartEvent";
-import { MessageEndEvent } from "./Events/MessageEndEvent";
 
-const stepMap = {};
-stepMap['bpmn:startEvent'] = StartEvent;
-stepMap['bpmn:task'] = Task;
-stepMap['bpmn:sequenceFlow'] = SequenceFlow;
-stepMap['exclusiveGateway'] = ExclusiveGateway;
-stepMap['bpmn:endEvent'] = Task;
-stepMap['bpmn:userTask'] = UserTask;
+
+import { ElementFactory } from "./ElementFactory";
+import { StartEvent } from "./Events/Start/$/Event";
+import { MessageStartEvent } from "./Events/Start/Message/Event";
+import { TimerStartEvent } from "./Events/Start/Timer/Event";
+import { SequenceFlow } from "./Flows/SequenceFlow/Flow";
 
 
 
@@ -67,31 +57,6 @@ export class Process {
     }
 
 
-    private getProcessItem(key: string, bpmnItem: any) {
-
-        switch (key) {
-            case 'bpmn:startEvent':
-                if (this.isMessageEvent(bpmnItem)) {
-                    return MessageStartEvent.build(bpmnItem);
-                }
-                if (this.isTimerEvent(bpmnItem)) {
-                    return TimerStartEvent.build(bpmnItem);
-                }
-                return StartEvent.build(bpmnItem);
-            case 'bpmn:task':
-                return Task.build(bpmnItem);
-            case 'bpmn:sequenceFlow':
-                return SequenceFlow.build(bpmnItem);
-            case 'bpmn:endEvent':
-                if (this.isMessageEvent(bpmnItem)) {
-                    return MessageEndEvent.build(bpmnItem);
-                }
-                
-                return EndEvent.build(bpmnItem);
-            case 'bpmn:userTask':
-                return UserTask.build(bpmnItem);
-        }
-    }
 
     constructor(public bpmnProcess: any) {
 
@@ -100,9 +65,9 @@ export class Process {
 
             const items = bpmnProcess[key];
             for (const item of items) {
-                const step: ProcessItem = this.getProcessItem(key, item);
+                const step: ProcessItem = ElementFactory.build(key, item);
+                step.setProcess(this);
                 step.setName(item.$.name);
-                step.setPath(this);
                 step.setId(item.$.id);
 
                 const extentions = item['bpmn:extensionElements'];
@@ -198,17 +163,13 @@ export class Process {
     public addStep(...args: any[]): this {
         if (args.length === 1) {
             const step: ProcessItem = args[0];
-            if (step instanceof StartEvent) {
-                this.position = step.getId();
-            }
+           
             const key = step.getId();
             this.steps[key] = step;
         } else if (args.length === 2) {
             const key = args[0];
             const step = args[1];
-            if (step instanceof StartEvent) {
-                this.position = step.getId();
-            }
+            
             this.steps[key] = step;
         }
         return this;

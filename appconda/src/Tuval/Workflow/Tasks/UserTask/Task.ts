@@ -1,6 +1,6 @@
-import TaskApplet from "../../../Platform/Applets/task-applet/TaskApplet";
-import { Exception, Text } from "../../Core";
-import { Execution, ProcessItem } from "../ProcessItem";
+import TaskApplet from "../../../../Platform/Applets/task-applet/TaskApplet";
+import { ProcessItem, Execution } from "../../ProcessItem";
+
 
 export class UserTask extends ProcessItem {
 
@@ -56,35 +56,5 @@ export class UserTask extends ProcessItem {
         this.execution = Execution.NOOP;
     }
 
-    /**
-     * Build the item from bpmn json
-     * @param bpmnItem 
-     * @returns 
-     */
-    public static build(bpmnItem: any) {
-        const processItem = new UserTask();
-        const id = ProcessItem.buildId(bpmnItem);
-        const name = ProcessItem.buildName(bpmnItem);
-        // const metadata = ProcessItem.buildMetadata(bpmnItem);
-        const userId = bpmnItem.$['appconda:userId'];
-        processItem
-            .setId(id)
-            .setName(name)
-            .setUserId(userId);
-
-        processItem.validateMetadata();
-
-        return processItem;
-    }
-
-    /**
-     * Validate item metadata
-     */
-    public validateMetadata(): void {
-        const textValidator: Text = new Text(255);
-        if (!textValidator.isValid(this.userId)) {
-            // Console.error(`messageName not found for ${this.getName()}`);
-            throw new Exception(`User Id not found for ${this.getName()}`)
-        }
-    }
+ 
 }

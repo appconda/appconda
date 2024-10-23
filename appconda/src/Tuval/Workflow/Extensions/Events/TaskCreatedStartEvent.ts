@@ -1,6 +1,6 @@
 import { Console } from "../../../CLI";
 import { EventBus } from "../../../EventBus/EventBus";
-import { MessageStartEvent } from "../../Events/MessageStartEvent";
+import { MessageStartEvent } from "../../Events/Start/Message/Event";
 import { Execution, ProcessItem } from "../../ProcessItem";
 import { EventMessages } from "./EventMessages";
 

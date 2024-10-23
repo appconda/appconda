@@ -1,10 +1,7 @@
-import { EventRegistry } from "../../../Extensions/Events/EventRegistry";
-import { MessageStartEvent } from "./Event";
+
+import { UserTask } from "./Task";
 import { Validator } from "./Validator";
 
-export interface MessageStartEventMetadataType {
-    messageName: string;
-}
 
 export class Builder {
 
@@ -15,21 +12,18 @@ export class Builder {
      */
     public static build(bpmnItem: any) {
 
+        const processItem = new UserTask();
         const id = bpmnItem.$.id;
         const name = bpmnItem.$.name;
-        const message = bpmnItem.$['appconda:message'];
-        const eventType = EventRegistry[message]() ?? MessageStartEvent;
-        const processItem: any = new eventType();
 
+        const userId = bpmnItem.$['appconda:userId'];
         processItem
             .setId(id)
             .setName(name)
-            .setMessageName(message);
+            .setUserId(userId);
 
         const validator = new Validator();
         validator.isValid(processItem);
-
-        processItem.validateMetadata();
 
         return processItem;
     }

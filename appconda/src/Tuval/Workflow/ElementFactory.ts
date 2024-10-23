@@ -1,7 +1,12 @@
-import { Builder as MessageEndEventBuilder} from "./Events/End/Message/Builder";
-import { Builder as StartEventBuilder} from "./Events/Start/$/Builder";
+import { Builder as EndEventBuilder } from "./Events/End/$/Builder";
+import { Builder as MessageEndEventBuilder } from "./Events/End/Message/Builder";
+import { Builder as StartEventBuilder } from "./Events/Start/$/Builder";
 import { Builder as MessageStartEventBuilder } from "./Events/Start/Message/Builder";
-import { Builder as TimerStartEventBuilder} from "./Events/Start/Timer/Builder";
+import { Builder as TimerStartEventBuilder } from "./Events/Start/Timer/Builder";
+import { Builder as SequenceFlowBuilder } from "./Flows/SequenceFlow/Builder";
+import { Builder as ExclusiveGatewayBuilder } from "./Gateways/ExclusiveGateway/Builder";
+import { Builder as TaskBuilder } from "./Tasks/$/Builder";
+import { Builder as UserTaskBuilder } from "./Tasks/UserTask/Builder";
 
 
 export class ElementFactory {
@@ -29,17 +34,19 @@ export class ElementFactory {
                 }
                 return StartEventBuilder.build(bpmnItem);
             case 'bpmn:task':
-                return Task.build(bpmnItem);
+                return TaskBuilder.build(bpmnItem);
             case 'bpmn:sequenceFlow':
-                return SequenceFlow.build(bpmnItem);
+                return SequenceFlowBuilder.build(bpmnItem);
             case 'bpmn:endEvent':
                 if (this.isMessageEvent(bpmnItem)) {
                     return MessageEndEventBuilder.build(bpmnItem);
                 }
 
-                return EndEvent.build(bpmnItem);
+                return EndEventBuilder.build(bpmnItem);
             case 'bpmn:userTask':
-                return UserTask.build(bpmnItem);
+                return UserTaskBuilder.build(bpmnItem);
+            case 'bpmn:exclusiveGateway':
+                return ExclusiveGatewayBuilder.build(bpmnItem);
         }
     }
 }

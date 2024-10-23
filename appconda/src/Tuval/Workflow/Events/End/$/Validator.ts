@@ -1,10 +1,10 @@
 
-import { StartEvent } from "./Event";
+import { EndEvent } from "./Event";
 
 
 
 export class Validator {
-    public isValid(timerStartEvent: StartEvent): void {
+    public isValid(timerStartEvent: EndEvent): void {
        
     }
 }
