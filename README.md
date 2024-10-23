@@ -37,9 +37,9 @@ Daha fazla bilgi için: [https://appconda.io](https://appconda.io)
 
 |  |  | |
 | -------- | ------- | --- | 
-| ![Alt](./images/doc-management.gif) | Document Management | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
-| ![Alt](./images/doc-management.gif) | Task management | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
-| ![Alt](./images/doc-management.gif) | Log Management | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
+| ![Alt](./images/doc-management.gif) | [**Document Management**]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
+| ![Alt](./images/doc-management.gif) | [**Task Managment**]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
+| ![Alt](./images/doc-management.gif) | [**Log Managment**]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
 
 
 - [Document Management]()
