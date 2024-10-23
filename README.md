@@ -34,6 +34,13 @@ Daha fazla bilgi için: [https://appconda.io](https://appconda.io)
 - [**Tracer**]()
 
 ### Pre Build & Reusable Applets
+
+|  |  | |
+| -------- | ------- | --- | 
+| ![Alt](./images/doc-management.gif) | Document Management | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
+| February | $80 ||
+| March | $420 ||
+
 - [Document Management]()
 - [Task Managment]()
 - [Workflow]()
@@ -49,11 +56,7 @@ Daha fazla bilgi için: [https://appconda.io](https://appconda.io)
 - [Bloging]()
 - [Feature Management]()
 
-|  |  | |
-| -------- | ------- | --- | 
-| ![Alt](./images/doc-management.gif) | Document Management | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
-| February | $80 ||
-| March | $420 ||
+
 
 
 ### Ready to use Entegration Brokers
