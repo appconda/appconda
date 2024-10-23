@@ -1,4 +1,5 @@
 
+import { EndEvent } from "../$/Event";
 import MailService from "../../../../../Platform/Services/mail-service/MailService";
 import { Console } from "../../../../CLI";
 import { EventBus } from "../../../../EventBus/EventBus";
@@ -6,7 +7,7 @@ import { ProcessItem, Execution } from "../../../ProcessItem";
 import { Workflow } from "../../../Workflow";
 
 
-export class MessageEndEvent extends ProcessItem {
+export class MessageEndEvent extends EndEvent {
 
     private messageName: string;
 

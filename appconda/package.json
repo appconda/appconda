@@ -98,6 +98,7 @@
     "qrcode": "^1.5.4",
     "redis": "^4.7.0",
     "reflect-metadata": "^0.2.2",
+    "request-animation-frame-polyfill": "^1.1.2",
     "rimraf": "^3.0.2",
     "scrypt-js": "^3.0.1",
     "sharp": "^0.33.5",

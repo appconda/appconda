@@ -388,7 +388,7 @@ export abstract class ProcessItem {
         this.incomings.push(step);
     }
 
-    public getOIncomings(): ProcessItem[] {
+    public getIncomings(): ProcessItem[] {
         return this.incomings;
     }
 

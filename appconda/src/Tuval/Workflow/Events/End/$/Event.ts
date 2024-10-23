@@ -1,5 +1,7 @@
 import { Console } from "../../../../CLI";
-import { Execution, ProcessItem } from "../../../ProcessItem";
+import { State } from "../../../Context/State";
+import { Status } from "../../../Context/Status";
+import { Execution, GoOutInterface, ProcessItem } from "../../../ProcessItem";
 
 
 
@@ -12,13 +14,24 @@ export class EndEvent extends ProcessItem {
             .action()
             .inject('workflow')
             .inject('mail-service')
-            .action(this.execute.bind(this))
+            // We use implicit execute action for inheritance
+            .action(() => {
+                Console.success(`Process End with ${this.getName()}`)
+                this.execution = Execution.End;
+            })
     }
 
-    private execute() {
+    protected goOut(outgoing: GoOutInterface[]) {
 
-        Console.success(`Process End with ${this.getName()}`)
-        this.execution = Execution.End;
+        this.token.status = Status.Completed;
+
+        this.token.push(
+            State.build(this.getId(), {
+                name: this.getName(),
+                status: Status.Completed,
+                step: this!
+            }),
+        );
 
 
     }

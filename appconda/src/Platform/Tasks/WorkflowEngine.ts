@@ -1,15 +1,13 @@
 import path from 'path';
+import { requestAnimationFrame } from 'request-animation-frame-polyfill';
 import { parseString } from 'xml2js';
-import { Action } from '../../Tuval/Platform/Action';
-import { Process } from '../../Tuval/Workflow/Process';
-import { ProcessItem } from '../../Tuval/Workflow/ProcessItem';
-import { State } from '../../Tuval/Workflow/State';
-import { Workflow } from '../../Tuval/Workflow/Workflow';
-import { nanoid } from '../Services/id-service/nanoid/nanoid';
 import { register } from '../../app/init';
-import { Group } from '../../Tuval/Pools';
 import { EventBus } from '../../Tuval/EventBus/EventBus';
+import { Action } from '../../Tuval/Platform/Action';
+import { Group } from '../../Tuval/Pools';
 import { Registry } from '../../Tuval/Registry';
+import { Workflow } from '../../Tuval/Workflow/Workflow';
+
 const fs = require('fs');
 
 export const readFile = (path: string): string => fs.readFileSync(path, 'utf8');
@@ -37,12 +35,12 @@ export const parse = (xml: string) => {
 
 
 Workflow.setResource('register', async () => register);
-Workflow.setResource('pools', async(register: Registry) => register.get('pools'), ['register']);
+Workflow.setResource('pools', async (register: Registry) => register.get('pools'), ['register']);
 Workflow.setResource('eventBus', async (pools: Group) => {
     const connection = await pools.get('pubsub').pop();
     const adapter = connection.getResource();
-    return  new EventBus(adapter);
-    
+    return new EventBus(adapter);
+
 }, ['pools']);
 
 export class WorkflowEngine extends Action {
@@ -59,22 +57,30 @@ export class WorkflowEngine extends Action {
 
 
     public action() {
-    
+
 
         const xmlb = parse(readFile(path.resolve(__dirname, './b.bpmn')));
         const xmlc = parse(readFile(path.resolve(__dirname, './c.bpmn')));
- 
+
 
         const w1 = new Workflow(xmlb);
         w1.runStepByStep({});
 
-         const w2 = new Workflow(xmlc);
-        w2.runStepByStep({}); 
+        const w2 = new Workflow(xmlc);
+        w2.runStepByStep({});
 
-        setInterval(() => {
-            w1.next();
-            w2.next();
-        }, 1000)
+        const worflows = [w1, w2];
+
+        const workflowLoop = (time: number) => {
+            for(const wf of worflows){
+                wf.next();
+            }
+           
+            requestAnimationFrame(workflowLoop)
+          }
+
+          // We start to main loop
+        requestAnimationFrame(workflowLoop)
 
     }
 

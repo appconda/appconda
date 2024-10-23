@@ -7,7 +7,7 @@ import { IExecution } from "./IExecution";
 import { Process } from "./Process";
 import { ProcessItem } from "./ProcessItem";
 import { StepExecuter } from "./StepExecuter";
-
+const { performance } = require('perf_hooks');
 
 
 type ResourceCallback = {
@@ -17,6 +17,9 @@ type ResourceCallback = {
 };
 
 export class Workflow {
+
+    private workflowStartTime: number;
+    private workflowEndTime: number;
 
     protected context?: Context;
 
@@ -196,6 +199,9 @@ export class Workflow {
         }
 
         this.next = async () => {
+            if (this.workflowStartTime == null) {
+                this.workflowStartTime = performance.now();
+            }
             //  do {
             if (!quit && !this.break) {
                 for (const func of starts) {
@@ -248,7 +254,15 @@ export class Workflow {
                     case 'END':
                         activity.takeOutgoing(); // For update tokens
                         lastExecution.activity = activity;
+                      
+                        const a = activity.context.next();
+                           if (a.length === 0){
+                            this.break = true;
+                            this.workflowEndTime = performance.now();
+                            console.log(`someMethod süresi: ${this.workflowEndTime - this.workflowStartTime} milisaniye`);
+                         } 
                         isEnded = true;
+
                         break;
                     default:
                         break;
