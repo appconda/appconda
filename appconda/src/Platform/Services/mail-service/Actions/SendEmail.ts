@@ -21,6 +21,6 @@ export class SendEmail extends Action {
 
   public async action(queueForMails: Mail): Promise<void> {
     
-    Console.info("Collection Created." + queueForMails);
+    Console.info("Mail gonderildi.");
   }
 }

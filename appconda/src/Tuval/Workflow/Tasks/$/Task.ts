@@ -9,16 +9,11 @@ export class Task extends ProcessItem {
         this
             .desc('Task event for workflow')
             .action()
-            .action(this.execute.bind(this))
+            .action(() => {
+                console.log(this.getName() + ' executed.')
+                if (this.outgoings.length > 0) {
+                    return Execution.NOOP;
+                }
+            })
     }
-
-    private execute() {
-        console.log(this.getName() + ' executed.')
-        if (this.outgoings.length > 0) {
-            return Execution.NOOP;
-        }
-
-    }
-
-   
 }

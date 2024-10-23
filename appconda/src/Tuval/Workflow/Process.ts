@@ -8,6 +8,7 @@ import { StartEvent } from "./Events/Start/$/Event";
 import { MessageStartEvent } from "./Events/Start/Message/Event";
 import { TimerStartEvent } from "./Events/Start/Timer/Event";
 import { SequenceFlow } from "./Flows/SequenceFlow/Flow";
+import { Console } from "../CLI";
 
 
 
@@ -66,6 +67,10 @@ export class Process {
             const items = bpmnProcess[key];
             for (const item of items) {
                 const step: ProcessItem = ElementFactory.build(key, item);
+                if (step == null){
+                    Console.error(`Unprocessable element ${key}`);
+                    continue;
+                }
                 step.setProcess(this);
                 step.setName(item.$.name);
                 step.setId(item.$.id);

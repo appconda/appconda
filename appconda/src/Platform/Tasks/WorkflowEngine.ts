@@ -36,12 +36,20 @@ export const parse = (xml: string) => {
 
 Workflow.setResource('register', async () => register);
 Workflow.setResource('pools', async (register: Registry) => register.get('pools'), ['register']);
+
+Workflow.setResource('service-platform', async (register: Registry) => {
+    return register.get('service-platform');
+
+}, ['register']);
+
 Workflow.setResource('eventBus', async (pools: Group) => {
     const connection = await pools.get('pubsub').pop();
     const adapter = connection.getResource();
     return new EventBus(adapter);
 
 }, ['pools']);
+
+
 
 export class WorkflowEngine extends Action {
     public static getName(): string {

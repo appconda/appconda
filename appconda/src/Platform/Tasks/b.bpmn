@@ -3,7 +3,6 @@
   <bpmn:collaboration id="Collaboration_0sz7oqv">
     <bpmn:participant id="Participant_03frfdr" name="Departman" processRef="Process_1" />
     <bpmn:participant id="Participant_0zda0v5" name="Appconda" processRef="Process_0fhqo41" />
-    <bpmn:messageFlow id="Flow_1w2j7i1" sourceRef="Event_0usj7go" targetRef="Event_0c04vdj" />
   </bpmn:collaboration>
   <bpmn:process id="Process_1" isExecutable="false">
     <bpmn:laneSet id="LaneSet_0mvlc05">
@@ -16,8 +15,8 @@
         <bpmn:flowNodeRef>Event_0usj7go</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>StartEvent_1</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Gateway_0eq7biw</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Activity_0w6lmb8</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Event_1qphixk</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_0w6lmb8</bpmn:flowNodeRef>
       </bpmn:lane>
     </bpmn:laneSet>
     <bpmn:exclusiveGateway id="Gateway_1jn0x9q" name="Digeri mi?" default="Flow_1rj6av5">
@@ -54,10 +53,6 @@
       <bpmn:outgoing>Flow_1fj4718</bpmn:outgoing>
       <bpmn:outgoing>Flow_0i8aqc8</bpmn:outgoing>
     </bpmn:exclusiveGateway>
-    <bpmn:task id="Activity_0w6lmb8" name="Islem">
-      <bpmn:incoming>Flow_0v5skay</bpmn:incoming>
-      <bpmn:outgoing>Flow_0s7jfbp</bpmn:outgoing>
-    </bpmn:task>
     <bpmn:endEvent id="Event_1qphixk">
       <bpmn:incoming>Flow_0i8aqc8</bpmn:incoming>
     </bpmn:endEvent>
@@ -71,12 +66,13 @@
     <bpmn:sequenceFlow id="Flow_1udvher" sourceRef="Gateway_002hra4" targetRef="Event_0usj7go" />
     <bpmn:sequenceFlow id="Flow_0v5skay" sourceRef="StartEvent_1" targetRef="Activity_0w6lmb8" />
     <bpmn:sequenceFlow id="Flow_0i8aqc8" name="Hayir" sourceRef="Gateway_0eq7biw" targetRef="Event_1qphixk" />
+    <bpmn:serviceTask id="Activity_0w6lmb8" name="Islem" appconda:service='com.appconda.agent.mail' appconda:action="SendEmail" 
+    appconda:payload="{&quot;name&quot;:&quot;John Doe&quot;,&quot;age&quot;:30,&quot;active&quot;:true}">
+      <bpmn:incoming>Flow_0v5skay</bpmn:incoming>
+      <bpmn:outgoing>Flow_0s7jfbp</bpmn:outgoing>
+    </bpmn:serviceTask>
   </bpmn:process>
   <bpmn:process id="Process_0fhqo41">
-    <bpmn:startEvent id="Event_0c04vdj" name="Task Olustur Mesaji Geldi">
-      <bpmn:outgoing>Flow_0ebmgww</bpmn:outgoing>
-      <bpmn:messageEventDefinition id="MessageEventDefinition_043f0rz" />
-    </bpmn:startEvent>
     <bpmn:sequenceFlow id="Flow_0ebmgww" sourceRef="Event_0c04vdj" targetRef="Activity_1fn72yh" />
     <bpmn:task id="Activity_1fn72yh" name="Task Olustur">
       <bpmn:incoming>Flow_0ebmgww</bpmn:incoming>
@@ -86,6 +82,12 @@
       <bpmn:incoming>Flow_1pjvpsw</bpmn:incoming>
     </bpmn:endEvent>
     <bpmn:sequenceFlow id="Flow_1pjvpsw" sourceRef="Activity_1fn72yh" targetRef="Event_1fcle32" />
+    <bpmn:startEvent id="Event_0c04vdj" name="Task Olustur Mesaji Geldi">
+      <bpmn:outgoing>Flow_0ebmgww</bpmn:outgoing>
+      <bpmn:conditionalEventDefinition id="ConditionalEventDefinition_1i05626">
+        <bpmn:condition xsi:type="bpmn:tFormalExpression" />
+      </bpmn:conditionalEventDefinition>
+    </bpmn:startEvent>
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_0sz7oqv">
@@ -135,12 +137,11 @@
           <dc:Bounds x="1255" y="317" width="71" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_1qddchq_di" bpmnElement="Activity_0w6lmb8">
-        <dc:Bounds x="709" y="-5" width="100" height="80" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_1qphixk_di" bpmnElement="Event_1qphixk">
         <dc:Bounds x="1401" y="267" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_124ad82_di" bpmnElement="Activity_0w6lmb8">
+        <dc:Bounds x="709" y="-5" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_0s7jfbp_di" bpmnElement="Flow_0s7jfbp">
         <di:waypoint x="809" y="35" />
@@ -200,12 +201,6 @@
         <dc:Bounds x="510" y="460" width="1270" height="250" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Event_1lblh7u_di" bpmnElement="Event_0c04vdj">
-        <dc:Bounds x="612" y="562" width="36" height="36" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="599" y="605" width="62" height="27" />
-        </bpmndi:BPMNLabel>
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_1fn72yh_di" bpmnElement="Activity_1fn72yh">
         <dc:Bounds x="750" y="540" width="100" height="80" />
         <bpmndi:BPMNLabel />
@@ -216,6 +211,12 @@
           <dc:Bounds x="909" y="605" width="82" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_15q5qra_di" bpmnElement="Event_0c04vdj">
+        <dc:Bounds x="612" y="562" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="599" y="605" width="62" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_0ebmgww_di" bpmnElement="Flow_0ebmgww">
         <di:waypoint x="648" y="580" />
         <di:waypoint x="750" y="580" />
@@ -223,12 +224,6 @@
       <bpmndi:BPMNEdge id="Flow_1pjvpsw_di" bpmnElement="Flow_1pjvpsw">
         <di:waypoint x="850" y="580" />
         <di:waypoint x="932" y="580" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_1w2j7i1_di" bpmnElement="Flow_1w2j7i1">
-        <di:waypoint x="1659" y="53" />
-        <di:waypoint x="1659" y="420" />
-        <di:waypoint x="630" y="420" />
-        <di:waypoint x="630" y="562" />
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>

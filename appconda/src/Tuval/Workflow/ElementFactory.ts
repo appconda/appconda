@@ -6,6 +6,7 @@ import { Builder as TimerStartEventBuilder } from "./Events/Start/Timer/Builder"
 import { Builder as SequenceFlowBuilder } from "./Flows/SequenceFlow/Builder";
 import { Builder as ExclusiveGatewayBuilder } from "./Gateways/ExclusiveGateway/Builder";
 import { Builder as TaskBuilder } from "./Tasks/$/Builder";
+import { Builder as ServiceTaskBuilder } from "./Tasks/ServiceTask/Builder";
 import { Builder as UserTaskBuilder } from "./Tasks/UserTask/Builder";
 
 
@@ -35,6 +36,8 @@ export class ElementFactory {
                 return StartEventBuilder.build(bpmnItem);
             case 'bpmn:task':
                 return TaskBuilder.build(bpmnItem);
+            case 'bpmn:serviceTask':
+                return ServiceTaskBuilder.build(bpmnItem);
             case 'bpmn:sequenceFlow':
                 return SequenceFlowBuilder.build(bpmnItem);
             case 'bpmn:endEvent':
