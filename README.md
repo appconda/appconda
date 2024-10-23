@@ -49,7 +49,7 @@ Daha fazla bilgi için: [https://appconda.io](https://appconda.io)
 - [Bloging]()
 - [Feature Management]()
 
-|  | Pre Build & Reusable Applets | |
+|  |  | |
 | -------- | ------- | --- | 
 | ![Alt](./images/doc-management.gif) | Document Management | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
 | February | $80 ||
