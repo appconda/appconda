@@ -85,7 +85,7 @@ Daha fazla bilgi için: [https://appconda.io](https://appconda.io)
 
 
 
-### Modules
+### Services
 
 |  |  | |
 | -------- | ------- | --- | 
