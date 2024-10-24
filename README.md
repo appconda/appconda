@@ -43,24 +43,19 @@ Daha fazla bilgi için: [https://appconda.io](https://appconda.io)
 | -------- | ------- | --- | 
 | ![Alt](./images/doc-management.gif) | [**Document Management**]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
 | ![Alt](./images/doc-management.gif) | [**Task Managment**]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
+| ![Alt](./images/doc-management.gif) | [**Scenario**]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
+| ![Alt](./images/doc-management.gif) | [**Forms**]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
 | ![Alt](./images/doc-management.gif) | [**Log Managment**]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
-| ![Alt](./images/doc-management.gif) | [**Log Managment**]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
+| ![Alt](./images/doc-management.gif) | [**Meeting Managment**]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
+| ![Alt](./images/doc-management.gif) | [**Process Mining**]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
+| ![Alt](./images/doc-management.gif) | [**Chat**]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
+| ![Alt](./images/doc-management.gif) | [**Comments**]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
+| ![Alt](./images/doc-management.gif) | [**Community**]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
+| ![Alt](./images/doc-management.gif) | [**OKR**]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
+| ![Alt](./images/doc-management.gif) | [**CMS Kit**]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
+| ![Alt](./images/doc-management.gif) | [**Bloging**]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
+| ![Alt](./images/doc-management.gif) | [**Feature Managemen**]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
 
-
-- [Document Management]()
-- [Task Managment]()
-- [Scenario]()
-- [Forms]()
-- [Log Management]()
-- [Meeting Managment]()
-- [Process Mining]()
-- [Chat]()
-- [Comments]()
-- [Community]()
-- [OKR]()
-- [CMS Kit]()
-- [Bloging]()
-- [Feature Management]()
 
 
 
