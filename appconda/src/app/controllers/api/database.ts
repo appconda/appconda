@@ -61,7 +61,7 @@ async function createAttribute(
     const defaultValue = attribute.getAttribute('default');
     const options = attribute.getAttribute('options', []);
 
-    const db = await Authorization.skip(() => dbForProject.getDocument('databases', databaseId));
+    const db = await Authorization.skip(async () => await dbForProject.getDocument('databases', databaseId));
 
     if (db.isEmpty()) {
         throw new Exception(Exception.DATABASE_NOT_FOUND);
@@ -117,7 +117,7 @@ async function createAttribute(
         });
 
         await dbForProject.checkAttribute(collection, newAttribute);
-        const createdAttribute = await dbForProject.createDocument('attributes', newAttribute);
+        newAttribute = await dbForProject.createDocument('attributes', newAttribute);
     } catch (error) {
         dbForProject.purgeCachedDocument('database_' + db.getInternalId(), collectionId);
         dbForProject.purgeCachedCollection('database_' + db.getInternalId() + '_collection_' + collection.getInternalId());
@@ -169,14 +169,14 @@ async function createAttribute(
         .setType('DATABASE_TYPE_CREATE_ATTRIBUTE')
         .setDatabase(db)
         .setCollection(collection)
-        .setDocument(newAttribute);
+        .setDocument(newAttribute)
 
     queueForEvents
         .setContext('collection', collection)
         .setContext('database', db)
         .setParam('databaseId', databaseId)
         .setParam('collectionId', collection.getId())
-        .setParam('attributeId', newAttribute.getId());
+        .setParam('attributeId', newAttribute.getId())
 
     response.setStatusCode(Response.STATUS_CODE_CREATED);
 
@@ -770,7 +770,7 @@ App.post('/v1/databases/:databaseId/collections')
                 'name': name,
                 'search': [collectionId, name].join(' '),
             }));
-            const collection = await dbForProject.getDocument('database_' + database.getInternalId(), collectionId);
+            collection = await dbForProject.getDocument('database_' + database.getInternalId(), collectionId);
 
             await dbForProject.createCollection('database_' + database.getInternalId() + '_collection_' + collection.getInternalId(),
                 [], [], permissions ?? [], documentSecurity);
@@ -2050,7 +2050,8 @@ App.patch('/v1/databases/:databaseId/collections/:collectionId/attributes/float/
     .inject('response')
     .inject('dbForProject')
     .inject('queueForEvents')
-    .action(async ({ databaseId, collectionId, key, required, min, max, defaultValue, response, dbForProject, queueForEvents }: { databaseId: string, collectionId: string, key: string, required: boolean | null, min: number | null, max: number | null, defaultValue: number | null, response: Response, dbForProject: Database, queueForEvents: Event }) => {
+    .action(async (databaseId: string, collectionId: string, key: string, required: boolean | null, min: number | null, max: number | null,
+        defaultValue: number | null, response: Response, dbForProject: Database, queueForEvents: Event) => {
         const attribute = await updateAttribute({
             databaseId: databaseId,
             collectionId: collectionId,
@@ -2097,7 +2098,8 @@ App.patch('/v1/databases/:databaseId/collections/:collectionId/attributes/boolea
     .inject('response')
     .inject('dbForProject')
     .inject('queueForEvents')
-    .action(async ({ databaseId, collectionId, key, required, defaultValue, response, dbForProject, queueForEvents }: { databaseId: string, collectionId: string, key: string, required: boolean | null, defaultValue: boolean | null, response: Response, dbForProject: Database, queueForEvents: Event }) => {
+    .action(async (databaseId: string, collectionId: string, key: string, required: boolean | null, defaultValue: boolean | null,
+        response: Response, dbForProject: Database, queueForEvents: Event) => {
         const attribute = await updateAttribute({
             databaseId: databaseId,
             collectionId: collectionId,
@@ -2135,7 +2137,8 @@ App.patch('/v1/databases/:databaseId/collections/:collectionId/attributes/dateti
     .inject('response')
     .inject('dbForProject')
     .inject('queueForEvents')
-    .action(async ({ databaseId, collectionId, key, required, defaultValue, response, dbForProject, queueForEvents }: { databaseId: string, collectionId: string, key: string, required: boolean | null, defaultValue: string | null, response: Response, dbForProject: Database, queueForEvents: Event }) => {
+    .action(async (databaseId: string, collectionId: string, key: string, required: boolean | null, defaultValue: string | null,
+        response: Response, dbForProject: Database, queueForEvents: Event) => {
         const attribute = await updateAttribute({
             databaseId: databaseId,
             collectionId: collectionId,
@@ -2172,7 +2175,8 @@ App.patch('/v1/databases/:databaseId/collections/:collectionId/attributes/:key/r
     .inject('response')
     .inject('dbForProject')
     .inject('queueForEvents')
-    .action(async ({ databaseId, collectionId, key, onDelete, response, dbForProject, queueForEvents }: { databaseId: string, collectionId: string, key: string, onDelete: string | null, response: Response, dbForProject: Database, queueForEvents: Event }) => {
+    .action(async (databaseId: string, collectionId: string, key: string, onDelete: string | null,
+        response: Response, dbForProject: Database, queueForEvents: Event) => {
         const attribute = await updateAttribute({
             databaseId: databaseId,
             collectionId: collectionId,
@@ -2218,7 +2222,8 @@ App.delete('/v1/databases/:databaseId/collections/:collectionId/attributes/:key'
     .inject('dbForProject')
     .inject('queueForDatabase')
     .inject('queueForEvents')
-    .action(async ({ databaseId, collectionId, key, response, dbForProject, queueForDatabase, queueForEvents }: { databaseId: string, collectionId: string, key: string, response: Response, dbForProject: Database, queueForDatabase: EventDatabase, queueForEvents: Event }) => {
+    .action(async (databaseId: string, collectionId: string, key: string, response: Response, dbForProject: Database,
+        queueForDatabase: EventDatabase, queueForEvents: Event) => {
 
         const db = await Authorization.skip(() => dbForProject.getDocument('databases', databaseId));
 
@@ -2344,7 +2349,8 @@ App.post('/v1/databases/:databaseId/collections/:collectionId/indexes')
     .inject('dbForProject')
     .inject('queueForDatabase')
     .inject('queueForEvents')
-    .action(async ({ databaseId, collectionId, key, type, attributes, orders, response, dbForProject, queueForDatabase, queueForEvents }: { databaseId: string, collectionId: string, key: string, type: string, attributes: string[], orders: string[], response: Response, dbForProject: Database, queueForDatabase: EventDatabase, queueForEvents: Event }) => {
+    .action(async (databaseId: string, collectionId: string, key: string, type: string, attributes: string[], orders: string[],
+        response: Response, dbForProject: Database, queueForDatabase: EventDatabase, queueForEvents: Event) => {
 
         const db = await Authorization.skip(() => dbForProject.getDocument('databases', databaseId));
 
@@ -2462,7 +2468,6 @@ App.post('/v1/databases/:databaseId/collections/:collectionId/indexes')
     });
 
 App.get('/v1/databases/:databaseId/collections/:collectionId/indexes')
-    //.alias('/v1/database/collections/:collectionId/indexes', { databaseId: 'default' })
     .desc('List indexes')
     .groups(['api', 'database'])
     .label('scope', 'collections.read')
@@ -2478,8 +2483,8 @@ App.get('/v1/databases/:databaseId/collections/:collectionId/indexes')
     .param('queries', [], new Indexes(), `Array of query strings generated using the Query class provided by the SDK. [Learn more about queries](https://appconda.io/docs/queries). Maximum of ${APP_LIMIT_ARRAY_PARAMS_SIZE} queries are allowed, each ${APP_LIMIT_ARRAY_ELEMENT_SIZE} characters long. You may filter on the following attributes: ${Indexes.ALLOWED_ATTRIBUTES.join(', ')}`, true)
     .inject('response')
     .inject('dbForProject')
-    .action(async ({ databaseId, collectionId, queries, response, dbForProject }: { databaseId: string, collectionId: string, queries: any[], response: Response, dbForProject: Database }) => {
-        const database = await Authorization.skip(() => dbForProject.getDocument('databases', databaseId));
+    .action(async (databaseId: string, collectionId: string, queries: any[], response: Response, dbForProject: Database) => {
+        const database = await Authorization.skip(async () => await dbForProject.getDocument('databases', databaseId));
 
         if (database.isEmpty()) {
             throw new Exception(Exception.DATABASE_NOT_FOUND);
@@ -2529,7 +2534,6 @@ App.get('/v1/databases/:databaseId/collections/:collectionId/indexes')
     });
 
 App.get('/v1/databases/:databaseId/collections/:collectionId/indexes/:key')
-    //.alias('/v1/database/collections/:collectionId/indexes/:key', { databaseId: 'default' })
     .desc('Get index')
     .groups(['api', 'database'])
     .label('scope', 'collections.read')
@@ -2545,7 +2549,7 @@ App.get('/v1/databases/:databaseId/collections/:collectionId/indexes/:key')
     .param('key', null, new Key(), 'Index Key.')
     .inject('response')
     .inject('dbForProject')
-    .action(async ({ databaseId, collectionId, key, response, dbForProject }: { databaseId: string, collectionId: string, key: string, response: Response, dbForProject: Database }) => {
+    .action(async (databaseId: string, collectionId: string, key: string, response: Response, dbForProject: Database ) => {
 
         const database = await Authorization.skip(async () => await dbForProject.getDocument('databases', databaseId));
 
@@ -2568,7 +2572,6 @@ App.get('/v1/databases/:databaseId/collections/:collectionId/indexes/:key')
     });
 
 App.delete('/v1/databases/:databaseId/collections/:collectionId/indexes/:key')
-    //.alias('/v1/database/collections/:collectionId/indexes/:key', { databaseId: 'default' })
     .desc('Delete index')
     .groups(['api', 'database'])
     .label('scope', 'collections.write')
@@ -2588,7 +2591,8 @@ App.delete('/v1/databases/:databaseId/collections/:collectionId/indexes/:key')
     .inject('dbForProject')
     .inject('queueForDatabase')
     .inject('queueForEvents')
-    .action(async ({ databaseId, collectionId, key, response, dbForProject, queueForDatabase, queueForEvents }: { databaseId: string, collectionId: string, key: string, response: Response, dbForProject: Database, queueForDatabase: EventDatabase, queueForEvents: Event }) => {
+    .action(async (databaseId: string, collectionId: string, key: string, 
+        response: Response, dbForProject: Database, queueForDatabase: EventDatabase, queueForEvents: Event ) => {
 
         const db = await Authorization.skip(() => dbForProject.getDocument('databases', databaseId));
 
@@ -2661,7 +2665,8 @@ App.post('/v1/databases/:databaseId/collections/:collectionId/documents')
     .inject('user')
     .inject('queueForEvents')
     .inject('mode')
-    .action(async ({ databaseId, documentId, collectionId, data, permissions, response, dbForProject, user, queueForEvents, mode }: { databaseId: string, documentId: string, collectionId: string, data: string | Record<string, any>, permissions: string[] | null, response: Response, dbForProject: Database, user: Document, queueForEvents: Event, mode: string }) => {
+    .action(async ( databaseId: string, documentId: string, collectionId: string, data: string | Record<string, any>, permissions: string[] | null, 
+        response: Response, dbForProject: Database, user: Document, queueForEvents: Event, mode: string ) => {
 
         data = (typeof data === 'string') ? JSON.parse(data) : data;
 
@@ -2673,7 +2678,7 @@ App.post('/v1/databases/:databaseId/collections/:collectionId/documents')
             throw new Exception(Exception.DOCUMENT_INVALID_STRUCTURE, '$id is not allowed for creating new documents, try update instead');
         }
 
-        const database = await Authorization.skip(() => dbForProject.getDocument('databases', databaseId));
+        const database = await Authorization.skip(async () => await dbForProject.getDocument('databases', databaseId));
 
         const isAPIKey = Auth.isAppUser(Authorization.getRoles());
         const isPrivilegedUser = Auth.isPrivilegedUser(Authorization.getRoles());
@@ -2682,7 +2687,7 @@ App.post('/v1/databases/:databaseId/collections/:collectionId/documents')
             throw new Exception(Exception.DATABASE_NOT_FOUND);
         }
 
-        const collection = await Authorization.skip(() => dbForProject.getDocument('database_' + database.getInternalId(), collectionId));
+        const collection = await Authorization.skip(async () => await dbForProject.getDocument('database_' + database.getInternalId(), collectionId));
 
         if (collection.isEmpty() || (!collection.getAttribute('enabled', false) && !isAPIKey && !isPrivilegedUser)) {
             throw new Exception(Exception.COLLECTION_NOT_FOUND);
@@ -3011,7 +3016,7 @@ App.get('/v1/databases/:databaseId/collections/:collectionId/documents/:document
     .inject('response')
     .inject('dbForProject')
     .inject('mode')
-    .action(async ({ databaseId, collectionId, documentId, queries, response, dbForProject, mode }: { databaseId: string, collectionId: string, documentId: string, queries: any[], response: Response, dbForProject: Database, mode: string }) => {
+    .action(async ( databaseId: string, collectionId: string, documentId: string, queries: any[], response: Response, dbForProject: Database, mode: string ) => {
         const database = await Authorization.skip(async () => await dbForProject.getDocument('databases', databaseId));
 
         const isAPIKey = Auth.isAppUser(Authorization.getRoles());
@@ -3081,7 +3086,6 @@ App.get('/v1/databases/:databaseId/collections/:collectionId/documents/:document
     });
 
 App.get('/v1/databases/:databaseId/collections/:collectionId/documents/:documentId/logs')
-    //.alias('/v1/database/collections/:collectionId/documents/:documentId/logs', { databaseId: 'default' })
     .desc('List document logs')
     .groups(['api', 'database'])
     .label('scope', 'documents.read')
@@ -3100,7 +3104,8 @@ App.get('/v1/databases/:databaseId/collections/:collectionId/documents/:document
     .inject('dbForProject')
     .inject('locale')
     .inject('geodb')
-    .action(async ({ databaseId, collectionId, documentId, queries, response, dbForProject, locale, geodb }: { databaseId: string, collectionId: string, documentId: string, queries: any[], response: Response, dbForProject: Database, locale: Locale, geodb: any }) => {
+    .action(async ( databaseId: string, collectionId: string, documentId: string, queries: any[], 
+        response: Response, dbForProject: Database, locale: Locale, geodb: any ) => {
 
         const database = await Authorization.skip(() => dbForProject.getDocument('databases', databaseId));
 
@@ -3191,7 +3196,6 @@ App.get('/v1/databases/:databaseId/collections/:collectionId/documents/:document
     });
 
 App.patch('/v1/databases/:databaseId/collections/:collectionId/documents/:documentId')
-    //.alias('/v1/database/collections/:collectionId/documents/:documentId', { databaseId: 'default' })
     .desc('Update document')
     .groups(['api', 'database'])
     .label('event', 'databases.[databaseId].collections.[collectionId].documents.[documentId].update')
@@ -3220,7 +3224,8 @@ App.patch('/v1/databases/:databaseId/collections/:collectionId/documents/:docume
     .inject('dbForProject')
     .inject('queueForEvents')
     .inject('mode')
-    .action(async ({ databaseId, collectionId, documentId, data, permissions, requestTimestamp, response, dbForProject, queueForEvents, mode }: { databaseId: string, collectionId: string, documentId: string, data: string | Record<string, any>, permissions: string[] | null, requestTimestamp: Date | null, response: Response, dbForProject: Database, queueForEvents: Event, mode: string }) => {
+    .action(async ( databaseId: string, collectionId: string, documentId: string, data: string | Record<string, any>, permissions: string[] | null,
+         requestTimestamp: Date | null, response: Response, dbForProject: Database, queueForEvents: Event, mode: string ) => {
 
         data = (typeof data === 'string') ? JSON.parse(data) : data;
 

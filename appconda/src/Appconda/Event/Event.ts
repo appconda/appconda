@@ -51,7 +51,7 @@ export class Event {
     protected userId: string | null = null;
     protected paused: boolean = false;
 
-    constructor(protected connection: Connection) {}
+    constructor(protected connection: Connection) { }
 
     public setQueue(queue: string): this {
         this.queue = queue;
@@ -284,7 +284,10 @@ export class Event {
         if (subResource) {
             patterns.push([type, resource, subType, subResource].join('.'));
         }
-        patterns.push([type, resource].join('.'));
+
+        if (resource) {
+            patterns.push([type, resource].join('.'));
+        }
 
         patterns = Array.from(new Set(patterns));
 
@@ -313,7 +316,9 @@ export class Event {
         }
 
         events = events.map(event => event.replace(/[\[\]]/g, ''));
-        events = Array.from(new Set(events));
+        const set = new Set(events)
+        events = [...set];
+
 
         return events;
     }

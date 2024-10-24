@@ -61,12 +61,12 @@ export class Database extends Event {
 
         try {
             const result = await client.enqueue({
-                project: this.project,
-                user: this.user,
+                project: this.project?.getArrayCopy(),
+                user: this.user?.getArrayCopy(),
                 type: this.type,
-                collection: this.collection,
-                document: this.document,
-                database: this.database,
+                collection: this.collection?.getArrayCopy(),
+                document: this.document?.getArrayCopy(),
+                database: this.database?.getArrayCopy(),
                 events: Event.generateEvents(this.getEvent(), this.getParams())
             });
             return result;

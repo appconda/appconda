@@ -48,8 +48,8 @@ export class Redis implements Adapter {
     }
 
     list(key: string): Promise<string[]> {
-        //@ts-ignore
-        return this.redis.hkeys(key).then((keys) => keys || []);
+        
+        return this.redis.hKeys(key).then((keys) => keys || []);
     }
 
     purge(key: string, hash: string = ''): Promise<boolean> {

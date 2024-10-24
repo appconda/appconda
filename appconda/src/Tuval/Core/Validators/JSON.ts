@@ -50,7 +50,7 @@ export class JSONValidator extends Validator {
      * @returns boolean
      */
     isValid(value: any): boolean {
-        if (Array.isArray(value)) {
+        if (typeof value === 'object') {
             return true;
         }
 

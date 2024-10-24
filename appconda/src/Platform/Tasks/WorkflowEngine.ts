@@ -12,15 +12,9 @@ const fs = require('fs');
 
 export const readFile = (path: string): string => fs.readFileSync(path, 'utf8');
 
-/**
- * It takes an XML string and returns a BPMN schema
- *
- * @param {string} xml - string - the XML string to parse
- *
- * @returns A BPMNSchema object
- */
+
 export const parse = (xml: string) => {
-    xml = xml.replace(/bpmn\d?:/g, 'bpmn:');
+    xml = xml.replace(/bpmn\d?:/g, 'bpmn:'); // Eger schema da bpmn2:xyz gibi ise replace ediyoruz.
 
     let parse;
     parseString(xml, { async: false }, (err, result) => {
@@ -61,7 +55,6 @@ export class WorkflowEngine extends Action {
         this.desc('Workflow Execution Engine')
             .callback(this.action.bind(this));
     }
-
 
 
     public action() {

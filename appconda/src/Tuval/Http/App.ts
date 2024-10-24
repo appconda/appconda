@@ -272,7 +272,8 @@ export class App {
                 throw new Error(`Failed to find resource: "${name}"`);
             }
 
-            this.resources[name] = await App.resourcesCallbacks[name].callback(await this.getResources(App.resourcesCallbacks[name].injections));
+            const resources = await this.getResources(App.resourcesCallbacks[name].injections);
+            this.resources[name] = await App.resourcesCallbacks[name].callback(...resources);
             App.resourcesCallbacks[name].reset = false;
         }
 
@@ -284,11 +285,11 @@ export class App {
      * @param list
      * @returns Record<string, any>
      */
-    public async getResources(list: string[]): Promise<Record<string, any>> {
-        const resources: Record<string, any> = {};
+    public async getResources(list: string[]): Promise<any[]> {
+        const resources = [];
 
         for (const name of list) {
-            resources[name] = await this.getResource(name);
+            resources.push(await this.getResource(name));
         }
 
         return resources;
@@ -547,7 +548,8 @@ export class App {
                 arg = requestParams[key];
             } else {
                 if (typeof typedParam.default !== 'string' && typeof typedParam.default === 'function') {
-                    arg = typedParam.default(await this.getResources(typedParam.injections));
+                    const _: any = await this.getResources(typedParam.injections);
+                    arg = typedParam.default(..._);
                 } else {
                     arg = typedParam.default;
                 }

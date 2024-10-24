@@ -404,26 +404,26 @@ export abstract class SQL extends Adapter {
         // but this number seems to vary, so we give a +500 byte buffer
         let total = 1500;
 
-        const attributes = collection.getAttribute('attributes') as any[] ?? [];
+        const attributes: Document[] = collection.getAttribute('attributes') as any[] ?? [];
 
         for (const attribute of attributes) {
-            switch (attribute['type']) {
+            switch (attribute.getAttribute('type')) {
                 case Database.VAR_STRING:
-                    if (attribute['size'] > 16777215) {
+                    if (attribute.getAttribute('size') > 16777215) {
                         total += 12; // LONGTEXT
-                    } else if (attribute['size'] > 65535) {
+                    } else if (attribute.getAttribute('size') > 65535) {
                         total += 11; // MEDIUMTEXT
-                    } else if (attribute['size'] > this.getMaxVarcharLength()) {
+                    } else if (attribute.getAttribute('size') > this.getMaxVarcharLength()) {
                         total += 10; // TEXT
-                    } else if (attribute['size'] > 255) {
-                        total += (attribute['size'] * 4) + 2; // VARCHAR >255
+                    } else if (attribute.getAttribute('size') > 255) {
+                        total += (attribute.getAttribute('size') * 4) + 2; // VARCHAR >255
                     } else {
-                        total += (attribute['size'] * 4) + 1; // VARCHAR <=255
+                        total += (attribute.getAttribute('size') * 4) + 1; // VARCHAR <=255
                     }
                     break;
 
                 case Database.VAR_INTEGER:
-                    if (attribute['size'] >= 8) {
+                    if (attribute.getAttribute('size') >= 8) {
                         total += 8; // BIGINT
                     } else {
                         total += 4; // INT
@@ -445,7 +445,7 @@ export abstract class SQL extends Adapter {
                     total += 19; // 'YYYY-MM-DD HH:MM:SS'
                     break;
                 default:
-                    throw new DatabaseException('Unknown type: ' + attribute['type']);
+                    throw new DatabaseException('Unknown type: ' + attribute.getAttribute('type'));
             }
         }
 
