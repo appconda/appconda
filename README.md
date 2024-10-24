@@ -24,8 +24,8 @@ Daha fazla bilgi için: [https://appconda.io](https://appconda.io)
 | -------- | ------- | --- | 
 | ![Alt](./images/account.gif) | [**Auth**]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
 | ![Alt](./images/identity.gif) | [**Identity**]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
-| ![Alt](./images/doc-management.gif) | [**Managed Database**]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
-| ![Alt](./images/storage.gif) | [**Srorage**]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
+| ![Alt](./images/doc-management.gif) | [**Database**]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
+| ![Alt](./images/storage.gif) | [**Storage**]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
 | ![Alt](./images/configuration.gif) | [**Configuration**]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
 | ![Alt](./images/payment.gif) | [**Payment**]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
 | ![Alt](./images/messaging.gif) | [**Messaging**]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
