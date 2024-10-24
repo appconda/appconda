@@ -68,8 +68,10 @@ Daha fazla bilgi için: [https://appconda.io](https://appconda.io)
 - [Multitenancy]()
 - [Audit Logs]()
 - [Distrubited Event Bus]()
+- [Distrubited Lock]()
 - [Background Jobs]()
 - [Extendabilty]()
+- [Scheduled Backups]()
 
 ### APIs
 - [Realtime]()
