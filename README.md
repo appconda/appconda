@@ -11,9 +11,9 @@
 </p>
 
 
-Appconda, Web, Mobil, Native veya Backend uygulamaları için Docker mikro hizmetleriyle paketlenmiş, uçtan uca bir backend platformudur. Modern bir backend API'sini sıfırdan oluşturmanın zorluklarını ve rutin işlerini ortadan kaldırarak, güvenli uygulamaları daha hızlı geliştirmenizi sağlar.
+Appconda is a comprehensive backend platform built with Docker microservices, designed for developing web, mobile, native, or backend applications. It streamlines the process of creating modern backend APIs by handling routine tasks, allowing faster development of secure applications. 
 
-Appconda, kullanıcı kimlik doğrulaması ve çeşitli giriş yöntemleri, kullanıcı ve ekip verilerini yönetmek için bir veritabanı, dosya depolama ve yönetimi, resim düzenleme, Cloud Functions gibi pek çok hizmeti uygulamanıza zahmetsizce entegre etmenize olanak tanır.
+Appconda integrates key services such as user authentication, database management, file storage, media processing, cloud functions, and API management. With robust features for security, analytics, role-based access control, and team collaboration, it provides a scalable and efficient backend infrastructure for projects of any size.
 
 Daha fazla bilgi için: [https://appconda.io](https://appconda.io)
 
