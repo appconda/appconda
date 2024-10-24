@@ -19,45 +19,8 @@ Daha fazla bilgi için: [https://appconda.io](https://appconda.io)
 
 ## Appconda Backend OS
 
-### Modules
 
-|  |  | |
-| -------- | ------- | --- | 
-| ![Alt](./images/account.gif) | [**Auth**]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
-| ![Alt](./images/Identity.gif) | [**Identity**]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
-| ![Alt](./images/doc-management.gif) | [**Database**]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
-| ![Alt](./images/storage.gif) | [**Storage**]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
-| ![Alt](./images/configuration.gif) | [**Configuration**]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
-| ![Alt](./images/payment.gif) | [**Payment**]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
-| ![Alt](./images/messaging.gif) | [**Messaging**]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
-| ![Alt](./images/localization.gif) | [**Localization**]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
-| ![Alt](./images/localization.gif) | [**Workflow**]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
-| ![Alt](./images/localization.gif) | [**Realtime**]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
-| ![Alt](./images/localization.gif) | [**License**]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
-| ![Alt](./images/localization.gif) | [**Search**]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
-| ![Alt](./images/localization.gif) | [**Tracer**]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
-
-
-### Pre Build & Reusable Applets
-
-|  |  | |
-| -------- | ------- | --- | 
-| ![Alt](./images/doc-management.gif) | [Document Management]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
-| ![Alt](./images/doc-management.gif) | [Task Managment]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
-| ![Alt](./images/doc-management.gif) | [**Scenario**]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
-| ![Alt](./images/doc-management.gif) | [**Forms**]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
-| ![Alt](./images/doc-management.gif) | [**Log Managment**]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
-| ![Alt](./images/doc-management.gif) | [**Meeting Managment**]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
-| ![Alt](./images/doc-management.gif) | [**Process Mining**]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
-| ![Alt](./images/doc-management.gif) | [**Chat**]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
-| ![Alt](./images/doc-management.gif) | [**Comments**]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
-| ![Alt](./images/doc-management.gif) | [**Community**]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
-| ![Alt](./images/doc-management.gif) | [**OKR**]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
-| ![Alt](./images/doc-management.gif) | [**CMS Kit**]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
-| ![Alt](./images/doc-management.gif) | [**Bloging**]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
-| ![Alt](./images/doc-management.gif) | [**Feature Managemen**]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
-
-### Appconda Features
+### Features
 
 #### User Authentication and Authorization
 - Supports OAuth, JWT, and other security standards for user login.
@@ -120,6 +83,45 @@ Daha fazla bilgi için: [https://appconda.io](https://appconda.io)
 - Supports multi-language capabilities for easy application translation.
 - Handles localization for currency, time zones, and local formats.
 
+
+
+### Modules
+
+|  |  | |
+| -------- | ------- | --- | 
+| ![Alt](./images/account.gif) | [**Auth**]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
+| ![Alt](./images/Identity.gif) | [**Identity**]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
+| ![Alt](./images/doc-management.gif) | [**Database**]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
+| ![Alt](./images/storage.gif) | [**Storage**]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
+| ![Alt](./images/configuration.gif) | [**Configuration**]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
+| ![Alt](./images/payment.gif) | [**Payment**]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
+| ![Alt](./images/messaging.gif) | [**Messaging**]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
+| ![Alt](./images/localization.gif) | [**Localization**]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
+| ![Alt](./images/localization.gif) | [**Workflow**]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
+| ![Alt](./images/localization.gif) | [**Realtime**]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
+| ![Alt](./images/localization.gif) | [**License**]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
+| ![Alt](./images/localization.gif) | [**Search**]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
+| ![Alt](./images/localization.gif) | [**Tracer**]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
+
+
+### Pre Build & Reusable Applets
+
+|  |  | |
+| -------- | ------- | --- | 
+| ![Alt](./images/doc-management.gif) | [Document Management]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
+| ![Alt](./images/doc-management.gif) | [Task Managment]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
+| ![Alt](./images/doc-management.gif) | [**Scenario**]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
+| ![Alt](./images/doc-management.gif) | [**Forms**]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
+| ![Alt](./images/doc-management.gif) | [**Log Managment**]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
+| ![Alt](./images/doc-management.gif) | [**Meeting Managment**]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
+| ![Alt](./images/doc-management.gif) | [**Process Mining**]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
+| ![Alt](./images/doc-management.gif) | [**Chat**]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
+| ![Alt](./images/doc-management.gif) | [**Comments**]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
+| ![Alt](./images/doc-management.gif) | [**Community**]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
+| ![Alt](./images/doc-management.gif) | [**OKR**]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
+| ![Alt](./images/doc-management.gif) | [**CMS Kit**]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
+| ![Alt](./images/doc-management.gif) | [**Bloging**]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
+| ![Alt](./images/doc-management.gif) | [**Feature Managemen**]() | Simple way to add a documentation to your web app. Create, organize, and store documents securely with ease and flexibility. |
 
 ### Ready to use Entegration Brokers
 - [Jira]()
